@@ -1,0 +1,44 @@
+ : EDApprovedTitle
+Remark
+ : EDApprovedrem
+App3_1
+For Budget Exceeded 1000000
+Budget Amount exceeded 1000000, to be printed and approved in hard copy by Requestor, and then 
+attach back the copy here.
+Done
+Attachment (Approved 
+hard copy)
+ : Att
+Remarks
+ : Rem
+   Submitted by submittedby  on submitteddate
+Notified by
+NotifiedBy  (Finance) on 
+NotifiedDate
+Request for Additional CAR Amount
+CAR Completion
+To be filled up by executor upon completion of each CAR.
+Please ENCLOSE A PHOTO for the completed project at PLANT LOCATION.
+Extend CAR Completion Date
+Completion Date
+ : FinalCompDate
+Additional CAR Amount
+ : RM AddCARAmt
+Location
+ : Location
+Description
+ : CARCompDesc
+Summary of the Outcome
+ : Outcome
+Actual Annual Savings
+e.g. GHG (kgCO2e)/Water 
+(m3)/Waste (MT)
+ : ActAnnualSaving
+Old Asset Status
+ : OldAsset
+   please specify (
+oldAssetRem )
+Reassignment
+ : Reassign  Reassign
+Comment
+ : RComment

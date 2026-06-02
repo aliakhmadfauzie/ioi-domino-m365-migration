@@ -1,0 +1,71 @@
+CPeriod
+ (Please Specify the month) : Others
+Justification(for Fixed Term Contract)*:
+DivHeadJust
+Identified Successor*
+ : InSuccess
+For External Advertisement*
+ : Ext
+Name of Successor*
+ : SucName
+Emp. No.*
+ : SucEmpNo
+Position*
+ : SucPost
+Age*
+ : SucAge
+Date to be Appointed*
+ : 
+SucDate
+Dept./Section*
+ : SucDept
+PLEASE SPECIFY THE TRAINING
+Training Required*
+List of Training(if Yes)
+TrReq
+TrList
+REMARKS/ATTACHMENT :
+Remarks
+(Identified successor training form)
+ENDORSED BY HEAD OF DIVISION/DEPARTMENT:
+Name
+ : EndBy
+Designation
+ : EndDesg
+Date
+ : EndDate
+EMPLOYEE BACKGROUND HISTORY – for HUMAN RESOURCES DEPA...
+Year
+Appraisal 
+Rating 
+(Points)
+Disciplinar
+y Record 
+(Total 
+Issued)
+Medical 
+Leave 
+(Total 
+Taken)
+Hospitalisa
+tion Leave 
+(Total 
+Taken)
+Absent Late 
+Comin
+g
+NPL
+Medica
+l 
+Expens
+es 
+Utilise
+d (RM)
+Year_1
+AprRate_1
+DisRec_1
+MC_1
+HL_1
+A_1
+L_1
+NPL_1 MedEx_1

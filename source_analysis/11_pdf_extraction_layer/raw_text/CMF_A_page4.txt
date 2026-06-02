@@ -1,0 +1,65 @@
+For Finance (follow up action - if any):
+  CANCEL  
+Cancelled by
+ : CanName
+Cancelled Date
+ : CanDate
+Remark
+ : CanRem
+Attachment
+ : CanAtt
+Created by  DocAuthor
+  on CDate  
+Hidden Fields :-
+Current Action
+ : CA
+COO
+ : 
+COOACM
+COO Pancen
+ : 
+COOPCN
+COO
+ : COO
+ED
+ : ED
+IT
+ : IT
+Finance
+ : FIN
+Finance II
+ : 
+FIN2
+Finance Head
+ : FINHOD
+Marketing - FA
+ : MKTFA
+Marketing - FE
+ : MKTFE
+Marketing - SN
+ : MKTSN
+Marketing
+ : MKT
+Final Limit - New Account
+ : FLimit
+Final Limit - Existing 
+Account
+ : FLimit2
+Editor 1 - DocAuthor
+ : Editor1
+Editor 2 - GM
+ : Editor2
+Editor 3 - FM
+ : Editor3
+Editor 4 - FIN HOD
+ : Editor4
+Editor 5 - COO
+ : Editor5
+Editor 6 - ED
+ : Editor6
+Editor 7 - FIN
+ : Editor7
+Editor 8 - FIN
+ : Editor8
+Mail List
+ : MailList

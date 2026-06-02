@@ -1,0 +1,433 @@
+DATABASE : PanCen - NCR & Internal Audit Report
+PATH     : PanCen - Current\PCNCR.nsf
+DATE     : 29/05/2026 2:47:28 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  EnterComments
+  EnterDivComments
+  ReminderReply
+  ReminderReview
+  FlowChart
+  CAMemo1
+  CAMemo2
+  POCNCR
+  NCRFORMv1
+  NCRFORMv2
+  NCRFORM
+  NewNCR
+  Reminder
+  NewNCR2
+  NewNCR3
+  IAReport
+  FlowChart2
+  NewNCR4
+  NewNCR4_old
+  IAReport_old
+  NewNCR4_old2
+  IAReport_old
+  NewNCR5
+  ExtCA
+  NewNCR6
+  ExtCA2
+  FlowChartX
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: CC2
+    - CC2
+  SUBFORM: Implementation
+    - CUpd7_3
+    - CARemDate7_3
+    - CADateUpd7_3
+    - CAStatus7_3
+    - CDoc7_1_2
+    - CAObservation7_3
+    - CUpd7_2
+    - CARemDate7_2
+    - CADateUpd7_2
+    - CAStatus7_2
+    - CDoc7_1_1
+    - CAObservation7_2
+    - CUpd7_1
+    - CARemDate7_1
+    - CADateUpd7_1
+    - CAStatus7_1
+    - CDoc7_1
+    - CAObservation7_1
+    - CAByWhen7
+    - CAByWhom7
+    - CA7
+    - CAStatus7
+    - CUpd6_3
+    - CARemDate6_3
+    - CADateUpd6_3
+    - CAStatus6_3
+    - CDoc6_1_2
+    - CAObservation6_3
+    - CUpd6_2
+    - CARemDate6_2
+    - CADateUpd6_2
+    - CAStatus6_2
+    - CDoc6_1_1
+    - CAObservation6_2
+    - CUpd6_1
+    - CARemDate6_1
+    - CADateUpd6_1
+    - CAStatus6_1
+    - CDoc6_1
+    - CAObservation6_1
+    - CAByWhen6
+    - CAByWhom6
+    - CA6
+    - CAStatus6
+    - CUpd5_3
+    - CARemDate5_3
+    - CADateUpd5_3
+    - CAStatus5_3
+    - CDoc5_1_2
+    - CAObservation5_3
+    - CUpd5_2
+    - CARemDate5_2
+    - CADateUpd5_2
+    - CAStatus5_2
+    - CDoc5_1_1
+    - CAObservation5_2
+    - CUpd5_1
+    - CARemDate5_1
+    - CADateUpd5_1
+    - CAStatus5_1
+    - CDoc5_1
+    - CAObservation5_1
+    - CAByWhen5
+    - CAByWhom5
+    - CA5
+    - CAStatus5
+    - CUpd4_3
+    - CARemDate4_3
+    - CADateUpd4_3
+    - CAStatus4_3
+    - CDoc4_1_2
+    - CAObservation4_3
+    - CUpd4_2
+    - CARemDate4_2
+    - CADateUpd4_2
+    - CAStatus4_2
+    - CDoc4_1_1
+    - CAObservation4_2
+    - CUpd4_1
+    - CARemDate4_1
+    - CADateUpd4_1
+    - CAStatus4_1
+    - CDoc4_1
+    - CAObservation4_1
+    - CAByWhen4
+    - CAByWhom4
+    - CA4
+    - CAStatus4
+    - CUpd3_3
+    - CARemDate3_3
+    - CADateUpd3_3
+    - CAStatus3_3
+    - CDoc3_1_2
+    - CAObservation3_3
+    - CUpd3_2
+    - CARemDate3_2
+    - CADateUpd3_2
+    - CAStatus3_2
+    - CDoc3_1_1
+    - CAObservation3_2
+    - CUpd3_1
+    - CARemDate3_1
+    - CADateUpd3_1
+    - CAStatus3_1
+    - CDoc3_1
+    - CAObservation3_1
+    - CAByWhen3
+    - CAByWhom3
+    - CA3
+    - CAStatus3
+    - CUpd2_3
+    - CARemDate2_3
+    - CADateUpd2_3
+    - CAStatus2_3
+    - CDoc2_1_2
+    - CAObservation2_3
+    - CUpd2_2
+    - CARemDate2_2
+    - CADateUpd2_2
+    - CAStatus2_2
+    - CDoc2_1_1
+    - CAObservation2_2
+    - CUpd2_1
+    - CARemDate2_1
+    - CADateUpd2_1
+    - CAStatus2_1
+    - CDoc2_1
+    - CAObservation2_1
+    - CAByWhen2
+    - CAByWhom2
+    - CA2
+    - CAStatus2
+    - CUpd1_3
+    - CARemDate1_3
+    - CADateUpd1_3
+    - CAStatus1_3
+    - CDoc1_1_2
+    - CAObservation1_3
+    - CUpd1_2
+    - CARemDate1_2
+    - CADateUpd1_2
+    - CAStatus1_2
+    - CDoc1_1_1
+    - CAObservation1_2
+    - CUpd1_1
+    - CARemDate1_1
+    - CADateUpd1_1
+    - CAStatus1_1
+    - CDoc1_1
+    - CAObservation1_1
+    - CAByWhen1
+    - CAByWhom
+    - CA1
+    - CAStatus1
+    - Upd8_3
+    - CRemDate8_3
+    - DateUpd8_3
+    - Status8_3
+    - BDoc8_3
+    - Observation8_3
+    - Upd8_2
+    - CRemDate8_2
+    - DateUpd8_2
+    - Status8_2
+    - BDoc8_2
+    - Observation8_2
+    - Upd8_1
+    - CRemDate8_1
+    - DateUpd8_1
+    - Status8_1
+    - BDoc8_1
+    - Observation8_1
+    - ByWhen8
+    - ByWhom8
+    - C8
+    - CStatus8
+    - Upd7_3
+    - CRemDate7_3
+    - DateUpd7_3
+    - Status7_3
+    - BDoc7_3
+    - Observation7_3
+    - Upd7_2
+    - CRemDate7_2
+    - DateUpd7_2
+    - Status7_2
+    - BDoc7_2
+    - Observation7_2
+    - Upd7_1
+    - CRemDate7_1
+    - DateUpd7_1
+    - Status7_1
+    - BDoc7_1
+    - Observation7_1
+    - ByWhen7
+    - ByWhom7
+    - C7
+    - CStatus7
+    - Upd6_3
+    - CRemDate6_3
+    - DateUpd6_3
+    - Status6_3
+    - BDoc6_3
+    - Observation6_3
+    - Upd6_2
+    - CRemDate6_2
+    - DateUpd6_2
+    - Status6_2
+    - BDoc6_2
+    - Observation6_2
+    - Upd6_1
+    - CRemDate6_1
+    - DateUpd6_1
+    - Status6_1
+    - BDoc6_1
+    - Observation6_1
+    - ByWhen6
+    - ByWhom6
+    - C6
+    - CStatus6
+    - Upd5_3
+    - CRemDate5_3
+    - DateUpd5_3
+    - Status5_3
+    - BDoc5_3
+    - Observation5_3
+    - Upd5_2
+    - CRemDate5_2
+    - DateUpd5_2
+    - Status5_2
+    - BDoc5_2
+    - Observation5_2
+    - Upd5_1
+    - CRemDate5_1
+    - DateUpd5_1
+    - Status5_1
+    - BDoc5_1
+    - Observation5_1
+    - ByWhen5
+    - ByWhom5
+    - C5
+    - CStatus5
+    - Upd4_3
+    - CRemDate4_3
+    - DateUpd4_3
+    - Status4_3
+    - BDoc4_3
+    - Observation4_3
+    - Upd4_2
+    - CRemDate4_2
+    - DateUpd4_2
+    - Status4_2
+    - BDoc4_2
+    - Observation4_2
+    - Upd4_1
+    - CRemDate4_1
+    - DateUpd4_1
+    - Status4_1
+    - BDoc4_1
+    - Observation4_1
+    - ByWhen4
+    - ByWhom4
+    - C4
+    - CStatus4
+    - Upd3_3
+    - CRemDate3_3
+    - DateUpd3_3
+    - Status3_3
+    - BDoc3_3
+    - Observation3_3
+    - Upd3_2
+    - CRemDate3_2
+    - DateUpd3_2
+    - Status3_2
+    - BDoc3_2_NIU
+    - BDoc3_2
+    - Observation3_2
+    - Upd3_1
+    - CRemDate3_1
+    - DateUpd3_1
+    - Status3_1
+    - BDoc3_1
+    - Observation3_1
+    - ByWhen3
+    - ByWhom3
+    - C3
+    - CStatus3
+    - Upd2_3
+    - CRemDate2_3
+    - DateUpd2_3
+    - Status2_3
+    - BDoc2_3
+    - Observation2_3
+    - Upd2_2
+    - CRemDate2_2
+    - DateUpd2_2
+    - Status2_2
+    - BDoc2_2
+    - Observation2_2
+    - Upd2_1
+    - CRemDate2_1
+    - DateUpd2_1
+    - Status2_1
+    - BDoc2_1
+    - Observation2_1
+    - ByWhen2
+    - ByWhom2
+    - C2
+    - CStatus2
+    - Upd1_3
+    - CRemDate1_3
+    - DateUpd1_3
+    - Status1_3
+    - BDoc1_3
+    - Observation1_3
+    - Upd1_2
+    - CRemDate1_2
+    - DateUpd1_2
+    - Status1_2
+    - BDoc1_2
+    - Observation1_2
+    - Upd1_1
+    - CRemDate1_1
+    - DateUpd1_1
+    - Status1_1
+    - BDoc1_1
+    - Observation1_1
+    - ByWhen1
+    - ByWhom1
+    - C1
+    - CStatus1
+    - IMPLEMENTATION___
+
+=== AGENTS ===
+  ReminderReply [ENABLED]
+  ReminderReview [ENABLED]
+  Refresh Docs [ENABLED]
+  Past Due ImmediateCA [ENABLED]
+  Past Due LongTermCA [ENABLED]
+  Set [ENABLED]
+  NCRNO [ENABLED]
+  DocAuthor [ENABLED]
+  SHENCRType [ENABLED]
+  Clear Propose [ENABLED]
+  Clear Auditor Acceptance [ENABLED]
+  ReminderCompletion [ENABLED]
+  ReminderAuditor [ENABLED]
+  Clear Verification [ENABLED]
+  Comment [ENABLED]
+  Clear Head Review [ENABLED]
+  FORMULA [ENABLED]
+  Clear [ENABLED]
+  RemPdgReviewIA [ENABLED]
+  INO [ENABLED]
+  1.Refresh Docs [ENABLED]
+  Refresh Docs [ENABLED]
+  RemCA [DISABLED]
+  RemCA1 [ENABLED]
+  ReminderCompletion_Bk [DISABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  QA | Reader | Person Group
+  CN=ginny/OU=PMS/O=PHB | Editor | Person
+  CN=Yuvaraj/OU=PanCen/O=PHB | Editor | Person
+  CN=limjl/OU=PMS/O=PHB | Editor | Person
+  CN=Tajuddin/OU=PanCen/O=PHB | Editor | Person
+  CN=PCNSVR/O=PHB | Manager | Server Group
+  CN=Suba QA/OU=PanCen/O=PHB | Editor | Person
+  CN=Anan/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - NCRNo
+  - DateOFReminder
+  - Subject
+  - CopyTo
+  - SendTo
+

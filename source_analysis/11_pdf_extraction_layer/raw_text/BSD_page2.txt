@@ -1,0 +1,51 @@
+BACKUP STAFF 3
+Name
+ : 
+PIC_3
+Position
+ : 
+Position_3
+Area of Responsibility
+ : 
+Responsibility_3
+SECTION C - NOMINATED BY HOD/HOS
+Name
+ : 
+SubmittedBy
+Date
+ : 
+SubmitDate
+Remark
+ : 
+Remark
+For HOD/HOS Use :-
+Update
+Revision Required
+ : 
+Revision
+Updated by
+ : 
+Updatedby
+Date
+ : 
+Updateddt
+Status
+ : 
+Status
+Remarks
+ : 
+StaRem
+SECTION D - APPROVED BY HEAD OF DIVISION 
+APPROVE REJECT
+Name
+ : 
+HODName
+Position
+ : 
+HODPost
+Date
+ : 
+HODDate
+Remarks
+ : 
+HODRemarks

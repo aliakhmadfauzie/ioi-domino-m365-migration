@@ -1,0 +1,59 @@
+DATABASE : Foreign Worker Work Period Extension 
+PATH     : Current\FWWPE.nsf
+DATE     : 28/05/2026 12:51:12 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Reminder
+  Form2
+  Form
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  RemPdgReply [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear HistoryLog [ENABLED]
+  INO [ENABLED]
+  Clear [ENABLED]
+  RemPdgHOD [ENABLED]
+  RemPdgExpiry [ENABLED]
+  RemPdgHOS [ENABLED]
+  RemPdgHRHOD [ENABLED]
+  RemPdgSecF [ENABLED]
+  RemPdgSecG [ENABLED]
+  SET [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  CN=Ravindran/OU=PMS/O=PHB | Editor | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - ExpiryDate
+  - Name
+  - DateSent
+  - SendTo
+  - Subject
+

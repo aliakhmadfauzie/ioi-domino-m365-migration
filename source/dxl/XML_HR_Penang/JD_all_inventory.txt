@@ -1,0 +1,75 @@
+DATABASE : Job Descriptions (New)
+PATH     : Current\jobdescNew.nsf
+DATE     : 28/05/2026 2:15:10 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  jobdesc
+  jobdescV1
+  EnterComments
+  EnterCommentsHOD
+  JDMEMO1
+  JDMEMO2
+  JDMEMO3
+  JDV1
+  JDMEMO4
+  JDMEMO5
+  Department
+  Guidelines
+  JD
+  JD2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  WChange creator [DISABLED]
+  When document is pasted [DISABLED]
+  PdgDraftReminder1a [ENABLED]
+  PdgAppReminder [ENABLED]
+  Archive [ENABLED]
+  NIU_PdgRejectedReminder1 [DISABLED]
+  PdgRejectedReminder [ENABLED]
+  Archive to DB [ENABLED]
+  Clear [ENABLED]
+  NIU_PdgDraftReminder1b [DISABLED]
+  PdgDraftReminder2a [ENABLED]
+  NIU_PdgDraftReminder2b [DISABLED]
+  PdgDistribution [ENABLED]
+  Refresh Docs [ENABLED]
+  WClear Records of Review [ENABLED]
+  Clear Acknowledgement [ENABLED]
+  FORMULA [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Catherine Ho/OU=PanCen/O=PHB | Editor | Person
+  CN=Leong Chee How/OU=PanCen/O=PHB | Editor | Person
+  CN=Junaidah/OU=PMS/O=PHB | Editor | Person
+  CN=David Koo/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

@@ -1,0 +1,34 @@
+Cafeteria Inspection
+Cafeteria Inspection
+Cafeteria Inspection 
+Database
+Database
+Database
+No. : Num
+Initiator Section
+Site
+ : Site
+Team Members
+ : TeamMembers
+Inspector
+ : Inspector
+Inspection Date
+ : 
+InsDate
+Inspection Time
+ : 
+InsTime
+Submitted By
+ : SubmittedBy
+Submitted Date
+ : SubmittedDate
+Corrective Action Review
+Reviewed By
+ : ReviewedBy
+Reviewed Date
+ : ReviewedDate
+Remarks
+ : Remarks
+Status
+Created by  DocAuthor
+  on CDate

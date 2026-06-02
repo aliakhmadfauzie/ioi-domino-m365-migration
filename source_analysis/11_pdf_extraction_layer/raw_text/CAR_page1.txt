@@ -1,0 +1,70 @@
+CAPITAL APPROPRIATION REQUEST (CAR)
+ASSETS COSTING MORE THAN RM2000
+Contract Amount
+Recommended by
+Approved by
+Up to RM 200,000
+Department Heads / Division Head of Finance
+Senior General Manager, Operations (SGM)/Chief Ope
+Up to RM 1.0 million
+Division Head of Finance / SGM /COO
+Director
+Up to RM 3.0 million
+SGM / COO / Director
+Deputy Group Chief Executive Officer
+Up to RM 300 million
+Divisional Director / Chief Financial Officer ("CFO")
+Group Managing Director & Chief Executive ("GMD&C
+Up to RM 800 million
+Divisional Director / CFO
+Board Committee comprising Group Chairman, GMD&
+Above RM 800 million
+GMD&CE / Division Director / CFO
+Board of Directors
+For Finance Use Only!
+SAP IO No.
+ : SAPIONo
+SAP Asset No.  : SAPAssNo
+Initiation
+**IT must be consulted for all computer hardware & software purchases.
+**Admin Dept. must be consulted for all furniture & office equipment purchases.
+Company
+ : Company
+Department
+ : Department
+CAR Name/Project Name
+ : ProjectName
+Objective
+ : Objective
+Start Date
+ : 
+StartDate
+Completion Date
+ : 
+CompDate
+Asset Class Guidelines
+ : AssetClass
+Capital Goods Category
+ : CapitalGoodsCat
++
+Sustainability Related
+ : isSustainability
+Sustainability Project
+ : SusProj
+   please specify 
+othersusproj
+Energy Project
+ :  Energytype
+Estimated Annual Savings 
+e.g. GHG (kgCO2e)/Water 
+(m3)/Waste (MT)
+ : EstAnnualSaving
+Purpose of Investment
+ : Purpose
+   Please issue Material Disposal Form.
+Existing Asset No.
+ : ExAssetNo
+Execution Type
+OWN         - Initiator
+ADMIN       - Joyce Yeoh
+ : ExecType

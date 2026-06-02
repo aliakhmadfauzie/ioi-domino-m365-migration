@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "microsoft-IsvExpTools.powerplatform-vscode",
+        "ms-copilotstudio.vscode-copilotstudio",
+        "powerappstools.powerfx",
+        "gatehousedev.gatehouse-powerfx",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "yzhang.markdown-all-in-one",
+        "bierner.markdown-mermaid",
+        "hediet.vscode-drawio",
+        "mechatroner.rainbow-csv",
+        "eamodio.gitlens",
+        "ms-vscode.powershell",
+        "humao.rest-client",
+        "streetsidesoftware.code-spell-checker",
+        "tomoki1207.pdf"
+    ]
+}

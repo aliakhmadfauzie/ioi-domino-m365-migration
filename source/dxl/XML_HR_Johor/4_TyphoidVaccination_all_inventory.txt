@@ -1,0 +1,51 @@
+DATABASE : Pancen - Company Typhoid Vaccination
+PATH     : PanCen - Current\TyphoidVaccination.nsf
+DATE     : 28/05/2026 3:22:14 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Test TR
+  Copy Of Test TR
+  Reminder
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  Clear Submission [ENABLED]
+  RemExpiry [ENABLED]
+  FORMULA [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Kobinathan/OU=PanCen/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Ahsha/OU=PanCen/O=PHB | Editor | Person
+  CN=Malani HR/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - ExpiryDate
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

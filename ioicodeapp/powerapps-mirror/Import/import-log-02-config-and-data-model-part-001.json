@@ -1,0 +1,22 @@
+﻿{
+    "importedAt":  "2026-05-22T16:29:56",
+    "bundlePath":  "C:\\Users\\aliak\\OneDrive\\Documents\\IoI\\powerapps-bundles-inbox\\02-config-and-data-model-part-001.txt",
+    "mirrorRoot":  "C:\\Users\\aliak\\OneDrive\\Documents\\IoI\\powerapps-mirror",
+    "fileCount":  14,
+    "files":  [
+                  "apps/ioi-platform/.eslintignore",
+                  "apps/ioi-platform/.gitignore",
+                  "apps/ioi-platform/components.json",
+                  "apps/ioi-platform/eslint.config.js",
+                  "apps/ioi-platform/index.html",
+                  "apps/ioi-platform/package.json",
+                  "apps/ioi-platform/power.config.json",
+                  "apps/ioi-platform/src/app.tsx",
+                  "apps/ioi-platform/src/index.css",
+                  "apps/ioi-platform/src/main.tsx",
+                  "apps/ioi-platform/src/vite-env.d.ts",
+                  "apps/ioi-platform/tsconfig.json",
+                  "apps/ioi-platform/vite.config.ts",
+                  "data-model/data-model.json"
+              ]
+}

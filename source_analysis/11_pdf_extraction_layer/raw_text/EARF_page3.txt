@@ -1,0 +1,51 @@
+Date
+ : Revieweddate
+Recommender Position
+ : Reviewedpost
+Remark
+ : Reviewedrem
+App2
+Division Head Approval
+Approve Deny
+Name
+ : hodname2
+Date
+ : hoddate2
+Position
+ : hodpost2
+Remark
+ : hodrem2
+App3
+Notiffied by
+NotifiedBy   on 
+NotifiedDate
+EARF Completion
+To be filled up by requestor.
+Completion Date
+ : 
+CompDate
+Old Asset Status
+ : OldAsset
+   please specify (
+oldAssetRem )
+*Details of SAP PR raised
+No. Date
+PR No.
+1
+PODt_1
+PONo_1
+2
+PODt_2
+PONo_2
+3
+PODt_3
+PONo_3
+4
+PODt_4
+PONo_4
+5
+PODt_5
+PONo_5
+Prepared by 
+Preparedby2  on Prepareddate2
+Cancellation

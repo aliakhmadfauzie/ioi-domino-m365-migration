@@ -1,0 +1,1413 @@
+{
+  "webUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-admin/Lists/MainDB_ADMIN/AllItems.aspx",
+  "name": "51e2307b-489e-4cbb-9220-651039da2ea9",
+  "schema": {
+    "items": {
+      "x-ms-displayFormat": {
+        "propertiesTabularDisplayOrder": [
+          "Title"
+        ],
+        "propertiesDisplayOrder": [
+          "ContentTypeId",
+          "_ModerationComments",
+          "File_x0020_Type",
+          "_ColorHex",
+          "_Emoji",
+          "FormCode",
+          "Department",
+          "SiteKey",
+          "SubmittedBy",
+          "SubmittedOn",
+          "StatusKey",
+          "ApproverEmail",
+          "Location",
+          "Remarks",
+          "ContentType",
+          "_HasCopyDestinations",
+          "_CopySource",
+          "owshiddenversion",
+          "WorkflowVersion",
+          "_UIVersion",
+          "_UIVersionString",
+          "Attachments",
+          "_ModerationStatus",
+          "Edit",
+          "LinkTitleNoMenu",
+          "LinkTitle",
+          "LinkTitle2",
+          "SelectTitle",
+          "InstanceID",
+          "Order",
+          "GUID",
+          "WorkflowInstanceID",
+          "FileRef",
+          "FileDirRef",
+          "Last_x0020_Modified",
+          "Created_x0020_Date",
+          "FSObjType",
+          "SortBehavior",
+          "PermMask",
+          "PrincipalCount",
+          "FileLeafRef",
+          "UniqueId",
+          "ParentUniqueId",
+          "SyncClientId",
+          "ProgId",
+          "ScopeId",
+          "HTML_x0020_File_x0020_Type",
+          "_EditMenuTableStart",
+          "_EditMenuTableStart2",
+          "_EditMenuTableEnd",
+          "LinkFilenameNoMenu",
+          "LinkFilename",
+          "LinkFilename2",
+          "DocIcon",
+          "ServerUrl",
+          "EncodedAbsUrl",
+          "BaseName",
+          "MetaInfo",
+          "_Level",
+          "_IsCurrentVersion",
+          "ItemChildCount",
+          "FolderChildCount",
+          "Restricted",
+          "OriginatorId",
+          "NoExecute",
+          "ContentVersion",
+          "_ComplianceFlags",
+          "_ComplianceTag",
+          "_ComplianceTagWrittenTime",
+          "_ComplianceTagUserId",
+          "_IsRecord",
+          "AccessPolicy",
+          "_VirusStatus",
+          "_VirusVendorID",
+          "_VirusInfo",
+          "_RansomwareAnomalyMetaInfo",
+          "_DraftOwnerId",
+          "MainLinkSettings",
+          "AppAuthor",
+          "AppEditor",
+          "SMTotalSize",
+          "SMLastModifiedDate",
+          "SMTotalFileStreamSize",
+          "SMTotalFileCount",
+          "_CommentFlags",
+          "_CommentCount",
+          "Title",
+          "ID",
+          "Modified",
+          "Created",
+          "Author",
+          "Editor"
+        ],
+        "propertiesCompactDisplayOrder": [
+          "Title"
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "ContentTypeId": {
+          "x-ms-sort": "asc,desc",
+          "title": "Content Type ID",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "_ModerationComments": {
+          "x-ms-sort": "asc,desc",
+          "title": "Approver Comments",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "File_x0020_Type": {
+          "type": "string",
+          "title": "File Type",
+          "maxLength": 255,
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "_ColorHex": {
+          "type": "string",
+          "title": "Color",
+          "maxLength": 255,
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "_Emoji": {
+          "type": "string",
+          "title": "Emoji",
+          "maxLength": 255,
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "FormCode": {
+          "type": "string",
+          "title": "FormCode",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "Department": {
+          "type": "string",
+          "title": "Department",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "SiteKey": {
+          "type": "string",
+          "title": "SiteKey",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "SubmittedBy": {
+          "type": "string",
+          "title": "SubmittedBy",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "SubmittedOn": {
+          "type": "string",
+          "title": "SubmittedOn",
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "format": "date-time",
+          "x-ms-sort": "asc,desc"
+        },
+        "StatusKey": {
+          "type": "string",
+          "title": "StatusKey",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "ApproverEmail": {
+          "type": "string",
+          "title": "ApproverEmail",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "Location": {
+          "type": "string",
+          "title": "Location",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "Remarks": {
+          "type": "string",
+          "title": "Remarks",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "ContentType": {
+          "x-ms-sort": "asc,desc",
+          "title": "Content Type",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-write",
+          "type": "string"
+        },
+        "_HasCopyDestinations": {
+          "x-ms-sort": "asc,desc",
+          "title": "Has Copy Destinations",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "boolean"
+        },
+        "_CopySource": {
+          "type": "string",
+          "title": "Copy Source",
+          "maxLength": 255,
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "owshiddenversion": {
+          "type": "integer",
+          "title": "owshiddenversion",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "format": "int64",
+          "x-ms-sort": "asc,desc"
+        },
+        "WorkflowVersion": {
+          "type": "integer",
+          "title": "Workflow Version",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "format": "int64",
+          "x-ms-sort": "asc,desc"
+        },
+        "_UIVersion": {
+          "type": "integer",
+          "title": "UI Version",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "format": "int64",
+          "x-ms-sort": "asc,desc"
+        },
+        "_UIVersionString": {
+          "type": "string",
+          "title": "Version",
+          "maxLength": 255,
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "Attachments": {
+          "x-ms-sort": "asc,desc",
+          "title": "Attachments",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-write",
+          "type": "string"
+        },
+        "_ModerationStatus": {
+          "x-ms-sort": "asc,desc",
+          "title": "Approval Status",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "Edit": {
+          "x-ms-sort": "asc,desc",
+          "title": "Edit",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "LinkTitleNoMenu": {
+          "x-ms-sort": "asc,desc",
+          "title": "Title",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "LinkTitle": {
+          "x-ms-sort": "asc,desc",
+          "title": "Title",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "LinkTitle2": {
+          "x-ms-sort": "asc,desc",
+          "title": "Title",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "SelectTitle": {
+          "x-ms-sort": "asc,desc",
+          "title": "Select",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "InstanceID": {
+          "type": "integer",
+          "title": "Instance ID",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "format": "int64",
+          "x-ms-sort": "asc,desc"
+        },
+        "Order": {
+          "x-ms-sort": "asc,desc",
+          "title": "Order",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-write",
+          "type": "number"
+        },
+        "GUID": {
+          "x-ms-sort": "asc,desc",
+          "title": "GUID",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "WorkflowInstanceID": {
+          "x-ms-sort": "asc,desc",
+          "title": "Workflow Instance ID",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "FileRef": {
+          "x-ms-sort": "asc,desc",
+          "title": "URL Path",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "FileDirRef": {
+          "x-ms-sort": "asc,desc",
+          "title": "Path",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "Last_x0020_Modified": {
+          "x-ms-sort": "asc,desc",
+          "title": "Modified",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "Created_x0020_Date": {
+          "x-ms-sort": "asc,desc",
+          "title": "Created",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "FSObjType": {
+          "x-ms-sort": "asc,desc",
+          "title": "Item Type",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "SortBehavior": {
+          "x-ms-sort": "asc,desc",
+          "title": "Sort Type",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "PermMask": {
+          "x-ms-sort": "asc,desc",
+          "title": "Effective Permissions Mask",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "PrincipalCount": {
+          "x-ms-sort": "asc,desc",
+          "title": "Principal Count",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "FileLeafRef": {
+          "x-ms-sort": "asc,desc",
+          "title": "Name",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-write",
+          "type": "string"
+        },
+        "UniqueId": {
+          "x-ms-sort": "asc,desc",
+          "title": "Unique Id",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "ParentUniqueId": {
+          "x-ms-sort": "asc,desc",
+          "title": "Document Parent Identifier",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "SyncClientId": {
+          "x-ms-sort": "asc,desc",
+          "title": "Client Id",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "ProgId": {
+          "x-ms-sort": "asc,desc",
+          "title": "ProgId",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "ScopeId": {
+          "x-ms-sort": "asc,desc",
+          "title": "ScopeId",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "HTML_x0020_File_x0020_Type": {
+          "x-ms-sort": "asc,desc",
+          "title": "HTML File Type",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "_EditMenuTableStart": {
+          "x-ms-sort": "asc,desc",
+          "title": "Edit Menu Table Start",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "_EditMenuTableStart2": {
+          "x-ms-sort": "asc,desc",
+          "title": "Edit Menu Table Start",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "_EditMenuTableEnd": {
+          "x-ms-sort": "asc,desc",
+          "title": "Edit Menu Table End",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "LinkFilenameNoMenu": {
+          "x-ms-sort": "asc,desc",
+          "title": "Name",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "LinkFilename": {
+          "x-ms-sort": "asc,desc",
+          "title": "Name",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "LinkFilename2": {
+          "x-ms-sort": "asc,desc",
+          "title": "Name",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "DocIcon": {
+          "x-ms-sort": "asc,desc",
+          "title": "Type",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "ServerUrl": {
+          "x-ms-sort": "asc,desc",
+          "title": "Server Relative URL",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "EncodedAbsUrl": {
+          "x-ms-sort": "asc,desc",
+          "title": "Encoded Absolute URL",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "BaseName": {
+          "x-ms-sort": "asc,desc",
+          "title": "File Name",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "MetaInfo": {
+          "x-ms-sort": "asc,desc",
+          "title": "Property Bag",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-write",
+          "type": "object"
+        },
+        "_Level": {
+          "type": "integer",
+          "title": "Level",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "format": "int64",
+          "x-ms-sort": "asc,desc"
+        },
+        "_IsCurrentVersion": {
+          "x-ms-sort": "asc,desc",
+          "title": "Is Current Version",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "boolean"
+        },
+        "ItemChildCount": {
+          "x-ms-sort": "asc,desc",
+          "title": "Item Child Count",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "FolderChildCount": {
+          "x-ms-sort": "asc,desc",
+          "title": "Folder Child Count",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "Restricted": {
+          "x-ms-sort": "asc,desc",
+          "title": "Restricted",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "OriginatorId": {
+          "x-ms-sort": "asc,desc",
+          "title": "Originator Id",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "NoExecute": {
+          "x-ms-sort": "asc,desc",
+          "title": "NoExecute",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "ContentVersion": {
+          "x-ms-sort": "asc,desc",
+          "title": "Content Version",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_ComplianceFlags": {
+          "x-ms-sort": "asc,desc",
+          "title": "Label setting",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_ComplianceTag": {
+          "x-ms-sort": "asc,desc",
+          "title": "Retention label",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_ComplianceTagWrittenTime": {
+          "x-ms-sort": "asc,desc",
+          "title": "Retention label Applied",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_ComplianceTagUserId": {
+          "x-ms-sort": "asc,desc",
+          "title": "Label applied by",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_IsRecord": {
+          "x-ms-sort": "asc,desc",
+          "title": "Item is a Record",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "AccessPolicy": {
+          "x-ms-sort": "asc,desc",
+          "title": "Access Policy",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_VirusStatus": {
+          "x-ms-sort": "asc,desc",
+          "title": "VirusStatus",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_VirusVendorID": {
+          "x-ms-sort": "asc,desc",
+          "title": "VirusVendorID",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_VirusInfo": {
+          "x-ms-sort": "asc,desc",
+          "title": "VirusInfo",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_RansomwareAnomalyMetaInfo": {
+          "x-ms-sort": "asc,desc",
+          "title": "RansomwareAnomalyMetaInfo",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_DraftOwnerId": {
+          "x-ms-sort": "asc,desc",
+          "title": "Draft Owner Id",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "MainLinkSettings": {
+          "x-ms-sort": "asc,desc",
+          "title": "Main Link settings",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "string"
+        },
+        "AppAuthor": {
+          "x-ms-sort": "asc,desc",
+          "title": "App Created By",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "AppEditor": {
+          "x-ms-sort": "asc,desc",
+          "title": "App Modified By",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "SMTotalSize": {
+          "x-ms-sort": "asc,desc",
+          "title": "Total Size",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "SMLastModifiedDate": {
+          "x-ms-sort": "asc,desc",
+          "title": "Last Modified Date",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "SMTotalFileStreamSize": {
+          "x-ms-sort": "asc,desc",
+          "title": "Total File Stream Size",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "SMTotalFileCount": {
+          "x-ms-sort": "asc,desc",
+          "title": "Total File Count",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_CommentFlags": {
+          "x-ms-sort": "asc,desc",
+          "title": "Comment settings",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "_CommentCount": {
+          "x-ms-sort": "asc,desc",
+          "title": "Comment count",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-permission": "read-only",
+          "type": "object"
+        },
+        "Title": {
+          "type": "string",
+          "title": "Title",
+          "maxLength": 255,
+          "x-ms-permission": "read-write",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "description": "Human-readable record identifier",
+          "x-ms-sort": "asc,desc"
+        },
+        "ID": {
+          "type": "integer",
+          "title": "ID",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "x-ms-keyType": "primary",
+          "format": "int64",
+          "x-ms-keyOrder": 1,
+          "description": "List item id. Use this value for specifying the item to act on in other list related actions.",
+          "x-ms-sort": "asc,desc"
+        },
+        "Modified": {
+          "type": "string",
+          "title": "Modified",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "ne"
+            ]
+          },
+          "description": "When this item was last changed.",
+          "format": "date-time",
+          "x-ms-sort": "asc,desc"
+        },
+        "Created": {
+          "type": "string",
+          "title": "Created",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "gt",
+              "ge",
+              "lt",
+              "le",
+              "ne"
+            ]
+          },
+          "description": "When this item was created.",
+          "format": "date-time",
+          "x-ms-sort": "asc,desc"
+        },
+        "Author": {
+          "type": "object",
+          "title": "Created By",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "properties": {
+            "Picture": {
+              "format": "uri",
+              "title": "Picture",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "DisplayName": {
+              "title": "DisplayName",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "Email": {
+              "format": "email",
+              "title": "Email",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "@odata.type": {
+              "title": "@odata.type",
+              "x-ms-visibility": "internal",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "JobTitle": {
+              "title": "JobTitle",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "Department": {
+              "title": "Department",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "Claims": {
+              "title": "Claims",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            }
+          },
+          "description": "The user who created this item.",
+          "x-ms-displayFormat": {
+            "subtitleProperty": "Email",
+            "thumbnailProperty": "Picture",
+            "titleProperty": "DisplayName"
+          },
+          "x-ms-sort": "asc,desc"
+        },
+        "Editor": {
+          "type": "object",
+          "title": "Modified By",
+          "x-ms-permission": "read-only",
+          "x-ms-capabilities": {
+            "filterFunctions": [
+              "eq",
+              "startswith"
+            ]
+          },
+          "properties": {
+            "Picture": {
+              "format": "uri",
+              "title": "Picture",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "DisplayName": {
+              "title": "DisplayName",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "Email": {
+              "format": "email",
+              "title": "Email",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "@odata.type": {
+              "title": "@odata.type",
+              "x-ms-visibility": "internal",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "JobTitle": {
+              "title": "JobTitle",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "Department": {
+              "title": "Department",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            },
+            "Claims": {
+              "title": "Claims",
+              "x-ms-permission": "read-only",
+              "type": "string"
+            }
+          },
+          "description": "The user who last changed this item.",
+          "x-ms-displayFormat": {
+            "subtitleProperty": "Email",
+            "thumbnailProperty": "Picture",
+            "titleProperty": "DisplayName"
+          },
+          "x-ms-sort": "asc,desc"
+        }
+      },
+      "required": [
+        "Title"
+      ]
+    },
+    "type": "array"
+  },
+  "x-ms-permission": "read-write",
+  "x-ms-capabilities": {
+    "serverPagingOptions": [
+      "top",
+      "skiptoken"
+    ],
+    "filterFunctionSupport": [
+      "and",
+      "or",
+      "eq",
+      "startswith",
+      "gt",
+      "ge",
+      "lt",
+      "le",
+      "ne"
+    ],
+    "isOnlyServerPagable": true,
+    "sortRestrictions": {
+      "unsortableProperties": [
+        "{Identifier}",
+        "{IsFolder}",
+        "{Thumbnail}",
+        "{Link}",
+        "{Name}",
+        "{FilenameWithExtension}",
+        "{Path}",
+        "{FullPath}",
+        "{ModerationStatus}",
+        "{ModerationComment}",
+        "{ContentType}",
+        "{HasAttachments}",
+        "{Attachments}",
+        "{VersionNumber}",
+        "{TriggerWindowStartToken}",
+        "{TriggerWindowEndToken}"
+      ],
+      "sortable": true
+    },
+    "odataVersion": 3,
+    "filterRestrictions": {
+      "nonFilterableProperties": [
+        "{Identifier}",
+        "{IsFolder}",
+        "{Thumbnail}",
+        "{Link}",
+        "{Name}",
+        "{FilenameWithExtension}",
+        "{Path}",
+        "{FullPath}",
+        "{ModerationStatus}",
+        "{ModerationComment}",
+        "{ContentType}",
+        "{HasAttachments}",
+        "{Attachments}",
+        "{VersionNumber}",
+        "{TriggerWindowStartToken}",
+        "{TriggerWindowEndToken}"
+      ],
+      "filterable": true
+    }
+  },
+  "title": "MainDB_ADMIN"
+}

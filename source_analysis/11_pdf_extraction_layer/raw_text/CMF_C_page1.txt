@@ -1,0 +1,155 @@
+Appendix C
+REVIEW OF CUSTOMERS ON CREDIT
+Initiation
+Form No.
+ : CAFNo
+Date of Review
+ : DateReview
+Company
+ : Company
+Category
+ : Category
+Marketing Executive in 
+charge
+ : MKTExec
+Marketing Manager
+ : MKTHOD
+Review & prepared by 
+reqby  on 
+reqdate
+No.
+Customer
+Customer 
+SAP ID
+Customer’s
+Buying Activity 
+(Active/Inactive)
+1
+History of 
+Late Payment
+2
+(Yes/No)
+Nega
+tive 
+Mark
+et 
+News 
+on 
+Cust
+omer
+(Yes/
+No)
+Finan
+cial 
+State
+ment 
+Avail
+able 
+(Yes/
+No)
+Mai
+n/ 
+Incr
+e/ 
+Dec
+se/ 
+Can
+Cre
+Lim
+1
+C_1
+S_1
+A_1
+H_1
+N_1
+F_1
+M_1
+2
+C_2
+S_2
+A_2
+H_2
+N_2
+F_2
+M_2
+3
+C_3
+S_3
+A_3
+H_3
+N_3
+F_3
+M_3
+4
+C_4
+S_4
+A_4
+H_4
+N_4
+F_4
+M_4
+5
+C_5
+S_5
+A_5
+H_5
+N_5
+F_5
+M_5
+6
+C_6
+S_6
+A_6
+H_6
+N_6
+F_6
+M_6
+7
+C_7
+S_7
+A_7
+H_7
+N_7
+F_7
+M_7
+8
+C_8
+S_8
+A_8
+H_8
+N_8
+F_8
+M_8
+9
+C_9
+S_9
+A_9
+H_9
+N_9
+F_9
+M_9
+10
+C_10
+S_10
+A_10
+H_10
+N_10
+F_10
+M_1
+11
+C_11
+S_11
+A_11
+H_11
+N_11
+F_11
+M_1
+12
+C_12
+S_12
+A_12
+H_12
+N_12
+F_12
+M_12
+13

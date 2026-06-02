@@ -1,0 +1,7 @@
+import { useQuery,useMutation,useQueryClient } from "@tanstack/react-query"; import { MainDBRDService } from "../services/main-dbrd-service"; import type { MainDBRD } from "../models/main-dbrd-model"; import type { IOperationOptions } from '../../../app-gen-sdk/data/common/types';
+const R = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+export function useMainDBRDList(o?: IOperationOptions) { return useQuery({queryKey:["mainDBRD-list",o],queryFn:()=>MainDBRDService.getAll(o)}); }
+export function useMainDBRD(id:string) { return useQuery({queryKey:["mainDBRD",id],queryFn:()=>MainDBRDService.get(id),enabled:!!id&&R.test(id)}); }
+export function useCreateMainDBRD() { const c=useQueryClient(); return useMutation({mutationFn:(d:Omit<MainDBRD,"id">)=>MainDBRDService.create(d),onSuccess:()=>c.invalidateQueries({queryKey:["mainDBRD-list"]})}); }
+export function useUpdateMainDBRD() { const c=useQueryClient(); return useMutation({mutationFn:({id,changedFields}:{id:string;changedFields:Partial<Omit<MainDBRD,"id">>})=>MainDBRDService.update(id,changedFields),onSuccess:(_d,v)=>{c.invalidateQueries({queryKey:["mainDBRD-list"]});c.invalidateQueries({queryKey:["mainDBRD",v.id]})}}); }
+export function useDeleteMainDBRD() { const c=useQueryClient(); return useMutation({mutationFn:(id:string)=>MainDBRDService.delete(id),onSuccess:(_d,id)=>{c.invalidateQueries({queryKey:["mainDBRD-list"]});c.invalidateQueries({queryKey:["mainDBRD",id]})}}); }

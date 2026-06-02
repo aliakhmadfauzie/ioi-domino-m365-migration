@@ -1,0 +1,47 @@
+DATABASE : Health Info
+PATH     : Current\HEInfo.nsf
+DATE     : 28/05/2026 12:59:16 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  NewForm
+  BAK_NewForm
+  NewForm2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  SET [ENABLED]
+  Body [ENABLED]
+  Clear [ENABLED]
+  Delete Field [ENABLED]
+  UNLOCK [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Admin/O=PHB | Manager | Person
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

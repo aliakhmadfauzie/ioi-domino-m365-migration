@@ -1,0 +1,89 @@
+    DUTY ROSTER DATABASE
+*Note:  The following month duty roster need to be submitted by 10th of the month
+SECTION A
+Company
+ : 
+Comp
+STANDARD
+Category
+ : 
+Category
+Department
+ : 
+Dept
+Section
+ : 
+Section
+Section Head
+ : 
+HOS
+Department Head
+ : 
+HOD
+CC
+ : 
+CC
+Month
+ : 
+Month
+Year
+ : 
+Year
+Attachments
+ : 
+Attch
+ 
+Shift Code :
+OFC
+08:30AM to 17:45
+OFO
+08:30AM to 17:30
+N1
+08:30AM to 17:00
+A1
+07:00AM to 14:30
+           (14:30PM to 15:00P
+A2
+07:30AM to 15:00
+           (07:00AM to 07:30A
+B1
+15:00PM to 22:30
+           (22:30PM to 23:00P
+C1
+23:00PM to 06:30
+           (06:30AM to 07:00A
+7A1
+07:00AM to 19:00
+           (14:30PM to 19:00P
+7A2
+07:30AM to 19:00
+           (15:00PM to 19:00P
+7P1
+19:00PM to 06:30
+            (19:00PM to 23:00P
+            06:30AM to 07:00A
+Amended Copy
+ : 
+Amend
+Changes against last month  : 
+Changes
+Employee Name
+ : 
+EmpName
+Sample Duty Roster:
+Created By
+ : 
+SubmittedBy
+Created On
+ : 
+SubmittedDate
+HOS APPROVAL
+Name
+ : 
+HOSName
+Date
+ : 
+HOSDate
+Remark
+ : 
+HOSRemark

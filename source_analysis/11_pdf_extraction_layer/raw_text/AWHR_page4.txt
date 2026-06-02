@@ -1,0 +1,96 @@
+HR- Exec
+ : HR_1
+HR - Non Exec
+ : HR_2
+HR - Outsource
+ : HR_3
+HR
+ : HR
+INO
+ : INO
+OT Reason List
+ : OTReason
+Shift Time List
+ : ShiftList
+Employee No. List
+ : EmpNoList
+Employee Names List
+ : NamesList
+Date From List
+ : DateFList
+Date To List
+ : DateTList
+Month List
+ : MonthList
+Total Working Hours List
+ : TtlHrsList
+Day Types
+ : DayType
+OT Reason Code
+ : ReasonCodeList
+OT Reason Remarks
+ : ReasonRemList
+Working Day
+ : WorkDateList
+Working Day (Year)
+ : WorkDateYList
+Category Selection List
+ : Category
+Category Listings
+ : CatList
+Internal Auditors
+ : IA
+Access Period
+ : tempIA
+HR
+ : tempHR
+Servers
+ : Servers
+Readers
+ : Readers
+ : test
+Shift List :-
+Shift
+Hours
+SAFT2
+9
+SEC1
+1
+SEC2
+2
+SEC3
+3
+SEC4
+4
+SEC5
+5
+SM7A2
+13
+SM7A3
+14
+SMON2
+9
+SMON3
+10
+SN7P2
+13
+SNIG2
+9
+SNOM2
+9
+SOF10
+10
+SOF5
+11
+SOF6
+12
+SOF7
+13
+SOF8
+14
+SOF9
+15
+SOFH
+1
+N/A
+0

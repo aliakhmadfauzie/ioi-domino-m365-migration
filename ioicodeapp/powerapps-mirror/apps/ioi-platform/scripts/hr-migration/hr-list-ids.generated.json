@@ -1,0 +1,72 @@
+[
+  {
+    "name": "MainDB_HR_Ext_EEN",
+    "id": "13ea64b2-575c-42a4-ab50-14b78a5f2458",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_EPDU",
+    "id": "c4ba9c20-9cbf-438f-bc53-d667c45e52db",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_EPHR",
+    "id": "b81829dd-90ae-423b-af06-0df1e7236a22",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_ESF",
+    "id": "a3694789-9305-45ee-9266-b50d152b236b",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_FTCR",
+    "id": "551fc5a3-8a8d-48a5-8b63-d7fd6adcdc4b",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_FWWPE",
+    "id": "036f2b53-497f-49be-a260-0b59ed2dca3d",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_FWWPD",
+    "id": "b882590e-73f5-4d48-9b2f-6a8f1bac5e9b",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_GDSN",
+    "id": "f6f4e86f-1bed-4a8c-b63d-7118f68f89d4",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_HEALTHINFO",
+    "id": "37d6ea8c-b8cc-4b85-88f4-3904f220e1b7",
+    "itemCount": 0
+  },
+  {
+    "name": "MainDB_HR_Ext_HRAPR",
+    "id": "73e50516-bdd7-48fe-9649-9d57acd1106b",
+    "itemCount": 0
+  },
+  {
+    "name": "HR_FWWPD_HostelRecords",
+    "id": "ee584083-f49a-4fd8-98a1-796bc7887916",
+    "itemCount": 0
+  },
+  {
+    "name": "HR_FWWPD_InsuranceDeductions",
+    "id": "318e81e8-857e-4f21-b2dd-3926b80cdbae",
+    "itemCount": 0
+  },
+  {
+    "name": "HR_FWWPD_ComplianceAssets",
+    "id": "c2dc91b7-891e-4d44-9c64-bc1b07449577",
+    "itemCount": 0
+  },
+  {
+    "name": "HR_MigrationReminderLog",
+    "id": "0174fd8f-fc59-4355-bda6-ca5b4f4c609e",
+    "itemCount": 0
+  }
+]

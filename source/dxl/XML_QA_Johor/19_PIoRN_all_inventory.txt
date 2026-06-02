@@ -1,0 +1,68 @@
+DATABASE : PanCen - Issuance of Records Number
+PATH     : PanCen - Current\PIoRN.nsf
+DATE     : 29/05/2026 2:22:40 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  record
+  DisRecord
+  Reminder
+  recordV2
+  recordV3
+  Guidelines
+  DisRecord2
+  recordV4
+  recordV5
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  Clear LastEditedBy [ENABLED]
+  Refresh Docs [ENABLED]
+  DocAuthor [ENABLED]
+  Clear Attachment [ENABLED]
+  Company [ENABLED]
+  Archive Selected Records [ENABLED]
+  RemPdgQA [ENABLED]
+  RemPdgApp_NIU [DISABLED]
+  RemDate [ENABLED]
+  RemPdgApp [ENABLED]
+  RemPdgUpd [ENABLED]
+  SET [ENABLED]
+  INO [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Suba QA/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - ReportNo
+  - DateOFReminder
+  - CopyTo
+  - SendTo
+  - Title
+  - Subject
+

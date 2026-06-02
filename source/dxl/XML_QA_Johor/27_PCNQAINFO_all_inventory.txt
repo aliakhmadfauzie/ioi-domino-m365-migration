@@ -1,0 +1,55 @@
+DATABASE : PanCen - QA INFO CENTRE
+PATH     : PanCen - Current\PCNQAINFO.nsf
+DATE     : 29/05/2026 3:02:11 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  QAInfo
+  Reminder
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: HiddenField
+    - DefMail
+  SUBFORM: Signature
+    - archiveby
+    - archivedate
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  INO [ENABLED]
+  Refresh Docs [ENABLED]
+  ReminderQA [ENABLED]
+  Refresh Doc [ENABLED]
+  FedBy [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  Oleo Local & PanCen | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - ReminderDate
+  - DocAuthor
+  - NotifiedDate
+  - Topic
+  - SendTo
+

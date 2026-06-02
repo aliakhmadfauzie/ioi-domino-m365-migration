@@ -1,0 +1,1645 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='482585AF00262692' path='CN=PHBSVR/O=PHB!!Current\Internsummary.nsf'
+ title='Industrial Trainees(IOI Scholars) Summary' increasemaxfields='true'>
+<databaseinfo dbid='482585AF00262692' odsversion='55' diskspace='4718592'
+ percentused='97.4663628472222' numberofdocuments='29'><datamodified><datetime
+>20260524T025601,27+08</datetime></datamodified><designmodified><datetime
+>20260528T141102,03+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='FS'/></launchsettings>
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='122' unid='3EB62CA4F541E747482585A80005F101' sequence='45'>
+<created><datetime>20200717T090453,77+08</datetime></created>
+<modified><datetime>20220207T154311,99+08</datetime></modified>
+<revised><datetime>20220207T154311,98+08</datetime></revised>
+<lastaccessed><datetime>20220207T154311,98+08</datetime></lastaccessed>
+<addedtofile><datetime>20200724T145642,55+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Form="Intern" &amp; EmpStatus!="IN-ACTIVE"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='New' icon='2'><code event='click'><formula>@Command([Compose];"Intern")</formula></code></action>
+<action title='Import' icon='123' showinmenu='false' showinbar='false'><code
+ event='click'><lotusscript>Sub Click(Source As Button)
+	Dim session As New NotesSession
+	Dim uiws As New NotesUIWorkspace
+	Dim form As NotesForm
+	Dim db As NotesDatabase
+	Dim doc As NotesDocument
+	Dim item As NotesItem
+	Dim row As Integer
+	
+	Dim xlFilename As String 
+	Dim xlsApp As Variant 
+	Dim xlsWorkBook As Variant 
+	Dim xlsSheet As Variant 
+	Dim rows As Long 
+	Dim cols As Integer 
+	Dim x As Integer
+	Dim itemName As String
+	Dim flag As Integer
+	Dim formAlias As String
+	Dim sortEval As String
+	Dim sortedList As Variant
+	Dim indexLo As Long
+	Dim indexHi As Long
+	
+	On Error Goto ErrorHandler
+	
+	Set db = session.CurrentDatabase
+	
+	fn= uiws.Prompt(1, "Alert", "Make sure that the first row of your worksheet contains the EXACT Notes document field names from your form.")
+	
+'Get Excel file name 
+	fn =uiws.OpenFileDialog(False, "Select the Excel File to Import", "Excel files | *.xls", "c:My Documents")
+	xlFilename = Cstr(fn(0)) ' This is the name of the Excel file that will be imported
+	
+'Get list of form names
+	x=0
+	
+	Print "Preparing List of Database Forms ..."
+	
+	Forall f In db.Forms
+		Redim Preserve formlist(x)
+		formlist(x)=f.name
+		x=x+1 
+		Print "Preparing List of Database Forms ..."&amp; Cstr(x)
+	End Forall
+	
+'Choose the form to use for import
+	formname = uiws.Prompt(4, "Choose Import Form", "Please select which form is to be used for this input.", formlist(0), formlist)
+	If formname= "" Then End
+	
+'Get the form object so that we can check field names 
+	Set form= db.GetForm(formname)
+	
+'If the form has an alias, use it to select the form
+	If Not Isempty(form.Aliases) Then
+		Forall a In form.Aliases
+			formname=a
+		End Forall 'a In form.Aliases
+	End If 'Not Isempty(form.Aliases) 
+	
+'Next we connect to Excel and open the file. Then start pulling over the records.
+	Print "Connecting to Excel..."
+	
+' Create the excel object
+	Set xlsApp = CreateObject("Excel.Application") 
+	
+'Open the file
+	Print "Opening the file : " &amp; xlfilename
+	xlsApp.Workbooks.Open xlfilename
+	Set xlsWorkBook = xlsApp.ActiveWorkbook 
+	Set xlsSheet = xlsWorkBook.ActiveSheet 
+	xlsApp.Visible = False ' Do not show Excel To user
+	xlsSheet.Cells.SpecialCells(11).Activate
+	rows = xlsApp.ActiveWindow.ActiveCell.Row 
+' Number of rows to process
+	cols = xlsApp.ActiveWindow.ActiveCell.Column 
+' Number of columns to process
+	
+'Make sure we start at row 0 
+	row = 0 
+	Print "Starting import from Excel file..."
+	
+	Do While True
+		row = row + 1 
+		
+'Check to make sure we did not run out of rows
+		If row= rows+1 Then Goto Done
+		
+'field definitions for notes come from first row (row, column)
+		If row=1 Then
+			For i=1 To cols
+				Redim Preserve fd(i)
+				fd(i)=xlsSheet.Cells( row, i ).Value
+				flag=0
+				
+				Forall f In form.Fields
+					If Lcase(fd(i)) = Lcase(f) Then flag=1
+				End Forall 'f In form.Fields
+				
+				If flag=1 Then 
+					Goto Skip 
+				End If ' flag=1
+				
+				If Not flag=1 Then
+					msg="The field name "&amp; fd(i) &amp;" does not appear in the form you have chosen. Exiting import."
+					Msgbox msg
+					Goto ErrorHandler
+				End If 'flag=1
+				
+Skip:
+			Next 'For i=1 To cols
+		End If 'row=1
+		
+'Import each row into a new document
+		If Not row = 1 Then
+			
+'Create a new doc
+			Set doc = db.CreateDocument 
+			doc.Form = FormName
+			
+			For i= 1 To cols
+				Set item = doc.ReplaceItemValue( fd(i), xlsSheet.Cells( row, i ).Value )
+			Next ' i= 1 To cols
+			
+'Save the new doc
+			Call doc.Save( True, True ) 
+			
+		End If 'Not row = 1 Then
+		
+		Print "Processing document number "&amp; Cstr(row) &amp; " of " &amp; Cstr(rows) 
+		
+		Loop 'Do while true
+		
+Done:
+		
+		Print "Disconnecting from Excel..."
+'Close the Excel file without saving (we made no changes)
+		xlsWorkbook.Close False
+'Close Excel
+		xlsApp.Quit
+'Free the memory that we'd used
+		Set xlsApp = Nothing 
+		
+'Clear the status line
+		Print " " 
+		
+ErrorHandler:
+		If Err = 184 Then
+			Msgbox "No file chosen. Exiting Import."
+			Print "No file chosen. Exiting Import."
+			Resume ErrorOut
+		End If ' err=184
+		
+		If Err = 6 Then
+			Messagebox "Make sure that you do not have more than 65,536 rows of data to import." ,MB_OK+MB_ICONINFORMATION,"Error! "
+			Print "Too many rows in Excel document. Exiting Import. Disconnecting from Excel..."
+'Close the Excel file without saving (we made no changes)
+			xlsWorkbook.Close False
+'Close Excel
+			xlsApp.Quit
+'Free the memory that we'd used
+			Set xlsApp = Nothing 
+			Resume ErrorOut
+		End If ' err=184
+		
+		If (Err) And (Not Err = 184) And (Not Err = 6) Then
+			
+			Msgbox "Lotus Notes Error # " &amp; Err &amp;". Please contact your Notes administrator for help. Exiting Import."
+			Print "Error # "&amp; Err
+			
+			If Not xlsWorkbook Is Nothing Then
+				xlsWorkbook.Close False 
+			End If ' Not xlsWorkbook Is Nothing
+			
+			If Not xlsApp Is Nothing Then
+				xlsApp.Quit False 
+			End If 'Not xlsApp Is Nothing
+			
+			Resume ErrorOut
+			
+		End If '(Err) And (Not Err = 184) And (Not Err = 6) 
+		
+ErrorOut:
+End Sub</lotusscript></code><code event='hidewhen'><formula>@IsNotMember(@UserRoles;"[HR]")</formula></code></action>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='EmpStatus' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font size='14pt' color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Year' width='3.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Year'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Name' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Name'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='$28' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ align='center' title='Date Joined'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@If(DateJoin!="";@Date(DateJoin);"")</formula></code></column>
+<column hidedetailrows='false' itemname='JobPosting' width='22.3750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Job Posting'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='Company' width='10'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader align='center' title='Company'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Department' width='18.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CurrentPosition' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Current Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='HOD' width='21.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='HOD'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='EmpStatus' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Employement Status'><font size='9pt'
+ style='bold'/></columnheader></column></view>
+
+<form name='Intern' publicaccess='false' designerversion='8.5.3' default='true'
+ bgcolor='#e0f1ff' recalc='true' renderpassthrough='true'>
+<noteinfo noteid='14e' unid='69E5805AAD551317482585A80006036F' sequence='37'>
+<created><datetime>20200717T090540,95+08</datetime></created>
+<modified><datetime>20220209T102937,19+08</datetime></modified>
+<revised><datetime>20220209T102937,18+08</datetime></revised>
+<lastaccessed><datetime>20220209T102937,18+08</datetime></lastaccessed>
+<addedtofile><datetime>20200724T145642,66+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"ITS"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit Document' icon='5' systemcommand='edit'><code event='hidewhen'
+ enabled='false'><formula>status = "2"</formula></code></action>
+<action title='Save' icon='34' hide='preview read'><code event='click'><formula
+>@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run></par>
+<par def='1'><run><font size='24pt' style='bold shadow' name='Calibri' pitch='variable'
+ truetype='true' familyid='20' color='navy'/>INDUSTRIAL TRAINEES </run><run
+><font size='24pt' style='bold shadow' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='maroon'/>(IOI Scholars)</run><run><font size='24pt'
+ style='bold shadow' name='Calibri' pitch='variable' truetype='true' familyid='20'
+ color='navy'/> </run><run><font size='24pt' style='bold shadow' name='Calibri'
+ pitch='variable' truetype='true' familyid='20' color='navy'/>SUMMARY</run></par>
+<par def='1'><run><font style='bold' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run></par>
+<pardef id='2' leftmargin='0.7500in' hide='read edit print preview previewedit'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='YEAR_AWARD'><sectiontitle
+ pardef='2' color='teal'><font size='12pt' color='navy' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><text/></sectiontitle><code event='defaultvalue'><formula
+>DocAuthor:"[HR]"</formula></code><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='16' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'><run><font size='1pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run></par>
+<table widthtype='fitmargins' refwidth='12.8125in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='4' spaceafter='1.5' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>YEAR AWARD</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='5' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Year'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>NAME</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Name'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>CONTACT NO. (H/P)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Contact'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>UNIVERSITY/ COLLEGE</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='University'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>COURSE TITLE</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Course'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>COURSE DURATION</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Duration'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>TRAINING START</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='TrainingStart'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>TRAINING END</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='TrainingEnd'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>BOND PERIOD (YRS)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Bond'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='6' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>DATE JOINED</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='7' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1.2000in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='DateJoin'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='8' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>JOB POSTING (IOI HQ DETAILS)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='9' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='JobPosting'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>COMPANY</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Company'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>DEPARTMENT / SECTION</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Department'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>CURRENT POSITION</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='CurrentPosition'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>HOD &amp; POSITION</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='HOD'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>EMPLOYMENT STATUS</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='EmpStatus'><keywords
+ helperbutton='false' columns='1' ui='radiobutton'><textlist><text>ACTIVE</text><text
+>STILL STUDYING</text><text>IN-ACTIVE</text></textlist></keywords></field></run><run
+><font size='12pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='10' spaceafter='1.5' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula>EmpStatus!="STILL STUDYING"</formula></code></pardef>
+<par def='10'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>EXPECTED DATE OF JOINING</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='11' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>EmpStatus!="STILL STUDYING"</formula></code></pardef>
+<par def='11'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1.2000in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='ExpDateJoin'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='12' spaceafter='1.5' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula>EmpStatus!="ACTIVE"</formula></code></pardef>
+<par def='12'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>LAST DAY OF SERVICE</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='13' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>EmpStatus!="ACTIVE"</formula></code></pardef>
+<par def='13'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1.2000in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='LastDay'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='14' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>EmpStatus="ACTIVE"</formula></code></pardef>
+<par def='14'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>REMARKS / ATTACHMENT</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='15' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>EmpStatus="ACTIVE"</formula></code></pardef>
+<par def='15'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='richtext' kind='editable' name='Attachment'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='16' leftmargin='1in' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<par def='16'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20' color='navy'/></run></par></section>
+<pardef id='17' leftmargin='1in' spaceafter='1.5'/><subformref name='Signature'/>
+<par def='17'><run><font size='8pt' style='italic' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></run></par>
+<pardef id='18' leftmargin='1in' spaceafter='1.5'><code event='hidewhen'><formula
+>@IsNotMember(@UserRoles;"[HR]")</formula></code></pardef>
+<par def='18'><run><font size='8pt' style='italic' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></run><run><font size='8pt' style='bold italic'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Status'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Archive</text></textlist></keywords></field></run><run><font size='8pt'
+ style='italic' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></richtext></body>
+<item name='arcdt' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><text>0000000000000000</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Intern</text></item>
+<item name='CDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<view name='Inactive' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='16a' unid='F21699A9EE5E5430482585A8001617E6' sequence='12'>
+<created><datetime>20200717T120119,10+08</datetime></created>
+<modified><datetime>20220207T113000,61+08</datetime></modified>
+<revised><datetime>20220207T113000,60+08</datetime></revised>
+<lastaccessed><datetime>20220207T113000,60+08</datetime></lastaccessed>
+<addedtofile><datetime>20200724T145642,72+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT EmpStatus="IN-ACTIVE"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='EmpStatus' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font size='14pt' color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Year' width='3.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Year'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Name' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Name'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='$28' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ align='center' title='Date Joined'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@If(DateJoin!="";@Date(DateJoin);"")</formula></code></column>
+<column hidedetailrows='false' itemname='JobPosting' width='22.3750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Job Posting'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='Company' width='10'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader align='center' title='Company'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Department' width='18.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CurrentPosition' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Current Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='HOD' width='21.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='HOD'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='EmpStatus' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Employement Status'><font size='9pt'
+ style='bold'/></columnheader></column></view>
+
+<form name='Intern_BAK' publicaccess='false' designerversion='8.5.3' bgcolor='#e0f1ff'
+ recalc='true' renderpassthrough='true'>
+<noteinfo noteid='1e6' unid='E63123B9E6779A25482587D700139F2B' sequence='2'>
+<created><datetime>20220127T113419,31+08</datetime></created>
+<modified><datetime>20220127T113427,65+08</datetime></modified>
+<revised><datetime>20220127T113427,64+08</datetime></revised>
+<lastaccessed><datetime>20220127T113427,64+08</datetime></lastaccessed>
+<addedtofile><datetime>20220127T113419,31+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"ITS"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit Document' icon='5' systemcommand='edit'><code event='hidewhen'
+ enabled='false'><formula>status = "2"</formula></code></action>
+<action title='Save' icon='34' hide='preview read'><code event='click'><formula
+>@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run></par>
+<par def='1'><run><font size='24pt' style='bold shadow' name='Calibri' pitch='variable'
+ truetype='true' familyid='20' color='navy'/>INDUSTRIAL TRAINEES SUMMARY</run></par>
+<par def='1'><run><font style='bold' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run></par>
+<pardef id='2' leftmargin='0.7500in' hide='read edit print preview previewedit'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='YEAR_AWARD'><sectiontitle
+ pardef='2' color='teal'><font size='12pt' color='navy' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><text/></sectiontitle><code event='defaultvalue'><formula
+>DocAuthor:"[HR]"</formula></code><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='16' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'><run><font size='1pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run></par>
+<table widthtype='fitmargins' refwidth='9.6875in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='4' spaceafter='1.5' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>YEAR AWARD</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='5' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Year'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>NAME</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Name'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>HOME ADDRESS</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Address'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>EMAIL</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Email'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>CONTACT NO. (H/P)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Contact'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>UNIVERSITY/ COLLEGE</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='University'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>COURSE TITLE</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Course'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>AWARD TYPE</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Award'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>BOND PERIOD (YRS)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Bond'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>TRAINING START</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='TrainingStart'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>TRAINING END</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='TrainingEnd'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>COMPANY</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Company'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>DEPARTMENT /SECTION</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Department'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>HOD</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='HOD'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>CURRENT STAGE OF STUDY</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='CurrentStageOfStudy'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>DATE OF WITHDRAWAL</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='WithdrawalDate'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>REASON FOR LEAVING</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Reason'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>REMARKS</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Remarks'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='6' leftmargin='1in' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<par def='6'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20' color='navy'/></run><run><font size='12pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20' color='navy'/></run></par></section>
+<pardef id='7' leftmargin='1in' spaceafter='1.5'/><subformref name='Signature'/>
+<par def='7'><run><font size='8pt' style='italic' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></run></par>
+<pardef id='8' leftmargin='1in' spaceafter='1.5'><code event='hidewhen'><formula
+>@IsNotMember(@UserRoles;"[HR]")</formula></code></pardef>
+<par def='8'><run><font size='8pt' style='italic' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></run><run><font size='8pt' style='bold italic'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Status'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Archive</text></textlist></keywords></field></run><run><font size='8pt'
+ style='italic' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></richtext></body>
+<item name='$SubForm_RepIDs' sign='true'><text>0000000000000000</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Intern</text></item>
+<item name='CDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='arcdt' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<agent name='Refresh Docs' hide='v3' publicaccess='false' designerversion='8.5'
+ private='true'>
+<noteinfo noteid='1f2' unid='1236947A76C5D614482587E200074C6F' sequence='1'>
+<created><datetime>20220207T091943,19+08</datetime></created>
+<modified><datetime>20220207T091944,52+08</datetime></modified>
+<revised><datetime>20220207T091944,51+08</datetime></revised>
+<lastaccessed><datetime>20220207T091944,51+08</datetime></lastaccessed>
+<addedtofile><datetime>20220207T091944,51+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20130119T112055,68+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='runonce'/><code event='action'>
+<simpleaction action='runformula'><formula>@Command([ToolsRefreshSelectedDocs] );
+ @All;SELECT
+ @All</formula></simpleaction></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20220207T091944,52+08</datetime></agentmodified>
+<agentrun><datetime>20220207T161335,47+08</datetime></agentrun>
+<runlog>Started running agent 'Refresh Docs' on 07/02/2022 04:13:31 PM
+1 document(s) were modified by formula
+Done running agent 'Refresh Docs' on 07/02/2022 04:13:35 PM
+</runlog></rundata></agent>
+
+<agent name='SET' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='1fa' unid='D19A4BA5392B5892482587E200076F1E' sequence='3'>
+<created><datetime>20220207T092111,98+08</datetime></created>
+<modified><datetime>20220207T161206,12+08</datetime></modified>
+<revised><datetime>20220207T161206,11+08</datetime></revised>
+<lastaccessed><datetime>20220207T161206,11+08</datetime></lastaccessed>
+<addedtofile><datetime>20220207T092114,22+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20220207T161206,20+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='DocAuthor' value='CN=Irin Decruz/OU=PMS/O=PHB'/></code>
+<rundata processeddocs='23' exitcode='0'>
+<agentmodified><datetime>20220207T161206,12+08</datetime></agentmodified>
+<agentrun><datetime>20220207T161303,91+08</datetime></agentrun>
+<runlog>Started running agent 'SET' on 07/02/2022 04:13:03 PM
+Running on selected documents: 23 total
+Found 23 document(s) that match search criteria
+Modified field in 23 document(s)
+Done running agent 'SET' on 07/02/2022 04:13:03 PM
+</runlog></rundata></agent>
+
+<view name='Guideline' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='212' unid='28604C6523CDC26C482587E2001A51AE' sequence='8'>
+<created><datetime>20220207T124728,46+08</datetime></created>
+<modified><datetime>20220207T125932,83+08</datetime></modified>
+<revised><datetime>20220207T125932,82+08</datetime></revised>
+<lastaccessed><datetime>20220207T125932,82+08</datetime></lastaccessed>
+<addedtofile><datetime>20220207T124728,46+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Form="Workforce Planning"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/></actionbar>
+<column hidedetailrows='false' itemname='FORM' width='21.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><font
+ color='white' style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='All' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='222' unid='153DC9B80709D21E482587E2002D125F' sequence='4'>
+<created><datetime>20220207T161218,23+08</datetime></created>
+<modified><datetime>20220207T161234,67+08</datetime></modified>
+<revised><datetime>20220207T161234,66+08</datetime></revised>
+<lastaccessed><datetime>20220207T161236,63+08</datetime></lastaccessed>
+<addedtofile><datetime>20220207T161218,23+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='New' icon='2'><code event='click'><formula>@Command([Compose];"Intern")</formula></code></action>
+<action title='Import' icon='123' showinmenu='false' showinbar='false'><code
+ event='click'><lotusscript>Sub Click(Source As Button)
+	Dim session As New NotesSession
+	Dim uiws As New NotesUIWorkspace
+	Dim form As NotesForm
+	Dim db As NotesDatabase
+	Dim doc As NotesDocument
+	Dim item As NotesItem
+	Dim row As Integer
+	
+	Dim xlFilename As String 
+	Dim xlsApp As Variant 
+	Dim xlsWorkBook As Variant 
+	Dim xlsSheet As Variant 
+	Dim rows As Long 
+	Dim cols As Integer 
+	Dim x As Integer
+	Dim itemName As String
+	Dim flag As Integer
+	Dim formAlias As String
+	Dim sortEval As String
+	Dim sortedList As Variant
+	Dim indexLo As Long
+	Dim indexHi As Long
+	
+	On Error Goto ErrorHandler
+	
+	Set db = session.CurrentDatabase
+	
+	fn= uiws.Prompt(1, "Alert", "Make sure that the first row of your worksheet contains the EXACT Notes document field names from your form.")
+	
+'Get Excel file name 
+	fn =uiws.OpenFileDialog(False, "Select the Excel File to Import", "Excel files | *.xls", "c:My Documents")
+	xlFilename = Cstr(fn(0)) ' This is the name of the Excel file that will be imported
+	
+'Get list of form names
+	x=0
+	
+	Print "Preparing List of Database Forms ..."
+	
+	Forall f In db.Forms
+		Redim Preserve formlist(x)
+		formlist(x)=f.name
+		x=x+1 
+		Print "Preparing List of Database Forms ..."&amp; Cstr(x)
+	End Forall
+	
+'Choose the form to use for import
+	formname = uiws.Prompt(4, "Choose Import Form", "Please select which form is to be used for this input.", formlist(0), formlist)
+	If formname= "" Then End
+	
+'Get the form object so that we can check field names 
+	Set form= db.GetForm(formname)
+	
+'If the form has an alias, use it to select the form
+	If Not Isempty(form.Aliases) Then
+		Forall a In form.Aliases
+			formname=a
+		End Forall 'a In form.Aliases
+	End If 'Not Isempty(form.Aliases) 
+	
+'Next we connect to Excel and open the file. Then start pulling over the records.
+	Print "Connecting to Excel..."
+	
+' Create the excel object
+	Set xlsApp = CreateObject("Excel.Application") 
+	
+'Open the file
+	Print "Opening the file : " &amp; xlfilename
+	xlsApp.Workbooks.Open xlfilename
+	Set xlsWorkBook = xlsApp.ActiveWorkbook 
+	Set xlsSheet = xlsWorkBook.ActiveSheet 
+	xlsApp.Visible = False ' Do not show Excel To user
+	xlsSheet.Cells.SpecialCells(11).Activate
+	rows = xlsApp.ActiveWindow.ActiveCell.Row 
+' Number of rows to process
+	cols = xlsApp.ActiveWindow.ActiveCell.Column 
+' Number of columns to process
+	
+'Make sure we start at row 0 
+	row = 0 
+	Print "Starting import from Excel file..."
+	
+	Do While True
+		row = row + 1 
+		
+'Check to make sure we did not run out of rows
+		If row= rows+1 Then Goto Done
+		
+'field definitions for notes come from first row (row, column)
+		If row=1 Then
+			For i=1 To cols
+				Redim Preserve fd(i)
+				fd(i)=xlsSheet.Cells( row, i ).Value
+				flag=0
+				
+				Forall f In form.Fields
+					If Lcase(fd(i)) = Lcase(f) Then flag=1
+				End Forall 'f In form.Fields
+				
+				If flag=1 Then 
+					Goto Skip 
+				End If ' flag=1
+				
+				If Not flag=1 Then
+					msg="The field name "&amp; fd(i) &amp;" does not appear in the form you have chosen. Exiting import."
+					Msgbox msg
+					Goto ErrorHandler
+				End If 'flag=1
+				
+Skip:
+			Next 'For i=1 To cols
+		End If 'row=1
+		
+'Import each row into a new document
+		If Not row = 1 Then
+			
+'Create a new doc
+			Set doc = db.CreateDocument 
+			doc.Form = FormName
+			
+			For i= 1 To cols
+				Set item = doc.ReplaceItemValue( fd(i), xlsSheet.Cells( row, i ).Value )
+			Next ' i= 1 To cols
+			
+'Save the new doc
+			Call doc.Save( True, True ) 
+			
+		End If 'Not row = 1 Then
+		
+		Print "Processing document number "&amp; Cstr(row) &amp; " of " &amp; Cstr(rows) 
+		
+		Loop 'Do while true
+		
+Done:
+		
+		Print "Disconnecting from Excel..."
+'Close the Excel file without saving (we made no changes)
+		xlsWorkbook.Close False
+'Close Excel
+		xlsApp.Quit
+'Free the memory that we'd used
+		Set xlsApp = Nothing 
+		
+'Clear the status line
+		Print " " 
+		
+ErrorHandler:
+		If Err = 184 Then
+			Msgbox "No file chosen. Exiting Import."
+			Print "No file chosen. Exiting Import."
+			Resume ErrorOut
+		End If ' err=184
+		
+		If Err = 6 Then
+			Messagebox "Make sure that you do not have more than 65,536 rows of data to import." ,MB_OK+MB_ICONINFORMATION,"Error! "
+			Print "Too many rows in Excel document. Exiting Import. Disconnecting from Excel..."
+'Close the Excel file without saving (we made no changes)
+			xlsWorkbook.Close False
+'Close Excel
+			xlsApp.Quit
+'Free the memory that we'd used
+			Set xlsApp = Nothing 
+			Resume ErrorOut
+		End If ' err=184
+		
+		If (Err) And (Not Err = 184) And (Not Err = 6) Then
+			
+			Msgbox "Lotus Notes Error # " &amp; Err &amp;". Please contact your Notes administrator for help. Exiting Import."
+			Print "Error # "&amp; Err
+			
+			If Not xlsWorkbook Is Nothing Then
+				xlsWorkbook.Close False 
+			End If ' Not xlsWorkbook Is Nothing
+			
+			If Not xlsApp Is Nothing Then
+				xlsApp.Quit False 
+			End If 'Not xlsApp Is Nothing
+			
+			Resume ErrorOut
+			
+		End If '(Err) And (Not Err = 184) And (Not Err = 6) 
+		
+ErrorOut:
+End Sub</lotusscript></code><code event='hidewhen'><formula>@IsNotMember(@UserRoles;"[HR]")</formula></code></action>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='EmpStatus' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font size='14pt' color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Year' width='3.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Year'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Name' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Name'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='$28' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ align='center' title='Date Joined'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@If(DateJoin!="";@Date(DateJoin);"")</formula></code></column>
+<column hidedetailrows='false' itemname='JobPosting' width='22.3750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Job Posting'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='Company' width='10'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader align='center' title='Company'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Department' width='18.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CurrentPosition' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Current Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='HOD' width='21.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='HOD'><font size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='EmpStatus' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Employement Status'><font size='9pt'
+ style='bold'/></columnheader></column></view>
+
+<form name='WkPLForm' publicaccess='false' designerversion='8.5.3' renderpassthrough='true'>
+<noteinfo noteid='28a' unid='FBC6455519496CAB4825897C0004C5A2' sequence='11'>
+<created><datetime>20230324T085207,38+08</datetime></created>
+<modified><datetime>20250521T113519,07+08</datetime></modified>
+<revised><datetime>20250521T113519,06+08</datetime></revised>
+<lastaccessed><datetime>20250521T113519,06+08</datetime></lastaccessed>
+<addedtofile><datetime>20230324T085207,68+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"Workforce Planning Form"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit Document' icon='5' systemcommand='edit'><code event='hidewhen'
+ enabled='false'><formula>status = "2"</formula></code></action>
+<action title='Save' icon='34' hide='preview read'><code event='click'><formula
+>@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'><run><font size='24pt' style='bold underline' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/>Workforce Planning Form</run></par>
+<pardef id='2' leftmargin='0.7500in' hide='read edit print copy preview previewedit embedded'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Untitled_Section'><sectiontitle
+ pardef='2' color='teal'><font size='24pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><text/></sectiontitle><code event='defaultvalue'><formula
+>"[HRPIC]"</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='13' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'><run><font size='14pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='14pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='richtext' kind='editable' name='Att'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='14pt'
+ style='bold shadow' name='Calibri' pitch='variable' truetype='true' familyid='20'
+ color='white'/></run></par>
+<pardef id='3' leftmargin='1in'/>
+<par def='3'><run><font size='14pt' style='bold shadow' name='Calibri' pitch='variable'
+ truetype='true' familyid='20' color='white'/></run></par>
+<par def='3'><run><font size='24pt'/></run><run><font size='24pt'/></run></par></section>
+<par def='3'><run><font size='24pt'/></run></par></richtext></body>
+<item name='$$ScriptName' summary='false' sign='true'><text>WkPLForm</text></item></form>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='4ee' unid='44435D27AC7861C448258E050021E718' sequence='3'>
+<created><datetime>20260528T141018,48+08</datetime></created>
+<modified><datetime>20260528T141053,47+08</datetime></modified>
+<revised><datetime>20260528T141053,46+08</datetime></revised>
+<lastaccessed><datetime>20260528T141053,46+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T141018,51+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T141054,88+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(0) As String
+    sfNames(0) = "Signature"
+	'sfNames(1) = "HiddenFields"
+	'sfNames(2) = "HRUse"
+    
+    For i = 0 To 0
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\INTERN_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\INTERN_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T141054,73+08</datetime></agentmodified></rundata></agent>
+</database>
+

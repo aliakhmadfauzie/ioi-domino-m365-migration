@@ -1,0 +1,346 @@
+{
+  "formCode": "ITDR2",
+  "title": "ITDR2",
+  "description": "",
+  "routeBase": "/it/forms/itdr2",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "ITDR2_S2",
+      "sectionName": "Section 1: Task Details",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "TASK_Year",
+          "label": "Year",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Year of report (e.g. 2026)"
+        },
+        {
+          "fieldId": "TASK_Month",
+          "label": "Month",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Month of report"
+        },
+        {
+          "fieldId": "TASK_Title",
+          "label": "Title",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Report/task set title"
+        },
+        {
+          "fieldId": "TASK_No",
+          "label": "Task No (Row 1)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Task number — row 1"
+        },
+        {
+          "fieldId": "TASK_Task",
+          "label": "Task (Row 1)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "Task name — row 1"
+        },
+        {
+          "fieldId": "TASK_Desc",
+          "label": "Description (Row 1)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Task description — row 1"
+        },
+        {
+          "fieldId": "TASK_No_1",
+          "label": "Task No (Row 2)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Task number — row 2"
+        },
+        {
+          "fieldId": "TASK_Task_1",
+          "label": "Task (Row 2)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "Task name — row 2"
+        },
+        {
+          "fieldId": "TASK_Desc_1",
+          "label": "Description (Row 2)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 9,
+          "notes": "Task description — row 2"
+        },
+        {
+          "fieldId": "TASK_No_2",
+          "label": "Task No (Row 3)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 10,
+          "notes": "Row 3"
+        },
+        {
+          "fieldId": "TASK_Task_2",
+          "label": "Task (Row 3)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 11
+        },
+        {
+          "fieldId": "TASK_Desc_2",
+          "label": "Description (Row 3)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 12
+        },
+        {
+          "fieldId": "TASK_No_3",
+          "label": "Task No (Row 4)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 13,
+          "notes": "Row 4"
+        },
+        {
+          "fieldId": "TASK_Task_3",
+          "label": "Task (Row 4)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 14
+        },
+        {
+          "fieldId": "TASK_Desc_3",
+          "label": "Description (Row 4)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 15
+        },
+        {
+          "fieldId": "TASK_No_4",
+          "label": "Task No (Row 5)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 16,
+          "notes": "Row 5"
+        },
+        {
+          "fieldId": "TASK_Task_4",
+          "label": "Task (Row 5)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 17
+        },
+        {
+          "fieldId": "TASK_Desc_4",
+          "label": "Description (Row 5)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 18
+        },
+        {
+          "fieldId": "TASK_No_5",
+          "label": "Task No (Row 6)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 19,
+          "notes": "Row 6"
+        },
+        {
+          "fieldId": "TASK_Task_5",
+          "label": "Task (Row 6)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 20
+        },
+        {
+          "fieldId": "TASK_Desc_5",
+          "label": "Description (Row 6)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 21
+        },
+        {
+          "fieldId": "TASK_No_6",
+          "label": "Task No (Row 7)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 22,
+          "notes": "Row 7"
+        },
+        {
+          "fieldId": "TASK_Task_6",
+          "label": "Task (Row 7)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 23
+        },
+        {
+          "fieldId": "TASK_Desc_6",
+          "label": "Description (Row 7)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 24
+        },
+        {
+          "fieldId": "TASK_No_7",
+          "label": "Task No (Row 8)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 25,
+          "notes": "Row 8"
+        },
+        {
+          "fieldId": "TASK_Task_7",
+          "label": "Task (Row 8)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 26
+        },
+        {
+          "fieldId": "TASK_Desc_7",
+          "label": "Description (Row 8)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 27
+        },
+        {
+          "fieldId": "TASK_No_8",
+          "label": "Task No (Row 9)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 28,
+          "notes": "Row 9"
+        },
+        {
+          "fieldId": "TASK_Task_8",
+          "label": "Task (Row 9)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 29
+        },
+        {
+          "fieldId": "TASK_Desc_8",
+          "label": "Description (Row 9)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 30
+        },
+        {
+          "fieldId": "TASK_No_9",
+          "label": "Task No (Row 10)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 31,
+          "notes": "Row 10"
+        },
+        {
+          "fieldId": "TASK_Task_9",
+          "label": "Task (Row 10)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 32
+        },
+        {
+          "fieldId": "TASK_Desc_9",
+          "label": "Description (Row 10)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 33
+        },
+        {
+          "fieldId": "TASK_No_10",
+          "label": "Task No (Row 11)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 34,
+          "notes": "Row 11"
+        },
+        {
+          "fieldId": "TASK_Task_10",
+          "label": "Task (Row 11)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 35
+        },
+        {
+          "fieldId": "TASK_Desc_10",
+          "label": "Description (Row 11)",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 36
+        },
+        {
+          "fieldId": "TASK_Attachment",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 37,
+          "notes": "Supporting files"
+        }
+      ]
+    },
+    {
+      "sectionId": "ITDR2_S3",
+      "sectionName": "Section 2: Document History",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "AUD_DocAuthor",
+          "label": "Document Author",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_CDate",
+          "label": "Created Date",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "System-populated creation timestamp"
+        }
+      ]
+    },
+    {
+      "sectionId": "ITDR2_S7",
+      "sectionName": "Month/Year Filter:",
+      "displayOrder": 7,
+      "fields": [
+        {
+          "fieldId": "TASK_Year",
+          "label": "TASK_Year",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1
+        },
+        {
+          "fieldId": "TASK_Month",
+          "label": "TASK_Month",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "TASK_Title",
+          "label": "TASK_Title",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3
+        }
+      ]
+    }
+  ]
+}

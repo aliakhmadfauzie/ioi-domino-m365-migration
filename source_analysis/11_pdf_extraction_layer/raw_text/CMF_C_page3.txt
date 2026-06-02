@@ -1,0 +1,51 @@
+48
+C_48
+S_48
+A_48
+H_48
+N_48
+F_48
+M_48
+49
+C_49
+S_49
+A_49
+H_49
+N_49
+F_49
+M_4
+50
+C_50
+S_50
+A_50
+H_50
+N_50
+F_50
+M_5
+Attachment : Attachment
+Notes:
+1_Active   : Purchasing more than once a year; 
+    Inactive : Purchasing less than once a year.
+2_Late payment: Overdue more than 90 days.
+Verified & Endorsed by Marketing Manager
+Approve Deny
+Name
+ : MKTName
+Date
+ : MKTDate
+Position
+ : MKTPost
+Remark
+ : MKTRem
+App1
+Approved by 
+SectionTitle
+Approve Deny
+Name
+ : GMName
+Date
+ : GMDate
+Remark
+ : GMRem
+App1_1
+Finance Review

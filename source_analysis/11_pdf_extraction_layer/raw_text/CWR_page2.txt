@@ -1,0 +1,48 @@
+Effective Date : 
+EﬀDate
+Justification : Justiﬁcation
+Plant Shutdown Contract Workers (Requirement Details)
+Site : Site2
+No. of Workers required : 
+NoWorkers2
+Section : 
+Workstation2
+Job Description : JD2
+Period Required
+tPeriod_1
+ to 
+fPeriod_1
+ - TotalDays_1 days
+1.
+tPeriod_2
+ to 
+fPeriod_2
+ - TotalDays_2 days
+2.
+tPeriod_3
+ to 
+fPeriod_3
+ - TotalDays_3 days
+3.
+Requested by
+ : 
+DocAuthor
+Designation
+ : 
+Designation
+Date
+ : 
+DateIssued
+Note : To issue form to HR minimum 2 months in advance!
+Endorsed by HOD
+Approved Rejected
+HODApp
+Name
+ : 
+HODName
+Date
+ : 
+HODDate
+Remark
+ : HODRemark
+Approved by Division Head

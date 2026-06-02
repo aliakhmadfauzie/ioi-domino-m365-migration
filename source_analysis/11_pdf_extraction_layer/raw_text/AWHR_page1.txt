@@ -1,0 +1,87 @@
+Rest Day & Additional 
+Working Hours Requisition
+Submission will be within 5 working days after the attendance cut off  @22
+nd 
+of the current month. 
+It is the responsibilities of the Department/Section to fill the database 
+whenever employee full fill the category code.
+If there is no submission HR PIC will issue OFI/ICAR. 
+Issue No : IssueNo
+Requestor Section
+Company
+ : Company
+EXCEEDED CATEGORY CODE
+EXCEEDED CATEGORY CODE
+.E1. Exceeding 12 hours/day
+.E2. Working on Rest Day
+.E3. Exceeding 60 hours/week
+.E4. Exceeding 104 hours/month
+Category
+ : EmpCategory
+Section
+ : Section
+Department
+ : Department
+Section Head
+ : HOS
+Department Head
+ : HOD
+CC
+ : CC
+Remarks/Attachment
+ : Attachment
+ROSTERED SHIFT
+Shift ID     Shift Details
+SAFT2
+     : AFTERNOON (1500-2230)
+SEC1
+     : SECURITY MORNING (0730-15
+SEC2
+     : SECURITY AFTERNOON (1530
+SEC3
+     : SECURITY NIGHT (2330-0700)
+SEC4
+     : SECURITY 7A (0730-1500/1930
+SEC5
+     : SECURITY 7P (1930/2330-0700
+SM7A2      : 7A (0700-1430/1900)
+SM7A3      : 7A (0730-1500/1900)
+SMON2      : MORNING (0700-1430)
+SMON3      : MORNING (0730-1500)
+SN7P2      : 7P (1900/2300-0630/0700)
+SNIG2
+     : NIGHT (2300-0630)
+SNOM2      : NORMAL (0830-1700) ALT OFF
+SOF10      : OFFICE FX (0900-1800) ALT O
+SOF5
+     : OFFICE FX (0800-1715)
+SOF6
+     : OFFICE FX (0830-1745)
+SOF7
+     : OFFICE FX (0900-1815)
+SOF8
+     : OFFICE FX (0800-1700) ALT O
+SOF9
+     : OFFICE FX (0830-1730) ALT O
+SOFH
+     : OFFICE (0830-1300) ALT OFF
+* Mandatory
+N
+o.
+Emp No.
+Full Name
+Exceed
+ed 
+Categor
+y
+Date From
+Date To
+Day 
+Type
+Rostere
+d Shift
+Add 
+Hours 
+from shift
+Total 
+Hours

@@ -1,0 +1,35 @@
+Approve Deny
+Name
+ : FMName
+Date
+ : FMDate
+Conversion Rate
+ : CRate
+Remark
+ : FMRem
+Attachment
+ : FMAtt
+App2
+Approved by 
+SectionTitle_1_1
+Approve Deny
+Name
+ : EDName
+Date
+ : EDDate
+Remark
+ : EDRem
+App3
+To be Acknowledged by Finance
+Approve Deny
+Name
+ : FMName2
+Date
+ : FMDate2
+Remark
+ : FMRem2
+Attachment
+ : FMAtt2
+App6
+Created by  DocAuthor
+  on CDate  

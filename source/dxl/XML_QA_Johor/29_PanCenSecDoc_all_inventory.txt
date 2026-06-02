@@ -1,0 +1,85 @@
+DATABASE : PanCen - Secondary Document
+PATH     : PanCen - IMS\PanCenSecDoc.nsf
+DATE     : 29/05/2026 3:37:00 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  New secdocument
+  NewDoc
+  NewDoc2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: hiddenfields
+    - IT
+    - QA
+    - QAAdmin
+    - AEditor1
+    - CurrentAction
+  SUBFORM: recordofreview
+    - date15
+    - name15
+    - date14
+    - name14
+    - date13
+    - name13
+    - date12
+    - name12
+    - date11
+    - name11
+    - date10
+    - name10
+    - date9
+    - name9
+    - date8
+    - name8
+    - date7
+    - name7
+    - date6
+    - name6
+    - date5
+    - name5
+    - date4
+    - name4
+    - date3
+    - name3
+    - date2
+    - name2
+    - date1
+    - name1
+    - REVIEW
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  Refresh Docs [ENABLED]
+  DocAuthor [ENABLED]
+  Change Form [ENABLED]
+  Archive Selected Items [ENABLED]
+  KeepPrivate [ENABLED]
+  Clear [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PCNSVR/O=PHB | Manager | Server
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

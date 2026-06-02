@@ -1,0 +1,73 @@
+{
+  "_description": "Centralized IOI environment configuration — COPY to environment-config.json and fill in your values",
+  "_instructions": "This file is for reference. The .ps1 version is the source of truth for PowerShell scripts.",
+
+  "azureAd": {
+    "tenantId": "",
+    "pnPClientId": "",
+    "pnPClientSecret": ""
+  },
+
+  "powerPlatform": {
+    "environmentId": "3ab52b84-ef8c-ef0d-8117-ae5b0ae39504",
+    "appId": "26fddd33-46a8-43ae-a1f2-e90fa3b003bf",
+    "pacAuthIndex": 2
+  },
+
+  "sharePoint": {
+    "sites": {
+      "itPortal": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+      "hrPortal": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+      "strPortal": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+      "qaPortal": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+      "finPortal": "https://ioioi.sharepoint.com/sites/ioi-portal-fin",
+      "prdPortal": "https://ioioi.sharepoint.com/sites/ioi-portal-prd",
+      "shePortal": "https://ioioi.sharepoint.com/sites/ioi-portal-she",
+      "adminSites": "https://ioioi.sharepoint.com/sites/IOI-App_Admin_Sites",
+      "legacyIT": "https://ioioi.sharepoint.com/sites/MainDB_IT"
+    },
+    "lists": {
+      "mainITPrai": "MainDB_IT",
+      "mainITJohor": "MainDB_IT_JHR",
+      "extAccess": "MainDB_IT_Ext_Access",
+      "extAssets": "MainDB_IT_Ext_Assets",
+      "extSupport": "MainDB_IT_Ext_Support",
+      "extSAP": "MainDB_IT_Ext_SAP",
+      "extDocs": "MainDB_IT_Ext_Docs",
+      "extInfra": "MainDB_IT_Ext_Infra",
+      "extPolicy": "MainDB_IT_Ext_Policy",
+      "mainHR": "MainDB_HR",
+      "mainFIN": "MainDB_FIN",
+      "mainPRD": "MainDB_PRD",
+      "mainQA": "MainDB_QA",
+      "mainSHE": "MainDB_SHE",
+      "mainSTR": "MainDB_STR"
+    },
+    "dataSourceGuids": {
+      "maindb_it": "b1de9795-563e-48c3-99a3-1430234dc6e2",
+      "maindb_it_jhr": "665f39e8-1006-48a6-a57d-015867b6f360",
+      "maindb_it_ext_access": "c6bd4df6-b45f-436b-b8d3-0e38dc6049e3",
+      "maindb_it_ext_assets": "be6bfd37-3fc4-4ec5-8791-ac5890d0bf3d",
+      "maindb_it_ext_support": "37a03d3f-7403-4302-97fc-0d816de938ba",
+      "maindb_it_ext_sap": "b5b40011-cd99-46f9-91c0-bf8d3a7646de",
+      "maindb_it_ext_policy": "bdf68983-9e28-439f-84c7-2c1d52850f6b",
+      "maindb_it_ext_docs": "802d2695-ef58-4dd3-ae8d-e693190a6d6d",
+      "maindb_it_ext_infra": "853be955-c0ee-4d76-a23d-47db192f1b21",
+      "maindb_it_attachments": "4f831663-1e5f-411f-9044-f50330793452",
+      "maindb_it_cr_approvalrecord": "360b517e-8dda-42b6-bce0-7b81f2ed3c9b",
+      "config_ithardware_routing_johor": "35d9a38b-93db-4a77-8baa-55bcba9fec36",
+      "config_ithardware_routing_penang": "a2e2511f-9cc5-4e9a-b2f5-bcb25fc162d5",
+      "it_sapsof_approvalrecords": "8a58a5e9-ec8f-43ad-8478-a38f6f5e808c",
+      "config_appsettings": "0da5e2d0-4786-4cc1-8e88-4fed84edc509",
+      "config_distributiongroups": "cdc9858d-774a-42ae-bd33-7198a7a47d99",
+      "approvalrecords": "10498092-de2c-48ca-ab68-5549466fc73f",
+      "workflowauditlog": "11a51395-0efb-4052-b7e7-7a26b459cdc6",
+      "itforms": "f338f907-c873-4614-a36a-2d49616b8276"
+    }
+  },
+
+  "domino": {
+    "serverJohor": "ITSOI01/JOHOR/IOIGroup",
+    "serverPenang": "ITSOI02/PENANG/IOIGroup"
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "files.encoding": "utf8",
+    "files.eol": "\r\n",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "xml.format.enabled": true,
+    "xml.format.splitAttributes": true,
+    "xml.format.joinContentLines": true,
+    "markdown.preview.breaks": true,
+    "markdown.extension.toc.updateOnSave": true,
+    "editor.minimap.enabled": true,
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "boundary",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "search.exclude": {
+        "source/pdf/**": true,
+        "source/screenshots/**": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true
+    },
+    "cSpell.language": "en",
+    "[csv]": {
+        "editor.columnSelection": true
+    },
+    "[xml]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.wordWrap": "on"
+    }
+}

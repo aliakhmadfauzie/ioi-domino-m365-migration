@@ -1,0 +1,71 @@
+DATABASE : Staff Requisition
+PATH     : Current\Staff Requisition.nsf
+DATE     : 28/05/2026 3:07:32 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  BAK_FORM
+  Guideline
+  Reminder
+  SRF
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  DocAuthor [ENABLED]
+  RemPdgHOD [ENABLED]
+  RemPdgHODiv [ENABLED]
+  RemPdgDirector [ENABLED]
+  RemPdgHR [ENABLED]
+  Clear Submition [ENABLED]
+  Clear [ENABLED]
+  RemPdgSGM [ENABLED]
+  Set [ENABLED]
+  Refresh Docs [ENABLED]
+  NextRemDate [ENABLED]
+  RemPdgDraft [ENABLED]
+  FORMULA [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=ACM2 Shift Leader/OU=PMS/O=PHB | Editor | Person
+  Oleo Executives | Editor | Person Group
+  Pancen - All Sections HOD & Above | Editor | Person Group
+  OtherDomainServers | No Access | Server Group
+  CN=Marlina/OU=PMS/O=PHB | Editor | Person
+  CN=Junaidah/OU=PMS/O=PHB | Editor | Person
+  CN=Nashrath & Nur Aidatul/OU=PMS/O=PHB | Editor | Person
+  CN=Jelleela Swari/OU=PMS/O=PHB | Editor | Person
+  CN=Brayond/OU=PMS/O=PHB | Editor | Person
+  Oleo Managers | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Izza & Rosmunira/OU=PMS/O=PHB | Editor | Person
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - NotNum
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

@@ -1,0 +1,26 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Power Platform
+*.cdsproj.user
+*.sln.ide/
+out/
+bin/
+obj/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code user settings
+.vscode/*.code-snippets
+
+# Local environment configuration (contains secrets/IDs)
+ioicodeapp/config/environment-config.ps1
+ioicodeapp/config/environment-config.json
+
+# Migration artifacts (large files)
+source/pdf/*
+source/screenshots/*
+*.zip

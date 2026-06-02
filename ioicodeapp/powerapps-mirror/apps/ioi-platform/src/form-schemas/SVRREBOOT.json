@@ -1,0 +1,103 @@
+{
+  "formCode": "SVRREBOOT",
+  "title": "Server Reboot Log (⚠️ LEGACY — not rendered via DynamicForm)",
+  "description": "⚠️ LEGACY REFERENCE SCHEMA. Not actively used for DynamicForm rendering. The SRL/IAL1 form uses a custom page component (pages/it/forms/srl/new.tsx). spColumn values removed — they referenced non-existent MainDB_IT columns.",
+  "routeBase": "/it/forms/svrreboot",
+  "icon": "RefreshCw",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "SVRREBOOT_S2",
+      "sectionName": "Section 1: Reboot Event Details",
+      "displayOrder": 1,
+      "fields": [
+        {
+          "fieldId": "RBT_Site",
+          "label": "Site",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": ["Prai", "Penang", "Johor", "Kuala Lumpur"]
+        },
+        {
+          "fieldId": "RBT_RebootType",
+          "label": "Reboot Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 2,
+          "options": ["Planned Maintenance", "Emergency Reboot", "Patch / Update", "OS Crash", "Hardware Failure", "Other"]
+        },
+        {
+          "fieldId": "RBT_ServerName",
+          "label": "Server Name",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 3,
+          "placeholder": "e.g. PRAI-SRV-01"
+        },
+        {
+          "fieldId": "RBT_DownDate",
+          "label": "Down Date",
+          "fieldType": "date",
+          "required": true,
+          "displayOrder": 4
+        },
+        {
+          "fieldId": "RBT_DownTime",
+          "label": "Down Time",
+          "fieldType": "time",
+          "required": true,
+          "displayOrder": 5
+        },
+        {
+          "fieldId": "RBT_UpDate",
+          "label": "Up Date",
+          "fieldType": "date",
+          "required": true,
+          "displayOrder": 6
+        },
+        {
+          "fieldId": "RBT_UpTime",
+          "label": "Up Time",
+          "fieldType": "time",
+          "required": true,
+          "displayOrder": 7
+        },
+        {
+          "fieldId": "RBT_TotalDownTime",
+          "label": "Total Down Time",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 8,
+          "placeholder": "e.g. 1h 30m"
+        },
+        {
+          "fieldId": "RBT_Reason",
+          "label": "Reason",
+          "fieldType": "multiline",
+          "required": true,
+          "fullWidth": true,
+          "displayOrder": 9,
+          "placeholder": "Reason for the reboot"
+        },
+        {
+          "fieldId": "RBT_Remarks",
+          "label": "Reboot Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "fullWidth": true,
+          "displayOrder": 10,
+          "placeholder": "Additional observations or notes"
+        },
+        {
+          "fieldId": "RBT_PerformedBy",
+          "label": "Performed By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 11,
+          "placeholder": "IT Admin who performed the reboot"
+        }
+      ]
+    }
+  ]
+}

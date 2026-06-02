@@ -1,0 +1,40 @@
+Company
+ : SpComp
+Contact Tel. No.
+ : TelNo
+Submitted by
+ : Submittedby
+Submitted on
+ : Submittedon
+NOTIFY HR
+**Please check the details thoroughly before submit, as can't view back the form after submitted !!!
+For Hr Use :-
+Status
+ : HRAction
+Accepted by
+ : Acceptedby
+Accepted on
+ : Acceptedon
+ OK 
+Created by
+DocAuthor
+ 
+Created on 
+CDate  
+Modified on 
+ModiDate
+Hidden Fields :-
+IT
+: IT
+HR 1
+: HR_1
+HR 2
+: HR_2
+HR 3
+: HR_3
+HR
+: HR
+HR HOD
+: HRHOD
+Servers : Servers
+Readers: Readers

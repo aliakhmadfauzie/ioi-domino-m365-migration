@@ -1,0 +1,115 @@
+Work Permit Expiry Date
+ : orkPermitExpiryDa
+Work Permit No.
+ : 
+WorkPermitNo
+Upload Permit to Work
+ : 
+Permit
+FOMEMA Worker Code
+ : 
+WorkerCode
+SOCSO No.
+ : 
+SocsoNo
+SECTION B: FOREIGN WORKER'S HOSPITALIZATION & SURGICAL SCHEME (F...
+Year
+Policy No.
+Slip No.
+Premi
+um 
+(RM)
+Period of 
+Insurance
+Attachment
+Date 
+Completed
+Y_1
+PN_1
+SN_1
+P_1
+F_1
+ 
+to 
+T_1
+Att_1
+D_1
+Done
+Y_2
+PN_2
+SN_2
+P_2
+F_2
+ 
+to 
+T_2
+Att_2
+D_2
+Done
+Y_3
+PN_3
+SN_3
+P_3
+F_3
+ 
+to 
+T_3
+Att_3
+D_3
+Done
+Y_4
+PN_4
+SN_4
+P_4
+F_4
+ 
+to 
+T_4
+Att_4
+D_4
+Done
+Y_5
+PN_5
+SN_5
+P_5
+F_5
+ 
+to 
+T_5
+Att_5
+D_5
+Done
+Y_6
+PN_6
+SN_6
+P_6
+F_6
+ 
+to 
+T_6
+Att_6
+D_6
+Done
+Y_7
+PN_7
+SN_7
+P_7
+F_7
+ 
+to 
+T_7
+Att_7
+D_7
+Done
+Y_8
+PN_8
+SN_8
+P_8
+F_8
+ 
+to 
+T_8
+Att_8
+D_8
+Done
+Done

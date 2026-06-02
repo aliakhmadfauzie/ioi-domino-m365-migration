@@ -1,0 +1,379 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "flowName": "IOI - SAPCR Approval Chain",
+    "projectTask": "Phase 5.6",
+    "sourceDocs": [
+      "m365-design/power-automate-design.md",
+      "analysis/workflow-analysis.md",
+      "docs/04_WORKFLOW_APPROVAL_RULES.md",
+      "docs/implementation-plan.md"
+    ],
+    "dominoReplacement": "SAP and WB Change Request multi-department approval",
+    "notes": "High-complexity SAPCR approval chain. Approver group names are placeholders until business confirmation."
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "sharepointonline": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+          "connectionName": "sharepointonline",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+        },
+        "approvals": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_approvals",
+          "connectionName": "approvals",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_approvals"
+        },
+        "office365": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+          "connectionName": "office365",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_office365"
+        }
+      }
+    }
+  },
+  "triggers": {
+    "When_MainDB_IT_item_is_created_or_modified": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetOnUpdatedItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Initialize_variables": {
+      "type": "InitializeVariable",
+      "inputs": {
+        "variables": [
+          {
+            "name": "FormCode",
+            "type": "string",
+            "value": "@triggerBody()?['FormCode']"
+          },
+          {
+            "name": "CurrentStatus",
+            "type": "string",
+            "value": "@triggerBody()?['CurrentStatus']"
+          },
+          {
+            "name": "ItemId",
+            "type": "integer",
+            "value": "@triggerBody()?['ID']"
+          },
+          {
+            "name": "SAPBPOApprover",
+            "type": "string",
+            "value": "sap-bpo-approvers@ioi.com"
+          },
+          {
+            "name": "SAPITApprover",
+            "type": "string",
+            "value": "sap-it-approvers@ioi.com"
+          },
+          {
+            "name": "SAPBasisApprover",
+            "type": "string",
+            "value": "sap-basis@ioi.com"
+          }
+        ]
+      },
+      "runAfter": {}
+    },
+    "Run_only_for_SAPCR": {
+      "type": "Condition",
+      "expression": {
+        "and": [
+          {
+            "equals": [
+              "@variables('FormCode')",
+              "SAPCR"
+            ]
+          },
+          {
+            "equals": [
+              "@variables('CurrentStatus')",
+              "Submitted"
+            ]
+          }
+        ]
+      },
+      "actions": {
+        "Start_BPO_approval": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "approvals",
+              "operationId": "CreateApproval"
+            },
+            "parameters": {
+              "approvalType": "FirstToRespond",
+              "assignedTo": "@variables('SAPBPOApprover')",
+              "item": "@variables('ItemId')",
+              "title": "SAPCR BPO approval required: @{triggerBody()?['Title']}",
+              "details": "A SAP Change Request requires BPO approval before IT review."
+            }
+          },
+          "runAfter": {}
+        },
+        "If_BPO_approved": {
+          "type": "Condition",
+          "expression": {
+            "equals": [
+              "@body('Start_BPO_approval')?['outcome']",
+              "Approve"
+            ]
+          },
+          "actions": {
+            "Update_status_BPO_approved": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "sharepointonline",
+                  "operationId": "PatchItem"
+                },
+                "parameters": {
+                  "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                  "table": "MainDB_IT",
+                  "id": "@variables('ItemId')",
+                  "item": {
+                    "CurrentStatus": "BPOApproved",
+                    "WorkflowStage": 2,
+                    "BPOApprovedBy": "@body('Start_BPO_approval')?['responder']?['email']",
+                    "BPOApprovedDate": "@utcNow()"
+                  }
+                }
+              },
+              "runAfter": {}
+            },
+            "Start_IT_approval": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "approvals",
+                  "operationId": "CreateApproval"
+                },
+                "parameters": {
+                  "approvalType": "FirstToRespond",
+                  "assignedTo": "@variables('SAPITApprover')",
+                  "item": "@variables('ItemId')",
+                  "title": "SAPCR IT approval required: @{triggerBody()?['Title']}",
+                  "details": "BPO approval is complete. IT approval is required."
+                }
+              },
+              "runAfter": {
+                "Update_status_BPO_approved": [
+                  "SUCCEEDED"
+                ]
+              }
+            },
+            "If_IT_approved": {
+              "type": "Condition",
+              "expression": {
+                "equals": [
+                  "@body('Start_IT_approval')?['outcome']",
+                  "Approve"
+                ]
+              },
+              "actions": {
+                "Update_status_IT_approved": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "sharepointonline",
+                      "operationId": "PatchItem"
+                    },
+                    "parameters": {
+                      "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                      "table": "MainDB_IT",
+                      "id": "@variables('ItemId')",
+                      "item": {
+                        "CurrentStatus": "ITApproved",
+                        "WorkflowStage": 3,
+                        "ITApprovedBy": "@body('Start_IT_approval')?['responder']?['email']",
+                        "ITApprovedDate": "@utcNow()"
+                      }
+                    }
+                  },
+                  "runAfter": {}
+                },
+                "Start_Basis_approval": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "approvals",
+                      "operationId": "CreateApproval"
+                    },
+                    "parameters": {
+                      "approvalType": "FirstToRespond",
+                      "assignedTo": "@variables('SAPBasisApprover')",
+                      "item": "@variables('ItemId')",
+                      "title": "SAPCR Basis approval required: @{triggerBody()?['Title']}",
+                      "details": "BPO and IT approval are complete. SAP Basis review is required."
+                    }
+                  },
+                  "runAfter": {
+                    "Update_status_IT_approved": [
+                      "SUCCEEDED"
+                    ]
+                  }
+                },
+                "If_Basis_approved": {
+                  "type": "Condition",
+                  "expression": {
+                    "equals": [
+                      "@body('Start_Basis_approval')?['outcome']",
+                      "Approve"
+                    ]
+                  },
+                  "actions": {
+                    "Complete_SAPCR": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "sharepointonline",
+                          "operationId": "PatchItem"
+                        },
+                        "parameters": {
+                          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                          "table": "MainDB_IT",
+                          "id": "@variables('ItemId')",
+                          "item": {
+                            "CurrentStatus": "Completed",
+                            "WorkflowStage": 4,
+                            "CompletedDate": "@utcNow()"
+                          }
+                        }
+                      },
+                      "runAfter": {}
+                    },
+                    "Notify_requestor_completed": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "office365",
+                          "operationId": "SendEmailV2"
+                        },
+                        "parameters": {
+                          "emailMessage/To": "@coalesce(triggerBody()?['RequestorEmail'], triggerBody()?['Author']?['Email'])",
+                          "emailMessage/Subject": "SAPCR completed: @{triggerBody()?['Title']}",
+                          "emailMessage/Body": "Your SAP Change Request has completed the approval chain.",
+                          "emailMessage/Importance": "Normal"
+                        }
+                      },
+                      "runAfter": {
+                        "Complete_SAPCR": [
+                          "SUCCEEDED"
+                        ]
+                      }
+                    }
+                  },
+                  "else": {
+                    "actions": {
+                      "Reject_at_Basis": {
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "sharepointonline",
+                            "operationId": "PatchItem"
+                          },
+                          "parameters": {
+                            "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                            "table": "MainDB_IT",
+                            "id": "@variables('ItemId')",
+                            "item": {
+                              "CurrentStatus": "BasisRejected",
+                              "RejectionRemarks": "@body('Start_Basis_approval')?['comments']"
+                            }
+                          }
+                        },
+                        "runAfter": {}
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Start_Basis_approval": [
+                      "SUCCEEDED"
+                    ]
+                  }
+                }
+              },
+              "else": {
+                "actions": {
+                  "Reject_at_IT": {
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "sharepointonline",
+                        "operationId": "PatchItem"
+                      },
+                      "parameters": {
+                        "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                        "table": "MainDB_IT",
+                        "id": "@variables('ItemId')",
+                        "item": {
+                          "CurrentStatus": "ITRejected",
+                          "RejectionRemarks": "@body('Start_IT_approval')?['comments']"
+                        }
+                      }
+                    },
+                    "runAfter": {}
+                  }
+                }
+              },
+              "runAfter": {
+                "Start_IT_approval": [
+                  "SUCCEEDED"
+                ]
+              }
+            }
+          },
+          "else": {
+            "actions": {
+              "Reject_at_BPO": {
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "sharepointonline",
+                    "operationId": "PatchItem"
+                  },
+                  "parameters": {
+                    "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                    "table": "MainDB_IT",
+                    "id": "@variables('ItemId')",
+                    "item": {
+                      "CurrentStatus": "BPORejected",
+                      "RejectionRemarks": "@body('Start_BPO_approval')?['comments']"
+                    }
+                  }
+                },
+                "runAfter": {}
+              }
+            }
+          },
+          "runAfter": {
+            "Start_BPO_approval": [
+              "SUCCEEDED"
+            ]
+          }
+        }
+      },
+      "else": {
+        "actions": {}
+      },
+      "runAfter": {
+        "Initialize_variables": [
+          "SUCCEEDED"
+        ]
+      }
+    }
+  }
+}

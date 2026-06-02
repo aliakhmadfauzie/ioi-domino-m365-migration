@@ -1,0 +1,63 @@
+DATABASE : Backup Staff Database
+PATH     : Current\BkStf.nsf
+DATE     : 28/05/2026 10:34:29 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Form
+  Guidelines
+  Reminder
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  INO [ENABLED]
+  RemPdgHOD [ENABLED]
+  Refresh Docs [ENABLED]
+  SET [ENABLED]
+  Clear [ENABLED]
+  Initiator [ENABLED]
+  SET-FORMULA [ENABLED]
+  ARCHIVE [ENABLED]
+  Move to Draft [ENABLED]
+  Move to Draft 2 [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=Ravi Madhu/OU=PMS/O=PHB | Manager | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  Oleo Executives | Editor | Person Group
+  CN=Jelleela Swari/OU=PMS/O=PHB | Editor | Person
+  Oleo Managers | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  - Subject
+  - rTxtDocLink
+  - EmpNo
+  - Name
+  - DateSent
+  - CopyTo
+  - SendTo
+

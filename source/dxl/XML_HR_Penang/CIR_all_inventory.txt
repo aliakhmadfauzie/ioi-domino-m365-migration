@@ -1,0 +1,58 @@
+DATABASE : Cafeteria Inspection Database
+PATH     : Current\CafeIns.nsf
+DATE     : 28/05/2026 10:36:05 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Form
+  NewForm
+  Reminder
+  Vending Machines
+  Service Records
+  ECM Cafeteria Cleaning Records
+  ECM Food Waste Disposal Records
+  LPG Records
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  Refresh Docs [ENABLED]
+  Set [ENABLED]
+  Append [ENABLED]
+  RemDue [DISABLED]
+  FORMULA [ENABLED]
+  INO [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  ACM Cafeteria Committee | Editor | Person Group
+  CN=PHBSVR/O=PHB | Manager | Server
+  ECM Cafeteria Committee | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - SendTo
+  - rTxtDocLink
+  - NotNum
+  - DateSent
+  - CopyTo
+  - Subject
+

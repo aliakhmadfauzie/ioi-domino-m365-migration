@@ -1,0 +1,48 @@
+Contract Worker title
+title  Form 
+(Outsourcing)
+Issue No : IssueNo
+Initiation
+Category
+To (HOD)
+ : 
+SendTo
+Division Head
+ : DivHead
+From (Name)
+ : Name
+Type of Contract Workers
+ : 
+Type
+Category
+ : 
+PermCategory
+Permanent/Temporary Contract Workers (Requirement Details)
+Site : Site
+No. of Workers text  : 
+NoWorkers
+Section : 
+Workstation
+Period Required
+tPeriod_1_1
+ to 
+fPeriod_1_1
+ - TotalDays_1_1
+days
+1.
+tPeriod_2_1  to 
+fPeriod_2_1
+ - TotalDays_2_1 days
+2.
+tPeriod_3_1
+ to 
+fPeriod_3_1
+ - TotalDays_3_1 days
+3.
+Job Description : JD
+Working Hour : 
+WorkingHour
+Date Required : 
+Period
+Current no. of workers : 
+CurrentNoWorkers

@@ -1,0 +1,51 @@
+(Please click on "Extend Date" button, if you wish to EXTEND the deactivation date)
+*** No action required, if no extension is needed.
+Date to deactivate system 
+access (* 7 working days before 
+employees Last Service Date or 
+Notification Received Date)
+ : 
+dtOriDeactivate
+Date to deactivate system 
+access (* 7 working days before 
+employees Last Service Date or 
+Notification Received Date)
+ : 
+dtDeactivate
+Justification
+ : 
+Justification
+                 Granted by 
+ExtName
+ on 
+ExtDate
+ACTUAL LAST WORKING DAY
+Notify IT
+Actual Last Working Day
+ : 
+ActualLWD
+            Sent by 
+SentBy
+ on 
+SentDate
+Title
+APPROVE REJECT
+Status
+ : 
+Status
+Name
+ : 
+EDName
+Date 
+ : 
+EDDate
+Remarks
+ : 
+Remarks
+EXIT INTERVIEW
+1. Please explain your reasons for leaving.
+   Sila jelaskan alasan anda untuk berhenti.
+Reasons
+      please specify 
+otherReason
+2. How do you feel about your progress here?

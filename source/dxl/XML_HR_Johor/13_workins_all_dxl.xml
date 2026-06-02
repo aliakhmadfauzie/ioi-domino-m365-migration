@@ -1,0 +1,2311 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='482588B00030B89C' path='CN=PCNSVR/O=PHB!!PanCen - Current\workins.nsf'
+ title='PanCen - Worker Regular Inspection' increasemaxfields='true'>
+<databaseinfo dbid='482588B00030B89C' odsversion='55' diskspace='6238240768'
+ percentused='99.9237282404295' numberofdocuments='265'><datamodified><datetime
+>20260524T072646,60+08</datetime></datamodified><designmodified><datetime
+>20260528T161716,00+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='MainFrame'/></launchsettings>
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='122' unid='B86E77FAC2951C79482587AD000D92D0' sequence='34'>
+<created><datetime>20211216T102815,52+08</datetime></created>
+<modified><datetime>20220921T172607,18+08</datetime></modified>
+<revised><datetime>20220921T172607,17+08</datetime></revised>
+<lastaccessed><datetime>20220921T172607,17+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165210,70+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Form = "frmWork" &amp; CA != "Withdrawn" &amp;  CA != "Draft"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<form name='frmWork' publicaccess='false' designerversion='8.5.3' default='true'
+ bgcolor='#ffffd0' recalc='true' renderpassthrough='true'>
+<noteinfo noteid='14e' unid='45BB0E0E61383044482587AD000E1B43' sequence='476'>
+<created><datetime>20211216T103404,83+08</datetime></created>
+<modified><datetime>20260311T085440,91+08</datetime></modified>
+<revised><datetime>20260311T085440,90+08</datetime></revised>
+<lastaccessed><datetime>20260311T085440,90+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165211,83+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"Workers Regular Inspection"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='_Edit Document' icon='5' hide='edit previewedit' systemcommand='edit'/>
+<action title='Print' icon='98' hide='edit previewedit'><code event='click'><formula
+>@Command([FilePrint])</formula></code></action>
+<action title='Save' icon='117' hide='preview read'><code event='click'><formula
+>@Command([ViewRefreshFields]);
+@Command([FileSave])</formula></code></action>
+<action title='Submit' icon='12' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+@Command([FileSave]);
+
+@If (Company= ""; @Return(@Do(@Command([EditGotoField];"Company") ;@Prompt([Ok];"Missing Value"; "Please select Company before proceeding!")));"");
+@If (InsDate= ""; @Return(@Do(@Command([EditGotoField];"InsDate") ;@Prompt([Ok];"Missing Value"; "Please enter Inpection Date before proceeding!")));"");
+@If (Duration= ""; @Return(@Do(@Command([EditGotoField];"Duration") ;@Prompt([Ok];"Missing Value"; "Please enter Duration before proceeding!")));"");
+@If (Time= ""; @Return(@Do(@Command([EditGotoField];"Time") ;@Prompt([Ok];"Missing Value"; "Please enter Time before proceeding!")));"");
+@If (Findings= ""; @Return(@Do(@Command([EditGotoField];"Findings") ;@Prompt([Ok];"Missing Value"; "Please enter Findings before proceeding!")));"");
+@If (ChkName= ""; @Return(@Do(@Command([EditGotoField];"ChkName") ;@Prompt([Ok];"Missing Value"; "Please enter Checked By Name before proceeding!")));"");
+@If (ChkDate= ""; @Return(@Do(@Command([EditGotoField];"ChkDate") ;@Prompt([Ok];"Missing Value"; "Please enter Checked By Date before proceeding!")));"");
+@If (SupName= ""; @Return(@Do(@Command([EditGotoField];"SupName") ;@Prompt([Ok];"Missing Value"; "Please enter Supervisor Name before proceeding!")));"");
+@If (SupDate= ""; @Return(@Do(@Command([EditGotoField];"SupDate") ;@Prompt([Ok];"Missing Value"; "Please enter Supervisor Date before proceeding!")));"");
+@Command([FileSave]);
+
+FIELD CA				:="Submitted";
+
+@Command([FileSave]);
+
+@MailSend(Verifier;DocAuthor;NULL; @DbTitle + " : Pending your Action.";NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor1)</formula></code></action>
+<action title='Action Taken' icon='35' hide='preview read edit previewedit'><code
+ event='click'><formula>@Command([EditDocument];"1");
+@Command([FileSave]);
+
+FIELD HRStatus			:="1";
+FIELD HRName 			:=@Name([CN];@V3UserName);
+FIELD CA						:="AcTaken";
+
+@Command([FileSave]);
+
+@MailSend(Verifier;HR:DocAuthor;NULL; @DbTitle + " : Pending Verification.";NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor2)</formula></code></action>
+<action title='Verify' icon='15' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+@Command([FileSave]);
+
+FIELD VerStatus			:="1";
+FIELD VerName 			:=@Name([CN];@V3UserName);
+FIELD VerDate 			:=@Today;
+FIELD CA						:="Verified";
+
+@Command([FileSave]);
+
+@MailSend(Approver;Verifier:DocAuthor;NULL; @DbTitle + " : Pending Approval.";NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor2)</formula></code></action>
+<action title='Reject' icon='16' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+@Command([FileSave]);
+
+FIELD VerStatus		:="0";
+FIELD VerName 		:=@Name([CN];@V3UserName);
+FIELD VerDate 			:=@Today;
+FIELD CA						:="Rejected";
+FIELD VerRem			:= @Prompt([OkCancelEdit]; "Enter Your Comment"; "Please state the reason for rejection.";"");
+
+@Command([FileSave]);
+
+@MailSend(DocAuthor;Verifier;NULL; @DbTitle + " : Rejected.";NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor2)</formula></code></action>
+<action title='Approve' icon='10' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+@Command([FileSave]);
+
+FIELD AppStatus		:="1";
+FIELD AppName 		:= @Name([CN];@V3UserName);
+FIELD AppDate		 	:=@Today;
+FIELD CA						:="Approved";
+
+@Command([FileSave]);
+
+@MailSend(DocAuthor;Approver:Verifier;NULL; @DbTitle + " : APPROVED.";NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor3)</formula></code></action>
+<action title='Reject' icon='11' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+@Command([FileSave]);
+
+FIELD AppStatus			:="0";
+FIELD AppName 		:=@Name([CN];@V3UserName);
+FIELD AppDate 			:=@Today;
+FIELD CA						:="Rejected";
+FIELD AppRem			:= @Prompt([OkCancelEdit]; "Enter Your Comment"; "Please state the reason for rejection.";"");
+
+@Command([FileSave]);
+
+@MailSend(DocAuthor;Approver;NULL; @DbTitle + " : REJECTED.";NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor3)</formula></code></action>
+<action title='Exit' icon='112'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action>
+<action title='Withdrawn' icon='83' hide='preview read'><code event='click'><formula
+>@Command([EditDocument]; "1");
+
+FIELD WDDate 			:=@Today;
+FIELD CA					 	:="Withdrawn";
+FIELD WDBy 				:=@Name([CN];@UserName);
+FIELD WDReason		:= @Prompt([OkCancelEdit]; "Enter Your Comment"; "Please state the reason for Withdrawal.";"");
+
+@MailSend(DocAuthor;NULL;NULL; @DbTitle + " : WITHDRAWN by Initiator." +  NotNum;NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([FileSave]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@UserName != DocAuthor | CA="Request"</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1' leftmargin='1in' rightmargin='100%'/>
+<par def='1'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<pardef id='2' align='center' leftmargin='1in' rightmargin='100%'/>
+<par def='2'><run><font size='18pt' color='navy' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Company'><keywords helperbutton='false' recalconchange='true' columns='1'
+ ui='radiobutton'><textlist><text>IOI PAN-CENTURY EDIBLE OILS SDN BHD | PCEO</text><text
+>IOI PAN-CENTURY OLEOCHEMICAL SDN BHD | PCOC</text></textlist></keywords></field></run></par>
+<par def='2'><run><font size='14pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='#a00000'/></run></par>
+<par def='2'><run><font size='18pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='navy'/>WORKERS REGULAR INSPECTION</run></par>
+<pardef id='3' leftmargin='1in'/>
+<par def='3'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<pardef id='4' leftmargin='0.7500in' rightmargin='100%'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Employee_Name'><sectiontitle
+ pardef='4' color='teal' borderstyle='tabdiag'><font size='11pt' color='white'
+ style='bold' name='Century Gothic' pitch='variable' truetype='true' familyid='20'/><text
+>SECTION A : INSPECTION DETAILS</text></sectiontitle><code event='defaultvalue'><formula
+>Editor1:"[HRAdmin]"</formula></code><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='14' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' rightmargin='100%' refwidth='11.3542in'><tablecolumn
+ width='2.6000in'/><tablecolumn width='0.1250in'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='5' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Date of Inspection</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='6' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='7' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1.2000in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='InsDate'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ time='hourminute' zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday'
+ monthformat='twodigitmonth' yearformat='fourdigityear' weekdayformat='shortname'
+ dateseparator1=' ' dateseparator2='/' dateseparator3='/' timeseparator=':'
+ preference='usersetting'/></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Duration</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='8' keepwithnext='true' keeptogether='true'><code event='hidewhen'
+ enabled='false'><formula>@IsNotMember(@UserName;Viewer)</formula></code></pardef>
+<par def='8'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='Duration'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Time</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='Time'><datetimeformat show='time' date='yearmonthday' fourdigityearfor21stcentury='true'
+ time='hourminute' zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday'
+ monthformat='twodigitmonth' yearformat='fourdigityear' weekdayformat='shortname'
+ dateseparator1=' ' dateseparator2='/' dateseparator3='/' timeseparator=':'
+ preference='usersetting'/></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Attachments</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='richtext' kind='editable' name='Attch1'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='9' spacebefore='1.5' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Findings</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='10' align='center' spacebefore='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='10'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='11' spacebefore='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen' enabled='false'><formula>@IsNotMember(@UserName;Viewer)</formula></code></pardef>
+<par def='11'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Finding'><keywords
+ helperbutton='false' recalconchange='true' columns='2' ui='radiobutton'><textlist
+><text>Yes</text><text>No</text></textlist></keywords></field></run></par>
+<pardef id='12' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen' enabled='false'><formula>@IsNotMember(@UserName;Viewer)</formula></code></pardef>
+<par def='12'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='Findings'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Attachments</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='richtext' kind='editable' name='Attch2'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='13' keepwithnext='true' keeptogether='true'/>
+<par def='13'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Remarks</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='Remark'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow></table>
+<pardef id='14' spaceafter='1.5'/>
+<par def='14'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='#0000e0'/></run></par>
+<pardef id='15'/>
+<par def='15'/>
+<table widthtype='fitmargins' refwidth='11.3542in'><tablecolumn width='2.6000in'/><tablecolumn
+ width='0.1250in'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='16' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen' enabled='false'><formula>CurrentAction = "Request" | CurrentAction ="Submitted" | CurrentAction = "Acknowledged" | CurrentAction = "SubmitInves"  | rbIncStatusE ="No"</formula></code></pardef>
+<par def='16'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Checked By,</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='17' keepwithnext='true' keeptogether='true'><code event='hidewhen'
+ enabled='false'><formula>CurrentAction = "Request" | CurrentAction ="Submitted" | CurrentAction = "Acknowledged" | CurrentAction = "SubmitInves"  | rbIncStatusE ="No"</formula></code></pardef>
+<par def='17'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='ChkBy'><code
+ event='defaultvalue'><formula>ChkBy</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field choicesdialog='view' viewdatabase='CN=PCNSVR/O=PHB!!PanCen - Current\hostel'
+ view='SecList' viewcolumn='1' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' allowmultivalues='true' kind='editable' name='ChkName' listinputseparators='comma'
+ listdisplayseparator='comma'><keywords columns='1' ui='dialoglist'/></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1.2000in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='ChkDate'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='14'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='#0000e0'/></run></par>
+<par def='15'/>
+<table widthtype='fitmargins' refwidth='11.3542in'><tablecolumn width='2.6000in'/><tablecolumn
+ width='0.1250in'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Assist by Supervisor,</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='SupBy'><code
+ event='defaultvalue'><formula>SupBy</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field choicesdialog='view' viewdatabase='CN=PCNSVR/O=PHB!!PanCen - Current\hostel'
+ view='SecList' viewcolumn='1' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='SupName'><keywords columns='1' ui='dialoglist'/></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1.2000in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='SupDate'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='3'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='#0000e0'/></run></par></section>
+<pardef id='18' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='E_1'><sectiontitle
+ pardef='18' color='teal' borderstyle='tabdiag'><font size='11pt' color='white'
+ style='bold' name='Century Gothic' pitch='variable' truetype='true' familyid='20'/><text
+>SECTION B : ACTION TAKEN &amp; VERIFIED BY</text></sectiontitle><code event='defaultvalue'><formula
+>Editor2</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='14' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='19'><code event='hidewhen'><formula>Finding!="Yes"</formula></code></pardef>
+<par def='19'/>
+<table widthtype='fitmargins' refwidth='11.3444in'><tablecolumn width='25%'/><tablecolumn
+ width='25%'/><tablecolumn width='25%'/><tablecolumn width='25%'/>
+<tablerow>
+<tablecell bgcolor='#f1f1b4'>
+<pardef id='21' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>Finding!="Yes"</formula></code></pardef>
+<par def='21'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Action Taken</run></par></tablecell>
+<tablecell bgcolor='#f1f1b4'>
+<pardef id='22' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>Finding!="Yes"</formula></code></pardef>
+<par def='22'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>By Whom</run></par></tablecell>
+<tablecell bgcolor='#f1f1b4'>
+<pardef id='23' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>Finding!="Yes"</formula></code></pardef>
+<par def='23'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Date</run></par></tablecell>
+<tablecell bgcolor='#f1f1b4'>
+<pardef id='24' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>Finding!="Yes"</formula></code></pardef>
+<par def='24'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Attachments</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='21'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='AT'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='21'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='22'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='Whom'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='23'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='Date'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='24'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='richtext' kind='editable' name='Attch'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='15'/>
+<table widthtype='fitmargins' refwidth='11.3542in'><tablecolumn width='2.6000in'/><tablecolumn
+ width='0.1250in'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Status</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='25' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>VerStatus!="1"</formula></code></pardef>
+<par def='25'><picture width='61px' height='61px'><imageref name='yes.png'/></picture></par>
+<pardef id='26' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>VerStatus!="0"</formula></code></pardef>
+<par def='26'><picture width='61px' height='62px'><imageref name='no.png'/></picture></par>
+<pardef id='27' hide='read edit print copy preview previewedit embedded' keepwithnext='true'
+ keeptogether='true'/>
+<par def='27'><run><font size='6pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='VerStatus'><code
+ event='defaultvalue'><formula>VerStatus</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' kind='computed' name='VerName'><code
+ event='defaultvalue'><formula>VerName</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='VerDate'><code
+ event='defaultvalue'><formula>VerDate</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='13'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Remarks</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='VerRem'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<pardef id='28' leftmargin='1in'/>
+<par def='28'/></section>
+<section expanded='true' accessfieldkind='computed' accessfieldname='E_1_1'><sectiontitle
+ pardef='18' color='teal' borderstyle='tabdiag'><font size='11pt' color='white'
+ style='bold' name='Century Gothic' pitch='variable' truetype='true' familyid='20'/><text
+>SECTION C : APPROVED BY</text></sectiontitle><code event='defaultvalue'><formula
+>Editor3</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='13' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='15'/>
+<table widthtype='fitmargins' refwidth='11.3542in'><tablecolumn width='2.6000in'/><tablecolumn
+ width='0.1250in'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Status</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='29' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>AppStatus!="1"</formula></code></pardef>
+<par def='29'><picture width='61px' height='61px'><imageref name='yes.png'/></picture></par>
+<pardef id='30' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>AppStatus!="0"</formula></code></pardef>
+<par def='30'><picture width='61px' height='62px'><imageref name='no.png'/></picture></par>
+<par def='27'><run><font size='6pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='AppStatus'><code
+ event='defaultvalue'><formula>AppStatus</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' kind='computed' name='AppName'><code
+ event='defaultvalue'><formula>AppName</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='AppDate'><code
+ event='defaultvalue'><formula>AppDate</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='13'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>Remarks</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='11pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='AppRem'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='28'/></section>
+<par def='28'/>
+<par def='28'><run><font size='11pt' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='maroon'/></run></par>
+<pardef id='31' leftmargin='0.7500in' hide='print'><code event='hidewhen'><formula
+>WDDate=""</formula></code></pardef>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Discard_'><sectiontitle
+ pardef='31' color='#c20000'><font size='11pt' color='maroon' style='bold italic'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/><text>Withdrawn:-</text></sectiontitle><code
+ event='defaultvalue'><formula>PUR</formula></code><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='17' containertype='65418'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='32' firstlineleftmargin='1in' hide='print'><code event='hidewhen'><formula
+>WDDate=""</formula></code></pardef>
+<par def='32'><run><font size='11pt' style='bold italic' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='maroon'/>Discarded by</run><run><font
+ size='11pt' style='italic' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='maroon'/>	: </run><run><font size='11pt' color='maroon'
+ style='italic' name='Cambria' pitch='variable' truetype='true' familyid='10'/><field
+ type='names' kind='computed' name='WDBy'><code event='defaultvalue'><formula
+>WDBy</formula></code></field></run><run><font size='11pt' style='italic'
+ name='Cambria' pitch='variable' truetype='true' familyid='10' color='maroon'/></run></par>
+<par def='32'><run><font size='11pt' style='bold italic' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='maroon'/>Discarded on</run><run><font
+ size='11pt' style='italic' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='maroon'/>	: </run><run><font size='11pt' color='maroon'
+ style='italic' name='Cambria' pitch='variable' truetype='true' familyid='10'/><field
+ type='datetime' kind='computed' name='WDDate'><datetimeformat show='date'
+ date='yearmonthday' fourdigityearfor21stcentury='true' zone='never' dateformat='weekdaydaymonthyear'
+ dayformat='twodigitday' monthformat='twodigitmonth' yearformat='fourdigityear'
+ weekdayformat='shortname' dateseparator1=' ' dateseparator2='/' dateseparator3='/'
+ timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>WDDate</formula></code></field></run><run><font size='11pt' style='italic'
+ name='Cambria' pitch='variable' truetype='true' familyid='10' color='maroon'/></run></par>
+<par def='32'><run><font size='11pt' style='bold italic' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='maroon'/>Reason</run><run><font size='11pt'
+ style='italic' name='Cambria' pitch='variable' truetype='true' familyid='10'
+ color='maroon'/>	: </run><run><font size='11pt' color='maroon' style='italic'
+ name='Cambria' pitch='variable' truetype='true' familyid='10'/><field type='text'
+ kind='editable' name='WDReason'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='14' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='italic'
+ name='Cambria' pitch='variable' truetype='true' familyid='10' color='maroon'/></run><run
+><font size='11pt' style='italic' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='maroon'/></run></par></section>
+<par def='32'><run><font size='8pt' color='purple'/></run></par>
+<pardef id='33' leftmargin='1in' spaceafter='1.5' hide='print'/><subformref
+ name='Signature'/>
+<pardef id='34' leftmargin='0.7500in' hide='print'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='34'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<pardef id='35' leftmargin='0.7500in' hide='print'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<section expanded='true'><sectiontitle pardef='35' color='blue'><font size='8pt'
+ style='bold'/><text>Hidden Fields</text></sectiontitle>
+<pardef id='36' leftmargin='1in'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISG)</formula></code></pardef>
+<par def='36'><run><font size='1pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fixedleft' refwidth='9.7500in'><tablecolumn width='1.3750in'/><tablecolumn
+ width='0.3750in'/><tablecolumn width='8in'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='37' hide='print' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='37'><run><font size='8pt' style='bold'/>CurrentAction</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='38' align='center' hide='print' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='38'><run><font size='8pt' style='bold'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='39' hide='print' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='39'><run><font size='8pt' style='bold'/></run><run><font size='8pt'
+ style='bold'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='CA'><keywords helperbutton='false' columns='1'
+ ui='radiobutton'><textlist><text>Draft</text><text>Submitted</text><text
+>Verified</text><text>Approved</text><text>Rejected</text><text>Withdrawn</text></textlist></keywords><code
+ event='defaultvalue'><formula>"Draft"</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/>Editor1</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='39'><run><font size='8pt'/></run><run><font size='8pt'/><field type='names'
+ allowmultivalues='true' kind='computed' name='Editor1' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>@If(CA ="Draft" | CA = "Rejected";DocAuthor;"-")</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='40' rightmargin='1.3757in' hide='print' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='40'><run><font size='8pt'/>Editor2</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='39'><run><font size='8pt'/></run><run><font size='8pt'/><field type='names'
+ allowmultivalues='true' kind='computed' name='Editor2' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>@If(CA ="Submitted";Verifier;"-")</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='40'><run><font size='8pt'/>Editor3</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='39'><run><font size='8pt'/></run><run><font size='8pt'/><field type='names'
+ allowmultivalues='true' kind='computed' name='Editor3' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>@If(CA ="Verified";Approver;"-")</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/>HR Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='39'><run><font size='8pt'/></run><run><font size='8pt'/><field type='authors'
+ allowmultivalues='true' kind='computed' name='HRAdmin' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>"[HRAdmin]"</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/>IT Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt' style='bold'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='39'><run><font size='8pt'/></run><run><font size='8pt'/><field type='names'
+ allowmultivalues='true' kind='computed' name='IT' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ISADMIN";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/>Verifier</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt' style='bold'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='39'><run><font size='8pt'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Verifier' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"PCNSECURITY";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/>Approver</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt' style='bold'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='39'><run><font size='8pt'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Approver' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"PCNHR3-MP";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow></table>
+<par def='28'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='20' color='purple'/></run><run><font size='12pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></section>
+<par def='28'><run><font size='12pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par></richtext></body>
+<item name='SubmittedDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DD' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DT' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$$Time1' summary='false' sign='true'><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Onchange(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Onchange From Source Call Onchange
+End Sub
+
+'++LotusScript Development Environment:2:2:Onchange:1:12
+Sub Onchange(Source As Field)
+	Dim ws As New NotesUIWorkspace
+	Dim uidoc As NotesUIDocument
+	Dim starttime As NotesDateTime
+	Dim endtime As NotesDateTime
+	Dim duration As Integer
+	
+	Set uidoc = ws.CurrentDocument
+    '*** Exit if not both times are entered
+	If uidoc.FieldGetText("StartTime") = "" Then
+		Exit Sub
+	Elseif uidoc.FieldGetText("Time1") = "" Then
+		Exit Sub        
+	End If
+    '*** Calculate duration in seconds and update field
+	Set starttime = New NotesDateTime( uidoc.FieldGetText("StartTime") )
+	Set endtime = New NotesDateTime( uidoc.FieldGetText("Time1") )
+	duration = endtime.TimeDifference( starttime )
+	Call uidoc.FieldSetText("Duration", Cstr(duration) )
+	Call uidoc.FieldSetText("hours", Cstr(duration) )
+	Call uidoc.Refresh()
+End Sub<break/></text></item>
+<item name='$Time1_O' sign='true'>
+<rawitemdata type='14'>
+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
+</rawitemdata></item>
+<item name='ReqDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Time1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='TimeEnd1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Time2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='TimeEnd2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Time3' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='TimeEnd3' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='StartTime' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='INO' summary='false'><number>0</number></item>
+<item name='HRDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><text>0000000000000000</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>frmFOBPayment</text></item>
+<item name='CDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<view name='Draft' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='16a' unid='257CAFCE559903F5482587AD00185C83' sequence='3'>
+<created><datetime>20211216T122605,47+08</datetime></created>
+<modified><datetime>20220901T165212,66+08</datetime></modified>
+<revised><datetime>20220829T104554,32+08</datetime></revised>
+<lastaccessed><datetime>20220905T110759,36+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165212,65+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Draft"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' itemname='$16' width='17.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' style='italic' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Created By'><font size='11pt' style='bold italic'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></columnheader><code
+ event='value'><formula>@Name([CN];DocAuthor)</formula></code></column>
+<column hidedetailrows='false' itemname='$17' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' style='italic' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Date'><font size='11pt' style='bold italic'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></columnheader><code
+ event='value'><formula>@Date(CDate)</formula></code></column></view>
+
+<view name='lookup' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='16e' unid='1FB19D60F65823CF482587AD00185C84' sequence='1'>
+<created><datetime>20211216T122605,48+08</datetime></created>
+<modified><datetime>20220901T165212,77+08</datetime></modified>
+<revised><datetime>20211216T122605,91+08</datetime></revised>
+<lastaccessed><datetime>20220901T165212,76+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165212,76+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT  @Year(CDate) = @Year(@Now ) &amp; INO !=""</formula></code>
+<column sort='descending' hidedetailrows='false' itemname='INO' width='8'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='INO'><font size='9pt' style='bold'/></columnheader></column>
+<item name='$FormulaTV'><text/></item></view>
+
+<view name='Reminders' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false' formatnoteid='34F7A4A5092193AA48257305002790BC'>
+<noteinfo noteid='172' unid='090AF7F2F7D1D05A482587AD00185C88' sequence='1'>
+<created><datetime>20211216T122605,52+08</datetime></created>
+<modified><datetime>20220901T165212,89+08</datetime></modified>
+<revised><datetime>20211216T122606,83+08</datetime></revised>
+<lastaccessed><datetime>20220901T165212,88+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165212,88+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Form = "Reminder"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='subject' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font size='11pt' style='bold' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/><columnheader><font size='11pt'
+ style='bold' name='Calibri' pitch='variable' truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='$25' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Date Sent'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Date(@Created)</formula></code></column>
+<column hidedetailrows='false' itemname='$23' width='13.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='To'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];SendTo)</formula></code></column>
+<column hidedetailrows='false' itemname='$24' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='CC'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];CopyTo)</formula></code></column></view>
+
+<view name='RemPdgSup' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='176' unid='B3EC6FFA7F1405E9482587AD00185C89' sequence='2'>
+<created><datetime>20211216T122605,53+08</datetime></created>
+<modified><datetime>20220901T165213,01+08</datetime></modified>
+<revised><datetime>20211216T125734,07+08</datetime></revised>
+<lastaccessed><datetime>20220901T165213,00+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165213,00+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Submitted" &amp; @Adjust(reportedDate;0;0;5;0;0;0) &lt; @Today</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' itemname='NotNum' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='No.'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='Name' width='17.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title=' Name'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='Dept' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Department'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='Position' width='14.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Position'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Title' width='34.6250'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Training Title'><font
+ size='11pt' style='bold' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='$16' width='11.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Date'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Text(Date) + " - " + @Text(Date_1)</formula></code></column>
+<column hidedetailrows='false' itemname='Trainer' width='17.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Trainer'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='$14' width='12.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Superior'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];SendTo)</formula></code></column>
+<column hidedetailrows='false' itemname='$15' width='14.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='HOD'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];HOD)</formula></code></column>
+<item name='$FormulaTV'><text/></item></view>
+
+<form name='Reminder' nocompose='true' publicaccess='false' designerversion='8.5.3'
+ storeform='true'>
+<noteinfo noteid='17e' unid='4B5958B295B16C2B482587AD00337021' sequence='1'>
+<created><datetime>20211216T172150,41+08</datetime></created>
+<modified><datetime>20220901T165213,26+08</datetime></modified>
+<revised><datetime>20211216T172150,44+08</datetime></revised>
+<lastaccessed><datetime>20220901T165213,25+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165213,25+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"OPRP Filter"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<body><richtext>
+<pardef id='1' leftmargin='1in'><code event='hidewhen' enabled='false'><formula
+>@IsAvailable($HideMailHeader)</formula></code></pardef>
+<par def='1'/>
+<pardef id='2'/>
+<par def='2'/>
+<table widthtype='fitmargins' refwidth='9.5625in'><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='4' keepwithnext='true' keeptogether='true'/>
+<par def='4'><picture width='242px' height='156px' align='middle'><gif>
+R0lGODlh8gCcAOYAAP////j48PjguAAAAPjAYPjw2PDgyIiguPjAWNDY4Pjw4MjQ4PiwOPjo0PDw
+8Pjw6PjoyPioONDQ0PjIcPjYoPjYqPjgwBgYGODg4Ojo6PjIaPDgwPjQgLi4uAgICPjIYPjQkPCQ
+APjIePjgsFh4oMjIyPjQiPjo2BAQEIiYuPjYsPj46JCQkJiYmLCwsPjYmGhoaNjY2Dg4OCgoKKCg
+oFh4mMDAwFhYWGBgYCAgIEBAQIiIiKioqPCQCPCYEHh4eEhISICAgICYsPCYGPjQmFBQUPCgIHBw
+cDAwMPCYCPiwQPi4SPjIgGCAoMDI2Ki4yPCgGPDw+PCoKPjowPCoOPDAaPDoyPjIiPCgKPjAUGiA
+oJCguJCowPCoMPC4WPC4YPDguPi4UPjQePjgqNjg6PCwSPjYkGB4oGiIqHiQsLjA0ODo6Ojo8PCw
+QPjAaKCwwPCwUPD4+PjAcHCIqHCQqJiowKCwyMDQ2MjQ2Njg4ODo8Ojw8Pi4QHiQqLDA0LjI2CwA
+AAAA8gCcAEAI/wABCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyA/RnmihcQcIQdS
+qlzJsqXLlzBjypxJs6bNlynSNCGxhUzInxzjkABKtKhRglzUHM0Y4GKKBEsLwhhAdQALgTqq6hjY
+ouqAGAA6eKXaAcjYqjYOZkBy1kNVD1EJDp0YoK7du3jz6t3L1ynUuAAwuKUKV2CQs2M9OChxNodA
+FoiDHMSB2OsMwALnSsQLgK/nvk33+sVMujREzRFFPxDAmjWE0J/tdo4dO+FT0w0xYNgI4waQGThw
+J0Sd2uADC62TKxfw4GBTgs+hC4we8cBfhQ4Gj2XhYEZVJDK8Fv8RiKKyeaoCeXjNAIDGeaq7u77/
+AUCCVxneq7YIWxksyBoXKbDcgAQWKIAFJ1CnoIKdMWRdQxdURR9BMeRQ2QUAZKDdDQJh4NVVAOzg
+1W4iViUBf1XtBgBjJgLgAFvnwZCeecHZhxZBh1UlI2RVcThVVZIxBOBEyBlo5JFIKgeBAtQhFMWQ
+wkUpXFIUjcABAVhmSQACBGggggkgvCAmCByI8MGWWmY5AQVJtkkggs85QFINdAhh55144lkHG0CR
+scVNgAYqaEs5nVHDFnkYxGBBsEUXgAUGRGqAAhDFwEIRMsgAAw8OCPSAASakyaabpJZqpAUNMJlB
+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
+</gif></picture><run
+><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> </run><run
+><font size='14pt' style='bold' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='computed' name='Subject'><code event='defaultvalue'><formula
+>Subject</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='14' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow></table>
+<pardef id='3' leftmargin='1in'/>
+<par def='3'><run><font size='8pt' style='bold shadow' color='purple'/></run></par>
+<par def='2'/>
+<table widthtype='fitmargins' refwidth='9.5625in'><tablecolumn width='1.7000in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>To</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='6' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='SendTo' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>SendTo</formula></code></field></run><run><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>CC</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='CopyTo' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>CopyTo</formula></code></field></run><run><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>Date Sent Reminder</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='datetime' kind='computedwhencomposed'
+ name='DateSent'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ time='hourminute' zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday'
+ monthformat='twodigitmonth' yearformat='fourdigityear' weekdayformat='shortname'
+ dateseparator1=' ' dateseparator2='/' dateseparator3='/' timeseparator=':'
+ preference='usersetting'/><code event='defaultvalue'><formula>@Created</formula></code></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='6'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='2'><run><font size='14pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<par def='2'><run><font size='14pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>Please click here to the document --&gt; </run><run><font
+ size='12pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><field
+ type='richtext' kind='computed' name='rTxtDocLink'><code event='defaultvalue'><formula
+>rTxtDocLink</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata></par>
+<pardef id='7' leftmargin='1in' hide='print'><code event='hidewhen'><formula
+>@UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef>
+<par def='7'/></richtext></body>
+<item name='RunNum' summary='false' sign='true'><number>0</number></item>
+<item name='DUEDATE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DateOFReminder' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$FormUsers'><textlist><text>CN=ACMSVR/OU=PMS/O=PHB</text><text
+>CN=PHBSVR/O=PHB</text></textlist></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Memo</text></item></form>
+
+<agent name='ComName' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='19a' unid='8B8435E3FF187F2A48258841002F5F9E' sequence='2'>
+<created><datetime>20220513T163726,70+08</datetime></created>
+<modified><datetime>20220905T154154,37+08</datetime></modified>
+<revised><datetime>20220905T154154,36+08</datetime></revised>
+<lastaccessed><datetime>20220905T154154,36+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165214,32+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20220905T154154,40+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='VerStatus' value='1'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20220905T154154,37+08</datetime></agentmodified>
+<agentrun><datetime>20220905T154200,78+08</datetime></agentrun>
+<runlog>Started running agent 'ComName' on 05/09/2022 03:42:00 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'ComName' on 05/09/2022 03:42:00 PM
+</runlog></rundata></agent>
+
+<view name='PdgApp' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1a6' unid='E2CC897024B45B23482588A60029A9E1' sequence='4'>
+<created><datetime>20220822T153504,65+08</datetime></created>
+<modified><datetime>20220921T172623,34+08</datetime></modified>
+<revised><datetime>20220921T172623,33+08</datetime></revised>
+<lastaccessed><datetime>20220921T172623,33+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165214,77+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Verified"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Completed' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1aa' unid='5B3CD8FD9EE6E104482588A60029B516' sequence='4'>
+<created><datetime>20220822T153533,34+08</datetime></created>
+<modified><datetime>20220921T172633,90+08</datetime></modified>
+<revised><datetime>20220921T172633,89+08</datetime></revised>
+<lastaccessed><datetime>20220921T172633,89+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165214,91+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Approved"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='PdgVer' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1ae' unid='90824AB88CC1C4C9482588A60029CBDE' sequence='9'>
+<created><datetime>20220822T153631,66+08</datetime></created>
+<modified><datetime>20230411T162340,95+08</datetime></modified>
+<revised><datetime>20230411T162340,94+08</datetime></revised>
+<lastaccessed><datetime>20230411T162340,94+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165215,07+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Submitted"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Rejected' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1b2' unid='EE7B7356CDC4860F482588A6002A04F2' sequence='4'>
+<created><datetime>20220822T153857,78+08</datetime></created>
+<modified><datetime>20220921T172720,51+08</datetime></modified>
+<revised><datetime>20220921T172720,50+08</datetime></revised>
+<lastaccessed><datetime>20220921T172720,50+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165215,23+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Rejected"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Withdrawn' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1b6' unid='6FD6AC4CA2D4BAE4482588A6002A1689' sequence='4'>
+<created><datetime>20220822T153942,81+08</datetime></created>
+<modified><datetime>20220921T172646,89+08</datetime></modified>
+<revised><datetime>20220921T172646,88+08</datetime></revised>
+<lastaccessed><datetime>20220921T172646,88+08</datetime></lastaccessed>
+<addedtofile><datetime>20220901T165215,38+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Withdrawn"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='PdgAction' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1a2e' unid='C68D17DD7187B6AD482588D9002DDAA1' sequence='3'>
+<created><datetime>20221012T162050,89+08</datetime></created>
+<modified><datetime>20221012T162106,26+08</datetime></modified>
+<revised><datetime>20221012T162106,25+08</datetime></revised>
+<lastaccessed><datetime>20221012T162157,62+08</datetime></lastaccessed>
+<addedtofile><datetime>20221012T162050,90+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Submitted"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='maroon' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='RemPdgAction' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1a3a' unid='6C1732FB8058B49A482588DA000CAF4D' sequence='3'>
+<created><datetime>20221013T101833,09+08</datetime></created>
+<modified><datetime>20221013T102056,87+08</datetime></modified>
+<revised><datetime>20221013T102056,86+08</datetime></revised>
+<lastaccessed><datetime>20221013T102056,86+08</datetime></lastaccessed>
+<addedtofile><datetime>20221013T101833,10+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Submitted"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' itemname='NotNum' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='No.'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='Name' width='17.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title=' Name'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='Dept' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Department'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='Position' width='14.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Position'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Title' width='34.6250'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Training Title'><font
+ size='11pt' style='bold' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='$16' width='11.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Date'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Text(Date) + " - " + @Text(Date_1)</formula></code></column>
+<column hidedetailrows='false' itemname='Trainer' width='17.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Trainer'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='$14' width='12.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Superior'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];SendTo)</formula></code></column>
+<column hidedetailrows='false' itemname='$15' width='14.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='HOD'><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];HOD)</formula></code></column></view>
+
+<agent name='RemPdgAction' hide='v3' publicaccess='false' designerversion='8.5.3'
+ activatable='false' enabled='false'>
+<noteinfo noteid='1a42' unid='D70D98E3F162A208482588DA000CD256' sequence='7'>
+<created><datetime>20221013T102002,78+08</datetime></created>
+<modified><datetime>20221013T102244,19+08</datetime></modified>
+<revised><datetime>20221013T102244,18+08</datetime></revised>
+<lastaccessed><datetime>20221013T102244,18+08</datetime></lastaccessed>
+<addedtofile><datetime>20221013T102002,79+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20221013T102244,16+08</datetime></designchange>
+<trigger type='scheduled'>
+<schedule type='daily' runlocation='specific' runserver='CN=PCNSVR/O=PHB'>
+<starttime><datetime>T090000,00</datetime></starttime></schedule></trigger>
+<documentset type='modified'/><code event='declarations'><lotusscript>Dim Session As NotesSession
+Dim db As NotesDatabase
+Dim view As NotesView
+Dim doc As NotesDocument
+Dim maildoc As NotesDocument
+Dim item As NotesItem
+Dim rtiitem As NotesRichTextItem
+Dim documents As NotesDocumentCollection
+Dim dtToday As NotesDateTime
+Dim dtDue As NotesDateTime
+Dim dtSet As NotesDateTime
+Dim Recipient As Variant
+Dim CC As Variant 
+Dim Title As Variant
+
+</lotusscript></code><code event='initialize'><lotusscript>
+Sub Initialize
+	On Error GoTo ProcessError
+	Set Session  = New NotesSession    
+	Set db = Session.CurrentDatabase
+	Set view = db.GetView("PdgAction")
+	
+	Set dtToday = New NotesDateTime("today")
+	Set dtDue = New NotesDateTime("today")
+	Set dtSEt = New NotesDateTime("today")
+	dtToday.SetNow
+	
+	'--Retrieve first document and return to NotesDocument object:
+	Set doc = view.GetFirstDocument
+	
+	'--Loop through every document in view using GetNextDocumnet method
+	Do While Not (doc Is Nothing)     
+		Recipient = Doc.HOD
+		'CC = Doc.CCMail
+		Title = Doc.Title
+		
+		Set Maildoc = New NotesDocument( db)
+		Set rtitem = New NotesRichTextItem(Maildoc, "rTxtDocLink")
+		
+		Call rtitem.AppendDocLink(doc, db.Title)
+		
+		Maildoc.Form = "Reminder"
+		dtSet.SetNow
+		SendNotification(0)
+		
+		Set doc = view.GetNextDocument(doc)
+	Loop    
+	Exit Sub
+ProcessError:
+	MsgBox "Error (" &amp; CStr(Err) &amp; " ) -&gt;" &amp; Error$(Err), 16,"Initialize"
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event='SendNotification'><lotusscript>
+Sub SendNotification(n)
+	Set rtitem = New NotesRichTextItem(maildoc, "Body")
+	
+	SendTo = Recipient
+	'CopyTo = CC
+	Subject = "PanCen TPM Database - Reminder - Pending HOD Approval"
+	WorkflowObject = Doc.WorkflowObject
+	
+	Maildoc.InheritedDbTitle = db.Title
+	Maildoc.SendTo = SendTo
+	'Maildoc.CopyTo = CopyTo
+	Maildoc.Subject = Subject
+	Maildoc.FormTitle = Title
+	Maildoc.NotNum = Doc.NotNum
+	Maildoc.Body = Body
+	Maildoc.Save True, True
+	dn = DateNumber(Year(Today),Month(Today),Day(Today))
+	If (Weekday(Today) = "4") Then
+		dn = dn + 5
+	Else 
+		dn = dn + 4
+	End If     
+	doc.RemDate = DateValue(dn) 
+	doc.Save True, True
+	Call Maildoc.send(True)
+	
+End Sub</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20221013T102243,97+08</datetime></agentmodified></rundata></agent>
+
+<view name='SummaryByInDate' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='33de' unid='5E1697E0E249021F48258994000E1201' sequence='3'>
+<created><datetime>20230417T103341,13+08</datetime></created>
+<modified><datetime>20230417T103437,20+08</datetime></modified>
+<revised><datetime>20230417T103437,19+08</datetime></revised>
+<lastaccessed><datetime>20230419T153351,29+08</datetime></lastaccessed>
+<addedtofile><datetime>20230417T103341,12+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Form = "frmWork" &amp; CA != "Withdrawn" &amp;  CA != "Draft"</formula></code>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><columnheader title='Inspection Date'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='SummaryByFindings' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='33e2' unid='115A87D387CC052648258994000E128D' sequence='3'>
+<created><datetime>20230417T103342,53+08</datetime></created>
+<modified><datetime>20230417T103604,35+08</datetime></modified>
+<revised><datetime>20230417T103604,34+08</datetime></revised>
+<lastaccessed><datetime>20230417T103821,27+08</datetime></lastaccessed>
+<addedtofile><datetime>20230417T103342,53+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Form = "frmWork" &amp; CA != "Withdrawn" &amp;  CA != "Draft"</formula></code>
+<column sort='descending' hidedetailrows='false' itemname='Finding' width='7.2500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkName' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked By'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='SummaryByCheckBy' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='33e6' unid='00F9F14054F7312C48258994000E4ED6' sequence='3'>
+<created><datetime>20230417T103616,86+08</datetime></created>
+<modified><datetime>20230417T103802,05+08</datetime></modified>
+<revised><datetime>20230417T103802,03+08</datetime></revised>
+<lastaccessed><datetime>20230419T153358,90+08</datetime></lastaccessed>
+<addedtofile><datetime>20230417T103616,87+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Form = "frmWork" &amp; CA != "Withdrawn" &amp;  CA != "Draft"</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='ChkName' width='10.2500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><columnheader title='Checked By'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Findings' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Findings'><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='InsDate' width='10.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Inspection Date'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Time' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Time'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='duration' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Duration'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ChkDate' width='10.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Checked Date'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='Findings' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='3406' unid='F8FE0E39F5C865EC482589960029CF1E' sequence='4'>
+<created><datetime>20230419T153639,98+08</datetime></created>
+<modified><datetime>20230419T154143,75+08</datetime></modified>
+<revised><datetime>20230419T154143,74+08</datetime></revised>
+<lastaccessed><datetime>20230419T154143,74+08</datetime></lastaccessed>
+<addedtofile><datetime>20230419T153640,08+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20230419T154143,80+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='Finding' value='Yes'/></code>
+<rundata processeddocs='7' exitcode='0'>
+<agentmodified><datetime>20230419T154143,75+08</datetime></agentmodified>
+<agentrun><datetime>20230419T154149,46+08</datetime></agentrun>
+<runlog>Started running agent 'Findings' on 19/04/2023 03:41:49 PM
+Running on selected documents: 7 total
+Found 7 document(s) that match search criteria
+Modified field in 7 document(s)
+Done running agent 'Findings' on 19/04/2023 03:41:49 PM
+</runlog></rundata></agent>
+
+<agent name='Refresh Docs' hide='v3' publicaccess='false' designerversion='8.5.3'
+ private='true'>
+<noteinfo noteid='8416' unid='2F2FA202036D89B948258C9E00301059' sequence='1'>
+<created><datetime>20250603T164459,13+08</datetime></created>
+<modified><datetime>20250603T164459,18+08</datetime></modified>
+<revised><datetime>20250603T164459,17+08</datetime></revised>
+<lastaccessed><datetime>20250603T164459,17+08</datetime></lastaccessed>
+<addedtofile><datetime>20250603T164459,17+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20250310T122829,44+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='runonce'/><code event='action'>
+<simpleaction action='runformula'><formula>@Command([ToolsRefreshSelectedDocs] );
+ @All;SELECT
+ @All</formula></simpleaction></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20250603T164459,18+08</datetime></agentmodified>
+<agentrun><datetime>20260311T085743,67+08</datetime></agentrun>
+<runlog>Started running agent 'Refresh Docs' on 11/03/2026 08:57:41 AM
+1 document(s) were modified by formula
+Done running agent 'Refresh Docs' on 11/03/2026 08:57:43 AM
+</runlog></rundata></agent>
+
+<agent name='Set' hide='v3' publicaccess='false' designerversion='8.5.3' agenttype='simpleaction'>
+<noteinfo noteid='9c06' unid='3EB4C3C00F9EC51E48258D3E001AEC56' sequence='8'>
+<created><datetime>20251110T125404,38+08</datetime></created>
+<modified><datetime>20251110T125807,60+08</datetime></modified>
+<revised><datetime>20251110T125807,59+08</datetime></revised>
+<lastaccessed><datetime>20251110T125807,59+08</datetime></lastaccessed>
+<addedtofile><datetime>20251110T125404,67+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20251110T125808,26+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20251110T125808,28+08</datetime></agentmodified></rundata></agent>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='a932' unid='2BBCF64F3D35BF5D48258E05002D72E7' sequence='3'>
+<created><datetime>20260528T161625,35+08</datetime></created>
+<modified><datetime>20260528T161710,17+08</datetime></modified>
+<revised><datetime>20260528T161710,16+08</datetime></revised>
+<lastaccessed><datetime>20260528T161710,16+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T161625,47+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T161710,66+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(0) As String
+	sfNames(0) = "Signature"
+  
+  For i = 0 To 0
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\HR_PanCen\13_workins_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\HR_PanCen\13_workins_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!" &amp; Chr(10) &amp; Chr(10) &amp; _
+        "Inventory : D:\Claude\DB_NSF\HR_PanCen\13_workins_all_inventory.txt" &amp; Chr(10) &amp; _
+        "Full DXL  : D:\Claude\DB_NSF\HR_PanCen\13_workins_all_dxl.xml" &amp; Chr(10) &amp; Chr(10) &amp; _
+        "DXL size  : " &amp; Format(Len(dxl), "#,##0") &amp; " chars"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T161710,20+08</datetime></agentmodified></rundata></agent>
+</database>
+

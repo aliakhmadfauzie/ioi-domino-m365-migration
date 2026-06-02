@@ -1,0 +1,61 @@
+ EMPLOYEE EXIT 
+NOTIFICATION
+HR SECTION
+Company
+ : 
+Site
+Main Category
+ : 
+Main
+Category
+ : 
+Category
+Type
+ : 
+Type
+                   please specify 
+othertype
+Renewal Status
+ : 
+ContractStatus
+Name & Email
+ : 
+EmpName
+ / 
+EmpEmail
+Employee No.
+ : 
+EmpNum
+Position
+ : 
+Position
+Section
+ : 
+EmpDept
+Exit Interview done in 
+Hardcopy?
+ : 
+ExitInterview
+Notification Received Date
+ : dtNoticeReceived
+Effective Resignation Date
+(one day after last service date)  : 
+ResignedDate
+Last Working Date
+ : 
+LastWorkingDay
+Last Service Date
+ : 
+LastServiceDay
+Superior
+ : 
+HOD
+Department/Division Head
+ : 
+DivHead
+Remarks
+ : 
+HRComment
+Date Submitted
+ : 
+SubmitDate

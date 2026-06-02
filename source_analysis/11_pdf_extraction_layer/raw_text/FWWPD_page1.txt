@@ -1,0 +1,48 @@
+ FOREIGN WORKERS WORK 
+PERMIT
+SECTION A - GENERAL INFORMATIONS
+ Photo
+Company
+ : 
+Company
+Status
+ : Status
+Reason : 
+Reason
+Remark : 
+Remark
+Check-Out-Memo
+ : COMemo
+Name
+ : Name
+Employee No.
+ : EmpNo
+Department
+ : Department
+Hostel Address
+ : Hostel
+Date of Birth
+ : 
+DOB
+Date of Commencement
+ : 
+DOC
+New Passport No.
+ : 
+PassportNoNew
+New Upload Passport
+ : 
+PassportNew
+Passport Expiry Date
+ : assportExpiryDat
+Old Passport No.
+ : 
+PassportNoOld
+Old Upload Passport
+ : 
+PassportOld
+Nationality
+ : 
+Nationality
+Contract Period
+ : ContractPeriod  to ContractPeriod_1

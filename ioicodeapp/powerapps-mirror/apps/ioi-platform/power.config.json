@@ -1,0 +1,1084 @@
+{
+  "environmentId": "3ab52b84-ef8c-ef0d-8117-ae5b0ae39504",
+  "appDisplayName": "IOI Acidchem Enterprise Platform - v2",
+  "description": "Centralized HR and IT management platform for IOI Acidchem Sdn Bhd with role-based access and conditional approval workflows",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "logoPath": "Default",
+  "localAppUrl": "http://localhost:5173/",
+  "appId": "26fddd33-46a8-43ae-a1f2-e90fa3b003bf",
+  "tags": {
+    "planId": "",
+    "projectId": "a44d87ee-52ae-45b8-81a8-44efbbd6d576"
+  },
+  "connectionReferences": {
+    "3eee79e3-fad2-4e24-84b7-acfa1d075fdb": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+      "displayName": "SharePoint",
+      "dataSets": {
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-hr": {
+          "dataSources": {
+            "hr_healthregister": {
+              "tableName": "5ce8e0dd-f1e5-4bba-9dbb-76694bb2bbb1"
+            },
+            "approvalhistory_hr": {
+              "tableName": "4a701db1-5bb6-4fe5-8ae1-cf02be2111d0"
+            },
+            "opslog_hr": {
+              "tableName": "f0d6d081-7e2a-4677-ba73-fd7a587f4a34"
+            },
+            "maindb_hr": {
+              "tableName": "cefc8188-ca5d-41e4-8a88-a912214f5c23"
+            },
+            "attachmentindex_hr": {
+              "tableName": "a2cb4965-3926-4fc4-8da1-ff9b9d3b247f"
+            },
+            "hr_appraisalrecords": {
+              "tableName": "cccfe308-c544-455d-afba-616be99c2d6f"
+            },
+            "auditlog_hr": {
+              "tableName": "dca4101e-67ea-4815-a4cd-bd06eeb42238"
+            },
+            "config_globaluserroleassignments": {
+              "tableName": "f9aab91f-a8f2-440d-860d-b0d502cbcc22"
+            },
+            "hr_routingmatrix": {
+              "tableName": "4d176bf6-784b-4ddb-ad3f-5e37545bd5d1"
+            },
+            "hr_interviewpipeline": {
+              "tableName": "184c0a0d-d149-492e-9586-2600ddce98f4"
+            },
+            "maindb_hr_ext_een": {
+              "tableName": "13ea64b2-575c-42a4-ab50-14b78a5f2458"
+            },
+            "maindb_hr_ext_epdu": {
+              "tableName": "c4ba9c20-9cbf-438f-bc53-d667c45e52db"
+            },
+            "maindb_hr_ext_ephr": {
+              "tableName": "b81829dd-90ae-423b-af06-0df1e7236a22"
+            },
+            "maindb_hr_ext_esf": {
+              "tableName": "a3694789-9305-45ee-9266-b50d152b236b"
+            },
+            "maindb_hr_ext_ftcr": {
+              "tableName": "551fc5a3-8a8d-48a5-8b63-d7fd6adcdc4b"
+            },
+            "maindb_hr_ext_fwwpe": {
+              "tableName": "036f2b53-497f-49be-a260-0b59ed2dca3d"
+            },
+            "maindb_hr_ext_fwwpd": {
+              "tableName": "b882590e-73f5-4d48-9b2f-6a8f1bac5e9b"
+            },
+            "maindb_hr_ext_gdsn": {
+              "tableName": "f6f4e86f-1bed-4a8c-b63d-7118f68f89d4"
+            },
+            "maindb_hr_ext_healthinfo": {
+              "tableName": "37d6ea8c-b8cc-4b85-88f4-3904f220e1b7"
+            },
+            "maindb_hr_ext_hrapr": {
+              "tableName": "73e50516-bdd7-48fe-9649-9d57acd1106b"
+            },
+            "hr_fwwpd_hostelrecords": {
+              "tableName": "ee584083-f49a-4fd8-98a1-796bc7887916"
+            },
+            "hr_fwwpd_insurancedeductions": {
+              "tableName": "318e81e8-857e-4f21-b2dd-3926b80cdbae"
+            },
+            "hr_fwwpd_complianceassets": {
+              "tableName": "c2dc91b7-891e-4d44-9c64-bc1b07449577"
+            },
+            "hr_migrationreminderlog": {
+              "tableName": "0174fd8f-fc59-4355-bda6-ca5b4f4c609e"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-it": {
+          "dataSources": {
+            "approvalrecords": {
+              "tableName": "10498092-de2c-48ca-ab68-5549466fc73f"
+            },
+            "itforms": {
+              "tableName": "f338f907-c873-4614-a36a-2d49616b8276"
+            },
+            "workflowauditlog": {
+              "tableName": "11a51395-0efb-4052-b7e7-7a26b459cdc6"
+            },
+            "config_employeedirectory": {
+              "tableName": "e2228ba4-6743-45ee-bcb5-487fbb9209ca"
+            },
+            "maindb_it_ext_support": {
+              "tableName": "37a03d3f-7403-4302-97fc-0d816de938ba"
+            },
+            "maindb_it_ext_sap": {
+              "tableName": "b5b40011-cd99-46f9-91c0-bf8d3a7646de"
+            },
+            "user_roles_it": {
+              "tableName": "a1c30546-9cf3-48eb-b59f-97f6bb67a917"
+            },
+            "config_companies": {
+              "tableName": "923df0d1-bb77-4128-9124-9555b68e882c"
+            },
+            "config_departments": {
+              "tableName": "93e36c64-6dfd-4632-9ca4-2d181ea91e8f"
+            },
+            "config_notesadminrouting": {
+              "tableName": "00ae4463-142b-482d-b288-d9ab86bdcbba"
+            },
+            "maindb_it_ext_assets": {
+              "tableName": "be6bfd37-3fc4-4ec5-8791-ac5890d0bf3d"
+            },
+            "it_m1_rs_banks": {
+              "tableName": "0186c1a4-4365-4da5-9b03-7013ce120620"
+            },
+            "maindb_it_ext_access": {
+              "tableName": "c6bd4df6-b45f-436b-b8d3-0e38dc6049e3"
+            },
+            "policies": {
+              "tableName": "d79a97ea-380f-45e6-ab2f-3b75784228dc"
+            },
+            "it_m1_rs_sap_client": {
+              "tableName": "2586a7b6-219a-431e-ae60-08619cd8fb55"
+            },
+            "config_approvermatrix": {
+              "tableName": "d21b860b-c9b4-4abd-9f9e-cb4ef758772b"
+            },
+            "it_m1_rs_systemslist": {
+              "tableName": "c82802d3-a8a2-4525-a844-0b10fcaa2f5a"
+            },
+            "it_m1_sfar_servers": {
+              "tableName": "57ca5bf2-fdc6-4ea2-9dc5-10bb7a6e399b"
+            },
+            "maindb_it": {
+              "tableName": "b1de9795-563e-48c3-99a3-1430234dc6e2"
+            },
+            "maindb_it_jhr": {
+              "tableName": "665f39e8-1006-48a6-a57d-015867b6f360"
+            },
+            "maindb_it_ext_policy": {
+              "tableName": "bdf68983-9e28-439f-84c7-2c1d52850f6b"
+            },
+            "maindb_it_ext_docs": {
+              "tableName": "802d2695-ef58-4dd3-ae8d-e693190a6d6d"
+            },
+            "maindb_it_ext_infra": {
+              "tableName": "853be955-c0ee-4d76-a23d-47db192f1b21"
+            },
+            "it_sapsof_testevidence": {
+              "tableName": "081ec3ff-2f42-4d98-b3aa-301bb5b582a2"
+            },
+            "it_routingmatrix": {
+              "tableName": "9d97e659-a023-4999-bf7d-716b83562a4d"
+            },
+            "maindb_it_attachments": {
+              "tableName": "4f831663-1e5f-411f-9044-f50330793452"
+            },
+            "maindb_it_cr_approvalrecord": {
+              "tableName": "360b517e-8dda-42b6-bce0-7b81f2ed3c9b"
+            },
+            "config_ithardware_routing_johor": {
+              "tableName": "35d9a38b-93db-4a77-8baa-55bcba9fec36"
+            },
+            "config_ithardware_routing_penang": {
+              "tableName": "a2e2511f-9cc5-4e9a-b2f5-bcb25fc162d5"
+            },
+            "it_sapsof_approvalrecords": {
+              "tableName": "8a58a5e9-ec8f-43ad-8478-a38f6f5e808c"
+            },
+            "config_appsettings": {
+              "tableName": "0da5e2d0-4786-4cc1-8e88-4fed84edc509"
+            },
+            "config_distributiongroups": {
+              "tableName": "cdc9858d-774a-42ae-bd33-7198a7a47d99"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-str": {
+          "dataSources": {
+            "approvalhistory_str": {
+              "tableName": "55098956-2dc5-4895-b7de-d0b285c2d5cc"
+            },
+            "maindb_str": {
+              "tableName": "c8fd5e82-fdea-4eca-bf21-6c8b7b76a72f"
+            },
+            "assignments_str": {
+              "tableName": "be7fe637-7e2a-4e23-8c77-21fe5f0c74ca"
+            },
+            "attachmentindex_str": {
+              "tableName": "03887d76-c755-4c33-ad75-19a6df8474bb"
+            },
+            "lineitems_str": {
+              "tableName": "5b468591-f891-411d-b19c-6cee96010c0e"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-qa": {
+          "dataSources": {
+            "qa_actionitems": {
+              "tableName": "5e44b81c-bb67-408b-9d8e-64758d320b2f"
+            },
+            "maindb_qa": {
+              "tableName": "197e8000-bf83-4d61-b7b8-9b5378897e38"
+            },
+            "qa_subactionitems": {
+              "tableName": "31d5afab-b70a-479d-9ec9-fcda5e39aab2"
+            },
+            "qa_haccp_reviewrecord": {
+              "tableName": "bc879105-4b78-4612-a87e-23823965bb31"
+            },
+            "approvalhistory_qa": {
+              "tableName": "b307487e-8d4c-49a7-8ba0-7476d55086dd"
+            },
+            "maindb_qa_jhr": {
+              "tableName": "35500478-d8b9-41fc-b841-7c400d810fdc"
+            },
+            "maindb_qa_ext_ims": {
+              "tableName": "a88a06e5-5165-4a36-8940-e031ef4d7641"
+            },
+            "maindb_qa_ext_capa": {
+              "tableName": "0b84b145-045a-4781-97ce-7083714412d7"
+            },
+            "maindb_qa_ext_records": {
+              "tableName": "1d81af47-28b4-48ea-841d-63b4f0d94b52"
+            },
+            "maindb_qa_ext_assessment": {
+              "tableName": "ab7ce1fa-3979-4ace-95c5-af616dc6f4dc"
+            },
+            "maindb_qa_ext_product": {
+              "tableName": "0db1d018-c3f6-4fcd-9945-6dd2b14bca62"
+            },
+            "maindb_qa_ext_halalcert": {
+              "tableName": "69550775-3575-4682-b454-df080650d1c4"
+            },
+            "maindb_qa_ext_changecontrol": {
+              "tableName": "14f83dcb-0be4-445a-861d-f80e604091f9"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-qc": {
+          "dataSources": {
+            "maindb_qc": {
+              "tableName": "ce3c7931-5ff6-40e2-a182-58c24177fcf5"
+            },
+            "maindb_qc_jhr": {
+              "tableName": "58894dfe-e3b8-4006-a76a-772846a5bd27"
+            },
+            "maindb_qc_ext_lab": {
+              "tableName": "15569278-dae0-42b9-84e6-575cfd91f275"
+            },
+            "maindb_qa": {
+              "tableName": "9ff8da38-7c5a-4194-bfc7-40775dcb4ad3"
+            },
+            "maindb_qa_jhr": {
+              "tableName": "ee1f1b5f-a1b5-4a3d-b836-3b7bd7a8e83d"
+            },
+            "maindb_qa_ext_ims": {
+              "tableName": "3bc5b495-d4ef-4897-a030-a2935919f507"
+            },
+            "maindb_qa_ext_capa": {
+              "tableName": "4697ee87-c0c7-4e1d-90fe-5e5f72d7ebab"
+            },
+            "maindb_qa_ext_records": {
+              "tableName": "8670718a-416b-44d6-87c9-84a8654655a3"
+            },
+            "maindb_qa_ext_assessment": {
+              "tableName": "0c419d8e-f8ba-43e4-b5c1-c7ab06118bbb"
+            },
+            "maindb_qa_ext_product": {
+              "tableName": "06d3685f-09b1-4cfd-9300-e8b77d30444a"
+            },
+            "maindb_qa_ext_halalcert": {
+              "tableName": "36ba4f55-a511-4ddd-8b7b-9c214043bc18"
+            },
+            "maindb_qa_ext_changecontrol": {
+              "tableName": "994c3134-64c0-47af-bfc3-ee25c8ebf1e4"
+            },
+            "approvalhistory_qc": {
+              "tableName": "eb3e1d2b-c118-4db4-ab3f-0decb34148df"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-fin": {
+          "dataSources": {
+            "maindb_fin": {
+              "tableName": "99208298-febb-4042-9dad-26ee4850867a"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-prd": {
+          "dataSources": {
+            "maindb_prd": {
+              "tableName": "bb00a39f-21c2-4197-8c8d-558432c24ac3"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-log": {
+          "dataSources": {
+            "maindb_log": {
+              "tableName": "64f319a6-955f-4b54-89ec-64bc0e793de6"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-mtn": {
+          "dataSources": {
+            "maindb_mtn": {
+              "tableName": "ce55bea1-6373-4876-a211-21ce36757889"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-wh": {
+          "dataSources": {
+            "maindb_wh": {
+              "tableName": "21804842-dc1a-4b7c-aa80-1e73c3067a3d"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-sec": {
+          "dataSources": {
+            "maindb_sec": {
+              "tableName": "1ceb0eda-46f0-47cd-aae5-93fa9042ff99"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-eng": {
+          "dataSources": {
+            "maindb_eng": {
+              "tableName": "bccba502-c851-4bb5-972d-124960d55c56"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-mkt": {
+          "dataSources": {
+            "maindb_mkt": {
+              "tableName": "909e2886-3848-4ec5-9306-41d5e8211334"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-pbi": {
+          "dataSources": {
+            "maindb_pbi": {
+              "tableName": "b2cc271e-171a-47df-b21b-c7dbf3faf165"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-rd": {
+          "dataSources": {
+            "maindb_rd": {
+              "tableName": "86ce39b5-1685-4570-8264-ea33a36f0c5d"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-td": {
+          "dataSources": {
+            "maindb_td": {
+              "tableName": "c8bd5c9e-c5fb-40e5-9742-a0fe4895f114"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-admin": {
+          "dataSources": {
+            "maindb_admin": {
+              "tableName": "51e2307b-489e-4cbb-9220-651039da2ea9"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-pom": {
+          "dataSources": {
+            "maindb_pom": {
+              "tableName": "7da74f44-52b5-4134-8fc1-736d24d777ed"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-prc": {
+          "dataSources": {
+            "maindb_prc": {
+              "tableName": "781510f3-b871-488b-ad25-4c55f57900cc"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-sa": {
+          "dataSources": {
+            "maindb_sa": {
+              "tableName": "600df36b-c9f4-48c0-880f-72bcd686f4d7"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-ei": {
+          "dataSources": {
+            "maindb_ei": {
+              "tableName": "f3bff508-c18a-4835-b51d-cfafed66f84c"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-she": {
+          "dataSources": {
+            "maindb_she": {
+              "tableName": "2fd47305-157b-480c-9f3d-e5deff019720"
+            },
+            "approvalhistory_she": {
+              "tableName": "97b6062b-d914-4d9b-8147-d6d98c3ce50c"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252FIOI-App_Admin_Sites": {
+          "dataSources": {
+            "issueandbugtracker": {
+              "tableName": "9e48856d-6f6a-4502-96c2-e91a35d9e0f1"
+            },
+            "userroles": {
+              "tableName": "bba08102-39d7-456f-abcd-724a2228daa6"
+            },
+            "appsettings": {
+              "tableName": "f47062b0-8336-43fe-80c5-d7cfdf0ce6f8"
+            },
+            "auditlogs": {
+              "tableName": "5644317e-cee5-411f-a439-15e660941a08"
+            },
+            "routepermissions": {
+              "tableName": "f848e4ea-b1b3-4362-a2d0-993027b42ce6"
+            },
+            "userprofiles": {
+              "tableName": "1022e739-f951-4a7d-869b-8629704816d3"
+            }
+          }
+        },
+        "https://ioioi.sharepoint.com/sites/ioi-portal-hr": {
+          "dataSources": {
+            "maindb_hr_ext_cafeteria": {
+              "tableName": "798bb5c1-3f6c-4de5-9fae-84561489f2cb"
+            },
+            "maindb_hr_ext_records": {
+              "tableName": "b272a915-f52a-4d02-a4ab-680354c5d895"
+            },
+            "maindb_hr_ext_cwr": {
+              "tableName": "MainDB_HR_Ext_CWR"
+            },
+            "maindb_hr_ext_een": {
+              "tableName": "13ea64b2-575c-42a4-ab50-14b78a5f2458"
+            },
+            "maindb_hr_ext_epdu": {
+              "tableName": "c4ba9c20-9cbf-438f-bc53-d667c45e52db"
+            },
+            "maindb_hr_ext_ephr": {
+              "tableName": "b81829dd-90ae-423b-af06-0df1e7236a22"
+            },
+            "maindb_hr_ext_esf": {
+              "tableName": "a3694789-9305-45ee-9266-b50d152b236b"
+            },
+            "maindb_hr_ext_ftcr": {
+              "tableName": "551fc5a3-8a8d-48a5-8b63-d7fd6adcdc4b"
+            },
+            "maindb_hr_ext_fwwpe": {
+              "tableName": "036f2b53-497f-49be-a260-0b59ed2dca3d"
+            },
+            "maindb_hr_ext_fwwpd": {
+              "tableName": "b882590e-73f5-4d48-9b2f-6a8f1bac5e9b"
+            },
+            "maindb_hr_ext_gdsn": {
+              "tableName": "f6f4e86f-1bed-4a8c-b63d-7118f68f89d4"
+            },
+            "maindb_hr_ext_healthinfo": {
+              "tableName": "37d6ea8c-b8cc-4b85-88f4-3904f220e1b7"
+            },
+            "maindb_hr_ext_hrapr": {
+              "tableName": "73e50516-bdd7-48fe-9649-9d57acd1106b"
+            },
+            "hr_fwwpd_hostelrecords": {
+              "tableName": "ee584083-f49a-4fd8-98a1-796bc7887916"
+            },
+            "hr_fwwpd_insurancedeductions": {
+              "tableName": "318e81e8-857e-4f21-b2dd-3926b80cdbae"
+            },
+            "hr_fwwpd_complianceassets": {
+              "tableName": "c2dc91b7-891e-4d44-9c64-bc1b07449577"
+            },
+            "hr_migrationreminderlog": {
+              "tableName": "0174fd8f-fc59-4355-bda6-ca5b4f4c609e"
+            },
+            "maindb_hr_ext_bsd": {
+              "tableName": "MainDB_HR_Ext_BSD"
+            }
+          }
+        }
+      },
+      "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1769/1.0.1769.4361/sharepointonline/icon.png",
+      "dataSources": [
+        "hr_healthregister",
+        "approvalrecords",
+        "approvalhistory_hr",
+        "itforms",
+        "approvalhistory_str",
+        "maindb_str",
+        "assignments_str",
+        "attachmentindex_str",
+        "lineitems_str",
+        "opslog_hr",
+        "maindb_hr",
+        "attachmentindex_hr",
+        "hr_appraisalrecords",
+        "auditlog_hr",
+        "config_globaluserroleassignments",
+        "hr_routingmatrix",
+        "hr_interviewpipeline",
+        "qa_actionitems",
+        "maindb_qa",
+        "qa_subactionitems",
+        "qa_haccp_reviewrecord",
+        "approvalhistory_qa",
+        "maindb_fin",
+        "maindb_prd",
+        "workflowauditlog",
+        "config_employeedirectory",
+        "maindb_it_ext_support",
+        "maindb_it_ext_sap",
+        "user_roles_it",
+        "config_companies",
+        "config_departments",
+        "config_notesadminrouting",
+        "maindb_it_ext_assets",
+        "it_m1_rs_banks",
+        "maindb_it_ext_access",
+        "policies",
+        "it_m1_rs_sap_client",
+        "config_approvermatrix",
+        "it_m1_rs_systemslist",
+        "it_m1_sfar_servers",
+        "maindb_it",
+        "maindb_it_jhr",
+        "maindb_it_ext_policy",
+        "maindb_it_ext_docs",
+        "maindb_it_ext_infra",
+        "maindb_it_attachments",
+        "maindb_it_cr_approvalrecord",
+        "config_ithardware_routing_johor",
+        "config_ithardware_routing_penang",
+        "it_sapsof_approvalrecords",
+        "config_appsettings",
+        "config_distributiongroups",
+        "maindb_she",
+        "approvalhistory_she",
+        "issueandbugtracker",
+        "userroles",
+        "appsettings",
+        "auditlogs",
+        "routepermissions",
+        "userprofiles",
+        "it_routingmatrix",
+        "maindb_hr_ext_cafeteria",
+        "maindb_hr_ext_records",
+        "maindb_hr_ext_cwr",
+        "maindb_hr_ext_een",
+        "maindb_hr_ext_epdu",
+        "maindb_hr_ext_ephr",
+        "maindb_hr_ext_esf",
+        "maindb_hr_ext_ftcr",
+        "maindb_hr_ext_fwwpe",
+        "maindb_hr_ext_fwwpd",
+        "maindb_hr_ext_gdsn",
+        "maindb_hr_ext_healthinfo",
+        "maindb_hr_ext_hrapr",
+        "hr_fwwpd_hostelrecords",
+        "hr_fwwpd_insurancedeductions",
+        "hr_fwwpd_complianceassets",
+        "hr_migrationreminderlog",
+        "maindb_hr_ext_bsd",
+        "maindb_qa_jhr",
+        "maindb_qa_ext_ims",
+        "maindb_qa_ext_capa",
+        "maindb_qa_ext_records",
+        "maindb_qa_ext_assessment",
+        "maindb_qa_ext_product",
+        "maindb_qa_ext_halalcert",
+        "maindb_qa_ext_changecontrol",
+        "maindb_qc",
+        "maindb_qc_jhr",
+        "maindb_qc_ext_lab",
+        "approvalhistory_qc",
+        "it_sapsof_testevidence"
+      ],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "7a10b3f0faba44f2a0c864aec3f1d045": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+      "displayName": "SharePoint",
+      "dataSets": {
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-str": {
+          "dataSources": {
+            "approvalhistory_str": {
+              "tableName": "55098956-2dc5-4895-b7de-d0b285c2d5cc"
+            },
+            "maindb_str": {
+              "tableName": "c8fd5e82-fdea-4eca-bf21-6c8b7b76a72f"
+            },
+            "assignments_str": {
+              "tableName": "be7fe637-7e2a-4e23-8c77-21fe5f0c74ca"
+            },
+            "attachmentindex_str": {
+              "tableName": "03887d76-c755-4c33-ad75-19a6df8474bb"
+            },
+            "lineitems_str": {
+              "tableName": "5b468591-f891-411d-b19c-6cee96010c0e"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-hr": {
+          "dataSources": {
+            "opslog_hr": {
+              "tableName": "f0d6d081-7e2a-4677-ba73-fd7a587f4a34"
+            },
+            "maindb_hr": {
+              "tableName": "cefc8188-ca5d-41e4-8a88-a912214f5c23"
+            },
+            "attachmentindex_hr": {
+              "tableName": "a2cb4965-3926-4fc4-8da1-ff9b9d3b247f"
+            },
+            "hr_appraisalrecords": {
+              "tableName": "cccfe308-c544-455d-afba-616be99c2d6f"
+            },
+            "auditlog_hr": {
+              "tableName": "dca4101e-67ea-4815-a4cd-bd06eeb42238"
+            },
+            "config_globaluserroleassignments": {
+              "tableName": "f9aab91f-a8f2-440d-860d-b0d502cbcc22"
+            },
+            "hr_routingmatrix": {
+              "tableName": "4d176bf6-784b-4ddb-ad3f-5e37545bd5d1"
+            },
+            "hr_interviewpipeline": {
+              "tableName": "184c0a0d-d149-492e-9586-2600ddce98f4"
+            },
+            "hr_healthregister": {
+              "tableName": "5ce8e0dd-f1e5-4bba-9dbb-76694bb2bbb1"
+            },
+            "approvalhistory_hr": {
+              "tableName": "4a701db1-5bb6-4fe5-8ae1-cf02be2111d0"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-qa": {
+          "dataSources": {
+            "qa_actionitems": {
+              "tableName": "5e44b81c-bb67-408b-9d8e-64758d320b2f"
+            },
+            "maindb_qa": {
+              "tableName": "197e8000-bf83-4d61-b7b8-9b5378897e38"
+            },
+            "qa_subactionitems": {
+              "tableName": "31d5afab-b70a-479d-9ec9-fcda5e39aab2"
+            },
+            "qa_haccp_reviewrecord": {
+              "tableName": "bc879105-4b78-4612-a87e-23823965bb31"
+            },
+            "approvalhistory_qa": {
+              "tableName": "b307487e-8d4c-49a7-8ba0-7476d55086dd"
+            },
+            "maindb_qa_jhr": {
+              "tableName": "35500478-d8b9-41fc-b841-7c400d810fdc"
+            },
+            "maindb_qa_ext_ims": {
+              "tableName": "a88a06e5-5165-4a36-8940-e031ef4d7641"
+            },
+            "maindb_qa_ext_capa": {
+              "tableName": "0b84b145-045a-4781-97ce-7083714412d7"
+            },
+            "maindb_qa_ext_records": {
+              "tableName": "1d81af47-28b4-48ea-841d-63b4f0d94b52"
+            },
+            "maindb_qa_ext_assessment": {
+              "tableName": "ab7ce1fa-3979-4ace-95c5-af616dc6f4dc"
+            },
+            "maindb_qa_ext_product": {
+              "tableName": "0db1d018-c3f6-4fcd-9945-6dd2b14bca62"
+            },
+            "maindb_qa_ext_halalcert": {
+              "tableName": "69550775-3575-4682-b454-df080650d1c4"
+            },
+            "maindb_qa_ext_changecontrol": {
+              "tableName": "14f83dcb-0be4-445a-861d-f80e604091f9"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-qc": {
+          "dataSources": {
+            "maindb_qc": {
+              "tableName": "ce3c7931-5ff6-40e2-a182-58c24177fcf5"
+            },
+            "maindb_qc_jhr": {
+              "tableName": "58894dfe-e3b8-4006-a76a-772846a5bd27"
+            },
+            "maindb_qc_ext_lab": {
+              "tableName": "15569278-dae0-42b9-84e6-575cfd91f275"
+            },
+            "maindb_qa": {
+              "tableName": "9ff8da38-7c5a-4194-bfc7-40775dcb4ad3"
+            },
+            "maindb_qa_jhr": {
+              "tableName": "ee1f1b5f-a1b5-4a3d-b836-3b7bd7a8e83d"
+            },
+            "maindb_qa_ext_ims": {
+              "tableName": "3bc5b495-d4ef-4897-a030-a2935919f507"
+            },
+            "maindb_qa_ext_capa": {
+              "tableName": "4697ee87-c0c7-4e1d-90fe-5e5f72d7ebab"
+            },
+            "maindb_qa_ext_records": {
+              "tableName": "8670718a-416b-44d6-87c9-84a8654655a3"
+            },
+            "maindb_qa_ext_assessment": {
+              "tableName": "0c419d8e-f8ba-43e4-b5c1-c7ab06118bbb"
+            },
+            "maindb_qa_ext_product": {
+              "tableName": "06d3685f-09b1-4cfd-9300-e8b77d30444a"
+            },
+            "maindb_qa_ext_halalcert": {
+              "tableName": "36ba4f55-a511-4ddd-8b7b-9c214043bc18"
+            },
+            "maindb_qa_ext_changecontrol": {
+              "tableName": "994c3134-64c0-47af-bfc3-ee25c8ebf1e4"
+            },
+            "approvalhistory_qc": {
+              "tableName": "eb3e1d2b-c118-4db4-ab3f-0decb34148df"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-fin": {
+          "dataSources": {
+            "maindb_fin": {
+              "tableName": "99208298-febb-4042-9dad-26ee4850867a"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-prd": {
+          "dataSources": {
+            "maindb_prd": {
+              "tableName": "bb00a39f-21c2-4197-8c8d-558432c24ac3"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-log": {
+          "dataSources": {
+            "maindb_log": {
+              "tableName": "64f319a6-955f-4b54-89ec-64bc0e793de6"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-mtn": {
+          "dataSources": {
+            "maindb_mtn": {
+              "tableName": "ce55bea1-6373-4876-a211-21ce36757889"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-it": {
+          "dataSources": {
+            "workflowauditlog": {
+              "tableName": "11a51395-0efb-4052-b7e7-7a26b459cdc6"
+            },
+            "config_employeedirectory": {
+              "tableName": "e2228ba4-6743-45ee-bcb5-487fbb9209ca"
+            },
+            "maindb_it_ext_support": {
+              "tableName": "37a03d3f-7403-4302-97fc-0d816de938ba"
+            },
+            "maindb_it_ext_sap": {
+              "tableName": "b5b40011-cd99-46f9-91c0-bf8d3a7646de"
+            },
+            "user_roles_it": {
+              "tableName": "a1c30546-9cf3-48eb-b59f-97f6bb67a917"
+            },
+            "config_companies": {
+              "tableName": "923df0d1-bb77-4128-9124-9555b68e882c"
+            },
+            "config_departments": {
+              "tableName": "93e36c64-6dfd-4632-9ca4-2d181ea91e8f"
+            },
+            "config_notesadminrouting": {
+              "tableName": "00ae4463-142b-482d-b288-d9ab86bdcbba"
+            },
+            "maindb_it_ext_assets": {
+              "tableName": "be6bfd37-3fc4-4ec5-8791-ac5890d0bf3d"
+            },
+            "it_m1_rs_banks": {
+              "tableName": "0186c1a4-4365-4da5-9b03-7013ce120620"
+            },
+            "maindb_it_ext_access": {
+              "tableName": "c6bd4df6-b45f-436b-b8d3-0e38dc6049e3"
+            },
+            "policies": {
+              "tableName": "d79a97ea-380f-45e6-ab2f-3b75784228dc"
+            },
+            "it_m1_rs_sap_client": {
+              "tableName": "2586a7b6-219a-431e-ae60-08619cd8fb55"
+            },
+            "config_approvermatrix": {
+              "tableName": "d21b860b-c9b4-4abd-9f9e-cb4ef758772b"
+            },
+            "it_m1_rs_systemslist": {
+              "tableName": "c82802d3-a8a2-4525-a844-0b10fcaa2f5a"
+            },
+            "it_m1_sfar_servers": {
+              "tableName": "57ca5bf2-fdc6-4ea2-9dc5-10bb7a6e399b"
+            },
+            "lookuptargetb1de9795563e48c399a31430234dc6e2": {
+              "tableName": "b1de9795-563e-48c3-99a3-1430234dc6e2"
+            },
+            "maindb_it": {
+              "tableName": "b1de9795-563e-48c3-99a3-1430234dc6e2"
+            },
+            "itforms": {
+              "tableName": "f338f907-c873-4614-a36a-2d49616b8276"
+            },
+            "approvalrecords": {
+              "tableName": "10498092-de2c-48ca-ab68-5549466fc73f"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252Fioi-portal-she": {
+          "dataSources": {
+            "maindb_she": {
+              "tableName": "2fd47305-157b-480c-9f3d-e5deff019720"
+            },
+            "approvalhistory_she": {
+              "tableName": "97b6062b-d914-4d9b-8147-d6d98c3ce50c"
+            }
+          }
+        },
+        "https%253A%252F%252Fioioi.sharepoint.com%252Fsites%252FIOI-App_Admin_Sites": {
+          "dataSources": {
+            "issueandbugtracker": {
+              "tableName": "9e48856d-6f6a-4502-96c2-e91a35d9e0f1"
+            },
+            "userroles": {
+              "tableName": "bba08102-39d7-456f-abcd-724a2228daa6"
+            },
+            "appsettings": {
+              "tableName": "f47062b0-8336-43fe-80c5-d7cfdf0ce6f8"
+            },
+            "auditlogs": {
+              "tableName": "5644317e-cee5-411f-a439-15e660941a08"
+            },
+            "routepermissions": {
+              "tableName": "f848e4ea-b1b3-4362-a2d0-993027b42ce6"
+            },
+            "userprofiles": {
+              "tableName": "1022e739-f951-4a7d-869b-8629704816d3"
+            }
+          }
+        }
+      },
+      "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1769/1.0.1769.4361/sharepointonline/icon.png",
+      "dataSources": [
+        "approvalhistory_str",
+        "opslog_hr",
+        "qa_actionitems",
+        "maindb_str",
+        "maindb_hr",
+        "maindb_qa",
+        "assignments_str",
+        "attachmentindex_hr",
+        "attachmentindex_str",
+        "hr_appraisalrecords",
+        "maindb_fin",
+        "lineitems_str",
+        "maindb_prd",
+        "maindb_log",
+        "maindb_mtn",
+        "maindb_wh",
+        "maindb_sec",
+        "maindb_eng",
+        "maindb_mkt",
+        "maindb_pbi",
+        "maindb_rd",
+        "maindb_td",
+        "maindb_ei",
+        "maindb_admin",
+        "maindb_pom",
+        "maindb_prc",
+        "maindb_sa",
+        "workflowauditlog",
+        "maindb_she",
+        "qa_subactionitems",
+        "issueandbugtracker",
+        "qa_haccp_reviewrecord",
+        "config_employeedirectory",
+        "maindb_it_ext_support",
+        "maindb_it_ext_sap",
+        "user_roles_it",
+        "approvalhistory_qa",
+        "config_companies",
+        "config_departments",
+        "userroles",
+        "appsettings",
+        "config_notesadminrouting",
+        "auditlogs",
+        "auditlog_hr",
+        "config_globaluserroleassignments",
+        "approvalhistory_she",
+        "maindb_it_ext_assets",
+        "hr_routingmatrix",
+        "routepermissions",
+        "it_m1_rs_banks",
+        "maindb_it_ext_access",
+        "policies",
+        "userprofiles",
+        "hr_interviewpipeline",
+        "it_m1_rs_sap_client",
+        "config_approvermatrix",
+        "it_m1_rs_systemslist",
+        "it_m1_sfar_servers",
+        "lookuptargetb1de9795563e48c399a31430234dc6e2",
+        "maindb_it",
+        "itforms",
+        "hr_healthregister",
+        "approvalhistory_hr",
+        "approvalrecords",
+        "maindb_log",
+        "maindb_mtn",
+        "maindb_wh",
+        "maindb_sec",
+        "maindb_eng",
+        "maindb_mkt",
+        "maindb_pbi",
+        "maindb_rd",
+        "maindb_td",
+        "maindb_ei",
+        "maindb_admin",
+        "maindb_pom",
+        "maindb_prc",
+        "maindb_sa",
+        "maindb_qa_jhr",
+        "maindb_qa_ext_ims",
+        "maindb_qa_ext_capa",
+        "maindb_qa_ext_records",
+        "maindb_qa_ext_assessment",
+        "maindb_qa_ext_product",
+        "maindb_qa_ext_halalcert",
+        "maindb_qa_ext_changecontrol",
+        "maindb_qc",
+        "maindb_qc_jhr",
+        "maindb_qc_ext_lab",
+        "approvalhistory_qc"
+      ],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "08572eca1c784566a269b0334c3ca6e8": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_approvals",
+      "displayName": "Approvals",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "31932564d2aa467fb9e768c6d9163d2b": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365users",
+      "displayName": "Office 365 Users",
+      "dataSources": [
+        "office365users"
+      ],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "baf71139478348d8be4cdf53382b5ab6": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365",
+      "displayName": "Office 365 Outlook",
+      "dataSources": [
+        "office365"
+      ],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "9cc66ba465bd44c4831a2d6d6c609b0b": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins",
+      "displayName": "Power Apps for Admins",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "58680a2de7514a33bceb658855abcc17": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_powerappsnotificationv2",
+      "displayName": "Power Apps Notification V2",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "93ff1142a39e4e12a96c6a79877729ac": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_aadinvitationmanager",
+      "displayName": "AAD Invitation Manager",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "5cbbf3d78b214e2f850426c1f13c3755": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365groups",
+      "displayName": "Office 365 Groups",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "7397a99597e04f03b303b29e8e74284a": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365groupsmail",
+      "displayName": "Office 365 Groups Mail",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "f0abd25e783a4e8494fbea009df8e075": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365users",
+      "displayName": "Office 365 Users",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "c8a3fe1e4c7440dd8d75140d1480bbe9": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365",
+      "displayName": "Office 365 Outlook",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "shared-microsoftcopi-90180ec8-c4e6-46d1-b953-efe3ea59b5d0": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_microsoftcopilotstudio",
+      "displayName": "Microsoft Copilot Studio",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    },
+    "c563cf315ef04c839699a285c9c3de53": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365groups",
+      "displayName": "Office 365 Groups",
+      "dataSources": [],
+      "isOnPremiseConnection": false,
+      "bypassConsent": false,
+      "apiTier": "Standard",
+      "isCustomApiConnection": false
+    }
+  },
+  "databaseReferences": {},
+  "version": "1.0"
+}

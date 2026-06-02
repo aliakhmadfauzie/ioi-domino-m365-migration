@@ -1,0 +1,46 @@
+DATABASE : HR Notice Database
+PATH     : Current\Notice.nsf
+DATE     : 28/05/2026 2:09:24 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  NewForm
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  SET [ENABLED]
+  Body [ENABLED]
+  Clear [ENABLED]
+  Delete Field [ENABLED]
+  UNLOCK [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Admin/O=PHB | Manager | Person
+  HR ACM | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

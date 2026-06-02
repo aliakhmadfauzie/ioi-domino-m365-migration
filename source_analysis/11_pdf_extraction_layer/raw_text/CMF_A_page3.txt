@@ -1,0 +1,38 @@
+App3
+Approved by Senior General Manager, Operations
+Approve Deny
+Name
+ : COOName
+Date
+ : COODate
+Remark
+ : COORem
+App4
+Approved by 
+SectionTitle_1_1
+Approve Deny
+Name
+ : EDName
+Date
+ : EDDate
+Remark
+ : EDRem
+Approved Credit Limit / 
+Revised Credit Limit
+ : Currency_2  AppCreditLimit
+Approved Credit Period
+ : Days2
+Rejected to
+ : Denial
+App5
+To be Acknowledged by Finance
+Approve Deny
+Name
+ : FMName2
+Date
+ : FMDate2
+Remark
+ : FMRem2
+Attachment
+ : FMAtt2
+App6

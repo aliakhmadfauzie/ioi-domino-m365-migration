@@ -1,0 +1,73 @@
+EMPLOYEE PERSONAL 
+DETAIL UPDATE - NEW
+**Please check the details thoroughly before submit, as can't view back the form after submitted !!!
+Status
+(A) PERSONAL DETAILS
+ExecType
+Employee No.
+ : EmpNo
+Company
+ : Company
+Name
+ : EmpName
+NRIC No. (Old)
+ : NRIC_O
+NRIC No. (New)
+ : NRIC_N
+Marital Status
+ : Marital
+Disabilities
+ : Disabilities
+Permanent Address
+ : Address1
+Poscode
+ : Poscode1
+Tel No.
+ : TelNo1
+Correspondence Address
+ : Address2
+Postcode
+ : Poscode2
+Tel No.
+ : TelNo2
+EPF No.
+ : EPF
+SOCSO No.
+ : SOCSO
+Income Tax No.
+ : ITAX
+(B) EMPLOYEE EDUCATION BACKGROUND
+Year
+School/Colle
+ge/ 
+University
+From
+To
+Standard/ 
+Qualification 
+Obtained
+Field
+Place 
+(Country)
+Grade
+InsName_1
+FY_1
+TY_1
+Standard_1
+Field_1
+Place_1
+Grd_1
+InsName_2
+FY_2
+TY_2
+Standard_2
+Field_2
+Place_2
+Grd_2
+InsName_3
+FY_3
+TY_3
+Standard_3
+Field_3
+Place_3
+Grd_3

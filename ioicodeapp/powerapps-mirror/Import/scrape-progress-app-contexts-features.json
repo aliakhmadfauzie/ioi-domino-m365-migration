@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-05-22T06:15:32.568Z",
+  "count": 5,
+  "results": [
+    {
+      "path": "apps/ioi-platform/src/contexts/it-approval-context.tsx",
+      "status": "written",
+      "selected": "File: it-approval-context.tsx",
+      "bytes": 1349,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/features/bug-tracker/feedback-widget.tsx",
+      "status": "written",
+      "selected": "File: feedback-widget.tsx",
+      "bytes": 853,
+      "firstLine": "// Floating Feedback Widget - Non-intrusive bug reporting for testers"
+    },
+    {
+      "path": "apps/ioi-platform/src/features/bug-tracker/index.ts",
+      "status": "written",
+      "selected": "File: index.ts",
+      "bytes": 201,
+      "firstLine": "// Bug Tracker Feature - Public exports"
+    },
+    {
+      "path": "apps/ioi-platform/src/features/bug-tracker/types.ts",
+      "status": "written",
+      "selected": "File: types.ts",
+      "bytes": 990,
+      "firstLine": "// Bug Tracker Types and Configuration"
+    },
+    {
+      "path": "apps/ioi-platform/src/features/bug-tracker/use-bug-reports.ts",
+      "status": "written",
+      "selected": "File: use-bug-reports.ts",
+      "bytes": 1339,
+      "firstLine": "// Bug Reports Hook - SharePoint IssueAndBugTracker integration"
+    }
+  ]
+}

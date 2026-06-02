@@ -1,0 +1,2498 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='482583EE0021DBAB' path='CN=PHBSVR/O=PHB!!Current\EMPSURVEY.nsf'
+ title='Employee Survey' increasemaxfields='true' maxupdatedbyentries='1'>
+<databaseinfo dbid='482583EE0021DBAB' odsversion='55' diskspace='11272192'
+ percentused='96.4707485465116' numberofdocuments='264'><datamodified><datetime
+>20260524T024642,98+08</datetime></datamodified><designmodified><datetime
+>20260528T123004,37+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='FS' showaboutdocument='never'/></launchsettings>
+<view name='AverageRating' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='122' unid='E40F473C6A7012DA482583C1000EC7A6' sequence='40'>
+<created><datetime>20190318T104126,14+08</datetime></created>
+<modified><datetime>20190502T140949,45+08</datetime></modified>
+<revised><datetime>20190402T150741,69+08</datetime></revised>
+<lastaccessed><datetime>20190502T143421,87+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,44+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA="Submitted"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_1'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q1'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_2'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q2'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_3'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q3'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_4'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q4'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_5'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q5'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_6'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q6'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_7'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q7'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_8'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q8'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_9'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q9'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_10'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q10'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_11'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q11'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_12'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q12'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_13'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q13'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_14'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q14'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_15'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q15'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_16'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q16'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column></view>
+
+<form name='SURVEY' publicaccess='false' designerversion='8.5.3' default='true'
+ bgcolor='#e0f1ff' recalc='true' anonymous='true' renderpassthrough='true'>
+<noteinfo noteid='14e' unid='2DE28CDF28193869482583C1000ED080' sequence='172'>
+<created><datetime>20190318T104148,80+08</datetime></created>
+<modified><datetime>20230706T170841,64+08</datetime></modified>
+<revised><datetime>20230706T170841,63+08</datetime></revised>
+<lastaccessed><datetime>20230706T170841,63+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,55+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"EmpSurvey"</formula></code><code event='querysave'><lotusscript>Sub Querysave(Source As Notesuidocument, Continue As Variant)
+	
+End Sub</lotusscript></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit' icon='5' hide='preview read edit previewedit'><code event='click'><formula
+>@Command([EditDocument];"1")</formula></code></action>
+<action title='Save' icon='1' hide='preview read edit previewedit'><code event='click'><formula
+>@Command([FileSave])</formula></code></action>
+<action title='Submit' icon='75' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If(R_1 = ""; 			@Return(@Do(@Command([EditGotoField];"R_1");		@Prompt([Ok];"Missing Value"; "(1) Please state the Rating!")));"");
+@If(R_2 = "";			@Return(@Do(@Command([EditGotoField];"R_2");		@Prompt([Ok];"Missing Value"; "(2) Please state the Rating!")));"");
+@If(R_3 = ""; 			@Return(@Do(@Command([EditGotoField];"R_3");		@Prompt([Ok];"Missing Value"; "(3) Please state the Rating!")));"");
+@If(R_4 = ""; 			@Return(@Do(@Command([EditGotoField];"R_4");		@Prompt([Ok];"Missing Value"; "(4) Please state the Rating!")));"");
+@If(R_5 = ""; 			@Return(@Do(@Command([EditGotoField];"R_5");		@Prompt([Ok];"Missing Value"; "(5) Please state the Rating!")));"");
+
+@If(R_6 = ""; 			@Return(@Do(@Command([EditGotoField];"R_6");		@Prompt([Ok];"Missing Value"; "(6) Please state the Rating!")));"");
+@If(R_7 = ""; 			@Return(@Do(@Command([EditGotoField];"R_7");		@Prompt([Ok];"Missing Value"; "(7) Please state the Rating!")));"");
+@If(R_8 = ""; 			@Return(@Do(@Command([EditGotoField];"R_8");		@Prompt([Ok];"Missing Value"; "(8) Please state the Rating!")));"");
+@If(R_9 = ""; 			@Return(@Do(@Command([EditGotoField];"R_9");		@Prompt([Ok];"Missing Value"; "(9) Please state the Rating!")));"");
+@If(R_10 = ""; 		@Return(@Do(@Command([EditGotoField];"R_10");	@Prompt([Ok];"Missing Value"; "(10) Please state the Rating!")));"");
+
+@If(R_11 = ""; 		@Return(@Do(@Command([EditGotoField];"R_11");	@Prompt([Ok];"Missing Value"; "(11) Please state the Rating!")));"");
+@If(R_12 = ""; 		@Return(@Do(@Command([EditGotoField];"R_12");	@Prompt([Ok];"Missing Value"; "(12) Please state the Rating!")));"");
+@If(R_13 = ""; 		@Return(@Do(@Command([EditGotoField];"R_13");	@Prompt([Ok];"Missing Value"; "(13) Please state the Rating!")));"");
+@If(R_14 = ""; 		@Return(@Do(@Command([EditGotoField];"R_14");	@Prompt([Ok];"Missing Value"; "(14) Please state the Rating!")));"");
+@If(R_15 = ""; 		@Return(@Do(@Command([EditGotoField];"R_15");	@Prompt([Ok];"Missing Value"; "(15) Please state the Rating!")));"");
+
+@If(R_16 = ""; 		@Return(@Do(@Command([EditGotoField];"R_16");	@Prompt([Ok];"Missing Value"; "What is your overall motivation level?")));"");
+@If(Service = "";		@Return(@Do(@Command([EditGotoField];"Service");	@Prompt([Ok];"Missing Value"; "Please state your years of service!")));"");
+@If(Age = ""; 			@Return(@Do(@Command([EditGotoField];"Age");		@Prompt([Ok];"Missing Value"; "Please state your age group!")));"");
+@If(Category = "";	@Return(@Do(@Command([EditGotoField];"Category");@Prompt([Ok];"Missing Value"; "Please select your category !")));"");
+
+FIELD CA := "Submitted";
+FIELD DateSubmitted := @Now;
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor1)</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par>
+<pardef id='2' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<par def='2'><run><font size='36pt' style='bold shadow' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='maroon'/>EMPLOYEE SURVEY FORM</run></par>
+<par def='1'><run><font size='12pt' style='bold italic shadow' name='Garamond'
+ pitch='variable' truetype='true' familyid='10' color='fuchsia'/>By Group Human Resources Division</run></par>
+<pardef id='3' leftmargin='1in' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<par def='3'><run><font size='12pt' style='bold emboss' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<table widthtype='fitmargins' cellbordercolor='maroon' cellborderstyle='groove'
+ refwidth='11.6771in'><tablecolumn width='100%'/>
+<tablerow>
+<tablecell bgcolor='silver'>
+<pardef id='4' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='4'><run><font size='14pt' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='navy'/></run></par>
+<par def='4'><run><font size='14pt' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='navy'/>Instruction : </run><run><font
+ size='14pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10' color='navy'/>Please rate 1 to 10 based on your opinion or best answer for below statements.</run></par>
+<pardef id='5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<par def='4'><run><font size='14pt' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='maroon'/>Legend :</run></par>
+<table widthtype='fitmargins' leftmargin='0.0104in' refwidth='11.6563in'><tablecolumn
+ width='10.0104%'/><tablecolumn width='9.9896%'/><tablecolumn width='10.0104%'/><tablecolumn
+ width='9.9896%'/><tablecolumn width='10.0104%'/><tablecolumn width='9.9896%'/><tablecolumn
+ width='10.0104%'/><tablecolumn width='9.9896%'/><tablecolumn width='10.0104%'/><tablecolumn
+ width='9.9896%'/>
+<tablerow>
+<tablecell columnspan='2' bgcolor='#c20000'>
+<pardef id='8' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Poor</run></par></tablecell>
+<tablecell columnspan='2'>
+<pardef id='10' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='10'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Below Average</run></par></tablecell>
+<tablecell columnspan='2' bgcolor='#ffbf18'>
+<pardef id='12' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='12'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Above Average</run></par></tablecell>
+<tablecell columnspan='2'>
+<pardef id='14' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='14'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Good</run></par></tablecell>
+<tablecell columnspan='2' bgcolor='green'>
+<pardef id='16' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='16'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Excellent</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell bgcolor='#c20000'>
+<pardef id='7' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>1</run></par></tablecell>
+<tablecell bgcolor='#c20000'>
+<pardef id='17' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='17'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>2</run></par></tablecell>
+<tablecell>
+<pardef id='9' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>3</run></par></tablecell>
+<tablecell>
+<pardef id='18' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='18'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>4</run></par></tablecell>
+<tablecell bgcolor='#ffbf18'>
+<pardef id='11' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='11'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>5</run></par></tablecell>
+<tablecell bgcolor='#ffbf18'>
+<pardef id='19' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='19'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>6</run></par></tablecell>
+<tablecell>
+<pardef id='13' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='13'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>7</run></par></tablecell>
+<tablecell>
+<pardef id='20' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='20'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>8</run></par></tablecell>
+<tablecell bgcolor='green'>
+<pardef id='15' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='15'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>9</run></par></tablecell>
+<tablecell bgcolor='green'>
+<pardef id='21' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='21'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>10</run></par></tablecell></tablerow></table>
+<par def='4'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='maroon'/>	</run></par></tablecell></tablerow></table>
+<par def='3'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<pardef id='22' leftmargin='0.7500in' hide='read edit print preview previewedit'
+ tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='No.'><sectiontitle
+ pardef='22' color='teal'><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><text/></sectiontitle><code event='defaultvalue'><formula
+>Editor1</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='13' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='3'><run><font size='1pt' style='italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<table widthtype='fitmargins' refwidth='11.6979in'><tablecolumn width='0.9479in'
+ sizetofit='true'/><tablecolumn width='74.2778%'/><tablecolumn width='0.6979in'
+ sizetofit='true'/><tablecolumn width='17.5903%'/><tablecolumn width='8.1319%'/>
+<tablerow>
+<tablecell bgcolor='navy'>
+<pardef id='24' keepwithnext='true' keeptogether='true'/>
+<par def='24'><run><font size='14pt' style='bold shadow' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='white'/>No.</run></par></tablecell>
+<tablecell bgcolor='navy'>
+<pardef id='25' leftmargin='0.2396in' keepwithnext='true' keeptogether='true'/>
+<par def='25'><run><font size='14pt' style='bold shadow' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='white'/>Motivation Factor</run></par></tablecell>
+<tablecell bgcolor='navy'>
+<pardef id='26' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='26'><run><font size='14pt' style='bold shadow' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='white'/>Rating</run></par></tablecell>
+<tablecell bgcolor='navy'>
+<pardef id='27' leftmargin='0.2583in' keepwithnext='true' keeptogether='true'/>
+<par def='27'><run><font size='14pt' style='bold shadow' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='white'/>Comments (if any)</run></par></tablecell>
+<tablecell bgcolor='navy'>
+<pardef id='28' keepwithnext='true' keeptogether='true'/>
+<par def='28'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_1'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>1</formula></code></field></run>.</par></tablecell>
+<tablecell>
+<pardef id='29' leftmargin='0.2396in' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate your Job Security in this company?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_1'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_1="";@Failure("(1) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_1'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='30' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_1'><code event='defaultvalue'><formula
+>@If(
+R_1="1" | R_1="2";"Poor";
+R_1="3" | R_1="4";"Below Average";
+R_1="5" | R_1="6";"Above Average";
+R_1="7" | R_1="8";"Good";
+R_1="9" | R_1="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='11' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_2'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>2</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the working facilities in this company?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_2'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_2="";@Failure("(2) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_2'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_2'><code event='defaultvalue'><formula
+>@If(
+R_2="1" | R_2="2";"Poor";
+R_2="3" | R_2="4";"Below Average";
+R_2="5" | R_2="6";"Above Average";
+R_2="7" | R_2="8";"Good";
+R_2="9" | R_2="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_3'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>3</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the Company’s working system and procedures? </run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_3'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_3="";@Failure("(3) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_3'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_3'><code event='defaultvalue'><formula
+>@If(
+R_3="1" | R_3="2";"Poor";
+R_3="3" | R_3="4";"Below Average";
+R_3="5" | R_3="6";"Above Average";
+R_3="7" | R_3="8";"Good";
+R_3="9" | R_3="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_4'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>4</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the extra–curricular &amp; social activities in this company?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_4'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_4="";@Failure("(4) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_4'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_4'><code event='defaultvalue'><formula
+>@If(
+R_4="1" | R_4="2";"Poor";
+R_4="3" | R_4="4";"Below Average";
+R_4="5" | R_4="6";"Above Average";
+R_4="7" | R_4="8";"Good";
+R_4="9" | R_4="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_5'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>5</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the information dissemination in the company?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_5'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_5="";@Failure("(5) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_5'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_5'><code event='defaultvalue'><formula
+>@If(
+R_5="1" | R_5="2";"Poor";
+R_5="3" | R_5="4";"Below Average";
+R_5="5" | R_5="6";"Above Average";
+R_5="7" | R_5="8";"Good";
+R_5="9" | R_5="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_6'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>6</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate your career opportunity /career growth in this company?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_6'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_6="";@Failure("(6) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_6'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_6'><code event='defaultvalue'><formula
+>@If(
+R_6="1" | R_6="2";"Poor";
+R_6="3" | R_6="4";"Below Average";
+R_6="5" | R_6="6";"Above Average";
+R_6="7" | R_6="8";"Good";
+R_6="9" | R_6="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_7'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>7</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the training opportunities and programs provided to you?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_7'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_7="";@Failure("(7) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_7'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_7'><code event='defaultvalue'><formula
+>@If(
+R_7="1" | R_7="2";"Poor";
+R_7="3" | R_7="4";"Below Average";
+R_7="5" | R_7="6";"Above Average";
+R_7="7" | R_7="8";"Good";
+R_7="9" | R_7="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_8'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>8</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate your involvement /participation in decision making at your area of work?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_8'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_8="";@Failure("(8) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_8'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_8'><code event='defaultvalue'><formula
+>@If(
+R_8="1" | R_8="2";"Poor";
+R_8="3" | R_8="4";"Below Average";
+R_8="5" | R_8="6";"Above Average";
+R_8="7" | R_8="8";"Good";
+R_8="9" | R_8="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_9'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>9</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate your working relationship between you and your superior (i.e. mutual respect, cooperation &amp; coaching)? </run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_9'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_9="";@Failure("(9) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_9'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_9'><code event='defaultvalue'><formula
+>@If(
+R_9="1" | R_9="2";"Poor";
+R_9="3" | R_9="4";"Below Average";
+R_9="5" | R_9="6";"Above Average";
+R_9="7" | R_9="8";"Good";
+R_9="9" | R_9="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_10'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>10</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate teamwork and the level of cooperativeness among your colleagues in your department?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_10'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_10="";@Failure("(10) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_10'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_10'><code event='defaultvalue'><formula
+>@If(
+R_10="1" | R_10="2";"Poor";
+R_10="3" | R_10="4";"Below Average";
+R_10="5" | R_10="6";"Above Average";
+R_10="7" | R_10="8";"Good";
+R_10="9" | R_10="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_11'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>11</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate our current performance appraisal systems?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_11'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_11="";@Failure("(11) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_11'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_11'><code event='defaultvalue'><formula
+>@If(
+R_11="1" | R_11="2";"Poor";
+R_11="3" | R_11="4";"Below Average";
+R_11="5" | R_11="6";"Above Average";
+R_11="7" | R_11="8";"Good";
+R_11="9" | R_11="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_12'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>12</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the level of inter-department services, care and assistance received?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_12'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_12="";@Failure("(12) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_12'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_12'><code event='defaultvalue'><formula
+>@If(
+R_12="1" | R_12="2";"Poor";
+R_12="3" | R_12="4";"Below Average";
+R_12="5" | R_12="6";"Above Average";
+R_12="7" | R_12="8";"Good";
+R_12="9" | R_12="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_13'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>13</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the appreciation and encouragement accorded to you by your superior?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_13'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_13="";@Failure("(13) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_13'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_13'><code event='defaultvalue'><formula
+>@If(
+R_13="1" | R_13="2";"Poor";
+R_13="3" | R_13="4";"Below Average";
+R_13="5" | R_13="6";"Above Average";
+R_13="7" | R_13="8";"Good";
+R_13="9" | R_13="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_14'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>14</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate the work distribution in your department?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_14'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_14="";@Failure("(14) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_14'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_14'><code event='defaultvalue'><formula
+>@If(
+R_14="1" | R_14="2";"Poor";
+R_14="3" | R_14="4";"Below Average";
+R_14="5" | R_14="6";"Above Average";
+R_14="7" | R_14="8";"Good";
+R_14="9" | R_14="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='N_15'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>15</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/>.</run></par></tablecell>
+<tablecell>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>How do you rate your overall job satisfaction?</run></par></tablecell>
+<tablecell>
+<par def='26'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2813in'
+ width='0.6250in' multiline='true' borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='R_15'><keywords
+ helperbutton='false' columns='5' ui='combobox'><textlist><text>1</text><text
+>2</text><text>3</text><text>4</text><text>5</text><text>6</text><text>7</text><text
+>8</text><text>9</text><text>10</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(R_15="";@Failure("(15) Please state the Rating!");@Success)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='27'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='C_15'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='30'><run><font size='9pt' color='maroon'/></run><run><font size='9pt'
+ color='maroon' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='computed' name='G_15'><code event='defaultvalue'><formula
+>@If(
+R_15="1" | R_15="2";"Poor";
+R_15="3" | R_15="4";"Below Average";
+R_15="5" | R_15="6";"Above Average";
+R_15="7" | R_15="8";"Good";
+R_15="9" | R_15="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='10' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt' color='maroon'/></run></par></tablecell></tablerow></table>
+<par def='3'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par>
+<pardef id='31' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<par def='31'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>What is your overall motivation level? </run><run
+><font size='14pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.3278in' width='0.8333in'
+ multiline='true' borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='R_16'><keywords helperbutton='false'
+ columns='5' ui='combobox'><textlist><text>1</text><text>2</text><text>3</text><text
+>4</text><text>5</text><text>6</text><text>7</text><text>8</text><text>9</text><text
+>10</text></textlist></keywords><code event='inputvalidation'><formula>@If(R_16="";@Failure("What is your overall motivation level?");@Success)</formula></code></field></run><run
+><font size='14pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par>
+<par def='1'><run><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par>
+<table widthtype='fitmargins' refwidth='11.7083in'><tablecolumn width='2.3125in'
+ sizetofit='true'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='32' keepwithnext='true' keeptogether='true'/>
+<par def='32'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Years of Service</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='33' keepwithnext='true' keeptogether='true'/>
+<par def='33'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Service'><keywords
+ helperbutton='false' columns='1' ui='radiobutton'><textlist><text>&lt; 3 years</text><text
+>3 - 10 years</text><text>10 - 20 years</text><text>&gt; 20 years</text></textlist></keywords><code
+ event='inputvalidation'><formula>@If(Service="";@Failure("Please state your years of service!");@Success)</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='32'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Age Group</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='33'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Age'><keywords
+ helperbutton='false' columns='1' ui='radiobutton'><textlist><text>&lt; 30 years</text><text
+>30 - 40 years</text><text>40 - 50 years</text><text>&gt; 50 years</text></textlist></keywords><code
+ event='inputvalidation'><formula>@If(Age="";@Failure("Please state your age group!");@Success)</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='32'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Category</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='33'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Category'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Executive and Above</text><text
+>Exempt</text></textlist></keywords><code event='inputvalidation'><formula
+>@If(Category="";@Failure("Please select your Category!");@Success)</formula></code></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='34' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='34'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Suggestion/s (for improvement)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='33'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='Suggestion'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='35' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>DateSubmitted=""</formula></code></pardef>
+<par def='35'><run><font size='11pt' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='navy'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='36' leftmargin='0.3646in' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>DateSubmitted=""</formula></code></pardef>
+<par def='36'><run><font size='11pt' style='italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='navy'/>Submitted On : </run><run><font
+ size='11pt' color='navy' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='datetime' kind='computed' name='DateSubmitted'><datetimeformat
+ show='datetime' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>DateSubmitted</formula></code></field></run><run><font size='11pt' style='italic'
+ name='Garamond' pitch='variable' truetype='true' familyid='10' color='navy'/></run></par></tablecell></tablerow></table>
+<pardef id='37' align='center' leftmargin='1in' rightmargin='100%'/>
+<par def='37'><run><font size='16pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='red'/></run><run><font size='16pt' style='bold'
+ name='Garamond' pitch='variable' truetype='true' familyid='10' color='red'/></run></par></section>
+<pardef id='38' align='center' leftmargin='1in' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<par def='38'><run><font size='16pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='blue'/></run></par>
+<pardef id='39' align='center' leftmargin='1in' spaceafter='1.5' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'/>
+<par def='39'><run><font size='16pt' name='Algerian' pitch='variable' truetype='true'
+ familyid='50' color='blue'/>Thank you for your cooperation, </run></par>
+<par def='39'><run><font size='16pt' name='Algerian' pitch='variable' truetype='true'
+ familyid='50' color='blue'/>your feedback is very much appreciated.</run></par>
+<par def='39'><run><font size='16pt' name='Algerian' pitch='variable' truetype='true'
+ familyid='50' color='blue'/>All your responses will be kept </run></par>
+<par def='39'><run><font size='16pt' style='bold' name='Algerian' pitch='variable'
+ truetype='true' familyid='50' color='#c20000'/>“</run><run><font size='16pt'
+ style='bold' name='Algerian' pitch='variable' truetype='true' familyid='50'
+ color='#c20000'/>STRICTLY CONFIDENTIAL</run><run><font size='16pt' style='bold'
+ name='Algerian' pitch='variable' truetype='true' familyid='50' color='#c20000'/>”</run></par>
+<pardef id='40' leftmargin='1in' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='40'><run><font size='11pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<pardef id='41' leftmargin='1in' hide='print' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='41'><run><font size='11pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Hidden Fields :-</run></par>
+<table widthtype='fitmargins' refwidth='11.7083in'><tablecolumn width='0.7917in'
+ sizetofit='true'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='42' hide='print' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>CA</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='43' hide='print' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='CA'><keywords helperbutton='false' columns='1'
+ ui='radiobutton'><textlist><text>Request</text><text>Submitted</text></textlist></keywords><code
+ event='defaultvalue'><formula>"Request"</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>HR</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='names' allowmultivalues='true' kind='computed'
+ name='HR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"HR2";3;[FailSilent])</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>IT</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='names' allowmultivalues='true' kind='computed'
+ name='IT' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ISADMIN";3;[FailSilent])</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Editor 1</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='names' kind='computed' name='Editor1'><code event='defaultvalue'><formula
+>@If(CA="Request";@UserName;"-")</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Servers</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='authors' allowmultivalues='true' kind='computed'
+ name='Servers' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName; 1):"names.nsf";"($VIMGroups)";"LocalDomainServers";3;[FailSilent])</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Readers</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='readers' allowmultivalues='true' kind='computed'
+ name='Readers' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@Unique(HR:IT:Servers)</formula></code></field></run><run
+><font name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>All Questions</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' allowmultivalues='true' kind='computed'
+ name='Qs' listinputseparators='comma semicolon' listdisplayseparator='semicolon'><code
+ event='defaultvalue'><formula>"Question 01 - Job security":
+"Question 02 - Working environment &amp; facilities":
+"Question 03 - Working  system &amp; procedures":
+"Question 04 - Extra curricular activities":
+"Question 05 - Effectiveness of communication":
+"Question 06 - Career opportunity":
+"Question 07 - Personal Development &amp; Training":
+"Question 08 - Participation in decision making":
+"Question 09 - Working relationship - you &amp; superior":
+"Question 10 - Teamwork/level of respectfulness":
+"Question 11 - Current performance appraisal":
+"Question 12 - Inter-department support service":
+"Question 13 - Appreciation &amp; encouragement":
+"Question 14 - Workload distribution":
+"Question 15 - Overall job satisfaction":
+"Question 16 - Overall motivation level"</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>All Comments</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' allowmultivalues='true' kind='computed'
+ name='Cs' listinputseparators='comma semicolon' listdisplayseparator='semicolon'><code
+ event='defaultvalue'><formula>C_1:
+C_2:
+C_3:
+C_4:
+C_5:
+C_6:
+C_7:
+C_8:
+C_9:
+C_10:
+C_11:
+C_12:
+C_13:
+C_14:
+C_15</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='7' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Ratings</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' allowmultivalues='true' kind='computed'
+ name='Gs' listinputseparators='comma semicolon' listdisplayseparator='semicolon'><code
+ event='defaultvalue'><formula>G_1:G_2:G_3:G_4:G_5:G_6:G_7:G_8:G_9:G_10:G_11:G_12:G_13:G_14:G_15:G_16</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata> - <run><font
+ size='9pt' color='maroon' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='G_16'><code event='defaultvalue'><formula
+>@If(
+R_16="1" | R_16="2";"Poor";
+R_16="3" | R_16="4";"Below Average";
+R_16="5" | R_16="6";"Above Average";
+R_16="7" | R_16="8";"Good";
+R_16="9" | R_16="10";"Excellent";
+NULL)</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='14' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='42'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Total Rating</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='43'><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='number' kind='computed' name='TotalRating'><numberformat
+ format='general' digits='2' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>@If(R_1!="";
+@Sum(
+	@TextToNumber(R_1):
+	@TextToNumber(R_2):
+	@TextToNumber(R_3):
+	@TextToNumber(R_4):
+	@TextToNumber(R_5):
+	@TextToNumber(R_6):
+	@TextToNumber(R_7):
+	@TextToNumber(R_8):
+	@TextToNumber(R_9):
+	@TextToNumber(R_10):
+	@TextToNumber(R_11):
+	@TextToNumber(R_12):
+	@TextToNumber(R_13):
+	@TextToNumber(R_14):
+	@TextToNumber(R_15));
+0)</formula></code></field></run><run><font name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<pardef id='44' leftmargin='1in' hide='print'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='44'><run><font size='11pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par></richtext></body>
+<item name='N' summary='false'><number>0</number></item>
+<item name='Percentage' summary='false'><number>0</number></item>
+<item name='CDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>SURVEY</text></item>
+<item name='N_1' summary='false'><number>0</number></item>
+<item name='N_2' summary='false'><number>0</number></item>
+<item name='N_3' summary='false'><number>0</number></item>
+<item name='N_4' summary='false'><number>0</number></item>
+<item name='N_5' summary='false'><number>0</number></item>
+<item name='N_6' summary='false'><number>0</number></item>
+<item name='N_7' summary='false'><number>0</number></item>
+<item name='N_8' summary='false'><number>0</number></item>
+<item name='N_9' summary='false'><number>0</number></item>
+<item name='N_10' summary='false'><number>0</number></item>
+<item name='N_11' summary='false'><number>0</number></item>
+<item name='N_12' summary='false'><number>0</number></item>
+<item name='N_13' summary='false'><number>0</number></item>
+<item name='N_14' summary='false'><number>0</number></item>
+<item name='N_15' summary='false'><number>0</number></item>
+<item name='TotalRating' summary='false'><number>0</number></item></form>
+
+<view name='Comments_Exec' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false' initialbuildrestricted='false' noemptycategories='true'>
+<noteinfo noteid='152' unid='B42A27C63FE81BD6482583C10021904C' sequence='49'>
+<created><datetime>20190318T140636,28+08</datetime></created>
+<modified><datetime>20190607T113633,82+08</datetime></modified>
+<revised><datetime>20190607T113633,80+08</datetime></revised>
+<lastaccessed><datetime>20190607T113633,80+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,56+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Category="Executive and Above"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column sort='ascending' totals='total' hidedetailrows='false' itemname='$9'
+ width='3.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='true'
+ sortnocase='true' showaslinks='false' categorized='true'><columnheader><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@Integer(1)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Qs' width='0.7500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='blue' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Cs' width='12.1250' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ viewisnarrow='wrapsecondrow'><columnheader title='Comments'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Draft' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='166' unid='DC6EB8D9825DD48E482583C10034B120' sequence='5'>
+<created><datetime>20190318T173532,16+08</datetime></created>
+<modified><datetime>20190502T140949,62+08</datetime></modified>
+<revised><datetime>20190319T094709,79+08</datetime></revised>
+<lastaccessed><datetime>20190709T091658,65+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,61+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA="Request"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column hidedetailrows='false' itemname='$3' width='16.7500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Created On'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Created</formula></code></column></view>
+
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='true' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='18a' unid='5290F2CA87F0797F482583C500357A74' sequence='72'>
+<created><datetime>20190322T174407,56+08</datetime></created>
+<modified><datetime>20190502T140949,71+08</datetime></modified>
+<revised><datetime>20190402T152703,95+08</datetime></revised>
+<lastaccessed><datetime>20190502T143418,25+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,70+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column totals='total' hidedetailrows='true' itemname='$9' width='3.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Integer(1)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Qs' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ categorized='true'><font color='blue' style='bold'/><columnheader><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Gs' width='11' resizable='true' separatemultiplevalues='true'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><font color='maroon'
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$8' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Date Created'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='Refresh Docs' hide='v3' publicaccess='false' designerversion='8.5'
+ private='true'>
+<noteinfo noteid='192' unid='DA7E27B2DDD9D9EE482583CB00276FA6' sequence='1'>
+<created><datetime>20190328T151044,86+08</datetime></created>
+<modified><datetime>20190502T140949,72+08</datetime></modified>
+<revised><datetime>20190328T151044,89+08</datetime></revised>
+<lastaccessed><datetime>20190502T140949,71+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,71+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20130119T112055,68+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='runonce'/><code event='action'>
+<simpleaction action='runformula'><formula>@Command([ToolsRefreshSelectedDocs] );
+ @All;SELECT
+ @All</formula></simpleaction></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20190502T140949,72+08</datetime></agentmodified>
+<agentrun><datetime>20231018T165649,27+08</datetime></agentrun>
+<runlog>Started running agent 'Refresh Docs' on 18/10/2023 04:56:42 PM
+1 document(s) were modified by formula
+Done running agent 'Refresh Docs' on 18/10/2023 04:56:49 PM
+</runlog></rundata></agent>
+
+<view name='TESTING' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='196' unid='6B7AF173951DC710482583CC002B12BC' sequence='11'>
+<created><datetime>20190329T155028,44+08</datetime></created>
+<modified><datetime>20190709T092917,98+08</datetime></modified>
+<revised><datetime>20190709T092917,96+08</datetime></revised>
+<lastaccessed><datetime>20190709T092917,96+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,72+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column totals='total' hidedetailrows='true' itemname='$9' width='3.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Integer(1)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Qs' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ categorized='true'><font color='blue' style='bold'/><columnheader><font size='9pt'
+ style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Gs' width='11' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ categorized='true'><font color='maroon' style='bold'/><columnheader><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$8' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Date Created'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Copy Of Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='true' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='19a' unid='EABA16EFEAFCF772482583CF00353868' sequence='3'>
+<created><datetime>20190401T174118,48+08</datetime></created>
+<modified><datetime>20190502T140949,74+08</datetime></modified>
+<revised><datetime>20190401T174156,33+08</datetime></revised>
+<lastaccessed><datetime>20190531T164213,19+08</datetime></lastaccessed>
+<addedtofile><datetime>20190502T140949,73+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column totals='total' hidedetailrows='true' itemname='$9' width='3.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Integer(1)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Qs' width='37.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='blue' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Gs' width='29' resizable='true' separatemultiplevalues='true'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><font color='maroon'
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$8' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Date Created'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Summary_Exec' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='true' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='432' unid='0A73EF2B577B9903482583F6002265A6' sequence='3'>
+<created><datetime>20190510T141542,46+08</datetime></created>
+<modified><datetime>20190510T141611,85+08</datetime></modified>
+<revised><datetime>20190510T141611,84+08</datetime></revised>
+<lastaccessed><datetime>20190510T141738,40+08</datetime></lastaccessed>
+<addedtofile><datetime>20190510T141542,46+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Category="Executive and Above"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column totals='total' hidedetailrows='true' itemname='$9' width='3.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Integer(1)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Qs' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ categorized='true'><font color='blue' style='bold'/><columnheader><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Gs' width='11' resizable='true' separatemultiplevalues='true'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><font color='maroon'
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$8' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Date Created'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Summary_Exempt' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='true' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='436' unid='387CF169157FABA8482583F60022740C' sequence='3'>
+<created><datetime>20190510T141619,32+08</datetime></created>
+<modified><datetime>20190510T141635,74+08</datetime></modified>
+<revised><datetime>20190510T141635,73+08</datetime></revised>
+<lastaccessed><datetime>20190510T141741,91+08</datetime></lastaccessed>
+<addedtofile><datetime>20190510T141619,32+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Category="Exempt"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column totals='total' hidedetailrows='true' itemname='$9' width='3.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Integer(1)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Qs' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ categorized='true'><font color='blue' style='bold'/><columnheader><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Gs' width='11' resizable='true' separatemultiplevalues='true'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><font color='maroon'
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$8' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Date Created'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='AverageRating_Exec' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='44a' unid='8A4DE48DD9A22397482583F6002EFF42' sequence='3'>
+<created><datetime>20190510T163320,02+08</datetime></created>
+<modified><datetime>20190510T163400,83+08</datetime></modified>
+<revised><datetime>20190510T163400,82+08</datetime></revised>
+<lastaccessed><datetime>20190510T163527,46+08</datetime></lastaccessed>
+<addedtofile><datetime>20190510T163320,02+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA="Submitted" &amp; Category="Executive and Above"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_1'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q1'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_2'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q2'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_3'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q3'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_4'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q4'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_5'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q5'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_6'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q6'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_7'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q7'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_8'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q8'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_9'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q9'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_10'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q10'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_11'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q11'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_12'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q12'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_13'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q13'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_14'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q14'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_15'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q15'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_16'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q16'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column></view>
+
+<view name='AverageRating_Exempt' showinmenu='false' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='44e' unid='06009B58762E64EE482583F6002EFF84' sequence='3'>
+<created><datetime>20190510T163320,68+08</datetime></created>
+<modified><datetime>20190510T163415,87+08</datetime></modified>
+<revised><datetime>20190510T163415,86+08</datetime></revised>
+<lastaccessed><datetime>20190510T163530,88+08</datetime></lastaccessed>
+<addedtofile><datetime>20190510T163320,68+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA="Submitted" &amp; Category="Exempt"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_1'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q1'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_2'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q2'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_3'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q3'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_4'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q4'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_5'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q5'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_6'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q6'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_7'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q7'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_8'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q8'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_9'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q9'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_10'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q10'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_11'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q11'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_12'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q12'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_13'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q13'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_14'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q14'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_15'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q15'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column>
+<column align='center' totals='averageperchild' hidedetailrows='false' itemname='R_16'
+ width='3' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='Q16'><font
+ size='9pt' style='bold'/></columnheader><numberformat format='fixed' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false' decimalsym='.'
+ thousandssep=',' currencysymtype='custom' currencysym='$' usecustomsym='false'/></column></view>
+
+<view name='Copy Of Comments' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false' initialbuildrestricted='false' noemptycategories='true'>
+<noteinfo noteid='532' unid='91D3244C5C4484214825840B00328578' sequence='2'>
+<created><datetime>20190531T171149,68+08</datetime></created>
+<modified><datetime>20190531T171216,11+08</datetime></modified>
+<revised><datetime>20190531T171216,10+08</datetime></revised>
+<lastaccessed><datetime>20190531T171216,10+08</datetime></lastaccessed>
+<addedtofile><datetime>20190531T171149,68+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column sort='ascending' totals='total' hidedetailrows='false' itemname='$9'
+ width='3.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='true'
+ sortnocase='true' showaslinks='false' categorized='true'><columnheader><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@Integer(1)</formula></code></column>
+<column hidedetailrows='false' itemname='Cs' width='12.1250' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ viewisnarrow='wrapsecondrow'><columnheader title='Comments'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Comments_Exempt' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false' initialbuildrestricted='false' noemptycategories='true'>
+<noteinfo noteid='53e' unid='910E16D7BE4DB9FF482584120013B802' sequence='4'>
+<created><datetime>20190607T113522,90+08</datetime></created>
+<modified><datetime>20190607T113642,03+08</datetime></modified>
+<revised><datetime>20190607T113642,02+08</datetime></revised>
+<lastaccessed><datetime>20190607T113747,71+08</datetime></lastaccessed>
+<addedtofile><datetime>20190607T113522,89+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT Category="Exempt"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='_Read' showinbar='false' systemcommand='markread'/>
+<action title='_Unread' showinbar='false' systemcommand='markunread'/>
+<action title='_Open in New Window' showinbar='false' systemcommand='openinnewwindow'/>
+<action title='_Print...' showinbar='false' systemcommand='print'/>
+<action title='_Delete' showinbar='false' systemcommand='delete'/>
+<action title='_Document Properties' showinbar='false' systemcommand='properties'/>
+<action title='C_ut' showinbar='false' systemcommand='cut'/>
+<action title='_Copy' showinbar='false' systemcommand='copy'/>
+<action title='Copy as Document _Link' showinbar='false' systemcommand='copyasdoclink'/>
+<action title='Copy as _Table' showinbar='false' systemcommand='copyastable'/>
+<action title='P_aste' showinbar='false' systemcommand='paste'/>
+<action title='_Open' showinbar='false' systemcommand='open'/>
+<action title='Bookmark' showinbar='false' systemcommand='bookmark'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$6' width='3.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column sort='ascending' totals='total' hidedetailrows='false' itemname='$9'
+ width='3.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='true'
+ sortnocase='true' showaslinks='false' categorized='true'><columnheader><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@Integer(1)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='Qs' width='0.7500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font color='blue' style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Cs' width='12.1250' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ viewisnarrow='wrapsecondrow'><columnheader title='Comments'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Service' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Years of Service'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Age' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Age Group'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Category' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Category'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='118a' unid='9DACCC258308FFC148258E0500187B08' sequence='3'>
+<created><datetime>20260528T122723,60+08</datetime></created>
+<modified><datetime>20260528T122748,66+08</datetime></modified>
+<revised><datetime>20260528T122748,65+08</datetime></revised>
+<lastaccessed><datetime>20260528T122748,65+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T122723,63+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T122749,84+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(0) As String
+    sfNames(0) = "Signature"
+	'sfNames(1) = "HiddenFields"
+	'sfNames(2) = "HRUse"
+    
+    For i = 0 To 0
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\ESF_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\ESF_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T122749,59+08</datetime></agentmodified>
+<runlog>Started running agent 'DB_NSF' on 28/05/2026 12:28:29 PM
+ERROR: B4:82
+</runlog></rundata></agent>
+</database>
+

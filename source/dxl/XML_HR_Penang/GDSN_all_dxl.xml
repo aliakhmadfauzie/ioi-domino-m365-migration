@@ -1,0 +1,3207 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='48257E51002BA4BF' path='CN=PHBSVR/O=PHB!!Current\GDSR.nsf' title='Gift-Donation-Sponsorship Requisition'
+ categories='ONLINE DB' increasemaxfields='true'>
+<databaseinfo dbid='48257E51002BA4BF' odsversion='55' diskspace='1880064'
+ percentused='93.4368191721133' numberofdocuments='148'><datamodified><datetime
+>20260528T111827,95+08</datetime></datamodified><designmodified><datetime
+>20260528T125422,65+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='Main'/></launchsettings>
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='122' unid='4647A387799DACCA48256FF2000C1F56' sequence='73'>
+<created><datetime>20050429T101224,54+08</datetime></created>
+<modified><datetime>20240126T170026,51+08</datetime></modified>
+<revised><datetime>20240126T170026,50+08</datetime></revised>
+<lastaccessed><datetime>20240126T170026,50+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,42+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT  INO !="0000" &amp; INO !="" &amp; CurrentAction !="Request" &amp; CA!="Request"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$15' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true' twisties='true'><font size='11pt'
+ style='bold' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader><code event='value'><formula>@Year(CreationDate)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='company' width='5'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true' twisties='true'><font size='11pt'
+ style='bold' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Company'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='ProjectCode' width='7.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='No.'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column hidedetailrows='false' itemname='Requestor' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Requestor Name'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='$18' width='13.3750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Reported By'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];Authors)</formula></code></column>
+<column hidedetailrows='false' itemname='CreationDate' width='8.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Reported On'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' listseparator='comma' itemname='Department'
+ width='21.2500' resizable='true' separatemultiplevalues='false' sortnoaccent='false'
+ sortnocase='true' showaslinks='false'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Department'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column hidedetailrows='false' itemname='Type' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Type'><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column></view>
+
+<view name='lookup' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='gray' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='12a' unid='2A83E74FC68238F848256FF20029B77E' sequence='27'>
+<created><datetime>20050429T153539,50+08</datetime></created>
+<modified><datetime>20240510T084104,40+08</datetime></modified>
+<revised><datetime>20240510T084104,39+08</datetime></revised>
+<lastaccessed><datetime>20240510T084104,39+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,44+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @Year(CreationDate) = @Year(@Now ) &amp; INO !=""</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='INO' width='8.1250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='FormNo'><font size='9pt' style='bold'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column resort='ascending' hidedetailrows='false' itemname='$4' width='24.7500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<item name='$FormulaTV'><text/></item></view>
+
+<agent name='INO' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='132' unid='134325FD58364EB2482572540004285C' sequence='35'>
+<created><datetime>20061230T084524,76+08</datetime></created>
+<modified><datetime>20240510T084159,07+08</datetime></modified>
+<revised><datetime>20240510T084159,06+08</datetime></revised>
+<lastaccessed><datetime>20240510T084159,06+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,45+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20240510T084159,11+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='INO' value='0006'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20240510T084159,07+08</datetime></agentmodified>
+<agentrun><datetime>20240510T084203,79+08</datetime></agentrun>
+<runlog>Started running agent 'INO' on 10/05/2024 08:42:03 AM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'INO' on 10/05/2024 08:42:03 AM
+</runlog></rundata></agent>
+
+<form name='Form' alias='Ind' publicaccess='false' designerversion='8.5.3'
+ bgcolor='#ffefce' recalc='true' signdocuments='true' renderpassthrough='true'>
+<noteinfo noteid='136' unid='48888C129EC04C5C482573370009DA24' sequence='1228'>
+<created><datetime>20070814T094736,68+08</datetime></created>
+<modified><datetime>20240104T153305,68+08</datetime></modified>
+<revised><datetime>20240104T153305,67+08</datetime></revised>
+<lastaccessed><datetime>20240104T153305,67+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,46+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"GIFT/DONATION/SPONSORSHIP NOTIFICATION"</formula></code><code event='querysave'><lotusscript
+>Sub Querysave(Source As Notesuidocument, Continue As Variant)
+	TempSamNum$ = Source.FieldGetText("INO")
+	TempStatus$ = Source.FieldGetText("CurrentAction")
+	
+	Dim ws As NotesUIWorkSpace
+	Set ws = New NotesUIWorkSpace
+	Dim uidoc As NotesUIDocument
+	Set uidoc=ws.currentDocument
+	
+	If Trim$(TempSamNum$) = "" And Trim$(TempStatus$) = "Submitted" Then
+		Dim session As NotesSession
+		Set session = New NotesSession
+		Dim db As NotesDatabase
+		Set db = session.CurrentDatabase
+		Dim view As NotesView
+		
+		Set view = db.GetView("lookup") 
+		
+		Dim doc As NotesDocument
+		Dim p As Variant
+		Dim c As Integer
+		Set doc = view.GetFirstDocument
+		
+		If doc Is Nothing Then
+			
+			'Start Assign the running number to 0000 if document does not exist
+			Set doc = New NotesDocument(db)
+			Call doc.ReplaceItemValue("Form","RunningProfile")
+			Call doc.ReplaceItemValue("INO","0000")
+			
+			Call doc.Save(True,False)
+				'End assign
+			
+			p = 0
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = 1
+		Else 
+			p=doc.GetItemValue("INO")
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = Val(p(0)) + 1	
+		End If 
+		
+		uidoc.GoToField "INO"
+		
+		Dim x As String          
+		x = Trim(Str(c))          
+		Do While Len(x) &lt; 4
+			x = "0" &amp; Trim(x)
+		Loop			
+		uidoc.FieldSetText"INO",x			
+	End If
+End Sub</lotusscript></code>
+<actionbar bgcolor='white' bordercolor='black'>
+<actionbuttonstyle bgcolor='none'/><font color='system'/><border style='inset'
+ dropshadow='true' dropshadowwidth='6px'/>
+<action title='_Edit Document' icon='5' systemcommand='edit'/>
+<action title='Save' icon='117'><code event='click'><formula>@Command([ViewRefreshFields]);
+@Command([FileSave])</formula></code></action>
+<action title='Submit' icon='7' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (company= ""; @Return(@Do(@Command([EditGotoField];"company") ;@Prompt([Ok];"Missing Value"; "Please select the Company before proceeding!")));"");
+@If (Recipient= ""; @Return(@Do(@Command([EditGotoField];"Recipient") ;@Prompt([Ok];"Missing Value"; "Please select the Recipient before proceeding!")));"");
+@If (Recipient !="Customer" &amp; Recipient !="Employee" &amp; Name= ""; @Return(@Do(@Command([EditGotoField];"Name") ;@Prompt([Ok];"Missing Value"; "Please insert your Name before proceeding!")));"");
+
+@If (Requestor= ""; @Return(@Do(@Command([EditGotoField];"Requestor") ;@Prompt([Ok];"Missing Value"; "Please state the Requestor before proceeding!")));"");
+@If (Department= ""; @Return(@Do(@Command([EditGotoField];"Department") ;@Prompt([Ok];"Missing Value"; "Please select the Department before proceeding!")));"");
+@If (Type= ""; @Return(@Do(@Command([EditGotoField];"Type") ;@Prompt([Ok];"Missing Value"; "Please insert your Type before proceeding!")));"");
+
+@If (Purpose= ""; @Return(@Do(@Command([EditGotoField];"Purpose") ;@Prompt([Ok];"Missing Value"; "Please select the Purpose before proceeding!")));"");
+@If (IsBenefit= ""; @Return(@Do(@Command([EditGotoField];"IsBenefit") ;@Prompt([Ok];"Missing Value"; "Is the Gift benefit to Company?!")));"");
+@If (IsLogo= ""; @Return(@Do(@Command([EditGotoField];"IsLogo") ;@Prompt([Ok];"Missing Value"; "Is the item with Company logo?")));"");
+
+@If (Quantity= ""; @Return(@Do(@Command([EditGotoField];"Quantity") ;@Prompt([Ok];"Missing Value"; "Please state the Quantity before proceeding!")));"");
+@If (Price= ""; @Return(@Do(@Command([EditGotoField];"Price") ;@Prompt([Ok];"Missing Value"; "Please select the Price before proceeding!")));"");
+@If (CC= ""; @Return(@Do(@Command([EditGotoField];"CC") ;@Prompt([Ok];"Missing Value"; "Please include Division Head in the CC before proceeding!")));"");
+
+FIELD Notified := @V3UserName;
+FIELD reportedDate :=@Today;
+FIELD CurrentAction :="Submitted";
+
+@Command([FileSave]);
+
+@MailSend(HR;MailList;NULL;"New Gift/Donation/Sponsorship Requisition : "  +  INO ;NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@UserName != Authors | CurrentAction !="Request"</formula></code></action>
+<action title='Exit' icon='11'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext><formregionbegin type='header' sizetofit='false' height='110px'
+ border3d='false' borderwidth='3px' bordercolor='#ff4040' noresize='true'/>
+<pardef id='1' leftmargin='0.5000in'/>
+<par def='1'/>
+<par def='1'><run><font size='24pt' style='bold' name='Eras Demi ITC' pitch='variable'
+ truetype='true' familyid='20'/> </run><run><font size='24pt' style='bold'
+ name='Eras Demi ITC' pitch='variable' truetype='true' familyid='20'/>     </run><run
+><font size='24pt' style='bold shadow' name='Eras Demi ITC' pitch='variable'
+ truetype='true' familyid='20'/>GIFT/DONATION/SPONSORSHIP NOTIFICATION</run></par><formregionend
+ type='header'/><formregionbegin type='body'/>
+<par def='1'><run><font size='24pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<pardef id='2' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='A'><sectiontitle
+ pardef='2' borderstyle='gradient' color='#824200'><font size='11pt' color='white'
+ style='bold' name='Eras Demi ITC' pitch='variable' truetype='true' familyid='20'/><text
+>PART A - REQUESTOR SECTION</text></sectiontitle><code event='defaultvalue'><formula
+>Editor1</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='13' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='3'/>
+<par def='3'><run><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/>Notification No. : </run><run
+><font style='bold' name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field
+ type='text' allowmultivalues='true' kind='computed' name='ProjectCode' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>@If(INO = ""; ""; @Length(@Text(@Month(CreationDate))) = 2;
+@Trim(@Text(@Year(CreationDate))) + "-" + @Trim(@Text(@Month(CreationDate))) + "-" + INO;
+@Trim(@Text(@Year(CreationDate))) + "-" + "0" + @Trim(@Text(@Month(CreationDate))) + "-" + INO)</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par>
+<pardef id='4' leftmargin='0.1875in'/>
+<par def='4'><run><font size='11pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='14in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='6' leftmargin='0' rightmargin='1.6250in' firstlineleftmargin='0.0104in'
+ spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Donor Company</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='7' rightmargin='2.5000in' spaceafter='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='7'><run><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/> : </run><run
+><font style='bold' name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field
+ type='keyword' kind='editable' name='company'><keywords ui='dialoglist'><textlist
+><text>ACM</text><text>ECM</text><text>PJY</text><text>POM</text><text>ALL</text></textlist></keywords></field></run><run
+><font style='underline' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='8' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Recipient</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='9' rightmargin='6.7500in' spaceafter='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='9'><run><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/> : </run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field
+ borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Recipient'><keywords helperbutton='false'
+ columns='1' ui='radiobutton'><textlist><text>Customer</text><text>Employee</text><text
+>Government</text><text>Vendor</text><text>Community Service</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='10' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>Recipient="Customer" | Recipient="Employee"</formula></code></pardef>
+<par def='10'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Name of Recipient</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='11' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>Recipient="Customer" | Recipient="Employee"</formula></code></pardef>
+<par def='11'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='Name'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Recipient's SAP No. / Vendor ID No.</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='12' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='SAP_ID'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Requestor</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='Requestor'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>CC (Division Head)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' choicesdialog='addressbook' lookupeachchar='true'
+ lookupaddressonrefresh='false' type='names' kind='editable' name='CC'><keywords
+ columns='5' ui='radiobutton'/></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Department</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Department'><keywords columns='5' ui='dialoglist'><textlist
+><text>ACM 1 PLANT OPERATIONS &amp; WWTP</text><text>ACM 2 PLANTS, ACM 1 &amp; 2 GENERAL OPERATIONS</text><text
+>ADMINISTRATION</text><text>AES &amp; ECM PLANTS</text><text>CIVIL &amp; MECHANICAL</text><text
+>COSTING/FINANCE/ACCOUNTS PAYABLE/POM/OTHERS(Costing/Finance/Treasury)</text><text
+>DCM PLANT &amp; PACKING</text><text>ELECTRICAL &amp; INSTRUMENT - ACM 1</text><text
+>ELECTRICAL, INSTRUMENT, CIVIL &amp; MECHANICAL - ACM 2</text><text>ENGINEERING</text><text
+>FINANCE</text><text>GENERAL OPERATIONS</text><text>HUMAN RESOURCES</text><text
+>INFORMATION TECHNLOGY</text><text>INTERNAL AUDIT</text><text>LOGISTICS</text><text
+>MAINTENANCE SUPPORT</text><text>MARKETING (ACM)</text><text>MARKETING (AES)</text><text
+>MARKETING (AES/ECM)</text><text>MARKETING (ASN)</text><text>MATERIALS</text><text
+>PBI</text><text>PLANT OPERATION &amp; WWTP</text><text>PROCUREMENT</text><text
+>PROCUREMENT &amp; CORPORATE AFFAIRS</text><text>PROCUREMENT &amp; CORPORATE SERVICES</text><text
+>PRODUCTION PLANNING &amp; SUPPORT</text><text>PRODUCTION (AES &amp; ECM)</text><text
+>PRODUCTION (AES)</text><text>PRODUCTION (SCM)</text><text>QUALITY ASSURANCE</text><text
+>QUALITY CONTROL</text><text>R &amp; D</text><text>SAFETY, HEALTH &amp; ENVIRONMENT</text><text
+>SALES ADMIN.</text><text>SECURITY</text><text>SERIES 5 PLANTS &amp; GEN. OPER. (ACM 2)</text><text
+>STORE</text><text>TRAINING &amp; DEVELOPMENT</text><text>UTILITIES</text><text
+>WAREHOUSE</text></textlist></keywords></field></run><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Type </run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Type'><keywords helperbutton='false'
+ columns='1' ui='radiobutton'><textlist><text>Cash (includes cash voucher with value)</text><text
+>Non Cash/Item (includes cash voucher without value)</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Purpose</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' allowmultivalues='true' kind='editable' name='Purpose' listinputseparators='comma'
+ listdisplayseparator='comma'><keywords helperbutton='false' columns='1' ui='checkbox'><textlist
+><text>Gift</text><text>Sponsorship</text><text>Donation</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Benefit to Company</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='IsBenefit'><keywords helperbutton='false'
+ columns='1' ui='radiobutton'><textlist><text>Yes (i.e. advertisement/publicity to the company)</text><text
+>No</text></textlist></keywords></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Gift with Company Logo</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> :</run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='IsLogo'><keywords helperbutton='false'
+ columns='5' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Details of Item</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='ItemDetail'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Quantity</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='number' kind='editable' name='Quantity'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/><numberformat format='general'
+ varying='true' punctuated='false' parens='false' percent='false' bytes='false'/><code
+ event='defaultvalue'><formula>0</formula></code></field></run><run><font
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Price per Unit</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : RM</run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='number' kind='editable' name='Price'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/><numberformat format='general'
+ varying='true' punctuated='false' parens='false' percent='false' bytes='false'/><code
+ event='defaultvalue'><formula>0</formula></code></field></run><run><font
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Total Cost</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : RM</run><run><font style='bold' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='none' type='number' kind='computed'
+ name='Total'><keywords helperbutton='false' columns='5' ui='radiobutton'/><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>Quantity * Price</formula></code></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Purchase through PO</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='IsPO'><keywords helperbutton='false'
+ columns='5' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>PO Number (if applicable)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='PoNo'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='3'><run><font size='11pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='14in'><tablecolumn width='11.5938%'/><tablecolumn
+ width='88.4063%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='14' align='right' leftmargin='0' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='14'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Submitted by</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='15' leftmargin='0' rightmargin='6.6813in' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='15'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' kind='computed' name='Notified'><code
+ event='defaultvalue'><formula>Notified</formula></code></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='14'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Position</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='16' leftmargin='0' rightmargin='3.9424in' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='position'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='14'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='datetime' kind='computed' name='reportedDate'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>reportedDate</formula></code></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell columnspan='2' borderwidth='0px'>
+<pardef id='18' keepwithnext='true' keeptogether='true'/>
+<par def='18'><run><font size='11pt' style='bold italic' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20' color='blue'/></run></par>
+<par def='18'><run><font size='11pt' style='bold italic' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20' color='blue'/>Notified to</run><run><font size='11pt'
+ style='italic' name='Segoe UI' pitch='variable' truetype='true' familyid='20'
+ color='blue'/> : </run><run><font size='11pt' color='blue' style='italic'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field type='names'
+ allowmultivalues='true' kind='computed' name='SendTo' listinputseparators='comma semicolon'
+ listdisplayseparator='semicolon'><code event='defaultvalue'><formula>MailList</formula></code></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='19' leftmargin='0.1250in'/>
+<par def='19'><run><font size='11pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='8pt' color='purple'/></run></par></section>
+<pardef id='20' leftmargin='1in'/><subformref name='CreatedBy'/>
+<par def='20'><run><font size='8pt' color='purple'/></run></par>
+<par def='3'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/></run></par>
+<pardef id='21' leftmargin='0.7500in' hide='print copy'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;ISG)</formula></code></pardef>
+<section expanded='true'><sectiontitle pardef='21' color='blue'><font size='9pt'
+ style='bold' name='David' pitch='variable' truetype='true' familyid='0'/><text
+>Hidden Fields</text></sectiontitle>
+<pardef id='22' leftmargin='1in'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISG)</formula></code></pardef>
+<par def='22'><run><font size='1pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/></run></par>
+<table widthtype='fitwindow' refwidth='14.2500in'><tablecolumn width='20.9583%'/><tablecolumn
+ width='79.0417%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='23' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;ISG)</formula></code></pardef>
+<par def='23'><run><font size='8pt' style='bold' name='David' pitch='variable'
+ truetype='true' familyid='0'/>CurrentAction</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='24' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;ISG)</formula></code></pardef>
+<par def='24'><run><font size='8pt' style='bold' name='David' pitch='variable'
+ truetype='true' familyid='0'/> : </run><run><font size='8pt' style='bold'
+ name='David' pitch='variable' truetype='true' familyid='0'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='CurrentAction'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Request</text><text>Submitted</text></textlist></keywords><code event='defaultvalue'><formula
+>"Request"</formula></code></field></run><run><font size='8pt' style='bold'
+ name='David' pitch='variable' truetype='true' familyid='0'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='25' rightmargin='1.3757in' hide='print copy' keepwithnext='true'
+ keeptogether='true'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISG)</formula></code></pardef>
+<par def='25'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>Editor1 - Section A</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Editor1' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CurrentAction ="Request";Authors;ISG)</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='0'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>ED</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='ED' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>"Ravi Madhu/PMS/PHB";
+
+REM {
+strServer := @Subset(@DbName; 1);
+strDatabase:= "Current/PeopleNames.nsf";
+strView:= "($VIMGroups)";
+strGroupName := "ED";
+@DbLookup("":"NoCache";strServer:strDatabase; strView; strGroupName  ; 3 ; [FailSilent])};</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>HR</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='HR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>strServer := @Subset(@DbName; 1);
+strDatabase:= "Current/PeopleNames.nsf";
+strView:= "($VIMGroups)";
+strGroupName := "GDSRHR";
+@DbLookup("":"NoCache";strServer:strDatabase; strView; strGroupName  ; 3 ; [FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='0'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>FIN</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='FIN' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>strServer := @Subset(@DbName; 1);
+strDatabase:= "Current/PeopleNames.nsf";
+strView:= "($VIMGroups)";
+strGroupName := "GDSRFIN";
+@DbLookup("":"NoCache";strServer:strDatabase; strView; strGroupName  ; 3 ; [FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='0'/></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='0'/><field
+ type='names' kind='computed' name='TCG'><code event='defaultvalue'><formula
+>"Tan Chin Ghee/PMS/PHB"</formula></code></field></run><run><font size='8pt'
+ name='David' pitch='variable' truetype='true' familyid='0'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>PUR</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='PUR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>strServer := @Subset(@DbName; 1);
+strDatabase:= "Current/PeopleNames.nsf";
+strView:= "($VIMGroups)";
+strGroupName := "GDSRPUR";
+@DbLookup("":"NoCache";strServer:strDatabase; strView; strGroupName  ; 3 ; [FailSilent])</formula></code></field></run><run
+><font size='8pt'/></run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='IsPUR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(IsPO="Yes";PUR;NULL)</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>MKT</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='MKT' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>strServer := @Subset(@DbName; 1);
+strDatabase:= "Current/PeopleNames.nsf";
+strView:= "($VIMGroups)";
+strGroupName := "GDSRMKT";
+@DbLookup("":"NoCache";strServer:strDatabase; strView; strGroupName  ; 3 ; [FailSilent])</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>ISG Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='ISG' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>strServer := @Subset(@DbName; 1);
+strDatabase:= "Current/PeopleNames.nsf";
+strView:= "($VIMGroups)";
+strGroupName := "ISADMIN";
+@DbLookup("":"NoCache";strServer:strDatabase; strView; strGroupName  ; 3 ; [FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='0'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>INO</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='0'/><field type='text' kind='computed' name='INO'><code
+ event='defaultvalue'><formula>INO</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='8pt'
+ name='David' pitch='variable' truetype='true' familyid='0'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>MailingList</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='0'/><field type='names' allowmultivalues='true'
+ kind='computed' name='MailList' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(Recipient="Employee";FIN:IsPUR;
+Recipient="Customer";MKT:FIN:IsPUR:TCG;
+FIN:IsPUR)</formula></code></field></run><run><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='0'/>Readers</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='24'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='0'/><field type='readers' allowmultivalues='true'
+ kind='computed' name='Readers' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>HR:Authors:MailList:CC:ISG</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow></table>
+<par def='20'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='0' color='purple'/></run><run><font size='9pt' name='David' pitch='variable'
+ truetype='true' familyid='0' color='purple'/></run></par></section>
+<par def='20'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='0' color='purple'/></run></par><formregionend type='body'/></richtext></body>
+<item name='DateTime' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='IncTime' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='IncDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='ReportedOn' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='AckDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='InvesDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_3' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_4' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_5' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_6' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_7' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_8' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_9' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_10' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='EIDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='EDHDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date3' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date4' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='SHEVerifyDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='NotifiedDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='FollowUpDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate1C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate2C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate4C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='WDDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='WDBy' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtIncTimeE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtIncDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtInvesDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1E_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtEIDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtEDHDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtAckDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtSHEVerifyDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNotifiedDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtFollowUpDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtReportedOnC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate3C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate3C_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNextReminder' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNextReminderHOD' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNextReminderReviewer' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='ReminderDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen2E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen3E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen4E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen5E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_1E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_2E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_3E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_4E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_5E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_6E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='acknowledgedDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DateVisit' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDateTimeC' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='divDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='SHEDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='sheDate_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='hodDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='EDDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='InvoiceDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CompletedDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='FINDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><text>0000000000000000</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text> SHEForm</text></item>
+<item name='Quantity' summary='false'><number>0</number></item>
+<item name='Price' summary='false'><number>0</number></item>
+<item name='Total' summary='false'><number>0</number></item>
+<item name='CreationDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<view name='Draft' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='13e' unid='FB8C6769A066F4E14825734D0038817E' sequence='15'>
+<created><datetime>20070905T181711,66+08</datetime></created>
+<modified><datetime>20240126T165919,42+08</datetime></modified>
+<revised><datetime>20240126T165919,41+08</datetime></revised>
+<lastaccessed><datetime>20240126T165919,41+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,48+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT INO !="0000" &amp; (CurrentAction = "Request" | CA = "Request")</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' itemname='$14' width='13.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Created By'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Name([CN];Authors)</formula></code></column>
+<column hidedetailrows='false' itemname='CreationDate' width='11.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Created On'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column></view>
+
+<agent name='Refresh Docs' hide='v3' publicaccess='false' designerversion='8.5.3'
+ private='true'>
+<noteinfo noteid='146' unid='BA9D2AEA8BD9FF884825739F0023B821' sequence='2'>
+<created><datetime>20071126T143008,97+08</datetime></created>
+<modified><datetime>20150526T155642,50+08</datetime></modified>
+<revised><datetime>20130314T094200,96+08</datetime></revised>
+<lastaccessed><datetime>20150526T155642,49+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,49+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20130314T094200,82+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='runonce'/><code event='action'>
+<simpleaction action='runformula'><formula>@Command([ToolsRefreshSelectedDocs] );
+ @All;SELECT
+ @All</formula></simpleaction></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20150526T155642,50+08</datetime></agentmodified>
+<agentrun><datetime>20241115T121128,93+08</datetime></agentrun>
+<runlog>Started running agent 'Refresh Docs' on 15/11/2024 12:11:24 PM
+1 document(s) were modified by formula
+Done running agent 'Refresh Docs' on 15/11/2024 12:11:28 PM
+</runlog></rundata></agent>
+
+<agent name='Pending HOD' hide='v3' publicaccess='false' designerversion='8.5.3'
+ activatable='false' enabled='false'>
+<noteinfo noteid='15a' unid='E8A3CF9D6395763E482573F70004738F' sequence='37'>
+<created><datetime>20080222T084837,27+08</datetime></created>
+<modified><datetime>20150526T155642,54+08</datetime></modified>
+<revised><datetime>20150213T123224,50+08</datetime></revised>
+<lastaccessed><datetime>20150526T155642,53+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,53+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20150213T123224,50+08</datetime></designchange>
+<trigger type='scheduled'>
+<schedule type='daily' runlocation='specific' runserver='CN=PHBSVR/O=PHB'>
+<starttime><datetime>T090000,00</datetime></starttime></schedule></trigger>
+<documentset type='modified'/><code event='declarations'><lotusscript>Dim Session As NotesSession
+Dim db As NotesDatabase
+Dim view As NotesView
+Dim doc As NotesDocument
+Dim maildoc As NotesDocument
+Dim item As NotesItem
+Dim rtiitem As NotesRichTextItem
+Dim documents As NotesDocumentCollection
+Dim dtToday As NotesDateTime
+Dim dtDue As NotesDateTime
+Dim dtSet As NotesDateTime
+Dim Recipient As Variant
+Dim CC As Variant
+
+</lotusscript></code><code event='initialize'><lotusscript>
+Sub Initialize
+	On Error GoTo ProcessError
+	Set Session  = New NotesSession    
+	Set db = Session.CurrentDatabase
+	Set view = db.GetView("ReminderHOD")
+	
+	Set dtToday = New NotesDateTime("today")
+	Set dtDue = New NotesDateTime("today")
+	Set dtSEt = New NotesDateTime("today")
+	dtToday.SetNow
+	
+     '--Retrieve first document and return to NotesDocument object:
+	Set doc = view.GetFirstDocument
+	
+     '--Loop through every document in view using GetNextDocumnet method
+	Do While Not (doc Is Nothing)     
+		Recipient = Doc.HOD
+		CC = Doc.Defcc
+		          
+			Set Maildoc = New NotesDocument( db)
+			Maildoc.Form = "Reminder"
+			dtSet.SetNow
+			SendNotification(0)
+			    
+		Set doc = view.GetNextDocument(doc)
+	Loop    
+	Exit Sub
+ProcessError:
+	MsgBox "Error (" &amp; CStr(Err) &amp; " ) -&gt;" &amp; Error$(Err), 16,"Initialize"
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event='SendNotification'><lotusscript>
+Sub SendNotification(n)
+	Set rtitem = New NotesRichTextItem(maildoc, "Body")
+	
+	SendTo = Recipient
+	CopyTo = CC
+	Subject = "Night Duty Findings Reminder - Pending HOD Approval"
+	WorkflowObject = Doc.WorkflowObject
+	
+	Maildoc.InheritedDbTitle = db.Title
+	Maildoc.SendTo = SendTo
+	Maildoc.CopyTo = CopyTo
+	Maildoc.Subject = Subject
+	Maildoc.txtINNumberC = Doc.txtINNumberC
+	Maildoc.Body = Body
+	Maildoc.Save True, True
+	doc.Save True, True
+	Call Maildoc.send(True)
+	
+End Sub</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20150213T123224,34+08</datetime></agentmodified></rundata></agent>
+
+<agent name='Pending HR' hide='v3' publicaccess='false' designerversion='8.5.3'
+ activatable='false' enabled='false'>
+<noteinfo noteid='162' unid='157E7E1C4ED7F26E482573F700047390' sequence='17'>
+<created><datetime>20080222T084837,28+08</datetime></created>
+<modified><datetime>20150526T155642,55+08</datetime></modified>
+<revised><datetime>20150213T123346,80+08</datetime></revised>
+<lastaccessed><datetime>20150526T155642,54+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,54+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20150213T123346,79+08</datetime></designchange>
+<trigger type='scheduled'>
+<schedule type='daily' runlocation='specific' runserver='CN=PHBSVR/O=PHB'>
+<starttime><datetime>T173000,00</datetime></starttime></schedule></trigger>
+<documentset type='modified'/><code event='declarations'><lotusscript>Dim Session As NotesSession
+Dim db As NotesDatabase
+Dim view As NotesView
+Dim doc As NotesDocument
+Dim maildoc As NotesDocument
+Dim item As NotesItem
+Dim rtiitem As NotesRichTextItem
+Dim documents As NotesDocumentCollection
+Dim dtToday As NotesDateTime
+Dim dtDue As NotesDateTime
+Dim dtSet As NotesDateTime
+Dim Recipient As Variant
+Dim CC As Variant
+
+</lotusscript></code><code event='initialize'><lotusscript>
+Sub Initialize
+	On Error GoTo ProcessError
+	Set Session  = New NotesSession    
+	Set db = Session.CurrentDatabase
+	Set view = db.GetView("ReminderHR")
+	
+	Set dtToday = New NotesDateTime("today")
+	Set dtDue = New NotesDateTime("today")
+	Set dtSEt = New NotesDateTime("today")
+	dtToday.SetNow
+	
+     '--Retrieve first document and return to NotesDocument object:
+	Set doc = view.GetFirstDocument
+	
+     '--Loop through every document in view using GetNextDocumnet method
+	Do While Not (doc Is Nothing)     
+		Recipient = Doc.HR
+		CC = Doc.Defcc
+		          
+			Set Maildoc = New NotesDocument( db)
+			Maildoc.Form = "Reminder"
+			dtSet.SetNow
+			SendNotification(0)
+			    
+		Set doc = view.GetNextDocument(doc)
+	Loop    
+	Exit Sub
+ProcessError:
+	MsgBox "Error (" &amp; CStr(Err) &amp; " ) -&gt;" &amp; Error$(Err), 16,"Initialize"
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event='SendNotification'><lotusscript>
+Sub SendNotification(n)
+	Set rtitem = New NotesRichTextItem(maildoc, "Body")
+	
+	SendTo = Recipient
+	CopyTo = CC
+	Subject = "Night Duty Findings Reminder - Pending HR Acknowledgement"
+	WorkflowObject = Doc.WorkflowObject
+	
+	Maildoc.InheritedDbTitle = db.Title
+	Maildoc.SendTo = SendTo
+	Maildoc.CopyTo = CopyTo
+	Maildoc.Subject = Subject
+	Maildoc.txtINNumberC = Doc.txtINNumberC
+	Maildoc.Body = Body
+	Maildoc.Save True, True
+	doc.Save True, True
+	Call Maildoc.send(True)
+	
+End Sub</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20150213T123346,63+08</datetime></agentmodified></rundata></agent>
+
+<view name='ALL' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='gray' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='166' unid='FE77D473C15759E34825741700343FA4' sequence='13'>
+<created><datetime>20080325T173041,64+08</datetime></created>
+<modified><datetime>20160218T102942,37+08</datetime></modified>
+<revised><datetime>20160218T102942,35+08</datetime></revised>
+<lastaccessed><datetime>20160218T102942,35+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,55+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT INO !="0000"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$5' width='16.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<column align='center' sort='descending' hidedetailrows='false' itemname='INO'
+ width='9.8750' resizable='true' separatemultiplevalues='false' sortnoaccent='true'
+ sortnocase='true' showaslinks='false'><columnheader align='center' title='FormNo'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Form' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='SendTo' width='26.3750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='SendTo'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='SendToAll' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='toall'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='Notifieddate' hide='v3' publicaccess='false' designerversion='8.5'>
+<noteinfo noteid='186' unid='E45FBC16B5B036574825793D0016B9BA' sequence='3'>
+<created><datetime>20111103T120813,38+08</datetime></created>
+<modified><datetime>20150526T155642,63+08</datetime></modified>
+<revised><datetime>20120130T094352,92+08</datetime></revised>
+<lastaccessed><datetime>20150526T155642,62+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,62+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christina/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Christina/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20120130T094352,95+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='dtNextReminder' value='31/01/2012 12:00:00 AM ZE8'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20120130T094352,93+08</datetime></agentmodified>
+<agentrun><datetime>20120130T094504,92+08</datetime></agentrun>
+<runlog>Started running agent 'Notifieddate' on 30/01/2012 09:45:04 AM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'Notifieddate' on 30/01/2012 09:45:04 AM
+</runlog></rundata></agent>
+
+<agent name='Clear' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='18e' unid='52E33B01FB2E714E48257984000500B5' sequence='13'>
+<created><datetime>20120113T085438,61+08</datetime></created>
+<modified><datetime>20150526T155642,64+08</datetime></modified>
+<revised><datetime>20150213T123835,90+08</datetime></revised>
+<lastaccessed><datetime>20150526T155642,63+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,63+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20150213T123835,88+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='hodDate'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20150213T123835,92+08</datetime></agentmodified>
+<agentrun><datetime>20150213T123839,71+08</datetime></agentrun>
+<runlog>Started running agent 'Clear' on 13/02/2015 12:38:39 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'Clear' on 13/02/2015 12:38:39 PM
+</runlog></rundata></agent>
+
+<agent name='Pending Reply' hide='v3' publicaccess='false' designerversion='8.5.3'
+ comment='Send notice to recipient' restrictions='unrestricted' activatable='false'
+ enabled='false'>
+<noteinfo noteid='1ca' unid='EB68F4D6B30D70BE48257B6C0014A25F' sequence='14'>
+<created><datetime>20130515T114522,87+08</datetime></created>
+<modified><datetime>20150526T155642,78+08</datetime></modified>
+<revised><datetime>20150213T123032,12+08</datetime></revised>
+<lastaccessed><datetime>20150526T155642,77+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,77+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20150213T123032,13+08</datetime></designchange>
+<trigger type='scheduled'>
+<schedule type='daily' runlocation='specific' runserver='CN=PHBSVR/O=PHB'>
+<starttime><datetime>T163000,00</datetime></starttime></schedule></trigger>
+<documentset type='all'/><code event='declarations'><lotusscript>Dim Session As NotesSession
+Dim db As NotesDatabase
+Dim view As NotesView
+Dim doc As NotesDocument
+Dim maildoc As NotesDocument
+Dim item As NotesItem
+Dim rtiitem As NotesRichTextItem
+Dim documents As NotesDocumentCollection
+Dim dtToday As NotesDateTime
+Dim dtDue As NotesDateTime
+Dim dtSet As NotesDateTime
+Dim Recipient As Variant
+Dim CC As Variant
+
+
+</lotusscript></code><code event='initialize'><lotusscript>Sub Initialize
+	On Error Goto ProcessError
+	Set Session  = New NotesSession    
+	Set db = Session.CurrentDatabase
+	Set view = db.GetView("ReminderReply")
+	
+	Set dtToday = New NotesDateTime("today")
+	Set dtDue = New NotesDateTime("today")
+	Set dtSEt = New NotesDateTime("today")
+	dtToday.SetNow
+	
+     '--Retrieve first document and return to NotesDocument object:
+	Set doc = view.GetFirstDocument
+	
+     '--Loop through every document in view using GetNextDocumnet method
+	Do While Not (doc Is Nothing)     
+		Recipient = Doc.SendTo
+		CC = Doc.Defcc
+		          
+			Set Maildoc = New NotesDocument( db)
+			Maildoc.Form = "Reminder"
+			dtSet.SetNow
+			SendNotification(0)
+			    
+		Set doc = view.GetNextDocument(doc)
+	Loop    
+	Exit Sub
+ProcessError:
+	Msgbox "Error (" &amp; Cstr(Err) &amp; " ) -&gt;" &amp; Error$(Err), 16,"Initialize"
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event='SendNotification'><lotusscript>Sub SendNotification(n)
+	Set rtitem = New NotesRichTextItem(maildoc, "Body")
+	
+	SendTo = Recipient
+	CopyTo = CC
+	Subject = "Night Duty Findings Reminder - Pending Reply"
+	WorkflowObject = Doc.WorkflowObject
+	
+	Maildoc.InheritedDbTitle = db.Title
+	Maildoc.SendTo = SendTo
+	Maildoc.CopyTo = CopyTo
+	Maildoc.Subject = Subject
+	Maildoc.txtINNumberC = Doc.txtINNumberC
+	Maildoc.Body = Body
+	Maildoc.Save True, True
+	doc.Save True, True
+	Call Maildoc.send(True)
+	
+End Sub</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20150213T123032,03+08</datetime></agentmodified></rundata></agent>
+
+<form name='Reminder' nocompose='true' publicaccess='false' designerversion='8.5.3'
+ storeform='true'>
+<noteinfo noteid='1ce' unid='F1681DB524CEBEF748257B6C0014AE40' sequence='13'>
+<created><datetime>20130515T114553,28+08</datetime></created>
+<modified><datetime>20210818T000105,68+08</datetime></modified>
+<revised><datetime>20210818T000105,67+08</datetime></revised>
+<lastaccessed><datetime>20210818T000105,67+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,78+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=PHBSVR/O=PHB</name></updatedby>
+<wassignedby><name>CN=PHBSVR/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"SHE Internal Corrective Action Reminder"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<body><richtext>
+<pardef id='1' leftmargin='1in'><code event='hidewhen' enabled='false'><formula
+>@IsAvailable($HideMailHeader)</formula></code></pardef>
+<par def='1'/>
+<pardef id='2'/>
+<par def='2'/>
+<table widthtype='fitmargins' refwidth='15.3021in'><tablecolumn width='17.7743%'/><tablecolumn
+ width='82.2257%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='4' keepwithnext='true' keeptogether='true'/>
+<par def='4'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> </run><picture
+ width='225px' height='177px' scaledheight='0.8438in' scaledwidth='1.2083in'><jpeg
+>
+/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCACxAOEDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiii
+gAooooAKKKKACiiigAooooAKKKKACiqdxqdpbMUeTcw6qozilt9TtblgiSYc9FYYzSui/Zytexbo
+ppZV+8wH1NMa5iH8WfoKZndEtFVjeL/ChP1qM3ch6ACldC5kXaQkDqQPrVBppG6ufwpmc9aXMTzl
+5riJf4wfpzTGvEHRSap0UrsXOyw1256KBUttK0gbcckVSqe0bEpHqKE9QUncu0UUVZqFFFFABRRR
+QAUUUUAFFFFABRTDLGvVx+dRtdxjpk/QUXFdE9FVWvD/AAp+ZqNrmU9wPoKV0TzovU1pEXqwH41n
+s7t95ifxptLmFzlya+ghQuzEgegrn7zWLieVVDmNWJ2qpx+Z71HqNwXvxb/wxpu+pJrD1K4eG+hI
+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
+</jpeg></picture><run><font name='Verdana' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='5' leftmargin='0' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/>  </run><run
+><font size='35pt' name='Verdana' pitch='variable' truetype='true' familyid='20'/>Reminder</run></par></tablecell></tablerow></table>
+<pardef id='3' leftmargin='1in'/>
+<par def='3'><run><font size='8pt' style='bold shadow' color='purple'/></run></par>
+<pardef id='6' leftmargin='1in'/>
+<par def='6'><run><font size='14pt' name='Verdana' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='14pt' style='bold' name='Verdana' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='computed' name='Subject'><code
+ event='defaultvalue'><formula>Subject</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='14pt'
+ name='Verdana' pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='6'><run><font size='8pt' style='bold shadow' color='purple'/></run></par>
+<par def='2'/>
+<table widthtype='fitmargins' refwidth='15.3021in'><tablecolumn width='32.1771%'/><tablecolumn
+ width='2.9444%'/><tablecolumn width='64.8785%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='7' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> </run>To</par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='8' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> :</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='9' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> </run><run
+><font name='Verdana' pitch='variable' truetype='true' familyid='20'/><field
+ type='names' allowmultivalues='true' kind='computed' name='SendTo' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>SendTo</formula></code></field></run><run
+><font name='Verdana' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> CC</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> :</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> </run><run
+><font name='Verdana' pitch='variable' truetype='true' familyid='20'/><field
+ type='names' allowmultivalues='true' kind='computed' name='CopyTo' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>CopyTo</formula></code></field></run><run
+><font name='Verdana' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> Date Sent Reminder</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> :</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font name='Verdana' pitch='variable' truetype='true' familyid='20'/> </run><run
+><font name='Verdana' pitch='variable' truetype='true' familyid='20'/><field
+ type='datetime' kind='computedwhencomposed' name='DateSent'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>@Created</formula></code></field></run><run><font size='14pt' name='Verdana'
+ pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='9'><run><font size='14pt' name='Verdana' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<par def='9'><run><font size='14pt' name='Verdana' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font size='14pt' name='Verdana' pitch='variable' truetype='true'
+ familyid='20'/> Notification No</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='8'><run><font size='14pt' name='Verdana' pitch='variable' truetype='true'
+ familyid='20'/> :</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font size='14pt' name='Verdana' pitch='variable' truetype='true'
+ familyid='20'/> </run><run><font size='14pt' name='Verdana' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='computed' name='txtINNumberC'><code
+ event='defaultvalue'><formula>txtINNumberC</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='14pt'
+ name='Verdana' pitch='variable' truetype='true' familyid='20'/> </run><run
+><font size='14pt' name='Verdana' pitch='variable' truetype='true' familyid='20'/><field
+ type='richtext' kind='computed' name='rTxtDocLink'><code event='defaultvalue'><formula
+>rTxtDocLink</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='12' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata></par></tablecell></tablerow></table>
+<par def='3'/>
+<pardef id='10' leftmargin='1in' hide='print'><code event='hidewhen'><formula
+>@UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef>
+<par def='10'/></richtext></body>
+<item name='RunNum' summary='false' sign='true'><number>0</number></item>
+<item name='DUEDATE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DateOFReminder' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Memo</text></item>
+<item name='$FormUsers'><text>CN=ACMSVR/OU=PMS/O=PHB</text></item></form>
+
+<agent name='Pending HODiv' hide='v3' publicaccess='false' designerversion='8.5.3'
+ comment='Sends e-mail when due date has passed.' restrictions='fulladminunrestricted'
+ activatable='true' enabled='false'>
+<noteinfo noteid='1d6' unid='CC05ABF8F63CEBA348257B71001A74F2' sequence='25'>
+<created><datetime>20130520T124858,74+08</datetime></created>
+<modified><datetime>20150526T155642,80+08</datetime></modified>
+<revised><datetime>20150213T123305,95+08</datetime></revised>
+<lastaccessed><datetime>20150526T155642,79+08</datetime></lastaccessed>
+<addedtofile><datetime>20150526T155642,79+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20150213T123305,95+08</datetime></designchange>
+<trigger type='scheduled'>
+<schedule type='daily' runlocation='specific' runserver='CN=PHBSVR/O=PHB'>
+<starttime><datetime>T091500,00</datetime></starttime></schedule></trigger>
+<documentset type='all'/><code event='declarations'><lotusscript>Dim Session As NotesSession
+Dim db As NotesDatabase
+Dim view As NotesView
+Dim doc As NotesDocument
+Dim maildoc As NotesDocument
+Dim item As NotesItem
+Dim rtiitem As NotesRichTextItem
+Dim documents As NotesDocumentCollection
+Dim dtToday As NotesDateTime
+Dim dtDue As NotesDateTime
+Dim dtSet As NotesDateTime
+Dim Recipient As Variant
+Dim CC As Variant
+
+</lotusscript></code><code event='initialize'><lotusscript>
+Sub Initialize
+	On Error GoTo ProcessError
+	Set Session  = New NotesSession    
+	Set db = Session.CurrentDatabase
+	Set view = db.GetView("ReminderHODiv")
+	
+	Set dtToday = New NotesDateTime("today")
+	Set dtDue = New NotesDateTime("today")
+	Set dtSEt = New NotesDateTime("today")
+	dtToday.SetNow
+	
+	'--Retrieve first document and return to NotesDocument object:
+	Set doc = view.GetFirstDocument
+	
+	'--Loop through every document in view using GetNextDocumnet method
+	Do While Not (doc Is Nothing)     
+		Recipient = Doc.DivHead
+		CC = Doc.Defcc
+		
+		Set Maildoc = New NotesDocument( db)
+		Maildoc.Form = "Reminder"
+		dtSet.SetNow
+		SendNotification(0)
+		
+		Set doc = view.GetNextDocument(doc)
+	Loop    
+	Exit Sub
+ProcessError:
+	MsgBox "Error (" &amp; CStr(Err) &amp; " ) -&gt;" &amp; Error$(Err), 16,"Initialize"
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event='SendNotification'><lotusscript>
+Sub SendNotification(n)
+	Set rtitem = New NotesRichTextItem(maildoc, "Body")
+	
+	SendTo = Recipient
+	CopyTo = CC
+	Subject = "Night Duty Findings Reminder - Pending Division Head Approval"
+	WorkflowObject = Doc.WorkflowObject
+	
+	Maildoc.InheritedDbTitle = db.Title
+	Maildoc.SendTo = SendTo
+	Maildoc.CopyTo = CopyTo
+	Maildoc.Subject = Subject
+	Maildoc.txtINNumberC = Doc.txtINNumberC
+	Maildoc.Body = Body
+	Maildoc.Save True, True
+	doc.Save True, True
+	Call Maildoc.send(True)
+	
+End Sub</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20150213T123305,84+08</datetime></agentmodified></rundata></agent>
+
+<form name='Form2' publicaccess='false' designerversion='8.5.3' default='true'
+ bgcolor='#ffefce' recalc='true' signdocuments='true' renderpassthrough='true'>
+<noteinfo noteid='38a' unid='A1C7D6F94538B17648258A9A00296500' sequence='67'>
+<created><datetime>20240104T153208,32+08</datetime></created>
+<modified><datetime>20250319T090010,02+08</datetime></modified>
+<revised><datetime>20250319T090009,99+08</datetime></revised>
+<lastaccessed><datetime>20250319T090010,01+08</datetime></lastaccessed>
+<addedtofile><datetime>20240104T153208,31+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"GDS"</formula></code><code event='querysave'><lotusscript>Sub Querysave(Source As Notesuidocument, Continue As Variant)
+	TempNum$ = Source.FieldGetText("INO")
+	TempStatus$ = Source.FieldGetText("CA")
+	
+	Dim ws As NotesUIWorkSpace
+	Set ws = New NotesUIWorkSpace
+	Dim uidoc As NotesUIDocument
+	Set uidoc=ws.currentDocument
+	
+	If Trim$(TempNum$) = "" And Trim$(TempStatus$) = "Submitted" Then
+		Dim session As NotesSession
+		Set session = New NotesSession
+		Dim db As NotesDatabase
+		Set db = session.CurrentDatabase
+		Dim view As NotesView
+		
+		Set view = db.GetView("lookup") 
+		
+		Dim doc As NotesDocument
+		Dim p As Variant
+		Dim c As Integer
+		Set doc = view.GetFirstDocument
+		
+		If doc Is Nothing Then
+			'Start Assign the running number to 0000 if document does not exist
+			Set doc = New NotesDocument(db)
+			Call doc.ReplaceItemValue("Form","RunningProfile")
+			Call doc.ReplaceItemValue("INO","0000")
+			Call doc.Save(True,False)			
+			p = 0
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = 1
+		Else 
+			p=doc.GetItemValue("INO")
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = Val(p(0)) + 1	
+		End If 
+		
+		uidoc.GoToField "INO"
+		
+		Dim x As String          
+		x = Trim(Str(c))          
+		Do While Len(x) &lt; 4
+			x = "0" &amp; Trim(x)
+		Loop			
+		uidoc.FieldSetText"INO",x			
+	End If
+End Sub</lotusscript></code>
+<actionbar bgcolor='white' bordercolor='black'>
+<actionbuttonstyle bgcolor='none'/><font color='system'/><border style='inset'
+ dropshadow='true' dropshadowwidth='6px'/>
+<action title='_Edit Document' icon='5' hide='edit previewedit' systemcommand='edit'/>
+<action title='Save' icon='117' hide='preview read'><code event='click'><formula
+>@Command([ViewRefreshFields]);
+@Command([FileSave])</formula></code></action>
+<action title='Submit' icon='7' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (ReqType=""; @Return(@Do(@Command([EditGotoField];"ReqType") ;@Prompt([Ok];"Missing Value"; "Please select the Request Type!")));"");
+@If (company= ""; @Return(@Do(@Command([EditGotoField];"company") ;@Prompt([Ok];"Missing Value"; "Please select the Company!")));"");
+@If (Recipient= ""; @Return(@Do(@Command([EditGotoField];"Recipient") ;@Prompt([Ok];"Missing Value"; "Please select the Recipient!")));"");
+@If (Name= ""; @Return(@Do(@Command([EditGotoField];"Name") ;@Prompt([Ok];"Missing Value"; "Please state the Name!")));"");
+@If (Address= ""; @Return(@Do(@Command([EditGotoField];"Address") ;@Prompt([Ok];"Missing Value"; "Please state the Address!")));"");
+@If (ReqType="Requestor" &amp; Requestor= ""; @Return(@Do(@Command([EditGotoField];"Requestor") ;@Prompt([Ok];"Missing Value"; "Please state the Requestor!")));"");
+@If (HOD= ""; @Return(@Do(@Command([EditGotoField];"HOD") ;@Prompt([Ok];"Missing Value"; "Please select the HOD name!")));"");
+
+@If (Department= ""; @Return(@Do(@Command([EditGotoField];"Department") ;@Prompt([Ok];"Missing Value"; "Please select the Department!")));"");
+@If (Type= ""; @Return(@Do(@Command([EditGotoField];"Type") ;@Prompt([Ok];"Missing Value"; "Please insert your Type!")));"");
+@If (Purpose= ""; @Return(@Do(@Command([EditGotoField];"Purpose") ;@Prompt([Ok];"Missing Value"; "Please select the Purpose!")));"");
+@If (@Member("Others";Purpose) != 0 &amp; Purpose= ""; @Return(@Do(@Command([EditGotoField];"Purpose") ;@Prompt([Ok];"Missing Value"; "Please state the other Purpose!")));"");
+
+@If (ReqType="Requestor" &amp; Purpose= ""; @Return(@Do(@Command([EditGotoField];"Purpose") ;@Prompt([Ok];"Missing Value"; "Please select the Purpose!")));"");
+@If (ReqType="Requestor" &amp; IsBenefit= ""; @Return(@Do(@Command([EditGotoField];"IsBenefit") ;@Prompt([Ok];"Missing Value"; "Is the Gift benefit to Company?!")));"");
+@If (ReqType="Requestor" &amp; IsLogo= ""; @Return(@Do(@Command([EditGotoField];"IsLogo") ;@Prompt([Ok];"Missing Value"; "Is the item with Company logo?")));"");
+
+@If (ReqType="Requestor" &amp; Quantity= ""; @Return(@Do(@Command([EditGotoField];"Quantity") ;@Prompt([Ok];"Missing Value"; "Please state the Quantity!")));"");
+@If (ReqType="Requestor" &amp; Price= ""; @Return(@Do(@Command([EditGotoField];"Price") ;@Prompt([Ok];"Missing Value"; "Please select the Price!")));"");
+@If (position= ""; @Return(@Do(@Command([EditGotoField];"position") ;@Prompt([Ok];"Missing Value"; "Please enter your position!")));"");
+
+FIELD Notified := @V3UserName;
+FIELD reportedDate :=@Today;
+FIELD CA :="Submitted";
+
+@Command([FileSave]);
+
+@MailSend(HOD;HR:MailList;NULL;"New Gift/Donation/Sponsorship Requisition : "  +  INO ;NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor1)</formula></code></action>
+<action title='Approve' icon='10' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+FIELD HODName := @V3UserName;
+FIELD HODDate :=@Today;
+FIELD CA :="Approved";
+FIELD App := "1";
+
+@MailSend(HR;MailList:ED:SGM;NULL;"Gift/Donation/Sponsorship Requisition : Approved - "  +  INO ;NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor2)</formula></code></action>
+<action title='Reject' icon='11' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+FIELD HODName := @V3UserName;
+FIELD HODDate := @Today;
+FIELD CA :="Rejected";
+FIELD App := "0";
+
+@MailSend(Authors;NULL;NULL;"New Gift/Donation/Sponsorship Requisition : Rejected - "  +  INO ;NULL;"Please follow this doclink   -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor2)</formula></code></action>
+<action title='Exit' icon='11'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext><formregionbegin type='header' sizetofit='false' height='110px'
+ border3d='false' borderwidth='3px' bordercolor='#ff4040' noresize='true'/>
+<pardef id='1' leftmargin='0.5000in'/>
+<par def='1'/>
+<par def='1'><run><font size='24pt' style='bold' name='Eras Demi ITC' pitch='variable'
+ truetype='true' familyid='20'/> </run><run><font size='24pt' style='bold'
+ name='Eras Demi ITC' pitch='variable' truetype='true' familyid='20'/>     </run><run
+><font size='24pt' style='bold shadow' name='Eras Demi ITC' pitch='variable'
+ truetype='true' familyid='20'/>GIFT/DONATION/SPONSORSHIP NOTIFICATION</run></par><formregionend
+ type='header'/><formregionbegin type='body'/>
+<par def='1'><run><font size='8pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<pardef id='2' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='A'><sectiontitle
+ pardef='2' borderstyle='gradient' color='#824200'><font size='11pt' color='white'
+ style='bold' name='Eras Demi ITC' pitch='variable' truetype='true' familyid='20'/><text
+>PART A - INITIATOR SECTION</text></sectiontitle><code event='defaultvalue'><formula
+>Editor1</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='13' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='3'/>
+<par def='3'><run><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/>Notification No. : </run><run
+><font style='bold' name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field
+ type='text' allowmultivalues='true' kind='computed' name='ProjectCode' listinputseparators='comma'
+ listdisplayseparator='comma'><code event='defaultvalue'><formula>@If(INO = ""; ""; @Length(@Text(@Month(CreationDate))) = 2;
+@Trim(@Text(@Year(CreationDate))) + "-" + @Trim(@Text(@Month(CreationDate))) + "-" + INO;
+@Trim(@Text(@Year(CreationDate))) + "-" + "0" + @Trim(@Text(@Month(CreationDate))) + "-" + INO)</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='3'><run><font size='8pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='9.3229in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='12pt' style='bold' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/>Request Type</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='6' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font size='12pt' style='bold' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/> : </run><run><font size='12pt'
+ color='maroon' style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='ReqType'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Requestor</text><text>Receiver</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold underline' color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='7' leftmargin='0' rightmargin='1.6250in' firstlineleftmargin='0.0104in'
+ spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Company</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='8' rightmargin='2.5000in' spaceafter='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='8'><run><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/> : </run><run
+><font style='bold' name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field
+ type='keyword' kind='editable' name='company'><keywords ui='dialoglist'><textlist
+><text>IOI ACM</text><text>IOI ECM</text><text>IOIOI</text><text>PJY</text><text
+>POM</text></textlist></keywords></field></run><run><font style='underline'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='9' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Relationship</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='10' rightmargin='6.7500in' spaceafter='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='10'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Recipient'><keywords helperbutton='false'
+ columns='1' ui='radiobutton'><textlist><text>Customer</text><text>Employee</text><text
+>Government</text><text>Vendor</text><text>Community Service</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='11' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen' enabled='false'><formula>Recipient="Customer" | Recipient="Employee"</formula></code></pardef>
+<par def='11'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Name of person/company </run><run><font style='bold' name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/><field type='text' kind='computed'
+ name='text_1'><code event='defaultvalue'><formula>@If(ReqType="Requestor";"receiving";"giving")</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font style='bold'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/> the gift</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='12' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen' enabled='false'><formula>Recipient="Customer" | Recipient="Employee"</formula></code></pardef>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='Name'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='13' keepwithnext='true' keeptogether='true'><code event='hidewhen'
+ enabled='false'><formula>Recipient="Customer" | Recipient="Employee"</formula></code></pardef>
+<par def='13'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Address</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='Address'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>SAP No. / Vendor ID No.</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='14' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='14'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='SAP_ID'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='15' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>ReqType="Receiver"</formula></code></pardef>
+<par def='15'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Requestor</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='16' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>ReqType="Receiver"</formula></code></pardef>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='Requestor'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>HOD</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='14'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' choicesdialog='addressbook' lookupeachchar='true'
+ lookupaddressonrefresh='false' type='names' kind='editable' name='HOD'><keywords
+ columns='5' ui='radiobutton'/></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Department</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='14'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Department'><keywords columns='5' ui='dialoglist'><textlist
+><text>ACM 1 PLANT OPERATIONS &amp; WWTP</text><text>ACM 2 PLANTS, ACM 1 &amp; 2 GENERAL OPERATIONS</text><text
+>ADMINISTRATION</text><text>AES &amp; ECM PLANTS</text><text>CIVIL &amp; MECHANICAL</text><text
+>COSTING/FINANCE/ACCOUNTS PAYABLE/POM/OTHERS(Costing/Finance/Treasury)</text><text
+>DCM PLANT &amp; PACKING</text><text>ELECTRICAL &amp; INSTRUMENT - ACM 1</text><text
+>ELECTRICAL, INSTRUMENT, CIVIL &amp; MECHANICAL - ACM 2</text><text>ENGINEERING</text><text
+>FINANCE</text><text>GENERAL OPERATIONS</text><text>HUMAN RESOURCES</text><text
+>INFORMATION TECHNLOGY</text><text>INTERNAL AUDIT</text><text>LOGISTICS</text><text
+>MAINTENANCE SUPPORT</text><text>MARKETING (ACM)</text><text>MARKETING (AES)</text><text
+>MARKETING (AES/ECM)</text><text>MARKETING (ASN)</text><text>MATERIALS</text><text
+>PBI</text><text>PLANT OPERATION &amp; WWTP</text><text>PROCUREMENT</text><text
+>PROCUREMENT &amp; CORPORATE AFFAIRS</text><text>PROCUREMENT &amp; CORPORATE SERVICES</text><text
+>PRODUCTION PLANNING &amp; SUPPORT</text><text>PRODUCTION (AES &amp; ECM)</text><text
+>PRODUCTION (AES)</text><text>PRODUCTION (SCM)</text><text>QUALITY ASSURANCE</text><text
+>QUALITY CONTROL</text><text>R &amp; D</text><text>SAFETY, HEALTH &amp; ENVIRONMENT</text><text
+>SALES ADMIN.</text><text>SECURITY</text><text>SERIES 5 PLANTS &amp; GEN. OPER. (ACM 2)</text><text
+>STORE</text><text>TRAINING &amp; DEVELOPMENT</text><text>UTILITIES</text><text
+>WAREHOUSE</text></textlist></keywords></field></run><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Type</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='14'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Type'><keywords helperbutton='false'
+ columns='1' ui='radiobutton'><textlist><text>Cash (includes cash voucher with value)</text><text
+>Non Cash/Item (includes cash voucher without value)</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='17' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen' enabled='false'><formula>ReqType="Receiver"</formula></code></pardef>
+<par def='17'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Purpose of the gift</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='18' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen' enabled='false'><formula>ReqType="Receiver"</formula></code></pardef>
+<par def='18'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' allowmultivalues='true' kind='editable' name='Purpose' listinputseparators='comma'
+ listdisplayseparator='comma'><keywords helperbutton='false' columns='1' ui='checkbox'><textlist
+><text>Gift</text><text>Sponsorship</text><text>Donation</text><text>Others</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par>
+<pardef id='19' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@Member("Others";Purpose) = 0</formula></code></pardef>
+<par def='19'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> </run><run><font style='italic' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/>     please state </run><run><font style='italic'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='otherPurpose'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font style='italic' name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='20' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>ReqType="Receiver"</formula></code></pardef>
+<par def='20'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Benefit to Company</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='IsBenefit'><keywords helperbutton='false'
+ columns='1' ui='radiobutton'><textlist><text>Yes (i.e. advertisement/publicity to the company)</text><text
+>No</text></textlist></keywords></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par>
+<pardef id='21' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>IsBenefit!="Yes"</formula></code></pardef>
+<par def='21'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>  </run><run><font style='italic' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/>   please state </run><run><font style='italic'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='benefitText'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font style='italic' name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='20'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Gift with Company Logo</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='IsLogo'><keywords helperbutton='false'
+ columns='5' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Description of Gift</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='14'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='text' kind='editable' name='ItemDetail'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='22' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>ReqType="Requestor"</formula></code></pardef>
+<par def='22'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Value of Gift (Actual/Estimation)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='23' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>ReqType="Requestor"</formula></code></pardef>
+<par def='23'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : RM </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='number' kind='editable' name='GiftValue'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/><numberformat format='general'
+ varying='true' punctuated='false' parens='false' percent='false' bytes='false'/></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Date </run><run><font style='bold' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='computed' name='text'><code
+ event='defaultvalue'><formula>@If(ReqType="Requestor";"Giving";"Receiving")</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font style='bold'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/> : </run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field
+ usenotesstyle='false' height='0.2500in' width='1in' multiline='true' borderstyle='single'
+ type='datetime' kind='editable' name='DateRec'><datetimeformat show='date'
+ date='yearmonthday' fourdigityearfor21stcentury='true' zone='never' dateformat='weekdaydaymonthyear'
+ dayformat='twodigitday' monthformat='twodigitmonth' yearformat='fourdigityear'
+ weekdayformat='shortname' dateseparator1=' ' dateseparator2='/' dateseparator3='/'
+ timeseparator=':' preference='usersetting'/></field></run><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='20'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Quantity</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='number' kind='editable' name='Quantity'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/><numberformat format='general'
+ varying='true' punctuated='false' parens='false' percent='false' bytes='false'/><code
+ event='defaultvalue'><formula>0</formula></code></field></run><run><font
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='20'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Price per Unit</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : RM </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' type='number' kind='editable' name='Price'><keywords
+ helperbutton='false' columns='5' ui='radiobutton'/><numberformat format='general'
+ varying='true' punctuated='false' parens='false' percent='false' bytes='false'/><code
+ event='defaultvalue'><formula>0</formula></code></field></run><run><font
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='20'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Total Cost</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : RM </run><run><font style='bold' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='none' type='number' kind='computed'
+ name='Total'><keywords helperbutton='false' columns='5' ui='radiobutton'/><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false'/><code event='defaultvalue'><formula>Quantity * Price</formula></code></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='20'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Purchase through PO</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='IsPO'><keywords helperbutton='false'
+ columns='5' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='20'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>PO Number (if applicable)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='16'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='PoNo'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='3'><run><font size='11pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='9.3229in'><tablecolumn width='14.2847%'/><tablecolumn
+ width='85.7153%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='25' align='right' leftmargin='0' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='25'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Submitted by</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='26' leftmargin='0' rightmargin='6.6813in' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='26'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' kind='computed' name='Notified'><code
+ event='defaultvalue'><formula>Notified</formula></code></field></run><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Position</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='27' leftmargin='0' rightmargin='3.9424in' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'/>
+<par def='27'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='position'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='27'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='datetime' kind='computed' name='reportedDate'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>reportedDate</formula></code></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='28' leftmargin='0.1250in'/>
+<par def='28'><run><font size='11pt' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='8pt' color='purple'/></run></par></section>
+<pardef id='29' leftmargin='1in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Endorsed_by'><sectiontitle
+ pardef='2' borderstyle='gradient' color='#824200'><font size='11pt' color='white'
+ style='bold' name='Eras Demi ITC' pitch='variable' truetype='true' familyid='20'/><text
+>PART B - HOD SECTION</text></sectiontitle><code event='defaultvalue'><formula
+>Editor2</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='12' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='3'/>
+<table widthtype='fitmargins' refwidth='9.3229in'><tablecolumn width='14.2847%'/><tablecolumn
+ width='85.7153%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='30' keepwithnext='true' keeptogether='true'/>
+<par def='30'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='31' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>App!="1"</formula></code></pardef>
+<par def='31'><picture width='21px' height='21px'><gif>
+R0lGODlhFQAVAMQAAAAAAP///3fKOIDPQ47XVaTkcrHrg9f6u5DaUZDZUZDaUtj7u9f6umy+HGy9
+HEqRAEmQAMrKyv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEA
+ABIALAAAAAAVABUAAAVdoCSOZGmeaKqubHs2sDs2zFJAMm0YCxS1tIKw91sFhz4TzDFjCAtEZeJw
+YB6hSeUhoTjQFAhsUVkgmBlmwm1sijTKhIF8vYpACoI8nRV5PLMtdhCALhGGMoiJiikhADs=
+</gif></picture></par>
+<pardef id='32' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>App!="0"</formula></code></pardef>
+<par def='32'><picture width='21px' height='21px'><gif>
+R0lGODlhFQAVALMAAAAAAP////jwiOioMPCwQPjAWPCoMPi4UPjAYIBYSLh4aMrKyv///wAAAAAA
+AAAAACH5BAEAAAwALAAAAAAVABUAAARikMlJq7046823+tWnZAoiCKOknEhqrYg5wvJy0bIQ1xiu
+xygb6bcLchKCgtK4QR6eT0FCiEESrgSDVppBDr6IBOI74F7E4Cl6EKZSxLEpYwFvX+gJuQSvvy/c
+c38dg4SFGhEAOw==
+</gif></picture><run
+><font name='Segoe UI' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Endorsed by</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='26'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' kind='computed' name='HODName'><code event='defaultvalue'><formula
+>HODName</formula></code></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Position</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='27'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='HODPost'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Segoe UI'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font style='bold' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='27'><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='datetime' kind='computed' name='HODDate'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>HODDate</formula></code></field></run><run><font name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='33'><code event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='33'><run><font size='8pt' style='italic' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20' color='red'/>App : </run><run><font size='8pt'
+ color='red' style='italic' name='Segoe UI' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='computed' name='App'><code event='defaultvalue'><formula
+>App</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='11' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='8pt' color='purple'/></run><run
+><font size='8pt' color='purple'/></run></par></section>
+<par def='29'><run><font size='8pt' color='purple'/></run></par>
+<par def='3'><run><font size='11pt' style='bold italic' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20' color='blue'/></run></par>
+<par def='3'><run><font size='11pt' style='bold italic' name='Segoe UI' pitch='variable'
+ truetype='true' familyid='20' color='blue'/>Notified to</run><run><font size='11pt'
+ style='italic' name='Segoe UI' pitch='variable' truetype='true' familyid='20'
+ color='blue'/> : </run><run><font size='11pt' color='blue' style='italic'
+ name='Segoe UI' pitch='variable' truetype='true' familyid='20'/><field type='names'
+ allowmultivalues='true' kind='computed' name='SendTo' listinputseparators='comma semicolon'
+ listdisplayseparator='semicolon'><code event='defaultvalue'><formula>MailList</formula></code></field></run></par>
+<par def='3'><run><font size='8pt' color='purple'/></run></par><subformref
+ name='CreatedBy'/>
+<par def='29'><run><font size='8pt' color='purple'/></run></par>
+<par def='3'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<pardef id='34' leftmargin='0.7500in' hide='print copy'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<section expanded='true'><sectiontitle pardef='34' color='blue'><font size='9pt'
+ style='bold' name='David' pitch='variable' truetype='true' familyid='20'/><text
+>Hidden Fields</text></sectiontitle>
+<pardef id='35' leftmargin='1in'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISG)</formula></code></pardef>
+<par def='35'><run><font size='1pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitwindow' refwidth='9.5729in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='36' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='36'><run><font size='8pt' style='bold' name='David' pitch='variable'
+ truetype='true' familyid='20'/>Current Action</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='37' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='37'><run><font size='8pt' style='bold' name='David' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='8pt' style='bold'
+ name='David' pitch='variable' truetype='true' familyid='20'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='CA'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Request</text><text>Submitted</text><text>Approved</text><text>Rejected</text></textlist></keywords><code
+ event='defaultvalue'><formula>"Request"</formula></code></field></run><run
+><font size='8pt' style='bold' name='David' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='38' rightmargin='1.3757in' hide='print copy' keepwithnext='true'
+ keeptogether='true'><code event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='38'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>Editor1 - Section A</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Editor1' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA ="Request";Authors;"-")</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>Editor2 - Section B</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Editor2' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA ="Submitted";HOD;"-")</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>ED</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='ED' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ED";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>SGM</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='SGM' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"SGMO";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='38'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>HR</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='HR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"GDSRHR";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>FIN</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='FIN' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"GDSRFIN";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='20'/>- </run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='20'/><field
+ type='names' kind='computed' name='TCG'><code event='defaultvalue'><formula
+>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"DRPFIN";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' style='italic' name='David' pitch='variable'
+ truetype='true' familyid='20' color='silver'/>PUR</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt' style='italic' name='David' pitch='variable'
+ truetype='true' familyid='20' color='silver'/> : </run><run><font size='8pt'
+ color='silver' style='italic' name='David' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='PUR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"GDSRPUR";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt' style='italic' color='silver'/></run><run><font size='8pt'
+ color='silver' style='italic' name='David' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='IsPUR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(IsPO="Yes";PUR;NULL)</formula></code></field></run><run
+><font size='8pt' style='italic' color='silver'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>MKT</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='MKT' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"GDSRMKT";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>ISG Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='IT' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ISADMIN";3;[FailSilent])</formula></code></field></run><run
+><font size='8pt' name='David' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>INO</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='8pt' name='David' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='computed' name='INO'><code
+ event='defaultvalue'><formula>INO</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='8pt'
+ name='David' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>MailingList</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='MailList' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(
+Recipient="Customer";MKT:FIN:TCG;
+FIN)</formula></code></field></run><run><font size='8pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='36'><run><font size='8pt' name='David' pitch='variable' truetype='true'
+ familyid='20'/>Readers</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='37'><run><font size='8pt'/> : </run><run><font size='8pt' name='David'
+ pitch='variable' truetype='true' familyid='20'/><field type='readers' allowmultivalues='true'
+ kind='computed' name='Readers' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>HR:Authors:MailList:HOD:IT:ED:SGM</formula></code></field></run><run
+><font size='8pt'/></run></par></tablecell></tablerow></table>
+<par def='29'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='20' color='purple'/></run><run><font size='9pt' name='David' pitch='variable'
+ truetype='true' familyid='20' color='purple'/></run></par></section>
+<par def='29'><run><font size='9pt' name='David' pitch='variable' truetype='true'
+ familyid='20' color='purple'/></run></par><formregionend type='body'/></richtext></body>
+<item name='DateTime' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='IncTime' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='IncDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='ReportedOn' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='AckDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='InvesDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_3' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_4' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_5' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_6' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_7' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_8' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_9' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='When1_10' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='EIDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='EDHDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date3' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='Date4' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='SHEVerifyDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='NotifiedDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='FollowUpDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate1C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate2C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate4C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='WDDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='WDBy' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtIncTimeE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtIncDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtInvesDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1E_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtEIDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtEDHDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtAckDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtSHEVerifyDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNotifiedDateC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtFollowUpDateE' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtReportedOnC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate3C' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDate3C_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNextReminder' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNextReminderHOD' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtNextReminderReviewer' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='ReminderDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen2E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen3E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen4E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen5E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_1E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_2E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_3E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_4E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_5E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='txtWhen1_6E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='acknowledgedDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DateVisit' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='dtDateTimeC' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='divDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='SHEDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='sheDate_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='EDDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='InvoiceDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CompletedDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='FINDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><text>0000000000000000</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text> SHEForm</text></item>
+<item name='GiftValue' summary='false'><number>0</number></item>
+<item name='Quantity' summary='false'><number>0</number></item>
+<item name='Price' summary='false'><number>0</number></item>
+<item name='Total' summary='false'><number>0</number></item>
+<item name='CreationDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='61a' unid='FDD76AC6492873FB48258E05001ACFF9' sequence='5'>
+<created><datetime>20260528T125251,77+08</datetime></created>
+<modified><datetime>20260528T125351,52+08</datetime></modified>
+<revised><datetime>20260528T125351,51+08</datetime></revised>
+<lastaccessed><datetime>20260528T125351,51+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T125251,81+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T125352,77+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(0) As String
+    sfNames(0) = "CreatedBy"
+	'sfNames(1) = "HiddenFields"
+	'sfNames(2) = "HRUse"
+    
+    For i = 0 To 0
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\GDSN_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\GDSN_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T125352,61+08</datetime></agentmodified>
+<runlog>Started running agent 'DB_NSF' on 28/05/2026 12:54:18 PM
+ERROR: To run this agent you must have at least one document selected
+</runlog></rundata></agent>
+</database>
+

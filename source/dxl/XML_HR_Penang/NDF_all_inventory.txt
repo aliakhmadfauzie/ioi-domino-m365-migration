@@ -1,0 +1,66 @@
+DATABASE : Night Duty Findings
+PATH     : Current\NightDuty.nsf
+DATE     : 28/05/2026 2:16:47 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Form
+  Reminder
+  Schedule
+  Report
+  Dept_PIC
+  Guideline
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: CreatedBy
+    - CreationDate
+    - Authors
+
+=== AGENTS ===
+  INO [ENABLED]
+  Refresh Docs [ENABLED]
+  Pending HR [DISABLED]
+  Notifieddate [ENABLED]
+  Clear [ENABLED]
+  Pending Reply [DISABLED]
+  Pending HODiv [DISABLED]
+  Pending PIC [ENABLED]
+  Set [ENABLED]
+  Pending HOD [DISABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=Madzidon & Nur Afifah/OU=PMS/O=PHB | Reader | Person
+  CN=Junaidah/OU=PMS/O=PHB | Editor | Person
+  CN=Punineswaran/OU=PMS/O=PHB | Editor | Person
+  CN=Joyce Yeoh/OU=PMS/O=PHB | Editor | Person
+  CN=Sharma/OU=PMS/O=PHB | Editor | Person
+  Oleo Managers | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Devandran/OU=PMS/O=PHB | Editor | Person
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - txtINNumberC
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

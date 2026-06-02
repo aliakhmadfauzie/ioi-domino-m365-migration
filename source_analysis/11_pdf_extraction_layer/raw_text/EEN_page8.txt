@@ -1,0 +1,38 @@
+Reminder date
+: RemDate
+Reminder CC
+: RemCC
+Increment
+: increment
+Hide Extend button
+: Hide
+Hide Interview
+: HideInt
+Hide Handover
+: HideHand
+Type
+: TypeCheck
+Type (handover Checklist)
+: TypeCheck2
+All Done (IT)
+: AllDone
+All Done (HR)
+: AllDone2
+Servers
+: Servers
+Readers
+: Readers
+IT Incomplete
+: N_1 - N_2 - N_3 - N_4 - N_5 - N_6 - N_7 - N_8 - N_9 - N_10
+N_11 - N_12 - N_13 - N_14 - N_15 - N_16 - N_21 - N_22 - N_23 - 
+N_24  - N_17 - N_18 - N_19 - N_20
+IT All Incomplete
+: INC
+HR Incomplete
+: H_1 - H_2 - H_3 - H_4 - H_5
+HR All Incomplete
+: INC2
+All Systems
+: AllSys
+Remarks
+: Remtext

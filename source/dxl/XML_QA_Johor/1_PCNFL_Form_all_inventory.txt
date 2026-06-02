@@ -1,0 +1,223 @@
+DATABASE : PanCen - Functional Team
+PATH     : PanCen - Current\PCNFL.nsf
+DATE     : 29/05/2026 10:23:06 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Form_FT
+  ProcessFlow_FT
+  ProcessFlow_KZN
+  ProcessFlow_TPM
+  Form_TPM
+  Comment_FT
+  Comment_KZN
+  Comment_TPM
+  Form_KZN2
+  Reminder
+  Form_HYP
+  ProcessFlow_HYP
+  Guidelines
+  Form_KZN
+  Form_FTKRA
+  Comment_FTKRA
+  HODs
+  ProcessFlow_FTKRA
+  Form_FTKRA_Testing
+  Form_FTKRA2
+  Form_FTKRA2_Testing
+  ProcessFlow_FTKRA2_new
+  HODs_Test
+  ProcessFlow_FTKRA_new
+  ProcessFlow_FTKRA2
+  Template/Form
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Discard
+    - Reason
+    - DiscardedOn
+    - DiscardedBy
+    - Discard_
+  SUBFORM: HiddenFields
+    - RemHOD
+    - RemDate
+    - HODCCList
+    - temp
+    - ActPeriod
+    - ISAdmin
+    - QAAdmin
+    - CCMails3
+    - CCMails2
+    - CCMails
+    - CouncilMails
+    - QA
+    - Editor4
+    - Editor3
+    - Editor2
+    - Editor1
+    - INO
+    - Month
+    - Year
+    - CurrentAction
+    - CDate
+    - DocAuthor
+  SUBFORM: HiddenFields2
+    - Total_Editor
+    - Editor_Issue40
+    - Editor_Issue39
+    - Editor_Issue38
+    - Editor_Issue37
+    - Editor_Issue36
+    - Editor_Issue35
+    - Editor_Issue34
+    - Editor_Issue33
+    - Editor_Issue32
+    - Editor_Issue31
+    - Editor_Issue30
+    - Editor_Issue29
+    - Editor_Issue28
+    - Editor_Issue27
+    - Editor_Issue26
+    - Editor_Issue25
+    - Editor_Issue24
+    - Editor_Issue23
+    - Editor_Issue22
+    - Editor_Issue21
+    - Editor_Issue20
+    - Editor_Issue19
+    - Editor_Issue18
+    - Editor_Issue17
+    - Editor_Issue16
+    - Editor_Issue15
+    - Editor_Issue14
+    - Editor_Issue13
+    - Editor_Issue12
+    - Editor_Issue11
+    - Editor_Issue10
+    - Editor_Issue9
+    - Editor_Issue8
+    - Editor_Issue7
+    - Editor_Issue6
+    - Editor_Issue5
+    - Editor_Issue4
+    - Editor_Issue3
+    - Editor_Issue2
+    - Editor_Issue1
+    - RemHOD
+    - RemDate
+    - HODCCList
+    - temp
+    - ActPeriod
+    - ISAdmin
+    - AdminRole
+    - QAAdmin
+    - CCMails3
+    - CCMails2
+    - CCMails
+    - CouncilMails
+    - QA
+    - Editor4
+    - Editor3
+    - Editor2
+    - Editor1
+    - INO
+    - Month
+    - Year
+    - CurrentAction
+    - CDate
+    - DocAuthor
+  SUBFORM: QA
+    - SentDate
+    - SentBy
+    - LateSubmission
+    - Comments
+    - For_QA_Use_
+  SUBFORM: QCMApproval
+    - QCM_CC
+    - AllApp
+    - GetApp
+    - TotalCount
+    - Status10
+    - Status9
+    - Status8
+    - Status7
+    - Status6
+    - Status5
+    - Status4
+    - Status3
+    - Status2
+    - Status1
+    - dtSubmitted
+    - DateApp10
+    - App10
+    - DateApp9
+    - App9
+    - DateApp8
+    - App8
+    - DateApp7
+    - App7
+    - DateApp6
+    - App6
+    - DateApp5
+    - App5
+    - DateApp4
+    - App4
+    - DateApp3
+    - App3
+    - DateApp2
+    - App2
+    - DateApp1
+    - App1
+  SUBFORM: Withdrawn
+    - Reason
+    - DiscardedOn
+    - DiscardedBy
+    - Discard_
+
+=== AGENTS ===
+  Discard [ENABLED]
+  DocAuthor [ENABLED]
+  INO [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear [ENABLED]
+  ReminderPdgHOD [ENABLED]
+  ReminderPdgHODiv [DISABLED]
+  ReminderPdgQCM [DISABLED]
+  ReminderPdgInitiator [DISABLED]
+  ReminderPdgFI [DISABLED]
+  DATE [ENABLED]
+  SET [ENABLED]
+  Update Revision Num [ENABLED]
+  When document is being pasted [DISABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PCNSVR/O=PHB | Manager | Server
+  CN=Suba QA/OU=PanCen/O=PHB | Editor | Person
+  QA Pancen Team | Editor | Person Group
+  CN=Qayyim/OU=PanCen/O=PHB | Manager | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - OFINo
+  - DateOFReminder
+  - CopyTo
+  - SendTo
+  - FormTitle
+  - Subject
+

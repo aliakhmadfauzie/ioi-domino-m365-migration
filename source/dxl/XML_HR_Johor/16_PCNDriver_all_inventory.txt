@@ -1,0 +1,46 @@
+DATABASE : PanCen - Driver Arrangement Requisition
+PATH     : PanCen - Current\PCNDriver.nsf
+DATE     : 28/05/2026 4:26:36 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Driver
+  Driver_v2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Footer
+    - CDate
+    - DocAuthor
+  SUBFORM: Running Number
+    - RDARNo
+
+=== AGENTS ===
+  Flight [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=IOIOI Admin staff/OU=PMS/O=PHB | Editor | Person
+  CN=PCNSVR/O=PHB | Manager | Server
+  CN=Yong Yuen Lai/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Oleo Local | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

@@ -1,0 +1,88 @@
+DATABASE : Foreign Workers Work Permit
+PATH     : Current\ForeignWorkers.nsf
+DATE     : 28/05/2026 12:50:19 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Reminder
+  Form
+  Hostel List
+  Procedure & Tasks
+  InsDeduction_NIU
+  Unpaid Leaves
+  Form2
+  First Aid Medicines_BAK
+  Nepalese Hostel Sanitizing Records
+  Form2_BAK20211028
+  Hostel Certification
+  Copy Of InsDeduction
+  Another Copy Of InsDeduction
+  InsDeduction
+  Copy Of Hostel List
+  HostelInspection
+  First Aid Medicines
+  Fire Extinguisher Units
+  Hostel Inspection Record
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+    - ModDate
+    - ModName
+
+=== AGENTS ===
+  RemExpiry [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear Log [ENABLED]
+  Company [ENABLED]
+  DocAuthor [ENABLED]
+  Formula [ENABLED]
+  SET [ENABLED]
+  RemEmpContract [ENABLED]
+  RemFirstAid [ENABLED]
+  RemHostelCert [ENABLED]
+  DeductionPdgApp [ENABLED]
+  DeductionPdgVer [ENABLED]
+  RemHostelIns [DISABLED]
+  RemExpiry1Year [ENABLED]
+  RemFireExt [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=Marlina/OU=PMS/O=PHB | Editor | Person
+  CN=Junaidah/OU=PMS/O=PHB | Editor | Person
+  CN=Tan Hooi Fen/OU=PMS/O=PHB | Editor | Person
+  CN=Brayond/OU=PMS/O=PHB | Editor | Person
+  CN=Shoba/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  CN=Ravindran/OU=PMS/O=PHB | Editor | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+  CN=Viknisvary/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - ExpiryDate
+  - Name
+  - DateSent
+  - SendTo
+  - Subject
+

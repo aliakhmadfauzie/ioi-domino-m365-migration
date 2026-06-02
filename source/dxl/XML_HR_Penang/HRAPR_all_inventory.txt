@@ -1,0 +1,55 @@
+DATABASE : HR Applications Problem Reporting
+PATH     : Current\BOSSAPR.nsf
+DATE     : 28/05/2026 2:07:24 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  SoftwareErrors
+  EnterComments
+  EnterComments1
+  Reminder
+  Guidelines
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: CreatedBy
+    - CreationDate
+    - Authors
+
+=== AGENTS ===
+  CaseNo [ENABLED]
+  SET [ENABLED]
+  Refresh Docs [ENABLED]
+  RemPdgHR [ENABLED]
+  RemPdgAcceptance [ENABLED]
+  FORMULA [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  HR ACM | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - NotNum
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

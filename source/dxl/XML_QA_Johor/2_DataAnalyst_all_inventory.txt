@@ -1,0 +1,60 @@
+DATABASE : PanCen - Data Analysis & Self Inspection
+PATH     : PanCen - Current\DataAnalyst.nsf
+DATE     : 29/05/2026 10:28:55 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  ReminderDA
+  DAForm
+  SIPlan
+  SIForm
+  DHComments
+  ReminderSIC
+  ReminderSIP
+  SIForm2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  DAPdgHOD [ENABLED]
+  SICPdgPIC [ENABLED]
+  SIPPdgHOD [ENABLED]
+  SICPdgHOD [ENABLED]
+  Refresh Docs [ENABLED]
+  SetYear [ENABLED]
+  Rem [ENABLED]
+  RemPdgInsSIPlan [ENABLED]
+  Clear [ENABLED]
+  RemReply [DISABLED]
+  Set [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Yuvaraj/OU=PanCen/O=PHB | Editor | Person
+  CN=PCNSVR/O=PHB | Manager | Server
+  CN=Suba QA/OU=PanCen/O=PHB | Editor | Person
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

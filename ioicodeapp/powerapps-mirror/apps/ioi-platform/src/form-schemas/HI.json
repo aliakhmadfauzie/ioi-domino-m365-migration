@@ -1,0 +1,399 @@
+{
+  "formCode": "HI",
+  "title": "Hardware Inventory",
+  "description": "IT hardware asset tracking and inventory management",
+  "routeBase": "/it/forms/hi",
+  "icon": "HardDrive",
+  "version": 2,
+  "sections": [
+    {
+      "sectionId": "HI_S1",
+      "sectionName": "Section 1: General Information",
+      "displayOrder": 1,
+      "fields": [
+        {
+          "fieldId": "GEN_MachineId",
+          "label": "Machine ID",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 1,
+          "spColumn": "hITagNo",
+          "spTable": "MainDB_IT",
+          "notes": "Unique asset identifier — maps to Domino 'machineid'"
+        },
+        {
+          "fieldId": "GEN_TagNo",
+          "label": "Asset Tag",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 2,
+          "spColumn": "hIAssetNo",
+          "spTable": "MainDB_IT",
+          "notes": "Physical asset tag number"
+        },
+        {
+          "fieldId": "GEN_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 3,
+          "options": ["Active", "Spare", "Under Maintenance", "Disposed", "Lost/Stolen"],
+          "spColumn": "hIStatus",
+          "spTable": "MainDB_IT",
+          "notes": "Asset lifecycle status"
+        },
+        {
+          "fieldId": "GEN_Type",
+          "label": "Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 4,
+          "options": ["Desktop", "Laptop", "Server", "Printer", "Monitor", "Scanner", "Network Equipment", "UPS", "Tablet", "Mobile Device", "Other"],
+          "spColumn": "hIType",
+          "spTable": "MainDB_IT",
+          "notes": "Equipment type — maps to Domino 'comp'"
+        },
+        {
+          "fieldId": "GEN_CompName",
+          "label": "Computer Name",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "spColumn": "hIComputerName",
+          "spTable": "MainDB_IT",
+          "notes": "Hostname — maps to Domino 'macdesc'"
+        },
+        {
+          "fieldId": "GEN_CompModel",
+          "label": "Brand / Model",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 6,
+          "spColumn": "hIComputerName",
+          "spTable": "MainDB_IT",
+          "notes": "Make and model (e.g. Dell Latitude 5520)"
+        },
+        {
+          "fieldId": "GEN_SerialNo",
+          "label": "Serial Number",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 7,
+          "spColumn": "hISerialNo",
+          "spTable": "MainDB_IT",
+          "notes": "Manufacturer serial number — maps to Domino 'SerialNo'"
+        },
+        {
+          "fieldId": "GEN_UsedBy",
+          "label": "Used By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 8,
+          "spColumn": "hIUsedByEmail",
+          "spTable": "MainDB_IT",
+          "notes": "Current assigned user — maps to Domino 'usedby'"
+        },
+        {
+          "fieldId": "GEN_Loc",
+          "label": "Location",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 9,
+          "spColumn": "hILocation",
+          "spTable": "MainDB_IT",
+          "notes": "Physical location — maps to Domino 'Location'"
+        },
+        {
+          "fieldId": "GEN_Dept",
+          "label": "Department",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 10,
+          "spColumn": "hIDepartment",
+          "spTable": "MainDB_IT",
+          "notes": "Assigned department"
+        },
+        {
+          "fieldId": "GEN_Company",
+          "label": "Company",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 11,
+          "spColumn": "hICompany",
+          "spTable": "MainDB_IT",
+          "notes": "Owning company"
+        },
+        {
+          "fieldId": "GEN_Site",
+          "label": "Site",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 12,
+          "options": ["MY-PR (Prai, Penang)", "MY-JH (Johor)", "MY-KL (Kuala Lumpur)", "MY-SBH (Sabah)", "MY-SRW (Sarawak)"],
+          "spColumn": "hISite",
+          "spTable": "MainDB_IT",
+          "notes": "Site location — Johor-specific: maps to 'Site' field"
+        },
+        {
+          "fieldId": "GEN_Building",
+          "label": "Building",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 13,
+          "spColumn": "hIBuilding",
+          "spTable": "MainDB_IT",
+          "notes": "Building name — Johor-specific: maps to 'Building/Level' field"
+        },
+        {
+          "fieldId": "GEN_Floor",
+          "label": "Floor",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 14,
+          "spColumn": "hIFloor",
+          "spTable": "MainDB_IT",
+          "notes": "Floor level"
+        },
+        {
+          "fieldId": "GEN_Room",
+          "label": "Room / Area",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 15,
+          "spColumn": "hIRoom",
+          "spTable": "MainDB_IT",
+          "notes": "Room or area identifier"
+        }
+      ]
+    },
+    {
+      "sectionId": "HI_S2",
+      "sectionName": "Section 2: Hardware Configuration",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "HW_CPU",
+          "label": "CPU Speed",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 1,
+          "spColumn": "hICPU",
+          "spTable": "MainDB_IT",
+          "notes": "CPU speed/spec — maps to Domino 'cpuspd'"
+        },
+        {
+          "fieldId": "HW_RAM",
+          "label": "RAM Size",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 2,
+          "spColumn": "hIRAM",
+          "spTable": "MainDB_IT",
+          "notes": "Total RAM — maps to Domino 'ram'"
+        },
+        {
+          "fieldId": "HW_HDDSize",
+          "label": "HDD Size",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 3,
+          "spColumn": "hIHDDSize",
+          "spTable": "MainDB_IT",
+          "notes": "Storage capacity — maps to Domino 'hddtype'"
+        },
+        {
+          "fieldId": "HW_HDDType",
+          "label": "HDD Type",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 4,
+          "spColumn": "hIHDDType",
+          "spTable": "MainDB_IT",
+          "notes": "HDD, SSD, NVMe"
+        },
+        {
+          "fieldId": "HW_MonitorSize",
+          "label": "Monitor Size (inch)",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5,
+          "spColumn": "hIMonitorSize",
+          "spTable": "MainDB_IT",
+          "notes": "Monitor size — maps to Domino 'inch'"
+        },
+        {
+          "fieldId": "HW_IPAddress",
+          "label": "IP Address",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6,
+          "spColumn": "hIIPAddress",
+          "spTable": "MainDB_IT",
+          "notes": "IP address — maps to Domino 'ipadd_1'"
+        },
+        {
+          "fieldId": "HW_MACAddress",
+          "label": "MAC Address",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 7,
+          "spColumn": "hIMACAddress",
+          "spTable": "MainDB_IT",
+          "notes": "MAC address — maps to Domino 'MACAddress'"
+        },
+        {
+          "fieldId": "HW_OSVersion",
+          "label": "OS Version",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 8,
+          "spColumn": "hIOSVersion",
+          "spTable": "MainDB_IT",
+          "notes": "Windows version — maps to Domino 'winversion'"
+        },
+        {
+          "fieldId": "HW_Specifications",
+          "label": "Specifications",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 9,
+          "spColumn": "hISpecifications",
+          "spTable": "MainDB_IT",
+          "notes": "Additional hardware specifications"
+        }
+      ]
+    },
+    {
+      "sectionId": "HI_S3",
+      "sectionName": "Section 3: Procurement Details",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "PRC_Vendor",
+          "label": "Vendor",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1,
+          "spColumn": "hIVendor",
+          "spTable": "MainDB_IT",
+          "notes": "Supplier/vendor name"
+        },
+        {
+          "fieldId": "PRC_PONumber",
+          "label": "PO Number",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2,
+          "spColumn": "hIPONumber",
+          "spTable": "MainDB_IT",
+          "notes": "Purchase Order reference number"
+        },
+        {
+          "fieldId": "PRC_PurchaseDate",
+          "label": "Purchase Date",
+          "fieldType": "date",
+          "required": false,
+          "displayOrder": 3,
+          "spColumn": "hIPurchaseDate",
+          "spTable": "MainDB_IT",
+          "notes": "Date of purchase"
+        },
+        {
+          "fieldId": "PRC_PurchasePrice",
+          "label": "Purchase Price (RM)",
+          "fieldType": "number",
+          "required": false,
+          "displayOrder": 4,
+          "spColumn": "hIPurchasePrice",
+          "spTable": "MainDB_IT",
+          "notes": "Purchase price in Malaysian Ringgit"
+        },
+        {
+          "fieldId": "PRC_WarrantyExpiry",
+          "label": "Warranty Expiry",
+          "fieldType": "date",
+          "required": false,
+          "displayOrder": 5,
+          "spColumn": "hIWarrantyExpiry",
+          "spTable": "MainDB_IT",
+          "notes": "Warranty expiration date"
+        },
+        {
+          "fieldId": "PRC_Condition",
+          "label": "Condition",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 6,
+          "options": ["New", "Good", "Fair", "Poor", "Retired/End of Life"],
+          "spColumn": "hICondition",
+          "spTable": "MainDB_IT",
+          "notes": "Asset condition assessment"
+        }
+      ]
+    },
+    {
+      "sectionId": "HI_S4",
+      "sectionName": "Section 4: Software & Accounts",
+      "displayOrder": 4,
+      "fields": [
+        {
+          "fieldId": "SW_MSOfficeVer",
+          "label": "MS Office Version",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 1,
+          "spColumn": "hIMSOfficeVer",
+          "spTable": "MainDB_IT",
+          "notes": "Office version installed"
+        },
+        {
+          "fieldId": "SW_MSOfficeKey",
+          "label": "MS Office Key",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2,
+          "spColumn": "hIMSOfficeKey",
+          "spTable": "MainDB_IT",
+          "notes": "License key — IT Admin view only"
+        },
+        {
+          "fieldId": "SW_NotesVer",
+          "label": "Notes Version",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3,
+          "spColumn": "hINotesVer",
+          "spTable": "MainDB_IT",
+          "notes": "Lotus Notes client version (legacy)"
+        },
+        {
+          "fieldId": "SW_MSEmail",
+          "label": "MS Email",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4,
+          "spColumn": "hIMSEmail",
+          "spTable": "MainDB_IT",
+          "notes": "M365 email assigned to this asset user"
+        }
+      ]
+    },
+    {
+      "sectionId": "HI_S5",
+      "sectionName": "Section 5: Notes",
+      "displayOrder": 5,
+      "fields": [
+        {
+          "fieldId": "NOTE_Notes",
+          "label": "Notes / Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 1,
+          "spColumn": "remarks",
+          "spTable": "MainDB_IT",
+          "notes": "Additional notes or return remarks"
+        }
+      ]
+    }
+  ]
+}

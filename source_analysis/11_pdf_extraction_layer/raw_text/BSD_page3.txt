@@ -1,0 +1,21 @@
+HODApp
+Created by: DocAuthor
+   on:  CDate
+Hidden Fields:
+Current Status
+: 
+CurrentAction
+1. HR Section
+: Editor1
+2. HOD Section 
+: Editor2
+3. HOD/HOS
+: Editor3
+HR
+: HR
+HR Admin
+: HRAdmin
+IT
+: IT
+Modification Date 
+: ModifiedDate

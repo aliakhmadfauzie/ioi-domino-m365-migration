@@ -1,0 +1,588 @@
+{
+  "formCode": "SAPCR",
+  "title": "SAPCR",
+  "description": "",
+  "routeBase": "/it/forms/sapcr",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "SAPCR_S2",
+      "sectionName": "Section A: Initiation",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "INIT_ChgReqNo",
+          "label": "Change Request No",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Auto-generated (Year-Month-INO)"
+        },
+        {
+          "fieldId": "INIT_ProjectPhase",
+          "label": "Project Phase",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 2,
+          "options": [],
+          "notes": "Go-Live, Post Go-Live, Enhancement, etc."
+        },
+        {
+          "fieldId": "INIT_Plant",
+          "label": "Plant / Division",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 3,
+          "options": [],
+          "notes": "All / specific plant"
+        },
+        {
+          "fieldId": "INIT_System",
+          "label": "System",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 4,
+          "options": [],
+          "notes": "SAP, WB, or both"
+        },
+        {
+          "fieldId": "INIT_ModuleArea",
+          "label": "Module / App Area",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Module buttons (FI, CO, MM, PP, SD, Others)"
+        },
+        {
+          "fieldId": "INIT_Purpose",
+          "label": "Purpose",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "Purpose of change (Bug Fix / Enhancement / Others)"
+        },
+        {
+          "fieldId": "INIT_Priority",
+          "label": "Priority",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 7,
+          "options": [],
+          "notes": "Critical, High, Medium, Low"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S3",
+      "sectionName": "Section C: Description of Change",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "DESC_ProposedChange",
+          "label": "Proposed Change Description",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Detailed description of the change"
+        },
+        {
+          "fieldId": "OBJ_PrgID",
+          "label": "Program ID",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "SAP Program ID"
+        },
+        {
+          "fieldId": "DESC_Attachment",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Supporting documentation"
+        },
+        {
+          "fieldId": "OBJ_PrgType",
+          "label": "Program Type",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 2,
+          "options": [],
+          "notes": "Report, Function, Class, etc."
+        },
+        {
+          "fieldId": "DESC_ReportedBy",
+          "label": "Reported By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Person reporting the change need"
+        },
+        {
+          "fieldId": "OBJ_ObjectName",
+          "label": "Object Name",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "SAP Object name"
+        },
+        {
+          "fieldId": "DESC_ReportedDate",
+          "label": "Reported Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Date reported"
+        },
+        {
+          "fieldId": "OBJ_Code1",
+          "label": "Code 1",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Object code row 1"
+        },
+        {
+          "fieldId": "DESC_CCList",
+          "label": "CC List",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "CC notification"
+        },
+        {
+          "fieldId": "OBJ_Code2",
+          "label": "Code 2",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "Object code row 2"
+        },
+        {
+          "fieldId": "DESC_SAPChange",
+          "label": "SAP Change",
+          "fieldType": "boolean",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Flag: involves SAP change"
+        },
+        {
+          "fieldId": "OBJ_Code3",
+          "label": "Code 3",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Object code row 3"
+        },
+        {
+          "fieldId": "OBJ_Config1",
+          "label": "Config 1",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Configuration item 1"
+        },
+        {
+          "fieldId": "OBJ_Config2",
+          "label": "Config 2",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "Configuration item 2"
+        },
+        {
+          "fieldId": "OBJ_Config3",
+          "label": "Config 3",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 9,
+          "notes": "Configuration item 3"
+        },
+        {
+          "fieldId": "OBJ_Desc",
+          "label": "Description",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 10,
+          "notes": "Object description"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S4",
+      "sectionName": "Section D: BPO Acceptance",
+      "displayOrder": 4,
+      "fields": [
+        {
+          "fieldId": "BPO_AppBy",
+          "label": "Approved By (BPO)",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "BPO who approved"
+        },
+        {
+          "fieldId": "BPO_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "BPO_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "BPO notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S5",
+      "sectionName": "Section E: PM (Project Manager) Acceptance",
+      "displayOrder": 5,
+      "fields": [
+        {
+          "fieldId": "PM_AssignedTo",
+          "label": "Assigned To",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "IT staff assigned for implementation"
+        },
+        {
+          "fieldId": "PM_DueDate",
+          "label": "Due Date",
+          "fieldType": "date",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Expected completion date"
+        },
+        {
+          "fieldId": "PM_CCList",
+          "label": "CC List",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "CC notification"
+        },
+        {
+          "fieldId": "PM_AppBy",
+          "label": "PM Approved By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "PM who approved"
+        },
+        {
+          "fieldId": "PM_ApprovalDate",
+          "label": "Approval Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "PM_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "PM notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S6",
+      "sectionName": "SAP Standard Details Section",
+      "displayOrder": 6,
+      "fields": [
+        {
+          "fieldId": "STD_InsNum",
+          "label": "Installation Number",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "SAP installation number"
+        },
+        {
+          "fieldId": "STD_BasisRelNum",
+          "label": "Basis Release Number",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "SAP basis release"
+        },
+        {
+          "fieldId": "STD_RegAccessKey",
+          "label": "Registration Access Key",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "SAP registration key"
+        },
+        {
+          "fieldId": "STD_CompBy",
+          "label": "Completed By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "SAP Basis staff"
+        },
+        {
+          "fieldId": "STD_DateComp",
+          "label": "Date Completed",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Auto on completion"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S7",
+      "sectionName": "ABAPER Section",
+      "displayOrder": 7,
+      "fields": [
+        {
+          "fieldId": "ABAP_TRNum",
+          "label": "TR Number",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Transport Request number"
+        },
+        {
+          "fieldId": "ABAP_TRRemarks",
+          "label": "TR Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "ABAP development notes"
+        },
+        {
+          "fieldId": "ABAP_CompletedBy",
+          "label": "Completed By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "ABAP Developer"
+        },
+        {
+          "fieldId": "ABAP_DateCompleted",
+          "label": "Date Completed",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Auto on completion"
+        },
+        {
+          "fieldId": "ABAP_TRAttach",
+          "label": "TR Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "ABAP TR documentation"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S8",
+      "sectionName": "Section F: Transport Request (IED → IEP / IEQ → IBQ)",
+      "displayOrder": 8,
+      "fields": [
+        {
+          "fieldId": "TR_ABAPTR",
+          "label": "ABAP TR",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "ABAP transport request reference"
+        },
+        {
+          "fieldId": "TR_TRNumber",
+          "label": "TR Number",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Transport Request number"
+        },
+        {
+          "fieldId": "TR_Remarks",
+          "label": "TR Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Transport notes"
+        },
+        {
+          "fieldId": "TR_CompletedBy",
+          "label": "Completed By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Transporter"
+        },
+        {
+          "fieldId": "TR_DateCompleted",
+          "label": "Date Completed",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Auto on completion"
+        },
+        {
+          "fieldId": "TR_Attachment",
+          "label": "TR Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Transport documentation"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S9",
+      "sectionName": "Section G: Implementation Status",
+      "displayOrder": 9,
+      "fields": [
+        {
+          "fieldId": "IMPL_Resolution",
+          "label": "Resolution Comments",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Final resolution details"
+        },
+        {
+          "fieldId": "IMPL_Attachment",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Implementation evidence"
+        },
+        {
+          "fieldId": "IMPL_Date",
+          "label": "Resolution Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Auto on completion"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S10",
+      "sectionName": "Discard Section",
+      "displayOrder": 10,
+      "fields": [
+        {
+          "fieldId": "DIS_Status",
+          "label": "Discard Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Discarded"
+        },
+        {
+          "fieldId": "DIS_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Discard reason"
+        },
+        {
+          "fieldId": "DIS_By",
+          "label": "Discarded By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 3
+        },
+        {
+          "fieldId": "DIS_Date",
+          "label": "Discarded Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Auto on discard"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCR_S15",
+      "sectionName": "Stage Progress Tracker:",
+      "displayOrder": 15,
+      "fields": [
+        {
+          "fieldId": "INIT_System",
+          "label": "INIT_System",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1
+        },
+        {
+          "fieldId": "INIT_ModuleArea",
+          "label": "INIT_ModuleArea",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "INIT_Priority",
+          "label": "INIT_Priority",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3
+        },
+        {
+          "fieldId": "DESC_ProposedChange",
+          "label": "DESC_ProposedChange",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4
+        },
+        {
+          "fieldId": "BPO_AppBy",
+          "label": "BPO_AppBy",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5
+        },
+        {
+          "fieldId": "PM_DueDate",
+          "label": "PM_DueDate",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6
+        },
+        {
+          "fieldId": "ABAP_TRNum",
+          "label": "ABAP_TRNum",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 7
+        },
+        {
+          "fieldId": "TR_TRNum",
+          "label": "TR_TRNum",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 8
+        },
+        {
+          "fieldId": "DIS_Comment",
+          "label": "DIS_Comment",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 9
+        }
+      ]
+    }
+  ]
+}

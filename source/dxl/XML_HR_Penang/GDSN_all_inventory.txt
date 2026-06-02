@@ -1,0 +1,55 @@
+DATABASE : Gift-Donation-Sponsorship Requisition
+PATH     : Current\GDSR.nsf
+DATE     : 28/05/2026 12:54:24 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Form
+  Reminder
+  Form2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: CreatedBy
+    - CreationDate
+    - Authors
+
+=== AGENTS ===
+  INO [ENABLED]
+  Refresh Docs [ENABLED]
+  Pending HOD [DISABLED]
+  Pending HR [DISABLED]
+  Notifieddate [ENABLED]
+  Clear [ENABLED]
+  Pending Reply [DISABLED]
+  Pending HODiv [DISABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  Oleo Managers | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  GDS | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - Subject
+  - rTxtDocLink
+  - txtINNumberC
+  - DateSent
+  - CopyTo
+  - SendTo
+

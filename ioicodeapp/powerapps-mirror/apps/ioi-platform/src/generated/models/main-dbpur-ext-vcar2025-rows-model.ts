@@ -1,0 +1,31 @@
+export interface MainDBPURExtVCAR2025Rows {
+  id: number;
+  title: string;
+  parentFormCode?: string;
+  parentSite?: string;
+  parentRecord?: { id: number; title: string };
+  sourceSite?: string;
+  sourceMasterIndex?: number;
+  rowNumber?: number;
+  vCAR2025VCARNo?: string;
+  vCAR2025VCARDate?: string;
+  vCAR2025SupplierName?: string;
+  vCAR2025SupplierCode?: string;
+  vCAR2025ProductName?: string;
+  vCAR2025BatchNo?: string;
+  vCAR2025NonConformanceDescription?: string;
+  vCAR2025RootCauseAnalysis?: string;
+  vCAR2025CorrectiveAction?: string;
+  vCAR2025PreventiveAction?: string;
+  vCAR2025DueDate?: string;
+  vCAR2025ClosedDate?: string;
+  vCAR2025VCARCat?: string;
+  vCAR2025Type?: string;
+  vCAR2025VeriStatus?: string;
+  vCAR2025QAStatus?: string;
+  vCAR2025FINStatus?: string;
+  vCAR2025Category?: string;
+  vCAR2025NewStatus?: string;
+  vCAR2025NewStatus_1?: string;
+  vCAR2025CAStatus?: string;
+}

@@ -1,0 +1,54 @@
+DATABASE : PanCen - Food Defence Assessment
+PATH     : PanCen - Current\FDAssess.nsf
+DATE     : 29/05/2026 11:13:42 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  FDAC
+  Guidelines
+  Reminder
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  RemPdgAcceptance [ENABLED]
+  Refresh Docs [ENABLED]
+  RemPdgApproval [ENABLED]
+  RemPdgReply [ENABLED]
+  RemPdgReview [ENABLED]
+  RemPdgVerification [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Ravi Madhu/OU=PMS/O=PHB | Manager | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - DateSent
+  - INO
+  - Requestor
+  - CopyTo
+  - SendTo
+  - Subject
+

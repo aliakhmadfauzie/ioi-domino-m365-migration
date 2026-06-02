@@ -1,0 +1,49 @@
+DATABASE : PanCen - Superintendent Visit Notification
+PATH     : PanCen - Current\SpVisit.nsf
+DATE     : 28/05/2026 4:13:30 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  EnterComments2
+  EnterComments1
+  Reminder
+  Form
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: CreatedBy
+    - CreationDate
+    - Authors
+
+=== AGENTS ===
+  INO [ENABLED]
+  Notifieddate [ENABLED]
+  Clear [ENABLED]
+  Refresh Docs [ENABLED]
+  Reminder Correction [ENABLED]
+  ReminderHOD [ENABLED]
+  ReminderReviewer [ENABLED]
+  ReminderHRHOD [ENABLED]
+  CA [ENABLED]
+  RefreshDocs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Kobinathan/OU=PanCen/O=PHB | Editor | Person
+  CN=PCNSVR/O=PHB | Manager | Server
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+

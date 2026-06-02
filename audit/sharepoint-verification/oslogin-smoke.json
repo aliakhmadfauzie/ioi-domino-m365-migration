@@ -1,0 +1,51 @@
+{
+  "RunId": "20260602-234631",
+  "GeneratedOnUtc": "2026-06-02T15:46:36.8168585Z",
+  "Mode": "dry-run",
+  "CleanupRequested": false,
+  "TesterEmail": "alimigration@ioioi.onmicrosoft.com",
+  "MasterRegister": "source_analysis/10_master_app_sources/MASTER_SHAREPOINT_DESIGN_REGISTER.md",
+  "Targets": [
+    {
+      "Department": "FIN",
+      "SiteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-fin",
+      "List": "MainDB_FIN",
+      "MasterCodeComparison": {
+        "Expected": [
+          "CAR",
+          "CMF_A",
+          "INSUCLAI",
+          "RSES",
+          "VENDREGIFINA",
+          "EARF"
+        ],
+        "Actual": [
+          "CAR",
+          "CMF_A",
+          "INSUCLAI",
+          "RSES",
+          "VENDREGIFINA",
+          "EARF"
+        ],
+        "Missing": [],
+        "Extra": [],
+        "Passed": true
+      },
+      "RequiredFields": [
+        "Title",
+        "Status",
+        "Department",
+        "FormCode"
+      ],
+      "ListCheck": null,
+      "Payloads": [],
+      "ReadbackComparisons": []
+    }
+  ],
+  "CreatedItems": [],
+  "Cleanup": [],
+  "Failures": [
+    "A window handle must be configured. See https://aka.ms/msal-net-wam#parent-window-handles"
+  ],
+  "Passed": false
+}

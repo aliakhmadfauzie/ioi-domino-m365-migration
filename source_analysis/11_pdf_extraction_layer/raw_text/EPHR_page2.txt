@@ -1,0 +1,29 @@
+D_6
+S_6
+R_6
+Others Disease
+D_7
+S_7
+R_7
+Follow up
+ : Followup
+Regularly
+ : Followup2
+Location
+ : LocaƟon
+    Remark 
+LocRem
+ADMISSION RECORD
+Admission Date
+ : 
+AdmDate
+Diagnosis
+ : Diagnosis
+Discharge Summary
+ : Discharge
+Medical Report
+ : AƩachment
+Additional Report
+ : AƩachment2
+Created by  DocAuthor
+  on CDate

@@ -1,0 +1,74 @@
+EXPENDITURE APPROPRIATION REQUEST FORM 
+(EARF)
+ASSETS COSTING LESS THAN 
+TextAsset
+TextAsset
+For Finance Use Only!
+SAP IO No.
+ : SAPIONo
+Initiation
+**IT must be consulted for all computer hardware & software purchases.
+**Admin Dept. must be consulted for all furniture & office equipment purchases.
+Company
+ : Company
+Department
+ : Department
+Asset Class
+ : A012 Low Value Asset
+Purpose of Asset
+ : Purpose
+    Please issue Material Disposal Form.
+Existing Asset No.
+ : ExAssetNo
+Execution Type
+ : ExecType
+Description of Asset
+For 
+Whom
+Quantity
+Unit 
+Price 
+(RM)
+Cost (RM)
+SAP Asset 
+No.
+(To be filled 
+by Finance 
+after approved 
+by Div. Head)
+Inv_1
+FW_1
+UL_1
+InvAmt_1
+UP_1
+SAPAssNo_1
+Inv_2
+FW_2
+UL_2
+InvAmt_2
+UP_2
+SAPAssNo_2
+Inv_3
+FW_3
+UL_3
+InvAmt_3
+UP_3
+SAPAssNo_3
+Inv_4
+FW_4
+UL_4
+InvAmt_4
+UP_4
+SAPAssNo_4
+Inv_5
+FW_5
+UL_5
+InvAmt_5
+UP_5
+SAPAssNo_5
+Total Cost
+TtlInvAmt
+Justification
+(Provide key information and further details)
+Justification
+Attachment

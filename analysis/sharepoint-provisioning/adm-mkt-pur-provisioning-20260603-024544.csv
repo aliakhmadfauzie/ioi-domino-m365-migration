@@ -1,0 +1,6 @@
+"Department","SiteUrl","ParentList","ParentListStatus","FormCode","ExtensionList","ExtensionListStatus","SourceRows","FieldsPlanned","FieldsCreated","FieldsExistingOrPlanned","ViewStatus","Issues"
+"MKT","https://ioioi.sharepoint.com/sites/ioi-portal-mkt","MainDB_MKT","Existing","ACMPRODDATA","MainDB_MKT_Ext_ACMPRODDATA","Created","35","41","41","0","Existing",""
+"MKT","https://ioioi.sharepoint.com/sites/ioi-portal-mkt","MainDB_MKT","Existing","ACMSALEENQU","MainDB_MKT_Ext_ACMSALEENQU","Created","12","18","18","0","Existing",""
+"MKT","https://ioioi.sharepoint.com/sites/ioi-portal-mkt","MainDB_MKT","Existing","CHANORDE2025","MainDB_MKT_Ext_CHANORDE2025","Created","42","48","48","0","Existing",""
+"MKT","https://ioioi.sharepoint.com/sites/ioi-portal-mkt","MainDB_MKT","Existing","MKTCUST","MainDB_MKT_Ext_MKTCUST_Rows","Existing","67","73","0","73","Existing",""
+"MKT","https://ioioi.sharepoint.com/sites/ioi-portal-mkt","MainDB_MKT","Existing","MKTVISICALL","MainDB_MKT_Ext_MKTVISICALL","Created","42","48","48","0","Existing",""

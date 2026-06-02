@@ -1,0 +1,60 @@
+DATABASE : PanCen - QA Audit Corrective Action Request
+PATH     : PanCen - Current\QACAR.nsf
+DATE     : 29/05/2026 2:56:38 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  EnterComments
+  EnterDivComments
+  ReminderReply
+  ReminderReview
+  FlowChart
+  CAMemo1
+  CAMemo2
+  QACAR
+  ReminderVerificator
+  QACARv1
+  ReminderAccept
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: CC2
+    - CC2
+
+=== AGENTS ===
+  ReminderReply [ENABLED]
+  ReminderReview [ENABLED]
+  Refresh Docs [ENABLED]
+  Past Due ImmediateCA [DISABLED]
+  Past Due LongTermCA [DISABLED]
+  ProposedDate [ENABLED]
+  NCRNO [ENABLED]
+  DocAuthor [ENABLED]
+  ReminderVerify [ENABLED]
+  Clear [ENABLED]
+  FORMULA [ENABLED]
+  ReminderAccept [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PCNSVR/O=PHB | Manager | Server
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

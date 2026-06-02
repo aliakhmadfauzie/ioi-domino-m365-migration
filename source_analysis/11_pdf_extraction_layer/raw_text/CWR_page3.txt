@@ -1,0 +1,47 @@
+Approved Rejected
+HODApp3
+Name
+ : 
+HODName3
+Date
+ : 
+HODDate3
+Remark
+ : HODRemark3
+Acknowledged by Assistant General Manager, Human Resources
+Approved Rejected
+HRApp
+Name
+ : 
+HRName
+Position
+ : HRPosition
+Date
+ : 
+HRDate
+Remark
+ : HRRemark
+To be ﬁlled by HR/MTN :-
+Update
+Requisition filled by
+ : Vendor
+Number of pax
+ : Pax
+Required Due date by 
+Requestor
+ : 
+DateHR
+Request Status
+ : Status
+Remarks/Attachment
+ : Remarks
+Updated by
+ :
+UpdatedBy
+Designation
+ : UpdatedDesi
+Date
+ : 
+UpdatedDate
+Acknowledged by Requestor
+Acknowledge Deny

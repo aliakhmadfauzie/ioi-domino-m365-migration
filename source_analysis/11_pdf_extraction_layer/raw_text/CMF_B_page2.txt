@@ -1,0 +1,33 @@
+Requested by 
+reqby  on 
+reqdate
+As per Credit Management Guideline
+Fresh Credit Application Form (Appendix A) to be submitted for Credit Committee 
+approval after two consecutive TCLC (6 months).
+Approved by Marketing Manager
+Approve Deny
+Name
+ : MKTName
+Date
+ : MKTDate
+Remark
+ : MKTRem
+App1
+Approved by 
+SectionTitle
+Approve Deny
+Name
+ : GMName
+Date
+ : GMDate
+Remark
+ : GMRem
+App1_1
+Finance Review
+Approve Deny
+Name
+ : FMName
+Date
+ : FMDate
+Conversion Rate
+ : CRate

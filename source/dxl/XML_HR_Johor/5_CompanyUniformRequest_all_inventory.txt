@@ -1,0 +1,54 @@
+DATABASE : PanCen - Company Uniform Request
+PATH     : PanCen - Current\CompanyUniformRequest.nsf
+DATE     : 28/05/2026 3:25:13 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Test Uni
+  Reminder
+  Testing Test Uni
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  SET [ENABLED]
+  Refresh Docs [ENABLED]
+  RemPdgHod [ENABLED]
+  RemPdgHrVer [ENABLED]
+  RemPdgHrHod [ENABLED]
+  RemPdgHrCom [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Kobinathan/OU=PanCen/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Ahsha/OU=PanCen/O=PHB | Editor | Person
+  CN=Malani HR/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - EmpNo
+  - DateOFReminder
+  - CopyTo
+  - SendTo
+  - Subject
+

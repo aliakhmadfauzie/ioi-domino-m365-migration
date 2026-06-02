@@ -1,0 +1,101 @@
+{
+  "formCode": "ITINFO",
+  "title": "ITINFO",
+  "description": "",
+  "routeBase": "/it/forms/itinfo",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "ITINFO_S2",
+      "sectionName": "Section 1: Information Notice",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "INFO_To",
+          "label": "To (Send)",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Recipients of the IT notice"
+        },
+        {
+          "fieldId": "INFO_InfoType",
+          "label": "Info Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 2,
+          "options": [],
+          "notes": "Type of information (e.g. Maintenance, Outage, Announcement)"
+        },
+        {
+          "fieldId": "INFO_Subject",
+          "label": "Subject",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Notice subject line"
+        },
+        {
+          "fieldId": "INFO_Att",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Supporting document"
+        },
+        {
+          "fieldId": "INFO_ISGRemarks",
+          "label": "ISG Remarks",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Body of the notice/announcement"
+        },
+        {
+          "fieldId": "INFO_Resend",
+          "label": "Resend",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Button to resend the notification email"
+        }
+      ]
+    },
+    {
+      "sectionId": "ITINFO_S8",
+      "sectionName": "Resend Action:",
+      "displayOrder": 8,
+      "fields": [
+        {
+          "fieldId": "INFO_To",
+          "label": "INFO_To",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1
+        },
+        {
+          "fieldId": "INFO_InfoType",
+          "label": "INFO_InfoType",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "INFO_Subject",
+          "label": "INFO_Subject",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3
+        },
+        {
+          "fieldId": "INFO_ISGRemarks",
+          "label": "INFO_ISGRemarks",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4
+        }
+      ]
+    }
+  ]
+}

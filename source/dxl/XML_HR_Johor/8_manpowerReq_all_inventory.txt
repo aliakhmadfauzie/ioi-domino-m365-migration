@@ -1,0 +1,70 @@
+DATABASE : PanCen - Manpower Requisition
+PATH     : PanCen - Current\manpowerReq.nsf
+DATE     : 28/05/2026 3:37:29 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Guideline
+  Reminder
+  SRF
+  ProfileDoc
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  Refresh Docs [ENABLED]
+  DocAuthor [ENABLED]
+  2RemPdgHOD [ENABLED]
+  3RemPdgHODiv [ENABLED]
+  7RemPdgED [ENABLED]
+  4RemPdgHRAck [ENABLED]
+  Clear Submition [ENABLED]
+  6RemPdgCOO [ENABLED]
+  5RemPdgHRVeri [ENABLED]
+  INO [ENABLED]
+  ARCHIVE [ENABLED]
+  Withdrawn [ENABLED]
+  Clear [ENABLED]
+  Clear Section C [ENABLED]
+  Clear Section D [ENABLED]
+  Clear Section E [ENABLED]
+  Clear Section F [ENABLED]
+  Clear Section G [ENABLED]
+  SET [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Wafli Ali/OU=PanCen/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=David Koo/OU=PMS/O=PHB | Editor | Person
+  CN=Malani HR/OU=PanCen/O=PHB | Editor | Person
+  CN=Wong Yin Ling/OU=PMS/O=PHB | Editor | Person
+  CN=Zubaidah/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  CN=Tan Kean Hua/OU=PMS/O=PHB | Editor | Person
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - Dept
+  - NotNum
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

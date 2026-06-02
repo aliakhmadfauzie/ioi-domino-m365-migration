@@ -1,0 +1,48 @@
+DATABASE : Duty Roster Database
+PATH     : Current\DutyRoster.nsf
+DATE     : 28/05/2026 10:40:03 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  FormDR
+  FormDR2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  SET [ENABLED]
+  Refresh Docs [ENABLED]
+  Append CC [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=Farah Elleena/OU=PMS/O=PHB | Editor | Person
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=Shoba/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Viknisvary/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

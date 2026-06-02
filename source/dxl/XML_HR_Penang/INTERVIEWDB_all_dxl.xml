@@ -1,0 +1,2566 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='4825865A001B0AEB' path='CN=PHBSVR/O=PHB!!Current\interdb.nsf'
+ title='Interview Database' increasemaxfields='true'>
+<databaseinfo dbid='4825865A001B0AEB' odsversion='55' diskspace='173277184'
+ percentused='99.6689142870651' numberofdocuments='549'><datamodified><datetime
+>20260526T090823,89+08</datetime></datamodified><designmodified><datetime
+>20260528T141250,33+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='FS'/></launchsettings>
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='122' unid='ACFBF634ECE70A1A482585D10014A564' sequence='24'>
+<created><datetime>20200827T114530,60+08</datetime></created>
+<modified><datetime>20220922T154837,21+08</datetime></modified>
+<revised><datetime>20220922T154837,20+08</datetime></revised>
+<lastaccessed><datetime>20220922T154837,20+08</datetime></lastaccessed>
+<addedtofile><datetime>20210111T125523,21+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT  Form = "INT" &amp; CA != "Draft"</formula></code>
+<column sort='descending' hidedetailrows='false' itemname='SubmittedDt' width='1'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' hidden='true'><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column resort='both' hidedetailrows='false' itemname='$4' width='27.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Candidate Name'><font size='9pt'
+ style='bold'/></columnheader><code event='value'><formula>CName_1 + @If(CName_2!="";", " + CName_2;"") + @If(CName_3!="";", " + CName_3;"") + @If(CName_4!="";", " + CName_4;"")+ @If(CName_5!="";", " + CName_5;"")+ @If(CName_6!="";", " + CName_6;"")+ @If(CName_7!="";", " + CName_7;"")+ @If(CName_8!="";", " + CName_8;"")+ @If(CName_9!="";", " + CName_9;"")+ @If(CName_10!="";", " + CName_10;"")</formula></code></column>
+<column hidedetailrows='false' itemname='CPost_1' width='12.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$3' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interviewer'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Name([CN];Interviewer)</formula></code></column>
+<column hidedetailrows='false' itemname='S_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interview Status'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='VrRemarks' width='21' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Remarks'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<form name='INT' publicaccess='false' designerversion='8.5.3' default='true'
+ bgcolor='#ffefce' recalc='true' renderpassthrough='true'>
+<noteinfo noteid='14e' unid='F09866C2189C1B43482585D10014DD07' sequence='162'>
+<created><datetime>20200827T114753,03+08</datetime></created>
+<modified><datetime>20251014T105321,93+08</datetime></modified>
+<revised><datetime>20251014T105321,92+08</datetime></revised>
+<lastaccessed><datetime>20251014T105321,92+08</datetime></lastaccessed>
+<addedtofile><datetime>20210111T125523,53+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"Interview Form"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='_Edit Document' icon='5' hide='edit previewedit' systemcommand='edit'/>
+<action title='Save' icon='117' hide='preview read'><code event='click'><formula
+>@Command([ViewRefreshFields]);
+@Command([FileSave])</formula></code></action>
+<action title='Submit' icon='7' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (Exec= ""; @Return(@Do(@Command([EditGotoField];"Exec") ;@Prompt([Ok];"Missing Value"; "Please select Executive level before proceeding!")));"");
+@If (Name= ""; @Return(@Do(@Command([EditGotoField];"Name") ;@Prompt([Ok];"Missing Value"; "Please enter Name before proceeding!")));"");
+@If (Department= ""; @Return(@Do(@Command([EditGotoField];"Department") ;@Prompt([Ok];"Missing Value"; "Please select Department before proceeding!")));"");
+@If (Venue= ""; @Return(@Do(@Command([EditGotoField];"Venue") ;@Prompt([Ok];"Missing Value"; "Please enter Venue of Interview before proceeding!")));"");
+
+@If (CName_1= ""; @Return(@Do(@Command([EditGotoField];"CName_1") ;@Prompt([Ok];"Missing Value"; "Please enter Candidate Name before proceeding!")));"");
+@If (CPost_1= ""; @Return(@Do(@Command([EditGotoField];"CPost_1") ;@Prompt([Ok];"Missing Value"; "Please enter Candidate Position before proceeding!")));"");
+@If (CanDate_1= ""; @Return(@Do(@Command([EditGotoField];"CanDate_1") ;@Prompt([Ok];"Missing Value"; "Please select Interview date before proceeding!")));"");
+@If (CanTime_1= ""; @Return(@Do(@Command([EditGotoField];"CanTime_1") ;@Prompt([Ok];"Missing Value"; "Please select Interview Time before proceeding!")));"");
+
+@If (Interviewer= ""; @Return(@Do(@Command([EditGotoField];"Interviewer") ;@Prompt([Ok];"Missing Value"; "Please enter Interviewer before proceeding!")));"");
+
+FIELD CA := "Submitted";
+FIELD SubmittedDt := @Today;
+
+@Command([FileSave]);
+
+@MailSend(Interviewer;ACC:HR:DocAuthor;NULL;@DbTitle + " : New Interview Submitted";NULL;"Please click the following doclink  -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor1)</formula></code></action>
+<action title='Accept' icon='7' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+FIELD CA := "Accepted";
+FIELD InName := @V3UserName;
+FIELD InDate := @Today;
+
+@MailSend(DocAuthor;ACC:HR:Interviewer;NULL;@DbTitle + " : New Interview Accepted by Interviewer";NULL;"Please click the following doclink  -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor2)</formula></code></action>
+<action title='Verified' icon='7' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (CName_1_1!="" &amp; S_1= ""; @Return(@Do(@Command([EditGotoField];"S_1") ;@Prompt([Ok];"Missing Value"; "Please select Status (1) before proceeding!")));"");
+@If (CName_2_1!="" &amp; S_2= ""; @Return(@Do(@Command([EditGotoField];"S_2") ;@Prompt([Ok];"Missing Value"; "Please select Status (2) before proceeding!")));"");
+@If (CName_3_1!="" &amp; S_3= ""; @Return(@Do(@Command([EditGotoField];"S_3") ;@Prompt([Ok];"Missing Value"; "Please select Status (3) before proceeding!")));"");
+
+FIELD CA := "Verified";
+FIELD VrDate := @Today;
+
+@MailSend(HR;ACC:DocAuthor:HR:Interviewer;NULL;@DbTitle + " : New Interview Conducted - " + Status;NULL;"Please click the following doclink  -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor3)</formula></code></action>
+<action title='Closed' icon='7' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If(DName_1!="" &amp; E_1= ""; @Return(@Do(@Command([EditGotoField];"E_1") ;@Prompt([Ok];"Missing Value"; "Please state if need to email candidate or not (1)!")));"");
+@If(DName_2!="" &amp; E_2= ""; @Return(@Do(@Command([EditGotoField];"E_2") ;@Prompt([Ok];"Missing Value"; "Please state if need to email candidate or not (2)!")));"");
+@If(DName_3!="" &amp; E_3= ""; @Return(@Do(@Command([EditGotoField];"E_3") ;@Prompt([Ok];"Missing Value"; "Please state if need to email candidate or not (3)!")));"");
+
+FIELD CA := "Closed";
+FIELD EmailDate := @Today;
+
+@MailSend(DocAuthor;ACC:DocAuthor:HR:Interviewer;NULL;@DbTitle + " : New Interview Completed";NULL;"Please click the following doclink  -----&gt; " ;[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;Editor4)</formula></code></action>
+<action title='Exit' icon='11'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'/>
+<table widthtype='fitmargins' leftmargin='0.9896in' refwidth='7.9792in'><tablecolumn
+ width='1.3542in' sizetofit='true'/><tablecolumn width='50.0660%'/><tablecolumn
+ width='49.9340%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='3' align='right' keepwithnext='true' keeptogether='true'/>
+<par def='3'><picture width='682px' height='467px' scaledheight='0.9688in'
+ scaledwidth='1.3542in'><imageref name='view.png'/></picture><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell columnspan='2' valign='center' borderwidth='0px'>
+<pardef id='5' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='36pt' style='bold shadow' name='Algerian' pitch='variable'
+ truetype='true' familyid='50'/> </run><run><font size='30pt' style='bold shadow'
+ name='Algerian' pitch='variable' truetype='true' familyid='50'/>INTERVIEW </run><run
+><font size='30pt' style='bold shadow' name='Algerian' pitch='variable' truetype='true'
+ familyid='50'/>DA</run><run><font size='30pt' style='bold shadow' name='Algerian'
+ pitch='variable' truetype='true' familyid='50'/>TABASE</run></par>
+<par def='5'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='maroon'/>  </run><run><font size='14pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'
+ color='#c20000'/>  </run><run><font size='14pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10' color='#c20000'/>IOI OLEOCHEMICAL INDUSTRIES BERHAD</run></par></tablecell></tablerow></table>
+<par def='1'/>
+<pardef id='6' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='SECTION_A___JUSTIFICATION'><sectiontitle
+ pardef='6' borderstyle='windowcaption' color='teal'><font size='14pt' color='white'
+ style='bold' name='Cambria' pitch='variable' truetype='true' familyid='10'/><text
+>SECTION A : JUSTIFICATION</text></sectiontitle><code event='defaultvalue'><formula
+>Editor1:"[HR]"</formula></code><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='17' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='7' leftmargin='1in' spaceafter='1.5'/>
+<par def='7'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='12pt' style='bold'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Exec'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Executive</text><text>Non Executive</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par>
+<pardef id='8' leftmargin='1in'/>
+<table widthtype='fitmargins' refwidth='7.9688in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='9' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='#c20000'/>*</run><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/>Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='10' keepwithnext='true' keeptogether='true'/>
+<par def='10'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/> : </run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Name'/></run><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='8' containertype='65418' aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='11' spaceafter='1.5' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='11'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='#c20000'/>*</run><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/>Department/Section</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/> : </run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field choicesdialog='view'
+ viewdatabase='CN=PHBSVR/O=PHB!!AllShared' view='Department' viewcolumn='1'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Department'><keywords columns='1' ui='dialoglist'/></field></run><run
+><font size='12pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='11'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='#c20000'/>*</run><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/>Venue Of Interview</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/> : </run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Venue'/></run><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='6' containertype='65418' aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run
+><font size='12pt'/></run></par></tablecell></tablerow></table>
+<par def='8'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<table widthtype='fitmargins' refwidth='7.9583in'><tablecolumn width='25%'/><tablecolumn
+ width='25%'/><tablecolumn width='25%'/><tablecolumn width='25%'/>
+<tablerow>
+<tablecell>
+<pardef id='12' keepwithnext='true' keeptogether='true'/>
+<par def='12'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Candidate Name</run></par></tablecell>
+<tablecell>
+<pardef id='13' keepwithnext='true' keeptogether='true'/>
+<par def='13'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Position</run></par></tablecell>
+<tablecell>
+<pardef id='14' keepwithnext='true' keeptogether='true'/>
+<par def='14'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Date</run></par></tablecell>
+<tablecell>
+<pardef id='15' keepwithnext='true' keeptogether='true'/>
+<par def='15'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Time</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='12'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_1'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='13'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_1'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='14'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_1'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<par def='15'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_1'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='16' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_1 = ""</formula></code></pardef>
+<par def='16'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_2'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='17' keepwithnext='true' keeptogether='true'/>
+<par def='17'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_2'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='18' keepwithnext='true' keeptogether='true'/>
+<par def='18'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_2'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='19' keepwithnext='true' keeptogether='true'/>
+<par def='19'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_2'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='20' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_2 = ""</formula></code></pardef>
+<par def='20'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_3'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='21' keepwithnext='true' keeptogether='true'/>
+<par def='21'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_3'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='22' keepwithnext='true' keeptogether='true'/>
+<par def='22'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_3'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='23' keepwithnext='true' keeptogether='true'/>
+<par def='23'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_3'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='24' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_3 = ""</formula></code></pardef>
+<par def='24'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_4'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='25' keepwithnext='true' keeptogether='true'/>
+<par def='25'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_4'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='26' keepwithnext='true' keeptogether='true'/>
+<par def='26'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_4'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='27' keepwithnext='true' keeptogether='true'/>
+<par def='27'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_4'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='28' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_4 = ""</formula></code></pardef>
+<par def='28'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_5'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='29' keepwithnext='true' keeptogether='true'/>
+<par def='29'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_5'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='30' keepwithnext='true' keeptogether='true'/>
+<par def='30'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_5'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='31' keepwithnext='true' keeptogether='true'/>
+<par def='31'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_5'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='32' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_5 = ""</formula></code></pardef>
+<par def='32'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_6'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='33' keepwithnext='true' keeptogether='true'/>
+<par def='33'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_6'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='34' keepwithnext='true' keeptogether='true'/>
+<par def='34'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_6'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='35' keepwithnext='true' keeptogether='true'/>
+<par def='35'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_6'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='36' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_6 = ""</formula></code></pardef>
+<par def='36'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_7'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='37' keepwithnext='true' keeptogether='true'/>
+<par def='37'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_7'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='38' keepwithnext='true' keeptogether='true'/>
+<par def='38'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_7'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='39' keepwithnext='true' keeptogether='true'/>
+<par def='39'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_7'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='40' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_7 = ""</formula></code></pardef>
+<par def='40'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_8'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='41' keepwithnext='true' keeptogether='true'/>
+<par def='41'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_8'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='42' keepwithnext='true' keeptogether='true'/>
+<par def='42'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_8'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='43' keepwithnext='true' keeptogether='true'/>
+<par def='43'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_8'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='44' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_8 = ""</formula></code></pardef>
+<par def='44'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_9'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='45' keepwithnext='true' keeptogether='true'/>
+<par def='45'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_9'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='46' keepwithnext='true' keeptogether='true'/>
+<par def='46'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_9'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='47' keepwithnext='true' keeptogether='true'/>
+<par def='47'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_9'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='48' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_9 = ""</formula></code></pardef>
+<par def='48'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CName_10'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='49' keepwithnext='true' keeptogether='true'/>
+<par def='49'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='CPost_10'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='50' keepwithnext='true' keeptogether='true'/>
+<par def='50'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1.2000in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanDate_10'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run></par></tablecell>
+<tablecell>
+<pardef id='51' keepwithnext='true' keeptogether='true'/>
+<par def='51'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='CanTime_10'><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='1'/>
+<table widthtype='fitmargins' refwidth='7.9688in'><tablecolumn width='2in'/><tablecolumn
+ width='0.1250in'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='11'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Interviewer</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='52' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='52'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='53' keepwithnext='true' keeptogether='true'/>
+<par def='53'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field choicesdialog='addressbook'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='names' allowmultivalues='true'
+ kind='editable' name='Interviewer' listinputseparators='comma' listdisplayseparator='comma'/></run><run
+><font size='12pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='54' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='54'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>CC</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='52'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='55' keepwithnext='true' keeptogether='true'/>
+<par def='55'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field choicesdialog='addressbook'
+ lookupeachchar='true' lookupaddressonrefresh='false' type='names' allowmultivalues='true'
+ kind='editable' name='ACC' listinputseparators='comma' listdisplayseparator='comma'/></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='54'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Remarks</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='52'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='55'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Remarks'/></run><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='6' containertype='65418' aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run
+><font size='12pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='54'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Attachments</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='52'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>:</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='55'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='richtext' kind='editable'
+ name='Attachments'/></run><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='6' containertype='65418' aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run
+><font size='12pt'/></run></par></tablecell></tablerow></table>
+<pardef id='56' leftmargin='1in'><code event='hidewhen'><formula>SubmittedDt=""</formula></code></pardef>
+<par def='56'><run><font size='12pt' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<par def='56'><run><font size='12pt' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='blue'/>Submitted on </run><run><font
+ size='12pt' color='blue' style='bold italic' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='datetime' kind='computed' name='SubmittedDt'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>SubmittedDt</formula></code></field></run><run><font size='12pt' style='bold italic'
+ name='Garamond' pitch='variable' truetype='true' familyid='10' color='blue'/></run><run
+><font size='14pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></section>
+<pardef id='57' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='SECTION_B___INTERVIEWER'><sectiontitle
+ pardef='57' borderstyle='windowcaption' color='teal'><font size='14pt' color='white'
+ style='bold' name='Cambria' pitch='variable' truetype='true' familyid='10'/><text
+>SECTION B : INTERVIEWER</text></sectiontitle><code event='defaultvalue'><formula
+>Editor2</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='13' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'/>
+<table widthtype='fitmargins' refwidth='7.9583in'><tablecolumn width='23.8854%'/><tablecolumn
+ width='76.1146%'/>
+<tablerow>
+<tablecell>
+<pardef id='58' keepwithnext='true' keeptogether='true'/>
+<par def='58'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Candidate Name</run></par></tablecell>
+<tablecell>
+<pardef id='59' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='59'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Attend Interview</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='60' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_1=""</formula></code></pardef>
+<par def='60'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_11'><code event='defaultvalue'><formula
+>CName_1</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell>
+<tablecell>
+<pardef id='61' keepwithnext='true' keeptogether='true'><code event='hidewhen'
+ enabled='false'><formula>CName_=""</formula></code></pardef>
+<par def='61'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_1'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='62' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_2=""</formula></code></pardef>
+<par def='62'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_12'><code event='defaultvalue'><formula
+>CName_2</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='63' keepwithnext='true' keeptogether='true'/>
+<par def='63'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_2'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='64' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_3=""</formula></code></pardef>
+<par def='64'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_13'><code event='defaultvalue'><formula
+>CName_3</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='65' keepwithnext='true' keeptogether='true'/>
+<par def='65'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_3'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='66' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_4=""</formula></code></pardef>
+<par def='66'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_14'><code event='defaultvalue'><formula
+>CName_4</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='67' keepwithnext='true' keeptogether='true'/>
+<par def='67'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_4'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='68' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_5=""</formula></code></pardef>
+<par def='68'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_15'><code event='defaultvalue'><formula
+>CName_5</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='69' keepwithnext='true' keeptogether='true'/>
+<par def='69'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_5'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='70' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_6=""</formula></code></pardef>
+<par def='70'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_16'><code event='defaultvalue'><formula
+>CName_6</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='71' keepwithnext='true' keeptogether='true'/>
+<par def='71'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_6'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='72' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_7=""</formula></code></pardef>
+<par def='72'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_17'><code event='defaultvalue'><formula
+>CName_7</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='73' keepwithnext='true' keeptogether='true'/>
+<par def='73'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_7'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='74' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_8=""</formula></code></pardef>
+<par def='74'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_18'><code event='defaultvalue'><formula
+>CName_8</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='75' keepwithnext='true' keeptogether='true'/>
+<par def='75'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_8'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='76' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_9=""</formula></code></pardef>
+<par def='76'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_19'><code event='defaultvalue'><formula
+>CName_9</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='77' keepwithnext='true' keeptogether='true'/>
+<par def='77'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_9'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='78' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>CName_10=""</formula></code></pardef>
+<par def='78'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_20'><code event='defaultvalue'><formula
+>CName_10</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='79' keepwithnext='true' keeptogether='true'/>
+<par def='79'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='A_10'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='8'><run><font size='8pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='#a16252'/></run></par>
+<table widthtype='fitmargins' refwidth='7.9688in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Remarks</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' type='text' kind='editable'
+ name='InRemarks'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' kind='computed' name='InName'><code
+ event='defaultvalue'><formula>InName</formula></code></field></run><run><font
+ size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='80' keepwithnext='true' keeptogether='true'/>
+<par def='80'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='datetime' kind='computed' name='InDate'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>InDate</formula></code></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='8'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='14pt' style='bold'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></section>
+<section expanded='true' accessfieldkind='computed' accessfieldname='SECTION_C___VERIFICATION'><sectiontitle
+ pardef='57' borderstyle='windowcaption' color='teal'><font size='14pt' color='white'
+ style='bold' name='Cambria' pitch='variable' truetype='true' familyid='10'/><text
+>SECTION C : VERIFICATION</text></sectiontitle><code event='defaultvalue'><formula
+>Editor3</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='12' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'/>
+<table widthtype='fitmargins' refwidth='7.9583in'><tablecolumn width='31.3750%'/><tablecolumn
+ width='2in'/><tablecolumn width='68.6250%'/>
+<tablerow>
+<tablecell>
+<pardef id='81' keepwithnext='true' keeptogether='true'/>
+<par def='81'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Candidate Name</run></par></tablecell>
+<tablecell>
+<pardef id='82' keepwithnext='true' keeptogether='true'/>
+<par def='82'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Status</run></par></tablecell>
+<tablecell>
+<pardef id='83' keepwithnext='true' keeptogether='true'/>
+<par def='83'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Remarks</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='81'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_21'><code event='defaultvalue'><formula
+>CName_1</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='82'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_1'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run></par></tablecell>
+<tablecell>
+<par def='83'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_1'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='84' keepwithnext='true' keeptogether='true'/>
+<par def='84'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_22'><code event='defaultvalue'><formula
+>CName_2</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='85' keepwithnext='true' keeptogether='true'/>
+<par def='85'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_2'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run></par></tablecell>
+<tablecell>
+<pardef id='86' keepwithnext='true' keeptogether='true'/>
+<par def='86'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_2'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='87' keepwithnext='true' keeptogether='true'/>
+<par def='87'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_23'><code event='defaultvalue'><formula
+>CName_3</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='88' keepwithnext='true' keeptogether='true'/>
+<par def='88'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_3'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='89' keepwithnext='true' keeptogether='true'/>
+<par def='89'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_3'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='90' keepwithnext='true' keeptogether='true'/>
+<par def='90'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_24'><code event='defaultvalue'><formula
+>CName_4</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='91' keepwithnext='true' keeptogether='true'/>
+<par def='91'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_4'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='92' keepwithnext='true' keeptogether='true'/>
+<par def='92'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_4'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='93' keepwithnext='true' keeptogether='true'/>
+<par def='93'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_25'><code event='defaultvalue'><formula
+>CName_5</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='94' keepwithnext='true' keeptogether='true'/>
+<par def='94'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_5'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='95' keepwithnext='true' keeptogether='true'/>
+<par def='95'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_5'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='96' keepwithnext='true' keeptogether='true'/>
+<par def='96'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_26'><code event='defaultvalue'><formula
+>CName_6</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='97' keepwithnext='true' keeptogether='true'/>
+<par def='97'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_6'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='98' keepwithnext='true' keeptogether='true'/>
+<par def='98'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_6'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='99' keepwithnext='true' keeptogether='true'/>
+<par def='99'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_27'><code event='defaultvalue'><formula
+>CName_7</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='100' keepwithnext='true' keeptogether='true'/>
+<par def='100'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_7'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='101' keepwithnext='true' keeptogether='true'/>
+<par def='101'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_7'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='102' keepwithnext='true' keeptogether='true'/>
+<par def='102'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_28'><code event='defaultvalue'><formula
+>CName_8</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='103' keepwithnext='true' keeptogether='true'/>
+<par def='103'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_8'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='104' keepwithnext='true' keeptogether='true'/>
+<par def='104'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_8'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='105' keepwithnext='true' keeptogether='true'/>
+<par def='105'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_29'><code event='defaultvalue'><formula
+>CName_9</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='106' keepwithnext='true' keeptogether='true'/>
+<par def='106'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_9'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='107' keepwithnext='true' keeptogether='true'/>
+<par def='107'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_9'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<pardef id='108' keepwithnext='true' keeptogether='true'/>
+<par def='108'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='computed' name='CName_30'><code event='defaultvalue'><formula
+>CName_10</formula></code></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='109' keepwithnext='true' keeptogether='true'/>
+<par def='109'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='S_10'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Successful</text><text>Unsuccessful</text></textlist></keywords></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='110' keepwithnext='true' keeptogether='true'/>
+<par def='110'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/><field type='text' kind='editable' name='R_10'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='9' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='8'/>
+<table widthtype='fitmargins' refwidth='7.9688in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Remarks</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/> : </run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field borderstyle='none'
+ type='text' kind='editable' name='VrRemarks'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='7' containertype='65418' aftercontainercount='1'
+ afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='80'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='datetime' kind='computed' name='VrDate'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>VrDate</formula></code></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='8'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='14pt' style='bold'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></section>
+<section expanded='true' accessfieldkind='computed' accessfieldname='SECTION_D___FOR_HR_USE'><sectiontitle
+ pardef='57' borderstyle='windowcaption' color='teal'><font size='14pt' color='white'
+ style='bold' name='Cambria' pitch='variable' truetype='true' familyid='10'/><text
+>SECTION D : FOR HR USE</text></sectiontitle><code event='defaultvalue'><formula
+>Editor4</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='12' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'/>
+<table widthtype='fitmargins' refwidth='7.9583in'><tablecolumn width='31.3750%'/><tablecolumn
+ width='2in'/><tablecolumn width='34.3125%'/><tablecolumn width='34.3125%'/>
+<tablerow>
+<tablecell>
+<par def='81'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Candidate Name</run></par></tablecell>
+<tablecell>
+<par def='82'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Status</run></par></tablecell>
+<tablecell>
+<pardef id='111' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='111'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Email to Candidate</run></par></tablecell>
+<tablecell>
+<pardef id='112' keepwithnext='true' keeptogether='true'/>
+<par def='112'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Date</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='81'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_1'><code
+ event='defaultvalue'><formula>CName_1</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='82'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_1'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='113' keepwithnext='true' keeptogether='true'/>
+<par def='113'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_1'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='112'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_1'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='84'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_2'><code
+ event='defaultvalue'><formula>CName_2</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='85'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_2'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='114' keepwithnext='true' keeptogether='true'/>
+<par def='114'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_2'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='115' keepwithnext='true' keeptogether='true'/>
+<par def='115'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_2'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='87'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_3'><code
+ event='defaultvalue'><formula>CName_3</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='88'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_3'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='116' keepwithnext='true' keeptogether='true'/>
+<par def='116'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_3'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='117' keepwithnext='true' keeptogether='true'/>
+<par def='117'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_3'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='90'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_4'><code
+ event='defaultvalue'><formula>CName_4</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='91'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_4'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='118' keepwithnext='true' keeptogether='true'/>
+<par def='118'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_4'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='119' keepwithnext='true' keeptogether='true'/>
+<par def='119'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_4'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='93'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_5'><code
+ event='defaultvalue'><formula>CName_5</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='94'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_5'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='120' keepwithnext='true' keeptogether='true'/>
+<par def='120'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_5'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='121' keepwithnext='true' keeptogether='true'/>
+<par def='121'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_5'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='96'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_6'><code
+ event='defaultvalue'><formula>CName_6</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='97'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_6'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='122' keepwithnext='true' keeptogether='true'/>
+<par def='122'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_6'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='123' keepwithnext='true' keeptogether='true'/>
+<par def='123'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_6'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='99'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_7'><code
+ event='defaultvalue'><formula>CName_7</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='100'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_7'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='124' keepwithnext='true' keeptogether='true'/>
+<par def='124'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_7'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='125' keepwithnext='true' keeptogether='true'/>
+<par def='125'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_7'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='102'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_8'><code
+ event='defaultvalue'><formula>CName_8</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='103'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_8'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='126' keepwithnext='true' keeptogether='true'/>
+<par def='126'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_8'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='127' keepwithnext='true' keeptogether='true'/>
+<par def='127'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_8'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='105'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_9'><code
+ event='defaultvalue'><formula>CName_9</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='106'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_9'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='128' keepwithnext='true' keeptogether='true'/>
+<par def='128'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_9'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='129' keepwithnext='true' keeptogether='true'/>
+<par def='129'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_9'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='108'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='computed' name='DName_10'><code
+ event='defaultvalue'><formula>CName_10</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<par def='109'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='DS_10'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='130' keepwithnext='true' keeptogether='true'/>
+<par def='130'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field borderstyle='none' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='E_10'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell>
+<tablecell>
+<pardef id='131' keepwithnext='true' keeptogether='true'/>
+<par def='131'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='D_10'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='12pt' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='8'/>
+<table widthtype='fitmargins' refwidth='7.9688in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Attachment</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='10'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='richtext' kind='editable' name='Attachment'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='12pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='132' spaceafter='1.5' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>EmailDate=""</formula></code></pardef>
+<par def='132'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='133' keepwithnext='true' keeptogether='true'/>
+<par def='133'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> : </run><run><font size='12pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='datetime' kind='computed' name='EmailDate'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>EmailDate</formula></code></field></run><run><font size='12pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<par def='8'><run><font size='14pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='#c0504d'/></run><run><font size='14pt'
+ style='bold' name='Cambria' pitch='variable' truetype='true' familyid='10'
+ color='#c0504d'/></run></par></section>
+<pardef id='134' leftmargin='1in' spaceafter='1.5'/>
+<par def='134'><run><font size='9pt' style='italic' color='navy'/></run></par>
+<par def='134'><run><font size='9pt' style='italic' color='navy'/>Created by  </run><run
+><font size='9pt' color='navy' style='bold italic'/><field type='authors'
+ kind='computedwhencomposed' name='DocAuthor'><code event='defaultvalue'><formula
+>@UserName</formula></code></field></run><run><font size='9pt' style='italic'
+ color='navy'/>  on </run><run><font size='9pt' color='navy' style='bold italic'/><field
+ type='datetime' kind='computedwhencomposed' name='CDate'><datetimeformat
+ show='date' date='yearmonthday' time='hourminutesecond' zone='never'/><code
+ event='defaultvalue'><formula>@Created</formula></code></field></run><run
+><font size='14pt' style='bold' name='Cambria' pitch='variable' truetype='true'
+ familyid='10' color='#a16252'/></run></par>
+<pardef id='135' leftmargin='0.7500in' hide='print copy'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<section expanded='true' accessfieldkind='editable' accessfieldname='CurrentAction2'><sectiontitle
+ pardef='135' color='teal'><font size='11pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><text>Hidden Fields</text></sectiontitle><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='14' containertype='65418'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'><run><font size='1pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par>
+<table widthtype='fitmargins' refwidth='7.9688in'><tablecolumn width='1.3750in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='137' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='137'><run><font size='9pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>CurrentAction</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='138' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='138'><run><font size='9pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run><run><font size='9pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='CA'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Draft</text><text>Submitted</text><text>Accepted</text><text>Verified</text><text
+>Closed</text></textlist></keywords><code event='defaultvalue'><formula>"Draft"</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='139' leftmargin='0' rightmargin='1.3757in' hide='print copy' keepwithnext='true'
+ keeptogether='true'><code event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='139'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Editor1</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Editor1' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA ="Draft" | CA="Submitted";DocAuthor;"-")</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='140' rightmargin='1.3757in' hide='print copy' keepwithnext='true'
+ keeptogether='true'><code event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='140'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Editor2</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Editor2' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA ="Submitted";Interviewer;"-")</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='139'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Editor3</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Editor3' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA ="Accepted";Interviewer;"-")</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='137'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>Editor4</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Editor4' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA ="Verified";HR;"-")</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='137'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>HR Exec</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='HRE' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"HRAdmin";3;[FailSilent])</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='137'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>HR Non-Exec</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='HRN' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"HRINT";3;[FailSilent])</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='137'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>HR Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='HR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(Exec="Executive";HRE;HRN)</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='137'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>IT Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='138'><run><font size='9pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='9pt' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='names' allowmultivalues='true'
+ kind='computed' name='IT' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ISADMIN";3;[FailSilent])</formula></code></field></run><run
+><font size='9pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow></table>
+<pardef id='141' leftmargin='1in'/>
+<par def='141'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run><run><font size='14pt' style='bold' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='#a16252'/></run></par></section></richtext></body>
+<item name='INO' summary='false' sign='true'><number>0</number></item>
+<item name='CanDate_1_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_1_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_2_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_2_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_3_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_3_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_3_2' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_3_2' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_3_3' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_3_3' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_3_4' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_3_4' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_3_5' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_3_5' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_3_6' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_3_6' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanDate_3_7' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='CanTime_3_7' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Form</text></item></form>
+
+<view name='Draft' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false' formatnoteid='ACFBF634ECE70A1A482585D10014A564'>
+<noteinfo noteid='172' unid='8A97739BC20C62D4482585DD00328764' sequence='7'>
+<created><datetime>20200908T171154,60+08</datetime></created>
+<modified><datetime>20210111T125523,86+08</datetime></modified>
+<revised><datetime>20200911T123952,98+08</datetime></revised>
+<lastaccessed><datetime>20210111T141028,32+08</datetime></lastaccessed>
+<addedtofile><datetime>20210111T125523,85+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Draft"</formula></code>
+<column hidedetailrows='false' itemname='CName_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Candidate Name'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CPost_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Status' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interview Status'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$3' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interviewer'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Name([CN];Interviewer)</formula></code></column>
+<column hidedetailrows='false' itemname='VrRemarks' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Remarks'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='PdgVerification' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='176' unid='5347C1510F437E9C482585DD0032C019' sequence='9'>
+<created><datetime>20200908T171419,77+08</datetime></created>
+<modified><datetime>20210111T125708,67+08</datetime></modified>
+<revised><datetime>20210111T125708,66+08</datetime></revised>
+<lastaccessed><datetime>20210111T141304,64+08</datetime></lastaccessed>
+<addedtofile><datetime>20210111T125523,87+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Accepted"</formula></code>
+<column hidedetailrows='false' itemname='CName_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Candidate Name'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CPost_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Status' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interview Status'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$3' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interviewer'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Name([CN];Interviewer)</formula></code></column>
+<column hidedetailrows='false' itemname='VrRemarks' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Remarks'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='PdgInterviewer' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='17a' unid='6C96C2BF5DF60F0F482585DD0032C051' sequence='10'>
+<created><datetime>20200908T171420,33+08</datetime></created>
+<modified><datetime>20210524T121525,01+08</datetime></modified>
+<revised><datetime>20210524T121525,00+08</datetime></revised>
+<lastaccessed><datetime>20210524T121525,00+08</datetime></lastaccessed>
+<addedtofile><datetime>20210111T125523,90+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Submitted"</formula></code>
+<column hidedetailrows='false' itemname='CName_1' width='19' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Candidate Name'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CPost_1' width='17.1250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$3' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interviewer'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Name([CN];Interviewer)</formula></code></column>
+<column hidedetailrows='false' itemname='R_1' width='19.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Remarks'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='Clear' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='1da' unid='A4ACE464975747B24825867700260014' sequence='3'>
+<created><datetime>20210209T145503,88+08</datetime></created>
+<modified><datetime>20210216T122738,89+08</datetime></modified>
+<revised><datetime>20210216T122738,88+08</datetime></revised>
+<lastaccessed><datetime>20210216T122738,88+08</datetime></lastaccessed>
+<addedtofile><datetime>20210209T145503,95+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20210216T122739,10+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='CC'/>
+<simpleaction action='modifyfield' field='CC2'/></code>
+<rundata processeddocs='3' exitcode='0'>
+<agentmodified><datetime>20210216T122738,89+08</datetime></agentmodified>
+<agentrun><datetime>20210216T124034,09+08</datetime></agentrun>
+<runlog>Started running agent 'Clear' on 16/02/2021 12:40:34 PM
+Running on selected documents: 3 total
+Found 3 document(s) that match search criteria
+Modified field in 3 document(s)
+Modified field in 3 document(s)
+Done running agent 'Clear' on 16/02/2021 12:40:34 PM
+</runlog></rundata></agent>
+
+<agent name='SET' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='1e6' unid='0D61E7057D99ABAD4825867700273B61' sequence='3'>
+<created><datetime>20210209T150831,05+08</datetime></created>
+<modified><datetime>20220302T173954,42+08</datetime></modified>
+<revised><datetime>20220302T173954,41+08</datetime></revised>
+<lastaccessed><datetime>20220302T173954,41+08</datetime></lastaccessed>
+<addedtofile><datetime>20210209T150831,15+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20220302T173954,43+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='R_1' value='Commensurate experience in sustaianbility and MSc qualification.'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20220302T173954,42+08</datetime></agentmodified>
+<agentrun><datetime>20220302T173958,42+08</datetime></agentrun>
+<runlog>Started running agent 'SET' on 02/03/2022 05:39:58 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'SET' on 02/03/2022 05:39:58 PM
+</runlog></rundata></agent>
+
+<view name='TESTING' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false' formatnoteid='ACFBF634ECE70A1A482585D10014A564'>
+<noteinfo noteid='1ee' unid='0376AA3BBFC7F93D48258677002829E0' sequence='3'>
+<created><datetime>20210209T151841,60+08</datetime></created>
+<modified><datetime>20210216T122233,88+08</datetime></modified>
+<revised><datetime>20210216T122233,87+08</datetime></revised>
+<lastaccessed><datetime>20210216T122233,87+08</datetime></lastaccessed>
+<addedtofile><datetime>20210209T151841,62+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<column hidedetailrows='false' itemname='CName_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Candidate Name'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CC' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CC2' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='Refresh Docs' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='226' unid='309870A42E5DB3464825867E0017B4CD' sequence='1'>
+<created><datetime>20210216T121856,13+08</datetime></created>
+<modified><datetime>20210216T121856,17+08</datetime></modified>
+<revised><datetime>20210216T121856,16+08</datetime></revised>
+<lastaccessed><datetime>20210216T121856,16+08</datetime></lastaccessed>
+<addedtofile><datetime>20210216T121856,16+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christina/OU=PMS/O=PHB</name><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20141020T144031,65+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='runonce'/><code event='action'>
+<simpleaction action='runformula'><formula>@Command([ToolsRefreshSelectedDocs] );
+ @All;SELECT
+ @All</formula></simpleaction></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20210216T121856,17+08</datetime></agentmodified>
+<agentrun><datetime>20251014T105702,74+08</datetime></agentrun>
+<runlog>Started running agent 'Refresh Docs' on 14/10/2025 10:57:02 AM
+1 document(s) were modified by formula
+Done running agent 'Refresh Docs' on 14/10/2025 10:57:02 AM
+</runlog></rundata></agent>
+
+<agent name='ACT' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='24e' unid='B2EB98F81E445069482586DC00351CD9' sequence='2'>
+<created><datetime>20210521T174007,93+08</datetime></created>
+<modified><datetime>20210521T174519,64+08</datetime></modified>
+<revised><datetime>20210521T174519,63+08</datetime></revised>
+<lastaccessed><datetime>20210521T174519,63+08</datetime></lastaccessed>
+<addedtofile><datetime>20210521T174008,12+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20210521T174429,90+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='CName_1_1_1' value='Yip Ai Peng'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20210521T174519,64+08</datetime></agentmodified>
+<agentrun><datetime>20210521T174436,57+08</datetime></agentrun>
+<runlog>Started running agent 'ACT' on 21/05/2021 05:44:36 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'ACT' on 21/05/2021 05:44:36 PM
+</runlog></rundata></agent>
+
+<agent name='FORMULA' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='7be' unid='2F54867316174109482588C5002B53E9' sequence='2'>
+<created><datetime>20220922T155315,29+08</datetime></created>
+<modified><datetime>20220922T155328,66+08</datetime></modified>
+<revised><datetime>20220922T155328,65+08</datetime></revised>
+<lastaccessed><datetime>20220922T155328,65+08</datetime></lastaccessed>
+<addedtofile><datetime>20220922T155315,39+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20220922T155328,70+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'><formula>FIELD SubmittedDt := CDate;
+SELECT @All</formula></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20220922T155328,66+08</datetime></agentmodified>
+<agentrun><datetime>20220922T155515,65+08</datetime></agentrun>
+<runlog>Started running agent 'FORMULA' on 22/09/2022 03:55:15 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+1 document(s) were modified by formula
+Done running agent 'FORMULA' on 22/09/2022 03:55:15 PM
+</runlog></rundata></agent>
+
+<view name='PdgHR' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='15f2' unid='48F770C4B2B7BE3C48258D23000FF08E' sequence='4'>
+<created><datetime>20251014T105406,22+08</datetime></created>
+<modified><datetime>20251014T105546,40+08</datetime></modified>
+<revised><datetime>20251014T105546,39+08</datetime></revised>
+<lastaccessed><datetime>20251014T105546,39+08</datetime></lastaccessed>
+<addedtofile><datetime>20251014T105406,24+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA = "Verified"</formula></code>
+<column sort='descending' hidedetailrows='false' itemname='$4' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ categorized='true'><font style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Year(@Created)</formula></code></column>
+<column hidedetailrows='false' itemname='CName_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Candidate Name'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='CPost_1' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Position'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Status' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interview Status'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$3' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Interviewer'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Name([CN];Interviewer)</formula></code></column>
+<column hidedetailrows='false' itemname='VrRemarks' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Remarks'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='1b56' unid='AC12B0615810595348258E0500220E59' sequence='3'>
+<created><datetime>20260528T141158,97+08</datetime></created>
+<modified><datetime>20260528T141245,12+08</datetime></modified>
+<revised><datetime>20260528T141245,11+08</datetime></revised>
+<lastaccessed><datetime>20260528T141245,11+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T141159,01+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T141246,57+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(0) As String
+    sfNames(0) = "Signature"
+	'sfNames(1) = "HiddenFields"
+	'sfNames(2) = "HRUse"
+    
+    For i = 0 To 0
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\INTERVIEWDB_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\INTERVIEWDB_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T141246,28+08</datetime></agentmodified></rundata></agent>
+</database>
+

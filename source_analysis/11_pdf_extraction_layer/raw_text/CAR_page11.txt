@@ -1,0 +1,74 @@
+SGM CC
+: SGMCC
+Recommender
+: Recommender
+ED Approval?
+: 
+isED
+ED - exceed 100k
+: Exc100k
+Payback
+: isPayback
+Hide ED 
+: HideED
+Approver
+: Approver
+CC (SGM)
+: ApproverCC
+Completion Date
+: AppDate
+Additional Reader
+: AddReader
+Additional Reader - Manual
+: AddReader2
+Servers
+: Servers
+Readers
+: Readers
+Editor 1
+: Editor1
+Editor 1a - FIN
+: Editor1a
+Editor 2 - HOD
+: Editor2
+Editor 2a
+: Editor2a
+Editor 3
+: Editor3
+Editor 4 - COO
+: Editor4
+Editor 4a - ED
+: Editor4a
+Editor 4b - Requestor
+: Editor4b
+Editor 5 - Finance
+: Editor5
+Editor 7 - Additional amount
+: Editor7
+Editor 7a
+: Editor7a
+Editor 8  - Recommender
+: Editor8
+Editor 9
+: Editor9
+Editor 10
+: Editor10
+Editor 10a
+: Editor10a
+Editor 11
+: Editor11
+Editor 12
+: Editor12
+Editor 13
+: Editor13
+Additional Amount Requested : AddAmtReq
+Completion Date Extended
+: ExtCompReq
+Mailing List
+: MailingList
+Mailing List - with COO
+: MailingList3
+Reminder Date
+: RemDate
+Reminder Date
+: RemDate2

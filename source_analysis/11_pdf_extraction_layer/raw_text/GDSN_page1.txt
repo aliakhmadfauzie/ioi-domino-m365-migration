@@ -1,0 +1,41 @@
+      GIFT/DONATION/SPONSORSHIP 
+NOTIFICATION
+PART A - INITIATOR SECTION
+Notification No. : 
+ProjectCode
+Request Type
+ : 
+ReqType
+Company
+ : 
+company
+Relationship
+ : Recipient
+Name of person/company 
+text_1
+ the gift
+ : Name
+Address
+ : Address
+SAP No. / Vendor ID No.
+ : SAP_ID
+Requestor
+ : Requestor
+HOD
+ : HOD
+Department
+ : Department
+Type
+ : 
+Type
+Purpose of the gift
+ : Purpose
+      please state 
+otherPurpose
+Benefit to Company
+ : IsBenefit
+     please state 
+benefitText
+Gift with Company Logo
+ : IsLogo
+Description of Gift

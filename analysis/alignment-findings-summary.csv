@@ -1,0 +1,22 @@
+Form,Issue Type,Category,Description,Severity,Action Taken,Status
+EAF,Schema Mismatch,Form Code,Schema file VPNACCESS.json has formCode "VPNACCESS" but code uses "EAF",High,Created EAF.json with correct formCode "EAF",✅ Fixed
+EAF,Missing Field,Domino Coverage,ClientID field from Domino not captured in form,Medium,Added to EAFFormInput type + form UI + submission logic,✅ Fixed
+EAF,Missing Field,Domino Coverage,Group field from Domino not captured in form,Medium,Added to EAFFormInput type + form UI + submission logic,✅ Fixed
+EAF,Missing Field,Domino Coverage,HApp (Higher Approver) field from Domino not surfaced,Medium,Added to EAFFormInput type + submission logic,✅ Fixed
+EAF,Missing Schema Metadata,Schema Design,Schema file missing spColumn/spTable references,Medium,Created EAF.json with full SharePoint column mapping,✅ Fixed
+EAF,Missing Automation,Power Automate,EAF 5-stage approval flow designed but not deployed,High,Flow definition created at flows/eaf-approval-flow-definition.json,✅ Designed
+EAF,Missing Field,Domino Coverage,isPCN flag stored in MainDB_IT but not displayed in detail view,Low,Noted for future enhancement,📝 Known
+ITSSR,Missing Inventory,PDF UI,PDF UI inventory (analysis/pdf-ui-inventory.md) is empty,Medium,Reported — needs population from 34 IT PDFs,❌ Open
+ITSSR,Needs Confirmation,SLA,ITSSR SLA hours (Critical=1h, High=4h, Normal=8h, Low=24h) need business validation,Low,Noted in RAQ log,❌ Needs Business
+ITSSR,Missing Automation,Power Automate,INO auto-numbering flow designed but not built,High,Noted for Flow 2,📝 Pending
+ITSSR,Missing Automation,Power Automate,Category-based routing flow designed but not built,Medium,Noted for Flow 3,📝 Pending
+HI,Missing Page,CRUD Gap,No detail/view page [id].tsx for Hardware Inventory,High,Created HIDetailPage with asset info + hardware + location sections,✅ Fixed
+HI,Schema Mismatch,Form Code,Schema file HWINV_PRAI.json has formCode "HWINV_PRAI" but code uses "HI",High,Created HI.json with correct formCode "HI",✅ Fixed
+HI,Incomplete Fields,Domino Coverage,New form covers ~25 of 58 Domino fields (43% coverage),High,Updated schema HI.json with 38 fields; form new.tsx needs expansion,⚠️ Partial
+HI,Missing Schema Metadata,Schema Design,Schema file missing spColumn/spTable references,Medium,Created HI.json with full SharePoint column mapping,✅ Fixed
+HI,Blocking Dependency,SharePoint,MainDB_IT_Ext_Assets list does not exist on SharePoint — HI writes to it,High,Reported — list creation required,❌ Blocked
+HI,Missing Automation,Power Automate,Monthly audit reminder flow designed but not built,Low,Noted for Flow 4,📝 Pending
+HI,Missing Page,CRUD Gap,No edit/update page for existing HI records,Medium,Noted for future enhancement,📝 Known
+All,Service State,Infrastructure,SharePoint submission service uses mock data,High,Noted — needs real connector swap,❌ Pending
+All,Deployment State,Infrastructure,Power Apps code-first app not deployed to Power Platform,High,Noted for Phase 4.22,❌ Pending
+All,Old Files,Cleanup,VPNACCESS.json and HWINV_PRAI.json superseded and should be deleted,Low,Marked in change log,📝 Pending

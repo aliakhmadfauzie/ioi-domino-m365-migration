@@ -1,0 +1,160 @@
+1.
+EmpNo_1
+Name_1
+C_1
+DateW_1_1
+DateW_1
+D_1
+SC_1
+AddHrs_1 TtlHrs_1
+2.
+EmpNo_2
+Name_2
+C_2
+DateW_2_1
+DateW_2
+D_2
+SC_2
+AddHrs_2 TtlHrs_2
+3.
+EmpNo_3
+Name_3
+C_3
+DateW_3_1
+DateW_3
+D_3
+SC_3
+AddHrs_3 TtlHrs_3
+4.
+EmpNo_4
+Name_4
+C_4
+DateW_4_1
+DateW_4
+D_4
+SC_4
+AddHrs_4 TtlHrs_4
+5.
+EmpNo_5
+Name_5
+C_5
+DateW_5_1
+DateW_5
+D_5
+SC_5
+AddHrs_5 TtlHrs_5
+6.
+EmpNo_6
+Name_6
+C_6
+DateW_6_1
+DateW_6
+D_6
+SC_6
+AddHrs_6 TtlHrs_6
+7.
+EmpNo_7
+Name_7
+C_7
+DateW_7_1
+DateW_7
+D_7
+SC_7
+AddHrs_7 TtlHrs_7
+8.
+EmpNo_8
+Name_8
+C_8
+DateW_8_1
+DateW_8
+D_8
+SC_8
+AddHrs_8 TtlHrs_8
+9.
+EmpNo_9
+Name_9
+C_9
+DateW_9_1
+DateW_9
+D_9
+SC_9
+AddHrs_9 TtlHrs_9
+10
+.
+EmpNo_10
+Name_10
+C_10
+DateW_10_1
+DateW_10
+D_10
+SC_10
+AddHrs_10TtlHrs_1
+11
+.
+EmpNo_11
+Name_11
+C_11
+DateW_11_1
+DateW_11
+D_11
+SC_11
+AddHrs_11TtlHrs_1
+12
+.
+EmpNo_12
+Name_12
+C_12
+DateW_12_1
+DateW_12
+D_12
+SC_12
+AddHrs_12TtlHrs_1
+13
+.
+EmpNo_13
+Name_13
+C_13
+DateW_13_1
+DateW_13
+D_13
+SC_13
+AddHrs_13TtlHrs_1
+14
+.
+EmpNo_14
+Name_14
+C_14
+DateW_14_1
+DateW_14
+D_14
+SC_14
+AddHrs_14TtlHrs_1
+15
+.
+EmpNo_15
+Name_15
+C_15
+DateW_15_1
+DateW_15
+D_15
+SC_15
+AddHrs_15TtlHrs_1
+Note : Take note the total hours are inclusive of break time.
+Submitted by Submittedby  on Submittedon
+Head of Section
+Approve
+Reject &
+ Note: Please amend the "Reason in Details"  at above, to ensure it compliant with the examples given in 
+the guidelines.
+Name
+ : HOSName
+Date
+ : HOSDate
+Remark
+ : HOSRem
+Attachment
+ : HOSAtt
+HOSApp
+Head of Department
+Approve
+Reject &

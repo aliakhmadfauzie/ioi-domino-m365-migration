@@ -1,0 +1,49 @@
+HOD APPROVAL
+Name
+ : 
+HODName
+Date
+ : 
+HODDate
+Remark
+ : 
+HODRemark
+FOR HR Use :-
+Received
+Name
+ : 
+HRName
+Date
+ : 
+HRDate
+Created by  DocAuthor
+  on CDate
+Hidden Fields
+CurrentAction
+ : CA
+Editor1
+ : Editor1
+Section A
+Editor2
+ : Editor2
+Section HOS
+Editor3
+ : Editor3
+Section HOD
+Editor4
+ : Editor4
+Section HR
+HOS App
+ : HOSApp
+HOD App
+ : HODApp
+HR App
+ : HRApp
+HR
+ : HR
+ISG Admin
+ : IT
+Servers
+ : Servers
+Readers
+ : Readers

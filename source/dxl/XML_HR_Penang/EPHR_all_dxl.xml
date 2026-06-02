@@ -1,0 +1,993 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='48258CAB000E70A6' path='CN=PHBSVR/O=PHB!!Current\EPHR.nsf' title='Employee Personal Health Records'
+ increasemaxfields='true'>
+<databaseinfo dbid='48258CAB000E70A6' odsversion='55' diskspace='1290240'
+ percentused='97.7380952380952' numberofdocuments='1'><datamodified><datetime
+>20260524T024653,25+08</datetime></datamodified><designmodified><datetime
+>20260528T110159,81+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='FS'/></launchsettings>
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='122' unid='D0E412ADF8EEC12348258C81002E22A7' sequence='6'>
+<created><datetime>20250505T162355,27+08</datetime></created>
+<modified><datetime>20250616T103743,61+08</datetime></modified>
+<revised><datetime>20250506T083138,86+08</datetime></revised>
+<lastaccessed><datetime>20250616T103817,16+08</datetime></lastaccessed>
+<addedtofile><datetime>20250616T103743,60+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='Company' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Dept' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column resort='both' hidedetailrows='false' itemname='FullName' width='20.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Full Name'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='both' hidedetailrows='false' itemname='$2' width='13.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Date Created'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column></view>
+
+<form name='EPHR' publicaccess='false' designerversion='8.5.3' default='true'
+ renderpassthrough='true'>
+<noteinfo noteid='156' unid='F927B5E26206184948258C81002E2BD4' sequence='37'>
+<created><datetime>20250505T162418,76+08</datetime></created>
+<modified><datetime>20250617T083715,32+08</datetime></modified>
+<revised><datetime>20250617T083715,31+08</datetime></revised>
+<lastaccessed><datetime>20250617T083715,31+08</datetime></lastaccessed>
+<addedtofile><datetime>20250616T103743,73+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"EPHR"</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit' icon='2' hide='edit previewedit'><code event='click'><formula
+>@Command([EditDocument];1)</formula></code></action>
+<action title='Save' icon='117' hide='preview read'><code event='click'><formula
+>@Command([EditDocument]; "1");
+
+@If(FullName="";@Return(@Do(@Command([EditGotoField];"FullName");@Prompt([Ok];"Missing Value";"Please enter the Full Name!")));"");
+@If(IC="";@Return(@Do(@Command([EditGotoField];"IC");@Prompt([Ok];"Missing Value";"Please enter the IC number!")));"");
+@If(DOB="";@Return(@Do(@Command([EditGotoField];"DOB");@Prompt([Ok];"Missing Value";"Please select the date of birth!")));"");
+@If(Gender="";@Return(@Do(@Command([EditGotoField];"Gender");@Prompt([Ok];"Missing Value";"Please select the gender!")));"");
+@If(Gender="";@Return(@Do(@Command([EditGotoField];"Gender");@Prompt([Ok];"Missing Value";"Please select the gender!")));"");
+@If(Company="";@Return(@Do(@Command([EditGotoField];"Company");@Prompt([Ok];"Missing Value";"Please select the Company!")));"");
+@If(Dept="";@Return(@Do(@Command([EditGotoField];"Dept");@Prompt([Ok];"Missing Value";"Please select the Department!")));"");
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par>
+<pardef id='2' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Name'><sectiontitle
+ pardef='2' color='teal'><font size='20pt' style='bold emboss' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/><text>EMPLOYEE PERSONAL HEALTH RECORD</text></sectiontitle><code
+ event='defaultvalue'><formula>DocAuthor</formula></code><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='14' containertype='65418'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<par def='1'><run><font size='1pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='10.3646in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='4' keepwithnext='true' keeptogether='true'/>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='FullName'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>IC No. / Passport No.</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='IC'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Date of Birth</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='DOB'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Gender</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Gender'><keywords
+ helperbutton='false' columns='1' ui='radiobutton'><textlist><text>Male</text><text
+>Female</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>HP No</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='HP'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Company</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Company'><keywords
+ helperbutton='false' columns='1' ui='radiobutton'><textlist><text>IOI Acichem</text><text
+>IOI Esterchem</text><text>IOI Oleochemical</text><text>Palmco Oil Mill</text></textlist></keywords></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Department</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='6' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field choicesdialog='view' viewdatabase='CN=PHBSVR2/O=PHB!!AllShared'
+ view='Department' viewcolumn='1' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Dept'><keywords columns='1' ui='dialoglist'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Height </run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='number' kind='editable' name='H'><numberformat
+ format='fixed' punctuated='false' parens='false' percent='false' bytes='false'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/> </run><run
+><font size='11pt' style='bold' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>CM</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Weight</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='number' kind='editable' name='W'><numberformat
+ format='fixed' digits='1' punctuated='false' parens='false' percent='false'
+ bytes='false'/></field></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/> </run><run><font size='11pt' style='bold'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/>KG</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>BMI</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='number' kind='editable' name='BMI'><numberformat
+ format='general' varying='true' digits='2' punctuated='false' parens='false'
+ percent='false' bytes='false'/></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/> </run><run><font size='11pt'
+ style='bold' name='Calibri' pitch='variable' truetype='true' familyid='20'/>KG/M2</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Blood Pressure</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='number' kind='editable' name='BP'><numberformat
+ format='general' varying='true' digits='2' punctuated='false' parens='false'
+ percent='false' bytes='false'/></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/> </run><run><font size='11pt'
+ style='bold' name='Calibri' pitch='variable' truetype='true' familyid='20'/>mmHg</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Pulse</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='number' kind='editable' name='P'><numberformat
+ format='general' varying='true' digits='2' punctuated='false' parens='false'
+ percent='false' bytes='false'/></field></run><run><font size='11pt' style='bold'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/> min</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Visual</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Visual'><keywords
+ helperbutton='false' columns='1' ui='radiobutton'><textlist><text>With Aid</text><text
+>Without</text></textlist></keywords></field></run><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Color Vision</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Vision'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Past Medical / Surgical History</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='MedHist'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='1'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='1'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>MEDICAL HISTORY</run></par>
+<table widthtype='fitmargins' refwidth='10.3549in'><tablecolumn width='28.7847%'/><tablecolumn
+ width='21.2153%'/><tablecolumn width='25%'/><tablecolumn width='25%'/>
+<tablerow>
+<tablecell>
+<pardef id='7' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<pardef id='8' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<pardef id='9' align='center' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Since</run></par></tablecell>
+<tablecell>
+<pardef id='10' keepwithnext='true' keeptogether='true'/>
+<par def='10'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Remark</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Hypertension</run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Diabetes Mellitus</run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D_1'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S_1'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R_1'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Hypercholesterolemia/</run></par>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Hyperlipidemia/Dyslipidemia</run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D_2'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S_2'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R_2'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Cardiovascular</run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D_3'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S_3'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R_3'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Skin</run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D_4'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S_4'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R_4'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Respiratory system</run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D_5'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S_5'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R_5'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Terminal illnesses</run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D_6'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S_6'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R_6'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='7'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Others </run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/><field type='text' kind='editable'
+ name='Disease'/></run><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='6' containertype='65418' aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run
+><font size='11pt' style='bold' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='8'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='D_7'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='9'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='S_7'><keywords helperbutton='false' columns='2' ui='radiobutton'/><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell>
+<par def='10'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' type='text' kind='editable'
+ name='R_7'><keywords helperbutton='false' columns='2' ui='radiobutton'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='4'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='1'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='10.3646in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Follow up</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Followup'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Regularly</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='11' keepwithnext='true' keeptogether='true'/>
+<par def='11'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Followup2'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Location</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>:</run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/> </run><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Location'><keywords helperbutton='false' columns='2' ui='radiobutton'><textlist
+><text>Klinik Kesihatan</text><text>Panel Clinic</text></textlist></keywords></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/>  </run><run><font size='11pt' style='italic' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/>  Remark </run><run><font
+ size='11pt' style='italic' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='LocRem'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ style='italic' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='1'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='1'><run><font size='12pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>ADMISSION RECORD</run></par>
+<table widthtype='fitmargins' refwidth='10.3646in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Admission Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field usenotesstyle='false' height='0.2500in'
+ width='1in' multiline='true' borderstyle='single' type='datetime' kind='editable'
+ name='AdmDate'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Diagnosis</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='11'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Diagnosis'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Discharge Summary</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='11'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field borderstyle='inset' lookupeachchar='false'
+ lookupaddressonrefresh='false' type='keyword' kind='editable' name='Discharge'><keywords
+ helperbutton='false' columns='2' ui='radiobutton'><textlist><text>Yes</text><text
+>No</text></textlist></keywords></field></run><run><font size='11pt' name='Calibri'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='12' tabs='L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in'
+ keepwithnext='true' keeptogether='true'/>
+<par def='12'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Medical Repor</run><run><font size='11pt'
+ style='bold' name='Calibri' pitch='variable' truetype='true' familyid='20'/>t</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='richtext' kind='editable' name='Attachment'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='12'><run><font size='11pt' style='bold' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/>Additional Report</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><field type='richtext' kind='editable' name='Attachment2'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='1'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run><run
+><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></section>
+<par def='1'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par>
+<pardef id='13' leftmargin='1in' spaceafter='1.5'/><subformref name='Signature'/>
+<par def='1'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></richtext></body>
+<item name='$SubForm_RepIDs' sign='true'><text>0000000000000000</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>EPHR</text></item>
+<item name='H' summary='false'><number>0</number></item>
+<item name='W' summary='false'><number>0</number></item>
+<item name='BMI' summary='false'><number>0</number></item>
+<item name='BP' summary='false'><number>0</number></item>
+<item name='P' summary='false'><number>0</number></item>
+<item name='CDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='27e' unid='47B3765EA4900A9248258E0500108F7B' sequence='3'>
+<created><datetime>20260528T110053,07+08</datetime></created>
+<modified><datetime>20260528T110148,25+08</datetime></modified>
+<revised><datetime>20260528T110148,24+08</datetime></revised>
+<lastaccessed><datetime>20260528T110148,24+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T110053,12+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T110149,30+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(0) As String
+    sfNames(0) = "Signature"
+	'sfNames(1) = "HiddenFields"
+	'sfNames(2) = "HRUse"
+    
+    For i = 0 To 0
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\EPHR_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\EPHR_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T110148,91+08</datetime></agentmodified></rundata></agent>
+</database>
+

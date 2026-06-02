@@ -1,0 +1,156 @@
+SourceForm,SourceField,SourceType,SourceSize,TargetList,TargetColumn,TargetType,TransformationRule,Notes
+EAF,req,names,256,MainDB_IT,Requestor_Name,Person/Group,Map to current user on submit,Requestor name
+EAF,User,text,256,MainDB_IT,TargetUser,Person/Group,Direct mapping,Target user for access
+EAF,justification,text,1024,MainDB_IT,Description,Multiple lines,Direct mapping,Business justification
+EAF,system,text,128,MainDB_IT,SystemName,Choice,Map to system config list,System/application name
+EAF,Type,text,64,MainDB_IT,ApplicationType,Choice,Map to VPN/Citrix/Other,Access type
+EAF,depthead,names,256,MainDB_IT,HODApprover,Person/Group,Direct mapping,Department head
+EAF,CC,names,512,MainDB_IT,CCRecipients,Multiple lines,Map as multi-person field,CC list
+EAF,date1,datetime,-,MainDB_IT,SubmittedDate,Date/Time,Default=Now,Date submitted
+EAF,currentaction,text,64,MainDB_IT,CurrentStatus,Choice,Map to workflow status values,Workflow state
+EAF,status1,text,32,MainDB_IT,HODStatus,Choice,Approved/Rejected/Pending,HOD approval status
+EAF,status2,text,32,MainDB_IT,DirectorStatus,Choice,Approved/Rejected/Pending,Director approval status
+EAF,status3,text,32,MainDB_IT,ITManagerStatus,Choice,Approved/Rejected/Pending,IT Manager approval status
+EAF,status4,text,32,MainDB_IT,ITCompletionStatus,Choice,Completed/Rejected/Pending,IT provisioning status
+EAF,date2,datetime,-,MainDB_IT,HODApprovedDate,Date/Time,Set on HOD approval,HOD approval date
+EAF,date3,datetime,-,MainDB_IT,DirectorApprovedDate,Date/Time,Set on Director approval,Director approval date
+EAF,date4,datetime,-,MainDB_IT,ITManagerApprovedDate,Date/Time,Set on IT Manager approval,IT Manager approval date
+EAF,date5,datetime,-,MainDB_IT,ITCompletionDate,Date/Time,Set on IT provisioning,IT completion date
+EAF,comment1,text,512,MainDB_IT,HODRemarks,Multiple lines,Direct mapping,HOD comments
+EAF,comment2,text,512,MainDB_IT,DirectorRemarks,Multiple lines,Direct mapping,Director comments
+EAF,comment3,text,512,MainDB_IT,ITManagerRemarks,Multiple lines,Direct mapping,IT Manager comments
+EAF,comment4,text,512,MainDB_IT,ITRemarks,Multiple lines,Direct mapping,IT provisioning remarks
+EAF,HODNAME,names,256,MainDB_IT,HODApprovedBy,Person/Group,Set on HOD approval,HOD who approved
+EAF,DIVNAME,names,256,MainDB_IT,DirectorApprovedBy,Person/Group,Set on Director approval,Director who approved
+EAF,name4,names,256,MainDB_IT,ITManagerApprovedBy,Person/Group,Set on IT Manager approval,IT Manager who approved
+EAF,name5,names,256,MainDB_IT,ITCompletedBy,Person/Group,Set on IT completion,IT staff who completed
+EAF,isPCN,text,4,MainDB_IT,IsPCN,Yes/No,Convert "1" to Yes,PCN indicator for routing
+EAF,AgentName,text,128,MainDB_IT,Application,Choice,Direct mapping,Agent/application name
+EAF,ClientID,text,64,MainDB_IT,ClientID,Single line,Direct mapping,Client identifier
+EAF,Group,text,64,MainDB_IT,UserGroup,Single line,Direct mapping,User group
+EAF,Company,text,128,MainDB_IT,Company,Choice,Map to company config list,Company name
+EAF,Country,text,64,MainDB_IT,Country,Choice,Direct mapping,Country
+EAF,HApp,names,256,MainDB_IT,SecondApprover,Person/Group,Direct mapping,Higher approver
+EAF,SendTo,names,512,MainDB_IT,SendTo,Multiple lines,Direct mapping,Notification target
+HI,machineid,text,64,MainDB_IT_Ext_Assets,AssetTag,Single line,Direct mapping,Machine ID / Asset Tag
+HI,usedby,text,128,MainDB_IT_Ext_Assets,AssignedTo,Person/Group,Map to person field,User assigned
+HI,macdesc,text,256,MainDB_IT_Ext_Assets,Description,Single line,Direct mapping,Machine description
+HI,comp,keyword,32,MainDB_IT_Ext_Assets,ComputerType,Choice,Direct mapping,Computer type (Desktop/Notebook/Server)
+HI,cpuspd,keyword,32,MainDB_IT_Ext_Assets,CPU,Choice,Direct mapping,CPU speed
+HI,hddtype,keyword,32,MainDB_IT_Ext_Assets,HDDType,Choice,Direct mapping,HDD type
+HI,ram,keyword,32,MainDB_IT_Ext_Assets,RAM,Choice,Direct mapping,RAM size
+HI,inch,keyword,16,MainDB_IT_Ext_Assets,MonitorSize,Choice,Direct mapping,Monitor size
+HI,ipadd_1,text,32,MainDB_IT_Ext_Assets,IPAddress,Single line,Direct mapping,IP address
+HI,winversion,keyword,64,MainDB_IT_Ext_Assets,OSVersion,Choice,Direct mapping,Windows version
+HI,MACAddress,text,32,MainDB_IT_Ext_Assets,MACAddress,Single line,Direct mapping,MAC address
+HI,SerialNo,text,64,MainDB_IT_Ext_Assets,SerialNo,Single line,Direct mapping,Serial number
+HI,Location,text,128,MainDB_IT_Ext_Assets,Location,Single line,Direct mapping,Location
+HI,Printer,text,128,MainDB_IT_Ext_Assets,Printer,Single line,Direct mapping,Printer details
+ITSSR,CaseNo,text,64,MainDB_IT_Ext_Support,CaseNo,Single line,Direct mapping,Case number
+ITSSR,ReportedBy,text,128,MainDB_IT_Ext_Support,ReportedBy,Person/Group,Direct mapping,Reporter name
+ITSSR,CreationDate,datetime,-,MainDB_IT_Ext_Support,CreationDate,Date/Time,Default=Now,Date created
+ITSSR,INO,text,16,MainDB_IT_Ext_Support,INONumber,Single line,Auto-generated via Power Automate,Auto-number
+ITSSR,CA,text,64,MainDB_IT_Ext_Support,Category,Choice,Direct mapping,Request category
+ITSSR,Category,text,64,MainDB_IT_Ext_Support,SubCategory,Choice,Direct mapping,Sub-category
+PRF,currentaction,text,64,MainDB_IT,CurrentStatus,Choice,Map to workflow values,Workflow state
+PRF,date1,datetime,-,MainDB_IT,SubmittedDate,Date/Time,Default=Now,Date submitted
+PRF,dateapp2,datetime,-,MainDB_IT,ApprovedDate,Date/Time,Set on approval,Approval date
+PRF,AppBy_ISG,names,256,MainDB_IT,AssignedTo,Person/Group,Set by Power Automate,ISG assignee
+PRF,RemTo,names,256,MainDB_IT,HRNotification,Person/Group,Set by Power Automate,HR notification target
+SAPCR,currentaction,text,64,MainDB_IT_Ext_SAP,CurrentStatus,Choice,Map to workflow values,Workflow state
+SAPCR,TicketNo,text,64,MainDB_IT_Ext_SAP,TicketNo,Single line,Auto-generated,Ticket number
+SAPCR,Requester,names,256,MainDB_IT_Ext_SAP,Requester,Person/Group,Direct mapping,Requester
+SAPCR,System,text,64,MainDB_IT_Ext_SAP,System,Choice,Direct mapping,SAP/WB system
+SAPCR,Priority,text,16,MainDB_IT_Ext_SAP,Priority,Choice,Direct mapping,Priority
+SFAR,currentaction,text,64,MainDB_IT_Ext_Access,CurrentStatus,Choice,Map to workflow values,Workflow state
+SFAR,ShareFolder,text,256,MainDB_IT_Ext_Access,ShareFolder,Single line,Direct mapping,Share folder path
+SFAR,AccessLevel,text,32,MainDB_IT_Ext_Access,AccessLevel,Choice,Direct mapping,Read/Write/Full Control
+# ===== LOG (Logistics) Field Mappings =====
+FORKLIFT,VehicleNo,text,64,MainDB_LOG,VehicleNo,Single line,Direct mapping,Forklift number
+FORKLIFT,ChecklistDate,datetime,-,MainDB_LOG,fLiftChecklistDate,Date/Time,Direct mapping,Daily/weekly check date
+FORKLIFT,Model,text,64,MainDB_LOG,fLiftModel,Choice,Direct mapping,Forklift model
+FORKLIFT,SerialNo,text,64,MainDB_LOG,fLiftSerialNo,Single line,Direct mapping,Equipment serial
+FORKLIFT,HoursMeter,number,-,MainDB_LOG,fLiftHoursMeter,Number,Direct mapping,Operating hours
+FORKLIFT,BatteryStatus,text,32,MainDB_LOG,fLiftBatteryStatus,Choice,Direct mapping,Battery condition
+FORKLIFT,HydraulicStatus,text,32,MainDB_LOG,fLiftHydraulicStatus,Choice,Direct mapping,Hydraulic condition
+FORKLIFT,TireCondition,text,32,MainDB_LOG,fLiftTireCondition,Choice,Direct mapping,Tire condition
+FORKLIFT,SafetyFeatures,memo,1024,MainDB_LOG,fLiftSafetyFeatures,Multiple lines,Direct mapping,Safety check items
+FORKLIFT,Inspector,names,256,MainDB_LOG,fLiftInspector,Person/Group,Direct mapping,Inspector
+FORKLIFT,Status,text,32,MainDB_LOG,fLiftStatus,Choice,Direct mapping,Pass/Conditional/Fail
+ECMFORKLIFT,ForkliftNo,text,64,MainDB_LOG,ecmForkliftNo,Single line,Direct mapping,Forklift unit
+ECMFORKLIFT,BreakdownDate,datetime,-,MainDB_LOG,ecmBreakdownDate,Date/Time,Direct mapping,Breakdown date
+ECMFORKLIFT,IssueDescription,memo,2048,MainDB_LOG,ecmIssueDescription,Multiple lines,Direct mapping,Issue description
+ECMFORKLIFT,RootCause,memo,2048,MainDB_LOG,ecmRootCause,Multiple lines,Direct mapping,RCA
+ECMFORKLIFT,ActionTaken,memo,2048,MainDB_LOG,ecmActionTaken,Multiple lines,Direct mapping,Corrective action
+ECMFORKLIFT,DownTimeHours,number,-,MainDB_LOG,ecmDownTimeHours,Number,Direct mapping,Downtime hours
+ECMFORKLIFT,ReportedBy,names,256,MainDB_LOG,ecmReportedBy,Person/Group,Direct mapping,Reporter
+ECMFORKLIFT,ResolvedBy,names,256,MainDB_LOG,ecmResolvedBy,Person/Group,Direct mapping,Technician
+TANKERWASH,TankerNo,text,64,MainDB_LOG,tWasherTankerNo,Single line,Direct mapping,Tanker reg no
+TANKERWASH,WashDate,datetime,-,MainDB_LOG,tWashDate,Date/Time,Direct mapping,Washing date
+TANKERWASH,Product,text,128,MainDB_LOG,tWashProduct,Single line,Direct mapping,Previous product
+TANKERWASH,NextProduct,text,128,MainDB_LOG,tWashNextProduct,Single line,Direct mapping,Next product
+TANKERWASH,Inspector,names,256,MainDB_LOG,tWashInspector,Person/Group,Direct mapping,Inspector
+TANKERWASH,LeakTestResult,text,32,MainDB_LOG,tWashLeakTestResult,Choice,Direct mapping,Pass/Fail
+TANKERWASH,SealNo,text,64,MainDB_LOG,tWashSealNo,Single line,Direct mapping,Seal number
+IMDG,VehicleNo,text,64,MainDB_LOG,imdgVehicleNo,Single line,Direct mapping,Vehicle
+IMDG,DriverName,text,128,MainDB_LOG,imdgDriverName,Single line,Direct mapping,Driver
+IMDG,Product,text,128,MainDB_LOG,imdgProduct,Single line,Direct mapping,DG product
+IMDG,UNNo,text,32,MainDB_LOG,imdgUNNo,Single line,Direct mapping,UN number
+IMDG,Class,text,16,MainDB_LOG,imdgClass,Choice,Direct mapping,DG class
+IMDG,Inspector,names,256,MainDB_LOG,imdgInspector,Person/Group,Direct mapping,Inspector
+IMDG,Result,text,32,MainDB_LOG,imdgResult,Choice,Direct mapping,Compliant/Non-Compliant
+# ===== PRD (Production) Field Mappings =====
+SAPMMM,MaterialCode,text,64,MainDB_PRD,MaterialCode,Single line,Direct mapping,SAP material code
+SAPMMM,MaterialDesc,memo,1024,MainDB_PRD,MaterialDescription,Multiple lines,Direct mapping,Material description
+SAPMMM,StorageLocation,text,32,MainDB_PRD,StorageLocation,Single line,Direct mapping,SAP storage location
+SAPMMM,PlantCode,text,16,MainDB_PRD,PlantCode,Single line,Direct mapping,Plant code
+SAPMMM,ValuationClass,text,32,MainDB_PRD,ValuationClass,Single line,Direct mapping,Valuation class
+SAPMMM,MaterialGroup,text,32,MainDB_PRD,MaterialGroup,Single line,Direct mapping,Material group
+CCP1,CCPParameter,text,64,MainDB_PRD,CCPParameter,Choice,Direct mapping,CCP parameter
+CCP1,CCPLimitMin,number,-,MainDB_PRD,CCPLimitMin,Number,Direct mapping,Critical limit min
+CCP1,CCPLimitMax,number,-,MainDB_PRD,CCPLimitMax,Number,Direct mapping,Critical limit max
+CCP1,ActualReading,number,-,MainDB_PRD,CCPActualReading,Number,Direct mapping,Actual reading
+CCP1,Result,text,32,MainDB_PRD,CCPResult,Choice,Direct mapping,Pass/Fail/OOS
+CCP1,CorrectiveAction,memo,2048,MainDB_PRD,CCPCorrectiveAction,Multiple lines,Direct mapping,Out-of-spec action
+EPIR,EquipmentID,text,64,MainDB_PRD,EquipmentID,Single line,Direct mapping,Equipment ID
+EPIR,EquipmentName,text,128,MainDB_PRD,EquipmentName,Single line,Direct mapping,Equipment name
+EPIR,InspectionResult,text,32,MainDB_PRD,PreInspectionResult,Choice,Direct mapping,Pass/Conditional/Fail
+# ===== MTN (Maintenance) Field Mappings =====
+FAR,EquipmentID,text,64,MainDB_MTN,fAREquipmentID,Single line,Direct mapping,Affected equipment
+FAR,FailureDate,datetime,-,MainDB_MTN,fARFailureDate,Date/Time,Direct mapping,Failure date
+FAR,FailureMode,text,32,MainDB_MTN,fARFailureMode,Choice,Direct mapping,Failure mode
+FAR,Symptoms,memo,2048,MainDB_MTN,fARSymptoms,Multiple lines,Direct mapping,Symptoms
+FAR,RootCause,memo,2048,MainDB_MTN,fARRootCause,Multiple lines,Direct mapping,RCA
+FAR,Impact,text,32,MainDB_MTN,fARImpact,Choice,Direct mapping,Prod/Qual/Safety/Env
+FAR,CorrectiveAction,memo,2048,MainDB_MTN,fARCorrectiveAction,Multiple lines,Direct mapping,Corrective action
+FAR,PreventiveAction,memo,2048,MainDB_MTN,fARPreventiveAction,Multiple lines,Direct mapping,Preventive action
+FAR,DownTimeHours,number,-,MainDB_MTN,fARDownTimeHours,Number,Direct mapping,Downtime hours
+FAR,ReportedBy,names,256,MainDB_MTN,fARReportedBy,Person/Group,Direct mapping,Reporter
+FAR,ApprovedBy,names,256,MainDB_MTN,fARApprovedBy,Person/Group,Direct mapping,Approver
+CALIBRATION,InstrumentID,text,64,MainDB_MTN,calInstrumentID,Single line,Direct mapping,Instrument
+CALIBRATION,CalibrationDate,datetime,-,MainDB_MTN,calDate,Date/Time,Direct mapping,Cal date
+CALIBRATION,DueDate,datetime,-,MainDB_MTN,calDueDate,Date/Time,Direct mapping,Due date
+CALIBRATION,Result,text,32,MainDB_MTN,calResult,Choice,Direct mapping,Pass/Conditional/Fail
+CALIBRATION,CertificateNo,text,64,MainDB_MTN,calCertificateNo,Single line,Direct mapping,Certificate
+CALIBRATION,CalibratedBy,names,256,MainDB_MTN,calCalibratedBy,Person/Group,Direct mapping,Technician
+MTNPLAN,PlanNo,text,64,MainDB_MTN,mPPlanNo,Single line,Direct mapping,Plan number
+MTNPLAN,EquipmentID,text,64,MainDB_MTN,mPEquipmentID,Single line,Direct mapping,Equipment
+MTNPLAN,IntervalType,text,32,MainDB_MTN,mPIntervalType,Choice,Direct mapping,Interval type
+MTNPLAN,IntervalValue,number,-,MainDB_MTN,mPIntervalValue,Number,Direct mapping,Interval count
+MTNPLAN,LastDate,datetime,-,MainDB_MTN,mPLastDate,Date/Time,Direct mapping,Last maintenance
+MTNPLAN,NextDueDate,datetime,-,MainDB_MTN,mPNextDueDate,Date/Time,Direct mapping,Next due
+MTNPLAN,WorkType,text,32,MainDB_MTN,mPWorkType,Choice,Direct mapping,Work type
+MTNPLAN,AssignedTo,names,256,MainDB_MTN,mPAssignedTo,Person/Group,Direct mapping,Assigned tech
+MTNEMGNCY,ChangeNo,text,64,MainDB_MTN,mECChangeNo,Single line,Direct mapping,Change number
+MTNEMGNCY,EquipmentID,text,64,MainDB_MTN,mECEquipmentID,Single line,Direct mapping,Equipment
+MTNEMGNCY,Description,memo,2048,MainDB_MTN,mECChangeDescription,Multiple lines,Direct mapping,Change description
+MTNEMGNCY,Reason,memo,2048,MainDB_MTN,mECReason,Multiple lines,Direct mapping,Emergency reason
+MTNEMGNCY,RiskAssessment,text,32,MainDB_MTN,mECRiskAssessment,Choice,Direct mapping,Risk level
+MTNEMGNCY,AuthorizedBy,names,256,MainDB_MTN,mECAuthorizedBy,Person/Group,Direct mapping,Authorizer
+TPM,MachineNo,text,64,MainDB_MTN,tpmMachineNo,Single line,Direct mapping,Machine
+TPM,ActivityDate,datetime,-,MainDB_MTN,tpmDate,Date/Time,Direct mapping,Activity date
+TPM,ActivityType,text,32,MainDB_MTN,tpmActivityType,Choice,Direct mapping,Activity type
+TPM,Findings,memo,2048,MainDB_MTN,tpmFindings,Multiple lines,Direct mapping,Findings
+TPM,DoneBy,names,256,MainDB_MTN,tpmDoneBy,Person/Group,Direct mapping,Technician
+TPM,VerifiedBy,names,256,MainDB_MTN,tpmVerifiedBy,Person/Group,Direct mapping,Verifier
+TPM,OEE,number,-,MainDB_MTN,tpmOverallEquipmentEffectiveness,Number,Direct mapping,OEE percentage

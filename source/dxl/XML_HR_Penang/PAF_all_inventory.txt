@@ -1,0 +1,53 @@
+DATABASE : Performance Appraisal Request
+PATH     : Current\PerfAppraisal.nsf
+DATE     : 28/05/2026 3:06:21 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  AppForm
+  Copy Of AppForm
+  DWL
+  Guidelines
+  AppForm2
+  DWL2
+  AppForm3
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  SET [ENABLED]
+  AppBY+HOD [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear [ENABLED]
+  FORMULA [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Reader | Person
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  Oleo Executives | Editor | Person Group
+  CN=PHBSVR/O=PHB | Manager | Server
+  Oleo Managers | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  CN=Teoh Bak Moi/OU=PMS/O=PHB | Editor | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

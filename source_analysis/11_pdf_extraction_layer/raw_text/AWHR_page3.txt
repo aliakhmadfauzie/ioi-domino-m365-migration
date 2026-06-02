@@ -1,0 +1,51 @@
+Name
+ : HODName
+Date
+ : HODDate
+Remark
+ : HODRem
+Attachment
+ : HODAtt
+HODApp
+For HR Use:-
+Accept Deny
+Comment
+ : HRCom
+Name
+ : HRName
+Date
+ : HRDate
+Attachment
+ : HRAtt
+HRApp
+History Log :-
+HistoryLog
+Withdrawn by Requestor:-
+Discarded by : 
+WDBy
+Discarded on : 
+WDDate
+Reason
+: 
+WDReason
+Created by  DocAuthor
+  on CDate
+Hidden Fields :-
+Current Action
+ : CA
+Editor 1
+ : Editor1
+Editor 1a
+ : Editor1a
+Editor 2
+ : Editor2
+Editor 3
+ : Editor3
+Editor 4
+ : Editor4
+Editor 5
+ : Editor5
+IT
+ : IT
+COO
+ : COO

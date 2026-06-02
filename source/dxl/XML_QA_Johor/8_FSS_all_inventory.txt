@@ -1,0 +1,59 @@
+DATABASE : PanCen - Food Safety & GMP Survey
+PATH     : PanCen - Current\FSS.nsf
+DATE     : 29/05/2026 11:31:48 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  SVForm
+  Reminder
+  SVExec
+  Initiator
+  IniExec
+  GMP
+  SVExec2
+  IniGMP
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  RemPdgCom [ENABLED]
+  Refresh Docs [ENABLED]
+  RemPdgComExec [ENABLED]
+  List [ENABLED]
+  Rec [ENABLED]
+  ClearAll [ENABLED]
+  RemPdgCompletion [ENABLED]
+  FORMULA [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

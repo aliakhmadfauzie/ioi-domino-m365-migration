@@ -1,0 +1,266 @@
+{
+  "formCode": "NOTESID",
+  "title": "NOTESID",
+  "description": "",
+  "routeBase": "/it/forms/notesid",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "NOTESID_S2",
+      "sectionName": "Section 1: Requestor",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "REQ_EmailType",
+          "label": "Email Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Internal / External"
+        },
+        {
+          "fieldId": "REQ_Company",
+          "label": "Company",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Company name"
+        },
+        {
+          "fieldId": "REQ_ExistingEmail",
+          "label": "Existing Email",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Existing email (for migration/change requests)"
+        },
+        {
+          "fieldId": "REQ_FullName",
+          "label": "Full Name",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Full name for the Notes account"
+        },
+        {
+          "fieldId": "REQ_EmpNo",
+          "label": "Employee No",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Employee number"
+        },
+        {
+          "fieldId": "REQ_Dept",
+          "label": "Department",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "Assigned department"
+        },
+        {
+          "fieldId": "REQ_Designation",
+          "label": "Designation",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 7,
+          "notes": "Job title"
+        },
+        {
+          "fieldId": "REQ_Extension",
+          "label": "Extension",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "Phone extension"
+        },
+        {
+          "fieldId": "REQ_Type",
+          "label": "Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 9,
+          "options": [],
+          "notes": "Account type (e.g. New, Modify, Terminate)"
+        },
+        {
+          "fieldId": "REQ_HOD",
+          "label": "HOD",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 10,
+          "notes": "Head of Department for approval"
+        },
+        {
+          "fieldId": "REQ_Remark",
+          "label": "Remark",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 11,
+          "notes": "Requestor notes"
+        },
+        {
+          "fieldId": "REQ_Requestor",
+          "label": "Requestor",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 12,
+          "notes": "Person submitting the form"
+        },
+        {
+          "fieldId": "REQ_DateSent",
+          "label": "Date Sent",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 13,
+          "notes": "Auto-populated on submission"
+        }
+      ]
+    },
+    {
+      "sectionId": "NOTESID_S3",
+      "sectionName": "Section 2: HOD Approval",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "HOD_Name",
+          "label": "HOD Name",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "HOD who acted"
+        },
+        {
+          "fieldId": "HOD_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "HOD_Status",
+          "label": "HOD Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 3,
+          "options": [],
+          "notes": "Approved / Rejected"
+        },
+        {
+          "fieldId": "HOD_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "HOD notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "NOTESID_S4",
+      "sectionName": "Section 3: Notes Admin",
+      "displayOrder": 4,
+      "fields": [
+        {
+          "fieldId": "NOTES_PICName",
+          "label": "PIC Name",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Notes Admin who configured"
+        },
+        {
+          "fieldId": "NOTES_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "NOTES_Task",
+          "label": "Task",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Configuration tasks performed"
+        },
+        {
+          "fieldId": "NOTES_InternalID",
+          "label": "Internal ID",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Created internal Notes ID"
+        },
+        {
+          "fieldId": "NOTES_ExternalID",
+          "label": "External ID",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "Created external ID (if applicable)"
+        },
+        {
+          "fieldId": "NOTES_Remark",
+          "label": "Remark",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Notes Admin notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "NOTESID_S5",
+      "sectionName": "Section 4: IT Hardware",
+      "displayOrder": 5,
+      "fields": [
+        {
+          "fieldId": "HW_AccName",
+          "label": "Accepted By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "IT Hardware staff who handled"
+        },
+        {
+          "fieldId": "HW_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "HW_Task",
+          "label": "Task",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Hardware assignment tasks"
+        },
+        {
+          "fieldId": "HW_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 4,
+          "options": [],
+          "notes": "Completed / Rejected"
+        },
+        {
+          "fieldId": "HW_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "IT Hardware notes"
+        }
+      ]
+    }
+  ]
+}

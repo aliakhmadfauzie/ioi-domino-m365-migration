@@ -1,0 +1,54 @@
+N_11 .
+systems?
+C_11
+N_12 .
+How do you rate the level of inter-department 
+services, care and assistance received?
+R_12
+C_12
+G_12
+N_13 .
+How do you rate the appreciation and encouragement 
+accorded to you by your superior?
+R_13
+C_13
+G_13
+N_14 .
+How do you rate the work distribution in your 
+department?
+R_14
+C_14
+G_14
+N_15 .
+How do you rate your overall job satisfaction?
+R_15
+C_15
+G_15
+What is your overall motivation level? 
+R_16
+Years of Service
+ : Service
+Age Group
+ : Age
+Category
+ : Category
+Suggestion/s (for improvement) : Suggestion
+Submitted On : 
+DateSubmitted
+Thank you for your cooperaTion, 
+your feedback is very much appreciaTed.
+all your responses will be kepT 
+“sTricTly confidenTial”
+Hidden Fields :-
+CA
+ : CA
+HR
+ : HR
+IT
+ : IT
+Editor 1
+ : Editor1
+Servers
+ : Servers
+Readers
+ : Readers

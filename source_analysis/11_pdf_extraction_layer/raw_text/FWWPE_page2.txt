@@ -1,0 +1,41 @@
+a. Reason for leaving:
+   Reason
+b. When the worker want to departure: 
+   
+Departure
+c. If the worker want to leave earlier, attached the letter: 
+    (once attached the letter, proceed to hand-over the original 
+letter to HR)
+    attachment
+Remark
+ : ReplyRemark
+Position
+ : Position
+Name
+ : ReplyName
+Date
+ : ReplyDate
+SECTION C - ACCEPTED BY HEAD OF SECTION
+APPROVED REJECTED
+Status
+ : HOSStatus
+Name
+ : HOSName
+Date
+ : HOSDate
+Remark
+ : HOSRemark
+SECTION D - ENDORSED BY HEAD OF DEPARTMENT
+APPROVED REJECTED
+Contract Status
+ : ContStatus
+Status
+ : HODStatus
+Name
+ : HODName
+Date
+ : HODDate
+Remark
+ : HODRemark
+SECTION E - APPROVED BY HUMAN RESOURCES DEPARTMENT
+APPROVED REJECTED

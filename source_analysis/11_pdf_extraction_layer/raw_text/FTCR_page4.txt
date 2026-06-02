@@ -1,0 +1,70 @@
+Notify HOD
+ : NotHOD
+Remarks
+ : Remarks2
+   Updated by 
+UpdName  on 
+UpdDate
+Created by  DocAuthor
+  on CDate
+Hidden Fields
+CurrentAction
+:
+CA
+Editor1
+:
+Editor1
+Section A
+Editor2
+:
+Editor2
+Section B
+Editor3
+:
+Editor3
+Section C
+Editor4
+:
+Editor4
+Section D
+Editor5 - SGM
+:
+Editor5
+Section D
+Editor6 - ED
+:
+Editor6
+Section D
+Editor7
+:
+Editor7
+ED
+:
+ED
+SGM
+:
+SGM
+HR - Exec
+:
+HR_1
+HR - Non Exec
+:
+HR_2
+HR
+:
+HR
+HR Manager
+:
+HRM
+ISG Admin
+:
+IT
+Year List
+:
+YearList
+Servers
+ : 
+Servers
+Readers
+:
+Readers

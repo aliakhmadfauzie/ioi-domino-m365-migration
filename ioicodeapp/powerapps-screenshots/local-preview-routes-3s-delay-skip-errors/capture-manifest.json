@@ -1,0 +1,2112 @@
+[
+  {
+    "index": 0,
+    "route": "/",
+    "url": "http://127.0.0.1:4174/#/",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\000_home.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 1,
+    "route": "/adm",
+    "url": "http://127.0.0.1:4174/#/adm",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\001_adm.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 2,
+    "route": "/adm/forms",
+    "url": "http://127.0.0.1:4174/#/adm/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\002_adm_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 3,
+    "route": "/adm/help",
+    "url": "http://127.0.0.1:4174/#/adm/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\003_adm_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 4,
+    "route": "/adm/settings",
+    "url": "http://127.0.0.1:4174/#/adm/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\004_adm_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 5,
+    "route": "/admin",
+    "url": "http://127.0.0.1:4174/#/admin",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\005_admin.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 6,
+    "route": "/admin/forms",
+    "url": "http://127.0.0.1:4174/#/admin/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\006_admin_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 7,
+    "route": "/admin/workflow",
+    "url": "http://127.0.0.1:4174/#/admin/workflow",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\007_admin_workflow.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 8,
+    "route": "/approvals",
+    "url": "http://127.0.0.1:4174/#/approvals",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\008_approvals.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 9,
+    "route": "/batch-approvals",
+    "url": "http://127.0.0.1:4174/#/batch-approvals",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\009_batch_approvals.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 10,
+    "route": "/bug-admin",
+    "url": "http://127.0.0.1:4174/#/bug-admin",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\010_bug_admin.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 11,
+    "route": "/dashboard",
+    "url": "http://127.0.0.1:4174/#/dashboard",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\011_dashboard.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 12,
+    "route": "/ei",
+    "url": "http://127.0.0.1:4174/#/ei",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\012_ei.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 13,
+    "route": "/ei/forms",
+    "url": "http://127.0.0.1:4174/#/ei/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\013_ei_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 14,
+    "route": "/ei/help",
+    "url": "http://127.0.0.1:4174/#/ei/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\014_ei_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 15,
+    "route": "/ei/ops",
+    "url": "http://127.0.0.1:4174/#/ei/ops",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\015_ei_ops.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 16,
+    "route": "/ei/pbi",
+    "url": "http://127.0.0.1:4174/#/ei/pbi",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\016_ei_pbi.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 17,
+    "route": "/ei/rnd",
+    "url": "http://127.0.0.1:4174/#/ei/rnd",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\017_ei_rnd.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 18,
+    "route": "/ei/settings",
+    "url": "http://127.0.0.1:4174/#/ei/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\018_ei_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 19,
+    "route": "/employee-directory",
+    "url": "http://127.0.0.1:4174/#/employee-directory",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\019_employee_directory.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 20,
+    "route": "/engineering",
+    "url": "http://127.0.0.1:4174/#/engineering",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\020_engineering.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 21,
+    "route": "/engineering/forms",
+    "url": "http://127.0.0.1:4174/#/engineering/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\021_engineering_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 22,
+    "route": "/engineering/help",
+    "url": "http://127.0.0.1:4174/#/engineering/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\022_engineering_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 23,
+    "route": "/engineering/settings",
+    "url": "http://127.0.0.1:4174/#/engineering/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\023_engineering_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 24,
+    "route": "/field-worker",
+    "url": "http://127.0.0.1:4174/#/field-worker",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\024_field_worker.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 25,
+    "route": "/fin",
+    "url": "http://127.0.0.1:4174/#/fin",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\025_fin.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 26,
+    "route": "/fin/forms",
+    "url": "http://127.0.0.1:4174/#/fin/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\026_fin_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 27,
+    "route": "/fin/help",
+    "url": "http://127.0.0.1:4174/#/fin/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\027_fin_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 28,
+    "route": "/fin/settings",
+    "url": "http://127.0.0.1:4174/#/fin/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\028_fin_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 29,
+    "route": "/governance",
+    "url": "http://127.0.0.1:4174/#/governance",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\029_governance.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 30,
+    "route": "/governance/audit",
+    "url": "http://127.0.0.1:4174/#/governance/audit",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\030_governance_audit.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 31,
+    "route": "/governance/help",
+    "url": "http://127.0.0.1:4174/#/governance/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\031_governance_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 32,
+    "route": "/governance/policies",
+    "url": "http://127.0.0.1:4174/#/governance/policies",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\032_governance_policies.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 33,
+    "route": "/governance/settings",
+    "url": "http://127.0.0.1:4174/#/governance/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\033_governance_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 34,
+    "route": "/help",
+    "url": "http://127.0.0.1:4174/#/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\034_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 35,
+    "route": "/hr",
+    "url": "http://127.0.0.1:4174/#/hr",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\035_hr.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 36,
+    "route": "/hr/additional-hours",
+    "url": "http://127.0.0.1:4174/#/hr/additional-hours",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\036_hr_additional_hours.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 37,
+    "route": "/hr/attachments",
+    "url": "http://127.0.0.1:4174/#/hr/attachments",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\037_hr_attachments.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 38,
+    "route": "/hr/attendance",
+    "url": "http://127.0.0.1:4174/#/hr/attendance",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\038_hr_attendance.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 39,
+    "route": "/hr/backup-staff",
+    "url": "http://127.0.0.1:4174/#/hr/backup-staff",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\039_hr_backup_staff.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 40,
+    "route": "/hr/compliance",
+    "url": "http://127.0.0.1:4174/#/hr/compliance",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\040_hr_compliance.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 41,
+    "route": "/hr/contract-workers",
+    "url": "http://127.0.0.1:4174/#/hr/contract-workers",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\041_hr_contract_workers.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 42,
+    "route": "/hr/directory",
+    "url": "http://127.0.0.1:4174/#/hr/directory",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\042_hr_directory.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 43,
+    "route": "/hr/disciplinary",
+    "url": "http://127.0.0.1:4174/#/hr/disciplinary",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\043_hr_disciplinary.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 44,
+    "route": "/hr/employee-update",
+    "url": "http://127.0.0.1:4174/#/hr/employee-update",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\044_hr_employee_update.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 45,
+    "route": "/hr/exit-tracking",
+    "url": "http://127.0.0.1:4174/#/hr/exit-tracking",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\045_hr_exit_tracking.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 46,
+    "route": "/hr/foreign-workers",
+    "url": "http://127.0.0.1:4174/#/hr/foreign-workers",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\046_hr_foreign_workers.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 47,
+    "route": "/hr/forms",
+    "url": "http://127.0.0.1:4174/#/hr/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\047_hr_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 48,
+    "route": "/hr/gift-donation",
+    "url": "http://127.0.0.1:4174/#/hr/gift-donation",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\048_hr_gift_donation.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 49,
+    "route": "/hr/health",
+    "url": "http://127.0.0.1:4174/#/hr/health",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\049_hr_health.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 50,
+    "route": "/hr/health-record",
+    "url": "http://127.0.0.1:4174/#/hr/health-record",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\050_hr_health_record.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 51,
+    "route": "/hr/help",
+    "url": "http://127.0.0.1:4174/#/hr/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\051_hr_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 52,
+    "route": "/hr/info-centre",
+    "url": "http://127.0.0.1:4174/#/hr/info-centre",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\052_hr_info_centre.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 53,
+    "route": "/hr/internships",
+    "url": "http://127.0.0.1:4174/#/hr/internships",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\053_hr_internships.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 54,
+    "route": "/hr/interview-pipeline",
+    "url": "http://127.0.0.1:4174/#/hr/interview-pipeline",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\054_hr_interview_pipeline.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 55,
+    "route": "/hr/job-descriptions",
+    "url": "http://127.0.0.1:4174/#/hr/job-descriptions",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\055_hr_job_descriptions.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 56,
+    "route": "/hr/late-coming",
+    "url": "http://127.0.0.1:4174/#/hr/late-coming",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\056_hr_late_coming.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 57,
+    "route": "/hr/leave",
+    "url": "http://127.0.0.1:4174/#/hr/leave",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\057_hr_leave.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 58,
+    "route": "/hr/lifecycle",
+    "url": "http://127.0.0.1:4174/#/hr/lifecycle",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\058_hr_lifecycle.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 59,
+    "route": "/hr/manpower-requisition",
+    "url": "http://127.0.0.1:4174/#/hr/manpower-requisition",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\059_hr_manpower_requisition.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 60,
+    "route": "/hr/night-duty",
+    "url": "http://127.0.0.1:4174/#/hr/night-duty",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\060_hr_night_duty.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 61,
+    "route": "/hr/notice-database",
+    "url": "http://127.0.0.1:4174/#/hr/notice-database",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\061_hr_notice_database.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 62,
+    "route": "/hr/org-chart",
+    "url": "http://127.0.0.1:4174/#/hr/org-chart",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\062_hr_org_chart.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 63,
+    "route": "/hr/org-structure",
+    "url": "http://127.0.0.1:4174/#/hr/org-structure",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\063_hr_org_structure.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 64,
+    "route": "/hr/performance",
+    "url": "http://127.0.0.1:4174/#/hr/performance",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\064_hr_performance.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 65,
+    "route": "/hr/problem-reporting",
+    "url": "http://127.0.0.1:4174/#/hr/problem-reporting",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\065_hr_problem_reporting.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 66,
+    "route": "/hr/recruitment",
+    "url": "http://127.0.0.1:4174/#/hr/recruitment",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\066_hr_recruitment.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 67,
+    "route": "/hr/roster",
+    "url": "http://127.0.0.1:4174/#/hr/roster",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\067_hr_roster.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 68,
+    "route": "/hr/settings",
+    "url": "http://127.0.0.1:4174/#/hr/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\068_hr_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 69,
+    "route": "/hr/staff-requisition",
+    "url": "http://127.0.0.1:4174/#/hr/staff-requisition",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\069_hr_staff_requisition.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 70,
+    "route": "/hr/succession",
+    "url": "http://127.0.0.1:4174/#/hr/succession",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\070_hr_succession.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 71,
+    "route": "/hr/surveys",
+    "url": "http://127.0.0.1:4174/#/hr/surveys",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\071_hr_surveys.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 72,
+    "route": "/hr/training",
+    "url": "http://127.0.0.1:4174/#/hr/training",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\072_hr_training.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 73,
+    "route": "/hr/typhoid-database",
+    "url": "http://127.0.0.1:4174/#/hr/typhoid-database",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\073_hr_typhoid_database.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 74,
+    "route": "/hr/uniform-request",
+    "url": "http://127.0.0.1:4174/#/hr/uniform-request",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\074_hr_uniform_request.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 75,
+    "route": "/it",
+    "url": "http://127.0.0.1:4174/#/it",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\075_it.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 76,
+    "route": "/it/access",
+    "url": "http://127.0.0.1:4174/#/it/access",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\076_it_access.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 77,
+    "route": "/it/approver-dashboard",
+    "url": "http://127.0.0.1:4174/#/it/approver-dashboard",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\077_it_approver_dashboard.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 78,
+    "route": "/it/attachments",
+    "url": "http://127.0.0.1:4174/#/it/attachments",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\078_it_attachments.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 79,
+    "route": "/it/disaster",
+    "url": "http://127.0.0.1:4174/#/it/disaster",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\079_it_disaster.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 80,
+    "route": "/it/docs",
+    "url": "http://127.0.0.1:4174/#/it/docs",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\080_it_docs.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 81,
+    "route": "/it/documentation",
+    "url": "http://127.0.0.1:4174/#/it/documentation",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\081_it_documentation.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 82,
+    "route": "/it/forms",
+    "url": "http://127.0.0.1:4174/#/it/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\082_it_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 83,
+    "route": "/it/forms/asset/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/asset/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\083_it_forms_asset_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 84,
+    "route": "/it/forms/dcal",
+    "url": "http://127.0.0.1:4174/#/it/forms/dcal",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\084_it_forms_dcal.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 85,
+    "route": "/it/forms/dcal/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/dcal/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\085_it_forms_dcal_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 86,
+    "route": "/it/forms/drr",
+    "url": "http://127.0.0.1:4174/#/it/forms/drr",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\086_it_forms_drr.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 87,
+    "route": "/it/forms/drr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/drr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\087_it_forms_drr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 88,
+    "route": "/it/forms/eaf/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/eaf/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\088_it_forms_eaf_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 89,
+    "route": "/it/forms/hi/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/hi/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\089_it_forms_hi_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 90,
+    "route": "/it/forms/isgdoc",
+    "url": "http://127.0.0.1:4174/#/it/forms/isgdoc",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\090_it_forms_isgdoc.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 91,
+    "route": "/it/forms/isgdoc/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/isgdoc/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\091_it_forms_isgdoc_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 92,
+    "route": "/it/forms/itdr",
+    "url": "http://127.0.0.1:4174/#/it/forms/itdr",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\092_it_forms_itdr.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 93,
+    "route": "/it/forms/itdr-new/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/itdr-new/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\093_it_forms_itdr_new_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 94,
+    "route": "/it/forms/itdr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/itdr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\094_it_forms_itdr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 95,
+    "route": "/it/forms/itdr2/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/itdr2/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\095_it_forms_itdr2_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 96,
+    "route": "/it/forms/ite",
+    "url": "http://127.0.0.1:4174/#/it/forms/ite",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\096_it_forms_ite.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 97,
+    "route": "/it/forms/ite/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/ite/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\097_it_forms_ite_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 98,
+    "route": "/it/forms/itinfo",
+    "url": "http://127.0.0.1:4174/#/it/forms/itinfo",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\098_it_forms_itinfo.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 99,
+    "route": "/it/forms/itinfo/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/itinfo/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\099_it_forms_itinfo_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 100,
+    "route": "/it/forms/itssr",
+    "url": "http://127.0.0.1:4174/#/it/forms/itssr",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\100_it_forms_itssr.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 101,
+    "route": "/it/forms/itssr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/itssr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\101_it_forms_itssr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 102,
+    "route": "/it/forms/mpsprn/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/mpsprn/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\102_it_forms_mpsprn_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 103,
+    "route": "/it/forms/mrf/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/mrf/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\103_it_forms_mrf_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 104,
+    "route": "/it/forms/new-request",
+    "url": "http://127.0.0.1:4174/#/it/forms/new-request",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\104_it_forms_new_request.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 105,
+    "route": "/it/forms/nir/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/nir/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\105_it_forms_nir_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 106,
+    "route": "/it/forms/prf/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/prf/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\106_it_forms_prf_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 107,
+    "route": "/it/forms/rs/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/rs/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\107_it_forms_rs_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 108,
+    "route": "/it/forms/sapamr",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapamr",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\108_it_forms_sapamr.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 109,
+    "route": "/it/forms/sapamr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapamr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\109_it_forms_sapamr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 110,
+    "route": "/it/forms/sapca/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapca/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\110_it_forms_sapca_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 111,
+    "route": "/it/forms/sapcr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapcr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\111_it_forms_sapcr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 112,
+    "route": "/it/forms/sapdrp",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapdrp",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\112_it_forms_sapdrp.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 113,
+    "route": "/it/forms/sapdrp/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapdrp/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\113_it_forms_sapdrp_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 114,
+    "route": "/it/forms/sapslcf",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapslcf",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\114_it_forms_sapslcf.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 115,
+    "route": "/it/forms/sapslcf/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapslcf/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\115_it_forms_sapslcf_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 116,
+    "route": "/it/forms/sapsof2/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/sapsof2/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\116_it_forms_sapsof2_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 117,
+    "route": "/it/forms/saptr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/saptr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\117_it_forms_saptr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 118,
+    "route": "/it/forms/sfar/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/sfar/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\118_it_forms_sfar_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 119,
+    "route": "/it/forms/srl",
+    "url": "http://127.0.0.1:4174/#/it/forms/srl",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\119_it_forms_srl.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 120,
+    "route": "/it/forms/srl/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/srl/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\120_it_forms_srl_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 121,
+    "route": "/it/forms/srr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/srr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\121_it_forms_srr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 122,
+    "route": "/it/forms/srvr",
+    "url": "http://127.0.0.1:4174/#/it/forms/srvr",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\122_it_forms_srvr.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 123,
+    "route": "/it/forms/srvr/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/srvr/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\123_it_forms_srvr_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 124,
+    "route": "/it/forms/trnman",
+    "url": "http://127.0.0.1:4174/#/it/forms/trnman",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\124_it_forms_trnman.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 125,
+    "route": "/it/forms/trnman/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/trnman/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\125_it_forms_trnman_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 126,
+    "route": "/it/forms/ur/new",
+    "url": "http://127.0.0.1:4174/#/it/forms/ur/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\126_it_forms_ur_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 127,
+    "route": "/it/hardware",
+    "url": "http://127.0.0.1:4174/#/it/hardware",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\127_it_hardware.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 128,
+    "route": "/it/hardware-dashboard",
+    "url": "http://127.0.0.1:4174/#/it/hardware-dashboard",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\128_it_hardware_dashboard.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 129,
+    "route": "/it/help",
+    "url": "http://127.0.0.1:4174/#/it/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\129_it_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 130,
+    "route": "/it/isg",
+    "url": "http://127.0.0.1:4174/#/it/isg",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\130_it_isg.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 131,
+    "route": "/it/sap",
+    "url": "http://127.0.0.1:4174/#/it/sap",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\131_it_sap.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 132,
+    "route": "/it/settings",
+    "url": "http://127.0.0.1:4174/#/it/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\132_it_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 133,
+    "route": "/it/support",
+    "url": "http://127.0.0.1:4174/#/it/support",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\133_it_support.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 134,
+    "route": "/it/support-services",
+    "url": "http://127.0.0.1:4174/#/it/support-services",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\134_it_support_services.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 135,
+    "route": "/it/triage-dashboard",
+    "url": "http://127.0.0.1:4174/#/it/triage-dashboard",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\135_it_triage_dashboard.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 136,
+    "route": "/log",
+    "url": "http://127.0.0.1:4174/#/log",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\136_log.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 137,
+    "route": "/log/forms",
+    "url": "http://127.0.0.1:4174/#/log/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\137_log_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 138,
+    "route": "/log/forms/csd/new",
+    "url": "http://127.0.0.1:4174/#/log/forms/csd/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\138_log_forms_csd_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 139,
+    "route": "/log/forms/ecmfb/new",
+    "url": "http://127.0.0.1:4174/#/log/forms/ecmfb/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\139_log_forms_ecmfb_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 140,
+    "route": "/log/forms/fbn/new",
+    "url": "http://127.0.0.1:4174/#/log/forms/fbn/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\140_log_forms_fbn_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 141,
+    "route": "/log/forms/gtpw/new",
+    "url": "http://127.0.0.1:4174/#/log/forms/gtpw/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\141_log_forms_gtpw_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 142,
+    "route": "/log/forms/pod/new",
+    "url": "http://127.0.0.1:4174/#/log/forms/pod/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\142_log_forms_pod_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 143,
+    "route": "/log/forms/ti/new",
+    "url": "http://127.0.0.1:4174/#/log/forms/ti/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\143_log_forms_ti_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 144,
+    "route": "/log/forms/tmi/new",
+    "url": "http://127.0.0.1:4174/#/log/forms/tmi/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\144_log_forms_tmi_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 145,
+    "route": "/log/help",
+    "url": "http://127.0.0.1:4174/#/log/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\145_log_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 146,
+    "route": "/log/settings",
+    "url": "http://127.0.0.1:4174/#/log/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\146_log_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 147,
+    "route": "/maintenance",
+    "url": "http://127.0.0.1:4174/#/maintenance",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\147_maintenance.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 148,
+    "route": "/maintenance/forms",
+    "url": "http://127.0.0.1:4174/#/maintenance/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\148_maintenance_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 149,
+    "route": "/maintenance/help",
+    "url": "http://127.0.0.1:4174/#/maintenance/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\149_maintenance_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 150,
+    "route": "/maintenance/settings",
+    "url": "http://127.0.0.1:4174/#/maintenance/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\150_maintenance_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 151,
+    "route": "/manager-dashboard",
+    "url": "http://127.0.0.1:4174/#/manager-dashboard",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\151_manager_dashboard.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 152,
+    "route": "/mtr",
+    "url": "http://127.0.0.1:4174/#/mtr",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\152_mtr.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 153,
+    "route": "/mtr/forms",
+    "url": "http://127.0.0.1:4174/#/mtr/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\153_mtr_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 154,
+    "route": "/mtr/help",
+    "url": "http://127.0.0.1:4174/#/mtr/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\154_mtr_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 155,
+    "route": "/mtr/settings",
+    "url": "http://127.0.0.1:4174/#/mtr/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\155_mtr_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 156,
+    "route": "/my-submissions",
+    "url": "http://127.0.0.1:4174/#/my-submissions",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\156_my_submissions.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 157,
+    "route": "/procurement",
+    "url": "http://127.0.0.1:4174/#/procurement",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\157_procurement.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 158,
+    "route": "/procurement/forms",
+    "url": "http://127.0.0.1:4174/#/procurement/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\158_procurement_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 159,
+    "route": "/procurement/help",
+    "url": "http://127.0.0.1:4174/#/procurement/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\159_procurement_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 160,
+    "route": "/procurement/settings",
+    "url": "http://127.0.0.1:4174/#/procurement/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\160_procurement_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 161,
+    "route": "/production",
+    "url": "http://127.0.0.1:4174/#/production",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\161_production.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 162,
+    "route": "/production/forms",
+    "url": "http://127.0.0.1:4174/#/production/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\162_production_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 163,
+    "route": "/production/help",
+    "url": "http://127.0.0.1:4174/#/production/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\163_production_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 164,
+    "route": "/production/settings",
+    "url": "http://127.0.0.1:4174/#/production/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\164_production_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 165,
+    "route": "/qa",
+    "url": "http://127.0.0.1:4174/#/qa",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\165_qa.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 166,
+    "route": "/qa/audits",
+    "url": "http://127.0.0.1:4174/#/qa/audits",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\166_qa_audits.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 167,
+    "route": "/qa/capas",
+    "url": "http://127.0.0.1:4174/#/qa/capas",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\167_qa_capas.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 168,
+    "route": "/qa/defects",
+    "url": "http://127.0.0.1:4174/#/qa/defects",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\168_qa_defects.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 169,
+    "route": "/qa/documents",
+    "url": "http://127.0.0.1:4174/#/qa/documents",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\169_qa_documents.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 170,
+    "route": "/qa/forms",
+    "url": "http://127.0.0.1:4174/#/qa/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\170_qa_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 171,
+    "route": "/qa/help",
+    "url": "http://127.0.0.1:4174/#/qa/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\171_qa_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 172,
+    "route": "/qa/reports",
+    "url": "http://127.0.0.1:4174/#/qa/reports",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\172_qa_reports.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 173,
+    "route": "/qa/settings",
+    "url": "http://127.0.0.1:4174/#/qa/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\173_qa_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 174,
+    "route": "/qa/training",
+    "url": "http://127.0.0.1:4174/#/qa/training",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\174_qa_training.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 175,
+    "route": "/qc",
+    "url": "http://127.0.0.1:4174/#/qc",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\175_qc.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 176,
+    "route": "/qc/forms",
+    "url": "http://127.0.0.1:4174/#/qc/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\176_qc_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 177,
+    "route": "/qc/help",
+    "url": "http://127.0.0.1:4174/#/qc/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\177_qc_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 178,
+    "route": "/qc/settings",
+    "url": "http://127.0.0.1:4174/#/qc/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\178_qc_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 179,
+    "route": "/quick-submit",
+    "url": "http://127.0.0.1:4174/#/quick-submit",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\179_quick_submit.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 180,
+    "route": "/sales",
+    "url": "http://127.0.0.1:4174/#/sales",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\180_sales.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 181,
+    "route": "/sales/forms",
+    "url": "http://127.0.0.1:4174/#/sales/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\181_sales_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 182,
+    "route": "/sales/help",
+    "url": "http://127.0.0.1:4174/#/sales/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\182_sales_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 183,
+    "route": "/sales/settings",
+    "url": "http://127.0.0.1:4174/#/sales/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\183_sales_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 184,
+    "route": "/security",
+    "url": "http://127.0.0.1:4174/#/security",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\184_security.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 185,
+    "route": "/security/forms",
+    "url": "http://127.0.0.1:4174/#/security/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\185_security_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 186,
+    "route": "/security/help",
+    "url": "http://127.0.0.1:4174/#/security/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\186_security_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 187,
+    "route": "/security/settings",
+    "url": "http://127.0.0.1:4174/#/security/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\187_security_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 188,
+    "route": "/settings",
+    "url": "http://127.0.0.1:4174/#/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\188_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 189,
+    "route": "/she",
+    "url": "http://127.0.0.1:4174/#/she",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\189_she.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 190,
+    "route": "/she/forms",
+    "url": "http://127.0.0.1:4174/#/she/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\190_she_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 191,
+    "route": "/she/help",
+    "url": "http://127.0.0.1:4174/#/she/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\191_she_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 192,
+    "route": "/she/settings",
+    "url": "http://127.0.0.1:4174/#/she/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\192_she_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 193,
+    "route": "/str",
+    "url": "http://127.0.0.1:4174/#/str",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\193_str.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 194,
+    "route": "/str/compliance",
+    "url": "http://127.0.0.1:4174/#/str/compliance",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\194_str_compliance.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 195,
+    "route": "/str/disposal",
+    "url": "http://127.0.0.1:4174/#/str/disposal",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\195_str_disposal.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 196,
+    "route": "/str/help",
+    "url": "http://127.0.0.1:4174/#/str/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\196_str_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 197,
+    "route": "/str/mrf/new",
+    "url": "http://127.0.0.1:4174/#/str/mrf/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\197_str_mrf_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 198,
+    "route": "/str/new",
+    "url": "http://127.0.0.1:4174/#/str/new",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\198_str_new.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 199,
+    "route": "/str/operations",
+    "url": "http://127.0.0.1:4174/#/str/operations",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\199_str_operations.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 200,
+    "route": "/str/procurement",
+    "url": "http://127.0.0.1:4174/#/str/procurement",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\200_str_procurement.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 201,
+    "route": "/str/requisition",
+    "url": "http://127.0.0.1:4174/#/str/requisition",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\201_str_requisition.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 202,
+    "route": "/str/settings",
+    "url": "http://127.0.0.1:4174/#/str/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\202_str_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 203,
+    "route": "/training",
+    "url": "http://127.0.0.1:4174/#/training",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\203_training.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 204,
+    "route": "/training/forms",
+    "url": "http://127.0.0.1:4174/#/training/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\204_training_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 205,
+    "route": "/training/help",
+    "url": "http://127.0.0.1:4174/#/training/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\205_training_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 206,
+    "route": "/training/settings",
+    "url": "http://127.0.0.1:4174/#/training/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\206_training_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 207,
+    "route": "/warehouse",
+    "url": "http://127.0.0.1:4174/#/warehouse",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\207_warehouse.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 208,
+    "route": "/warehouse/forms",
+    "url": "http://127.0.0.1:4174/#/warehouse/forms",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\208_warehouse_forms.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 209,
+    "route": "/warehouse/help",
+    "url": "http://127.0.0.1:4174/#/warehouse/help",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\209_warehouse_help.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  },
+  {
+    "index": 210,
+    "route": "/warehouse/settings",
+    "url": "http://127.0.0.1:4174/#/warehouse/settings",
+    "file": "C:\\Users\\AL_AAF\\OneDrive\\Documents\\IOI HCL Migration Projects\\powerapps-screenshots\\local-preview-routes-3s-delay-skip-errors\\210_warehouse_settings.png",
+    "delayMs": 3000,
+    "saved": false,
+    "skipped": true,
+    "reason": "screenshot failed exit=13"
+  }
+]

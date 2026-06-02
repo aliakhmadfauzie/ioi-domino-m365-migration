@@ -1,0 +1,13 @@
+{
+  "name": "IOI SharePoint Integration Audit",
+  "repoRoot": "C:\\Users\\AL_AAF\\Project\\ioi_Docs",
+  "model": "gpt-4.1",
+  "promptFile": "prompt.md",
+  "sourcesFile": "sources.json",
+  "outputDirectory": "outputs",
+  "logDirectory": "logs",
+  "maxSourceBytes": 350000,
+  "maxBytesPerFile": 30000,
+  "requireManualApprovalForChanges": true,
+  "outputFormat": "markdown"
+}

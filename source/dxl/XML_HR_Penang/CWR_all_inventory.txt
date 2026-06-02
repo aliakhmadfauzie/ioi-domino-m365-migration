@@ -1,0 +1,62 @@
+DATABASE : Contract Worker Requisition Form
+PATH     : Current\CWRF.nsf
+DATE     : 28/05/2026 10:38:11 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Reminder
+  Form
+  HeadCount
+  Agreement
+  JobDescription
+  Form2
+  Current
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  RemPdgAck [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear [ENABLED]
+  RemPdgHOD [ENABLED]
+  RemPdgHR [ENABLED]
+  RemPdgHRHOD [ENABLED]
+  FORMULA [ENABLED]
+  RemPdgHODiv [ENABLED]
+  SET [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=Marlina/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  CN=Ravindran/OU=PMS/O=PHB | Editor | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - CopyTo
+  - rTxtDocLink
+  - INO
+  - DateSent
+  - SendTo
+  - Subject
+

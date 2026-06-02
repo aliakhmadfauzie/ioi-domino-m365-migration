@@ -1,0 +1,48 @@
+IOI OLEOCHEMICAL INDUSTRIES 
+BERHAD
+ Backup Staff Database 
+SECTION A - PERSON IN CHARGE (TO BE FILLED BY HOD/HOS)
+Division
+ : 
+Division
+Department
+ : 
+Dept
+Section
+ : 
+Section
+Name
+ : 
+PIC
+Employee No.
+ : 
+EmpNo
+Position
+ : 
+Position
+Area of Responsibility
+ : 
+Responsibility
+Department/Division Head  : 
+HOD
+SECTION B - BACKUP STAFF
+BACKUP STAFF 1
+Name
+ : 
+PIC_1
+Position
+ : 
+Position_1
+Area of Responsibility
+ : 
+Responsibility_1
+BACKUP STAFF 2
+Name
+ : 
+PIC_2
+Position
+ : 
+Position_2
+Area of Responsibility
+ : 
+Responsibility_2

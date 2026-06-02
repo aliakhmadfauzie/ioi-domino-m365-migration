@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-05-22T06:22:09.099Z",
+  "offset": 0,
+  "count": 12,
+  "results": [
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/index.ts",
+      "status": "written",
+      "selected": "File: index.ts",
+      "bytes": 1596,
+      "firstLine": "export * from './use-approval-history-str';",
+      "secondLine": "export * from './use-ops-log-hr';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-app-settings.ts",
+      "status": "written",
+      "selected": "File: use-app-settings.ts",
+      "bytes": 1560,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { AppSettingsService } from \"../services/app-settings-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-hr.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-hr.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryHRService } from \"../services/approval-history-hr-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-qa.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-qa.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-she.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-she.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-str.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-str.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-records.ts",
+      "status": "written",
+      "selected": "File: use-approval-records.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-assignments-str.ts",
+      "status": "written",
+      "selected": "File: use-assignments-str.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-attachment-index-hr.ts",
+      "status": "written",
+      "selected": "File: use-attachment-index-hr.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-attachment-index-str.ts",
+      "status": "written",
+      "selected": "File: use-attachment-index-str.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-audit-log-hr.ts",
+      "status": "written",
+      "selected": "File: use-audit-log-hr.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-audit-logs.ts",
+      "status": "written",
+      "selected": "File: use-audit-logs.ts",
+      "bytes": 1722,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";",
+      "secondLine": "import { ApprovalHistoryQAService } from \"../services/approval-history-qa-service\";"
+    }
+  ]
+}

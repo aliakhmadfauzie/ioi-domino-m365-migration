@@ -1,0 +1,274 @@
+{
+  "formCode": "INTUATSOF",
+  "title": "INTUATSOF",
+  "description": "",
+  "routeBase": "/it/forms/intuatsof",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "INTUATSOF_S2",
+      "sectionName": "IT Functional Header",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "IT_DisplayNum",
+          "label": "Display Number",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Auto-generated (Year-INO-RunningNo)"
+        },
+        {
+          "fieldId": "IT_Client",
+          "label": "Client",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "SAP client"
+        },
+        {
+          "fieldId": "IT_ClientNum",
+          "label": "Client Number",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "SAP client number"
+        },
+        {
+          "fieldId": "IT_Plant",
+          "label": "Plant",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Plant code"
+        },
+        {
+          "fieldId": "IT_ProjectTitle",
+          "label": "Project Title",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Project name"
+        },
+        {
+          "fieldId": "IT_ProjectDesc",
+          "label": "Project Description",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "Brief project description"
+        },
+        {
+          "fieldId": "IT_TRNumber",
+          "label": "TR Number",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Transport Request number"
+        },
+        {
+          "fieldId": "IT_UATAttachment",
+          "label": "UAT Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "UAT documents"
+        },
+        {
+          "fieldId": "IT_KU1-15",
+          "label": "Key Users",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 9,
+          "notes": "Up to 15 Key Users"
+        },
+        {
+          "fieldId": "IT_BPO1-10",
+          "label": "BPOs",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 10,
+          "notes": "Up to 10 BPOs (optional)"
+        },
+        {
+          "fieldId": "IT_CCEmailAdd",
+          "label": "CC Email",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 11,
+          "notes": "CC notification"
+        },
+        {
+          "fieldId": "IT_ITName",
+          "label": "IT Name",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 12,
+          "notes": "IT Functional staff"
+        },
+        {
+          "fieldId": "IT_SubmittedDate",
+          "label": "UAT Submitted Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 13,
+          "notes": "Auto-populated"
+        }
+      ]
+    },
+    {
+      "sectionId": "INTUATSOF_S3",
+      "sectionName": "Key User Sign-Off Sections (×15, Pattern Repeated)",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "KUN_Attach",
+          "label": "KU Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "Test evidence"
+        },
+        {
+          "fieldId": "KUN_Remarks",
+          "label": "KU Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "KU test notes"
+        },
+        {
+          "fieldId": "KUN_Status",
+          "label": "KU Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 3,
+          "options": [],
+          "notes": "Pass / Fail / Conditional"
+        },
+        {
+          "fieldId": "KUN_Name",
+          "label": "KU Name",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Key User who signed"
+        },
+        {
+          "fieldId": "KUN_Date",
+          "label": "KU Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Auto on sign-off"
+        },
+        {
+          "fieldId": "KUN_Lock",
+          "label": "KU Lock",
+          "fieldType": "boolean",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "Locks section after sign-off"
+        }
+      ]
+    },
+    {
+      "sectionId": "INTUATSOF_S4",
+      "sectionName": "BPO Sign-Off Sections (×10, Pattern Repeated)",
+      "displayOrder": 4,
+      "fields": [
+        {
+          "fieldId": "BPON_Remarks",
+          "label": "BPO Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "BPO notes"
+        },
+        {
+          "fieldId": "BPON_Status",
+          "label": "BPO Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 2,
+          "options": [],
+          "notes": "Approved / Rejected"
+        },
+        {
+          "fieldId": "BPON_Name",
+          "label": "BPO Name",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "BPO who signed"
+        },
+        {
+          "fieldId": "BPON_Date",
+          "label": "BPO Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Auto on sign-off"
+        },
+        {
+          "fieldId": "BPON_Lock",
+          "label": "BPO Lock",
+          "fieldType": "boolean",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Locks section after sign-off"
+        }
+      ]
+    },
+    {
+      "sectionId": "INTUATSOF_S9",
+      "sectionName": "Sign-Off Progress Visualization:",
+      "displayOrder": 9,
+      "fields": [
+        {
+          "fieldId": "IT_Client",
+          "label": "IT_Client",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1
+        },
+        {
+          "fieldId": "IT_ProjectTitle",
+          "label": "IT_ProjectTitle",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "IT_KU1",
+          "label": "IT_KU1",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3
+        },
+        {
+          "fieldId": "IT_ITName",
+          "label": "IT_ITName",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4
+        },
+        {
+          "fieldId": "KUN_Status",
+          "label": "KUN_Status",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5
+        },
+        {
+          "fieldId": "BPON_Status",
+          "label": "BPON_Status",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6
+        }
+      ]
+    }
+  ]
+}

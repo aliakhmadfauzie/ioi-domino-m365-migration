@@ -1,0 +1,370 @@
+{
+  "generatedAt": "2026-05-22T06:19:15.817Z",
+  "count": 52,
+  "results": [
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/index.ts",
+      "status": "written",
+      "selected": "File: index.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-app-settings.ts",
+      "status": "written",
+      "selected": "File: use-app-settings.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-hr.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-hr.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-qa.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-qa.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-she.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-she.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-history-str.ts",
+      "status": "written",
+      "selected": "File: use-approval-history-str.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-approval-records.ts",
+      "status": "written",
+      "selected": "File: use-approval-records.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-assignments-str.ts",
+      "status": "written",
+      "selected": "File: use-assignments-str.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-attachment-index-hr.ts",
+      "status": "written",
+      "selected": "File: use-attachment-index-hr.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-attachment-index-str.ts",
+      "status": "written",
+      "selected": "File: use-attachment-index-str.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-audit-log-hr.ts",
+      "status": "written",
+      "selected": "File: use-audit-log-hr.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-audit-logs.ts",
+      "status": "written",
+      "selected": "File: use-audit-logs.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-config-approver-matrix.ts",
+      "status": "written",
+      "selected": "File: use-config-approver-matrix.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-config-companies.ts",
+      "status": "written",
+      "selected": "File: use-config-companies.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-config-departments.ts",
+      "status": "written",
+      "selected": "File: use-config-departments.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-config-employee-directory.ts",
+      "status": "written",
+      "selected": "File: use-config-employee-directory.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-config-global-user-role-assignments.ts",
+      "status": "written",
+      "selected": "File: use-config-global-user-role-assignments.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-config-notes-admin-routing.ts",
+      "status": "written",
+      "selected": "File: use-config-notes-admin-routing.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-hrappraisal-records.ts",
+      "status": "written",
+      "selected": "File: use-hrappraisal-records.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-hrhealth-register.ts",
+      "status": "written",
+      "selected": "File: use-hrhealth-register.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-hrinterview-pipeline.ts",
+      "status": "written",
+      "selected": "File: use-hrinterview-pipeline.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-hrrouting-matrix.ts",
+      "status": "written",
+      "selected": "File: use-hrrouting-matrix.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-issue-and-bug-tracker.ts",
+      "status": "written",
+      "selected": "File: use-issue-and-bug-tracker.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-itforms.ts",
+      "status": "written",
+      "selected": "File: use-itforms.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-itm1rsbanks.ts",
+      "status": "written",
+      "selected": "File: use-itm1rsbanks.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-itm1rssapclient.ts",
+      "status": "written",
+      "selected": "File: use-itm1rssapclient.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-itm1rssystems-list.ts",
+      "status": "written",
+      "selected": "File: use-itm1rssystems-list.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-itm1sfarservers.ts",
+      "status": "written",
+      "selected": "File: use-itm1sfarservers.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-itrouting-matrix.ts",
+      "status": "written",
+      "selected": "File: use-itrouting-matrix.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-line-items-str.ts",
+      "status": "written",
+      "selected": "File: use-line-items-str.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-lookup-targetb1de9795563e48c399a31430234dc6e2.ts",
+      "status": "written",
+      "selected": "File: use-lookup-targetb1de9795563e48c399a31430234dc6e2.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbfin.ts",
+      "status": "written",
+      "selected": "File: use-main-dbfin.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbhr.ts",
+      "status": "written",
+      "selected": "File: use-main-dbhr.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbit.ts",
+      "status": "written",
+      "selected": "File: use-main-dbit.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbitext-access.ts",
+      "status": "written",
+      "selected": "File: use-main-dbitext-access.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbitext-assets.ts",
+      "status": "written",
+      "selected": "File: use-main-dbitext-assets.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbitext-sap.ts",
+      "status": "written",
+      "selected": "File: use-main-dbitext-sap.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbitext-support.ts",
+      "status": "written",
+      "selected": "File: use-main-dbitext-support.ts",
+      "bytes": 61,
+      "firstLine": "export { InMemoryDataBanner } from './in-memory-data-banner';"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbprd.ts",
+      "status": "written",
+      "selected": "File: use-main-dbprd.ts",
+      "bytes": 2279,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbqa.ts",
+      "status": "written",
+      "selected": "File: use-main-dbqa.ts",
+      "bytes": 1837,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbshe.ts",
+      "status": "written",
+      "selected": "File: use-main-dbshe.ts",
+      "bytes": 1699,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-main-dbstr.ts",
+      "status": "written",
+      "selected": "File: use-main-dbstr.ts",
+      "bytes": 2192,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-ops-log-hr.ts",
+      "status": "written",
+      "selected": "File: use-ops-log-hr.ts",
+      "bytes": 1506,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-policies.ts",
+      "status": "written",
+      "selected": "File: use-policies.ts",
+      "bytes": 1640,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-qaaction-items.ts",
+      "status": "written",
+      "selected": "File: use-qaaction-items.ts",
+      "bytes": 1586,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-qahaccpreview-record.ts",
+      "status": "written",
+      "selected": "File: use-qahaccpreview-record.ts",
+      "bytes": 1685,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-qasub-action-items.ts",
+      "status": "written",
+      "selected": "File: use-qasub-action-items.ts",
+      "bytes": 1657,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-route-permissions.ts",
+      "status": "written",
+      "selected": "File: use-route-permissions.ts",
+      "bytes": 1661,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-user-profiles.ts",
+      "status": "written",
+      "selected": "File: use-user-profiles.ts",
+      "bytes": 1598,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-user-roles-it.ts",
+      "status": "written",
+      "selected": "File: use-user-roles-it.ts",
+      "bytes": 1636,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-user-roles.ts",
+      "status": "written",
+      "selected": "File: use-user-roles.ts",
+      "bytes": 1555,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    },
+    {
+      "path": "apps/ioi-platform/src/generated/hooks/use-workflow-audit-log.ts",
+      "status": "written",
+      "selected": "File: use-workflow-audit-log.ts",
+      "bytes": 1682,
+      "firstLine": "import { useQuery, useMutation, useQueryClient } from \"@tanstack/react-query\";"
+    }
+  ]
+}

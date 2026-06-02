@@ -1,0 +1,36 @@
+Attachment
+(include credit insurance, customer audited 
+report, write up, customer form and etc)
+ : Attachment
+Remark
+ : Remark
+SectionTitle
+Approve Deny
+Name
+ : GMName
+Date
+ : GMDate
+Remark
+ : GMRem
+App1
+Finance Review
+Approve Deny
+Name
+ : FMName
+Date
+ : FMDate
+Conversion Rate
+ : CRate
+Remark
+ : FMRem
+Attachment
+ : FMAtt
+App2
+Approved by Senior Financial Controller
+Approve Deny
+Name
+ : FCName
+Date
+ : FCDate
+Remark
+ : FCRem

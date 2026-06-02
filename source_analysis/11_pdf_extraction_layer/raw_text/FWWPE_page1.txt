@@ -1,0 +1,41 @@
+Foreign Worker Work Period Ex
+Issue No : IssueNo
+SECTION A - ISSUED BY HR PERSONNEL
+Superior
+ : SendTo
+Head of Section (Optional)
+ : HOS
+Head of Department
+ : HOD
+CC
+ : CC
+Company
+ : Company
+Name
+ : Name
+Employee No.
+ : EmpNo
+Passport No.
+ : PassportNo
+Department
+ : Department
+Section
+ : Section
+Work Permit Expiry Date
+ : 
+WPExpDate
+Contract Period
+ : 
+DateF
+ TO 
+DateT
+Contract Year
+ : Year  Year
+Requested by : DocAuthor  on DateIssued  
+SECTION B - REPLY BY SUPERIOR
+Superior should reply within 5 working days.
+CLICK TO REPLY
+Status
+ : Status
+Please check with your respective Nepalese worker before 
+proceed to click “Continue” or “Not to Continue".

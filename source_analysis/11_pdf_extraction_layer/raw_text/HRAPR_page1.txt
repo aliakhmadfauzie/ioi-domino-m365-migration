@@ -1,0 +1,50 @@
+HR APPLICATIONS PROBLEM 
+REPORTING
+Sent Date
+ : DateCreated
+Case No.
+ : DisplayCaseNo
+To GHR Personnel
+ : SendTo
+Requestor's Section :-
+Company
+ : companyname
+Reported By
+ : ReportedBy
+Department
+ : 
+Dept
+Employee No.
+ : EmpNo
+Section
+ : Section
+Extension No.
+ : ExtNo
+System 
+ : System
+Modules
+ : Module
+Modules
+ : Module2
+Problem Description
+ : ProblemDesc
+Attachment
+ : Attach
+CC
+ : CC
+ Title
+Carried out by
+ : ISGName
+Solution
+ : Solution
+Case Status
+ : CaseStatus
+Date Started
+ : 
+StartDate
+Date Completed
+ : DateClosed
+Description/Remarks
+ : ISGRemarks
+Attachment
+ : Attachment2

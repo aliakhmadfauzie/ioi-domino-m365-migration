@@ -1,0 +1,30 @@
+Module,FormCode,DominoForm,Site,SchemaFile,PageDir,HasList,HasNew,HasDetail,HasIDRoute,CRUDScore,DominoFields,Workflow,Priority,Notes
+M1,EAF,vpnaccess,"Penang,Johor",EAF.json,eaf/,true,true,true,true,4/4,21,Yes,P0,Pilot form — complete
+M1,NIR,ID Request,"Penang,Johor",NOTESID.json,nir/,true,true,true,true,4/4,27,Yes,P1,Full CRUD — needs schema review
+M1,RS,changepwd,"Penang,Johor",PWDRESET.json,rs/,true,true,true,true,4/4,21,Yes,P2,✅ Detail page created
+M1,SFAR,Form,"Penang,Johor",SFAR.json,sfar/,true,true,true,true,4/4,26,Yes,P1,✅ Detail page created
+M1,UR,UserID,"Penang,Johor",USERID.json,ur/,true,true,true,true,4/4,~20,No,P2,✅ Detail page created
+M2,ITSSR,Reminder,"Penang,Johor",ITSSR.json,itssr/,true,true,true,true,4/4,23,Yes,P0,Pilot form — complete
+M2,PRF,Reminder,"Penang,Johor",PRF.json,prf/,true,true,true,true,4/4,23,Yes,P1,Full CRUD — needs schema review
+M2,ITDR,Plan,"Penang,Johor",ITDAILYRPT.json,itdr/,true,true,false,false,2/4,3,No,P3,Missing detail page — small form
+M2,ITDR2,PlanV2,"Penang,Johor",ITDR2.json,itdr2/,false,true,false,false,1/4,3,No,P3,No list view — new only
+M3,HI,newhware,"Penang,Johor",HI.json,hi/,true,true,true,true,4/4,58,No,P0,Pilot form — [id] just created
+M3,ITSC,AllServerMonitor,"Penang,Johor",ITSC.json,itsc/,true,true,true,true,4/4,27,No,P2,Full CRUD — needs schema review
+M3,IAL,DataRestorationV1,"Penang,Johor",SVRREBOOT.json,SVRREC.json,srvr/,true,true,true,true,4/4,16,Yes,P2,Has srvr page with full CRUD
+M4,SAPCR,ChangeForm,"Penang,Johor",SAPCR.json,sapcr/,true,true,true,true,4/4,54,Yes,P1,✅ Detail page created — complex form
+M4,SAPAMR,SAPAutMatReview,"Penang,Johor",SAPAMR.json,sapamr/,true,true,true,true,4/4,26,Yes,P2,✅ Detail page created
+M4,SAPCA,ConfigForm,"Penang,Johor",SAPCA.json,sapca/,true,true,true,true,4/4,16,Yes,P2,✅ Detail page created (sample data)
+M4,SAPSLCF,"New Storage Location","Penang,Johor",SAPSLCF.json,sapslcf/,true,true,false,false,2/4,11,No,P3,Missing detail page
+M4,SAPTR,TRForm,"Penang,Johor",SAPTR.json,saptr/,true,true,true,true,4/4,34,No,P2,✅ Detail page created (sample data)
+M4,SAPSOF,SignOffForm-Ori,"Penang,Johor",SILOUATSOF.json,INTUATSOF.json,sapsof2/,true,true,true,true,4/4,385,Yes,P1,✅ Detail page created — complex with child tables
+M5,IOIP,PolicyEntry,"Penang,Johor",IOIPOL.json,ioip/,true,true,true,true,4/4,10,No,P2,Full CRUD
+M5,ITI,ISGInfo,"Penang,Johor",ITINFO.json,itinfo/,true,true,false,false,2/4,3,Yes,P3,Missing detail page — tiny
+M5,ITP,isgdoc,"Penang,Johor",ISGDOC.json,isgdoc/,true,true,false,false,2/4,10,No,P3,Missing detail page
+M6,SAPDRP,SAP_DR Issue,"Penang,Johor",SAPDRP.json,sapdrp/,true,true,false,false,2/4,5,Yes,P3,Missing detail page
+Extra,DCALOG,Unknown,"Unknown",DCALOG.json,dcal/,true,true,false,false,2/4,?,?,P3,Source unknown
+Extra,ITEVT,Unknown,"Unknown",ITEVT.json,ite/,true,true,false,false,2/4,?,?,P3,Source unknown
+Extra,TRNMAN,Training Manual,"Unknown",TRNMAN.json,trnman/,true,true,false,false,2/4,?,?,P3,Source unknown
+Extra,DRR,Unknown,"Unknown",-,drr/,true,true,false,false,2/4,?,?,P3,Source unknown
+Extra,EDL,Unknown,"Unknown",-,edl/,false,true,false,false,1/4,?,?,P3,Source unknown — new only
+Extra,asset-submission,Unknown,"Unknown",-,asset-submission/,false,true,false,false,1/4,?,?,P3,New process — new only
+Extra,sap-inc,Unknown,"Unknown",-,sap-inc/,false,true,false,false,1/4,?,?,P3,May overlap SAPCR

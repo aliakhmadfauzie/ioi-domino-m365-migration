@@ -1,0 +1,1952 @@
+﻿{
+    "forms":  {
+                  "SAPCR":  {
+                                "fields":  [
+                                               {
+                                                   "label":  "Change Request No",
+                                                   "name":  "ChgReqNo",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Project phase",
+                                                   "name":  "ProjectPhase",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Plant",
+                                                   "name":  "All Division",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "System",
+                                                   "name":  "System",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Module",
+                                                   "name":  "btnAppArea",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "(Specify for others",
+                                                   "name":  "txtOthers )",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "(Specify for others",
+                                                   "name":  "txtOthers_Purpose )",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Level of Priority",
+                                                   "name":  "dlPriority",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Description",
+                                                   "name":  "txtProposedChange",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Attachment",
+                                                   "name":  "Att_C",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "REPORTED BY",
+                                                   "name":  "REPORTED BY",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Name",
+                                                   "name":  "nmReportedBy",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Date",
+                                                   "name":  "dtReportedBy",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "CC (Main/Backup person)",
+                                                   "name":  "CCNameList",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Require changes in standard",
+                                                   "name":  "Require changes in standard",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "SAP",
+                                                   "name":  "SAPChange",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               }
+                                           ],
+                                "title":  "SAP \u0026 WB CHANGE REQUEST"
+                            },
+                  "ITDR":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "\u003c\u003c \u003e\u003e",
+                                                  "name":  "\u003c\u003c \u003e\u003e",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "IT Daily Report"
+                           },
+                  "ITP":  {
+                              "fields":  [
+                                             {
+                                                 "label":  "DOCUMENTATION",
+                                                 "name":  "DOCUMENTATION",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Document type",
+                                                 "name":  "type",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Document title",
+                                                 "name":  "doctitle",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Version no.",
+                                                 "name":  "verno",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Date last updated",
+                                                 "name":  "datelast",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Revision no.",
+                                                 "name":  "revision",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Allow Editing by",
+                                                 "name":  "Owner",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Attachment",
+                                                 "name":  "att",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Applicable To",
+                                                 "name":  "ApplicableTo",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Comment / Instruction",
+                                                 "name":  "-",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Comments (edit control)",
+                                                 "name":  "Comments (edit control)",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             }
+                                         ],
+                              "title":  "ISG Documentation"
+                          },
+                  "IAL4":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "Site",
+                                                  "name":  "rbSite",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Server Name",
+                                                  "name":  "lstServerName",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Record type",
+                                                  "name":  "lstRecType",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "rbMode",
+                                                  "name":  "rbMode",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Date",
+                                                  "name":  "dtFrom to dtTo",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Time",
+                                                  "name":  "tmFrom to tmTo",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Overview",
+                                                  "name":  "Summary",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Background",
+                                                  "name":  "Background",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "txtBackground",
+                                                  "name":  "txtBackground",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Analysis",
+                                                  "name":  "Analysis",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "txtAnalysis",
+                                                  "name":  "txtAnalysis",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Root Cause Description",
+                                                  "name":  "Root Cause Description",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "txtRootCause",
+                                                  "name":  "txtRootCause",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "SERVER RECORDS"
+                           },
+                  "IAL2":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "Site",
+                                                  "name":  "rbSite",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Server Room",
+                                                  "name":  "lstServerRoom",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Date",
+                                                  "name":  "Date",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "dtCreatedAccess",
+                                                  "name":  "dtCreatedAccess",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Time",
+                                                  "name":  "Time",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "dtTimeIN",
+                                                  "name":  "dtTimeIN",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Visitor\u0027s Name",
+                                                  "name":  "nmVisitor",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Company",
+                                                  "name":  "lstCompany",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Reason",
+                                                  "name":  "txtReasonAccess",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Attended by",
+                                                  "name":  "nmPIC",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "DATA CENTER ACCESS LOG"
+                           },
+                  "UR":  {
+                             "fields":  [
+                                            {
+                                                "label":  "INDUSTRIES BHD.",
+                                                "name":  "INDUSTRIES BHD.",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "ReqNum",
+                                                "name":  "INO",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Request Type",
+                                                "name":  "reqtype",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Employee Full Name",
+                                                "name":  "empname",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "User\u0027s Emp. Number",
+                                                "name":  "EmployeeNum",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Designation",
+                                                "name":  "designation",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Company",
+                                                "name":  "coname",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Division",
+                                                "name":  "division",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Department",
+                                                "name":  "dept",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Phone Extension",
+                                                "name":  "phnum",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Date Created",
+                                                "name":  "datecreated",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Application",
+                                                "name":  "type",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Serial Number in Employee",
+                                                "name":  "Serial Number in Employee",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Card",
+                                                "name":  "Card",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "(last 5 digits)",
+                                                "name":  "(last 5 digits)",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Door Selection",
+                                                "name":  "Door Selection",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Bank",
+                                                "name":  "Bank",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Please state the roles to assign BankDesc",
+                                                "name":  "Please state the roles to assign BankDesc",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "bank for new ID creation!",
+                                                "name":  "bank for new ID creation!",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "or recycle an existing token!",
+                                                "name":  "or recycle an existing token!",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "User\u0027s Email Address",
+                                                "name":  "EmailAddress",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "For new employee please request for Notes ID first before raise",
+                                                "name":  "For new employee please request for Notes ID first before raise",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "UR.",
+                                                "name":  "UR.",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Plant (Dashboard \u0026 Sales",
+                                                "name":  "Plant (Dashboard \u0026 Sales",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Portal)",
+                                                "name":  "Portal)",
+                                                "type":  "text",
+                                                "visible":  true
+                                            },
+                                            {
+                                                "label":  "Plant (SAP/SAC)",
+                                                "name":  "Plant (SAP/SAC)",
+                                                "type":  "text",
+                                                "visible":  true
+                                            }
+                                        ],
+                             "title":  "IOI OLEOCHEMICAL"
+                         },
+                  "SAPSOF2":  {
+                                  "fields":  [
+                                                 {
+                                                     "label":  "DisplayNum",
+                                                     "name":  "DisplayNum",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Client",
+                                                     "name":  "Client",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Client num",
+                                                     "name":  "ClientNum",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Plant",
+                                                     "name":  "Plant",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Project Title",
+                                                     "name":  "ProjectTitle",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Project Description",
+                                                     "name":  "ProjectDesc",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "TR Number",
+                                                     "name":  "TRNumber",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "UAT File Attachment",
+                                                     "name":  "UATAttachment",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Key User(s) 1) KU1 2) KU2 3) KU3 4) KU4 5) KU5 6) KU6 7)",
+                                                     "name":  "Key User(s) 1) KU1 2) KU2 3) KU3 4) KU4 5) KU5 6) KU6 7)",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "KU7 8) KU8 9) KU9 10) KU10 11) KU11 12) KU12 13)",
+                                                     "name":  "KU7 8) KU8 9) KU9 10) KU10 11) KU11 12) KU12 13)",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "KU13 14) KU14 15) KU15",
+                                                     "name":  "KU13 14) KU14 15) KU15",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "BPO(s) 1) BPO1 2) BPO2 3) BPO3 4) BPO4 5) BPO5 6) BPO6",
+                                                     "name":  "BPO(s) 1) BPO1 2) BPO2 3) BPO3 4) BPO4 5) BPO5 6) BPO6",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "7) BPO7 8) BPO8 9) BPO9 10) BPO10",
+                                                     "name":  "7) BPO7 8) BPO8 9) BPO9 10) BPO10",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "CC",
+                                                     "name":  "CCEmailAdd",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Submitted by (IT)",
+                                                     "name":  "ITName",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Date Submitted",
+                                                     "name":  "UATSubmittedDate",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Attachment",
+                                                     "name":  "KU1Attach",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Remarks",
+                                                     "name":  "KU1Rem",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 }
+                                             ],
+                                  "title":  "INTEGRATED UAT - SIGN OFF FOR"
+                              },
+                  "ITDR2":  {
+                                "fields":  [
+                                               {
+                                                   "label":  "year - month",
+                                                   "name":  "year - month",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "title",
+                                                   "name":  "title",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No Task Description",
+                                                   "name":  "No Task Description",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No Task Desc",
+                                                   "name":  "No Task Desc",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_1 Task_1 Desc_1",
+                                                   "name":  "No_1 Task_1 Desc_1",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_2 Task_2 Desc_2",
+                                                   "name":  "No_2 Task_2 Desc_2",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_3 Task_3 Desc_3",
+                                                   "name":  "No_3 Task_3 Desc_3",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_4 Task_4 Desc_4",
+                                                   "name":  "No_4 Task_4 Desc_4",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_5 Task_5 Desc_5",
+                                                   "name":  "No_5 Task_5 Desc_5",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_6 Task_6 Desc_6",
+                                                   "name":  "No_6 Task_6 Desc_6",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_7 Task_7 Desc_7",
+                                                   "name":  "No_7 Task_7 Desc_7",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_8 Task_8 Desc_8",
+                                                   "name":  "No_8 Task_8 Desc_8",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_9 Task_9 Desc_9",
+                                                   "name":  "No_9 Task_9 Desc_9",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "No_10 Task_10 Desc_10",
+                                                   "name":  "No_10 Task_10 Desc_10",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Attachment",
+                                                   "name":  "Attachment",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Created by DocAuthor on CDate",
+                                                   "name":  "Created by DocAuthor on CDate",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               }
+                                           ],
+                                "title":  "Outstanding Tasks"
+                            },
+                  "SAPDRP":  {
+                                 "fields":  [
+                                                {
+                                                    "label":  "IOI Oleochemical Industries Berhad",
+                                                    "name":  "IOI Oleochemical Industries Berhad",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Procedure Entry",
+                                                    "name":  "Procedure Entry",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "TimeCreated",
+                                                    "name":  "TimeCreated",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "TimeModified",
+                                                    "name":  "TimeModified",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Distributed",
+                                                    "name":  "Distributed",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Title*",
+                                                    "name":  "Title*",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Category",
+                                                    "name":  "Categories",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Effective date *",
+                                                    "name":  "Effective date *",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "EffectDate",
+                                                    "name":  "EffectDate",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Revision*",
+                                                    "name":  "Revision*",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Department*",
+                                                    "name":  "Department*",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Team*",
+                                                    "name":  "Team*",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Team Leader of",
+                                                    "name":  "selection1",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Head of Department*",
+                                                    "name":  "Head of Department*",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "DRP Procedures (you may attach documents too)",
+                                                    "name":  "DRP Procedures (you may attach documents too)",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Body",
+                                                    "name":  "Body",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Comments",
+                                                    "name":  "Comments",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "INITIATOR",
+                                                    "name":  "INITIATOR",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Verified by",
+                                                    "name":  "VeriBy",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Date Verified",
+                                                    "name":  "dateapp1",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Comments",
+                                                    "name":  "Com1",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Status",
+                                                    "name":  "Status",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "ENDORSER",
+                                                    "name":  "ENDORSER",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Endorsed by",
+                                                    "name":  "EndorseBy",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Date",
+                                                    "name":  "dateapp2",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Comments",
+                                                    "name":  "Com2",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Status",
+                                                    "name":  "Status",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                }
+                                            ],
+                                 "title":  "Section A"
+                             },
+                  "IAL5":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "INO",
+                                                  "name":  "INO",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Site",
+                                                  "name":  "rbSite",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Requested by",
+                                                  "name":  "nmRequestedBy",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Department",
+                                                  "name":  "lstDept",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Media backup date",
+                                                  "name":  "txtMedia",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Server Name",
+                                                  "name":  "lstServerName",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Path",
+                                                  "name":  "txtFilePath",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Folder/File Name",
+                                                  "name":  "txtFileName",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Reason",
+                                                  "name":  "txtReason",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Attachment",
+                                                  "name":  "rtxtAttach",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "CC (within IT)",
+                                                  "name":  "nmCC",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Submitted by",
+                                                  "name":  "nmSubmitted",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Submitted on",
+                                                  "name":  "dtSubmitted",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Media",
+                                                  "name":  "txtMediaName",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Media date",
+                                                  "name":  "dtMediadate",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "DATA RESTORATION REQUEST"
+                           },
+                  "IAL3":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "Event",
+                                                  "name":  "lstEventType",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Event Description",
+                                                  "name":  "txtEventDesc",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Hardware involve",
+                                                  "name":  "txtServer",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Attachment",
+                                                  "name":  "rtxtEventAtt",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Scheduled Date/Time",
+                                                  "name":  "Scheduled Date/Time",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "(From)",
+                                                  "name":  "EvtDate , EvtTime",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Scheduled Date/Time (To)",
+                                                  "name":  "Scheduled Date/Time (To)",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Remarks",
+                                                  "name":  "txtRemarks",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Prepared by",
+                                                  "name":  "nmReqEvent on dtTime",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "IT EVENT"
+                           },
+                  "IAL1":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "Site",
+                                                  "name":  "rbSite",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "rbRebootType",
+                                                  "name":  "rbRebootType",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Server Name",
+                                                  "name":  "lstServerName",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Server Downtime",
+                                                  "name":  "dtDown dtTimeDown",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Server Uptime",
+                                                  "name":  "dtUp dtTimeUp",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Total Down Time",
+                                                  "name":  "TotalDownTime min",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Reason txtReason",
+                                                  "name":  "Reason txtReason",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Remarks/Attachment",
+                                                  "name":  "RebootRemarks",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "SERVER REBOOT LOG"
+                           },
+                  "ITP2":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "TRAINING MANUAL",
+                                                  "name":  "TRAINING MANUAL",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Training",
+                                                  "name":  "Trgtype",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Title",
+                                                  "name":  "TrgTitle",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Version No.",
+                                                  "name":  "Trgverno",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Date Last Updated",
+                                                  "name":  "Trgdatelast",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Revision No.",
+                                                  "name":  "Trgrevision",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Allow Editing By",
+                                                  "name":  "TrgOwner",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Attachment",
+                                                  "name":  "Trgatt",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Applicable To",
+                                                  "name":  "ApplicableTo",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "TrgComments (edit control)",
+                                                  "name":  "TrgComments (edit control)",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "ISG Documentation"
+                           },
+                  "SAPCA":  {
+                                "fields":  [
+                                               {
+                                                   "label":  "Module",
+                                                   "name":  "btnAppArea",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "txtOthers \u003c-- Pls state here for others",
+                                                   "name":  "txtOthers \u003c-- Pls state here for others",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "System ID",
+                                                   "name":  "Client",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Client Num",
+                                                   "name":  "ClientNum",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "CR/Issue Log/SSR/PRF/",
+                                                   "name":  "CR/Issue Log/SSR/PRF/",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "SAP Notes Number",
+                                                   "name":  "RefDoc",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Changes to be done",
+                                                   "name":  "ChangesDone",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Attachment",
+                                                   "name":  "Attachment",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "CC main/backup",
+                                                   "name":  "CC main/backup",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Functional Owner",
+                                                   "name":  "CCFuncOwner",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Requested By",
+                                                   "name":  "Requested By",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Date submitted",
+                                                   "name":  "Date submitted",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Requestor\u0027s Remarks (If Any)",
+                                                   "name":  "-",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Comments",
+                                                   "name":  "ReqComments",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Requestor",
+                                                   "name":  "Requestor",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Date",
+                                                   "name":  "Date",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Withdrawal",
+                                                   "name":  "-",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               }
+                                           ],
+                                "title":  "SAP Config Access"
+                            },
+                  "EAF":  {
+                              "fields":  [
+                                             {
+                                                 "label":  "Company",
+                                                 "name":  "Company",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Requestor",
+                                                 "name":  "req submitted on date1",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "User",
+                                                 "name":  "User",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Application",
+                                                 "name":  "App",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Citrix - https",
+                                                 "name":  "//xenapp.ioioleo.com/",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "System",
+                                                 "name":  "system",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Justification",
+                                                 "name":  "justification",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Head of Dept",
+                                                 "name":  "depthead",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "CC",
+                                                 "name":  "CC",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Status",
+                                                 "name":  "status1",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Accepted by",
+                                                 "name":  "HODNAME",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Accepted Date",
+                                                 "name":  "date2",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Comment",
+                                                 "name":  "comment1",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "DDApp",
+                                                 "name":  "DDApp",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Status",
+                                                 "name":  "status2",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Accepted by",
+                                                 "name":  "DIVNAME",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Accepted Date",
+                                                 "name":  "date3",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Comment",
+                                                 "name":  "comment2",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             }
+                                         ],
+                              "title":  "VPN ACCESS REQUEST"
+                          },
+                  "SFAR":  {
+                               "fields":  [
+                                              {
+                                                  "label":  "Company",
+                                                  "name":  "Company",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*Type of Folder",
+                                                  "name":  "*Type of Folder",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Note",
+                                                  "name":  "New folder ONLY can be created on \u0027",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "ACIDCHEM.COM\\\\FILESVR\u0027.",
+                                                  "name":  "ACIDCHEM.COM\\\\FILESVR\u0027.",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*Server",
+                                                  "name":  "*Server",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*HOD",
+                                                  "name":  "HOD",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "CC",
+                                                  "name":  "CC",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Department",
+                                                  "name":  "Department",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Ext",
+                                                  "name":  "Ext",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*Owner of Folder",
+                                                  "name":  "Owner",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*Request Type",
+                                                  "name":  "AccessType",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*Grant Access To",
+                                                  "name":  "*Grant Access To",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Remove Access To",
+                                                  "name":  "Remove Access To",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Grant Access To",
+                                                  "name":  "Grant Access To",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Remove Access To",
+                                                  "name":  "Remove Access To",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*Folder Name",
+                                                  "name":  "FolderName (Including the folder path)",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "*Permission",
+                                                  "name":  "Permission",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              },
+                                              {
+                                                  "label":  "Justification/Benefits",
+                                                  "name":  "Justification/Benefits",
+                                                  "type":  "text",
+                                                  "visible":  true
+                                              }
+                                          ],
+                               "title":  "\\\\Share Folder Access Request//"
+                           },
+                  "SAPAMR":  {
+                                 "fields":  [
+                                                {
+                                                    "label":  "Module",
+                                                    "name":  "Module",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Plant",
+                                                    "name":  "Plant",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Authorisation Type",
+                                                    "name":  "Authorisation Type",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Attachment",
+                                                    "name":  "AuthAttachment",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Remarks",
+                                                    "name":  "Remarks",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "CC",
+                                                    "name":  "CC",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "To be verified by",
+                                                    "name":  "TBV",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "To be approved by",
+                                                    "name":  "To be approved by",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "BPO/HOD",
+                                                    "name":  "TBA",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Prepared by, Verified by,",
+                                                    "name":  "Prepared by, Verified by,",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Name",
+                                                    "name":  "PreparedBy VerifiedBy",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Date",
+                                                    "name":  "PreparedDate VerifiedDate",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                },
+                                                {
+                                                    "label":  "Comments",
+                                                    "name":  "txtComment1 txtComment2",
+                                                    "type":  "text",
+                                                    "visible":  true
+                                                }
+                                            ],
+                                 "title":  "Rec No: RevFormNum"
+                             },
+                  "ITI":  {
+                              "fields":  [
+                                             {
+                                                 "label":  "To",
+                                                 "name":  "Send",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Info Type",
+                                                 "name":  "InfoType",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Title",
+                                                 "name":  "Subject",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Attachment",
+                                                 "name":  "Attachment",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Remarks",
+                                                 "name":  "ISGRemarks",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Resend",
+                                                 "name":  "Resend",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "HiddenFields",
+                                                 "name":  "-",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Creator",
+                                                 "name":  "Author",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "Date Sent",
+                                                 "name":  "DateSent",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "IT Admin",
+                                                 "name":  "ISAdmin",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             },
+                                             {
+                                                 "label":  "CurrentAction",
+                                                 "name":  "CurrentAction",
+                                                 "type":  "text",
+                                                 "visible":  true
+                                             }
+                                         ],
+                              "title":  "IT INFORMATION"
+                          },
+                  "SAPTR":  {
+                                "fields":  [
+                                               {
+                                                   "label":  "Request Num",
+                                                   "name":  "ReqNum",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Status",
+                                                   "name":  "( FormStatus )",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Module",
+                                                   "name":  "btnAppArea",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "TR Category",
+                                                   "name":  "Category",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Development Type",
+                                                   "name":  "DevCategory",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Phase",
+                                                   "name":  "Phase",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Client",
+                                                   "name":  "Client",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "CR/ SSR/ PRF/ SAP Notes",
+                                                   "name":  "CR/ SSR/ PRF/ SAP Notes",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Number/ UR/ Emp Exit/ AMS",
+                                                   "name":  "Number/ UR/ Emp Exit/ AMS",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Incident",
+                                                   "name":  "Incident",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Transport Number",
+                                                   "name":  "TRNumber",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Dependencies",
+                                                   "name":  "TRDependant",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "SAP Tcode",
+                                                   "name":  "Tcode",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Report Name/Program Name/",
+                                                   "name":  "Report Name/Program Name/",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Fiori Apps",
+                                                   "name":  "RptName",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Changes done",
+                                                   "name":  "ChangesDone",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Remarks",
+                                                   "name":  "Remarks",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Attachment",
+                                                   "name":  "Attachment",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Key User",
+                                                   "name":  "KeyUser",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "CC main/backup Functional",
+                                                   "name":  "CC main/backup Functional",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               },
+                                               {
+                                                   "label":  "Owner",
+                                                   "name":  "CCFuncOwner",
+                                                   "type":  "text",
+                                                   "visible":  true
+                                               }
+                                           ],
+                                "title":  "SAP Transport Request Form"
+                            },
+                  "SAPSLCF":  {
+                                  "fields":  [
+                                                 {
+                                                     "label":  "Requestor",
+                                                     "name":  "Requestor",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Request No",
+                                                     "name":  "txtReqNo",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Requested By",
+                                                     "name":  "txtReqBy from the desk of authorReqBy",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Date Submitted",
+                                                     "name":  "dtSubmittedTimestamp",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Designation",
+                                                     "name":  "txtDesignation",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Department",
+                                                     "name":  "cboDep",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Phone No./Ext.",
+                                                     "name":  "txtPhoneNo",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Head",
+                                                     "name":  "Head",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Plant Code",
+                                                     "name":  "cboProteanSite",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Storage Location Code",
+                                                     "name":  "txtAreaLocNo",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Storage Location",
+                                                     "name":  "* Storage Location",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Description",
+                                                     "name":  "Description",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Extended to Material",
+                                                     "name":  "* Extended to Material",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Code (Eg",
+                                                     "name":  "10000400,",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "13000013)",
+                                                     "name":  "13000013)",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Tank included for",
+                                                     "name":  "* Tank included for",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "adjustment during Ullage",
+                                                     "name":  "adjustment during Ullage",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "StockTake",
+                                                     "name":  "StockTake",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Remarks",
+                                                     "name":  "txtRmk",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Attachment",
+                                                     "name":  "Attach",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "IT Support Staff",
+                                                     "name":  "IT Support Staff",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Plant Code",
+                                                     "name":  "txtProteanSite",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Storage Location Code",
+                                                     "name":  "txtProteanLoc",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "* Storage Location Desc.",
+                                                     "name":  "txtSLocDesc",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Remarks",
+                                                     "name":  "txtRemarks",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Attachment",
+                                                     "name":  "ITAttachment",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Rejected Remarks",
+                                                     "name":  "txtRejRem",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Created By",
+                                                     "name":  "txtCpISGApp",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Date Created",
+                                                     "name":  "dtISGCreatedDate",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 },
+                                                 {
+                                                     "label":  "Extended Status",
+                                                     "name":  "Extended Status",
+                                                     "type":  "text",
+                                                     "visible":  true
+                                                 }
+                                             ],
+                                  "title":  "Storage Location Creation"
+                              }
+              }
+}

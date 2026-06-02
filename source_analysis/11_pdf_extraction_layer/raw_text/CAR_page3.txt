@@ -1,0 +1,37 @@
+Justification
+Attachment
+Attachment
+Reviewer I (HOD)
+ : HOD
+Reviewer II (HOD)
+ : HOD2
+Requested by
+ : Preparedby
+Requested Date
+ : Prepareddate
+Requestor Position
+ : Preparedpost
+To be Verified by Finance
+Finance to verify the Asset Number.
+Verify
+Verified by
+ : VerName
+Date
+ : VerDate
+Remarks
+ : VerRem
+Reviewed By (HOD)
+Approve Deny
+Name
+ : Reviewedby
+Date
+ : Revieweddate
+Position
+ : Reviewedpost
+Remark
+ : Reviewedrem
+App1
+Reviewed By (HOD) II
+Approve Deny
+Name
+ : Reviewedby_1

@@ -1,0 +1,52 @@
+DATABASE : PanCen - Civil & Engineering Contractors Registration
+PATH     : PanCen - Current\ContractorReg.nsf
+DATE     : 28/05/2026 3:19:29 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  CTForm
+  Reminder
+  CTForm2
+  CTFormX
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: RecordOfIssues (not found - may be in template)
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  PendingSHE [ENABLED]
+  App [ENABLED]
+  RemExpDate [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Kobinathan/OU=PanCen/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Qayyim/OU=PanCen/O=PHB | Manager | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject2
+

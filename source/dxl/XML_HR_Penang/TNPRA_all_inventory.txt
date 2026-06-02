@@ -1,0 +1,65 @@
+DATABASE : Typhoid/NPRA Database
+PATH     : Current\TyphoidInjection.nsf
+DATE     : 28/05/2026 3:10:24 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Reminder
+  Form
+  Copy Of Form
+  ReminderHR
+  RemHOD
+  ReminderHOD
+  Reference
+  Form2
+  Guidelines
+  Copy Of Form2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+    - ModDate
+    - ModName
+
+=== AGENTS ===
+  RemExpiry [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear HistoryLog [ENABLED]
+  SET [ENABLED]
+  RemExpired [ENABLED]
+  Formula [ENABLED]
+  RemHOD [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  Oleo Executives | Editor | Person Group
+  HR ACM | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - Body
+  - rTxtDocLink
+  - ExpiryDate
+  - Name
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

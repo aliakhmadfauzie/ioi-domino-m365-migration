@@ -1,0 +1,775 @@
+{
+  "formCode": "PRF",
+  "title": "PRF",
+  "description": "",
+  "routeBase": "/it/forms/prf",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "PRF_S2",
+      "sectionName": "Section 1: Requestor's Section",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "REQ_Requestor",
+          "label": "Requestor",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Person submitting"
+        },
+        {
+          "fieldId": "REQ_NotesOwner",
+          "label": "Notes Owner",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Document owner in Domino (form owner)"
+        },
+        {
+          "fieldId": "REQ_DeptManager",
+          "label": "Approved By (Dept Manager)",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Dept manager for initial approval"
+        },
+        {
+          "fieldId": "REQ_CC",
+          "label": "CC",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "CC notification"
+        },
+        {
+          "fieldId": "REQ_Dept",
+          "label": "Department",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Requestor's department"
+        },
+        {
+          "fieldId": "REQ_ExtNo",
+          "label": "Extension No",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Phone extension"
+        },
+        {
+          "fieldId": "REQ_System",
+          "label": "System",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 7,
+          "options": [],
+          "notes": "System to enhance (SAP, Notes, Web, etc.)"
+        },
+        {
+          "fieldId": "REQ_Type",
+          "label": "Request Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 8,
+          "options": [],
+          "notes": "Enhancement, New Development, Interface, Report"
+        },
+        {
+          "fieldId": "REQ_Site",
+          "label": "Site",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 9,
+          "options": [],
+          "notes": "Site scope"
+        },
+        {
+          "fieldId": "REQ_Module",
+          "label": "Application Title / Module",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 10,
+          "notes": "Module or application name"
+        },
+        {
+          "fieldId": "REQ_Objective",
+          "label": "Objective",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 11,
+          "notes": "Business objective of the request"
+        },
+        {
+          "fieldId": "REQ_Remarks",
+          "label": "Describe Changes",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 12,
+          "notes": "DB design, workflow description"
+        },
+        {
+          "fieldId": "REQ_Implementation",
+          "label": "Apply Changes To",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 13,
+          "notes": "Target environment/process"
+        },
+        {
+          "fieldId": "REQ_GrpName",
+          "label": "Group Name",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 14,
+          "notes": "User group name"
+        },
+        {
+          "fieldId": "REQ_GrpMembers",
+          "label": "Members",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 15,
+          "notes": "Group members"
+        },
+        {
+          "fieldId": "REQ_Validity",
+          "label": "Validity",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 16,
+          "options": [],
+          "notes": "Permanent / Temporary"
+        },
+        {
+          "fieldId": "REQ_ValidTill",
+          "label": "Expiry Date",
+          "fieldType": "date",
+          "required": false,
+          "displayOrder": 17,
+          "notes": "Expiry date if temporary"
+        },
+        {
+          "fieldId": "REQ_Reason",
+          "label": "Justification",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 18,
+          "notes": "Business justification"
+        },
+        {
+          "fieldId": "REQ_Benefits",
+          "label": "Benefits / Cost Saving",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 19,
+          "notes": "Expected benefits"
+        },
+        {
+          "fieldId": "REQ_Att",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 20,
+          "notes": "Supporting documents"
+        },
+        {
+          "fieldId": "REQ_NoOfUsers",
+          "label": "Expected Users",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 21,
+          "notes": "Number of users who will use this"
+        },
+        {
+          "fieldId": "REQ_DateSent",
+          "label": "Date Created",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 22,
+          "notes": "Auto-populated"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S3",
+      "sectionName": "Section 2: IT Approver Update",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "ITAPP_RequiredBy",
+          "label": "Expected Completion Date",
+          "fieldType": "date",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "IT-estimated completion date (optional)"
+        },
+        {
+          "fieldId": "ITAPP_Remark",
+          "label": "Remark",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "IT approver notes"
+        },
+        {
+          "fieldId": "ITAPP_UpdatedBy",
+          "label": "Updated By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "IT approver who reviewed"
+        },
+        {
+          "fieldId": "ITAPP_UpdatedDate",
+          "label": "Updated Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Auto on update"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S4",
+      "sectionName": "Section 3: Div/Dept Head Approval",
+      "displayOrder": 4,
+      "fields": [
+        {
+          "fieldId": "HOD_DeptHead",
+          "label": "Dept Head",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Div/Dept Head who approved"
+        },
+        {
+          "fieldId": "HOD_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 2,
+          "options": [],
+          "notes": "Approved / Rejected"
+        },
+        {
+          "fieldId": "HOD_CC",
+          "label": "CC",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Additional CC"
+        },
+        {
+          "fieldId": "HOD_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "HOD_Comment",
+          "label": "Comments",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "HOD notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S5",
+      "sectionName": "Section 4: Tasks Assignment by IT",
+      "displayOrder": 5,
+      "fields": [
+        {
+          "fieldId": "TASK_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Accepted / Rejected"
+        },
+        {
+          "fieldId": "TASK_ISGAssign",
+          "label": "Assigned To (ISG)",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "IT staff assigned"
+        },
+        {
+          "fieldId": "TASK_CC_ISG",
+          "label": "CC (ISG)",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "ISG CC"
+        },
+        {
+          "fieldId": "TASK_RFC",
+          "label": "Require SAP RFC",
+          "fieldType": "boolean",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Flag: SAP RFC required"
+        },
+        {
+          "fieldId": "TASK_AppBy_ISG",
+          "label": "Approved By (ISG)",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "ISG approver"
+        },
+        {
+          "fieldId": "TASK_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "TASK_Comments",
+          "label": "Comments",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Task assignment notes"
+        },
+        {
+          "fieldId": "TASK_Att",
+          "label": "Tasks Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "Task specification document"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S6",
+      "sectionName": "Section 5: Functional Procedure Submission (SAP)",
+      "displayOrder": 6,
+      "fields": [
+        {
+          "fieldId": "FUNC_Attachment",
+          "label": "Attachment (Compulsory)",
+          "fieldType": "attachment",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Functional specification document (mandatory)"
+        },
+        {
+          "fieldId": "FUNC_Remarks",
+          "label": "Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Functional notes"
+        },
+        {
+          "fieldId": "FUNC_AttachedBy",
+          "label": "Attached By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "IT functional staff"
+        },
+        {
+          "fieldId": "FUNC_DateSubmitted",
+          "label": "Date Submitted",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Auto-populated"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S7",
+      "sectionName": "Section 6: IT Support Use",
+      "displayOrder": 7,
+      "fields": [
+        {
+          "fieldId": "ITS_Reason",
+          "label": "IT Reason",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "IT support notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S8",
+      "sectionName": "Section 7: Assignment to IT SAP/ABAP Developer",
+      "displayOrder": 8,
+      "fields": [
+        {
+          "fieldId": "ABAP_AcceptStatus",
+          "label": "Accept Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Accepted / Rejected"
+        },
+        {
+          "fieldId": "ABAP_AssignedTo",
+          "label": "Assigned To (ABAP)",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "ABAP Developer"
+        },
+        {
+          "fieldId": "ABAP_CC",
+          "label": "ABAP CC",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "ABAP CC"
+        },
+        {
+          "fieldId": "ABAP_Outsource",
+          "label": "Outsource",
+          "fieldType": "boolean",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Whether development is outsourced"
+        },
+        {
+          "fieldId": "ABAP_FuncOwner",
+          "label": "Functional Owner",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Functional owner for ABAP"
+        },
+        {
+          "fieldId": "ABAP_AppBy",
+          "label": "Approved By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "SAP ABAP approver"
+        },
+        {
+          "fieldId": "ABAP_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 7,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "ABAP_Comments",
+          "label": "Comments",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "ABAP assignment notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S9",
+      "sectionName": "Section 8: IT Support Staff Completion",
+      "displayOrder": 9,
+      "fields": [
+        {
+          "fieldId": "STA_NotesType",
+          "label": "Notes Type",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Type of Notes changes made"
+        },
+        {
+          "fieldId": "STA_StartDate",
+          "label": "Start Date",
+          "fieldType": "date",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Development start"
+        },
+        {
+          "fieldId": "STA_ActualCompletion",
+          "label": "Actual Completion Date",
+          "fieldType": "date",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Actual completion date"
+        },
+        {
+          "fieldId": "STA_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 4,
+          "options": [],
+          "notes": "Completed / Testing / On Hold"
+        },
+        {
+          "fieldId": "STA_TestingDate",
+          "label": "Testing Date",
+          "fieldType": "date",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "Date of testing"
+        },
+        {
+          "fieldId": "STA_IEDDate",
+          "label": "IED Date",
+          "fieldType": "date",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "IED deployment date"
+        },
+        {
+          "fieldId": "STA_Comments",
+          "label": "Comments",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Implementation notes"
+        },
+        {
+          "fieldId": "STA_Attachment",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "Implementation evidence"
+        },
+        {
+          "fieldId": "STA_By",
+          "label": "Done By (IT Staff)",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 9,
+          "notes": "IT Staff who completed"
+        },
+        {
+          "fieldId": "STA_ProgName",
+          "label": "Program Name",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 10,
+          "notes": "Developed program name"
+        },
+        {
+          "fieldId": "STA_TableName",
+          "label": "Table Name",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 11,
+          "notes": "Database table used"
+        },
+        {
+          "fieldId": "STA_ViewName",
+          "label": "View Name",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 12,
+          "notes": "View or report name"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S10",
+      "sectionName": "Section 9: Testing/Validation by IT",
+      "displayOrder": 10,
+      "fields": [
+        {
+          "fieldId": "TEST_TestData",
+          "label": "Test Data",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "Test data used"
+        },
+        {
+          "fieldId": "TEST_Validation",
+          "label": "Validation",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Validation results"
+        },
+        {
+          "fieldId": "TEST_ISRemark",
+          "label": "IT Remark",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "IT testing notes"
+        },
+        {
+          "fieldId": "TEST_TestedBy",
+          "label": "Tested By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "IT tester"
+        },
+        {
+          "fieldId": "TEST_TestedOn",
+          "label": "Tested On",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Auto on testing"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S11",
+      "sectionName": "Section 10: IT Functional Completion",
+      "displayOrder": 11,
+      "fields": [
+        {
+          "fieldId": "FUNC2_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Completed / On Hold"
+        },
+        {
+          "fieldId": "FUNC2_Comments",
+          "label": "Comments",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "IT functional completion notes"
+        },
+        {
+          "fieldId": "FUNC2_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "FUNC2_NotifiedBy",
+          "label": "Notified By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "IT functional staff"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S12",
+      "sectionName": "Section 11: Requestor Acceptance",
+      "displayOrder": 12,
+      "fields": [
+        {
+          "fieldId": "ACC_Status",
+          "label": "Rating (1–10)",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "User satisfaction rating 1–10"
+        },
+        {
+          "fieldId": "ACC_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Acceptance notes"
+        },
+        {
+          "fieldId": "ACC_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Auto on acceptance"
+        },
+        {
+          "fieldId": "ACC_ReqAtt",
+          "label": "Requestor Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Requestor sign-off evidence"
+        },
+        {
+          "fieldId": "ACC_RatingCom",
+          "label": "Rating Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "Rating justification"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S13",
+      "sectionName": "Section 12: Testing/Validation by Requestor",
+      "displayOrder": 13,
+      "fields": [
+        {
+          "fieldId": "REQTEST_TestData",
+          "label": "Test Data",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "Requestor test data"
+        },
+        {
+          "fieldId": "REQTEST_Validation",
+          "label": "Validation",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Requestor validation"
+        },
+        {
+          "fieldId": "REQTEST_Remark",
+          "label": "Remark",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Requestor remark"
+        }
+      ]
+    },
+    {
+      "sectionId": "PRF_S14",
+      "sectionName": "Comments by IT (Final)",
+      "displayOrder": 14,
+      "fields": [
+        {
+          "fieldId": "IT_Remark",
+          "label": "IT Remark",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "Final IT closure notes"
+        },
+        {
+          "fieldId": "IT_DateNotify",
+          "label": "Date Notified",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Date IT notified requestor"
+        }
+      ]
+    }
+  ]
+}

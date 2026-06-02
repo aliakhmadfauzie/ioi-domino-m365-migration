@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-05-22T06:15:08.268Z",
+  "count": 10,
+  "results": [
+    {
+      "path": "apps/ioi-platform/src/config/departments.ts",
+      "status": "written",
+      "selected": "File: departments.ts",
+      "bytes": 1617,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/form-constants.ts",
+      "status": "written",
+      "selected": "File: form-constants.ts",
+      "bytes": 958,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/form-dropdown-config.ts",
+      "status": "written",
+      "selected": "File: form-dropdown-config.ts",
+      "bytes": 1754,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/hr-constants.ts",
+      "status": "written",
+      "selected": "File: hr-constants.ts",
+      "bytes": 1298,
+      "firstLine": "// HR Constants - Shared across all HR pages"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/mrf-constants.ts",
+      "status": "written",
+      "selected": "File: mrf-constants.ts",
+      "bytes": 1941,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/qa-forms.ts",
+      "status": "written",
+      "selected": "File: qa-forms.ts",
+      "bytes": 648,
+      "firstLine": "import {"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/roles.ts",
+      "status": "written",
+      "selected": "File: roles.ts",
+      "bytes": 921,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/rs-pic-routing.ts",
+      "status": "written",
+      "selected": "File: rs-pic-routing.ts",
+      "bytes": 1011,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/str-constants.ts",
+      "status": "written",
+      "selected": "File: str-constants.ts",
+      "bytes": 1354,
+      "firstLine": "/**"
+    },
+    {
+      "path": "apps/ioi-platform/src/config/workflow-routing.ts",
+      "status": "written",
+      "selected": "File: workflow-routing.ts",
+      "bytes": 1223,
+      "firstLine": "/**"
+    }
+  ]
+}

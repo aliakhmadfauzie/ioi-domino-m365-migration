@@ -1,0 +1,89 @@
+EMPLOYEE SURVEY 
+FORM
+By Group Human Resources Division
+Instruction : Please rate 1 to 10 based on your opinion or best answer for below 
+statements.
+Legend :
+Poor
+Below Average Above Average
+Good
+Excellent
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+No.
+Motivation Factor
+Rating
+Commen
+ts (if any)
+N_1 .
+How do you rate your Job Security in this company?
+R_1
+C_1
+G_1
+N_2 .
+How do you rate the working facilities in this 
+company?
+R_2
+C_2
+G_2
+N_3 .
+How do you rate the Company’s working system and 
+procedures? 
+R_3
+C_3
+G_3
+N_4 .
+How do you rate the extra–curricular & social 
+activities in this company?
+R_4
+C_4
+G_4
+N_5 .
+How do you rate the information dissemination in the 
+company?
+R_5
+C_5
+G_5
+N_6 .
+How do you rate your career opportunity /career 
+growth in this company?
+R_6
+C_6
+G_6
+N_7 .
+How do you rate the training opportunities and 
+programs provided to you?
+R_7
+C_7
+G_7
+N_8 .
+How do you rate your involvement /participation in 
+decision making at your area of work?
+R_8
+C_8
+G_8
+N_9 .
+How do you rate your working relationship between 
+you and your superior (i.e. mutual respect, 
+cooperation & coaching)? 
+R_9
+C_9
+G_9
+N_10 .
+How do you rate teamwork and the level of 
+cooperativeness among your colleagues in your 
+department?
+R_10
+C_10
+G_10
+How do you rate our current performance appraisal 
+R_11
+G_11

@@ -1,0 +1,1802 @@
+{
+  "generatedAt": "2026-06-02T14:06:53.381Z",
+  "configPath": "C:\\Users\\AL_AAF\\Project\\ioi_Docs\\ioicodeapp\\powerapps-mirror\\apps\\ioi-platform\\power.config.json",
+  "sourceCount": 195,
+  "issueCount": 94,
+  "issues": [
+    {
+      "type": "placeholder-guid",
+      "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+      "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+      "sourceKey": "maindb_it_jhr",
+      "tableName": "00000000-0000-0000-0000-000000000000",
+      "tableNameIsGuid": true
+    },
+    {
+      "type": "placeholder-guid",
+      "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+      "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+      "sourceKey": "maindb_it_ext_policy",
+      "tableName": "00000000-0000-0000-0000-000000000000",
+      "tableNameIsGuid": true
+    },
+    {
+      "type": "non-guid-table-name",
+      "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+      "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+      "sourceKey": "maindb_hr_ext_cwr",
+      "tableName": "MainDB_HR_Ext_CWR",
+      "tableNameIsGuid": false
+    },
+    {
+      "type": "non-guid-table-name",
+      "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+      "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+      "sourceKey": "maindb_hr_ext_bsd",
+      "tableName": "MainDB_HR_Ext_BSD",
+      "tableNameIsGuid": false
+    },
+    {
+      "type": "missing-core-source",
+      "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+      "sourceKey": "maindb_hr_jhr"
+    },
+    {
+      "type": "missing-core-source",
+      "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+      "sourceKey": "maindb_qc"
+    },
+    {
+      "type": "missing-core-source",
+      "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+      "sourceKey": "maindb_qc_jhr"
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_healthregister",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_healthregister",
+          "tableName": "5ce8e0dd-f1e5-4bba-9dbb-76694bb2bbb1",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_healthregister",
+          "tableName": "5ce8e0dd-f1e5-4bba-9dbb-76694bb2bbb1",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::approvalhistory_hr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "approvalhistory_hr",
+          "tableName": "4a701db1-5bb6-4fe5-8ae1-cf02be2111d0",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "approvalhistory_hr",
+          "tableName": "4a701db1-5bb6-4fe5-8ae1-cf02be2111d0",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::opslog_hr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "opslog_hr",
+          "tableName": "f0d6d081-7e2a-4677-ba73-fd7a587f4a34",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "opslog_hr",
+          "tableName": "f0d6d081-7e2a-4677-ba73-fd7a587f4a34",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr",
+          "tableName": "cefc8188-ca5d-41e4-8a88-a912214f5c23",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr",
+          "tableName": "cefc8188-ca5d-41e4-8a88-a912214f5c23",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::attachmentindex_hr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "attachmentindex_hr",
+          "tableName": "a2cb4965-3926-4fc4-8da1-ff9b9d3b247f",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "attachmentindex_hr",
+          "tableName": "a2cb4965-3926-4fc4-8da1-ff9b9d3b247f",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_appraisalrecords",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_appraisalrecords",
+          "tableName": "cccfe308-c544-455d-afba-616be99c2d6f",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_appraisalrecords",
+          "tableName": "cccfe308-c544-455d-afba-616be99c2d6f",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::auditlog_hr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "auditlog_hr",
+          "tableName": "dca4101e-67ea-4815-a4cd-bd06eeb42238",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "auditlog_hr",
+          "tableName": "dca4101e-67ea-4815-a4cd-bd06eeb42238",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::config_globaluserroleassignments",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "config_globaluserroleassignments",
+          "tableName": "f9aab91f-a8f2-440d-860d-b0d502cbcc22",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "config_globaluserroleassignments",
+          "tableName": "f9aab91f-a8f2-440d-860d-b0d502cbcc22",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_routingmatrix",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_routingmatrix",
+          "tableName": "4d176bf6-784b-4ddb-ad3f-5e37545bd5d1",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_routingmatrix",
+          "tableName": "4d176bf6-784b-4ddb-ad3f-5e37545bd5d1",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_interviewpipeline",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_interviewpipeline",
+          "tableName": "184c0a0d-d149-492e-9586-2600ddce98f4",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_interviewpipeline",
+          "tableName": "184c0a0d-d149-492e-9586-2600ddce98f4",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_een",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_een",
+          "tableName": "13ea64b2-575c-42a4-ab50-14b78a5f2458",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_een",
+          "tableName": "13ea64b2-575c-42a4-ab50-14b78a5f2458",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_epdu",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_epdu",
+          "tableName": "c4ba9c20-9cbf-438f-bc53-d667c45e52db",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_epdu",
+          "tableName": "c4ba9c20-9cbf-438f-bc53-d667c45e52db",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_ephr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_ephr",
+          "tableName": "b81829dd-90ae-423b-af06-0df1e7236a22",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_ephr",
+          "tableName": "b81829dd-90ae-423b-af06-0df1e7236a22",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_esf",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_esf",
+          "tableName": "a3694789-9305-45ee-9266-b50d152b236b",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_esf",
+          "tableName": "a3694789-9305-45ee-9266-b50d152b236b",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_ftcr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_ftcr",
+          "tableName": "551fc5a3-8a8d-48a5-8b63-d7fd6adcdc4b",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_ftcr",
+          "tableName": "551fc5a3-8a8d-48a5-8b63-d7fd6adcdc4b",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_fwwpe",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_fwwpe",
+          "tableName": "036f2b53-497f-49be-a260-0b59ed2dca3d",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_fwwpe",
+          "tableName": "036f2b53-497f-49be-a260-0b59ed2dca3d",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_fwwpd",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_fwwpd",
+          "tableName": "b882590e-73f5-4d48-9b2f-6a8f1bac5e9b",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_fwwpd",
+          "tableName": "b882590e-73f5-4d48-9b2f-6a8f1bac5e9b",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_gdsn",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_gdsn",
+          "tableName": "f6f4e86f-1bed-4a8c-b63d-7118f68f89d4",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_gdsn",
+          "tableName": "f6f4e86f-1bed-4a8c-b63d-7118f68f89d4",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_healthinfo",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_healthinfo",
+          "tableName": "37d6ea8c-b8cc-4b85-88f4-3904f220e1b7",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_healthinfo",
+          "tableName": "37d6ea8c-b8cc-4b85-88f4-3904f220e1b7",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::maindb_hr_ext_hrapr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_hrapr",
+          "tableName": "73e50516-bdd7-48fe-9649-9d57acd1106b",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "maindb_hr_ext_hrapr",
+          "tableName": "73e50516-bdd7-48fe-9649-9d57acd1106b",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_fwwpd_hostelrecords",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_fwwpd_hostelrecords",
+          "tableName": "ee584083-f49a-4fd8-98a1-796bc7887916",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_fwwpd_hostelrecords",
+          "tableName": "ee584083-f49a-4fd8-98a1-796bc7887916",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_fwwpd_insurancedeductions",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_fwwpd_insurancedeductions",
+          "tableName": "318e81e8-857e-4f21-b2dd-3926b80cdbae",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_fwwpd_insurancedeductions",
+          "tableName": "318e81e8-857e-4f21-b2dd-3926b80cdbae",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_fwwpd_complianceassets",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_fwwpd_complianceassets",
+          "tableName": "c2dc91b7-891e-4d44-9c64-bc1b07449577",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_fwwpd_complianceassets",
+          "tableName": "c2dc91b7-891e-4d44-9c64-bc1b07449577",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-hr::hr_migrationreminderlog",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_migrationreminderlog",
+          "tableName": "0174fd8f-fc59-4355-bda6-ca5b4f4c609e",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "sourceKey": "hr_migrationreminderlog",
+          "tableName": "0174fd8f-fc59-4355-bda6-ca5b4f4c609e",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::approvalrecords",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "approvalrecords",
+          "tableName": "10498092-de2c-48ca-ab68-5549466fc73f",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "approvalrecords",
+          "tableName": "10498092-de2c-48ca-ab68-5549466fc73f",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::itforms",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "itforms",
+          "tableName": "f338f907-c873-4614-a36a-2d49616b8276",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "3509ce13-98bf-4d83-a0e0-d044f4a67e94",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "itforms",
+          "tableName": "f338f907-c873-4614-a36a-2d49616b8276",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "itforms",
+          "tableName": "f338f907-c873-4614-a36a-2d49616b8276",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::workflowauditlog",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "workflowauditlog",
+          "tableName": "11a51395-0efb-4052-b7e7-7a26b459cdc6",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "workflowauditlog",
+          "tableName": "11a51395-0efb-4052-b7e7-7a26b459cdc6",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::config_employeedirectory",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_employeedirectory",
+          "tableName": "e2228ba4-6743-45ee-bcb5-487fbb9209ca",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_employeedirectory",
+          "tableName": "e2228ba4-6743-45ee-bcb5-487fbb9209ca",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::maindb_it_ext_support",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_support",
+          "tableName": "37a03d3f-7403-4302-97fc-0d816de938ba",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_support",
+          "tableName": "37a03d3f-7403-4302-97fc-0d816de938ba",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::maindb_it_ext_sap",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_sap",
+          "tableName": "b5b40011-cd99-46f9-91c0-bf8d3a7646de",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_sap",
+          "tableName": "b5b40011-cd99-46f9-91c0-bf8d3a7646de",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::user_roles_it",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "user_roles_it",
+          "tableName": "a1c30546-9cf3-48eb-b59f-97f6bb67a917",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "user_roles_it",
+          "tableName": "a1c30546-9cf3-48eb-b59f-97f6bb67a917",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::config_companies",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_companies",
+          "tableName": "923df0d1-bb77-4128-9124-9555b68e882c",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_companies",
+          "tableName": "923df0d1-bb77-4128-9124-9555b68e882c",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::config_departments",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_departments",
+          "tableName": "93e36c64-6dfd-4632-9ca4-2d181ea91e8f",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_departments",
+          "tableName": "93e36c64-6dfd-4632-9ca4-2d181ea91e8f",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::config_notesadminrouting",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_notesadminrouting",
+          "tableName": "00ae4463-142b-482d-b288-d9ab86bdcbba",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_notesadminrouting",
+          "tableName": "00ae4463-142b-482d-b288-d9ab86bdcbba",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::maindb_it_ext_assets",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_assets",
+          "tableName": "be6bfd37-3fc4-4ec5-8791-ac5890d0bf3d",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_assets",
+          "tableName": "be6bfd37-3fc4-4ec5-8791-ac5890d0bf3d",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::it_m1_rs_banks",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_rs_banks",
+          "tableName": "0186c1a4-4365-4da5-9b03-7013ce120620",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_rs_banks",
+          "tableName": "0186c1a4-4365-4da5-9b03-7013ce120620",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::maindb_it_ext_access",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_access",
+          "tableName": "c6bd4df6-b45f-436b-b8d3-0e38dc6049e3",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it_ext_access",
+          "tableName": "c6bd4df6-b45f-436b-b8d3-0e38dc6049e3",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::policies",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "policies",
+          "tableName": "d79a97ea-380f-45e6-ab2f-3b75784228dc",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "policies",
+          "tableName": "d79a97ea-380f-45e6-ab2f-3b75784228dc",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::it_m1_rs_sap_client",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_rs_sap_client",
+          "tableName": "2586a7b6-219a-431e-ae60-08619cd8fb55",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_rs_sap_client",
+          "tableName": "2586a7b6-219a-431e-ae60-08619cd8fb55",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::config_approvermatrix",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_approvermatrix",
+          "tableName": "d21b860b-c9b4-4abd-9f9e-cb4ef758772b",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "config_approvermatrix",
+          "tableName": "d21b860b-c9b4-4abd-9f9e-cb4ef758772b",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::it_m1_rs_systemslist",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_rs_systemslist",
+          "tableName": "c82802d3-a8a2-4525-a844-0b10fcaa2f5a",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_rs_systemslist",
+          "tableName": "c82802d3-a8a2-4525-a844-0b10fcaa2f5a",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::it_m1_sfar_servers",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_sfar_servers",
+          "tableName": "57ca5bf2-fdc6-4ea2-9dc5-10bb7a6e399b",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "it_m1_sfar_servers",
+          "tableName": "57ca5bf2-fdc6-4ea2-9dc5-10bb7a6e399b",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-it::maindb_it",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it",
+          "tableName": "b1de9795-563e-48c3-99a3-1430234dc6e2",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "sourceKey": "maindb_it",
+          "tableName": "b1de9795-563e-48c3-99a3-1430234dc6e2",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-str::approvalhistory_str",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "approvalhistory_str",
+          "tableName": "55098956-2dc5-4895-b7de-d0b285c2d5cc",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "approvalhistory_str",
+          "tableName": "55098956-2dc5-4895-b7de-d0b285c2d5cc",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-str::maindb_str",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "maindb_str",
+          "tableName": "c8fd5e82-fdea-4eca-bf21-6c8b7b76a72f",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "maindb_str",
+          "tableName": "c8fd5e82-fdea-4eca-bf21-6c8b7b76a72f",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-str::assignments_str",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "assignments_str",
+          "tableName": "be7fe637-7e2a-4e23-8c77-21fe5f0c74ca",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "assignments_str",
+          "tableName": "be7fe637-7e2a-4e23-8c77-21fe5f0c74ca",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-str::attachmentindex_str",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "attachmentindex_str",
+          "tableName": "03887d76-c755-4c33-ad75-19a6df8474bb",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "attachmentindex_str",
+          "tableName": "03887d76-c755-4c33-ad75-19a6df8474bb",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-str::lineitems_str",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "lineitems_str",
+          "tableName": "5b468591-f891-411d-b19c-6cee96010c0e",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-str",
+          "sourceKey": "lineitems_str",
+          "tableName": "5b468591-f891-411d-b19c-6cee96010c0e",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::qa_actionitems",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "qa_actionitems",
+          "tableName": "5e44b81c-bb67-408b-9d8e-64758d320b2f",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "qa_actionitems",
+          "tableName": "5e44b81c-bb67-408b-9d8e-64758d320b2f",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa",
+          "tableName": "197e8000-bf83-4d61-b7b8-9b5378897e38",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa",
+          "tableName": "197e8000-bf83-4d61-b7b8-9b5378897e38",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::qa_subactionitems",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "qa_subactionitems",
+          "tableName": "31d5afab-b70a-479d-9ec9-fcda5e39aab2",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "qa_subactionitems",
+          "tableName": "31d5afab-b70a-479d-9ec9-fcda5e39aab2",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::qa_haccp_reviewrecord",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "qa_haccp_reviewrecord",
+          "tableName": "bc879105-4b78-4612-a87e-23823965bb31",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "qa_haccp_reviewrecord",
+          "tableName": "bc879105-4b78-4612-a87e-23823965bb31",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::approvalhistory_qa",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "approvalhistory_qa",
+          "tableName": "b307487e-8d4c-49a7-8ba0-7476d55086dd",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "approvalhistory_qa",
+          "tableName": "b307487e-8d4c-49a7-8ba0-7476d55086dd",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_jhr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_jhr",
+          "tableName": "35500478-d8b9-41fc-b841-7c400d810fdc",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_jhr",
+          "tableName": "35500478-d8b9-41fc-b841-7c400d810fdc",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_ext_ims",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_ims",
+          "tableName": "a88a06e5-5165-4a36-8940-e031ef4d7641",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_ims",
+          "tableName": "a88a06e5-5165-4a36-8940-e031ef4d7641",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_ext_capa",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_capa",
+          "tableName": "0b84b145-045a-4781-97ce-7083714412d7",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_capa",
+          "tableName": "0b84b145-045a-4781-97ce-7083714412d7",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_ext_records",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_records",
+          "tableName": "1d81af47-28b4-48ea-841d-63b4f0d94b52",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_records",
+          "tableName": "1d81af47-28b4-48ea-841d-63b4f0d94b52",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_ext_assessment",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_assessment",
+          "tableName": "ab7ce1fa-3979-4ace-95c5-af616dc6f4dc",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_assessment",
+          "tableName": "ab7ce1fa-3979-4ace-95c5-af616dc6f4dc",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_ext_product",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_product",
+          "tableName": "0db1d018-c3f6-4fcd-9945-6dd2b14bca62",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_product",
+          "tableName": "0db1d018-c3f6-4fcd-9945-6dd2b14bca62",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_ext_halalcert",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_halalcert",
+          "tableName": "69550775-3575-4682-b454-df080650d1c4",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_halalcert",
+          "tableName": "69550775-3575-4682-b454-df080650d1c4",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qa::maindb_qa_ext_changecontrol",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_changecontrol",
+          "tableName": "14f83dcb-0be4-445a-861d-f80e604091f9",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qa",
+          "sourceKey": "maindb_qa_ext_changecontrol",
+          "tableName": "14f83dcb-0be4-445a-861d-f80e604091f9",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qc",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qc",
+          "tableName": "ce3c7931-5ff6-40e2-a182-58c24177fcf5",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qc",
+          "tableName": "ce3c7931-5ff6-40e2-a182-58c24177fcf5",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qc_jhr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qc_jhr",
+          "tableName": "58894dfe-e3b8-4006-a76a-772846a5bd27",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qc_jhr",
+          "tableName": "58894dfe-e3b8-4006-a76a-772846a5bd27",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qc_ext_lab",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qc_ext_lab",
+          "tableName": "15569278-dae0-42b9-84e6-575cfd91f275",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qc_ext_lab",
+          "tableName": "15569278-dae0-42b9-84e6-575cfd91f275",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa",
+          "tableName": "9ff8da38-7c5a-4194-bfc7-40775dcb4ad3",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa",
+          "tableName": "9ff8da38-7c5a-4194-bfc7-40775dcb4ad3",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_jhr",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_jhr",
+          "tableName": "ee1f1b5f-a1b5-4a3d-b836-3b7bd7a8e83d",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_jhr",
+          "tableName": "ee1f1b5f-a1b5-4a3d-b836-3b7bd7a8e83d",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_ext_ims",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_ims",
+          "tableName": "3bc5b495-d4ef-4897-a030-a2935919f507",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_ims",
+          "tableName": "3bc5b495-d4ef-4897-a030-a2935919f507",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_ext_capa",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_capa",
+          "tableName": "4697ee87-c0c7-4e1d-90fe-5e5f72d7ebab",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_capa",
+          "tableName": "4697ee87-c0c7-4e1d-90fe-5e5f72d7ebab",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_ext_records",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_records",
+          "tableName": "8670718a-416b-44d6-87c9-84a8654655a3",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_records",
+          "tableName": "8670718a-416b-44d6-87c9-84a8654655a3",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_ext_assessment",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_assessment",
+          "tableName": "0c419d8e-f8ba-43e4-b5c1-c7ab06118bbb",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_assessment",
+          "tableName": "0c419d8e-f8ba-43e4-b5c1-c7ab06118bbb",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_ext_product",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_product",
+          "tableName": "06d3685f-09b1-4cfd-9300-e8b77d30444a",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_product",
+          "tableName": "06d3685f-09b1-4cfd-9300-e8b77d30444a",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_ext_halalcert",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_halalcert",
+          "tableName": "36ba4f55-a511-4ddd-8b7b-9c214043bc18",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_halalcert",
+          "tableName": "36ba4f55-a511-4ddd-8b7b-9c214043bc18",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::maindb_qa_ext_changecontrol",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_changecontrol",
+          "tableName": "994c3134-64c0-47af-bfc3-ee25c8ebf1e4",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "maindb_qa_ext_changecontrol",
+          "tableName": "994c3134-64c0-47af-bfc3-ee25c8ebf1e4",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-qc::approvalhistory_qc",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "approvalhistory_qc",
+          "tableName": "eb3e1d2b-c118-4db4-ab3f-0decb34148df",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-qc",
+          "sourceKey": "approvalhistory_qc",
+          "tableName": "eb3e1d2b-c118-4db4-ab3f-0decb34148df",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-fin::maindb_fin",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-fin",
+          "sourceKey": "maindb_fin",
+          "tableName": "99208298-febb-4042-9dad-26ee4850867a",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-fin",
+          "sourceKey": "maindb_fin",
+          "tableName": "99208298-febb-4042-9dad-26ee4850867a",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-prd::maindb_prd",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-prd",
+          "sourceKey": "maindb_prd",
+          "tableName": "bb00a39f-21c2-4197-8c8d-558432c24ac3",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-prd",
+          "sourceKey": "maindb_prd",
+          "tableName": "bb00a39f-21c2-4197-8c8d-558432c24ac3",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-log::maindb_log",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-log",
+          "sourceKey": "maindb_log",
+          "tableName": "64f319a6-955f-4b54-89ec-64bc0e793de6",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-log",
+          "sourceKey": "maindb_log",
+          "tableName": "64f319a6-955f-4b54-89ec-64bc0e793de6",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-mtn::maindb_mtn",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-mtn",
+          "sourceKey": "maindb_mtn",
+          "tableName": "ce55bea1-6373-4876-a211-21ce36757889",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-mtn",
+          "sourceKey": "maindb_mtn",
+          "tableName": "ce55bea1-6373-4876-a211-21ce36757889",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-she::maindb_she",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-she",
+          "sourceKey": "maindb_she",
+          "tableName": "2fd47305-157b-480c-9f3d-e5deff019720",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-she",
+          "sourceKey": "maindb_she",
+          "tableName": "2fd47305-157b-480c-9f3d-e5deff019720",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-portal-she::approvalhistory_she",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-she",
+          "sourceKey": "approvalhistory_she",
+          "tableName": "97b6062b-d914-4d9b-8147-d6d98c3ce50c",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-she",
+          "sourceKey": "approvalhistory_she",
+          "tableName": "97b6062b-d914-4d9b-8147-d6d98c3ce50c",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites::issueandbugtracker",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "issueandbugtracker",
+          "tableName": "9e48856d-6f6a-4502-96c2-e91a35d9e0f1",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "issueandbugtracker",
+          "tableName": "9e48856d-6f6a-4502-96c2-e91a35d9e0f1",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites::userroles",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "userroles",
+          "tableName": "bba08102-39d7-456f-abcd-724a2228daa6",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "userroles",
+          "tableName": "bba08102-39d7-456f-abcd-724a2228daa6",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites::appsettings",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "appsettings",
+          "tableName": "f47062b0-8336-43fe-80c5-d7cfdf0ce6f8",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "appsettings",
+          "tableName": "f47062b0-8336-43fe-80c5-d7cfdf0ce6f8",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites::auditlogs",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "auditlogs",
+          "tableName": "5644317e-cee5-411f-a439-15e660941a08",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "auditlogs",
+          "tableName": "5644317e-cee5-411f-a439-15e660941a08",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites::routepermissions",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "routepermissions",
+          "tableName": "f848e4ea-b1b3-4362-a2d0-993027b42ce6",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "routepermissions",
+          "tableName": "f848e4ea-b1b3-4362-a2d0-993027b42ce6",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites::userprofiles",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "userprofiles",
+          "tableName": "1022e739-f951-4a7d-869b-8629704816d3",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/ioi-app_admin_sites",
+          "sourceKey": "userprofiles",
+          "tableName": "1022e739-f951-4a7d-869b-8629704816d3",
+          "tableNameIsGuid": true
+        }
+      ]
+    },
+    {
+      "type": "duplicate-source-key",
+      "key": "https://ioioi.sharepoint.com/sites/maindb_it::it_routingmatrix",
+      "entries": [
+        {
+          "connectionRefId": "3eee79e3-fad2-4e24-84b7-acfa1d075fdb",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/maindb_it",
+          "sourceKey": "it_routingmatrix",
+          "tableName": "9d97e659-a023-4999-bf7d-716b83562a4d",
+          "tableNameIsGuid": true
+        },
+        {
+          "connectionRefId": "7a10b3f0faba44f2a0c864aec3f1d045",
+          "siteUrl": "https://ioioi.sharepoint.com/sites/maindb_it",
+          "sourceKey": "it_routingmatrix",
+          "tableName": "9d97e659-a023-4999-bf7d-716b83562a4d",
+          "tableNameIsGuid": true
+        }
+      ]
+    }
+  ]
+}

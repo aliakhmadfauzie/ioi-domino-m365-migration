@@ -1,0 +1,59 @@
+DATABASE : PanCen - Late Coming Notification
+PATH     : PanCen - Current\LateComing.nsf
+DATE     : 28/05/2026 3:33:19 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  FormLate
+  Reminder
+  FormLateEmp
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  PendingHOD [ENABLED]
+  PendingReply [ENABLED]
+  PendingHR [ENABLED]
+  PendingHRHOD [ENABLED]
+  SET [ENABLED]
+  Refresh Docs [ENABLED]
+  ARCHIVED [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  OtherDomainServers | No Access | Server Group
+  CN=David Koo/OU=PMS/O=PHB | Editor | Person
+  CN=limjl/OU=PMS/O=PHB | Editor | Person
+  CN=Yong Yuen Lai/OU=PanCen/O=PHB | Editor | Person
+  CN=Jamilah/OU=PanCen/O=PHB | Editor | Person
+  CN=Jamilah Saat/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  CN=Tan Kean Hua/OU=PMS/O=PHB | Editor | Person
+  Oleo Local & PanCen | Editor | Person Group
+  CN=Hosea Lim/OU=PMS/O=PHB | Editor | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - NotNum
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

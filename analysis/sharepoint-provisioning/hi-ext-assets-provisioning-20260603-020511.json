@@ -1,0 +1,656 @@
+{
+  "SiteUrl": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+  "ListName": "MainDB_IT_Ext_Assets",
+  "ParentList": "MainDB_IT",
+  "ListStatus": "Existing",
+  "FieldCount": 92,
+  "CreatedFields": 20,
+  "ExistingFields": 72,
+  "BlockedFields": 0,
+  "Fields": [
+    {
+      "Field": "ParentID",
+      "DisplayName": "Parent Record",
+      "ExpectedType": "Lookup",
+      "Status": "Existing",
+      "ExistingType": "Lookup"
+    },
+    {
+      "Field": "ParentFormCode",
+      "DisplayName": "Parent Form Code",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ParentSite",
+      "DisplayName": "Parent Site",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_MachineID",
+      "DisplayName": "HI Machine ID",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_TagNo",
+      "DisplayName": "HI Tag No",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_AssetNo",
+      "DisplayName": "HI Asset No",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_Type",
+      "DisplayName": "HI Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_ComputerName",
+      "DisplayName": "HI Computer Name",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_Company",
+      "DisplayName": "HI Company",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_UsedBy_Email",
+      "DisplayName": "HI Used By Email",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_Location",
+      "DisplayName": "HI Location",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_Department",
+      "DisplayName": "HI Department",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_Site",
+      "DisplayName": "HI Site",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_Building",
+      "DisplayName": "HI Building",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_Floor",
+      "DisplayName": "HI Floor",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_Room",
+      "DisplayName": "HI Room",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_SerialNo",
+      "DisplayName": "HI Serial No",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_Status",
+      "DisplayName": "HI Status",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_Condition",
+      "DisplayName": "HI Condition",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_Specifications",
+      "DisplayName": "HI Specifications",
+      "ExpectedType": "Note",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_Model",
+      "DisplayName": "HI Model",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_CPU",
+      "DisplayName": "HI CPU",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_CPUModel",
+      "DisplayName": "HI CPU Model",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_CPUType",
+      "DisplayName": "HI CPU Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_CPUSerialNo",
+      "DisplayName": "HI CPU Serial No",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_RAM",
+      "DisplayName": "HI RAM",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_RAMSize",
+      "DisplayName": "HI RAM Size",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_RAMType",
+      "DisplayName": "HI RAM Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_HDDSize",
+      "DisplayName": "HI HDD Size",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_HDDType",
+      "DisplayName": "HI HDD Type",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_MonitorModel",
+      "DisplayName": "HI Monitor Model",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_MonitorSize",
+      "DisplayName": "HI Monitor Size",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_MonitorType",
+      "DisplayName": "HI Monitor Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_CDType",
+      "DisplayName": "HI CD Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_VLAN",
+      "DisplayName": "HI VLAN",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_SANStorage",
+      "DisplayName": "HI SAN Storage",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_IPAddress",
+      "DisplayName": "HI IP Address",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_MACAddress",
+      "DisplayName": "HI MAC Address",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_WinVersion",
+      "DisplayName": "HI Windows Version",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_OSVersion",
+      "DisplayName": "HI OS Version",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_WinServicePack",
+      "DisplayName": "HI Windows Service Pack",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_WinKey",
+      "DisplayName": "HI Windows Key",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_OfficeVersion",
+      "DisplayName": "HI Office Version",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_MSOfficeVer",
+      "DisplayName": "HI MS Office Version",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_MSOfficeKey",
+      "DisplayName": "HI MS Office Key",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_MSVersion",
+      "DisplayName": "HI MS Version",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_AntiVirusVersion",
+      "DisplayName": "HI Anti Virus Version",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_NotesVer",
+      "DisplayName": "HI Notes Version",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_NotesVersion",
+      "DisplayName": "HI Notes Version Legacy",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_MSEmail",
+      "DisplayName": "HI MS Email",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_Vendor",
+      "DisplayName": "HI Vendor",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_PONumber",
+      "DisplayName": "HI PO Number",
+      "ExpectedType": "Text",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_PurchaseDate_dt",
+      "DisplayName": "HI Purchase Date",
+      "ExpectedType": "DateTime",
+      "Status": "Existing",
+      "ExistingType": "DateTime"
+    },
+    {
+      "Field": "HI_PurchasePrice",
+      "DisplayName": "HI Purchase Price",
+      "ExpectedType": "Number",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_WarrantyExpiry_dt",
+      "DisplayName": "HI Warranty Expiry",
+      "ExpectedType": "DateTime",
+      "Status": "Created",
+      "ExistingType": ""
+    },
+    {
+      "Field": "HI_LastAuditedDate_dt",
+      "DisplayName": "HI Last Audited Date",
+      "ExpectedType": "DateTime",
+      "Status": "Existing",
+      "ExistingType": "DateTime"
+    },
+    {
+      "Field": "HI_Year",
+      "DisplayName": "HI Year",
+      "ExpectedType": "Number",
+      "Status": "Existing",
+      "ExistingType": "Number"
+    },
+    {
+      "Field": "HI_Month",
+      "DisplayName": "HI Month",
+      "ExpectedType": "Number",
+      "Status": "Existing",
+      "ExistingType": "Number"
+    },
+    {
+      "Field": "HI_InvoiceNo",
+      "DisplayName": "HI Invoice No",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_DRP",
+      "DisplayName": "HI DRP",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Choice"
+    },
+    {
+      "Field": "HI_SentBy",
+      "DisplayName": "HI Sent By",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_ProbFindings",
+      "DisplayName": "HI Problem Findings",
+      "ExpectedType": "Note",
+      "Status": "Existing",
+      "ExistingType": "Note"
+    },
+    {
+      "Field": "HI_Actions",
+      "DisplayName": "HI Actions",
+      "ExpectedType": "Note",
+      "Status": "Existing",
+      "ExistingType": "Note"
+    },
+    {
+      "Field": "HI_PreviousUser",
+      "DisplayName": "HI Previous User",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_CarNo",
+      "DisplayName": "HI Car No",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_FARNo",
+      "DisplayName": "HI FAR No",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_ServerType",
+      "DisplayName": "HI Server Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_AccessType",
+      "DisplayName": "HI Access Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "HI_KeyboardLanguage",
+      "DisplayName": "HI Keyboard Language",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_ChecklistYear",
+      "DisplayName": "ITSC Checklist Year",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_ReviewedBy",
+      "DisplayName": "ITSC Reviewed By",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_ReviewedDate_dt",
+      "DisplayName": "ITSC Reviewed Date",
+      "ExpectedType": "DateTime",
+      "Status": "Existing",
+      "ExistingType": "DateTime"
+    },
+    {
+      "Field": "ITSC_ServerName",
+      "DisplayName": "ITSC Server Name",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_VirusDefDate",
+      "DisplayName": "ITSC Virus Def Date",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "DateTime"
+    },
+    {
+      "Field": "ITSC_CPUUsage",
+      "DisplayName": "ITSC CPU Usage",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_MemoryUsed",
+      "DisplayName": "ITSC Memory Used",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_FullMemory",
+      "DisplayName": "ITSC Full Memory",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_DriveAvailable",
+      "DisplayName": "ITSC Drive Available",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_DriveSize",
+      "DisplayName": "ITSC Drive Size",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_DriveType",
+      "DisplayName": "ITSC Drive Type",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Choice"
+    },
+    {
+      "Field": "ITSC_DiskCleanup",
+      "DisplayName": "ITSC Disk Cleanup",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_WinUpdates",
+      "DisplayName": "ITSC Win Updates",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_Antivirus",
+      "DisplayName": "ITSC Antivirus",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_Physical",
+      "DisplayName": "ITSC Physical",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_Tenant",
+      "DisplayName": "ITSC Tenant",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_Volume1",
+      "DisplayName": "ITSC Volume 1",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_Volume2",
+      "DisplayName": "ITSC Volume 2",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_Volume3",
+      "DisplayName": "ITSC Volume 3",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    },
+    {
+      "Field": "ITSC_TimeStart",
+      "DisplayName": "ITSC Time Start",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "DateTime"
+    },
+    {
+      "Field": "ITSC_TimeEnd",
+      "DisplayName": "ITSC Time End",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "DateTime"
+    },
+    {
+      "Field": "ITSC_Remarks",
+      "DisplayName": "ITSC Remarks",
+      "ExpectedType": "Note",
+      "Status": "Existing",
+      "ExistingType": "Note"
+    },
+    {
+      "Field": "ITSC_Attachment",
+      "DisplayName": "ITSC Attachment",
+      "ExpectedType": "Text",
+      "Status": "Existing",
+      "ExistingType": "Text"
+    }
+  ]
+}

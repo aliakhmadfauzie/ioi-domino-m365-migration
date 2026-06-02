@@ -1,0 +1,30 @@
+Created by Authors  on CreationDate
+Hidden Fields
+Current Action
+ : CA
+Editor1 - Section A
+ : Editor1
+Editor2 - Section B
+ : Editor2
+ED
+ : ED
+SGM
+ : SGM
+HR
+ : HR
+FIN
+ : FIN - TCG
+PUR
+ : 
+PUR
+IsPUR
+MKT
+ : MKT
+ISG Admin
+ : IT
+INO
+ : INO
+MailingList
+ : MailList
+Readers
+ : Readers

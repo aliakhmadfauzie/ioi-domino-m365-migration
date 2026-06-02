@@ -1,0 +1,203 @@
+{
+  "formCode": "ISGDOC",
+  "title": "ISGDOC",
+  "description": "",
+  "routeBase": "/it/forms/isgdoc",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "ISGDOC_S2",
+      "sectionName": "Section 1: Document Details",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "DOC_Type",
+          "label": "Document Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "e.g. Procedure, Guide, Policy, SOP"
+        },
+        {
+          "fieldId": "DOC_Title",
+          "label": "Document Title",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Full title of the document"
+        },
+        {
+          "fieldId": "DOC_VerNo",
+          "label": "Version No",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Version identifier (e.g. v1.0, Rev 2)"
+        },
+        {
+          "fieldId": "DOC_DateLast",
+          "label": "Date Last Updated",
+          "fieldType": "date",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Date of last revision"
+        },
+        {
+          "fieldId": "DOC_Revision",
+          "label": "Revision",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Revision notes/summary of changes"
+        },
+        {
+          "fieldId": "DOC_Owner",
+          "label": "Allow Editing By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "Person(s) permitted to edit this document"
+        },
+        {
+          "fieldId": "DOC_Att",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Document file attachment"
+        },
+        {
+          "fieldId": "DOC_ApplicableTo",
+          "label": "Applicable To",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "Scope — who this document applies to"
+        },
+        {
+          "fieldId": "DOC_Comments",
+          "label": "Comments / Body",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 9,
+          "notes": "Document content (rich text body)"
+        }
+      ]
+    },
+    {
+      "sectionId": "ISGDOC_S3",
+      "sectionName": "Section 2: Document History (System)",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "AUD_Authors",
+          "label": "Created By",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "Original creator"
+        },
+        {
+          "fieldId": "AUD_MachineAuthor",
+          "label": "Last Modified By",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_DateModified",
+          "label": "Last Modified On",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_MachineCreationDate",
+          "label": "Created On",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_MachineModDate",
+          "label": "Modification Date",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_Readers",
+          "label": "Readers",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Who can read this document"
+        },
+        {
+          "fieldId": "AUD_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 7,
+          "options": [],
+          "notes": "Draft, Active, Archived, Obsolete"
+        }
+      ]
+    },
+    {
+      "sectionId": "ISGDOC_S8",
+      "sectionName": "Version History (SharePoint native):",
+      "displayOrder": 8,
+      "fields": [
+        {
+          "fieldId": "DOC_Type",
+          "label": "DOC_Type",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1
+        },
+        {
+          "fieldId": "DOC_Title",
+          "label": "DOC_Title",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "DOC_VerNo",
+          "label": "DOC_VerNo",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3
+        },
+        {
+          "fieldId": "DOC_DateLast",
+          "label": "DOC_DateLast",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4
+        },
+        {
+          "fieldId": "DOC_Owner",
+          "label": "DOC_Owner",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5
+        },
+        {
+          "fieldId": "DOC_Comments",
+          "label": "DOC_Comments",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "flowName": "IOI - Generate Ticket ID",
+    "projectTask": "Phase 5.2",
+    "sourceDocs": [
+      "m365-design/power-automate-design.md",
+      "analysis/workflow-analysis.md",
+      "docs/implementation-plan.md"
+    ],
+    "dominoReplacement": "INO SimpleAgent auto-numbering",
+    "ticketFormat": "{FormCode}-{yyyyMM}-{000000}",
+    "example": "EAF-202606-000042",
+    "notes": "Generates a sequential readable Title/RequestID value for newly created MainDB_IT items."
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "sharepointonline": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+          "connectionName": "sharepointonline",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+        }
+      }
+    }
+  },
+  "triggers": {
+    "When_MainDB_IT_item_is_created": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetOnNewItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Initialize_variables": {
+      "type": "InitializeVariable",
+      "inputs": {
+        "variables": [
+          {
+            "name": "FormCode",
+            "type": "string",
+            "value": "@coalesce(triggerBody()?['FormCode'], 'REQ')"
+          },
+          {
+            "name": "ItemId",
+            "type": "integer",
+            "value": "@triggerBody()?['ID']"
+          },
+          {
+            "name": "YearMonth",
+            "type": "string",
+            "value": "@formatDateTime(utcNow(), 'yyyyMM')"
+          },
+          {
+            "name": "TicketPrefix",
+            "type": "string",
+            "value": "@concat(coalesce(triggerBody()?['FormCode'], 'REQ'), '-', formatDateTime(utcNow(), 'yyyyMM'), '-')"
+          }
+        ]
+      },
+      "runAfter": {}
+    },
+    "Get_latest_ticket_for_prefix": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT",
+          "$filter": "startswith(Title,'@{variables('TicketPrefix')}')",
+          "$orderby": "Title desc",
+          "$top": 1
+        }
+      },
+      "runAfter": {
+        "Initialize_variables": [
+          "SUCCEEDED"
+        ]
+      }
+    },
+    "Compose_last_sequence": {
+      "type": "Compose",
+      "inputs": "@if(empty(body('Get_latest_ticket_for_prefix')?['value']), 0, int(last(split(first(body('Get_latest_ticket_for_prefix')?['value'])?['Title'], '-'))))",
+      "runAfter": {
+        "Get_latest_ticket_for_prefix": [
+          "SUCCEEDED"
+        ]
+      }
+    },
+    "Compose_next_ticket_id": {
+      "type": "Compose",
+      "inputs": "@concat(variables('TicketPrefix'), padLeft(string(add(outputs('Compose_last_sequence'), 1)), 6, '0'))",
+      "runAfter": {
+        "Compose_last_sequence": [
+          "SUCCEEDED"
+        ]
+      }
+    },
+    "Update_item_with_ticket_id": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "PatchItem"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT",
+          "id": "@variables('ItemId')",
+          "item": {
+            "Title": "@outputs('Compose_next_ticket_id')",
+            "RequestID": "@outputs('Compose_next_ticket_id')"
+          }
+        }
+      },
+      "runAfter": {
+        "Compose_next_ticket_id": [
+          "SUCCEEDED"
+        ]
+      }
+    }
+  }
+}

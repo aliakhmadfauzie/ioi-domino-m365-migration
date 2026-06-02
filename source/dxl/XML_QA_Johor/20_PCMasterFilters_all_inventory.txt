@@ -1,0 +1,95 @@
+DATABASE : PanCen - Masterlist of Filter/Glass & Brittle Materials
+PATH     : PanCen - Current\PCMasterFilters.nsf
+DATE     : 29/05/2026 2:30:49 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  EnterCommentsApp
+  MasterList
+  EnterCommentsObs
+  MasterList2
+  Reminder
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: recordofreview
+    - date10
+    - des10
+    - name10
+    - Rev10
+    - date9
+    - des9
+    - name9
+    - Rev9
+    - date8
+    - des8
+    - name8
+    - Rev8
+    - date7
+    - des7
+    - name7
+    - Rev7
+    - date6
+    - des6
+    - name6
+    - Rev6
+    - date5
+    - des5
+    - name5
+    - Rev5
+    - date4
+    - des4
+    - name4
+    - Rev4
+    - date3
+    - des3
+    - name3
+    - Rev3
+    - date2
+    - des2
+    - name2
+    - Rev2
+    - date1
+    - des1
+    - name1
+    - Rev1
+    - REVIEW
+
+=== AGENTS ===
+  Refresh Docs [ENABLED]
+  Clear Obsolete [ENABLED]
+  Move to Draft [ENABLED]
+  RemPdgApp [ENABLED]
+  Change Initiator [ENABLED]
+  DocTypeName [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PCNSVR/O=PHB | Manager | Server
+  CN=Suba QA/OU=PanCen/O=PHB | Editor | Person
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  CN=Anna Ooi/OU=PMS/O=PHB | Editor | Person
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - CopyTo
+  - SendTo
+  - DateSent
+  - rTxtDocLink
+  - NotNum
+  - Subject
+

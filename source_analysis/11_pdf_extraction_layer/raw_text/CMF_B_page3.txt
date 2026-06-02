@@ -1,0 +1,38 @@
+Remark
+ : FMRem
+Attachment
+ : FMAtt
+App2
+Approved by 
+SectionTitle_1_1
+Approve Deny
+Name
+ : EDName
+Date
+ : EDDate
+Remark
+ : EDRem
+Approved Credit Limit
+ : Currency  AppCreditLimit
+Rejected to
+ : Denial
+App3
+To be Acknowledged by Finance
+Approve Deny
+Name
+ : FMName2
+Date
+ : FMDate2
+TCLC Expiry Date
+ : ExpiryDate
+Remark
+ : FMRem2
+Attachment
+ : FMAtt2
+App6
+Created by  DocAuthor
+  on CDate  
+Hidden Fields :-
+Current Action
+ : CA
+Marketing - FA

@@ -1,0 +1,144 @@
+DATABASE : PanCen - Training Database
+PATH     : PanCen - Current\PCNTND.nsf
+DATE     : 28/05/2026 4:22:27 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  TR
+  TE
+  TM
+  Reminder
+  Guidelines
+  TE4hrs
+  TRC
+  EM
+  TM2
+  TrainingMasterbk
+  TrainMatLog
+  OPLLog
+  SchTrain
+  TPMReminder
+  MonthLog
+  TPMReminder1
+  TLibrary
+  TLEffCI
+  TLFoodSafety
+  TLOSH
+  TLISO50
+  TLQuality
+  TLISO
+  TLIntegrated
+  TLHalalFood
+  TLHazard
+  TLSoftSkills
+  TETest
+  TFilter
+  TrMaterial
+  TrQuizLog
+  TrainingMaster
+  TEPrint
+  TrainingMaster2
+  TLibrary2
+  TM2_bk
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Company
+    - 
+  SUBFORM: RunningNo
+    - NotNum
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+  SUBFORM: Submitted
+    - SubmittedDt
+    - Submittedby
+
+=== AGENTS ===
+  Refresh Docs [ENABLED]
+  RemTEPdgComp [ENABLED]
+  RemTEPdgComp2 [ENABLED]
+  RemTMUpcoming [ENABLED]
+  RemTRPdgHOS [ENABLED]
+  RemTRPdgHOD [ENABLED]
+  RemTRPdgCOO [ENABLED]
+  RemTRPdgHRHOD [ENABLED]
+  RemTRPdgTC [ENABLED]
+  RemTRPdgTC2 [ENABLED]
+  RemTMPdgCOO [ENABLED]
+  RemTMPdgHRHOD [ENABLED]
+  NIURemTMPdgOwner [DISABLED]
+  RemTE4hrsPdgComp [ENABLED]
+  RemTE4hrsPdgHOD [ENABLED]
+  RemTEPdgHOD [ENABLED]
+  RemTEPdgHRHOD [ENABLED]
+  TESTReminderLog [DISABLED]
+  RemTMPdgHOD [ENABLED]
+  RemTMPdgTC [ENABLED]
+  1.RefreshDocs [ENABLED]
+  WITHDRAWN [ENABLED]
+  FORMULA [ENABLED]
+  Clear TM HR HOD [ENABLED]
+  Cat-TNA [ENABLED]
+  Clear [ENABLED]
+  RemSchTrain [ENABLED]
+  RemSchTrainHOD [ENABLED]
+  Cat-Ad-hoc [ENABLED]
+  TNE [ENABLED]
+  DocAuthor [ENABLED]
+  TestingRemTEPdgComp [DISABLED]
+  ARCHIVED [ENABLED]
+  Clear Withdrawn [ENABLED]
+  RemRefTrain [ENABLED]
+  2.AckClear [ENABLED]
+  RemSchTrainUpcoming [ENABLED]
+  SET [ENABLED]
+  Clear HOD [ENABLED]
+  Clear Level [ENABLED]
+  RemConductTrain_TPM [ENABLED]
+  RemPostponeTraining [DISABLED]
+  Set HOD [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=Neethy/OU=PanCen/O=PHB | Editor | Person
+  Pancen - All Sections HOD & Above | Editor | Person Group
+  OtherDomainServers | No Access | Server Group
+  CN=ginny/OU=PMS/O=PHB | Editor | Person
+  CN=PCNAdmin/OU=PanCen/O=PHB | Editor | Person
+  CN=David Koo/OU=PMS/O=PHB | Editor | Person
+  CN=limjl/OU=PMS/O=PHB | Editor | Person
+  CN=Malani HR/OU=PanCen/O=PHB | Editor | Person
+  CN=Admin/O=PHB | Manager | Person
+  CN=Bronica/OU=PanCen/O=PHB | Editor | Person
+  CN=Zubaidah/OU=PanCen/O=PHB | Editor | Person
+  CN=Qayyim/OU=PanCen/O=PHB | Manager | Person
+  CN=Lau Kim Chai/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  CN=Tan Kean Hua/OU=PMS/O=PHB | Editor | Person
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - EmpName
+  - NotNum
+  - TrTopic
+  - DateSent
+  - CopyTo
+  - SendTo
+  - Subject
+

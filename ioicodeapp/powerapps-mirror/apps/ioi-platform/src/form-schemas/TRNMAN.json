@@ -1,0 +1,203 @@
+{
+  "formCode": "TRNMAN",
+  "title": "TRNMAN",
+  "description": "",
+  "routeBase": "/it/forms/trnman",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "TRNMAN_S2",
+      "sectionName": "Section 1: Training Manual Details",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "TRN_Type",
+          "label": "Training Type",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Type of training (e.g. End User, Technical, Onboarding)"
+        },
+        {
+          "fieldId": "TRN_Title",
+          "label": "Title",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Full title of the training manual"
+        },
+        {
+          "fieldId": "TRN_VerNo",
+          "label": "Version No",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Version identifier (e.g. v1.0, Rev 2)"
+        },
+        {
+          "fieldId": "TRN_DateLast",
+          "label": "Date Last Updated",
+          "fieldType": "date",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Date of last revision"
+        },
+        {
+          "fieldId": "TRN_Revision",
+          "label": "Revision No",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "Revision number or notes"
+        },
+        {
+          "fieldId": "TRN_Owner",
+          "label": "Allow Editing By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "Person(s) permitted to edit this manual"
+        },
+        {
+          "fieldId": "TRN_Att",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Training material file"
+        },
+        {
+          "fieldId": "TRN_ApplicableTo",
+          "label": "Applicable To",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "Scope — audience or systems covered"
+        },
+        {
+          "fieldId": "TRN_Comments",
+          "label": "Training Content / Body",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 9,
+          "notes": "Training content (rich text body)"
+        }
+      ]
+    },
+    {
+      "sectionId": "TRNMAN_S3",
+      "sectionName": "Section 2: Document History (System)",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "AUD_Authors",
+          "label": "Created By",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "Original creator"
+        },
+        {
+          "fieldId": "AUD_MachineAuthor",
+          "label": "Last Modified By",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_DateModified",
+          "label": "Last Modified On",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_MachineCreationDate",
+          "label": "Created On",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_MachineModDate",
+          "label": "Modification Date",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 5,
+          "notes": "System-populated"
+        },
+        {
+          "fieldId": "AUD_Readers",
+          "label": "Readers",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Who can access this manual"
+        },
+        {
+          "fieldId": "AUD_Status",
+          "label": "Status",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 7,
+          "options": [],
+          "notes": "Draft, Active, Archived, Obsolete"
+        }
+      ]
+    },
+    {
+      "sectionId": "TRNMAN_S6",
+      "sectionName": "Training Type Filter in Gallery:",
+      "displayOrder": 6,
+      "fields": [
+        {
+          "fieldId": "TRN_Type",
+          "label": "TRN_Type",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1
+        },
+        {
+          "fieldId": "TRN_Title",
+          "label": "TRN_Title",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "TRN_VerNo",
+          "label": "TRN_VerNo",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3
+        },
+        {
+          "fieldId": "TRN_DateLast",
+          "label": "TRN_DateLast",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4
+        },
+        {
+          "fieldId": "TRN_Owner",
+          "label": "TRN_Owner",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5
+        },
+        {
+          "fieldId": "TRN_Comments",
+          "label": "TRN_Comments",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6
+        }
+      ]
+    }
+  ]
+}

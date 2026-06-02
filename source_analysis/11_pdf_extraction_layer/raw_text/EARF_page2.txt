@@ -1,0 +1,39 @@
+Attachment
+Department Head
+ : HOD
+Division Head
+ : HOD2
+CC
+ : CC2
+Requested by
+ : Preparedby
+Requested Date
+ : Prepareddate
+Requestor Position
+ : Preparedpost
+To be Verified by Finance
+Finance to verify the Asset Number.
+Verify
+Verified by
+ : VerName
+Date
+ : VerDate
+Remarks
+ : VerRem
+Department Head Approval
+Approve Deny
+Name
+ : hodname
+Date
+ : hoddate
+Position
+ : hodpost
+Remark
+ : hodrem
+App1
+To Be Reviewed By
+Approve Deny
+CC
+ : CC
+Name
+ : Reviewedby

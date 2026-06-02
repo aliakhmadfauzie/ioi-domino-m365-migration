@@ -1,0 +1,74 @@
+DATABASE : Employee Exit Notification (NEW)
+PATH     : Current\EEN.nsf
+DATE     : 28/05/2026 10:42:26 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  EE
+  Reminder
+  Notification
+  Notification2
+  Guidelines
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  2RemPdgED [ENABLED]
+  1RemExtend [ENABLED]
+  6RemPdgIT [ENABLED]
+  7RemLWD [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear [ENABLED]
+  FORMULA [ENABLED]
+  3RemPdgExitInt [ENABLED]
+  4RemPdgHandover [ENABLED]
+  5RemPdgHandoverHOD [ENABLED]
+  8RemPdgHR [ENABLED]
+  SET [ENABLED]
+  UNLOCK [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Leong Chee How/OU=PanCen/O=PHB | Editor | Person
+  CN=Cindy Chew/OU=PanCen/O=PHB | Editor | Person
+  CN=Junaidah/OU=PMS/O=PHB | Editor | Person
+  CN=Qayyim/OU=PanCen/O=PHB | Manager | Person
+  CN=Shoba/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  ACM IT | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+  CN=Viknisvary/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - Body
+  - ReminderDate
+  - INC2
+  - INC
+  - LastWorkingDay
+  - EmpNum
+  - EmpName
+  - CopyTo
+  - SendTo
+  - Subject
+

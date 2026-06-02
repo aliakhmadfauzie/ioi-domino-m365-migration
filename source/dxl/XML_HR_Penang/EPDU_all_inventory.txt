@@ -1,0 +1,66 @@
+DATABASE : Employee Personal Detail Update
+PATH     : Current\EMPINFO.nsf
+DATE     : 28/05/2026 10:46:56 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  EMPINFO
+  UPDINFO
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - ModiDate
+    - CDate
+    - DocAuthor
+  SUBFORM: HiddenFields
+    - Readers
+    - Servers
+    - HRHOD
+    - HR
+    - HR_3
+    - HR_2
+    - HR_1
+    - IT
+  SUBFORM: HRUse
+    - Acceptedon
+    - Acceptedby
+    - HRAction
+
+=== AGENTS ===
+  FORMULA [ENABLED]
+  Refresh Docs [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=Junaidah/OU=PMS/O=PHB | Editor | Person
+  CN=Admin/O=PHB | Manager | Person
+  CN=Brayond/OU=PMS/O=PHB | Editor | Person
+  CN=Shoba/OU=PMS/O=PHB | Editor | Person
+  Oleo Managers | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  Oleo Local | Editor | Person Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+  CN=Viknisvary/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

@@ -1,0 +1,12 @@
+[
+  "RequestID",
+  "Requester",
+  "Department",
+  "Category",
+  "Priority",
+  "Status",
+  "Approver",
+  "SubmittedDate",
+  "SourceSystem",
+  "SLAStatus"
+]

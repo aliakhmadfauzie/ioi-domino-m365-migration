@@ -1,0 +1,62 @@
+EMPLOYEE PERSONAL HEALTH RECORD
+EMPLOYEE PERSONAL HEALTH RECORD
+EMPLOYEE PERSONAL HEALTH RECORD
+Name
+ : FullName
+IC No. / Passport No.
+ : IC
+Date of Birth
+ : 
+DOB
+Gender
+ : Gender
+HP No
+ : HP
+Company
+ : Company
+Department
+ : Dept
+Height 
+ : H  CM
+Weight
+ : W  KG
+BMI
+ : BMI  KG/M2
+Blood Pressure
+ : BP  mmHg
+Pulse
+ : P  min
+Visual
+ : Visual
+Color Vision
+ : Vision
+Past Medical / Surgical History  : MedHist
+MEDICAL HISTORY
+Since
+Remark
+Hypertension
+D
+S
+R
+Diabetes Mellitus
+D_1
+S_1
+R_1
+Hypercholesterolemia/
+Hyperlipidemia/Dyslipidemia
+D_2
+S_2
+R_2
+Cardiovascular
+D_3
+S_3
+R_3
+Skin
+D_4
+S_4
+R_4
+Respiratory system
+D_5
+S_5
+R_5
+Terminal illnesses

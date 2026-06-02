@@ -1,0 +1,54 @@
+DATABASE : Industrial Trainees(IOI Scholars) Summary
+PATH     : Current\Internsummary.nsf
+DATE     : 28/05/2026 2:11:03 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Intern
+  Intern_BAK
+  WkPLForm
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+
+=== AGENTS ===
+  Refresh Docs [ENABLED]
+  SET [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=Khor Kok Hiang/OU=PMS/O=PHB | Reader | Person
+  CN=wtchoong/OU=PMS/O=PHB | Reader | Person
+  CN=Lim Chee Wee/OU=PMS/O=PHB | Reader | Person
+  CN=makks/OU=PMS/O=PHB | Reader | Person
+  CN=Norzamly/OU=PMS/O=PHB | Reader | Person
+  CN=Wong Pin Huey/OU=PMS/O=PHB | Reader | Person
+  LocalDomainServers | Manager | Server Group
+  CN=Tan Kean Hua/OU=PMS/O=PHB | Reader | Person
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  CN=Teoh Bak Moi/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+  CN=Soh Wei Chin/OU=PMS/O=PHB | Reader | Person
+  CN=Karen Tan/OU=PMS/O=PHB | Editor | Person
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

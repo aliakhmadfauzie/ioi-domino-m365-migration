@@ -1,0 +1,201 @@
+DATABASE : PanCen - Job Descriptions
+PATH     : PanCen - Current\pcnjd.nsf
+DATE     : 28/05/2026 3:29:19 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  JD_Form
+  EmpInfo
+  Reminder
+  Guidelines
+  JD_Form2
+  ReReminder
+  ReminderDR
+  MR
+  MRReminder
+  RemMonthly
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: RecordOfIssues
+    - D1_40
+    - JUS_40
+    - INO_40
+    - D1_39
+    - JUS_39
+    - INO_39
+    - D1_38
+    - JUS_38
+    - INO_38
+    - D1_37
+    - JUS_37
+    - INO_37
+    - D1_36
+    - JUS_36
+    - INO_36
+    - D1_35
+    - JUS_35
+    - INO_35
+    - D1_34
+    - JUS_34
+    - INO_34
+    - D1_33
+    - JUS_33
+    - INO_33
+    - D1_32
+    - JUS_32
+    - INO_32
+    - D1_31
+    - JUS_31
+    - INO_31
+    - D1_30
+    - JUS_30
+    - INO_30
+    - D1_29
+    - JUS_29
+    - INO_29
+    - D1_28
+    - JUS_28
+    - INO_28
+    - D1_27
+    - JUS_27
+    - INO_27
+    - D1_26
+    - JUS_26
+    - INO_26
+    - D1_25
+    - JUS_25
+    - INO_25
+    - D1_24
+    - JUS_24
+    - INO_24
+    - D1_23
+    - JUS_23
+    - INO_23
+    - D1_22
+    - JUS_22
+    - INO_22
+    - D1_21
+    - JUS_21
+    - INO_21
+    - D1_20
+    - JUS_20
+    - INO_20
+    - D1_19
+    - JUS_19
+    - INO_19
+    - D1_18
+    - JUS_18
+    - INO_18
+    - D1_17
+    - JUS_17
+    - INO_17
+    - D1_16
+    - JUS_16
+    - INO_16
+    - D1_15
+    - JUS_15
+    - INO_15
+    - D1_14
+    - JUS_14
+    - INO_14
+    - D1_13
+    - JUS_13
+    - INO_13
+    - D1_12
+    - JUS_12
+    - INO_12
+    - D1_11
+    - JUS_11
+    - INO_11
+    - D1_10
+    - JUS_10
+    - INO_10
+    - D1_9
+    - JUS_9
+    - INO_9
+    - D1_8
+    - JUS_8
+    - INO_8
+    - D1_7
+    - JUS_7
+    - INO_7
+    - D1_6
+    - JUS_6
+    - INO_6
+    - D1_5
+    - JUS_5
+    - INO_5
+    - D1_4
+    - JUS_4
+    - INO_4
+    - D1_3
+    - JUS_3
+    - INO_3
+    - D1_2
+    - JUS_2
+    - INO_2
+    - D1_1
+    - JUS_1
+    - INO_1
+    - RECORD_OF_ISSUES
+  SUBFORM: Signature
+    - CreationDate
+    - DocAuthor
+
+=== AGENTS ===
+  Change Requestor [ENABLED]
+  Move to Draft [DISABLED]
+  PdgHODApproval [ENABLED]
+  PdgSuperiorEndorse [DISABLED]
+  PdgHRHODEndorse [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear Endorse [ENABLED]
+  ARCHIVE [ENABLED]
+  SET-FORMULA [ENABLED]
+  Move [ENABLED]
+  Clear Approved By [ENABLED]
+  PdgRevision [ENABLED]
+  MonthlyReminder [ENABLED]
+  Refresh [ENABLED]
+  DocAuthor [ENABLED]
+  UNLOCK [ENABLED]
+  Set [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Kobinathan/OU=PanCen/O=PHB | Editor | Person
+  CN=Wafli Ali/OU=PanCen/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=ginny/OU=PMS/O=PHB | Editor | Person
+  CN=David Koo/OU=PMS/O=PHB | Editor | Person
+  CN=limjl/OU=PMS/O=PHB | Editor | Person
+  CN=Bronica/OU=PanCen/O=PHB | Editor | Person
+  CN=Wong Yin Ling/OU=PMS/O=PHB | Editor | Person
+  CN=Zubaidah/OU=PanCen/O=PHB | Editor | Person
+  CN=Qayyim/OU=PanCen/O=PHB | Manager | Person
+  CN=Lau Kim Chai/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  CN=Tan Kean Hua/OU=PMS/O=PHB | Editor | Person
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - DateSent
+  - SendTo
+  - Subject
+

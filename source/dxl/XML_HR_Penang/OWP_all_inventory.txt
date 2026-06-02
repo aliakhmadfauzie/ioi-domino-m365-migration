@@ -1,0 +1,57 @@
+DATABASE : Outsource Worker Passport & Work Permit Database
+PATH     : Current\OutsourceWorker.nsf
+DATE     : 28/05/2026 3:04:17 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Reminder
+  Form
+  VendorList
+  JD
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+    - ModDate
+    - ModName
+
+=== AGENTS ===
+  RemExpiry [ENABLED]
+  Refresh Docs [ENABLED]
+  Clear Log [ENABLED]
+  Company [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=Mohamad Naufal/OU=PMS/O=PHB | Editor | Person
+  CN=Irin Decruz/OU=PMS/O=PHB | Editor | Person
+  CN=Farah Elleena/OU=PMS/O=PHB | Editor | Person
+  CN=PHBSVR/O=PHB | Manager | Server
+  CN=Punineswaran/OU=PMS/O=PHB | Editor | Person
+  CN=Tan Hooi Fen/OU=PMS/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  CN=Test 3/OU=PMS/O=PHB | Reader | Person
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - ExpiryDate
+  - Name
+  - DateSent
+  - SendTo
+  - Subject
+

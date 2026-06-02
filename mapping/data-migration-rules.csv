@@ -1,0 +1,37 @@
+SourceForm,SourceField,RuleType,RuleDescription,TargetField,Priority,Notes
+EAF,req,identity,Map Domino names field to SharePoint Person/Group column,Requestor_Name,High,Use Microsoft 365 Users connector to resolve display name
+EAF,User,identity,Direct field copy to Person/Group column,TargetUser,High,Resolve via email match
+EAF,justification,direct,Copy text field directly,Description,High,Plain text copy
+EAF,system,mapping,Map Domino system value to SharePoint Choice from config list,SystemName,Medium,Validate against IT_M1_RS_SystemsList
+EAF,Type,mapping,Map to Access Type choice (VPN/Citrix/Other),ApplicationType,High,Preserve all options
+EAF,date1,default,Set to current timestamp on submission,SubmittedDate,High,Power Automate on create
+EAF,currentaction,workflow,Map Domino workflow states to SharePoint status values,CurrentStatus,High,Transform: Request→Draft, Submitted→Submitted, Acceptance1→HOD Approved, etc.
+EAF,status1,workflow,Map approval status to choice column,HODStatus,High,Approved/Rejected/Pending
+EAF,status2,workflow,Map approval status to choice column,DirectorStatus,High,Approved/Rejected/Pending
+EAF,status3,workflow,Map approval status to choice column,ITManagerStatus,High,Approved/Rejected/Pending
+EAF,status4,workflow,Map approval status to choice column,ITCompletionStatus,High,Completed/Rejected/Pending
+EAF,isPCN,boolean,Convert Domino text flag "1"/"0" to SharePoint Yes/No,IsPCN,High,Used for conditional routing in Power Automate
+EAF,date2-5,workflow,Set date field on Power Automate stage transition,HODApprovedDate etc.,High,Computed by flow on approval action
+EAF,comment1-4,direct,Copy text field,HODRemarks etc.,Low,Plain text
+EAF,HODNAME,identity,Map names field to Person/Group,HODApprovedBy,Low,Set by Power Automate on HOD approval
+EAF,DIVNAME,identity,Map names field to Person/Group,DirectorApprovedBy,Low,Set by Power Automate on Director approval
+EAF,CC,mapping,Split multi-value names field to multi-person or JSON,CCRecipients,Medium,JSON serialize multiple values
+HI,machineid,identity,Direct copy,AssetTag,High,Acts as primary key
+HI,usedby,identity,Resolve to Person/Group,AssignedTo,Medium,Match by email or display name
+HI,comp,mapping,Map Domino keyword to SharePoint Choice,ComputerType,High,Preserve all keyword options
+HI,cpuspd,mapping,Map Domino keyword to SharePoint Choice,CPU,Medium,Preserve all keyword options
+HI,hddtype,mapping,Map Domino keyword to SharePoint Choice,HDDType,Medium,Preserve all keyword options
+HI,ram,mapping,Map Domino keyword to SharePoint Choice,RAM,Medium,Preserve all keyword options
+HI,ipadd_1,direct,Direct copy,IPAddress,Low,Plain text
+HI,winversion,mapping,Map to SharePoint Choice,OSVersion,Medium,Preserve all keyword options
+HI,SerialNo,direct,Direct copy,SerialNo,Medium,Plain text
+HI,Location,direct,Direct copy,Location,Low,Plain text
+ITSSR,CaseNo,identity,Direct copy,CaseNo,High,Primary case identifier
+ITSSR,INO,autonumber,Replace Domino INO SimpleAgent with Power Automate auto-numbering,INONumber,High,Flow on item creation generates next sequence number
+ITSSR,CreationDate,default,Set to current timestamp on creation,CreationDate,High,Default=Now
+ITSSR,CA,mapping,Map Domino category to SharePoint Choice,Category,High,Validate against ITSSR problem categories
+ITSSR,Category,mapping,Map Domino sub-category to SharePoint Choice,SubCategory,Medium,Validate against secondary categories
+PRF,currentaction,workflow,Map Domino workflow states to SharePoint status values,CurrentStatus,High,Transform to Power Automate approval state machine
+PRF,dateapp2,workflow,Set on Power Automate approval action,ApprovedDate,Low,Set by flow
+SAPCR,TicketNo,autonumber,Auto-generate ticket number,TicketNo,High,Format: SAPCR-YYYY-####
+SAPCR,System,mapping,Map to SharePoint Choice (SAP/WB/Other),System,High,Validate against config list

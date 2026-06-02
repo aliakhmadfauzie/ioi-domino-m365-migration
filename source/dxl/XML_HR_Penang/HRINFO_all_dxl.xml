@@ -1,0 +1,931 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='4825884800182A20' path='CN=PHBSVR/O=PHB!!Current\Notice.nsf' title='HR Notice Database'
+ allowdocumentlocking='true' increasemaxfields='true'>
+<databaseinfo dbid='4825884800182A20' odsversion='55' diskspace='1061683200'
+ percentused='99.8022521219136' numberofdocuments='481'><datamodified><datetime
+>20260528T140753,48+08</datetime></datamodified><designmodified><datetime
+>20260528T140922,76+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='FS'/></launchsettings>
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffefce'
+ totalscolor='black' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='false' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='122' unid='5AB27760147D414F4825716500284424' sequence='33'>
+<created><datetime>20060505T151948,84+08</datetime></created>
+<modified><datetime>20220520T122356,94+08</datetime></modified>
+<revised><datetime>20220428T160819,27+08</datetime></revised>
+<lastaccessed><datetime>20220520T122407,74+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122356,93+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT DateSent !=""</formula></code>
+<actionbar bgcolor='#ece9d8' bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column align='center' sort='descending' hidedetailrows='false' itemname='DateSent'
+ width='7' resizable='true' separatemultiplevalues='false' sortnoaccent='false'
+ sortnocase='true' showaslinks='false'><columnheader title='Date Sent'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='$9' width='3.7500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Views'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@If(Counter=0;"";Counter)</formula></code></column>
+<column align='center' hidedetailrows='false' itemname='$10' width='3.7500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Read'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@If(Likes=0;"";Likes)</formula></code></column>
+<column align='center' hidedetailrows='false' itemname='$11' width='18.8750'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Read, Understand &amp; Will Disseminate!'><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@If(Dislikes=0;"";Dislikes)</formula></code></column>
+<column hidedetailrows='false' itemname='Subject' width='22.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Title'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='Draft' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffefce'
+ totalscolor='black' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='false' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='12e' unid='34AF972507A1434548257165003412DA' sequence='10'>
+<created><datetime>20060505T172846,98+08</datetime></created>
+<modified><datetime>20260408T103413,64+08</datetime></modified>
+<revised><datetime>20260408T103413,63+08</datetime></revised>
+<lastaccessed><datetime>20260408T103413,63+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,03+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT DateSent =""</formula></code>
+<actionbar bgcolor='#ece9d8' bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column resort='both' hidedetailrows='false' itemname='$5' width='17' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Drafted On'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Created</formula></code></column>
+<column hidedetailrows='false' itemname='$4' width='17' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Drafted By'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Name([CN];Author)</formula></code></column>
+<column hidedetailrows='false' itemname='Subject' width='22.7500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Title'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='SET' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='136' unid='4088E5A6C942A46C48257168002FCD4F' sequence='22'>
+<created><datetime>20060508T164207,51+08</datetime></created>
+<modified><datetime>20220520T122357,07+08</datetime></modified>
+<revised><datetime>20180914T154305,32+08</datetime></revised>
+<lastaccessed><datetime>20220520T122357,06+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,06+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20180914T154305,29+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='Form' value='SHEInfo'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20180914T154305,34+08</datetime></agentmodified>
+<agentrun><datetime>20190715T103254,55+08</datetime></agentrun>
+<runlog>Started running agent 'SET' on 15/07/2019 10:32:54 AM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'SET' on 15/07/2019 10:32:54 AM
+</runlog></rundata></agent>
+
+<agent name='Body' hide='v3' publicaccess='false' designerversion='6'>
+<noteinfo noteid='13e' unid='266D624F449AB5FF482572C3000EE61F' sequence='2'>
+<created><datetime>20070420T104244,15+08</datetime></created>
+<modified><datetime>20220520T122357,10+08</datetime></modified>
+<revised><datetime>20070420T104331,27+08</datetime></revised>
+<lastaccessed><datetime>20220520T122357,09+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,09+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christina/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Christina/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20070420T104332,24+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='Body' value='RESPONSIBLE CARE'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20070420T104331,28+08</datetime></agentmodified>
+<agentrun><datetime>20070420T104335,65+08</datetime></agentrun>
+<runlog>Started running agent 'Body' on 20/04/2007 10:43:35 AM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'Body' on 20/04/2007 10:43:35 AM
+</runlog></rundata></agent>
+
+<view name='All' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffffd0'
+ totalscolor='black' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='false' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='17a' unid='E6824F0237EDF32E482582A9002B3627' sequence='9'>
+<created><datetime>20180611T155159,11+08</datetime></created>
+<modified><datetime>20220520T122357,49+08</datetime></modified>
+<revised><datetime>20201019T104827,23+08</datetime></revised>
+<lastaccessed><datetime>20260408T103603,64+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,48+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bgcolor='#ece9d8' bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$13' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font style='bold'/><columnheader
+><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Year(@Created)</formula></code></column>
+<column hidedetailrows='false' itemname='Form' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='$14' width='17.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@Created</formula></code></column>
+<column align='center' sort='descending' hidedetailrows='false' itemname='DateSent'
+ width='7' resizable='true' separatemultiplevalues='false' sortnoaccent='false'
+ sortnocase='true' showaslinks='false'><columnheader title='Date Sent'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column align='center' hidedetailrows='false' itemname='$9' width='3.7500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Views'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@If(Counter=0;"";Counter)</formula></code></column>
+<column align='center' hidedetailrows='false' itemname='$10' width='3.7500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Read'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>@If(Likes=0;"";Likes)</formula></code></column>
+<column align='center' hidedetailrows='false' itemname='$11' width='19.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Understand &amp; WIll Disseminate!'><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@If(Dislikes=0;"";Dislikes)</formula></code></column>
+<column hidedetailrows='false' itemname='Subject' width='22.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Title'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$2' width='46.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Attachment'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@AttachmentNames</formula></code></column></view>
+
+<agent name='Clear' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='182' unid='D794BF9ACB412C4F482582A90030BFF8' sequence='6'>
+<created><datetime>20180611T165228,72+08</datetime></created>
+<modified><datetime>20250312T165606,71+08</datetime></modified>
+<revised><datetime>20250312T165606,70+08</datetime></revised>
+<lastaccessed><datetime>20250312T165606,70+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,53+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20250312T165607,87+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='DateSent'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20250312T165606,71+08</datetime></agentmodified>
+<agentrun><datetime>20260408T103301,65+08</datetime></agentrun>
+<runlog>Started running agent 'Clear' on 08/04/2026 10:33:01 AM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'Clear' on 08/04/2026 10:33:01 AM
+</runlog></rundata></agent>
+
+<agent name='Delete Field' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='18a' unid='BD7D0DFDEA7D4588482582B40019028C' sequence='2'>
+<created><datetime>20180622T123310,52+08</datetime></created>
+<modified><datetime>20220520T122357,57+08</datetime></modified>
+<revised><datetime>20180622T123426,30+08</datetime></revised>
+<lastaccessed><datetime>20220520T122357,56+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,56+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20180622T123426,31+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'><formula>FIELD HitLike:=@DeleteField;
+FIELD HitDislike:=@DeleteField;
+SELECT @All</formula></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20180622T123426,32+08</datetime></agentmodified>
+<agentrun><datetime>20190618T175831,38+08</datetime></agentrun>
+<runlog>Started running agent 'Delete Field' on 18/06/2019 05:58:31 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+1 document(s) were modified by formula
+Done running agent 'Delete Field' on 18/06/2019 05:58:31 PM
+</runlog></rundata></agent>
+
+<agent name='UNLOCK' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='196' unid='F7E626A1529C26F3482582DC000EDABE' sequence='1'>
+<created><datetime>20180801T104215,02+08</datetime></created>
+<modified><datetime>20220520T122357,61+08</datetime></modified>
+<revised><datetime>20180801T104215,07+08</datetime></revised>
+<lastaccessed><datetime>20220520T122357,60+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,60+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20160114T124155,06+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'><formula>@DocLock([Unlock]);
+SELECT @All</formula></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20220520T122357,61+08</datetime></agentmodified>
+<agentrun><datetime>20260522T171304,34+08</datetime></agentrun>
+<runlog>Started running agent 'UNLOCK' on 22/05/2026 05:13:04 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+1 document(s) were modified by formula
+Done running agent 'UNLOCK' on 22/05/2026 05:13:04 PM
+</runlog></rundata></agent>
+
+<form name='NewForm' publicaccess='false' designerversion='8.5.3' default='true'
+ renderpassthrough='true'>
+<noteinfo noteid='19a' unid='8654C3729A058C4D48258301000BA141' sequence='119'>
+<created><datetime>20180907T100701,77+08</datetime></created>
+<modified><datetime>20250203T101604,50+08</datetime></modified>
+<revised><datetime>20250203T101604,49+08</datetime></revised>
+<lastaccessed><datetime>20250203T101604,49+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,63+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"HR Notice/ Info"</formula></code><code event='queryclose'><formula>@Command([EditDocument];"1");
+
+@If(Counter="";	@SetField("Counter";1);
+	@IsMember(@Name([CN];@UserName);CtrLst);@SetField("Counter";Counter);
+	@SetField("Counter";Counter+1));
+@If(Likes="";		@SetField("Likes";0);Likes);
+@If(Dislikes="";	@SetField("Dislikes";0);Dislikes);
+
+FIELD CtrLst :=CtrLst + ";" + @Text(@Name([CN];@UserName));
+
+@Command([FileSave])</formula></code>
+<actionbar bgcolor='#f0f0f0' bordercolor='black'>
+<actionbuttonstyle bgcolor='#f0f0f0'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit' icon='5' hide='edit previewedit'><code event='click'><formula
+>@Command([EditDocument];"1")</formula></code></action>
+<action title='Save' icon='117' hide='preview read'><code event='click'><formula
+>@PostedCommand([FileSave])</formula></code><code event='hidewhen'><formula
+>Author !=@UserName</formula></code></action>
+<action title='Send' icon='14'><code event='click'><formula>@Command([EditDocument];"1");
+
+@If(Send = ""; @Return(@Do(@Command([EditGotoField];"Send") ;@Prompt([Ok];"Missing Value"; "Please select the Recipients before proceeding!")));"");
+@If(Subject = ""; @Return(@Do(@Command([EditGotoField];"Subject") ;@Prompt([Ok];"Missing Value"; "Please state the Subject before proceeding!")));"");
+
+FIELD DateSent :=@Today;
+FIELD CurrentAction := "Submitted";
+
+@MailSend(Send;CC;NULL;"HR Notice/ Info Updates - "+Subject;"";"You can click on 'Read, Understand' or 'Read, Understand &amp; will Disseminate!' the info now!" +@NewLine+ @NewLine+ "Please follow this document link  ---&gt;  ";[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>Author !=@UserName | DateSent !=""</formula></code></action>
+<action title='Read' icon='37'><code event='click'><formula>@Command([EditDocument];"1");
+
+@If(@IsMember(@Name([CN];@UserName);LkLst);
+	@SetField("Likes";Likes);
+	@SetField("Likes";Likes+1));
+
+FIELD LkLst :=LkLst + ";" +@Text(@Name([CN];@UserName));
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>CurrentAction!="Submitted" | @IsMember(@Name([CN];@UserName);LkLst)</formula></code></action>
+<action title='Read, Understand &amp; will Disseminate!' icon='15'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If(@IsMember(@Name([CN];@UserName);DslkLst);
+	@SetField("Dislikes";Dislikes);
+	@SetField("Dislikes";Dislikes+1));
+
+FIELD DslkLst :=DslkLst + ";" +@Text(@Name([CN];@UserName));
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>CurrentAction!="Submitted" | @IsMember(@Name([CN];@UserName);DslkLst)</formula></code></action></actionbar>
+<background><imageref name='cc.png'/></background>
+<body><richtext>
+<pardef id='1' leftmargin='1.5000in'/>
+<par def='1'><run><font size='8pt' style='bold shadow' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='#2f2f2f'/></run></par>
+<table widthtype='fitmargins' refwidth='9.9167in'><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='3' keepwithnext='true' keeptogether='true'/>
+<par def='3'><run><font size='36pt' style='bold shadow' name='Cambria' pitch='variable'
+ truetype='true' familyid='10' color='#2f2f2f'/>HR NOTICE/INFO</run></par></tablecell></tablerow></table>
+<pardef id='4' leftmargin='0.7500in' hide='read edit copy preview previewedit embedded'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='To'><sectiontitle
+ pardef='4' color='teal'><text/></sectiontitle><code event='defaultvalue'><formula
+>Lock</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='13' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='5'/>
+<par def='5'><run><font size='1pt'/></run></par>
+<table widthtype='fitmargins' cellborderstyle='groove' refwidth='9.9167in'><tablecolumn
+ width='2in'/><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<pardef id='7' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>To</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<cellbackground repeat='center'/>
+<pardef id='8' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font size='14pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> </run><run><font size='14pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/>:</run><run><font size='14pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/> </run><run
+><font size='14pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ choicesdialog='addressbook' lookupeachchar='true' lookupaddressonrefresh='false'
+ type='names' allowmultivalues='true' kind='editable' name='Send' listinputseparators='comma'
+ listdisplayseparator='comma'/></run><run><font size='14pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='7'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>CC</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='8'><run><font size='14pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> </run><run><font size='14pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/>:</run><run><font size='14pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/> </run><run
+><font size='14pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ choicesdialog='addressbook' lookupeachchar='true' lookupaddressonrefresh='false'
+ type='names' allowmultivalues='true' kind='editable' name='CC' listinputseparators='comma'
+ listdisplayseparator='comma'/></run><run><font size='14pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='7'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Title</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='8'><run><font size='14pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> </run><run><font size='14pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/>:</run><run><font size='14pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/> </run><run
+><font size='14pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='text' kind='editable' name='Subject'/></run><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='8' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='14pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='7'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Description</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<pardef id='9' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='14pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> </run><run><font size='14pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/>:</run><run><font size='14pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/> </run><run
+><font size='14pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='richtext' kind='editable' name='Body'/></run><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='9' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='14pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='9'><run><font size='14pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<pardef id='10' keepwithnext='true' keeptogether='true'/>
+<par def='10'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Attachment</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='8'><run><font size='14pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> </run><run><font size='14pt' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/>:</run><run><font size='14pt'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/> </run><run
+><font size='14pt' name='Garamond' pitch='variable' truetype='true' familyid='10'/><field
+ type='richtext' kind='editable' name='Att'/></run><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='8' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='14pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='10'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Phone Ext. No.</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='8'><run><font size='14pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/> : </run><run><font size='14pt' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Ext'/></run><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='6' containertype='65418' aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow></table>
+<par def='5'><run><font size='12pt' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par></section>
+<table widthtype='fitmargins' refwidth='9.9167in'><tablecolumn width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='3'><run><font size='12pt' color='blue'/><field type='number' kind='computed'
+ name='Counter'><numberformat format='general' digits='2' punctuated='false'
+ parens='false' percent='false' bytes='false'/><code event='defaultvalue'><formula
+>Counter</formula></code></field></run><run><font size='12pt'/> viewed.</run></par>
+<par def='3'><run><font size='12pt'/></run><picture width='576px' height='582px'
+ scaledheight='0.4896in' scaledwidth='0.4792in'><imageref name='readin.png'/></picture><run
+><font size='12pt'/></run><run><font size='12pt' color='blue'/><field type='number'
+ kind='computed' name='Likes'><numberformat format='general' varying='true'
+ digits='2' punctuated='false' parens='false' percent='false' bytes='false'/><code
+ event='defaultvalue'><formula>Likes</formula></code></field></run><run><font
+ size='12pt'/> people read this and find the information as beneficial.</run></par>
+<par def='3'><run><font size='12pt'/></run><picture width='300px' height='300px'
+ scaledheight='0.4688in' scaledwidth='0.4688in'><imageref name='promote.png'/></picture><run
+><font size='12pt'/></run><run><font size='12pt' color='blue'/><field type='number'
+ kind='computed' name='Dislikes'><numberformat format='general' varying='true'
+ digits='2' punctuated='false' parens='false' percent='false' bytes='false'/><code
+ event='defaultvalue'><formula>Dislikes</formula></code></field></run><run
+><font size='12pt'/> people understand &amp; will Disseminate!</run><run><font
+ size='12pt'/> this.</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<pardef id='11' keepwithnext='true' keeptogether='true'/>
+<par def='11'><run><font size='1pt'/></run></par>
+<pardef id='12' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserRoles;"[HR]")</formula></code></pardef>
+<section expanded='true'><sectiontitle pardef='12' color='#ff8080'><font size='8pt'
+ color='#ff8080' style='bold italic'/><text>Details :-</text></sectiontitle>
+<par def='11'><run><font size='1pt'/></run></par>
+<table leftmargin='0' widthtype='fixedleft' refwidth='8.9771in'><tablecolumn
+ width='2.9924in'/><tablecolumn width='2.9924in'/><tablecolumn width='2.9924in'/>
+<tablerow>
+<tablecell>
+<pardef id='13' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserRoles;"[HR]")</formula></code></pardef>
+<par def='13'><run><font size='9pt' style='bold italic' color='gray'/>Viewed</run></par></tablecell>
+<tablecell>
+<pardef id='14' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserRoles;"[HR]")</formula></code></pardef>
+<par def='14'><run><font size='9pt' style='bold italic' color='gray'/>Read</run></par></tablecell>
+<tablecell>
+<pardef id='15' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserRoles;"[HR]")</formula></code></pardef>
+<par def='15'><run><font size='9pt' style='bold italic' color='gray'/>Understand &amp; will Disseminate!</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell>
+<par def='13'><run><font size='9pt' style='italic' color='gray'/></run><run
+><font size='9pt' color='gray' style='italic'/><field type='text' allowmultivalues='true'
+ kind='computed' name='CtrLst' listinputseparators='comma semicolon newline'
+ listdisplayseparator='newline'><code event='defaultvalue'><formula>@Unique(CtrLst)</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='10' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt'
+ style='italic' color='gray'/></run></par></tablecell>
+<tablecell>
+<par def='14'><run><font size='9pt' style='italic' color='gray'/></run><run
+><font size='9pt' color='gray' style='italic'/><field type='text' allowmultivalues='true'
+ kind='computed' name='LkLst' listinputseparators='comma semicolon newline'
+ listdisplayseparator='newline'><code event='defaultvalue'><formula>@Unique(LkLst)</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='10' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt'
+ style='italic' color='gray'/></run></par></tablecell>
+<tablecell>
+<par def='15'><run><font size='9pt' style='italic' color='gray'/></run><run
+><font size='9pt' color='gray' style='italic'/><field type='text' allowmultivalues='true'
+ kind='computed' name='DslkLst' listinputseparators='comma semicolon newline'
+ listdisplayseparator='newline'><code event='defaultvalue'><formula>@Unique(DslkLst)</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='10' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='9pt'
+ style='italic' color='gray'/></run></par></tablecell></tablerow></table>
+<par def='11'><run><font size='8pt'/></run><run><font size='8pt'/></run></par></section></tablecell></tablerow></table>
+<pardef id='16' keeptogether='true'/>
+<par def='16'/>
+<par def='5'/>
+<table widthtype='fitmargins' refwidth='9.9167in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<pardef id='18' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='18'><run><font size='8pt'/>Creator</run></par>
+<par def='18'><run><font size='8pt'/></run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<pardef id='19' hide='print copy' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>@IsNotMember(@UserName;IT)</formula></code></pardef>
+<par def='19'><run><font size='8pt'/><field type='names' kind='computedwhencomposed'
+ name='Author'><code event='defaultvalue'><formula>@UserName</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt'/>Date Sent</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font size='8pt'/><field type='datetime' kind='computed'
+ name='DateSent'><datetimeformat show='date' date='yearmonthday' fourdigityearfor21stcentury='true'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>DateSent</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt'/>Section Control</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font size='8pt'/><field type='names' allowmultivalues='true'
+ kind='computed' name='Lock' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(DateSent ="";Author:HRHOD;"[HR]")</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt'/>CurrentAction</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font size='8pt'/><field type='text' kind='editable' name='CurrentAction'><code
+ event='defaultvalue'><formula>"Request"</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt'/>HR</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font size='8pt'/><field type='names' allowmultivalues='true'
+ kind='computed' name='HR' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ACMHR";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt'/>HR HOD</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font size='8pt'/><field type='names' allowmultivalues='true'
+ kind='computed' name='HRHOD' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"HRHOD";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt'/>ISADMIN</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font size='8pt'/><field type='names' allowmultivalues='true'
+ kind='computed' name='IT' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ISADMIN";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt' color='red'/>Servers</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run><run
+><font size='8pt'/><field type='authors' allowmultivalues='true' kind='computed'
+ name='Servers' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"names.nsf";"($VIMGroups)";"LocalDomainServers";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='18'><run><font size='8pt' color='blue'/>Readers</run></par></tablecell>
+<tablecell borderwidth='0px' bgcolor='white'>
+<par def='19'><run><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run><run
+><font size='8pt' color='blue'/><field type='readers' allowmultivalues='true'
+ kind='computed' name='Readers' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@Unique(Author:Send:CC:HR:HRHOD:IT:Servers)</formula></code></field></run><run
+><font name='Calibri' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='17' firstlineleftmargin='1in'/>
+<par def='17'/></richtext></body>
+<item name='DateSent_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>NewSHEInfo</text></item>
+<item name='Counter' summary='false'><number>0</number></item>
+<item name='Likes' summary='false'><number>0</number></item>
+<item name='Dislikes' summary='false'><number>0</number></item></form>
+
+<agent name='Refresh Docs' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='1a2' unid='780C34D912BACB604825830100342EB0' sequence='1'>
+<created><datetime>20180907T172958,24+08</datetime></created>
+<modified><datetime>20220520T122357,69+08</datetime></modified>
+<revised><datetime>20180907T172958,26+08</datetime></revised>
+<lastaccessed><datetime>20220520T122357,68+08</datetime></lastaccessed>
+<addedtofile><datetime>20220520T122357,68+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christina/OU=PMS/O=PHB</name><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20160224T104257,36+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='runonce'/><code event='action'>
+<simpleaction action='runformula'><formula>@Command([ToolsRefreshSelectedDocs] );
+ @All;SELECT
+ @All</formula></simpleaction></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20220520T122357,69+08</datetime></agentmodified>
+<agentrun><datetime>20260408T103618,32+08</datetime></agentrun>
+<runlog>Started running agent 'Refresh Docs' on 08/04/2026 10:36:17 AM
+1 document(s) were modified by formula
+Done running agent 'Refresh Docs' on 08/04/2026 10:36:18 AM
+</runlog></rundata></agent>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='83a6' unid='487C32402E783B3E48258E050021C178' sequence='3'>
+<created><datetime>20260528T140842,16+08</datetime></created>
+<modified><datetime>20260528T140914,43+08</datetime></modified>
+<revised><datetime>20260528T140914,42+08</datetime></revised>
+<lastaccessed><datetime>20260528T140914,42+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T140842,18+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T140915,85+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(0) As String
+    sfNames(0) = "Signature"
+	'sfNames(1) = "HiddenFields"
+	'sfNames(2) = "HRUse"
+    
+    For i = 0 To 0
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\HRINFO_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\HRINFO_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T140915,58+08</datetime></agentmodified></rundata></agent>
+</database>
+

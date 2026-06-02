@@ -1,0 +1,214 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "flowName": "IOI - ITSSR Category Routing",
+    "projectTask": "Phase 5.3",
+    "sourceDocs": [
+      "m365-design/power-automate-design.md",
+      "analysis/workflow-analysis.md",
+      "docs/04_WORKFLOW_APPROVAL_RULES.md",
+      "docs/implementation-plan.md"
+    ],
+    "dominoReplacement": "ITSSR category-based routing and INO support workflow handoff",
+    "notes": "ITSSR is a service-desk routing workflow, not an approval workflow."
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "sharepointonline": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+          "connectionName": "sharepointonline",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+        },
+        "office365users": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_office365users",
+          "connectionName": "office365users",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_office365users"
+        },
+        "office365": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+          "connectionName": "office365",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_office365"
+        }
+      }
+    }
+  },
+  "triggers": {
+    "When_MainDB_IT_item_is_created": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetOnNewItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Initialize_variables": {
+      "type": "InitializeVariable",
+      "inputs": {
+        "variables": [
+          {
+            "name": "FormCode",
+            "type": "string",
+            "value": "@triggerBody()?['FormCode']"
+          },
+          {
+            "name": "ItemId",
+            "type": "integer",
+            "value": "@triggerBody()?['ID']"
+          },
+          {
+            "name": "SupportCategory",
+            "type": "string",
+            "value": "@coalesce(triggerBody()?['Category'], triggerBody()?['iTSSRCategory'], 'General')"
+          },
+          {
+            "name": "DefaultITQueueEmail",
+            "type": "string",
+            "value": "itservicedesk@ioi.com"
+          }
+        ]
+      },
+      "runAfter": {}
+    },
+    "Run_only_for_ITSSR": {
+      "type": "Condition",
+      "expression": {
+        "equals": [
+          "@variables('FormCode')",
+          "ITSSR"
+        ]
+      },
+      "actions": {
+        "Get_requestor_manager": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "office365users",
+              "operationId": "Manager"
+            },
+            "parameters": {
+              "id": "@coalesce(triggerBody()?['RequestorEmail'], triggerBody()?['Author']?['Email'])"
+            }
+          },
+          "runAfter": {}
+        },
+        "Resolve_IT_queue": {
+          "type": "Compose",
+          "inputs": "@if(or(equals(variables('SupportCategory'), 'Network'), equals(variables('SupportCategory'), 'VPN')), 'it-network@ioi.com', if(or(equals(variables('SupportCategory'), 'SAP'), equals(variables('SupportCategory'), 'Application')), 'it-applications@ioi.com', variables('DefaultITQueueEmail')))",
+          "runAfter": {
+            "Get_requestor_manager": [
+              "SUCCEEDED",
+              "FAILED",
+              "TIMEDOUT"
+            ]
+          }
+        },
+        "Update_MainDB_IT_assignment": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "sharepointonline",
+              "operationId": "PatchItem"
+            },
+            "parameters": {
+              "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+              "table": "MainDB_IT",
+              "id": "@variables('ItemId')",
+              "item": {
+                "CurrentStatus": "Assigned",
+                "WorkflowStage": 2,
+                "AssignedToEmail": "@outputs('Resolve_IT_queue')"
+              }
+            }
+          },
+          "runAfter": {
+            "Resolve_IT_queue": [
+              "SUCCEEDED"
+            ]
+          }
+        },
+        "Update_Ext_Support_assignment": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "sharepointonline",
+              "operationId": "PatchItem"
+            },
+            "parameters": {
+              "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+              "table": "Ext_Support",
+              "id": "@variables('ItemId')",
+              "item": {
+                "ITSSR_AssignedTo_Email": "@outputs('Resolve_IT_queue')",
+                "ITSSR_ManagerEmail": "@body('Get_requestor_manager')?['mail']"
+              }
+            }
+          },
+          "runAfter": {
+            "Update_MainDB_IT_assignment": [
+              "SUCCEEDED"
+            ]
+          }
+        },
+        "Notify_IT_queue": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "office365",
+              "operationId": "SendEmailV2"
+            },
+            "parameters": {
+              "emailMessage/To": "@outputs('Resolve_IT_queue')",
+              "emailMessage/Subject": "ITSSR ticket assigned: @{triggerBody()?['Title']}",
+              "emailMessage/Body": "A new IT Support and Service Request has been assigned.<br><br><b>Ticket:</b> @{triggerBody()?['Title']}<br><b>Category:</b> @{variables('SupportCategory')}<br><b>Requestor:</b> @{coalesce(triggerBody()?['RequestorEmail'], triggerBody()?['Author']?['Email'])}<br><br>Please review the item in MainDB_IT.",
+              "emailMessage/Importance": "Normal"
+            }
+          },
+          "runAfter": {
+            "Update_Ext_Support_assignment": [
+              "SUCCEEDED",
+              "FAILED"
+            ]
+          }
+        },
+        "Notify_requestor": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "office365",
+              "operationId": "SendEmailV2"
+            },
+            "parameters": {
+              "emailMessage/To": "@coalesce(triggerBody()?['RequestorEmail'], triggerBody()?['Author']?['Email'])",
+              "emailMessage/Subject": "ITSSR ticket received: @{triggerBody()?['Title']}",
+              "emailMessage/Body": "Your IT support request has been received and assigned to @{outputs('Resolve_IT_queue')}.",
+              "emailMessage/Importance": "Normal"
+            }
+          },
+          "runAfter": {
+            "Notify_IT_queue": [
+              "SUCCEEDED",
+              "FAILED"
+            ]
+          }
+        }
+      },
+      "else": {
+        "actions": {}
+      },
+      "runAfter": {
+        "Initialize_variables": [
+          "SUCCEEDED"
+        ]
+      }
+    }
+  }
+}

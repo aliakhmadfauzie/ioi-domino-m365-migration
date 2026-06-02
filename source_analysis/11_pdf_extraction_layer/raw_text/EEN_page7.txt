@@ -1,0 +1,69 @@
+WITHDRAWN SECTION
+*Requestor
+Status
+ : 
+WDStatus
+Reason
+ : 
+WDReason
+Performed By
+ : 
+WDBy
+Performed Date
+ : 
+WDDate
+DocNo
+Created by DocAuthor  on CreationDate
+Hidden Fields :-
+Current Action
+: CA
+HR Section - Editor 1
+: Editor1
+Div. Head - Editor 2
+: Editor2
+ED Section - Editor 3
+: Editor3
+HR Section - Editor 4
+: Editor4
+HR Section - Editor 5
+: Editor5
+Withdraw Section - Editor 6
+: Editor6
+IT Section
+: ITEditor
+HOD Section
+: HODEditor
+HR Editor
+: HREditor
+E&I Related
+: isEI
+E&I Editor
+: EIEditor
+ACM IT
+: ACMIT
+PCN IT
+: PCNIT
+IT
+: AllIT
+HR
+: AllHR
+HR - Exec
+: HR1
+HR - Non Exec
+: HR2
+HR HOD
+: HRHOD
+HR PIC 
+: HRPIC
+IT Admin
+: IT
+Finance
+: FIN
+E&I
+: EI
+Security
+: BCC
+ED
+: ED
+Running Number
+: INO

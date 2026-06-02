@@ -1,0 +1,41 @@
+Appendix A
+APPROVAL FOR CREDIT APPLICATION 
+FORM
+Initiation
+Company
+ : Company
+Category
+ : Category
+Credit Application Form No.
+ : CAFNo
+Previous Credit Application Form No.
+ : PrevCAFNo
+Date Initiated
+ : DateInitiated
+Name of Company + Customer Number 
+(SAP)
+ : CompanyName
+New Account
+ : Status
+Risk Category
+ : Risk
+Reasons
+ : Reasons
+Name of Marketing Executive In Charge
+ : MKTExec
+Proposed Credit Limit by 
+Marketing Manager/ Executive
+ : Currency  CreditLimit
+Proposed Credit Period by 
+Marketing Manager/ Executive
+ : Days
+Proposed Revised Credit Limit by 
+Marketing Manager/ Executive
+(For Existing Customer)
+ : Currency_1  RevCreditLimit
+Reasons
+ : Reasons2
+Credit Insurance Ref.
+ : CreditInsRef
+Limit
+ : Currency_3  Limit

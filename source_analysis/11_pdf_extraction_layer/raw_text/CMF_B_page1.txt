@@ -1,0 +1,44 @@
+Appendix B
+TEMPORARY CREDIT LIMIT CHANGE 
+FORM
+Initiation
+Company
+: Company
+Category
+: Category
+Form No.
+: CAFNo
+No. of Times Applied
+: qty
+Date
+: DateInitiated
+Name of Company + 
+Customer Number (SAP)
+: CompanyName
+Name of Marketing 
+Executive In Charge    
+: MKTExec
+Approved Credit Limit
+: Currency_7  AppCreditLimit_1
+Proposed Temporary 
+Credit Limit - 
+Increase/(Decrease) 
+: Currency_1  TemCreditLimit
+Total Credit Limit
+: Currency_2  TotCreditLimit
+Payment Terms
+: PaymentTerms
+Total Receivables
+: Currency_3  TotRec
+Open Delivery Credit
+: Currency_4  OpenDelCredit
+Sales Value
+: Currency_5  SalesVal
+Credit Insurance Ref
+: CreditInsRef
+Limit
+: Currency_6  Limit
+Reason
+: Reason
+Marketing Manager
+: MKTHOD

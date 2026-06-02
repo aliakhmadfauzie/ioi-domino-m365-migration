@@ -1,0 +1,65 @@
+IT               - Clare
+ENG          - Tan Pitt Choon
+MTN          - Teoh Kong Tat
+ECM MTN - Soh Wei Chin
+Investment Appraisal Indicators
+Economic Life of 
+Investment
+ : EcoLife  years
+Payback
+ : Payback  months
+   (if investment is over RM1.0million or payback greater 
+than 2 years, calculate IRR & NPV)
+IRR
+ : IRR %
+Net Present Value
+(apply WACC rate of IOI 
+Corporation Berhad)
+ : RM NPV
+Budget
+Was this project budgeted 
+for
+ : isBudgeted
+Amount Budgeted
+ : RM BudgetAmt
+Budget Number
+ : BudgetNo
+Investment
+Useful Life 
+(Years)
+RM
+Inv_1
+UL_1
+InvAmt_1
+Inv_2
+UL_2
+InvAmt_2
+Inv_3
+UL_3
+InvAmt_3
+Inv_4
+UL_4
+InvAmt_4
+Inv_5
+UL_5
+InvAmt_5
+Inv_6
+UL_6
+InvAmt_6
+Inv_7
+UL_7
+InvAmt_7
+Inv_8
+UL_8
+InvAmt_8
+Inv_9
+UL_9
+InvAmt_9
+Inv_10
+UL_10
+InvAmt_10
+Total
+TtlInvAmt
+Justification
+(Summarise key information and assumptions supporting this investment)
+For investments over RM200,000 attach further details using CAR-Proposal template(Exhibit FA1-1).

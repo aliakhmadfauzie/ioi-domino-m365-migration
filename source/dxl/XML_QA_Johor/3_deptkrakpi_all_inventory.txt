@@ -1,0 +1,84 @@
+DATABASE : PanCen - Departmental KRA/KPI
+PATH     : PanCen - Current\deptkrakpi.nsf
+DATE     : 29/05/2026 10:33:09 AM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  KRAKPI
+  DeptKRAKPI
+  Reminder
+  KRAKPI_old
+  KRAKPI2
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+  SUBFORM: Approval
+    - RevDate
+    - PreDate
+    - RevDesg
+    - PreDesg
+    - RejCom
+    - RevName
+    - PreName
+    - Prepared_by
+  SUBFORM: HiddenFields
+    - RemCC
+    - RemDate
+    - Defcc
+    - HC
+    - SHE
+    - QAAdmin
+    - QA
+    - INO
+    - Editor3
+    - Editor2
+    - Editor1
+    - IT
+    - CA
+  SUBFORM: Withdrawn
+    - WDReason
+    - WDDate
+    - WDBy
+    - Discard_
+
+=== AGENTS ===
+  INO [ENABLED]
+  Refresh Docs [ENABLED]
+  RemPdgReview [ENABLED]
+  FORMULA [ENABLED]
+  Clear [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  CN=PHBSVR/O=PHB | Manager | Server
+  OtherDomainServers | No Access | Server Group
+  CN=ginny/OU=PMS/O=PHB | Editor | Person
+  CN=Wong Yin Ling/OU=PMS/O=PHB | Editor | Person
+  CN=Suba QA/OU=PanCen/O=PHB | Editor | Person
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  - rTxtDocLink
+  - RunningNo
+  - DateOFReminder
+  - CopyTo
+  - SendTo
+  - Subject
+

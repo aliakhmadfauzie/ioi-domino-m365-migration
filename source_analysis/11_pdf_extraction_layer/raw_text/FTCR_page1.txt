@@ -1,0 +1,46 @@
+Fixed Term Contract Requisition 
+Form
+EMPLOYEE DETAILS (to be filled by HOD/HOS)
+Site
+Category
+Type
+Name*
+:
+EmpName
+Emp. No*
+:
+EmpNo
+Date of Birth*
+:
+DOB
+Age*
+:
+EmpAge
+Position*
+:
+EmpPost
+Dept./Section*
+:
+Dept
+Date Joined*
+:
+JoinDate
+Retirement Date*
+:
+RetDate
+HOD/HODiv*
+:
+DivHead
+Attachment
+ : Attachment
+JUSTIFICATION FOR FIXED TERM CONTRACT 
+Justification
+SUBMITTED BY DEPARTMENT/SECTION HEAD:
+Name
+ : SubBy
+Designation
+ : SubDesg
+Date
+ : SubDate
+RECOMMENDATION BY DIVISION/DEPARTMENT HEAD
+Contract Period(please specify)*

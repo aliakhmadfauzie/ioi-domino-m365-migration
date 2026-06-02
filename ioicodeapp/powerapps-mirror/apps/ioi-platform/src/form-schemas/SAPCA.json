@@ -1,0 +1,407 @@
+{
+  "formCode": "SAPCA",
+  "title": "SAPCA",
+  "description": "",
+  "routeBase": "/it/forms/sapca",
+  "icon": "",
+  "version": 1,
+  "sections": [
+    {
+      "sectionId": "SAPCA_S2",
+      "sectionName": "Section A: IT Functional — Request Initiation",
+      "displayOrder": 2,
+      "fields": [
+        {
+          "fieldId": "A_FormNum",
+          "label": "Form Number",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 1,
+          "notes": "Auto-generated (Year-Month-INO)"
+        },
+        {
+          "fieldId": "A_Module",
+          "label": "Module / App Area",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 2,
+          "options": [],
+          "notes": "SAP module (FI, CO, MM, PP, SD, etc.)"
+        },
+        {
+          "fieldId": "A_OtherModule",
+          "label": "Other Module",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Free text if \"Others\" selected"
+        },
+        {
+          "fieldId": "A_Client",
+          "label": "Client (System ID)",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "SAP client/system identifier"
+        },
+        {
+          "fieldId": "A_ClientNum",
+          "label": "Client Number",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 5,
+          "notes": "SAP client number"
+        },
+        {
+          "fieldId": "A_RefDoc",
+          "label": "Reference Document",
+          "fieldType": "text",
+          "required": true,
+          "displayOrder": 6,
+          "notes": "CR/SSR/PRF/SAP Notes/UR reference"
+        },
+        {
+          "fieldId": "A_Purpose",
+          "label": "Purpose",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 7,
+          "notes": "Purpose of config access request"
+        },
+        {
+          "fieldId": "A_ChangesDone",
+          "label": "Changes Done",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 8,
+          "notes": "Description of planned configuration changes"
+        },
+        {
+          "fieldId": "A_Attachment",
+          "label": "Attachment",
+          "fieldType": "attachment",
+          "required": false,
+          "displayOrder": 9,
+          "notes": "Supporting documentation"
+        },
+        {
+          "fieldId": "A_CCFuncOwner",
+          "label": "CC — Functional Owner",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 10,
+          "notes": "CC notification to functional owner"
+        },
+        {
+          "fieldId": "A_RequestedBy",
+          "label": "Requested By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 11,
+          "notes": "IT Functional staff making the request"
+        },
+        {
+          "fieldId": "A_DateSubmitted",
+          "label": "Date Submitted",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 12,
+          "notes": "Auto-populated"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCA_S3",
+      "sectionName": "Section B: BASIS Team — Grant Access",
+      "displayOrder": 3,
+      "fields": [
+        {
+          "fieldId": "B_AppStatus",
+          "label": "Approval Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Approved / Rejected"
+        },
+        {
+          "fieldId": "B_AppBy",
+          "label": "Approved By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "BASIS team member who granted access"
+        },
+        {
+          "fieldId": "B_DateApproved",
+          "label": "Date Approved",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "B_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "BASIS notes"
+        },
+        {
+          "fieldId": "B_TRStatus",
+          "label": "TR Status",
+          "fieldType": "choice",
+          "required": false,
+          "displayOrder": 5,
+          "options": [],
+          "notes": "Transport Request status"
+        },
+        {
+          "fieldId": "B_TRBy",
+          "label": "TR By",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 6,
+          "notes": "Person handling transport"
+        },
+        {
+          "fieldId": "B_DateTransport",
+          "label": "Date Transported",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 7,
+          "notes": "Transport date"
+        },
+        {
+          "fieldId": "B_TRComment",
+          "label": "TR Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 8,
+          "notes": "TR notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCA_S4",
+      "sectionName": "Section C: Request Config Close",
+      "displayOrder": 4,
+      "fields": [
+        {
+          "fieldId": "C_AppStatus",
+          "label": "Close Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Close Requested"
+        },
+        {
+          "fieldId": "C_AppBy",
+          "label": "Requested Close By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "IT Functional staff requesting close"
+        },
+        {
+          "fieldId": "C_DateApproved",
+          "label": "Date Requested",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Auto on action"
+        },
+        {
+          "fieldId": "C_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Close request notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCA_S5",
+      "sectionName": "Section D: Completion",
+      "displayOrder": 5,
+      "fields": [
+        {
+          "fieldId": "D_TRStatus",
+          "label": "TR Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Completed / Not Required"
+        },
+        {
+          "fieldId": "D_TRBy",
+          "label": "TR By",
+          "fieldType": "people",
+          "required": false,
+          "displayOrder": 2,
+          "notes": "Transporter"
+        },
+        {
+          "fieldId": "D_DateTransport",
+          "label": "Date Transported",
+          "fieldType": "datetime",
+          "required": false,
+          "displayOrder": 3,
+          "notes": "Completion transport date"
+        },
+        {
+          "fieldId": "D_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 4,
+          "notes": "Completion notes"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCA_S6",
+      "sectionName": "Requestor's Remarks",
+      "displayOrder": 6,
+      "fields": [
+        {
+          "fieldId": "REM_Comments",
+          "label": "Remarks",
+          "fieldType": "multiline",
+          "required": false,
+          "displayOrder": 1,
+          "notes": "Requestor additional remarks"
+        },
+        {
+          "fieldId": "REM_Name",
+          "label": "Requestor Name",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 2,
+          "notes": "Confirms requestor"
+        },
+        {
+          "fieldId": "REM_Date",
+          "label": "Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Auto-populated"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCA_S7",
+      "sectionName": "Withdrawn",
+      "displayOrder": 7,
+      "fields": [
+        {
+          "fieldId": "WD_Status",
+          "label": "Withdrawal Status",
+          "fieldType": "choice",
+          "required": true,
+          "displayOrder": 1,
+          "options": [],
+          "notes": "Withdrawn"
+        },
+        {
+          "fieldId": "WD_By",
+          "label": "Withdrawn By",
+          "fieldType": "people",
+          "required": true,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "WD_Date",
+          "label": "Withdrawn Date",
+          "fieldType": "datetime",
+          "required": true,
+          "displayOrder": 3,
+          "notes": "Auto"
+        },
+        {
+          "fieldId": "WD_Comment",
+          "label": "Comment",
+          "fieldType": "multiline",
+          "required": true,
+          "displayOrder": 4,
+          "notes": "Withdrawal reason"
+        }
+      ]
+    },
+    {
+      "sectionId": "SAPCA_S12",
+      "sectionName": "Config Close Cycle:",
+      "displayOrder": 12,
+      "fields": [
+        {
+          "fieldId": "A_Module",
+          "label": "A_Module",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 1
+        },
+        {
+          "fieldId": "A_Client",
+          "label": "A_Client",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 2
+        },
+        {
+          "fieldId": "A_RefDoc",
+          "label": "A_RefDoc",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 3
+        },
+        {
+          "fieldId": "A_Purpose",
+          "label": "A_Purpose",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 4
+        },
+        {
+          "fieldId": "A_ChangesDone",
+          "label": "A_ChangesDone",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 5
+        },
+        {
+          "fieldId": "B_AppStatus",
+          "label": "B_AppStatus",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 6
+        },
+        {
+          "fieldId": "C_AppStatus",
+          "label": "C_AppStatus",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 7
+        },
+        {
+          "fieldId": "D_TRStatus",
+          "label": "D_TRStatus",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 8
+        },
+        {
+          "fieldId": "WD_Comment",
+          "label": "WD_Comment",
+          "fieldType": "text",
+          "required": false,
+          "displayOrder": 9
+        }
+      ]
+    }
+  ]
+}

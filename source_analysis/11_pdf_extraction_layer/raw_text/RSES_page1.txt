@@ -1,0 +1,46 @@
+REVERSAL SERVICE ENTRY SHEET
+INITIATOR SECTION
+Company
+ : Company
+Requestor
+ : Requestor
+Approver
+ : Approver
+Department
+ : Dept
+Phone Ext. No.
+ : ExtNo
+Site
+ : Site
+SES No.
+ : SESNo
+Purchase Order & Item No.
+ : PO
+SES Approval Date
+ : SESAppDate
+Justification
+ : Justification
+Requested by ReqName  on ReqDate
+APPROVER ACCEPTANCE
+Approve Reject
+   
+    
+Accepted Name
+ : AppName
+Accepted Date
+ : AppDate
+Remarks
+ : AppRem
+App
+FINANCE ACCEPTANCE
+Complete Reject
+   
+    
+Completed by
+ : FINName
+Completed Date
+ : FINDate
+Remarks
+ : FINRem
+App2
+Created by DocAuthor  on CDate

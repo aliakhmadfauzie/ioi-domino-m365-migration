@@ -1,0 +1,1744 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='482574CA0012515D' path='CN=PCNSVR/O=PHB!!PanCen - IMS\PCQltyRec.nsf'
+ title='PanCen - Masterlist of Records' categories='IMS' allowstoredforms='false'
+ usejavascriptinpages='false' increasemaxfields='true'>
+<databaseinfo dbid='48257C32000B2242' odsversion='55' diskspace='115343360'
+ percentused='99.4806463068182' numberofdocuments='599'><datamodified><datetime
+>20260524T072924,99+08</datetime></datamodified><designmodified><datetime
+>20260529T144407,63+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='FS'/></launchsettings>
+<view name='Quality ' showinmenu='false' publicaccess='false' designerversion='8.5'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffe0e6'
+ totalscolor='gray' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='11e' unid='02A6D3C965DF367B472566F700315F47' sequence='23'>
+<created><datetime>19990112T155916,55+07</datetime></created>
+<modified><datetime>20110809T115423,09+08</datetime></modified>
+<revised><datetime>20110809T115423,08+08</datetime></revised>
+<lastaccessed><datetime>20131009T020638,34+08</datetime></lastaccessed>
+<addedtofile><datetime>20080920T112004,92+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christina/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Christina/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' width='3' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader title='No.'><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@DocNumber</formula></code></column>
+<column sort='ascending' resort='ascending' hidedetailrows='false' itemname='deptselection'
+ width='1.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='false'
+ sortnocase='true' showaslinks='false' categorized='true' twisties='true'><font
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Record' width='24.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='Record'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Custodian' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Custodian'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Retention' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Retention '><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Note' width='16.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Record No'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ref' width='31' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Reference Doc'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='deptselection' width='12.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<form name='Quality' publicaccess='false' designerversion='8.5.3' default='true'
+ bgcolor='#e8e0ff' recalc='true'>
+<noteinfo noteid='126' unid='A40C15028569B6F3472566F70031662D' sequence='42'>
+<created><datetime>19990112T155934,21+07</datetime></created>
+<modified><datetime>20240404T105902,17+08</datetime></modified>
+<revised><datetime>20240404T105902,16+08</datetime></revised>
+<lastaccessed><datetime>20240404T105902,16+08</datetime></lastaccessed>
+<addedtofile><datetime>20080920T112004,93+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"Records"</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='Previous Record' icon='18' showinmenu='false'><code event='click'><formula
+>@Command([NavigatePrev])</formula></code></action>
+<action title='Next Record' icon='19' showinmenu='false'><code event='click'><formula
+>@Command([NavigateNext])</formula></code></action>
+<action title='Print' icon='98'><code event='click'><formula>@Command([FilePrint])</formula></code></action>
+<action title='Save &amp; Exit' icon='117'><code event='click'><formula>@Command([FileSave]) ;
+@Command([FileCloseWindow])</formula></code></action>
+<action title='Cancel ' icon='11'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1' leftmargin='1in'/>
+<par def='1'><run><font size='8pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='navy'/></run></par>
+<par def='1'><run><font size='24pt' style='bold underline' name='Garamond'
+ pitch='variable' truetype='true' familyid='10' color='navy'/>Records</run></par>
+<pardef id='2'/>
+<par def='2'><run><font size='12pt' color='navy'/></run></par>
+<table widthtype='fitmargins' refwidth='9.1875in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='4' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Record</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='5' leftmargin='0' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Record'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='7' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Custodian</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Custodian'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Retention</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Retention'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Record Number</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Note'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Reference Document</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='ref'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Attachment</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='richtext'
+ kind='editable' name='attc'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='6' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Department</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='7' leftmargin='0' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font size='11pt' style='bold emboss' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/>: </run><run
+><font size='11pt' style='bold' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field choicesdialog='view' viewdatabase='CN=PCNSVR/O=PHB!!PanCen - IMS\PCDept'
+ view='(lookupdept)' viewcolumn='1' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='deptselection'><keywords columns='1'
+ ui='dialoglist'/></field></run><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='8' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>FSMA</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='9' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='rbFSMA'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Yes | 1</text><text>No</text></textlist></keywords></field></run><run
+><font size='11pt' style='bold' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Type fo Record</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='10' keepwithnext='true' keeptogether='true'/>
+<par def='10'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Type'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Database</text><text>SAP</text><text>Manual</text></textlist></keywords></field></run><run
+><font size='11pt' style='bold emboss' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='11' spaceafter='1.5' hide='read edit print copy preview previewedit'
+ keepwithnext='true' keeptogether='true'/>
+<par def='11'><run><font size='11pt' style='bold emboss' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='12' leftmargin='0' spaceafter='1.5' hide='read edit print copy preview previewedit'
+ keepwithnext='true' keeptogether='true'/>
+<par def='12'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/></run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='richtext'
+ kind='editable' name='att12'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='7' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='2'><run><font size='12pt' color='navy'/></run></par>
+<pardef id='13' leftmargin='0.7500in'/><subformref name='RecordOfIssues'/>
+<pardef id='14' leftmargin='1in'><code event='hidewhen'><formula>FinalStatus !="4"</formula></code></pardef>
+<par def='14'><run><font size='12pt' color='navy'/></run></par>
+<pardef id='15' leftmargin='1in'><code event='hidewhen'><formula>@UpperCase(@Name([CN];@UserName)) != "SAMANTHA" &amp; @UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef>
+<par def='15'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='#622152'/></run></par><subformref name='Signature'/>
+<pardef id='16' leftmargin='0.1250in' hide='print'><code event='hidewhen'><formula
+>@UpperCase(@Name([CN];@UserName)) != "SAMANTHA" &amp; @UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef>
+<par def='16'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='#622152'/></run></par></richtext></body>
+<item name='RecordID' summary='false'><number>0</number></item>
+<item name='D1_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_2' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_3' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_4' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_5' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_6' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_7' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_8' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_9' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_10' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_11' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_12' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_13' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_14' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_15' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_16' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_17' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_18' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_19' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_20' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_21' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_22' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_23' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_24' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_25' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_26' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_27' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_28' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_29' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_30' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_31' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_32' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_33' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_34' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_35' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_36' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_37' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_38' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_39' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_40' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_1E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_2E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_3E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_4E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_5E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_6E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_7E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_8E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_9E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_10E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_11E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_12E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_13E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_14E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_15E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_16E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_17E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_18E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_19E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_20E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_21E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_22E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_23E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_24E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_25E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_26E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_27E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_28E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_29E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_30E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_31E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_32E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_33E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_34E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_35E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_36E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_37E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_38E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_39E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_40E' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><textlist><text>0000000000000000</text><text
+>0000000000000000</text></textlist></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Quality</text></item>
+<item name='CDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<view name='(Lookup1)' showinmenu='false' publicaccess='false' unreadmarks='none'
+ onopengoto='lastopened' onrefresh='displayindicator' headers='beveled' opencollapsed='false'
+ showresponsehierarchy='true' showmargin='true' shrinkrows='false' extendlastcolumn='false'
+ showhierarchies='false' unreadcolor='black' rowlinecount='1' headerlinecount='1'
+ rowspacing='1' bgcolor='white' altrowcolor='#ffe0e6' totalscolor='gray' uniquekeys='false'>
+<noteinfo noteid='12a' unid='682B20D43C4AFD4F472566F700383DD5' sequence='17'>
+<created><datetime>19990112T171418,45+07</datetime></created>
+<modified><datetime>20080920T112005,01+08</datetime></modified>
+<revised><datetime>20000915T141240,65+08</datetime></revised>
+<lastaccessed><datetime>20131009T020638,57+08</datetime></lastaccessed>
+<addedtofile><datetime>20080920T112004,93+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Samantha/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Samantha/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='Record' width='22.7500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='Record'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Custodian' width='19' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Responsibility'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Retention' width='17.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Retention (ACM)'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$3' width='20.3750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ hidden='true'><columnheader title='Concatenated Values'><font size='9pt'
+ style='bold'/></columnheader><code event='value'><formula>Record+"~"+Custodian+"~"+Retention</formula></code></column>
+<column hidedetailrows='false' itemname='Retention_scm' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Retention (SCM)'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='$6' width='20.3750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'
+ hidden='true'><columnheader title='Concatenated Values'><font size='9pt'
+ style='bold'/></columnheader><code event='value'><formula>Record+"~"+Custodian+"~"+Retention_scm</formula></code></column>
+<column hidedetailrows='false' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@DocNumber</formula></code></column></view>
+
+<form name='Copy Of Quality' publicaccess='false' bgcolor='#ffffc2'>
+<noteinfo noteid='136' unid='BF151EB43C7D3FA94825696600059B84' sequence='3'>
+<created><datetime>20000926T090114,92+08</datetime></created>
+<modified><datetime>20080920T112005,07+08</datetime></modified>
+<revised><datetime>20000927T140629,23+08</datetime></revised>
+<lastaccessed><datetime>20080920T112004,93+08</datetime></lastaccessed>
+<addedtofile><datetime>20080920T112004,93+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christina/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Christina/OU=PMS/O=PHB</name></wassignedby>
+<actionbar bordercolor='black'>
+<actionbuttonstyle/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='Previous Record' icon='18' showinmenu='false'><code event='click'><formula
+>@Command([NavigatePrev])</formula></code></action>
+<action title='Next Record' icon='19' showinmenu='false'><code event='click'><formula
+>@Command([NavigateNext])</formula></code></action>
+<action title='Print' icon='98'><code event='click'><formula>@Command([FilePrint])</formula></code></action>
+<action title='Save &amp; Exit' icon='117'><code event='click'><formula>@Command([FileSave]) ;
+@Command([FileCloseWindow])</formula></code></action>
+<action title='Cancel ' icon='11'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1' align='center' leftmargin='1in' rightmargin='100%'/>
+<par def='1'><run><font size='18pt' color='navy' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='1'><run><font size='18pt' color='navy' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='1'><run><font size='18pt' color='navy' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/>Quality Records</run></par>
+<pardef id='2'/>
+<par def='2'><run><font size='12pt' color='navy'/></run></par>
+<par def='2'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Record:</run><run><font size='12pt' color='#622152'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/>	 </run><run
+><font size='12pt' color='blue' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='Record'><code
+ event='inputtranslation'><formula>@ProperCase(Record)</formula></code></field></run><run
+><font size='12pt' color='#622152' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' color='#622152' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Custodian (ACM):</run><run><font size='12pt'
+ color='#622152' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>	</run><run><font size='12pt' color='blue' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Custodian'><code event='inputtranslation'><formula>@ProperCase(Custodian )</formula></code></field></run><run
+><font size='12pt' color='#622152' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' color='#622152' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Custodian (SCM):</run><run><font size='12pt'
+ color='#622152' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/>	</run><run><font size='12pt' color='blue' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Custodian_scm'><code event='inputtranslation'><formula>@ProperCase(Custodian )</formula></code></field></run></par>
+<par def='2'><run><font size='12pt' color='#622152' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Retention (ACM):</run><run><font size='12pt'
+ color='#622152' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> 	</run><run><font size='12pt' color='blue' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Retention'/></run><run><font size='12pt' color='#622152' style='bold'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Retention (SCM):</run><run><font size='12pt'
+ color='#622152' style='bold' name='Garamond' pitch='variable' truetype='true'
+ familyid='10'/> 	</run><run><font size='12pt' color='blue' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/><field type='text' kind='editable'
+ name='Retention_scm'/></run><run><font size='12pt' color='#622152' style='bold'
+ name='Garamond' pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' color='#622152' style='bold' name='Garamond'
+ pitch='variable' truetype='true' familyid='10'/></run></par>
+<par def='2'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/>Note:</run><run><font size='12pt' color='#622152'
+ style='bold' name='Garamond' pitch='variable' truetype='true' familyid='10'/>		</run><run
+><font size='12pt' color='blue' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/><field type='text' kind='editable' name='Note'/></run><run
+><font size='12pt' color='#622152' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10'/></run></par></richtext></body>
+<item name='RecordID' summary='false'><number>0</number></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Quality</text></item></form>
+
+<view name='ByDepartment' showinmenu='false' publicaccess='false' designerversion='8.5'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffe0e6'
+ totalscolor='gray' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='2b86' unid='960FA1649CFDC7F2482578E7001540FA' sequence='3'>
+<created><datetime>20110809T115208,90+08</datetime></created>
+<modified><datetime>20110809T115322,92+08</datetime></modified>
+<revised><datetime>20110809T115322,91+08</datetime></revised>
+<lastaccessed><datetime>20110809T115322,91+08</datetime></lastaccessed>
+<addedtofile><datetime>20110809T115208,92+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christina/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Christina/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' width='3' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader title='No.'><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@DocNumber</formula></code></column>
+<column sort='ascending' resort='ascending' hidedetailrows='false' itemname='deptselection'
+ width='1.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='false'
+ sortnocase='true' showaslinks='false' categorized='true' twisties='true'><font
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Record' width='24.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='Record'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Custodian' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Custodian'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Retention' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Retention '><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Note' width='16.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Record No'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ref' width='31' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Reference Doc'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='deptselection' width='12.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='FSMA' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffe0e6'
+ totalscolor='gray' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='5e0e' unid='25C5155F5886E02A482584E8002A67BE' sequence='6'>
+<created><datetime>20200107T154310,70+08</datetime></created>
+<modified><datetime>20240403T121028,20+08</datetime></modified>
+<revised><datetime>20240403T121028,19+08</datetime></revised>
+<lastaccessed><datetime>20240403T121028,19+08</datetime></lastaccessed>
+<addedtofile><datetime>20200107T154310,72+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT rbFSMA = "1"</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' width='3' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader title='No.'><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@DocNumber</formula></code></column>
+<column sort='ascending' resort='ascending' hidedetailrows='false' itemname='deptselection'
+ width='1.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='false'
+ sortnocase='true' showaslinks='false' categorized='true' twisties='true'><font
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Record' width='24.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='Record'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Custodian' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Custodian'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Retention' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Retention '><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Note' width='16.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Record No'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ref' width='31' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Reference Doc'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='deptselection' width='12.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<form name='Quality2_NIU' publicaccess='false' designerversion='8.5.3' bgcolor='#e8e0ff'
+ recalc='true'>
+<noteinfo noteid='6902' unid='390FD70DE5D2CECB48258AF3003126CB' sequence='6'>
+<created><datetime>20240402T165651,95+08</datetime></created>
+<modified><datetime>20240404T110142,38+08</datetime></modified>
+<revised><datetime>20240404T110142,37+08</datetime></revised>
+<lastaccessed><datetime>20240404T110142,37+08</datetime></lastaccessed>
+<addedtofile><datetime>20240402T165652,01+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"Records"</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/>
+<action title='Previous Record' icon='18' showinmenu='false'><code event='click'><formula
+>@Command([NavigatePrev])</formula></code></action>
+<action title='Next Record' icon='19' showinmenu='false'><code event='click'><formula
+>@Command([NavigateNext])</formula></code></action>
+<action title='Print' icon='98'><code event='click'><formula>@Command([FilePrint])</formula></code></action>
+<action title='Save &amp; Exit' icon='117'><code event='click'><formula>@Command([FileSave]) ;
+@Command([FileCloseWindow])</formula></code></action>
+<action title='Cancel ' icon='11'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action></actionbar>
+<body><richtext>
+<pardef id='1' leftmargin='1in'/>
+<par def='1'><run><font size='18pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='navy'/></run></par>
+<par def='1'><run><font size='18pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='navy'/>Records</run></par>
+<pardef id='2'/>
+<par def='2'><run><font size='12pt' color='navy'/></run></par>
+<table widthtype='fitmargins' refwidth='6.9583in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='4' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Record</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='5' leftmargin='0' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Record'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='7' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Custodian</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Custodian'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Retention</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Retention'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Record Number</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='Note'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Reference Document</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='text'
+ kind='editable' name='ref'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Attachment</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='richtext'
+ kind='editable' name='attc'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='6' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Department</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='7' leftmargin='0' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font size='11pt' style='bold emboss' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/>: </run><run
+><font size='11pt' style='bold' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field choicesdialog='view' viewdatabase='CN=PCNSVR/O=PHB!!PanCen - IMS\PCDept'
+ view='(lookupdept)' viewcolumn='1' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='deptselection'><keywords columns='1'
+ ui='dialoglist'/></field></run><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>FSMA</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='8' keepwithnext='true' keeptogether='true'/>
+<par def='8'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='rbFSMA'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Yes | 1</text><text>No</text></textlist></keywords></field></run><run
+><font size='11pt' style='bold' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='9' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>Type fo Record</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='10' keepwithnext='true' keeptogether='true'/>
+<par def='10'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Type'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Database</text><text>SAP</text><text>Manual</text></textlist></keywords></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='4'><run><font size='11pt' style='bold emboss' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='11' leftmargin='0' spaceafter='1.5' hide='read edit print copy preview previewedit'
+ keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula>@UpperCase(@Name([CN];@UserName)) != "SAMANTHA" &amp; @UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef>
+<par def='11'><run><font size='11pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/></run><run><font size='11pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/><field type='richtext'
+ kind='editable' name='att12'/></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='8' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size='11pt' style='bold emboss'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<par def='2'><run><font size='12pt' color='navy'/></run></par>
+<pardef id='12' leftmargin='0.7500in'/><subformref name='RecordOfIssues'/>
+<pardef id='13' leftmargin='1in'><code event='hidewhen'><formula>FinalStatus !="4"</formula></code></pardef>
+<par def='13'><run><font size='12pt' color='navy'/></run></par>
+<pardef id='14' leftmargin='1in'><code event='hidewhen'><formula>@UpperCase(@Name([CN];@UserName)) != "SAMANTHA" &amp; @UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef>
+<par def='14'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='#622152'/></run></par><subformref name='Signature'/>
+<pardef id='15' leftmargin='0.1250in' hide='print'><code event='hidewhen'><formula
+>@UpperCase(@Name([CN];@UserName)) != "SAMANTHA" &amp; @UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef>
+<par def='15'><run><font size='12pt' style='bold' name='Garamond' pitch='variable'
+ truetype='true' familyid='10' color='#622152'/></run></par></richtext></body>
+<item name='RecordID' summary='false' sign='true'><number>0</number></item>
+<item name='D1_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_3' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_4' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_5' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_6' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_7' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_8' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_9' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_10' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_11' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_12' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_13' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_14' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_15' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_16' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_17' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_18' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_19' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_20' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_21' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_22' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_23' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_24' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_25' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_26' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_27' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_28' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_29' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_30' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_31' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_32' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_33' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_34' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_35' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_36' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_37' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_38' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_39' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_40' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_1E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_2E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_3E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_4E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_5E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_6E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_7E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_8E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_9E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_10E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_11E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_12E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_13E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_14E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_15E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_16E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_17E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_18E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_19E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_20E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_21E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_22E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_23E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_24E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_25E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_26E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_27E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_28E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_29E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_30E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_31E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_32E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_33E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_34E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_35E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_36E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_37E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_38E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_39E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='D1_40E' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><textlist><text>0000000000000000</text><text
+>0000000000000000</text></textlist></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>Quality</text></item>
+<item name='CDate' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<view name='QualitybyType' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffe0e6'
+ totalscolor='gray' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='6906' unid='66A93A79E0E9EDB648258AF3003344D6' sequence='4'>
+<created><datetime>20240402T171959,58+08</datetime></created>
+<modified><datetime>20240402T172044,36+08</datetime></modified>
+<revised><datetime>20240402T172044,35+08</datetime></revised>
+<lastaccessed><datetime>20240402T172739,51+08</datetime></lastaccessed>
+<addedtofile><datetime>20240402T171959,69+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' width='3' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader title='No.'><font
+ size='9pt' style='bold'/></columnheader><code event='value'><formula>@DocNumber</formula></code></column>
+<column sort='ascending' resort='ascending' hidedetailrows='false' itemname='Type'
+ width='1.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='false'
+ sortnocase='true' showaslinks='false' categorized='true' twisties='true'><font
+ size='12pt' color='maroon' style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' resort='ascending' hidedetailrows='false' itemname='deptselection'
+ width='1.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='false'
+ sortnocase='true' showaslinks='false' categorized='true' twisties='true'><font
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Record' width='24.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='Record'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Custodian' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Custodian'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Retention' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Retention '><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Note' width='16.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Record No'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ref' width='31' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Reference Doc'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='deptselection' width='12.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<view name='All' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' altrowcolor='#ffe0e6'
+ totalscolor='gray' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false' formatnoteid='02A6D3C965DF367B472566F700315F47'>
+<noteinfo noteid='6916' unid='5D61CEE9B7D6164348258AF5001072F6' sequence='4'>
+<created><datetime>20240404T105940,06+08</datetime></created>
+<modified><datetime>20240404T105953,59+08</datetime></modified>
+<revised><datetime>20240404T105953,58+08</datetime></revised>
+<lastaccessed><datetime>20240404T105955,64+08</datetime></lastaccessed>
+<addedtofile><datetime>20240404T105940,09+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='Send Docu_ment' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='ascending' resort='ascending' hidedetailrows='false' itemname='Form'
+ width='1.5000' resizable='true' separatemultiplevalues='true' sortnoaccent='false'
+ sortnocase='true' showaslinks='false' categorized='true' twisties='true'><font
+ style='bold'/><columnheader><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Record' width='24.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='Record'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Custodian' width='12.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Custodian'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Retention' width='15.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='true' sortnocase='true' showaslinks='false'><columnheader
+ title='Retention '><font size='9pt' style='bold'/></columnheader></column>
+<column resort='ascending' hidedetailrows='false' itemname='Note' width='16.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false' twisties='true'><columnheader title='Record No'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='ref' width='31' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Reference Doc'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='deptselection' width='12.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Department'><font size='9pt' style='bold'/></columnheader></column></view>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='791e' unid='8CC70E7A3147811848258E060024AF4D' sequence='3'>
+<created><datetime>20260529T144041,73+08</datetime></created>
+<modified><datetime>20260529T144340,81+08</datetime></modified>
+<revised><datetime>20260529T144340,80+08</datetime></revised>
+<lastaccessed><datetime>20260529T144340,80+08</datetime></lastaccessed>
+<addedtofile><datetime>20260529T144041,86+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20260529T144340,91+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(1) As String
+    sfNames(0) = "Signature"
+	sfNames(1) = "RecordOfIssues"
+  
+  For i = 0 To 1
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\QA_PanCen\21_PCQltyRec_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\QA_PanCen\21_PCQltyRec_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!" &amp; Chr(10) &amp; Chr(10) &amp; _
+        "Inventory : D:\Claude\DB_NSF\QA_PanCen\21_PCQltyRec_all_inventory.txt" &amp; Chr(10) &amp; _
+        "Full DXL  : D:\Claude\DB_NSF\QA_PanCen\21_PCQltyRec_all_dxl.xml" &amp; Chr(10) &amp; Chr(10) &amp; _
+        "DXL size  : " &amp; Format(Len(dxl), "#,##0") &amp; " chars"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260529T144340,52+08</datetime></agentmodified>
+<runlog>Started running agent 'DB_NSF' on 29/05/2026 02:44:04 PM
+ERROR: To run this agent you must have at least one document selected
+</runlog></rundata></agent>
+</database>
+

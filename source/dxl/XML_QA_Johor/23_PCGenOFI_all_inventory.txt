@@ -1,0 +1,61 @@
+DATABASE : PanCen - OFI Request
+PATH     : PanCen - Current\PCGenOFI.nsf
+DATE     : 29/05/2026 2:50:30 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  OFIRequestV1
+  CAMemo1
+  CAMemo2
+  CAMemo3
+  Memo
+  ReviewMemo
+  Memo1
+  ReviewMemo1
+  EnterCommentsWDrawn
+  OFIRequest
+  OFIRequest_Old
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature (not found - may be in template)
+
+=== AGENTS ===
+  INO [ENABLED]
+  Past Due FollowUpCA [DISABLED]
+  Past Due ImmediateCA [DISABLED]
+  Process Past Due Approvals [ENABLED]
+  ReminderReview [ENABLED]
+  Refresh Docs [ENABLED]
+  2ndProcess Past Due Approvals [ENABLED]
+  2ndReminderReview [ENABLED]
+  Set [ENABLED]
+  Clear [ENABLED]
+  NewDateReview [ENABLED]
+  FORMULA [ENABLED]
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  QA | Editor | Person Group
+  CN=PCNSVR/O=PHB | Manager | Server Group
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  Marketing Execs (Local) | Editor | Person Group
+  PanCen Group | Editor | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

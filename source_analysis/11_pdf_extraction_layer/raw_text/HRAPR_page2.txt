@@ -1,0 +1,73 @@
+Rejected :-
+Carried out by
+ : ISGName_1
+Status
+ : CaseStatus_1
+Date
+ : DateReject
+Remarks
+ : ISRemarks
+Requestor's Acceptance :-
+Status
+ : Status
+Date Accepted
+ : DateAccept
+Comment
+ : Comment
+KIV/ARCHIVED by
+ : KIVBy
+Status
+ : KIVStatus
+Date
+ : KIVDate
+Created by: Authors  on CreationDate
+HiddenFields:
+CurrentAction
+: 
+CurrentAction
+Requestor
+: 
+Requestor
+AuthorsList
+: 
+AuthorsList
+IT Admin
+: ISG
+HR (PIC)
+: PIC
+HR (BOSS)
+: 
+GHR
+HR (LMS)
+: 
+GHR2
+HR HOD
+: HRHOD
+AE1
+: 
+AEditor1
+AE2 
+ 
+: AEditor2
+AE3
+: 
+AEditor3
+Mailing List
+: 
+MailingList
+AcceptanceNotice: 
+MailList
+Last Modified by
+: 
+LastModifiedBy
+Expire Date
+: AutoClosedDate
+Modified by
+: 
+ModifiedBy
+Modiefied on 
+: 
+DateModified
+Reminder Date
+: 
+RemDate

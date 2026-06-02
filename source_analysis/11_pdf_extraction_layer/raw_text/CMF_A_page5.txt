@@ -1,0 +1,4 @@
+INO
+ : Year - INO
+Reminder Date
+ : RemDate

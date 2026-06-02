@@ -1,0 +1,50 @@
+Status
+ : HRHODStatus
+Name
+ : HRHODName
+Date
+ : HRHODDate
+Remark
+ : HRHODRemark
+SECTION F (FLIGHT & TRANSPORTATION DETAILS)
+DONE
+Flight Departure Date
+ : 
+DepartDate
+Departure Time
+ : 
+DepartTime
+Attachment
+ : Att
+Transportation Details
+ : Att2
+Done by Doneby  on Donedate
+SECTION G: INCOME TAX DECLARATION 
+DONE
+Date of Submission
+ : 
+SubDate
+Remarks
+ : Remarks
+Done by Doneby2  on Donedate2
+WITHDRAWN
+Date
+ : WDDate
+Withdrawn by
+ : WDBy
+Remarks
+ : WDRem
+Hidden Fields
+Current Action
+CurrentAction
+Editor 1
+Editor1
+Editor 2
+Editor2
+Editor 3
+Editor3
+Editor 4
+Editor4
+Editor 5
+Editor5
+Editor 6

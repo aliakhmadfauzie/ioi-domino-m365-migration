@@ -1,0 +1,108 @@
+{
+  "generated": "2026-05-31",
+  "scope": "EAF (VPN/Citrix), ITSSR (IT Support), HI (Hardware Inventory)",
+  "author": "Migration Lead (AI Assistant)",
+  "phases": {
+    "phase1": {
+      "title": "Source Analysis",
+      "findings": 21,
+      "forms": {
+        "EAF": {
+          "dominoFields": 21,
+          "editableFields": 10,
+          "fieldsCapturedBefore": 9,
+          "fieldsCapturedAfter": 11,
+          "workflowStages": 5,
+          "status": "Aligned after fix",
+          "confidence": "High",
+          "gapsResolved": ["ClientID", "Group", "HigherApprover"],
+          "gapsRemaining": []
+        },
+        "ITSSR": {
+          "dominoFields": 23,
+          "fieldsCaptured": 20,
+          "workflowStages": 5,
+          "status": "Aligned",
+          "confidence": "Medium",
+          "gapsResolved": [],
+          "gapsRemaining": ["PDF UI inventory not validated", "SLA hours need business confirmation"]
+        },
+        "HI": {
+          "dominoFields": 58,
+          "penangFields": 58,
+          "johorFields": 60,
+          "fieldsCapturedBefore": 25,
+          "fieldsCapturedAfter": 38,
+          "workflowStages": 0,
+          "status": "Partially aligned",
+          "confidence": "High",
+          "gapsResolved": ["Detail page created", "Schema fixed"],
+          "gapsRemaining": ["33+ remaining fields need form expansion", "Ext_Assets list required"]
+        }
+      }
+    },
+    "phase2": {
+      "title": "Repo Inventory",
+      "totalItemsReviewed": 27,
+      "aligned": 17,
+      "partiallyAligned": 5,
+      "notAligned": 2,
+      "missing": 2
+    },
+    "phase3": {
+      "title": "Alignment Check",
+      "totalRequirements": 22,
+      "aligned": 10,
+      "partiallyAligned": 6,
+      "notAligned": 4,
+      "blocked": 1,
+      "missing": 1,
+      "priorityUpdates": [
+        {"priority": "P0", "description": "Create HI [id].tsx detail page", "status": "Done"},
+        {"priority": "P0", "description": "Create MainDB_IT_Ext_Assets SharePoint list", "status": "Pending"},
+        {"priority": "P0", "description": "Rename VPNACCESS.json → EAF.json", "status": "Done"},
+        {"priority": "P0", "description": "Rename HWINV_PRAI.json → HI.json", "status": "Done"},
+        {"priority": "P1", "description": "Add Group and ClientID fields to EAF form", "status": "Done"},
+        {"priority": "P1", "description": "Add remaining 33+ HI fields to new.tsx", "status": "Pending"},
+        {"priority": "P1", "description": "Build Power Automate Flow 1 (EAF approval)", "status": "Designed"},
+        {"priority": "P2", "description": "Populate PDF UI inventory for IT forms", "status": "Pending"},
+        {"priority": "P2", "description": "Swap mock service for real SharePoint connector", "status": "Pending"}
+      ]
+    },
+    "phase4": {
+      "title": "Duplicates & Redundancy",
+      "remainingIssues": 4,
+      "resolvedIssues": 6,
+      "issues": [
+        {"type": "Pattern Conflict", "description": "Dynamic route [formCode] vs explicit eaf/itssr/hi routes", "action": "Pick one pattern", "status": "Open"},
+        {"type": "Inconsistent Naming", "description": "Schema files named VPNACCESS.json and HWINV_PRAI.json", "action": "Superseded by EAF.json and HI.json", "status": "Fixed"},
+        {"type": "Missing Page", "description": "HI [id].tsx detail page", "action": "Created", "status": "Fixed"},
+        {"type": "Inconsistent Schema", "description": "ITSSR schema has spColumn/spTable; old schemas didn't", "action": "Added to new EAF.json and HI.json", "status": "Fixed"}
+      ]
+    }
+  },
+  "newFilesCreated": [
+    "analysis/phase1-source-analysis-eaf-itssr-hi.md",
+    "analysis/phase2-repo-inventory-eaf-itssr-hi.md",
+    "analysis/phase3-alignment-eaf-itssr-hi.md",
+    "analysis/phase4-redundancy-report.md",
+    "analysis/alignment-findings-summary.csv",
+    "analysis/phase1-4-summary.json",
+    "src/pages/it/forms/hi/[id].tsx",
+    "src/form-schemas/EAF.json",
+    "src/form-schemas/HI.json",
+    "ioicodeapp/powerapps-mirror/apps/ioi-platform/flows/eaf-approval-flow-definition.json",
+    "ioicodeapp/powerapps-mirror/apps/ioi-platform/flows/README.md"
+  ],
+  "filesModified": [
+    "src/types/m1-forms.ts",
+    "src/pages/it/forms/eaf/new.tsx",
+    "docs/change-log.md",
+    "docs/implementation-plan.md",
+    "docs/migration-documentation.md"
+  ],
+  "filesMarkedForDeletion": [
+    "src/form-schemas/VPNACCESS.json",
+    "src/form-schemas/HWINV_PRAI.json"
+  ]
+}

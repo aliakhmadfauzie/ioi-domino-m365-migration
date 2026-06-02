@@ -1,0 +1,89 @@
+S_18
+U_18
+R_18
+P_18
+D_18
+S_19
+U_19
+R_19
+P_19
+D_19
+OK  
+S_20
+U_20
+R_20
+P_20
+D_20
+OK  
+Attachment : 
+Attachment
+HUMAN RESOURCES USE
+RETURNED ITEMS
+ : 
+CompanyProperties
+Please specify (
+ReasonItems
+)
+Reason (if not returned)
+ : 
+Reason
+Remarks
+ : 
+Remarks2
+Performed By
+ : 
+PerformedBy2
+Performed Date
+ : 
+PerformedDate2
+Complete
+HR SYSTEMS
+SYSTEM
+Remark
+Performed by
+Date Performed
+S_1_1
+R_1_1
+P_1_1
+D_1_1
+OK  
+S_2_1
+R_2_1
+P_2_1
+D_2_1
+OK  
+S_3_1
+R_3_1
+P_3_1
+D_3_1
+OK  
+S_4_1
+R_4_1
+P_4_1
+D_4_1
+OK  
+PRODUCTION SYSTEMS
+SYSTEM
+Remark
+Performed by
+Date Performed
+SP_1
+RP_1
+PP_1
+DP_1
+OK  
+SP_2
+RP_2
+PP_2
+DP_2
+OK  
+SP_3
+RP_3
+PP_3
+DP_3
+OK  
+SP_4
+RP_4
+PP_4
+DP_4
+OK  

@@ -1,0 +1,62 @@
+Cancel
+Cancelled by
+ : CanName
+Cancelled Date
+ : CanDate
+Reason
+ : CanReason
+Created by DocAuthor
+ on CDate
+Hidden Fields :-
+Current Action
+: CA
+IT
+: IT
+FIN Admin - Name
+: FINA
+FIN - POM PBI & PJY
+: FIN1
+FIN - Others
+: FIN3
+FIN
+: FIN
+FIN Admin - Role
+: FINAdmin
+IT HOD
+: ITHOD
+Admin HOD
+: ADM
+Maintenance HOD
+: MTN
+Admin CC
+: ADM_CC
+CC
+: CC3
+Division Head List
+: DH
+Recommender
+: Recommender
+Servers
+: Servers
+Readers
+: Readers
+Editor 1
+: Editor1
+Editor 1a - FIN
+: Editor1a
+Editor 2
+: Editor2
+Editor 3
+: Editor3
+Editor 4
+: Editor4
+Editor 5
+: Editor5
+Editor 6
+: Editor6
+Editor 7
+: Editor7
+Mailing List
+: MailingList
+Reminder Date
+: RemDate

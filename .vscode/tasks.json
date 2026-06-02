@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "PAC: Auth List",
+            "type": "shell",
+            "command": "pac auth list",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "PAC: Who Am I",
+            "type": "shell",
+            "command": "pac who",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "PAC: List Environments",
+            "type": "shell",
+            "command": "pac org list",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "PAC: Pull Solution",
+            "type": "shell",
+            "command": "pac solution clone --name ${input:solutionName} --outputDirectory ./source",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "Git: Current Branch",
+            "type": "shell",
+            "command": "git branch --show-current",
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "Git: Status",
+            "type": "shell",
+            "command": "git status",
+            "group": "none",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "solutionName",
+            "description": "Power Platform Solution Name",
+            "type": "promptString",
+            "default": ""
+        }
+    ]
+}

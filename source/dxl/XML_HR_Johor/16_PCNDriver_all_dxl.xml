@@ -1,0 +1,2128 @@
+<?xml version='1.0' encoding='utf-8'?>
+<database xmlns='http://www.lotus.com/dxl' version='12.0' maintenanceversion='2.0'
+ replicaid='48257D340011E9EC' path='CN=PCNSVR/O=PHB!!PanCen - Current\PCNDriver.nsf'
+ title='PanCen - Driver Arrangement Requisition' increasemaxfields='true'>
+<databaseinfo dbid='48257D350012CC35' odsversion='55' diskspace='29360128'
+ percentused='97.4164690290179' numberofdocuments='1799'><datamodified><datetime
+>20260528T150000,14+08</datetime></datamodified><designmodified><datetime
+>20260528T162635,72+08</datetime></designmodified></databaseinfo>
+<launchsettings><noteslaunch whenopened='openframeset' frameset='m'/></launchsettings>
+<agent name='Flight' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='15a' unid='8D32123ADD353F5448257CED0029C55B' sequence='3'>
+<created><datetime>20140604T153614,99+08</datetime></created>
+<modified><datetime>20140815T112521,64+08</datetime></modified>
+<revised><datetime>20140604T153646,86+08</datetime></revised>
+<lastaccessed><datetime>20140815T112521,63+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112521,63+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20140604T153646,62+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='action'>
+<simpleaction action='modifyfield' field='FlightDetails'/></code>
+<rundata processeddocs='1' exitcode='0'>
+<agentmodified><datetime>20140604T153646,88+08</datetime></agentmodified>
+<agentrun><datetime>20140604T153718,22+08</datetime></agentrun>
+<runlog>Started running agent 'Flight' on 04/06/2014 03:37:18 PM
+Running on selected documents: 1 total
+Found 1 document(s) that match search criteria
+Modified field in 1 document(s)
+Done running agent 'Flight' on 04/06/2014 03:37:18 PM
+</runlog></rundata></agent>
+
+<agent name='Refresh Docs' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='16e' unid='E626221287B6820248257CED00052F33' sequence='2'>
+<created><datetime>20140604T085637,63+08</datetime></created>
+<modified><datetime>20140815T112521,83+08</datetime></modified>
+<revised><datetime>20140604T085640,90+08</datetime></revised>
+<lastaccessed><datetime>20140815T112521,82+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112521,82+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby>
+<designchange><datetime>20140604T085640,42+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='runonce'/><code event='action'>
+<simpleaction action='runformula'><formula>@Command([ToolsRefreshSelectedDocs] );
+ @All;SELECT
+ @All</formula></simpleaction></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20140815T112521,83+08</datetime></agentmodified>
+<agentrun><datetime>20250630T165847,66+08</datetime></agentrun>
+<runlog>Started running agent 'Refresh Docs' on 30/06/2025 04:58:46 PM
+1 document(s) were modified by formula
+Done running agent 'Refresh Docs' on 30/06/2025 04:58:47 PM
+</runlog></rundata></agent>
+
+<view name='lookup' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='gray' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='186' unid='A5223423D5ABB30148257B9100162B36' sequence='5'>
+<created><datetime>20130621T120208,54+08</datetime></created>
+<modified><datetime>20140815T112522,51+08</datetime></modified>
+<revised><datetime>20140409T123736,07+08</datetime></revised>
+<lastaccessed><datetime>20141010T085153,24+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112522,50+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @Year(CDate) = @Year(@Now ) &amp; RDARNo !=""</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='RDARNo' width='8.1250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><columnheader title='FormNo'><font size='9pt' style='bold'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column hidedetailrows='false' itemname='CDate' width='24.7500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<item name='$FormulaTV'><text/></item></view>
+
+<view name='Draft' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='18e' unid='ECA41AC55C75B37B48257B9100162B35' sequence='10'>
+<created><datetime>20130621T120208,53+08</datetime></created>
+<modified><datetime>20140815T112522,64+08</datetime></modified>
+<revised><datetime>20140416T094952,19+08</datetime></revised>
+<lastaccessed><datetime>20141010T085138,10+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112522,63+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT CA="Request" &amp;  (RDARNo !="0000" | RDARNo !="")</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column hidedetailrows='false' itemname='DateRequired' width='8' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Required On'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='Venue' width='8.8750' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Venue'><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column>
+<column hidedetailrows='false' itemname='$19' width='15.5000' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ twisties='true'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Time'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Text(tTime) + "-" + @Text(tTime_1)</formula></code></column>
+<column hidedetailrows='false' listseparator='comma' itemname='DocAuthor'
+ width='21.2500' resizable='true' separatemultiplevalues='false' sortnoaccent='false'
+ sortnocase='true' showaslinks='false'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Requestor'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column></view>
+
+<view name='All' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false' formatnoteid='A99802C7315B8B4F48257B9100162B3A'>
+<noteinfo noteid='196' unid='8E5CED0D42DD956D48257BB800141C4C' sequence='4'>
+<created><datetime>20130730T113939,64+08</datetime></created>
+<modified><datetime>20140815T112522,78+08</datetime></modified>
+<revised><datetime>20140623T085049,58+08</datetime></revised>
+<lastaccessed><datetime>20140815T112522,77+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112522,77+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT @All</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='$15' width='2.1250'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true' twisties='true'><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader><code event='value'><formula>@Year(CDate)</formula></code></column>
+<column hidedetailrows='false' itemname='Type' width='10' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+><font size='9pt' style='bold'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='DateRequired' width='6.8750'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Required On'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='Venue' width='8.8750'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Venue'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='RDARNo' width='7.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='RDAR No'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column sort='ascending' hidedetailrows='false' itemname='$19' width='15.7500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Time'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader><code
+ event='value'><formula>@Text(tTime) + "-" + @Text(tTime_1)</formula></code></column>
+<column hidedetailrows='false' listseparator='comma' itemname='$21' width='21.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Requestor'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/><code event='value'><formula>@Name([CN];Requestor)</formula></code></column></view>
+
+<view name='Cancelled' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='19a' unid='3C6DDA4272F6601448257BB80030E59B' sequence='8'>
+<created><datetime>20130730T165405,07+08</datetime></created>
+<modified><datetime>20140815T112522,87+08</datetime></modified>
+<revised><datetime>20140623T085055,79+08</datetime></revised>
+<lastaccessed><datetime>20150313T093718,16+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112522,86+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT (RDARNo !="0000" &amp; RDARNo !="") &amp; Status ="Cancelled"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='$22' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ categorized='true' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Year(CDate)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='$15' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ categorized='true' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Month(CDate)</formula></code></column>
+<column hidedetailrows='false' itemname='DateRequired' width='6.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Required On'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='$19' width='15.7500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Time'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader><code
+ event='value'><formula>@Text(tTime) + "-" + @Text(tTime_1)</formula></code></column>
+<column hidedetailrows='false' itemname='Venue' width='24.7500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Venue'><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='RDARNo' width='7.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='RDAR No'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column hidedetailrows='false' listseparator='comma' itemname='$23' width='21.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Requestor'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/><code event='value'><formula>@Name([CN];Requestor)</formula></code></column></view>
+
+<view name='Completed' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='19e' unid='82EEAE7CB74CC99648257B9100162B34' sequence='14'>
+<created><datetime>20130621T120208,52+08</datetime></created>
+<modified><datetime>20140815T112522,97+08</datetime></modified>
+<revised><datetime>20140623T085102,99+08</datetime></revised>
+<lastaccessed><datetime>20140919T141843,76+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112522,96+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT (RDARNo !="0000" &amp; RDARNo !="") &amp; Status ="Completed"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='$15' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ categorized='true' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Year(CDate)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='$22' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ categorized='true' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Month(CDate)</formula></code></column>
+<column hidedetailrows='false' itemname='DateRequired' width='6.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Required On'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='$19' width='15.7500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Time'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader><code
+ event='value'><formula>@Text(tTime) + "-" + @Text(tTime_1)</formula></code></column>
+<column hidedetailrows='false' itemname='Venue' width='28.1250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Venue'><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='RDARNo' width='7.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='RDAR No'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column hidedetailrows='false' listseparator='comma' itemname='$23' width='21.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Requestor'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/><code event='value'><formula>@Name([CN];Requestor)</formula></code></column></view>
+
+<view name='Summary' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ default='true' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1a2' unid='A99802C7315B8B4F48257B9100162B3A' sequence='41'>
+<created><datetime>20130621T120208,58+08</datetime></created>
+<modified><datetime>20220714T171920,55+08</datetime></modified>
+<revised><datetime>20220714T171920,54+08</datetime></revised>
+<lastaccessed><datetime>20220714T171920,54+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112523,05+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT  RDARNo !="0000" &amp; RDARNo !="" &amp; CA !="Request"</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='descending' hidedetailrows='false' itemname='$23' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true' twisties='true'><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader><code event='value'><formula>@Year(CDate)</formula></code></column>
+<column sort='descending' hidedetailrows='false' itemname='$15' width='1'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true' twisties='true'><font size='11pt'
+ name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader><code event='value'><formula>@Month(CDate)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='DateRequired' width='6.8750'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Required On'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='RDARNo' width='4.7500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='RDAR No'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column sort='ascending' hidedetailrows='false' itemname='$19' width='14.8750'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Time'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader><code
+ event='value'><formula>@Text(tTime) + "-" + @Text(tTime_1)</formula></code></column>
+<column hidedetailrows='false' itemname='Venue' width='21.3750' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Venue'><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column>
+<column hidedetailrows='false' listseparator='comma' itemname='$24' width='21.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Requestor'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/><code event='value'><formula>@Name([CN];Requestor)</formula></code></column></view>
+
+<view name='Pending' showinmenu='false' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='false' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
+<noteinfo noteid='1a6' unid='0BBF29A14D1D7CBE48257B9100162B38' sequence='18'>
+<created><datetime>20130621T120208,56+08</datetime></created>
+<modified><datetime>20140815T112523,17+08</datetime></modified>
+<revised><datetime>20140623T085129,43+08</datetime></revised>
+<lastaccessed><datetime>20140919T141843,36+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112523,16+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></updatedby>
+<wassignedby><name>CN=Ravi Madhu/OU=PMS/O=PHB</name></wassignedby><code event='selection'><formula
+>SELECT (RDARNo !="0000" &amp; RDARNo !="") &amp; (CA ="Submitted" | CA ="Pending")</formula></code>
+<actionbar bgcolor='#e0dfe3' bordercolor='black'>
+<actionbuttonstyle bgcolor='#e0dfe3'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Categori_ze' showinbar='false' systemcommand='categorize'/>
+<action title='_Edit Document' showinbar='false' systemcommand='edit'/>
+<action title='_Send Document' showinbar='false' systemcommand='send'/>
+<action title='_Forward' showinbar='false' systemcommand='forward'/>
+<action title='_Move To Folder...' showinbar='false' systemcommand='movetofolder'/>
+<action title='_Remove From Folder' showinbar='false' systemcommand='removefromfolder'/></actionbar>
+<column sort='ascending' hidedetailrows='false' itemname='$15' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ categorized='true' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Year(CDate)</formula></code></column>
+<column sort='ascending' hidedetailrows='false' itemname='$20' width='1' resizable='true'
+ separatemultiplevalues='true' sortnoaccent='false' sortnocase='true' showaslinks='false'
+ categorized='true' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><code event='value'><formula
+>@Month(CDate)</formula></code></column>
+<column hidedetailrows='false' itemname='DateRequired' width='6.8750' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Required On'><font style='bold' name='Eras Light ITC' pitch='variable'
+ truetype='true' familyid='20'/></columnheader></column>
+<column sort='ascending' hidedetailrows='false' itemname='$19' width='15.7500'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' twisties='true'><font size='11pt' name='Calibri' pitch='variable'
+ truetype='true' familyid='20'/><columnheader title='Time'><font style='bold'
+ name='Eras Light ITC' pitch='variable' truetype='true' familyid='20'/></columnheader><code
+ event='value'><formula>@Text(tTime) + "-" + @Text(tTime_1)</formula></code></column>
+<column hidedetailrows='false' itemname='Venue' width='20.7500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><font
+ size='11pt' name='Calibri' pitch='variable' truetype='true' familyid='20'/><columnheader
+ title='Venue'><font style='bold' name='Eras Light ITC' pitch='variable' truetype='true'
+ familyid='20'/></columnheader></column>
+<column sort='descending' hidedetailrows='false' itemname='RDARNo' width='7.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='true' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='RDAR No'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/></column>
+<column hidedetailrows='false' listseparator='comma' itemname='$23' width='21.2500'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><font size='11pt' name='Calibri' pitch='variable' truetype='true'
+ familyid='20'/><columnheader title='Requestor'><font style='bold' name='Eras Light ITC'
+ pitch='variable' truetype='true' familyid='20'/></columnheader><numberformat
+ format='general' varying='true' punctuated='false' parens='false' percent='false'
+ bytes='false' decimalsym='.' thousandssep=',' currencysymtype='custom' currencysym='$'
+ usecustomsym='false'/><code event='value'><formula>@Name([CN];Requestor)</formula></code></column></view>
+
+<form name='Driver' publicaccess='false' designerversion='8.5.3' recalc='true'
+ renderpassthrough='true'>
+<noteinfo noteid='1b2' unid='EE3D4485FE133D4A48257B94003444F7' sequence='263'>
+<created><datetime>20130624T173055,27+08</datetime></created>
+<modified><datetime>20221111T111013,13+08</datetime></modified>
+<revised><datetime>20221111T111013,12+08</datetime></revised>
+<lastaccessed><datetime>20221111T111013,12+08</datetime></lastaccessed>
+<addedtofile><datetime>20140815T112523,46+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Aszura/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Aszura/OU=PanCen/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"Driver Arrangement Requisition"</formula></code><code event='querysave'><lotusscript
+>Sub Querysave(Source As Notesuidocument, Continue As Variant)
+	TempSamNum$ = Source.FieldGetText("RDARNo")
+	TempStatus$ = Source.FieldGetText("CA")
+	
+	Dim ws As NotesUIWorkSpace
+	Set ws = New NotesUIWorkSpace
+	Dim uidoc As NotesUIDocument
+	Set uidoc=ws.currentDocument
+	
+	If Trim$(TempSamNum$) = "" And Trim$(TempStatus$) = "Submitted" Then
+		Dim session As NotesSession
+		Set session = New NotesSession
+		Dim db As NotesDatabase
+		Set db = session.CurrentDatabase
+		Dim view As NotesView
+		
+		Set view = db.GetView("lookup") 
+		
+		Dim doc As NotesDocument
+		Dim p As Variant
+		Dim c As Integer
+		Set doc = view.GetFirstDocument
+		
+		If doc Is Nothing Then
+			
+			'Start Assign the running number to 0000 if document does not exist
+			Set doc = New NotesDocument(db)
+			Call doc.ReplaceItemValue("Form","RunningProfile")
+			Call doc.ReplaceItemValue("RDARNo","0000")
+			
+			Call doc.Save(True,False)
+				'End assign
+			
+			p = 0
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = 1
+		Else 
+			p=doc.GetItemValue("RDARNo")
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = Val(p(0)) + 1	
+		End If 
+		
+		uidoc.GoToField "RDARNo"
+		
+		Dim x As String          
+		x = Trim(Str(c))          
+		Do While Len(x) &lt; 4
+			x = "0" &amp; Trim(x)
+		Loop			
+		uidoc.FieldSetText"RDARNo",x			
+	End If
+End Sub</lotusscript></code>
+<actionbar bgcolor='#ece9d8' bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit' icon='2'><code event='click'><formula>@Command([EditDocument])</formula></code></action>
+<action title='Submit' icon='1' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (DateRequired= ""; @Return(@Do(@Command([EditGotoField];"DateRequired") ;@Prompt([Ok];"Missing Value"; "Please specify when the driver is required!")));"");
+@If (tTime= ""; @Return(@Do(@Command([EditGotoField];"tTime") ;@Prompt([Ok];"Missing Value"; "Please select the Time  before proceeding!")));"");
+@If (tTime_1= ""; @Return(@Do(@Command([EditGotoField];"tTime_1") ;@Prompt([Ok];"Missing Value"; "Please select the Time  before proceeding!")));"");
+@If (Venue= ""; @Return(@Do(@Command([EditGotoField];"Venue") ;@Prompt([Ok];"Missing Value"; "You forgot to select the Venue!")));"");
+
+FIELD Requestor := @V3UserName;
+FIELD DateRequested := @Today;
+FIELD CA := "Submitted";
+
+@Command([FileSave]);
+
+@MailSend(IOIADMIN;defcc:cc;NULL;"New Driver Arrangement Requisition  - " + RDARNo;NULL;"Please click the doclink  ---&gt; ";[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>CA !="Request"</formula></code></action>
+<action title='Done' icon='10' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (AdminName= ""; @Return(@Do(@Command([EditGotoField];"AdminName") ;@Prompt([Ok];"Missing Value"; "Please state your name!")));"");
+@If (Status= ""; @Return(@Do(@Command([EditGotoField];"Status") ;@Prompt([Ok];"Missing Value"; "Please select the status before proceeding!")));"");
+@If (DriverName= ""; @Return(@Do(@Command([EditGotoField];"DriverName") ;@Prompt([Ok];"Missing Value"; "Please state Driver's name!")));"");
+@If (DriverNo= ""; @Return(@Do(@Command([EditGotoField];"DriverNo") ;@Prompt([Ok];"Missing Value"; "Please state Driver's contact number before proceeding!")));"");
+@If (VehicleNo= ""; @Return(@Do(@Command([EditGotoField];"VehicleNo") ;@Prompt([Ok];"Missing Value"; "Please insert the Vehicle number before proceeding!")));"");
+
+FIELD AdminStaff := @V3UserName;
+FIELD DateCompleted :=@Today;
+FIELD CA := Status;
+
+@Command([FileSave]);
+
+@MailSend(Requestor;defcc:cc;NULL;"Driver Arrangement Requisition is " + Status + " - " + RDARNo;NULL;"Please click the doclink  ---&gt; ";[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IOIADMIN) | (CA != "Submitted" &amp; CA !="Pending")</formula></code></action>
+<action title='Cancel' icon='116' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+FIELD AdminStaff := @V3UserName;
+FIELD DateCompleted :=@Today;
+FIELD Status := "Cancelled";
+FIELD CA := Status;
+
+@Command([FileSave]);
+
+@MailSend(Requestor;cc:defcc;NULL;"Driver Arrangement Requisition is CANCELLED - " + RDARNo;NULL;"Please click the doclink  ---&gt; ";[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IOIADMIN) | CA="Cancelled" | CA="Request"</formula></code></action>
+<action title='Save &amp; Close' icon='11' hide='preview read'><code event='click'><formula
+>@PostedCommand([FileSave]);
+@PostedCommand([FileCloseWindow])</formula></code></action></actionbar>
+<background repeat='center'><imageref name='images.jpeg'/></background>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'/>
+<par def='1'><run><font size='24pt' style='bold underline shadow' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/>DRIVER ARRANGEMENT REQUISITION</run></par>
+<par def='1'><run><font size='24pt' style='bold underline shadow' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='1'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>No</run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='computed' name='RDARNo'><code
+ event='defaultvalue'><formula>RDARNo</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def='1'/>
+<pardef id='2' leftmargin='0.7500in'><code event='hidewhen' enabled='false'><formula
+>Type="Room"</formula></code></pardef>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Required_On_1'><sectiontitle
+ pardef='2' color='#bf4100' borderstyle='tab'><font color='#ffffd0' style='bold'
+ name='Felix Titling' pitch='variable' truetype='true' familyid='50'/><text
+>REQUESTOR'S SECTION</text></sectiontitle><code event='defaultvalue'><formula
+>Editor1</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='15' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='3'><code event='hidewhen' enabled='false'><formula>Type="Room"</formula></code></pardef>
+<par def='3'/>
+<table widthtype='fitmargins' refwidth='10.1042in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='5' linespacing='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Required</run><run><font style='bold' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/> On</run><run><font style='bold'
+ name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/>/Date of Visit</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='6' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='DateRequired'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Time Required</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field usenotesstyle='false' height='0.2653in' width='1in'
+ multiline='true' type='datetime' kind='editable' name='tTime'><keywords columns='1'
+ ui='dialoglist' allownew='true'/><datetimeformat show='time' date='yearmonthday'
+ fourdigityearfor21stcentury='true' time='hourminute' zone='never' dateformat='weekdaydaymonthyear'
+ dayformat='twodigitday' monthformat='twodigitmonth' yearformat='fourdigityear'
+ weekdayformat='shortname' dateseparator1=' ' dateseparator2='/' dateseparator3='/'
+ timeseparator=':' preference='custom'/></field></run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/> to </run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field usenotesstyle='false'
+ height='0.2653in' width='1in' multiline='true' type='datetime' kind='editable'
+ name='tTime_1'><keywords columns='1' ui='dialoglist' allownew='true'/><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Venue (To/From)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Venue'><keywords
+ ui='dialoglist' allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Vehicle (only if applicable)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' allowmultivalues='true' kind='editable' name='Vehicle' listinputseparators='comma'
+ listdisplayseparator='comma'><keywords helperbutton='false' columns='1' ui='checkbox'><textlist
+><text>Car</text><text>MPV</text><text>Van</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='7' keepwithnext='true' keeptogether='true'/>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Remark</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Remark'><keywords
+ ui='dialoglist' allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='8'><code event='hidewhen'><formula>CA !="Request" &amp; FlightDetails=""</formula></code></pardef>
+<par def='8'/>
+<pardef id='9' leftmargin='1in'><code event='hidewhen'><formula>CA !="Request" &amp; FlightDetails=""</formula></code></pardef>
+<par def='9'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font color='maroon' style='bold' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' allowmultivalues='true'
+ kind='editable' name='FlightDetails' listinputseparators='comma' listdisplayseparator='comma'><keywords
+ helperbutton='false' columns='1' ui='checkbox'><textlist><text>Flight Details</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='10.1042in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='10' leftmargin='0.3125in' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='10'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/>Estimated time of flight arrival</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='11' rightmargin='5.5118in' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='11'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20' color='maroon'/> : </run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/><field usenotesstyle='false'
+ height='0.2500in' width='1in' multiline='true' type='datetime' kind='editable'
+ name='ArrivalTime'><keywords columns='1' ui='dialoglist' allownew='true'/><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'
+ color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='12' leftmargin='0.3125in' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'><code event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='12'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/>Flight Departure Time </run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='13' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>FlightDetails=""</formula></code></pardef>
+<par def='13'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20' color='maroon'/> : </run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/><field usenotesstyle='false'
+ height='0.2500in' width='1in' multiline='true' type='datetime' kind='editable'
+ name='DepartureTime'><keywords columns='1' ui='dialoglist' allownew='true'/><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'
+ color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='14' leftmargin='0.3125in' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='14'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/>Flight No./Terminal</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='13'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20' color='maroon'/> : </run><run><font color='maroon' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field type='text' kind='editable'
+ name='FlightNo'><keywords ui='dialoglist' allownew='true'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='10' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20' color='maroon'/></run></par></tablecell></tablerow></table>
+<par def='1'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='10.1042in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>No. of Visitors</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Visitors'><keywords
+ ui='dialoglist' allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Host</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Host'><keywords ui='dialoglist'
+ allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Contact Number</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='number' kind='editable' name='ContactNo'><keywords
+ ui='dialoglist' allownew='true'/><numberformat format='general' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Lunch Standby</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Lunch'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px 0px 1px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>CC</run></par></tablecell>
+<tablecell borderwidth='0px 0px 1px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='inset' choicesdialog='addressbook' lookupeachchar='true'
+ lookupaddressonrefresh='false' type='names' allowmultivalues='true' kind='editable'
+ name='cc' listinputseparators='comma' listdisplayseparator='comma'><keywords
+ columns='2' ui='radiobutton'/></field></run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px 0px 1px'>
+<pardef id='15' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='15'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Other Details</run></par>
+<par def='15'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/>(Eg. guest's name &amp; other requirements/placard)</run></par></tablecell>
+<tablecell borderwidth='0px 0px 1px'>
+<pardef id='16' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='16'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='richtext' kind='editable' name='Details'><keywords
+ ui='dialoglist' allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='7' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='1px 0px 0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Requested By</run></par></tablecell>
+<tablecell borderwidth='1px 0px 0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' kind='computed' name='Requestor'><code
+ event='defaultvalue'><formula>Requestor</formula></code></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Requested Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='datetime' kind='computed' name='DateRequested'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>DateRequested</formula></code></field></run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='17' firstlineleftmargin='1in'/>
+<par def='17'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/></run></par></section>
+<pardef id='18' firstlineleftmargin='1in'><code event='hidewhen' enabled='false'><formula
+>Type="Room"</formula></code></pardef>
+<par def='18'/>
+<pardef id='19' leftmargin='1in'><code event='hidewhen' enabled='false'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='19'/>
+<par def='1'/>
+<pardef id='20' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Admin_Staff'><sectiontitle
+ pardef='20' color='maroon' borderstyle='tab'><font color='white' style='bold'
+ name='Felix Titling' pitch='variable' truetype='true' familyid='50'/><text
+>Admin Section</text></sectiontitle><code event='defaultvalue'><formula>Editor2</formula></code><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='14' containertype='65418'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='21' leftmargin='0.7500in'><code event='hidewhen' enabled='false'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='21'/>
+<table widthtype='fitmargins' refwidth='10.1042in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Driver's Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='23' tabs='L6.2500in' keepwithnext='true' keeptogether='true'/>
+<par def='23'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='DriverName'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Driver's HP Number</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='DriverNo'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Vehicle No.</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='VehicleNo'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='24' leftmargin='0' keepwithnext='true' keeptogether='true'/>
+<par def='24'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Admin Staff</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' kind='computed' name='AdminStaff'><code
+ event='defaultvalue'><formula>AdminStaff</formula></code></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/> - </run><run
+><font style='bold' name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/><field
+ type='text' kind='editable' name='AdminName'/></run><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='11' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Status </run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font color='maroon' style='bold' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Status'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Pending</text><text>Completed</text><text>Cancelled</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Comments</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Comments'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Date Completed</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='23'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='computed' name='DateCompleted'><code
+ event='defaultvalue'><formula>DateCompleted</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='25' leftmargin='1in'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='25'/></section>
+<par def='25'/>
+<par def='25'/>
+<pardef id='26' leftmargin='0.1250in' hide='print'><code event='hidewhen'><formula
+>@UpperCase(@Name([CN];@UserName)) != "SAMANTHA" &amp; @UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef><subformref
+ name='Footer'/>
+<pardef id='27' leftmargin='0.7500in'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='27'/>
+<par def='1'/>
+<section expanded='true' accessfieldkind='editable' accessfieldname='CurrentAction'><sectiontitle
+ pardef='27' color='teal'><font style='bold'/><text>Hidden Fields</text></sectiontitle><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='13' containertype='65418'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='28'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='28'><run><font size='1pt'/></run></par>
+<table widthtype='fitmargins' refwidth='10.1042in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='29' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='29'><run><font size='8pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>CurrentAction</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='30' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='30'><run><font size='8pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/></run><run><font size='8pt' style='bold' name='Arial'
+ pitch='variable' truetype='true' familyid='20'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='CA'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Request</text><text>Submitted</text><text>Pending</text><text>Completed</text><text
+>Cancelled</text></textlist></keywords><code event='defaultvalue'><formula
+>"Request"</formula></code></field></run><run><font size='8pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='29'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>Editor 1</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='30'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='Editor1' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA="Request";DocAuthor;ISADMIN)</formula></code></field></run><run
+><font size='8pt' name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='29'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>Editor 2</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='30'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='Editor2' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA="Submitted";IOIADMIN;"-")</formula></code></field></run><run
+><font size='8pt' name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='29'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>IOI Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='30'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='8pt' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='IOIADMIN' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"PCNDAR-Admin";3;[FailSilent])</formula></code></field></run><run
+><font size='9pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='29'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>ISADMIN</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='30'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='8pt' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='ISADMIN' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ISADMIN";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='29'>Default CC</par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='30'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='defcc' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"PCNSECURITY_2";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow></table>
+<par def='17'/></section><subformref name='Hidden Fields'/>
+<par def='17'/></richtext></body>
+<item name='DateRequired2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='tTime2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='tTime22' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DateRequested2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='ArrivalTime_1' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><textlist><text>0000000000000000</text><text
+>0000000000000000</text></textlist></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>New2</text></item>
+<item name='ContactNo' summary='false'><number>0</number></item>
+<item name='CDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<form name='Driver_v2' publicaccess='false' designerversion='8.5.3' default='true'
+ recalc='true' renderpassthrough='true'>
+<noteinfo noteid='2992' unid='742C4142125275EA48258D3100158036' sequence='38'>
+<created><datetime>20251028T115450,78+08</datetime></created>
+<modified><datetime>20251121T084646,93+08</datetime></modified>
+<revised><datetime>20251121T084646,92+08</datetime></revised>
+<lastaccessed><datetime>20251121T084646,92+08</datetime></lastaccessed>
+<addedtofile><datetime>20251028T115450,79+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></wassignedby><code event='windowtitle'><formula
+>"Driver Arrangement Requisition"</formula></code><code event='querysave'><lotusscript
+>Sub Querysave(Source As Notesuidocument, Continue As Variant)
+	TempSamNum$ = Source.FieldGetText("RDARNo")
+	TempStatus$ = Source.FieldGetText("CA")
+	
+	Dim ws As NotesUIWorkSpace
+	Set ws = New NotesUIWorkSpace
+	Dim uidoc As NotesUIDocument
+	Set uidoc=ws.currentDocument
+	
+	If Trim$(TempSamNum$) = "" And Trim$(TempStatus$) = "Submitted" Then
+		Dim session As NotesSession
+		Set session = New NotesSession
+		Dim db As NotesDatabase
+		Set db = session.CurrentDatabase
+		Dim view As NotesView
+		
+		Set view = db.GetView("lookup") 
+		
+		Dim doc As NotesDocument
+		Dim p As Variant
+		Dim c As Integer
+		Set doc = view.GetFirstDocument
+		
+		If doc Is Nothing Then
+			
+			'Start Assign the running number to 0000 if document does not exist
+			Set doc = New NotesDocument(db)
+			Call doc.ReplaceItemValue("Form","RunningProfile")
+			Call doc.ReplaceItemValue("RDARNo","0000")
+			
+			Call doc.Save(True,False)
+				'End assign
+			
+			p = 0
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = 1
+		Else 
+			p=doc.GetItemValue("RDARNo")
+			Set uidoc=ws.currentDocument
+			Set doc=uidoc.document
+			c = Val(p(0)) + 1	
+		End If 
+		
+		uidoc.GoToField "RDARNo"
+		
+		Dim x As String          
+		x = Trim(Str(c))          
+		Do While Len(x) &lt; 4
+			x = "0" &amp; Trim(x)
+		Loop			
+		uidoc.FieldSetText"RDARNo",x			
+	End If
+End Sub</lotusscript></code>
+<actionbar bgcolor='#ece9d8' bordercolor='black'>
+<actionbuttonstyle bgcolor='#ece9d8'/><font color='system'/><border style='solid'
+ width='0px 0px 1px'/>
+<action title='Edit' icon='2'><code event='click'><formula>@Command([EditDocument])</formula></code></action>
+<action title='Submit' icon='1' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (DateRequired= ""; @Return(@Do(@Command([EditGotoField];"DateRequired") ;@Prompt([Ok];"Missing Value"; "Please specify when the driver is required!")));"");
+@If (tTime= ""; @Return(@Do(@Command([EditGotoField];"tTime") ;@Prompt([Ok];"Missing Value"; "Please select the Time  before proceeding!")));"");
+@If (tTime_1= ""; @Return(@Do(@Command([EditGotoField];"tTime_1") ;@Prompt([Ok];"Missing Value"; "Please select the Time  before proceeding!")));"");
+@If (Venue= ""; @Return(@Do(@Command([EditGotoField];"Venue") ;@Prompt([Ok];"Missing Value"; "You forgot to select the Venue!")));"");
+@If (Venue= "Others" &amp; Location=""; @Return(@Do(@Command([EditGotoField];"Location") ;@Prompt([Ok];"Missing Value"; "Please state the location!")));"");
+@SetField("TotalAttachment";@Sum(@Attachments));
+@If(TotalAttachment &lt; 1 &amp; Venue="Others";@Return(@Do(@Command([EditGotoField];"attch") ;@Prompt([Ok];"Missing Value"; "Please attach file before proceeding!")));"");
+
+FIELD Requestor := @V3UserName;
+FIELD DateRequested := @Today;
+FIELD CA := "Submitted";
+
+@Command([FileSave]);
+
+@MailSend(IOIADMIN;defcc:cc;NULL;"New Driver Arrangement Requisition  - " + RDARNo;NULL;"Please click the doclink  ---&gt; ";[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>CA !="Request"</formula></code></action>
+<action title='Done' icon='10' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+@If (AdminName= ""; @Return(@Do(@Command([EditGotoField];"AdminName") ;@Prompt([Ok];"Missing Value"; "Please state your name!")));"");
+@If (Status= ""; @Return(@Do(@Command([EditGotoField];"Status") ;@Prompt([Ok];"Missing Value"; "Please select the status before proceeding!")));"");
+@If (DriverName= ""; @Return(@Do(@Command([EditGotoField];"DriverName") ;@Prompt([Ok];"Missing Value"; "Please state Driver's name!")));"");
+@If (DriverNo= ""; @Return(@Do(@Command([EditGotoField];"DriverNo") ;@Prompt([Ok];"Missing Value"; "Please state Driver's contact number before proceeding!")));"");
+@If (VehicleNo= ""; @Return(@Do(@Command([EditGotoField];"VehicleNo") ;@Prompt([Ok];"Missing Value"; "Please insert the Vehicle number before proceeding!")));"");
+
+FIELD AdminStaff := @V3UserName;
+FIELD DateCompleted :=@Today;
+FIELD CA := Status;
+
+@Command([FileSave]);
+
+@MailSend(Requestor;defcc:cc;NULL;"Driver Arrangement Requisition is " + Status + " - " + RDARNo;NULL;"Please click the doclink  ---&gt; ";[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IOIADMIN) | (CA != "Submitted" &amp; CA !="Pending")</formula></code></action>
+<action title='Cancel' icon='116' hide='preview read'><code event='click'><formula
+>@Command([EditDocument];"1");
+
+FIELD AdminStaff := @V3UserName;
+FIELD DateCompleted :=@Today;
+FIELD Status := "Cancelled";
+FIELD CA := Status;
+
+@Command([FileSave]);
+
+@MailSend(Requestor;cc:defcc;NULL;"Driver Arrangement Requisition is CANCELLED - " + RDARNo;NULL;"Please click the doclink  ---&gt; ";[IncludeDoclink]);
+
+@Command([ViewRefreshFields]);
+@PostedCommand([FileSave]);
+@Command([FileCloseWindow])</formula></code><code event='hidewhen'><formula
+>@IsNotMember(@UserName;IOIADMIN) | CA="Cancelled" | CA="Request"</formula></code></action>
+<action title='Save &amp; Close' icon='11' hide='preview read'><code event='click'><formula
+>@PostedCommand([FileSave]);
+@PostedCommand([FileCloseWindow])</formula></code></action></actionbar>
+<background repeat='center'><imageref name='images.jpeg'/></background>
+<body><richtext>
+<pardef id='1'/>
+<par def='1'/>
+<par def='1'><run><font size='24pt' style='bold underline shadow' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/>DRIVER ARRANGEMENT REQUISITION</run></par>
+<par def='1'><run><font size='24pt' style='bold underline shadow' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par>
+<par def='1'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>No</run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='computed' name='RDARNo'><code
+ event='defaultvalue'><formula>RDARNo</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def='1'/>
+<pardef id='2' leftmargin='0.7500in'><code event='hidewhen' enabled='false'><formula
+>Type="Room"</formula></code></pardef>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Required_On_1'><sectiontitle
+ pardef='2' color='#bf4100' borderstyle='tab'><font color='#ffffd0' style='bold'
+ name='Felix Titling' pitch='variable' truetype='true' familyid='50'/><text
+>REQUESTOR'S SECTION</text></sectiontitle><code event='defaultvalue'><formula
+>Editor1</formula></code><compositedata type='98' prevtype='65418' nexttype='222'
+ afterparcount='15' containertype='65418' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='3'><code event='hidewhen' enabled='false'><formula>Type="Room"</formula></code></pardef>
+<par def='3'/>
+<table widthtype='fitmargins' refwidth='11.8229in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='5' linespacing='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Required</run><run><font style='bold' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/> On</run><run><font style='bold'
+ name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/>/Date of Visit</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='6' keepwithnext='true' keeptogether='true'/>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field usenotesstyle='false' height='0.2500in' width='1in'
+ multiline='true' borderstyle='single' type='datetime' kind='editable' name='DateRequired'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Time Required</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field usenotesstyle='false' height='0.2653in' width='1in'
+ multiline='true' type='datetime' kind='editable' name='tTime'><keywords columns='1'
+ ui='dialoglist' allownew='true'/><datetimeformat show='time' date='yearmonthday'
+ fourdigityearfor21stcentury='true' time='hourminute' zone='never' dateformat='weekdaydaymonthyear'
+ dayformat='twodigitday' monthformat='twodigitmonth' yearformat='fourdigityear'
+ weekdayformat='shortname' dateseparator1=' ' dateseparator2='/' dateseparator3='/'
+ timeseparator=':' preference='custom'/></field></run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/> to </run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field usenotesstyle='false'
+ height='0.2653in' width='1in' multiline='true' type='datetime' kind='editable'
+ name='tTime_1'><keywords columns='1' ui='dialoglist' allownew='true'/><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Venue (To)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Venue'><keywords helperbutton='false'
+ columns='1' ui='radiobutton'><textlist><text>JB</text><text>Others</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/>,</run></par>
+<pardef id='7' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>Venue!="Others"</formula></code></pardef>
+<par def='7'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> Location: </run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/><field type='text' kind='editable' name='Location'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='8' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/>, attachment </run><run><font
+ name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/><field
+ type='richtext' kind='editable' name='attch'/></run><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='14' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='8' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>Venue!="Others"</formula></code></pardef>
+<par def='8'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Travel Request Form</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='7'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='richtext' kind='editable' name='TRF'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='5'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Vehicle (only if applicable)</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='none' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' allowmultivalues='true' kind='editable' name='Vehicle' listinputseparators='comma'
+ listdisplayseparator='comma'><keywords helperbutton='false' columns='1' ui='checkbox'><textlist
+><text>Car</text><text>MPV</text><text>Van</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='9' keepwithnext='true' keeptogether='true'/>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Remark</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Remark'><keywords
+ ui='dialoglist' allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='10'><code event='hidewhen'><formula>CA !="Request" &amp; FlightDetails=""</formula></code></pardef>
+<par def='10'/>
+<pardef id='11' leftmargin='1in'><code event='hidewhen'><formula>CA !="Request" &amp; FlightDetails=""</formula></code></pardef>
+<par def='11'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font color='maroon' style='bold' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field borderstyle='none'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' allowmultivalues='true'
+ kind='editable' name='FlightDetails' listinputseparators='comma' listdisplayseparator='comma'><keywords
+ helperbutton='false' columns='1' ui='checkbox'><textlist><text>Flight Details</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='11.8229in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='12' leftmargin='0.3125in' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='12'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/>Estimated time of flight arrival</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='13' rightmargin='5.5118in' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='13'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20' color='maroon'/> : </run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/><field usenotesstyle='false'
+ height='0.2500in' width='1in' multiline='true' type='datetime' kind='editable'
+ name='ArrivalTime'><keywords columns='1' ui='dialoglist' allownew='true'/><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'
+ color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='14' leftmargin='0.3125in' linespacing='1.5' keepwithnext='true'
+ keeptogether='true'><code event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='14'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/>Flight Departure Time </run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='15' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>FlightDetails=""</formula></code></pardef>
+<par def='15'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20' color='maroon'/> : </run><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/><field usenotesstyle='false'
+ height='0.2500in' width='1in' multiline='true' type='datetime' kind='editable'
+ name='DepartureTime'><keywords columns='1' ui='dialoglist' allownew='true'/><datetimeformat
+ show='time' date='yearmonthday' fourdigityearfor21stcentury='true' time='hourminute'
+ zone='never' dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'
+ color='maroon'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='16' leftmargin='0.3125in' keepwithnext='true' keeptogether='true'><code
+ event='hidewhen'><formula>FlightDetails=""</formula></code></pardef>
+<par def='16'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20' color='maroon'/>Flight No./Terminal</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='15'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20' color='maroon'/> : </run><run><font color='maroon' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field type='text' kind='editable'
+ name='FlightNo'><keywords ui='dialoglist' allownew='true'/></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='10' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20' color='maroon'/></run></par></tablecell></tablerow></table>
+<par def='1'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/></run></par>
+<table widthtype='fitmargins' refwidth='11.8229in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>No. of Visitors</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Visitors'><keywords
+ ui='dialoglist' allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Host</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Host'><keywords ui='dialoglist'
+ allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='6' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Contact Number</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='number' kind='editable' name='ContactNo'><keywords
+ ui='dialoglist' allownew='true'/><numberformat format='general' digits='2'
+ punctuated='false' parens='false' percent='false' bytes='false'/></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Lunch Standby</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='inset' lookupeachchar='false' lookupaddressonrefresh='false'
+ type='keyword' kind='editable' name='Lunch'><keywords helperbutton='false'
+ columns='2' ui='radiobutton'><textlist><text>Yes</text><text>No</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px 0px 1px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>CC</run></par></tablecell>
+<tablecell borderwidth='0px 0px 1px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field borderstyle='inset' choicesdialog='addressbook' lookupeachchar='true'
+ lookupaddressonrefresh='false' type='names' allowmultivalues='true' kind='editable'
+ name='cc' listinputseparators='comma' listdisplayseparator='comma'><keywords
+ columns='2' ui='radiobutton'/></field></run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px 0px 1px'>
+<pardef id='17' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='17'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Other Details</run></par>
+<par def='17'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/>(Eg. guest's name &amp; other requirements/placard)</run></par></tablecell>
+<tablecell borderwidth='0px 0px 1px'>
+<pardef id='18' spaceafter='1.5' keepwithnext='true' keeptogether='true'/>
+<par def='18'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='richtext' kind='editable' name='Details'><keywords
+ ui='dialoglist' allownew='true'/></field></run><compositedata type='98' prevtype='65418'
+ nexttype='222' afterparcount='7' containertype='65418' aftercontainercount='1'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='1px 0px 0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Requested By</run></par></tablecell>
+<tablecell borderwidth='1px 0px 0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' kind='computed' name='Requestor'><code
+ event='defaultvalue'><formula>Requestor</formula></code></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Requested Date</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='6'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='datetime' kind='computed' name='DateRequested'><datetimeformat
+ show='date' date='yearmonthday' fourdigityearfor21stcentury='true' zone='never'
+ dateformat='weekdaydaymonthyear' dayformat='twodigitday' monthformat='twodigitmonth'
+ yearformat='fourdigityear' weekdayformat='shortname' dateseparator1=' ' dateseparator2='/'
+ dateseparator3='/' timeseparator=':' preference='usersetting'/><code event='defaultvalue'><formula
+>DateRequested</formula></code></field></run><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='19' firstlineleftmargin='1in'/>
+<par def='19'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/></run></par></section>
+<pardef id='20' firstlineleftmargin='1in'><code event='hidewhen' enabled='false'><formula
+>Type="Room"</formula></code></pardef>
+<par def='20'/>
+<pardef id='21' leftmargin='1in'><code event='hidewhen' enabled='false'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='21'/>
+<par def='1'/>
+<pardef id='22' leftmargin='0.7500in'/>
+<section expanded='true' accessfieldkind='computed' accessfieldname='Admin_Staff'><sectiontitle
+ pardef='22' color='maroon' borderstyle='tab'><font color='white' style='bold'
+ name='Felix Titling' pitch='variable' truetype='true' familyid='50'/><text
+>Admin Section</text></sectiontitle><code event='defaultvalue'><formula>Editor2</formula></code><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='14' containertype='65418'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='23' leftmargin='0.7500in'><code event='hidewhen' enabled='false'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='23'/>
+<table widthtype='fitmargins' refwidth='11.8229in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Driver's Name</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='25' tabs='L6.2500in' keepwithnext='true' keeptogether='true'/>
+<par def='25'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='DriverName'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='7' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Driver's HP Number</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='DriverNo'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Vehicle No.</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='VehicleNo'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='26' leftmargin='0' keepwithnext='true' keeptogether='true'/>
+<par def='26'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Admin Staff</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' kind='computed' name='AdminStaff'><code
+ event='defaultvalue'><formula>AdminStaff</formula></code></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/> - </run><run
+><font style='bold' name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/><field
+ type='text' kind='editable' name='AdminName'/></run><compositedata type='98'
+ prevtype='65418' nexttype='222' afterparcount='11' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Status </run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font color='maroon' style='bold' name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='Status'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Pending</text><text>Completed</text><text>Cancelled</text></textlist></keywords></field></run><run
+><font name='Trebuchet MS' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Comments</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='editable' name='Comments'/></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='9'><run><font style='bold' name='Trebuchet MS' pitch='variable'
+ truetype='true' familyid='20'/>Date Completed</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='25'><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/> : </run><run><font name='Trebuchet MS' pitch='variable' truetype='true'
+ familyid='20'/><field type='text' kind='computed' name='DateCompleted'><code
+ event='defaultvalue'><formula>DateCompleted</formula></code></field></run><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='6' containertype='65418'
+ aftercontainercount='1' afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font name='Trebuchet MS'
+ pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow></table>
+<pardef id='27' leftmargin='1in'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='27'/></section>
+<par def='27'/>
+<par def='27'/>
+<pardef id='28' leftmargin='0.1250in' hide='print'><code event='hidewhen'><formula
+>@UpperCase(@Name([CN];@UserName)) != "SAMANTHA" &amp; @UpperCase(@Name([CN];@UserName)) != "CHRISTINA"</formula></code></pardef><subformref
+ name='Footer'/>
+<pardef id='29' leftmargin='0.7500in'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='29'/>
+<par def='1'/>
+<section expanded='true' accessfieldkind='editable' accessfieldname='CurrentAction'><sectiontitle
+ pardef='29' color='teal'><font style='bold'/><text>Hidden Fields</text></sectiontitle><compositedata
+ type='98' prevtype='65418' nexttype='222' afterparcount='13' containertype='65418'
+ afterbegincount='3'>
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+<pardef id='30'><code event='hidewhen'><formula>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='30'><run><font size='1pt'/></run></par>
+<table widthtype='fitmargins' refwidth='11.8229in'><tablecolumn width='2in'/><tablecolumn
+ width='100%'/>
+<tablerow>
+<tablecell borderwidth='0px'>
+<pardef id='31' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='31'><run><font size='8pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/>CurrentAction</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<pardef id='32' keepwithnext='true' keeptogether='true'><code event='hidewhen'><formula
+>@IsNotMember(@UserName;ISADMIN)</formula></code></pardef>
+<par def='32'><run><font size='8pt' style='bold' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/></run><run><font size='8pt' style='bold' name='Arial'
+ pitch='variable' truetype='true' familyid='20'/><field borderstyle='inset'
+ lookupeachchar='false' lookupaddressonrefresh='false' type='keyword' kind='editable'
+ name='CA'><keywords helperbutton='false' columns='1' ui='radiobutton'><textlist
+><text>Request</text><text>Submitted</text><text>Pending</text><text>Completed</text><text
+>Cancelled</text></textlist></keywords><code event='defaultvalue'><formula
+>"Request"</formula></code></field></run><run><font size='8pt' style='bold'
+ name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='31'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>Editor 1</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='32'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='Editor1' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA="Request";DocAuthor;ISADMIN)</formula></code></field></run><run
+><font size='8pt' name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='31'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>Editor 2</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='32'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='Editor2' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@If(CA="Submitted";IOIADMIN;"-")</formula></code></field></run><run
+><font size='8pt' name='Arial' pitch='variable' truetype='true' familyid='20'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='31'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>IOI Admin</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='32'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='8pt' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='IOIADMIN' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"PCNDAR-Admin";3;[FailSilent])</formula></code></field></run><run
+><font size='9pt'/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='31'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/>ISADMIN</run></par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='32'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/></run><run><font size='8pt' name='Arial' pitch='variable'
+ truetype='true' familyid='20'/><field type='names' allowmultivalues='true'
+ kind='computed' name='ISADMIN' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"ISADMIN";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth='0px'>
+<par def='31'>Default CC</par></tablecell>
+<tablecell borderwidth='0px'>
+<par def='32'><run><font size='8pt' name='Arial' pitch='variable' truetype='true'
+ familyid='20'/><field type='names' allowmultivalues='true' kind='computed'
+ name='defcc' listinputseparators='comma' listdisplayseparator='comma'><code
+ event='defaultvalue'><formula>@DbLookup("":"NoCache";@Subset(@DbName;1):"Current/PeopleNames.nsf";"($VIMGroups)";"PCNSECURITY_2";3;[FailSilent])</formula></code></field></run></par></tablecell></tablerow></table>
+<par def='19'/></section><subformref name='Hidden Fields'/>
+<par def='19'/></richtext></body>
+<item name='DateRequired2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='tTime2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='tTime22' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='DateRequested2' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='ArrivalTime_1' summary='false' sign='true'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='$SubForm_RepIDs' sign='true'><textlist><text>0000000000000000</text><text
+>0000000000000000</text></textlist></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>New2</text></item>
+<item name='ContactNo' summary='false'><number>0</number></item>
+<item name='CDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+<agent name='DB_NSF' hide='v3' publicaccess='false' designerversion='8.5.3'>
+<noteinfo noteid='2aea' unid='954D6EFFAD02C88E48258E05002E49FD' sequence='5'>
+<created><datetime>20260528T162535,97+08</datetime></created>
+<modified><datetime>20260528T162619,56+08</datetime></modified>
+<revised><datetime>20260528T162619,55+08</datetime></revised>
+<lastaccessed><datetime>20260528T162619,55+08</datetime></lastaccessed>
+<addedtofile><datetime>20260528T162536,11+08</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></updatedby>
+<wassignedby><name>CN=Qayyim/OU=PanCen/O=PHB</name></wassignedby>
+<designchange><datetime>20260528T162620,07+08</datetime></designchange>
+<trigger type='actionsmenu'/>
+<documentset type='selected'/><code event='initialize'><lotusscript>Sub Initialize
+    Dim sess As New NotesSession
+    Dim db As NotesDatabase
+    Dim out As String
+    Dim noteID As String
+    Dim note As NotesDocument
+    Dim title As String
+    Dim flags As String
+    Dim i As Integer
+    Dim j As Integer
+    Dim k As Integer
+    Dim vType As String
+    Dim status As String
+    Dim lvl As String
+    Dim entryType As String
+    Dim colInfo As String
+    Dim selFormula As String
+    Dim aFlags As String
+    Dim forms As String
+    Dim subforms As String
+    Dim pages As String
+    Dim framesets As String
+    Dim outlines As String
+    Dim views As String
+    Dim folders As String
+    Dim agents As String
+    Dim vc As NotesViewColumn
+    Dim v As NotesView
+    Dim vcols As Variant
+    Dim sf As NotesForm
+    Dim sfFields As Variant
+    Dim remForm As NotesForm
+    Dim remFields As Variant
+    Dim acl As NotesACL
+    Dim aclEntry As NotesACLEntry
+    Dim ncForms As NotesNoteCollection
+    Dim ncViews As NotesNoteCollection
+    Dim ncAgents As NotesNoteCollection
+    Dim ncAll As NotesNoteCollection
+    Dim stream As NotesStream
+    Dim exporter As NotesDXLExporter
+    Dim dxl As String
+    Dim chunkSize As Long
+    Dim pos As Long
+    Dim fileNum As Integer
+    Dim fileNum2 As Integer
+
+    Set db = sess.CurrentDatabase
+    out = "DATABASE : " &amp; db.Title &amp; Chr(10)
+    out = out &amp; "PATH     : " &amp; db.FilePath &amp; Chr(10)
+    out = out &amp; "DATE     : " &amp; CStr(Now()) &amp; Chr(10)
+    out = out &amp; String(60, "=") &amp; Chr(10)
+
+    ' 
+    ' 1. FORM-CLASS NOTES
+    ' 
+    Set ncForms = db.CreateNoteCollection(False)
+    ncForms.SelectForms = True
+    Call ncForms.BuildCollection
+
+    forms = "" : subforms = "" : pages = "" : framesets = "" : outlines = ""
+
+    noteID = ncForms.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        flags = note.GetItemValue("$Flags")(0)
+        If InStr(flags, "r") &gt; 0 Then
+            framesets = framesets &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "W") &gt; 0 Then
+            pages = pages &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "U") &gt; 0 Then
+            subforms = subforms &amp; "  " &amp; title &amp; Chr(10)
+        ElseIf InStr(flags, "O") &gt; 0 Then
+            outlines = outlines &amp; "  " &amp; title &amp; Chr(10)
+        Else
+            forms = forms &amp; "  " &amp; title &amp; Chr(10)
+        End If
+        noteID = ncForms.GetNextNoteID(noteID)
+    Loop
+
+    out = out &amp; Chr(10) &amp; "=== FRAMESETS ===" &amp; Chr(10)
+    If framesets = "" Then out = out &amp; "  (not accessible via SelectForms - FS exists via launch settings)" &amp; Chr(10) Else out = out &amp; framesets
+    out = out &amp; Chr(10) &amp; "=== PAGES ===" &amp; Chr(10)
+    If pages = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; pages
+    out = out &amp; Chr(10) &amp; "=== OUTLINES ===" &amp; Chr(10)
+    If outlines = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; outlines
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via $Flags) ===" &amp; Chr(10)
+    If subforms = "" Then out = out &amp; "  (none via $Flags)" &amp; Chr(10) Else out = out &amp; subforms
+    out = out &amp; Chr(10) &amp; "=== FORMS ===" &amp; Chr(10)
+    If forms = "" Then out = out &amp; "  (none)" &amp; Chr(10) Else out = out &amp; forms
+
+    ' 
+    ' 2. SUBFORMS via NotesForm API
+    ' 
+    out = out &amp; Chr(10) &amp; "=== SUBFORMS (via NotesForm API) ===" &amp; Chr(10)
+    Dim sfNames(1) As String
+    sfNames(0) = "Footer"
+	sfNames(1) = "Running Number"
+  
+  For i = 0 To 1
+        Set sf = db.GetForm(sfNames(i))
+        If Not sf Is Nothing Then
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; Chr(10)
+            sfFields = sf.Fields
+            For j = 0 To UBound(sfFields)
+                out = out &amp; "    - " &amp; sfFields(j) &amp; Chr(10)
+            Next j
+        Else
+            out = out &amp; "  SUBFORM: " &amp; sfNames(i) &amp; " (not found - may be in template)" &amp; Chr(10)
+        End If
+    Next i
+
+  '   
+  '   3. VIEWS + COLUMN DEFINITIONS
+ '    
+'    Set ncViews = db.CreateNoteCollection(False)
+'    ncViews.SelectViews = True
+'    Call ncViews.BuildCollection
+'
+'    out = out &amp; Chr(10) &amp; "=== VIEWS WITH COLUMNS ===" &amp; Chr(10)
+'
+'    noteID = ncViews.GetFirstNoteID()
+'    Do While noteID &lt;&gt; ""
+'        Set note = db.GetDocumentByID(noteID)
+'        title = note.GetItemValue("$TITLE")(0)
+'        flags = note.GetItemValue("$Flags")(0)
+'        If InStr(flags, "F") &gt; 0 Then vType = "FOLDER" Else vType = "VIEW"
+'        out = out &amp; Chr(10) &amp; "  [" &amp; vType &amp; "] " &amp; title &amp; Chr(10)
+'
+'        On Error Resume Next
+'        Set v = db.GetView(title)
+'        If Not v Is Nothing Then
+'            selFormula = v.SelectionFormula
+'            If selFormula &lt;&gt; "" And UCase(selFormula) &lt;&gt; "SELECT @ALL" Then
+'                out = out &amp; "    Selection : " &amp; selFormula &amp; Chr(10)
+'            End If
+'            vcols = v.Columns
+'            If Not IsNull(vcols) Then
+'                For k = 0 To UBound(vcols)
+'                    Set vc = vcols(k)
+'                    colInfo = "    Col: " &amp; vc.Title
+'                    If vc.IsField Then
+'                        colInfo = colInfo &amp; " [field=" &amp; vc.ItemName &amp; "]"
+'                    ElseIf vc.IsFormula Then
+'                        colInfo = colInfo &amp; " [formula=" &amp; Left(vc.Formula, 80) &amp; "]"
+'                    End If
+'                    If vc.IsSorted Then colInfo = colInfo &amp; " SORTED"
+'                    If vc.IsCategory Then colInfo = colInfo &amp; " CATEGORY"
+'                    out = out &amp; colInfo &amp; Chr(10)
+'                Next k
+'            End If
+'        End If
+'        On Error GoTo 0
+'
+'        noteID = ncViews.GetNextNoteID(noteID)
+'    Loop
+'
+    ' 
+    ' 4. AGENTS
+    ' 
+    Set ncAgents = db.CreateNoteCollection(False)
+    ncAgents.SelectAgents = True
+    Call ncAgents.BuildCollection
+
+    out = out &amp; Chr(10) &amp; "=== AGENTS ===" &amp; Chr(10)
+    noteID = ncAgents.GetFirstNoteID()
+    Do While noteID &lt;&gt; ""
+        Set note = db.GetDocumentByID(noteID)
+        title = note.GetItemValue("$TITLE")(0)
+        aFlags = ""
+        On Error Resume Next
+        aFlags = note.GetItemValue("$AssistFlags")(0)
+        On Error GoTo 0
+        If InStr(aFlags, "E") &gt; 0 Then status = "[ENABLED]" Else status = "[DISABLED]"
+        out = out &amp; "  " &amp; title &amp; " " &amp; status &amp; Chr(10)
+        noteID = ncAgents.GetNextNoteID(noteID)
+    Loop
+
+    ' 
+    ' 5. ACL
+    ' 
+    out = out &amp; Chr(10) &amp; "=== ACCESS CONTROL LIST ===" &amp; Chr(10)
+    On Error Resume Next
+    Set acl = db.ACL
+    Set aclEntry = acl.GetFirstEntry()
+    Do While Not aclEntry Is Nothing
+        Select Case aclEntry.Level
+        Case 0 : lvl = "No Access"
+        Case 1 : lvl = "Depositor"
+        Case 2 : lvl = "Reader"
+        Case 3 : lvl = "Author"
+        Case 4 : lvl = "Editor"
+        Case 5 : lvl = "Designer"
+        Case 6 : lvl = "Manager"
+        End Select
+        Select Case aclEntry.UserType
+        Case 0 : entryType = "Unspecified"
+        Case 1 : entryType = "Person"
+        Case 2 : entryType = "Server"
+        Case 3 : entryType = "Mixed Group"
+        Case 4 : entryType = "Person Group"
+        Case 5 : entryType = "Server Group"
+        End Select
+        out = out &amp; "  " &amp; aclEntry.Name &amp; " | " &amp; lvl &amp; " | " &amp; entryType &amp; Chr(10)
+        Set aclEntry = acl.GetNextEntry(aclEntry)
+    Loop
+    On Error GoTo 0
+
+    ' 
+    ' 6. REMINDER FORM FIELDS
+    ' 
+    out = out &amp; Chr(10) &amp; "=== REMINDER FORM FIELDS ===" &amp; Chr(10)
+    On Error Resume Next
+    Set remForm = db.GetForm("Reminder")
+    If Not remForm Is Nothing Then
+        remFields = remForm.Fields
+        For j = 0 To UBound(remFields)
+            out = out &amp; "  - " &amp; remFields(j) &amp; Chr(10)
+        Next j
+    Else
+        out = out &amp; "  (Reminder form not found)" &amp; Chr(10)
+    End If
+    On Error GoTo 0
+
+    ' 
+    ' Write inventory
+    ' 
+    fileNum = FreeFile()
+    Open "D:\Claude\DB_NSF\HR_PanCen\16_PCNDriver_all_inventory.txt" For Output As #fileNum
+    Print #fileNum, out
+    Close #fileNum
+
+    ' 
+    ' 7. FULL DXL EXPORT
+    ' 
+    Set ncAll = db.CreateNoteCollection(False)
+    ncAll.SelectForms = True
+    ncAll.SelectViews = True
+    ncAll.SelectAgents = True
+    Call ncAll.BuildCollection
+
+    Set stream = sess.CreateStream()
+    Set exporter = sess.CreateDXLExporter(ncAll, stream)
+    exporter.ConvertNotesBitmapsToGIF = False
+    exporter.OutputDOCTYPE = False
+    Call exporter.Process()
+
+    stream.Position = 0
+    dxl = stream.ReadText()
+
+    fileNum2 = FreeFile()
+    Open "D:\Claude\DB_NSF\HR_PanCen\16_PCNDriver_all_dxl.xml" For Output As #fileNum2
+    chunkSize = 65536
+    pos = 1
+    Do While pos &lt;= Len(dxl)
+        Print #fileNum2, Mid(dxl, pos, chunkSize);
+        pos = pos + chunkSize
+    Loop
+    Close #fileNum2
+
+    MsgBox "Done!" &amp; Chr(10) &amp; Chr(10) &amp; _
+        "Inventory : D:\Claude\DB_NSF\HR_PanCen\16_PCNDriver_all_inventory.txt" &amp; Chr(10) &amp; _
+        "Full DXL  : D:\Claude\DB_NSF\HR_PanCen\16_PCNDriver_all_dxl.xml" &amp; Chr(10) &amp; Chr(10) &amp; _
+        "DXL size  : " &amp; Format(Len(dxl), "#,##0") &amp; " chars"
+End Sub
+</lotusscript></code>
+<rundata processeddocs='0' exitcode='0'>
+<agentmodified><datetime>20260528T162619,63+08</datetime></agentmodified>
+<runlog>Started running agent 'DB_NSF' on 28/05/2026 04:26:25 PM
+ERROR: To run this agent you must have at least one document selected
+</runlog></rundata></agent>
+</database>
+

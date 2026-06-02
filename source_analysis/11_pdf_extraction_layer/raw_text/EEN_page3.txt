@@ -1,0 +1,33 @@
+   Bagaimana anda rasa mengenai perkembangan anda di sini?
+Progress
+3. How do you feel about your pay?
+   Bagaimana anda rasa mengenai gaji anda?
+Pay
+4. Have you found another job?
+   Adakah anda telah mendapat pekerjaan lain?
+NewJob
+5. How does the new job compare with ours? (i.e. wages, working hours and other benefits). Please 
+explain.
+   Bagaimana pekerjaan baru itu berbanding kami? (i.e gaji, waktu bekerja dan lain-lain faedah). Sila 
+jelaskan.
+NewJobExplain
+6. What position is it?
+   Jawatan apakah ia?
+NewPost
+7. What could we have done to prevent you from leaving?
+   Apakah yang boleh kami lakukan untuk menghalang anda dari berhenti?
+PreventLeave
+8. Were the duties and responsibilities of your job clearly explained to you?
+   Adakah tugas dan tanggungjawab mengenai pekerjaan anda jelas diterangkan kepada anda?
+NewJobDuties
+Comments1
+9. Were the conditions of work, salary, hours of work and other benefits clearly explained to you?
+    Adakah persekitaran kerja, gaji, waktu bekerja dan lain-lain manfaat jelas diterangkan kepada 
+anda?
+NewJobCond
+Comments2
+10. Do you have any comments on your immediate Superior?
+     Adakah anda mempunyai sebarang komen mengenai orang atasan anda?
+CommOnImSv
+Comments3
+11. When you needed information to do your job, were you able to get it easily from your 

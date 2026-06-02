@@ -1,0 +1,205 @@
+DATABASE : PanCen - Masterlist of Records
+PATH     : PanCen - IMS\PCQltyRec.nsf
+DATE     : 29/05/2026 2:44:07 PM
+============================================================
+
+=== FRAMESETS ===
+  (not accessible via SelectForms - FS exists via launch settings)
+
+=== PAGES ===
+  (none)
+
+=== OUTLINES ===
+  (none)
+
+=== SUBFORMS (via $Flags) ===
+  (none via $Flags)
+
+=== FORMS ===
+  Quality
+  Copy Of Quality
+  Quality2_NIU
+
+=== SUBFORMS (via NotesForm API) ===
+  SUBFORM: Signature
+    - CDate
+    - DocAuthor
+  SUBFORM: RecordOfIssues
+    - JUS_40E
+    - INO_40E
+    - JUS_39E
+    - INO_39E
+    - JUS_38E
+    - INO_38E
+    - JUS_37E
+    - INO_37E
+    - JUS_36E
+    - INO_36E
+    - JUS_35E
+    - INO_35E
+    - JUS_34E
+    - INO_34E
+    - JUS_33E
+    - INO_33E
+    - JUS_32E
+    - INO_32E
+    - JUS_31E
+    - INO_31E
+    - JUS_30E
+    - INO_30E
+    - JUS_29E
+    - INO_29E
+    - JUS_28E
+    - INO_28E
+    - JUS_27E
+    - INO_27E
+    - JUS_26E
+    - INO_26E
+    - JUS_25E
+    - INO_25E
+    - JUS_24E
+    - INO_24E
+    - JUS_23E
+    - INO_23E
+    - JUS_22E
+    - INO_22E
+    - JUS_21E
+    - INO_21E
+    - JUS_20E
+    - INO_20E
+    - JUS_19E
+    - INO_19E
+    - JUS_18E
+    - INO_18E
+    - JUS_17E
+    - INO_17E
+    - JUS_16E
+    - INO_16E
+    - JUS_15E
+    - INO_15E
+    - JUS_14E
+    - INO_14E
+    - JUS_13E
+    - INO_13E
+    - JUS_12E
+    - INO_12E
+    - JUS_11E
+    - INO_11E
+    - JUS_10E
+    - INO_10E
+    - JUS_9E
+    - INO_9E
+    - JUS_8E
+    - INO_8E
+    - JUS_7E
+    - INO_7E
+    - JUS_6E
+    - INO_6E
+    - JUS_5E
+    - INO_5E
+    - JUS_4E
+    - INO_4E
+    - JUS_3E
+    - INO_3E
+    - JUS_2E
+    - INO_2E
+    - JUS_1E
+    - INO_1E
+    - JUS_40
+    - INO_40
+    - JUS_39
+    - INO_39
+    - JUS_38
+    - INO_38
+    - JUS_37
+    - INO_37
+    - JUS_36
+    - INO_36
+    - JUS_35
+    - INO_35
+    - JUS_34
+    - INO_34
+    - JUS_33
+    - INO_33
+    - JUS_32
+    - INO_32
+    - JUS_31
+    - INO_31
+    - JUS_30
+    - INO_30
+    - JUS_29
+    - INO_29
+    - JUS_28
+    - INO_28
+    - JUS_27
+    - INO_27
+    - JUS_26
+    - INO_26
+    - JUS_25
+    - INO_25
+    - JUS_24
+    - INO_24
+    - JUS_23
+    - INO_23
+    - JUS_22
+    - INO_22
+    - JUS_21
+    - INO_21
+    - JUS_20
+    - INO_20
+    - JUS_19
+    - INO_19
+    - JUS_18
+    - INO_18
+    - JUS_17
+    - INO_17
+    - JUS_16
+    - INO_16
+    - JUS_15
+    - INO_15
+    - JUS_14
+    - INO_14
+    - JUS_13
+    - INO_13
+    - JUS_12
+    - INO_12
+    - JUS_11
+    - INO_11
+    - JUS_10
+    - INO_10
+    - JUS_9
+    - INO_9
+    - JUS_8
+    - INO_8
+    - JUS_7
+    - INO_7
+    - JUS_6
+    - INO_6
+    - JUS_5
+    - INO_5
+    - JUS_4
+    - INO_4
+    - JUS_3
+    - INO_3
+    - JUS_2
+    - INO_2
+    - JUS_1
+    - INO_1
+    - RECORD_OF_ISSUES
+
+=== AGENTS ===
+  DB_NSF [ENABLED]
+
+=== ACCESS CONTROL LIST ===
+  -Default- | No Access | Unspecified
+  OtherDomainServers | No Access | Server Group
+  CN=PCNSVR/O=PHB | Manager | Server
+  CN=Suba QA/OU=PanCen/O=PHB | Editor | Person
+  QA Pancen Team | Editor | Person Group
+  LocalDomainServers | Manager | Server Group
+  PanCen Group | Reader | Person Group
+  Notes Administrator Group | Manager | Mixed Group
+
+=== REMINDER FORM FIELDS ===
+  (Reminder form not found)
+

@@ -1,0 +1,35 @@
+ : ItemDetail
+Value of Gift 
+(Actual/Estimation)
+ : RM 
+GiftValue
+Date 
+text
+ : 
+DateRec
+Quantity
+ : Quantity
+Price per Unit
+ : RM Price
+Total Cost
+ : RM 
+Total
+Purchase through PO
+ : IsPO
+PO Number (if applicable)
+ : PoNo
+Submitted 
+by
+ : Notified
+Position : position
+Date : reportedDate
+PART B - HOD SECTION
+Endorsed 
+by
+ : HODName
+Position : HODPost
+Date : HODDate
+App : 
+App
+Notified to : 
+SendTo

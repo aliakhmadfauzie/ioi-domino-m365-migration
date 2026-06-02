@@ -1,0 +1,33 @@
+ Title
+Title  INFORMATION
+Category
+ : Category
+To
+ : Send
+Title
+ : Subject
+Description
+ : Body
+Attachment
+ : Att
+Phone Ext. No.
+ : Ext
+Status Updates
+Update
+Status
+ : Status
+Counter  viewed.
+Details :-
+Viewed
+CtrLst
+HiddenFields:-
+Creator 
+: Author
+Date Sent 
+: DateSent
+Section Control 
+: Lock
+Section Control 
+: Lock2
+CurrentAction 
+: CurrentAction
