@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, ArrowLeft, FileText, Download, ExternalLink } from 'lucide-react';
+import { ChevronRight, ArrowLeft, FileText, Download, ExternalLink, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -62,25 +62,33 @@ export default function DocumentationPage() {
         className="bg-accent/50 dark:bg-accent/30 border-accent dark:border-accent text-accent-foreground dark:text-accent-foreground"
       />
 
-      <div className="flex items-center gap-3">
-        <Link to="/it">
-          <Button variant="ghost" size="icon" className="h-9 w-9">
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-        </Link>
-        <div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-            <Link to="/it" className="hover:text-foreground transition-colors">IT</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-foreground">Documentation & Policies</span>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3">
+          <Link to="/it">
+            <Button variant="ghost" size="icon" className="h-9 w-9">
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+          </Link>
+          <div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+              <Link to="/it" className="hover:text-foreground transition-colors">IT</Link>
+              <ChevronRight className="h-3.5 w-3.5" />
+              <span className="text-foreground">Documentation & Policies</span>
+            </div>
+            <h1 className="text-2xl font-bold text-foreground">Documentation & Policies</h1>
           </div>
-          <h1 className="text-2xl font-bold text-foreground">Documentation & Policies</h1>
         </div>
+        <Button asChild className="w-full sm:w-auto">
+          <Link to="/it/forms/ioip/new">
+            <Plus className="h-4 w-4 mr-2" />
+            New Submission
+          </Link>
+        </Button>
       </div>
 
       {/* Documents Grid */}
       <div className="space-y-3">
-        {documents.map((doc, index: number) => (
+        {documents.map((doc) => (
           <Card key={doc.title} className="border-0 shadow-sm hover:shadow-md transition-all">
             <CardContent className="p-4">
               <div className="flex items-center gap-4">

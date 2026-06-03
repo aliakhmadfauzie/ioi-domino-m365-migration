@@ -1,21 +1,29 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import {
   ArrowLeft,
+  ArrowRight,
   Calendar,
   CheckCircle2,
   Clock,
+  Eye,
   FileText,
   Info,
   Layers,
+  Loader2,
   MessageSquare,
   Shield,
   Tag,
   User,
+  XCircle,
 } from 'lucide-react';
 import { format } from 'date-fns';
+import { toast } from 'sonner';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { PageLoading } from '@/components/page-loading';
 import { StatusBadge } from '@/components/database-view';
 import { useApprovalRecordsList } from '@/generated/hooks/use-approval-records';
@@ -29,6 +37,11 @@ import { getFormByCode, type FormField, type FormSection } from '@/lib/it-forms-
 import { normalizeITFormRouteSlug } from '@/lib/it-form-routes';
 import { parseRemarks } from '@/lib/parse-remarks';
 import { getStatusLabel } from '@/lib/status-utils';
+import { useDynamicRoleAccess } from '@/hooks/use-dynamic-role-access';
+import { useUser } from '@/hooks/use-user';
+import { getITCurrentActionAccess, isITStatusActionable } from '@/lib/it-current-action-access';
+import { recordITApprovalAction, statusActionType } from '@/lib/it-approval-actions';
+import { RecordViewSelector } from '@/components/workflow/record-view-selector';
 
 type DataSource = Record<string, unknown>;
 
@@ -228,16 +241,27 @@ function ApprovalHistoryCard({ approvals, record }: { approvals: ApprovalRecords
   );
 }
 
+function appendActionComment(existing: string | undefined, entry: string): string {
+  return [existing?.trim(), entry.trim()].filter(Boolean).join('\n\n');
+}
+
 export default function ITDynamicFormDetailPage() {
   const { formCode, id } = useParams<{ formCode: string; id: string }>();
   const navigate = useNavigate();
+  const { data: user } = useUser();
+  const roleAccess = useDynamicRoleAccess({ moduleScope: 'IT' });
+  const [actionLoading, setActionLoading] = useState(false);
+  const [actionComment, setActionComment] = useState('');
+  const [selectedView, setSelectedView] = useState<'initiator' | 'actioner' | null>(null);
+  // Reset view choice whenever the user navigates to a different record
+  useEffect(() => { setSelectedView(null); }, [id]);
   const slug = normalizeITFormRouteSlug(formCode);
   const formCodeUpper = (formCode ?? '').toUpperCase();
   const baseConfig = getFormByCode(formCodeUpper);
   const formConfig = baseConfig ? getCompleteFormConfig(baseConfig) : undefined;
 
-  const { data: record, isLoading, error } = useMainDBIT(id ?? '');
-  const { data: approvals = [], isLoading: approvalsLoading } = useApprovalRecordsList();
+  const { data: record, isLoading, error, refetch: refetchRecord } = useMainDBIT(id ?? '');
+  const { data: approvals = [], isLoading: approvalsLoading, refetch: refetchApprovals } = useApprovalRecordsList();
   const { data: extAccessRecords = [], isLoading: extAccessLoading } = useMainDBITExtAccessList();
   const { data: extSupportRecords = [], isLoading: extSupportLoading } = useMainDBITExtSupportList();
 
@@ -291,6 +315,73 @@ export default function ITDynamicFormDetailPage() {
   if (!record) return <div className="p-6 text-center text-sm text-muted-foreground">Record not found.</div>;
 
   const statusLabel = getStatusLabel(record.currentStatus);
+  const actionSources = [
+    ...relatedExtAccess.map((item) => item as unknown as Record<string, unknown>),
+    ...relatedExtSupport.map((item) => item as unknown as Record<string, unknown>),
+    parsedRemarks as Record<string, unknown>,
+  ];
+  const currentStageName = statusLabel || record.currentAction || 'Current Action';
+  const hasCurrentAction = isITStatusActionable(record.currentStatus, statusLabel, record.currentAction);
+  const actionAccess = getITCurrentActionAccess({
+    record,
+    user,
+    roleAccess,
+    statusLabel,
+    currentStageName,
+    sources: actionSources,
+    blockInitiator: !/initiator|requestor|req\.?\s*acceptance/i.test(`${statusLabel} ${record.currentAction || ''}`),
+  });
+
+  // Determine if this user is an actioner for the current stage (independent of blockInitiator)
+  const isActioner =
+    !!actionAccess.currentUserEmail &&
+    (actionAccess.expectedActorEmails.includes(actionAccess.currentUserEmail) ||
+      (!actionAccess.hasExplicitActor && !!roleAccess.canApprove));
+  const hasBothRoles = actionAccess.isInitiator && isActioner;
+  // Auto-derive view; null selectedView + hasBothRoles triggers the selector screen
+  const activeView =
+    hasBothRoles && selectedView === null
+      ? 'selecting'
+      : selectedView ?? (actionAccess.isInitiator ? 'initiator' : isActioner ? 'actioner' : 'readonly');
+
+  const handleWorkflowAction = async (variant: 'approve' | 'reject') => {
+    if (!id || !record) return;
+    if (!actionAccess.canAct) {
+      toast.error(actionAccess.reason || 'You are not assigned to this action.');
+      return;
+    }
+
+    const nextStatus = variant === 'reject' ? 'CurrentstatusKey6' : 'CurrentstatusKey1';
+    const actionName = variant === 'reject' ? 'Rejected' : 'Approved / Completed';
+    const actor = user?.fullName || user?.userPrincipalName || user?.email || 'Approver';
+    const now = new Date().toISOString();
+    const comment = actionComment.trim();
+    const commentEntry = `${actionName} by ${actor} on ${format(new Date(now), 'dd MMM yyyy h:mm a')}${comment ? `\n${comment}` : ''}`;
+
+    setActionLoading(true);
+    try {
+      await recordITApprovalAction({
+        id,
+        record,
+        user,
+        nextStatus,
+        stageName: currentStageName,
+        actionType: statusActionType(nextStatus, variant),
+        comment: commentEntry,
+        workflowstage: variant === 'reject' ? 0 : record.workflowstage,
+        mainPatch: {
+          hODApproverRemarks: appendActionComment(record.hODApproverRemarks, commentEntry),
+        },
+      });
+      toast.success(`${actionName} recorded`);
+      setActionComment('');
+      await Promise.all([refetchRecord(), refetchApprovals()]);
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : 'Failed to record action');
+    } finally {
+      setActionLoading(false);
+    }
+  };
   const essentialValues: DetailValue[] = [
     { label: 'Title', value: record.title, source: 'MainDB_IT', key: 'title' },
     { label: 'Form Code', value: record.formcode, source: 'MainDB_IT', key: 'formcode' },
@@ -299,6 +390,24 @@ export default function ITDynamicFormDetailPage() {
     { label: 'Workflow Stage', value: record.workflowstage, source: 'MainDB_IT', key: 'workflowstage' },
     { label: 'Locked', value: record.islocked ? 'Yes' : 'No', source: 'MainDB_IT', key: 'islocked' },
   ].filter((item) => isFilled(item.value));
+
+  if (activeView === 'selecting') {
+    return (
+      <div className="p-6 max-w-6xl mx-auto">
+        <div className="flex items-center gap-3">
+          <Button variant="ghost" size="icon" onClick={() => navigate(`/it/forms/${slug}`)}>
+            <ArrowLeft className="h-5 w-5" />
+          </Button>
+        </div>
+        <RecordViewSelector
+          formTitle={formConfig?.name ?? formCodeUpper}
+          recordTitle={record.title || `${formCodeUpper}-${id}`}
+          stageName={currentStageName}
+          onSelect={setSelectedView}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 p-6 max-w-6xl mx-auto">
@@ -310,6 +419,29 @@ export default function ITDynamicFormDetailPage() {
           <div className="flex flex-wrap items-center gap-3">
             <h1 className="text-2xl font-bold break-words">{record.title || `${formCodeUpper}-${id}`}</h1>
             <StatusBadge status={statusLabel} />
+            {activeView === 'initiator' && (
+              <Badge variant="outline" className="text-blue-600 border-blue-200 bg-blue-50 text-xs">
+                <Eye className="h-3 w-3 mr-1" />
+                Requestor View
+              </Badge>
+            )}
+            {activeView === 'actioner' && (
+              <Badge variant="outline" className="text-amber-600 border-amber-200 bg-amber-50 text-xs">
+                <Shield className="h-3 w-3 mr-1" />
+                Actioner View
+              </Badge>
+            )}
+            {hasBothRoles && (
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-6 text-xs px-2 text-muted-foreground"
+                onClick={() => setSelectedView(activeView === 'initiator' ? 'actioner' : 'initiator')}
+              >
+                Switch to {activeView === 'initiator' ? 'actioner' : 'requestor'} view
+                <ArrowRight className="h-3 w-3 ml-1" />
+              </Button>
+            )}
           </div>
           <p className="text-sm text-muted-foreground mt-1">
             {formConfig?.name ?? formCodeUpper} • {record.requestoremail || 'No requestor email'}
@@ -366,6 +498,74 @@ export default function ITDynamicFormDetailPage() {
               </div>
             </CardContent>
           </Card>
+
+          {hasCurrentAction && activeView === 'initiator' && (
+            <Card className="border-blue-200 bg-blue-50/30">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Clock className="h-4 w-4 text-blue-600" />
+                  Pending With
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <p className="font-medium">{currentStageName}</p>
+                <p className="text-muted-foreground">
+                  Waiting for {actionAccess.expectedActorLabel}.
+                </p>
+              </CardContent>
+            </Card>
+          )}
+
+          {hasCurrentAction && activeView !== 'initiator' && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Shield className="h-4 w-4 text-primary" />
+                  Current Action
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-1 text-sm">
+                  <p className="font-medium">{currentStageName}</p>
+                  <p className="text-muted-foreground">
+                    Assigned to {actionAccess.expectedActorLabel}.
+                  </p>
+                  {!actionAccess.canAct && actionAccess.reason && (
+                    <p className="text-xs text-muted-foreground">{actionAccess.reason}</p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Label>Comment</Label>
+                  <Textarea
+                    value={actionComment}
+                    onChange={(event) => setActionComment(event.target.value)}
+                    placeholder="Add action comment..."
+                    rows={4}
+                    disabled={!actionAccess.canAct || actionLoading}
+                  />
+                </div>
+                <div className="grid grid-cols-1 gap-2">
+                  <Button
+                    className="w-full"
+                    onClick={() => handleWorkflowAction('approve')}
+                    disabled={!actionAccess.canAct || actionLoading}
+                  >
+                    {actionLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <CheckCircle2 className="mr-2 h-4 w-4" />}
+                    Approve / Complete
+                  </Button>
+                  <Button
+                    className="w-full"
+                    variant="destructive"
+                    onClick={() => handleWorkflowAction('reject')}
+                    disabled={!actionAccess.canAct || actionLoading}
+                  >
+                    {actionLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <XCircle className="mr-2 h-4 w-4" />}
+                    Reject
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           <Card>
             <CardHeader>

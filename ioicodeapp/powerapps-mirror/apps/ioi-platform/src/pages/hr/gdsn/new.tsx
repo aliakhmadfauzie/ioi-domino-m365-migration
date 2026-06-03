@@ -26,8 +26,8 @@ export default function GDSNNewPage() {
   const [notifType, setNotifType] = useState('');      // → details
   const [notifDate, setNotifDate] = useState(format(new Date(), 'yyyy-MM-dd')); // → effectivedate
   const [purpose, setPurpose] = useState('');          // → description
-  const [dataCollected, setDataCollected] = useState(''); // → remarks
-  const [retentionPeriod, setRetentionPeriod] = useState(''); // → duedate label via remarks
+  const [dataCollected, setDataCollected] = useState('');
+  const [retentionPeriod, setRetentionPeriod] = useState('');
 
   const handleSubmit = async (action: 'draft' | 'submit') => {
     if (action === 'submit' && !empName.trim()) { toast.error('Employee name is required'); return; }
@@ -40,10 +40,9 @@ export default function GDSNNewPage() {
         currentaction: action === 'draft' ? 'Request' : 'Submitted',
         statusKey: action === 'draft' ? 'StatusKey0' : 'StatusKey1',
         employeename: empName,
-        details: notifType,
+        details: [notifType, dataCollected ? `Data: ${dataCollected}` : null, retentionPeriod ? `Retention: ${retentionPeriod}` : null].filter(Boolean).join(' | '),
         effectivedate: notifDate,
         description: purpose,
-        remarks: `Data: ${dataCollected}${retentionPeriod ? ` | Retention: ${retentionPeriod}` : ''}`,
         requestoremail: user?.userPrincipalName || '',
       } as any);
       toast.success(action === 'draft' ? 'Draft saved' : 'Notification submitted');

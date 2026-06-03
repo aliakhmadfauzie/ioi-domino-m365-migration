@@ -1063,7 +1063,7 @@ export function MultiStepForm({
   }, [currentStep, onStepChange]);
 
   return (
-    <div className="max-w-[800px] mx-auto">
+    <div>
       {/* Form Card */}
       <div className="bg-white rounded-xl shadow-md border border-[#D0D0D0] p-8">
         {/* Progress Indicator */}

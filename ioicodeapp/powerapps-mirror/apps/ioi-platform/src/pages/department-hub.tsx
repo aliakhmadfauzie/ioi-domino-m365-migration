@@ -50,6 +50,7 @@ import { useSendEmail } from '@/hooks/use-send-email';
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBITCurrentstatusKey, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { DataReadyGuard } from '@/components/data-ready-guard';
+import { getDepartmentRoutePath } from '@/lib/navigation';
 import { formatDistanceToNow } from 'date-fns';
 import { toast } from 'sonner';
 
@@ -105,27 +106,27 @@ const departmentIcons: Record<string, LucideIcon> = {
   OPS: Factory,
 };
 
-// Define unique accent colors for visual distinction (gradient accents only)
+// Department cards use a consistent navy accent system for the hub.
 const departmentAccents: Record<string, { gradient: string; ring: string }> = {
-  IT: { gradient: 'from-blue-600 to-indigo-600', ring: 'ring-blue-500/20' },
-  HR: { gradient: 'from-rose-500 to-pink-600', ring: 'ring-rose-500/20' },
-  PROD: { gradient: 'from-amber-500 to-orange-600', ring: 'ring-amber-500/20' },
-  QA: { gradient: 'from-emerald-500 to-teal-600', ring: 'ring-emerald-500/20' },
-  QC: { gradient: 'from-violet-500 to-purple-600', ring: 'ring-violet-500/20' },
-  STR: { gradient: 'from-sky-500 to-cyan-600', ring: 'ring-sky-500/20' },
-  FIN: { gradient: 'from-green-500 to-emerald-600', ring: 'ring-green-500/20' },
-  PURCH: { gradient: 'from-orange-500 to-red-500', ring: 'ring-orange-500/20' },
-  SHE: { gradient: 'from-red-500 to-rose-600', ring: 'ring-red-500/20' },
-  ADM: { gradient: 'from-slate-500 to-gray-600', ring: 'ring-slate-500/20' },
-  MTR: { gradient: 'from-cyan-500 to-blue-600', ring: 'ring-cyan-500/20' },
-  GOV: { gradient: 'from-indigo-500 to-blue-600', ring: 'ring-indigo-500/20' },
-  SEC: { gradient: 'from-slate-600 to-zinc-700', ring: 'ring-slate-500/20' },
-  TD: { gradient: 'from-purple-500 to-indigo-600', ring: 'ring-purple-500/20' },
-  ENG: { gradient: 'from-teal-500 to-cyan-600', ring: 'ring-teal-500/20' },
-  LOG: { gradient: 'from-orange-500 to-amber-600', ring: 'ring-orange-500/20' },
-  MKT: { gradient: 'from-pink-500 to-rose-600', ring: 'ring-pink-500/20' },
-  MAINT: { gradient: 'from-yellow-500 to-amber-600', ring: 'ring-yellow-500/20' },
-  WH: { gradient: 'from-blue-500 to-sky-600', ring: 'ring-blue-500/20' },
+  IT: { gradient: 'from-slate-900 to-blue-900', ring: 'ring-blue-900/20' },
+  HR: { gradient: 'from-blue-950 to-blue-800', ring: 'ring-blue-900/20' },
+  PROD: { gradient: 'from-slate-800 to-blue-900', ring: 'ring-blue-900/20' },
+  QA: { gradient: 'from-blue-900 to-slate-900', ring: 'ring-blue-900/20' },
+  QC: { gradient: 'from-blue-950 to-slate-800', ring: 'ring-blue-900/20' },
+  STR: { gradient: 'from-slate-900 to-blue-800', ring: 'ring-blue-900/20' },
+  FIN: { gradient: 'from-blue-900 to-blue-950', ring: 'ring-blue-900/20' },
+  PURCH: { gradient: 'from-slate-800 to-blue-950', ring: 'ring-blue-900/20' },
+  SHE: { gradient: 'from-blue-950 to-slate-900', ring: 'ring-blue-900/20' },
+  ADM: { gradient: 'from-slate-800 to-slate-950', ring: 'ring-blue-900/20' },
+  MTR: { gradient: 'from-blue-800 to-slate-900', ring: 'ring-blue-900/20' },
+  GOV: { gradient: 'from-slate-900 to-blue-950', ring: 'ring-blue-900/20' },
+  SEC: { gradient: 'from-slate-950 to-blue-900', ring: 'ring-blue-900/20' },
+  TD: { gradient: 'from-blue-900 to-slate-800', ring: 'ring-blue-900/20' },
+  ENG: { gradient: 'from-slate-900 to-blue-900', ring: 'ring-blue-900/20' },
+  LOG: { gradient: 'from-blue-950 to-slate-800', ring: 'ring-blue-900/20' },
+  MKT: { gradient: 'from-slate-800 to-blue-900', ring: 'ring-blue-900/20' },
+  MAINT: { gradient: 'from-blue-900 to-slate-950', ring: 'ring-blue-900/20' },
+  WH: { gradient: 'from-slate-900 to-blue-800', ring: 'ring-blue-900/20' },
 };
 
 export default function DepartmentHubPage() {
@@ -164,43 +165,18 @@ export default function DepartmentHubPage() {
     return { total: all.length, active, pending, forms };
   }, []);
 
-  const activeDepartments = Object.values(DEPARTMENTS).filter((d: Department) => d.status === 'active');
+  const activeDepartments = Object.values(DEPARTMENTS)
+    .filter((d: Department) => d.status === 'active')
+    .filter((dept: Department, index: number, departments: Department[]) => {
+      const routePath = getDepartmentRoutePath(dept.code);
+      return departments.findIndex((candidate) => getDepartmentRoutePath(candidate.code) === routePath) === index;
+    });
   const comingSoonCount = Object.values(DEPARTMENTS).filter((d: Department) => d.status === 'pending').length;
-
-  // Map department codes to their actual route paths
-  // Helper to map department codes to their actual route paths
-  const getRoutePath = (code: DepartmentCode): string => {
-    const routeMap: Partial<Record<DepartmentCode, string>> = {
-      PROD: '/production',
-      PURCH: '/procurement',
-      PUR: '/procurement',
-      SEC: '/security',
-      TD: '/training',
-      ENG: '/engineering',
-      MAINT: '/maintenance',
-      WH: '/warehouse',
-      STR: '/str',
-      IT: '/it',
-      HR: '/hr',
-      QA: '/qa',
-      QC: '/qc',
-      MKT: '/sales',
-      LOG: '/logistics',
-      MTR: '/maintenance',
-      PLANT: '/plant',
-      SAFETY: '/safety',
-      SHE: '/safety',
-      FIN: '/fin',
-      ADMIN: '/admin',
-      ADM: '/admin',
-    };
-    return routeMap[code] || `/${code.toLowerCase()}`;
-  };
 
   const handleDepartmentClick = (code: DepartmentCode) => {
     const dept = DEPARTMENTS[code];
     if (dept?.status === 'active') {
-      navigate(getRoutePath(code));
+      navigate(getDepartmentRoutePath(code));
     }
   };
 
@@ -218,11 +194,11 @@ export default function DepartmentHubPage() {
       {/* Hero Section */}
       <section className={cn(
         "relative overflow-hidden",
-        isSuperAdmin && "ring-2 ring-emerald-500 ring-inset rounded-b-xl"
+        isSuperAdmin && "ring-2 ring-blue-900 ring-inset rounded-b-xl"
       )}>
         {/* Super Admin Indicator */}
         {isSuperAdmin && (
-          <div className="absolute top-0 left-0 right-0 z-10 bg-emerald-500 text-white text-xs font-medium py-1.5 px-4 flex items-center justify-center gap-2">
+          <div className="absolute top-0 left-0 right-0 z-10 bg-blue-900 text-white text-xs font-medium py-1.5 px-4 flex items-center justify-center gap-2">
             <Shield className="h-3.5 w-3.5" />
             <span>Super Admin Access</span>
           </div>
@@ -272,7 +248,7 @@ export default function DepartmentHubPage() {
                       {getGreeting()}, {user?.fullName || 'there'}!
                     </h1>
                     <p className="text-white/80 text-sm mt-2 flex items-center gap-2">
-                      <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
+                      <span className="inline-block h-2 w-2 rounded-full bg-blue-200" />
                       Logged in as {user?.userPrincipalName || 'Guest'}
                     </p>
                     <div className="mt-3">
@@ -394,7 +370,7 @@ export default function DepartmentHubPage() {
           </div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr items-stretch"
             variants={containerVariants}
             initial="hidden"
             animate="show"
@@ -406,11 +382,11 @@ export default function DepartmentHubPage() {
                 <motion.div
                   key={dept.code}
                   variants={itemVariants}
-                  className="h-full"
+                  className="h-full min-h-[176px]"
                 >
                   <Card
                     className={cn(
-                      'cursor-pointer transition-all duration-300 bg-card group overflow-hidden relative border h-full',
+                      'cursor-pointer transition-all duration-300 bg-card group overflow-hidden relative border flex h-full min-h-[176px] flex-col',
                       'hover:shadow-xl hover:-translate-y-0.5 hover:ring-2 ' + accent.ring
                     )}
                     onClick={() => handleDepartmentClick(dept.code)}
@@ -422,8 +398,8 @@ export default function DepartmentHubPage() {
                       'opacity-80 group-hover:h-1.5 group-hover:opacity-100'
                     )} />
                     
-                    <CardContent className="p-5">
-                      <div className="flex items-start gap-4">
+                    <CardContent className="flex h-full p-5">
+                      <div className="flex h-full w-full items-start gap-4">
                         <div className={cn(
                           'h-12 w-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 bg-gradient-to-br shadow-sm',
                           accent.gradient,
@@ -431,7 +407,7 @@ export default function DepartmentHubPage() {
                         )}>
                           <Icon className="h-6 w-6 text-white" />
                         </div>
-                        <div className="flex-1 min-w-0">
+                        <div className="flex min-h-0 min-w-0 flex-1 flex-col">
                           <div className="flex items-center gap-2 mb-1">
                             <Badge variant="secondary" className="text-xs font-mono px-1.5 py-0">
                               {dept.code}
@@ -441,7 +417,7 @@ export default function DepartmentHubPage() {
                           <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                             {dept.description}
                           </p>
-                          <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">
+                          <div className="mt-auto flex items-center gap-4 pt-3 text-xs text-muted-foreground">
                             <span className="flex items-center gap-1">
                               <Activity className="h-3 w-3" />
                               {dept.modules?.length || 0} Modules

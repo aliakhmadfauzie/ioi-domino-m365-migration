@@ -46,7 +46,8 @@ import { cn } from '@/lib/utils';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { useCreateMainDBITExtSAP } from '@/generated/hooks/use-main-dbitext-sap';
-import { UserPicker, type SelectedPerson } from '@/components/user-picker';
+import { EmployeePicker, type ManualPerson, type SelectedEmployee } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import type { MainDBIT } from '@/generated/models/main-dbit-model';
 import {
   type SAPCRFormInput,
@@ -60,10 +61,14 @@ import {
   SAPCR_MODULES_ROW4,
   SAPCR_PURPOSE_ROW1,
   SAPCR_PURPOSE_ROW2,
-  SAP_COMPANIES,
-  SAP_DEPARTMENTS,
   SAP_PRIORITIES,
 } from '@/types/sap-forms';
+
+type PickedPerson = SelectedEmployee | ManualPerson | null;
+
+function personLabel(person: PickedPerson): string {
+  return person?.fullName || '';
+}
 
 const FORM_STEPS = [
   { id: 1, label: 'Request Info', description: 'Change details' },
@@ -126,9 +131,9 @@ export default function SAPCRNewFormPage() {
     EstimatedDowntime: '',
   });
   
-  const [selectedTechReviewer, setSelectedTechReviewer] = useState<SelectedPerson | null>(null);
-  const [selectedFuncApprover, setSelectedFuncApprover] = useState<SelectedPerson | null>(null);
-  const [selectedCABApprover, setSelectedCABApprover] = useState<SelectedPerson | null>(null);
+  const [selectedTechReviewer, setSelectedTechReviewer] = useState<PickedPerson>(null);
+  const [selectedFuncApprover, setSelectedFuncApprover] = useState<PickedPerson>(null);
+  const [selectedCABApprover, setSelectedCABApprover] = useState<PickedPerson>(null);
   
   // Auto-generate request number
   useEffect(() => {
@@ -172,42 +177,15 @@ export default function SAPCRNewFormPage() {
         title: ticketId,
         formcode: 'SAPCR',
         // Submitted SAPCR records enter the BPO approval queue.
-        currentStatus: 'CurrentstatusKey14' as MainDBIT['currentStatus'],
+        currentStatus: 'pending-bpo',
         workflowstage: 1,
         siteKey: 'SiteKey2',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
-        remarks: JSON.stringify({
-          requestNumber,
-          projectPhase: formData.ProjectPhase,
-          division: formData.Division,
-          system: formData.System,
-          company: formData.Company,
-          requestor: formData.Requestor,
-          department: formData.Department,
-          changeDescription: formData.ChangeDescription,
-          businessJustification: formData.BusinessJustification,
-          technicalSpecification: formData.TechnicalSpecification,
-          testPlan: formData.TestPlan,
-          rollbackPlan: formData.RollbackPlan,
-          riskAssessment: formData.RiskAssessment,
-          mitigationPlan: formData.MitigationPlan,
-          priority: formData.Priority,
-          requestedDate: requestedDate?.toISOString(),
-          plannedStartDate: plannedStartDate?.toISOString(),
-          plannedEndDate: plannedEndDate?.toISOString(),
-          technicalReviewer: selectedTechReviewer?.displayName || formData.TechnicalReviewer,
-          functionalApprover: selectedFuncApprover?.displayName || formData.FunctionalApprover,
-          cabApprover: selectedCABApprover?.displayName || formData.CABApprover,
-          modulesRow1: formData.ModulesRow1,
-          modulesRow2: formData.ModulesRow2,
-          modulesRow3: formData.ModulesRow3,
-          modulesRow4: formData.ModulesRow4,
-          purposeRow1: formData.PurposeRow1,
-          purposeRow2: formData.PurposeRow2,
-          downtimeRequired: formData.DowntimeRequired,
-          estimatedDowntime: formData.EstimatedDowntime,
-        }),
+        currentAction: 'Submitted',
+        company: formData.Company,
+        requestorName: formData.Requestor,
+        subject: formData.ChangeDescription.trim().slice(0, 120) || ticketId,
       };
       
       const created = await createMainDBIT.mutateAsync(submissionData);
@@ -219,6 +197,31 @@ export default function SAPCRNewFormPage() {
           parentFormCode: 'SAPCR',
           parentRecord: { id: created.id, title: ticketId },
           parentSite: 'PRAI',
+          sAPModule: [
+            ...formData.ModulesRow1,
+            ...formData.ModulesRow2,
+            ...formData.ModulesRow3,
+            ...formData.ModulesRow4,
+          ].join(', '),
+          sAPRemarks: [
+            `Request Number: ${requestNumber}`,
+            `Project Phase: ${formData.ProjectPhase}`,
+            `Division: ${formData.Division.join(', ')}`,
+            `System: ${formData.System}`,
+            `Department: ${formData.Department}`,
+            `Purpose: ${[...formData.PurposeRow1, ...formData.PurposeRow2].join(', ')}`,
+            `Change Description: ${formData.ChangeDescription}`,
+            `Business Justification: ${formData.BusinessJustification}`,
+            `Technical Specification: ${formData.TechnicalSpecification}`,
+            `Test Plan: ${formData.TestPlan}`,
+            `Rollback Plan: ${formData.RollbackPlan}`,
+            `Risk Assessment: ${formData.RiskAssessment}`,
+            `Mitigation Plan: ${formData.MitigationPlan}`,
+            `Priority: ${formData.Priority}`,
+            requestedDate ? `Requested Date: ${requestedDate.toISOString()}` : '',
+            `Downtime Required: ${formData.DowntimeRequired}`,
+            `Estimated Downtime: ${formData.EstimatedDowntime}`,
+          ].filter(Boolean).join('\n'),
           sAPCRBPOEmail: selectedFuncApprover?.email || formData.FunctionalApprover || '',
           sAPCRPMEmail: selectedTechReviewer?.email || formData.TechnicalReviewer || '',
           sAPCRDeveloperEmail: '',
@@ -449,27 +452,25 @@ export default function SAPCRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Company <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <Select value={formData.Company} onValueChange={(v: string) => updateField('Company', v)}>
-                          <SelectTrigger className="mt-2" style={{ height: '44px', borderRadius: '8px', backgroundColor: '#E8E8E8' }}>
-                            <SelectValue placeholder="Select company..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {SAP_COMPANIES.map((c: string) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
+                        <SharePointLookupSelect
+                          kind="company"
+                          value={formData.Company}
+                          onChange={(v: string) => updateField('Company', v)}
+                          placeholder="Select company..."
+                          className="mt-2 h-11 bg-[#E8E8E8]"
+                        />
                       </div>
                       <div>
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Department <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <Select value={formData.Department} onValueChange={(v: string) => updateField('Department', v)}>
-                          <SelectTrigger className="mt-2" style={{ height: '44px', borderRadius: '8px', backgroundColor: '#E8E8E8' }}>
-                            <SelectValue placeholder="Select department..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {SAP_DEPARTMENTS.map((d: string) => <SelectItem key={d} value={d}>{d}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
+                        <SharePointLookupSelect
+                          kind="department"
+                          value={formData.Department}
+                          onChange={(v: string) => updateField('Department', v)}
+                          placeholder="Select department..."
+                          className="mt-2 h-11 bg-[#E8E8E8]"
+                        />
                       </div>
                     </div>
                     
@@ -704,11 +705,11 @@ export default function SAPCRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Technical Reviewer <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <UserPicker
+                        <EmployeePicker
                           value={formData.TechnicalReviewer}
-                          onChange={(userId: string, person: SelectedPerson | null) => {
-                            updateField('TechnicalReviewer', userId);
-                            setSelectedTechReviewer(person);
+                          onChange={(email, employee) => {
+                            updateField('TechnicalReviewer', email);
+                            setSelectedTechReviewer(employee);
                           }}
                           placeholder="Search for technical reviewer..."
                         />
@@ -718,11 +719,11 @@ export default function SAPCRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Functional Approver <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <UserPicker
+                        <EmployeePicker
                           value={formData.FunctionalApprover}
-                          onChange={(userId: string, person: SelectedPerson | null) => {
-                            updateField('FunctionalApprover', userId);
-                            setSelectedFuncApprover(person);
+                          onChange={(email, employee) => {
+                            updateField('FunctionalApprover', email);
+                            setSelectedFuncApprover(employee);
                           }}
                           placeholder="Search for functional approver..."
                         />
@@ -732,11 +733,11 @@ export default function SAPCRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           CAB Approver <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <UserPicker
+                        <EmployeePicker
                           value={formData.CABApprover}
-                          onChange={(userId: string, person: SelectedPerson | null) => {
-                            updateField('CABApprover', userId);
-                            setSelectedCABApprover(person);
+                          onChange={(email, employee) => {
+                            updateField('CABApprover', email);
+                            setSelectedCABApprover(employee);
                           }}
                           placeholder="Search for CAB approver..."
                         />
@@ -828,7 +829,7 @@ export default function SAPCRNewFormPage() {
                       <div>
                         <p className="text-sm font-medium" style={{ color: '#7B3E00' }}>Please review before submitting</p>
                         <p className="text-xs mt-1" style={{ color: '#5C5C5C' }}>
-                          This change request will be routed to {selectedTechReviewer?.displayName || 'Technical Reviewer'} first.
+                          This change request will be routed to {personLabel(selectedTechReviewer) || 'Technical Reviewer'} first.
                         </p>
                       </div>
                     </div>

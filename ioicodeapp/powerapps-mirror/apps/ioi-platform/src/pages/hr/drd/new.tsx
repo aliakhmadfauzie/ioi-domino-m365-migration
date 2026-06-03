@@ -10,6 +10,7 @@ import { ArrowLeft, Building2, CalendarDays, Loader2, Send, Users } from 'lucide
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import { HRBreadcrumb } from '@/components/hr/hr-breadcrumb';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -155,12 +156,13 @@ function DRDNewPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label>Company *</Label>
-                <Select value={company} onValueChange={setCompany}>
-                  <SelectTrigger><SelectValue placeholder="Select company" /></SelectTrigger>
-                  <SelectContent>
-                    {DRD_COMPANIES.map((item) => <SelectItem key={item} value={item}>{item}</SelectItem>)}
-                  </SelectContent>
-                </Select>
+                <SharePointLookupSelect
+                  kind="company"
+                  value={company}
+                  onChange={setCompany}
+                  placeholder="Select company"
+                  fallbackOptions={DRD_COMPANIES}
+                />
               </div>
 
               <div className="space-y-2">
@@ -175,7 +177,7 @@ function DRDNewPage() {
 
               <div className="space-y-2">
                 <Label>Department *</Label>
-                <Input value={department} onChange={(e) => setDepartment(e.target.value)} placeholder="Department" />
+                <SharePointLookupSelect kind="department" value={department} onChange={setDepartment} placeholder="Select department" />
               </div>
 
               <div className="space-y-2">

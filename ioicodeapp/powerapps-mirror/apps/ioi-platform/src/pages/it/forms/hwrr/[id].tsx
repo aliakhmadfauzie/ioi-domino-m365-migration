@@ -78,9 +78,9 @@ export default function HWRRDetailPage() {
     }
   })() : {};
 
-  // Get current workflow stage
-  const currentStage = requestData.workflowStage || 1;
-  const currentAction = requestData.currentAction || 'SUBMITTED';
+  // Get current workflow stage. Legacy records may still have old remarks JSON.
+  const currentStage = request?.workflowstage || requestData.workflowStage || 1;
+  const currentAction = request?.currentAction || requestData.currentAction || 'SUBMITTED';
 
   // Get status display
   const getStatusDisplay = () => {
@@ -122,23 +122,6 @@ export default function HWRRDetailPage() {
       const nextStage = currentStage + 1;
       const nextAction = WORKFLOW_STAGES[nextStage - 1]?.key || 'COMPLETED';
 
-      const updatedRemarks = JSON.stringify({
-        ...requestData,
-        workflowStage: nextStage,
-        currentAction: nextAction,
-        approvalHistory: [
-          ...(requestData.approvalHistory || []),
-          {
-            stage: currentStage,
-            action: 'APPROVED',
-            by: user?.fullName,
-            email: user?.userPrincipalName,
-            date: new Date().toISOString(),
-            comments,
-          },
-        ],
-      });
-
       await recordITApprovalAction({
         id: String(request.id),
         record: request,
@@ -148,7 +131,11 @@ export default function HWRRDetailPage() {
         actionType: nextStage >= 6 ? 'completed' : 'approved',
         comment: comments,
         mainPatch: {
-          remarks: updatedRemarks,
+          workflowstage: nextStage,
+          currentAction: nextAction,
+          hODApproverRemarks: comments
+            ? `${request.hODApproverRemarks || ''}\n[${new Date().toISOString()}] ${user?.fullName}: ${comments}`
+            : request.hODApproverRemarks,
         },
       });
       await queryClient.invalidateQueries({ queryKey: ['mainDBIT-list'] });
@@ -174,22 +161,6 @@ export default function HWRRDetailPage() {
     setIsProcessing(true);
 
     try {
-      const updatedRemarks = JSON.stringify({
-        ...requestData,
-        currentAction: 'REJECTED',
-        approvalHistory: [
-          ...(requestData.approvalHistory || []),
-          {
-            stage: currentStage,
-            action: 'REJECTED',
-            by: user?.fullName,
-            email: user?.userPrincipalName,
-            date: new Date().toISOString(),
-            comments,
-          },
-        ],
-      });
-
       await recordITApprovalAction({
         id: String(request.id),
         record: request,
@@ -199,7 +170,8 @@ export default function HWRRDetailPage() {
         actionType: 'rejected',
         comment: comments,
         mainPatch: {
-          remarks: updatedRemarks,
+          currentAction: 'REJECTED',
+          hODApproverRemarks: `${request.hODApproverRemarks || ''}\n[${new Date().toISOString()}] ${user?.fullName}: ${comments}`,
         },
       });
       await queryClient.invalidateQueries({ queryKey: ['mainDBIT-list'] });

@@ -12,6 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import { StatusBadge } from '@/components/hr/status-badge';
 import { useHRHealthRegisterList } from '@/generated/hooks/use-hrhealth-register';
+import { HRHealthRegisterSiteKeyToLabel, type HRHealthRegisterSiteKey } from '@/generated/models/hr-health-register-model';
 
 const TABS = [
   { id: 'all', label: 'All' },
@@ -85,7 +86,7 @@ export default function HealthInfoListPage() {
                     <TableCell>{r.employeeNo || '-'}</TableCell>
                     <TableCell>{r.healthItem || '-'}</TableCell>
                     <TableCell>{r.result || '-'}</TableCell>
-                    <TableCell>{r.siteKey || '-'}</TableCell>
+                    <TableCell>{r.siteKey ? HRHealthRegisterSiteKeyToLabel[r.siteKey as HRHealthRegisterSiteKey] : '-'}</TableCell>
                     <TableCell><StatusBadge status={r.statusKey} /></TableCell>
                     <TableCell className="text-right">
                       <Button variant="ghost" size="sm" onClick={() => navigate(`/hr/healthinfo/${r.id}`)}>

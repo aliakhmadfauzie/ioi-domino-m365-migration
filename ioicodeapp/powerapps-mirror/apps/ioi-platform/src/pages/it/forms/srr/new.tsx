@@ -16,6 +16,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { cn } from '@/lib/utils';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
+import { useCreateMainDBITExtInfra } from '@/generated/hooks/use-main-dbitext-infra';
 
 const RECORD_TYPES = [
   { id: 'incident', label: 'Incident Record', icon: AlertCircle, description: 'Document server incident or outage' },
@@ -43,6 +44,7 @@ export default function SRRNewFormPage() {
   const navigate = useNavigate();
   const { data: user } = useUser();
   const createMutation = useCreateMainDBIT();
+  const createExtInfra = useCreateMainDBITExtInfra();
 
   const [recordType, setRecordType] = useState<string>('');
   const [server, setServer] = useState('');
@@ -66,27 +68,35 @@ export default function SRRNewFormPage() {
     }
 
     try {
-      await createMutation.mutateAsync({
+      const parent = await createMutation.mutateAsync({
         title: recordTitle,
         formcode: 'SRR',
-        currentStatus: 'CurrentstatusKey1',
+        currentStatus: 'approved',
+        currentAction: 'Submitted',
+        subject: recordTitle,
         requestoremail: user?.userPrincipalName || '',
+        requestorName: user?.fullName || '',
         submitteddate: new Date().toISOString(),
-        remarks: [
-          `Form Type: SRR`,
-          `Record Type: ${recordType}`,
-          `Server: ${server}`,
-          `Severity: ${severity}`,
-          `Incident Date: ${incidentDate?.toISOString() || 'N/A'}`,
-          `Summary: ${summary}`,
-          `Background: ${background}`,
-          `Analysis: ${analysis}`,
-          `Root Cause: ${rootCause}`,
-          `Corrective Actions: ${correctiveActions}`,
-          `Preventive Actions: ${preventiveActions}`,
-          `Lessons Learned: ${lessonsLearned}`,
-          `Requestor: ${user?.fullName || 'N/A'}`,
+      });
+
+      await createExtInfra.mutateAsync({
+        title: `${recordTitle}-infra`,
+        parentFormCode: 'SRR',
+        parentRecord: { id: parent.id, title: parent.title || recordTitle },
+        parentSite: 'PRAI',
+        iAL4RecordType: recordType,
+        iAL4ServerName: server,
+        iAL4Mode: severity,
+        iAL4DateFrom: incidentDate?.toISOString(),
+        iAL4Summary: [
+          summary,
+          background && `Background: ${background}`,
+          analysis && `Analysis: ${analysis}`,
+          lessonsLearned && `Lessons Learned: ${lessonsLearned}`,
         ].filter(Boolean).join('\n'),
+        iAL4RootCause: rootCause,
+        iAL4CorrectiveActions: correctiveActions,
+        iAL4PreventiveActions: preventiveActions,
       });
       toast.success('Server record created successfully');
       navigate('/it/m2');

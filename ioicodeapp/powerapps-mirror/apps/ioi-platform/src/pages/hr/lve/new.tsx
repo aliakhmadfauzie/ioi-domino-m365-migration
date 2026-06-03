@@ -46,10 +46,9 @@ export default function LVENewPage() {
         statusKey: action === 'draft' ? 'StatusKey0' : 'StatusKey1',
         requesttypeKey: 'RequesttypeKey0',  // Leave Request
         employeename: empName,
-        details: leaveType,
+        details: `${leaveType}${totalDays ? ` | ${totalDays} day(s)` : ''}`,
         effectivedate: fromDate,
         duedate: toDate,
-        remarks: `${totalDays} day(s)`,
         backupPIC: relief,
         description: reason,
         requestoremail: user?.userPrincipalName || '',

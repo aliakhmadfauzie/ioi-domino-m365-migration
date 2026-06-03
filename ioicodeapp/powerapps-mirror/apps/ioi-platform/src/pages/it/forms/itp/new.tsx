@@ -17,7 +17,7 @@ export default function ITPNewFormPage() {
           <ArrowLeft className="h-5 w-5" />
         </Button>
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">ISG Documentation Register</h1>
+          <h1 className="text-2xl font-bold tracking-tight">IT Procedure</h1>
           <p className="text-sm text-muted-foreground mt-1">Submit IT procedure documentation</p>
         </div>
       </div>

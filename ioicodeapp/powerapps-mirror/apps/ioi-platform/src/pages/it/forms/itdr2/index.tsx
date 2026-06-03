@@ -12,6 +12,10 @@ import { useMainDBITExtSupportList } from '@/generated/hooks/use-main-dbitext-su
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtSupport } from '@/generated/models/main-dbit-ext-support-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface ITDR2Record {
   id: string;
@@ -99,6 +103,10 @@ const columns: ColumnDef<ITDR2Record>[] = [
 ];
 
 export default function ITDR2DatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<ITDR2Record | null>(null);
 
   const { data: mainRecords = [], isLoading: mainLoading } = useMainDBITList({
@@ -192,6 +200,25 @@ export default function ITDR2DatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return records;
+    return records.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [records, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => records.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [records, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => records.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [records, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -203,7 +230,7 @@ export default function ITDR2DatabaseView() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-xl font-bold text-white">Outstanding Tasks Register</h1>
+              <h1 className="text-xl font-bold text-white">Outstanding Tasks Register (ITDR2)</h1>
               <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm">
                 ITDR2 submissions from SharePoint
               </p>
@@ -249,8 +276,15 @@ export default function ITDR2DatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={records.length}
+          />
               <DatabaseTable
-                data={records}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: ITDR2Record) => setSelectedRecord(row)}
                 searchPlaceholder="Search by title, assignee, category..."
@@ -266,7 +300,7 @@ export default function ITDR2DatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`ITDR2 - ${selectedRecord?.recordNo || ''}`}
+        title={`Outstanding Tasks Register — ${selectedRecord?.recordNo || ''}`}
         subtitle={selectedRecord?.taskTitle || ''}
         status={selectedRecord?.currentStatus}
         fieldGroups={fieldGroups}

@@ -14,6 +14,7 @@ import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { useUser } from '@/hooks/use-user';
 import { MainDBHRService } from '@/services/main-dbhr-service';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 
 const FWA_TYPES = ['Flexi Hours', 'Compressed Work Week', 'Remote Working', 'Part-Time', 'Job Sharing', 'Staggered Hours'];
 
@@ -71,8 +72,8 @@ export default function FWWPENewPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2"><Label>Employee Name <span className="text-destructive">*</span></Label><Input value={empName} onChange={e => setEmpName(e.target.value)} placeholder="Full name" /></div>
             <div className="space-y-2"><Label>Employee No.</Label><Input value={empNo} onChange={e => setEmpNo(e.target.value)} placeholder="e.g. EMP-001" /></div>
-            <div className="space-y-2"><Label>Department</Label><Input value={department} onChange={e => setDepartment(e.target.value)} placeholder="Department" /></div>
-            <div className="space-y-2"><Label>Company</Label><Input value={company} onChange={e => setCompany(e.target.value)} placeholder="Company" /></div>
+            <div className="space-y-2"><Label>Department</Label><SharePointLookupSelect kind="department" value={department} onChange={setDepartment} placeholder="Select department" /></div>
+            <div className="space-y-2"><Label>Company</Label><SharePointLookupSelect kind="company" value={company} onChange={setCompany} placeholder="Select company" /></div>
             <div className="space-y-2"><Label>FWA Type <span className="text-destructive">*</span></Label>
               <Select value={fwaType} onValueChange={setFwaType}>
                 <SelectTrigger><SelectValue placeholder="Select type" /></SelectTrigger>

@@ -65,17 +65,12 @@ export default function NewITINFOPage() {
       const created = await createMainDBIT({
         title: recordNo,
         formcode: 'ITINFO',
-        currentStatus: 'CurrentstatusKey4' as MainDBITCurrentstatusKey,
+        currentStatus: 'sent',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
-        remarks: JSON.stringify({
-          INFO_To: INFO_To.trim(),
-          INFO_InfoType,
-          INFO_Subject: INFO_Subject.trim(),
-          INFO_ISGRemarks: INFO_ISGRemarks.trim(),
-          INFO_Resend: INFO_Resend.trim(),
-        }),
+        subject: INFO_Subject.trim(),
+        currentAction: INFO_Resend.trim() ? 'Resend requested' : 'Submitted',
       });
       // Also create ExtDocs record for ITI fields
       if (created?.id) {

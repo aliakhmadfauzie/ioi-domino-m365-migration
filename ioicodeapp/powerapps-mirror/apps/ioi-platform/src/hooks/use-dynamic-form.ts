@@ -173,6 +173,13 @@ export function useDynamicForm({ schema }: { schema: FormSchema }): UseDynamicFo
         }
       }
 
+      if (Object.keys(unmappedValues).length > 0) {
+        console.warn(
+          `[DynamicForm] ${schema.formCode} has unmapped fields that were not persisted to Remarks`,
+          unmappedValues
+        );
+      }
+
       // Map spTable names to extension services
       const extServiceMap: Record<string, (payload: Record<string, unknown>) => Promise<unknown>> = {
         ExtAccess: (payload) => MainDBITExtAccessService.create(payload as any),
@@ -192,7 +199,6 @@ export function useDynamicForm({ schema }: { schema: FormSchema }): UseDynamicFo
         Requestor_Email: (mainColumns['Requestor_Email'] as string) || user?.userPrincipalName || '',
         SubmittedDate: new Date().toISOString(),
         WorkflowStage: 1,
-        Remarks: Object.keys(unmappedValues).length > 0 ? JSON.stringify(unmappedValues) : undefined,
         ...mainColumns,
       };
 

@@ -3,7 +3,8 @@ import { useUpdateMainDBIT, useMainDBITList } from '@/generated/hooks/use-main-d
 import type { MainDBIT } from '@/generated/models/main-dbit-model';
 import { toast } from 'sonner';
 
-// Edit request states stored in remarks JSON
+// Edit request states are stored in MainDB_IT workflow columns.
+// Legacy records with remarks JSON are still parsed by the helpers below.
 export type EditRequestStatus = 'SUBMITTED' | 'EDIT_REQUEST_RAISED' | 'EDIT_UNLOCKED' | 'EDIT_COMPLETED';
 
 export interface EditRequest {
@@ -79,8 +80,6 @@ export function useRequestEdit() {
       requestedBy: string;
       fieldsRequested?: string[];
     }) => {
-      const existingRemarks = submission.remarks ? JSON.parse(submission.remarks) : {};
-      
       const editRequest: EditRequest = {
         id: `ER-${Date.now()}`,
         submissionId: String(submission.id),
@@ -91,25 +90,17 @@ export function useRequestEdit() {
         status: 'PENDING',
       };
 
-      const updatedRemarks = {
-        ...existingRemarks,
-        editState: 'EDIT_REQUEST_RAISED' as EditRequestStatus,
-        editRequest,
-        editHistory: [
-          ...(existingRemarks.editHistory || []),
-          {
-            action: 'EDIT_REQUESTED',
-            timestamp: new Date().toISOString(),
-            actor: requestedBy,
-            reason: editReason,
-          },
-        ],
-      };
-
       return updateMutation.mutateAsync({
         id: String(submission.id),
         changedFields: {
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: 'EDIT_REQUEST_RAISED',
+          hODApproverRemarks: [
+            `Edit Request: ${editRequest.id}`,
+            `Requested By: ${requestedBy}`,
+            `Requested At: ${editRequest.requestedAt}`,
+            `Reason: ${editReason}`,
+            fieldsRequested?.length ? `Fields: ${fieldsRequested.join(', ')}` : '',
+          ].filter(Boolean).join('\n'),
         },
       });
     },
@@ -140,8 +131,14 @@ export function useApproveEditRequest() {
       approverComments?: string;
       editWindowHours?: number;
     }) => {
-      const existingRemarks = submission.remarks ? JSON.parse(submission.remarks) : {};
-      const editRequest = existingRemarks.editRequest as EditRequest;
+      const editRequest = getEditRequestFromRemarks(submission.remarks) || {
+        id: `ER-${submission.id}`,
+        submissionId: String(submission.id),
+        requestedBy: submission.requestoremail || '',
+        requestedAt: submission.submitteddate || new Date().toISOString(),
+        editReason: submission.hODApproverRemarks || 'Edit requested',
+        status: 'PENDING',
+      } as EditRequest;
       
       if (!editRequest) {
         throw new Error('No edit request found');
@@ -159,26 +156,17 @@ export function useApproveEditRequest() {
         editWindowExpires: editWindowExpires.toISOString(),
       };
 
-      const updatedRemarks = {
-        ...existingRemarks,
-        editState: 'EDIT_UNLOCKED' as EditRequestStatus,
-        editRequest: updatedEditRequest,
-        editHistory: [
-          ...(existingRemarks.editHistory || []),
-          {
-            action: 'EDIT_APPROVED',
-            timestamp: new Date().toISOString(),
-            actor: approverEmail,
-            comments: approverComments,
-            expiresAt: editWindowExpires.toISOString(),
-          },
-        ],
-      };
-
       return updateMutation.mutateAsync({
         id: String(submission.id),
         changedFields: {
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: 'EDIT_UNLOCKED',
+          hODApproverRemarks: [
+            submission.hODApproverRemarks,
+            `Edit Approved: ${updatedEditRequest.reviewedAt}`,
+            `Approved By: ${approverEmail}`,
+            approverComments ? `Comments: ${approverComments}` : '',
+            `Edit Window Expires: ${editWindowExpires.toISOString()}`,
+          ].filter(Boolean).join('\n'),
           islocked: false, // Unlock the submission for editing
         },
       });
@@ -208,8 +196,14 @@ export function useRejectEditRequest() {
       approverEmail: string;
       rejectionReason: string;
     }) => {
-      const existingRemarks = submission.remarks ? JSON.parse(submission.remarks) : {};
-      const editRequest = existingRemarks.editRequest as EditRequest;
+      const editRequest = getEditRequestFromRemarks(submission.remarks) || {
+        id: `ER-${submission.id}`,
+        submissionId: String(submission.id),
+        requestedBy: submission.requestoremail || '',
+        requestedAt: submission.submitteddate || new Date().toISOString(),
+        editReason: submission.hODApproverRemarks || 'Edit requested',
+        status: 'PENDING',
+      } as EditRequest;
       
       if (!editRequest) {
         throw new Error('No edit request found');
@@ -223,25 +217,16 @@ export function useRejectEditRequest() {
         reviewerComments: rejectionReason,
       };
 
-      const updatedRemarks = {
-        ...existingRemarks,
-        editState: 'SUBMITTED' as EditRequestStatus, // Back to locked state
-        editRequest: updatedEditRequest,
-        editHistory: [
-          ...(existingRemarks.editHistory || []),
-          {
-            action: 'EDIT_REJECTED',
-            timestamp: new Date().toISOString(),
-            actor: approverEmail,
-            reason: rejectionReason,
-          },
-        ],
-      };
-
       return updateMutation.mutateAsync({
         id: String(submission.id),
         changedFields: {
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: 'SUBMITTED',
+          hODApproverRemarks: [
+            submission.hODApproverRemarks,
+            `Edit Rejected: ${updatedEditRequest.reviewedAt}`,
+            `Rejected By: ${approverEmail}`,
+            `Reason: ${rejectionReason}`,
+          ].filter(Boolean).join('\n'),
         },
       });
     },
@@ -270,33 +255,16 @@ export function useCompleteEdit() {
       editorEmail: string;
       fieldChanges?: FieldChange[];
     }) => {
-      const existingRemarks = submission.remarks ? JSON.parse(submission.remarks) : {};
-      const editRequest = existingRemarks.editRequest as EditRequest;
-
-      const updatedEditRequest: EditRequest | null = editRequest ? {
-        ...editRequest,
-        editCompletedAt: new Date().toISOString(),
-      } : null;
-
-      const updatedRemarks = {
-        ...existingRemarks,
-        editState: 'EDIT_COMPLETED' as EditRequestStatus,
-        editRequest: updatedEditRequest,
-        editHistory: [
-          ...(existingRemarks.editHistory || []),
-          {
-            action: 'EDIT_COMPLETED',
-            timestamp: new Date().toISOString(),
-            actor: editorEmail,
-            fieldChanges,
-          },
-        ],
-      };
-
       return updateMutation.mutateAsync({
         id: String(submission.id),
         changedFields: {
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: 'EDIT_COMPLETED',
+          hODApproverRemarks: [
+            submission.hODApproverRemarks,
+            `Edit Completed: ${new Date().toISOString()}`,
+            `Edited By: ${editorEmail}`,
+            fieldChanges?.length ? `Fields Changed: ${fieldChanges.map((field) => field.fieldName).join(', ')}` : '',
+          ].filter(Boolean).join('\n'),
           islocked: true, // Re-lock the submission
         },
       });
@@ -317,7 +285,7 @@ export function useSubmissionsWithPendingEditRequests() {
 
   const pendingEditRequests = allSubmissions.filter((submission: MainDBIT) => {
     const editRequest = getEditRequestFromRemarks(submission.remarks);
-    return editRequest?.status === 'PENDING';
+    return editRequest?.status === 'PENDING' || submission.currentAction === 'EDIT_REQUEST_RAISED';
   });
 
   return {

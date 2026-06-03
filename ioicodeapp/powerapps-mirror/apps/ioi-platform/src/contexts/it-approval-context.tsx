@@ -204,23 +204,16 @@ export function ITApprovalProvider({ children }: { children: ReactNode }) {
         // Invalid JSON
       }
 
-      // Update remarks with approval info
-      const updatedRemarks = {
-        ...parsedRemarks,
-        approvedBy: user?.fullName,
-        approvedByEmail: user?.userPrincipalName,
-        approvedAt: new Date().toISOString(),
-        approvalComments: comments,
-        currentAction: 'IT_PROCESSING', // Move to next stage
-        workflowStage: 4,
-      };
-
       // Update the record
       await updateMainDBIT.mutateAsync({
         id: String(requestId),
         changedFields: {
           currentStatus: 'Approved',
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: 'IT_PROCESSING',
+          workflowstage: 4,
+          approvedByName: user?.fullName || '',
+          approvedByEmail: user?.userPrincipalName || '',
+          hODApproverRemarks: comments || request.hODApproverRemarks || '',
         },
       });
 
@@ -274,20 +267,14 @@ export function ITApprovalProvider({ children }: { children: ReactNode }) {
         // Invalid JSON
       }
 
-      const updatedRemarks = {
-        ...parsedRemarks,
-        rejectedBy: user?.fullName,
-        rejectedByEmail: user?.userPrincipalName,
-        rejectedAt: new Date().toISOString(),
-        rejectionReason: comments,
-        currentAction: 'REJECTED',
-      };
-
       await updateMainDBIT.mutateAsync({
         id: String(requestId),
         changedFields: {
           currentStatus: 'Rejected',
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: 'REJECTED',
+          approvedByName: user?.fullName || '',
+          approvedByEmail: user?.userPrincipalName || '',
+          hODApproverRemarks: comments,
         },
       });
 
@@ -341,20 +328,14 @@ export function ITApprovalProvider({ children }: { children: ReactNode }) {
         // Invalid JSON
       }
 
-      const updatedRemarks = {
-        ...parsedRemarks,
-        returnedBy: user?.fullName,
-        returnedByEmail: user?.userPrincipalName,
-        returnedAt: new Date().toISOString(),
-        returnComments: comments,
-        currentAction: 'RETURNED',
-      };
-
       await updateMainDBIT.mutateAsync({
         id: String(requestId),
         changedFields: {
           currentStatus: 'Returned',
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: 'RETURNED',
+          approvedByName: user?.fullName || '',
+          approvedByEmail: user?.userPrincipalName || '',
+          hODApproverRemarks: comments,
         },
       });
 
@@ -449,6 +430,8 @@ function buildApprovalNotificationEmail(params: {
        </div>`
     : '';
 
+  const deepLink = `https://apps.powerapps.com/play/e/Default-c6f6218b-5ff2-48b5-9114-f89da23caadb/a/26fddd33-46a8-43ae-a1f2-e90fa3b003bf?formCode=${params.formType}&action=view&notification=${encodeURIComponent(`Your ${params.formType} request was ${params.status.toLowerCase()}`)}`;
+
   return `
     <!DOCTYPE html>
     <html>
@@ -475,6 +458,10 @@ function buildApprovalNotificationEmail(params: {
                   </div>
 
                   ${commentsSection}
+                  <div style="margin-top: 16px; text-align: center;">
+                    <a href="${deepLink}" style="display:inline-block;padding:10px 24px;background:#0078D4;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;">🔗 Open in IOI Platform</a>
+                  </div>
+                  <p style="margin: 16px 0 0 0; color: #5C5C5C; font-size: 12px;">This is an automated notification from the IOI Portal.</p>
                 </td>
               </tr>
               <tr>

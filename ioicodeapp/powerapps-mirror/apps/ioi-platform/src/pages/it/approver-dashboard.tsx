@@ -292,22 +292,15 @@ function ApproverDashboardContent() {
         actionLabel = 'Returned';
       }
       
-      // Update remarks with action info
-      const updatedRemarks = {
-        ...parsedRemarks,
-        [`${actionDialogType}dBy`]: user?.fullName,
-        [`${actionDialogType}dByEmail`]: user?.userPrincipalName,
-        [`${actionDialogType}dAt`]: new Date().toISOString(),
-        [`${actionDialogType}Comments`]: actionComments,
-        currentAction: actionLabel.toUpperCase(),
-      };
-      
       // Update the record
       await updateMainDBIT.mutateAsync({
         id: String(selectedRequest.id),
         changedFields: {
           currentStatus: newStatusKey!,
-          remarks: JSON.stringify(updatedRemarks),
+          currentAction: actionLabel.toUpperCase(),
+          approvedByName: user?.fullName || '',
+          approvedByEmail: user?.userPrincipalName || '',
+          hODApproverRemarks: actionComments || selectedRequest.rawData.hODApproverRemarks || '',
         },
       });
       

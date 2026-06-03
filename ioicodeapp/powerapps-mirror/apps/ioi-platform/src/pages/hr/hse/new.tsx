@@ -27,7 +27,7 @@ export default function HSENewPage() {
   const [incidentType, setIncidentType] = useState('');  // → details
   const [location, setLocation] = useState('');          // → section
   const [descriptionText, setDescriptionText] = useState('');  // → description
-  const [immediateAction, setImmediateAction] = useState('');   // → remarks
+  const [immediateAction, setImmediateAction] = useState('');
 
   const handleSubmit = async (action: 'draft' | 'submit') => {
     if (action === 'submit' && !incidentType) { toast.error('Incident type is required'); return; }
@@ -43,8 +43,7 @@ export default function HSENewPage() {
         effectivedate: incidentDate,
         details: incidentType,
         section: location,
-        description: descriptionText,
-        remarks: immediateAction,
+        description: [descriptionText, immediateAction ? `Immediate Action: ${immediateAction}` : null].filter(Boolean).join('\n'),
         requestoremail: user?.userPrincipalName || '',
       } as any);
       toast.success(action === 'draft' ? 'Draft saved' : 'HSE report submitted');

@@ -13,6 +13,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT, type MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
 import { SAPCR_STATE_LABELS } from '@/types/sap-forms';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SAPCRRecord {
   id: string;
@@ -92,6 +96,10 @@ const columns: ColumnDef<SAPCRRecord>[] = [
 ];
 
 export default function SAPCRDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<SAPCRRecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -174,6 +182,25 @@ export default function SAPCRDatabaseView() {
     return history;
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return sapcrData;
+    return sapcrData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [sapcrData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => sapcrData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [sapcrData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => sapcrData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [sapcrData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -230,8 +257,15 @@ export default function SAPCRDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={sapcrData.length}
+          />
               <DatabaseTable
-                data={sapcrData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SAPCRRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by CR number, system, phase..."
@@ -244,7 +278,7 @@ export default function SAPCRDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SAPCR - ${selectedRecord?.changeRequestNo || ''}`}
+        title={`SAP & WB Change Request — ${selectedRecord?.changeRequestNo || ''}`}
         subtitle={`${selectedRecord?.system || ''} - ${selectedRecord?.projectPhase || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

@@ -37,7 +37,7 @@ const ITSSR_PIC_MATRIX: Record<string, ITSSRPICConfig> = {
     description: 'Hardware Support – Johor / JHR',
   },
   'Hardware_KL': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Hardware Support – Kuala Lumpur',
   },
 
@@ -52,7 +52,7 @@ const ITSSR_PIC_MATRIX: Record<string, ITSSRPICConfig> = {
     description: 'Network Support – Johor / JHR',
   },
   'Network_KL': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Network Support – Kuala Lumpur',
   },
 
@@ -65,19 +65,19 @@ const ITSSR_PIC_MATRIX: Record<string, ITSSRPICConfig> = {
 
   // ── SAP ─────────────────────────────────────────────────────────────────────
   'SAP': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'SAP Support',
   },
 
   // ── Bank ────────────────────────────────────────────────────────────────────
   'Bank': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Banking Systems Support',
   },
 
   // ── Software – application-specific ─────────────────────────────────────────
   'Software_BANK': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Software – Bank Application',
   },
   'Software_HCL NOTES': {
@@ -92,7 +92,7 @@ const ITSSR_PIC_MATRIX: Record<string, ITSSRPICConfig> = {
   },
   'Software_ESKER AP AUTOMATION': {
     primaryPIC: 'wstan@ioioleo.com',
-    secondaryPIC: 'kllit@ioioleo.com',
+    secondaryPIC: 'itklsupport@ioileo.com',
     description: 'Software – Esker AP Automation',
   },
   'Software_WEIGHING SYSTEM_PENANG': {
@@ -106,15 +106,15 @@ const ITSSR_PIC_MATRIX: Record<string, ITSSRPICConfig> = {
     description: 'Software – Weighing System (Johor / JHR)',
   },
   'Software_SAP S4/HANA': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Software – SAP S4/HANA',
   },
   'Software_SAC': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Software – SAP Analytics Cloud',
   },
   'Software_ESDE': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Software – ESDE',
   },
 
@@ -225,7 +225,8 @@ export const ITSSR_PIC_DISPLAY_NAMES: Record<string, string> = {
   'ecsaw@ioioleo.com': 'EC Saw',
   'taung@ioioleo.com': 'T. Aung',
   'prakash@ioioleo.com': 'Prakash',
-  'kllit@ioioleo.com': 'KL IT Support',
+  'kllit@ioioleo.com': 'Ravi, Qayyim, Kelly',
+  'itklsupport@ioileo.com': 'Ravi, Qayyim, Kelly',
   'ravimadhu@ioioleo.com': 'Ravi Madhu',
   'qayyim@ioioleo.com': 'Qayyim',
   'wstan@ioioleo.com': 'W. Stan',

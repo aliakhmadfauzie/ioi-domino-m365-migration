@@ -35,9 +35,13 @@ export default function GRNNewFormPage() {
         title: id, formCode: 'GRN', department: 'Warehouse',
         submittedBy: user?.email || '', submittedOn: now.toISOString(),
         requestTitle: `Goods Receipt - ${formData.supplier || formData.poNo}`,
+        description: [
+          formData.itemDesc,
+          formData.remarks ? `Receipt Notes: ${formData.remarks}` : null,
+        ].filter(Boolean).join('\n'),
+        currentAction: 'Submitted',
         containerID: formData.poNo, location: formData.location,
         quantity: Number(formData.quantity) || undefined, unit: formData.unit,
-        remarks: formData.remarks,
       });
       setTicketId(id); setIsSubmitted(true);
       toast.success('Goods Receipt Note submitted!');

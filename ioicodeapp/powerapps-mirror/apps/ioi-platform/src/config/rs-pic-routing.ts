@@ -53,12 +53,12 @@ const RS_PIC_MATRIX: Record<string, RSPICConfig> = {
     description: 'HCL Notes/Domino',
   },
   'BANK': {
-    primaryPIC: 'kllit@ioioleo.com',
+    primaryPIC: 'itklsupport@ioileo.com',
     description: 'Banking Systems',
   },
   'ESKER': {
     primaryPIC: 'wstan@ioioleo.com',
-    secondaryPIC: 'kllit@ioioleo.com',
+    secondaryPIC: 'itklsupport@ioileo.com',
     description: 'Esker Automation',
   },
   'SAP S4/HANA': {
@@ -219,7 +219,8 @@ export const PIC_DISPLAY_NAMES: Record<string, string> = {
   'annaooi@ioioleo.com': 'Anna Ooi',
   'ravimadhu@ioioleo.com': 'Ravi Madhu',
   'qayyim@ioioleo.com': 'Qayyim',
-  'kllit@ioioleo.com': 'KL IT Support',
+  'kllit@ioioleo.com': 'Ravi, Qayyim, Kelly (KL IT)',
+  'itklsupport@ioileo.com': 'Ravi, Qayyim, Kelly',
   'wstan@ioioleo.com': 'W. Stan',
   'kelly@ioioleo.com': 'Kelly',
   'dannylee@ioioleo.com': 'Danny Lee',

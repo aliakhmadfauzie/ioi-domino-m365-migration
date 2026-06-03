@@ -6,6 +6,7 @@ import { CanonicalSubmissionDetailRedirect } from './shared';
 const ProductionDepartmentHomePage = lazy(() => import('@/pages/production/index'));
 const ProductionFormsIndexPage = lazy(() => import('@/pages/production/forms/index'));
 const ProductionFormDatabaseView = lazy(() => import('@/pages/production/forms/[formCode]/index'));
+const ProductionFormDetailPage = lazy(() => import('@/pages/production/forms/[formCode]/detail'));
 const ProductionFormNewPage = lazy(() => import('@/pages/production/forms/new'));
 const HelpPage = lazy(() => import('@/pages/help'));
 const SettingsPage = lazy(() => import('@/pages/settings'));
@@ -20,6 +21,7 @@ export const productionRoutes = (
     <Route path="forms" element={<ProductionFormsIndexPage />} />
     <Route path="forms/:formCode" element={<ProductionFormDatabaseView />} />
     <Route path="forms/:formCode/new" element={<ProductionFormNewPage />} />
+    <Route path="forms/:formCode/detail/:id" element={<ProductionFormDetailPage />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />

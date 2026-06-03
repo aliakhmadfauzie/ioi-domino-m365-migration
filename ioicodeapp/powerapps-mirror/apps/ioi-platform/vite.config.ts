@@ -22,9 +22,12 @@ export default defineConfig({
     chunkSizeWarningLimit: 2000,
     rollupOptions: {
       output: {
-        // We disable inlineDynamicImports to allow code splitting, 
+        // We disable inlineDynamicImports to allow code splitting,
         // which significantly improves initial load performance.
         inlineDynamicImports: false,
+        // Merge chunks smaller than 10 KB to reduce upload file count for pac code push.
+        // pac uploads every file individually; 200+ tiny chunks add ~60s of round-trip overhead.
+        experimentalMinChunkSize: 10240,
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-ui': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', 'lucide-react'],

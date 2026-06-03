@@ -8,6 +8,7 @@
  */
 
 import { Badge } from '@/components/ui/badge';
+import { displayChoiceLabel } from '@/lib/display-labels';
 
 export type WorkflowStatus =
   | 'Request'
@@ -62,9 +63,10 @@ const sizeClasses = {
 };
 
 export function StatusBadge({ status, size = 'default', className = '' }: StatusBadgeProps) {
-  const style = status ? statusStyles[status] : undefined;
+  const displayStatus = displayChoiceLabel(status, 'status');
+  const style = status ? statusStyles[status] ?? statusStyles[displayStatus] : undefined;
   if (!style) {
-    return <Badge variant="outline" className={className}>{status || 'Unknown'}</Badge>;
+    return <Badge variant="outline" className={className}>{displayStatus || 'Unknown'}</Badge>;
   }
   return (
     <Badge className={`${style.bg} ${style.text} border-none ${sizeClasses[size]} ${className}`}>

@@ -29,7 +29,7 @@ interface FormModule {
   description: string;
   icon: LucideIcon;
   colorClass: string;
-  database: string;
+  register: string;
   forms: ITFormConfig[];
 }
 
@@ -41,7 +41,7 @@ const formModules: FormModule[] = [
     description: 'Account creation, access requests, and permissions',
     icon: UserPlus,
     colorClass: 'bg-primary text-primary-foreground',
-    database: 'MainDB_IT (PRAI)',
+    register: 'Prai IT Register',
     forms: M1_FORMS,
   },
   {
@@ -51,7 +51,7 @@ const formModules: FormModule[] = [
     description: 'Support tickets, project requests, and service forms',
     icon: Headset,
     colorClass: 'bg-secondary text-secondary-foreground',
-    database: 'MainDB_IT',
+    register: 'IT Register',
     forms: M2_FORMS,
   },
   {
@@ -61,7 +61,7 @@ const formModules: FormModule[] = [
     description: 'Hardware requests, IT setup, and infrastructure',
     icon: HardDrive,
     colorClass: 'bg-accent text-accent-foreground',
-    database: 'MainDB_IT',
+    register: 'IT Register',
     forms: M3_FORMS,
   },
   {
@@ -71,7 +71,7 @@ const formModules: FormModule[] = [
     description: 'SAP access, transport requests, and configuration',
     icon: Server,
     colorClass: 'bg-chart-3 text-white',
-    database: 'MainDB_IT',
+    register: 'IT Register',
     forms: M4_FORMS,
   },
   {
@@ -81,7 +81,7 @@ const formModules: FormModule[] = [
     description: 'IT information, policies, and ISG documentation',
     icon: Database,
     colorClass: 'bg-chart-5 text-white',
-    database: 'MainDB_IT',
+    register: 'IT Register',
     forms: M5_FORMS,
   },
   {
@@ -91,7 +91,7 @@ const formModules: FormModule[] = [
     description: 'SAP access, authorization, transport, and incident forms',
     icon: GitBranch,
     colorClass: 'bg-chart-4 text-white',
-    database: 'MainDB_IT',
+    register: 'IT Register',
     forms: M7_FORMS,
   },
 ];
@@ -226,9 +226,9 @@ export default function ITFormsIndexPage() {
           <div className="bg-card rounded-lg border p-4">
             <div className="flex items-center gap-2">
               <FileText className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Database</span>
+              <span className="text-sm text-muted-foreground">Register</span>
             </div>
-            <p className="text-2xl font-bold text-foreground mt-1">MainDB_IT</p>
+            <p className="text-2xl font-bold text-foreground mt-1">IT</p>
           </div>
         </motion.div>
 
@@ -262,7 +262,7 @@ export default function ITFormsIndexPage() {
                           </button>
                         </TooltipTrigger>
                         <TooltipContent side="left">
-                          <p className="text-sm">Database: {module.database}</p>
+                          <p className="text-sm">Register: {module.register}</p>
                           <p className="text-sm">Module: {module.code}</p>
                         </TooltipContent>
                       </Tooltip>

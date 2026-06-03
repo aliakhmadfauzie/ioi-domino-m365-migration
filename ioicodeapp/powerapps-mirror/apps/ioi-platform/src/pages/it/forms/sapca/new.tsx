@@ -46,15 +46,22 @@ import { Checkbox } from '@/components/ui/checkbox';
 
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
-import { UserPicker, type SelectedPerson } from '@/components/user-picker';
+import { useCreateMainDBITExtSAP } from '@/generated/hooks/use-main-dbitext-sap';
+import { EmployeePicker, type ManualPerson, type SelectedEmployee } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import type { MainDBIT } from '@/generated/models/main-dbit-model';
+import type { MainDBITExtSAP } from '@/generated/models/main-dbit-ext-sap-model';
 import {
   type SAPCAFormInput,
   SAPCA_MODULES,
   SAPCA_CLIENTS,
-  SAP_COMPANIES,
-  SAP_DEPARTMENTS,
 } from '@/types/sap-forms';
+
+type PickedPerson = SelectedEmployee | ManualPerson | null;
+
+function personLabel(person: PickedPerson): string {
+  return person?.fullName || '';
+}
 
 const FORM_STEPS = [
   { id: 1, label: 'Request Info', description: 'Module & client' },
@@ -76,6 +83,7 @@ export default function SAPCANewFormPage() {
   const navigate = useNavigate();
   const { data: user } = useUser();
   const createMainDBIT = useCreateMainDBIT();
+  const createExtSAP = useCreateMainDBITExtSAP();
   
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -104,10 +112,10 @@ export default function SAPCANewFormPage() {
     DateSubmitted: '',
   });
   
-  const [selectedCC, setSelectedCC] = useState<SelectedPerson | null>(null);
-  const [selectedITAPP, setSelectedITAPP] = useState<SelectedPerson | null>(null);
-  const [selectedTransporter, setSelectedTransporter] = useState<SelectedPerson | null>(null);
-  const [selectedITPIC, setSelectedITPIC] = useState<SelectedPerson | null>(null);
+  const [selectedCC, setSelectedCC] = useState<PickedPerson>(null);
+  const [selectedITAPP, setSelectedITAPP] = useState<PickedPerson>(null);
+  const [selectedTransporter, setSelectedTransporter] = useState<PickedPerson>(null);
+  const [selectedITPIC, setSelectedITPIC] = useState<PickedPerson>(null);
   
   // Auto-generate request number
   useEffect(() => {
@@ -168,39 +176,38 @@ export default function SAPCANewFormPage() {
         company: formData.Company,
         submitteddate: new Date().toISOString(),
         workflowstage: 2,
-        remarks: [
-          `Form Type: SAPCA`,
-          `Database: SAPConfigAccess.nsf`,
-          `CurrentAction: Submitted`,
-          `Status Label: Pending IT Approval`,
-          `Request Number: ${requestNumber}`,
-          `Date Created: ${dateCreated}`,
-          `Modules: ${formData.Modules.join(', ')}`,
-          `Client: ${formData.Client}`,
-          formData.ClientNumber ? `Client Number: ${formData.ClientNumber}` : null,
-          formData.IssueLogSSRPRFSAPNotesNumber ? `Issue Log/SSR/PRF/SAP Notes Number: ${formData.IssueLogSSRPRFSAPNotesNumber}` : null,
-          `Company: ${formData.Company}`,
-          `Requestor: ${formData.Requestor}`,
-          `Department: ${formData.Department}`,
-          `Purpose: ${formData.Purpose}`,
-          `Changes to be Done: ${formData.ChangesToBeDone}`,
-          formData.Attachment ? `Attachment: ${formData.Attachment}` : null,
-          selectedCC ? `CC Functional Owner: ${selectedCC.displayName}` : null,
-          selectedITAPP ? `ITAPP: ${selectedITAPP.displayName}` : null,
-          selectedITAPP ? `ITAPP Email: ${selectedITAPP.email}` : null,
-          selectedTransporter ? `Transporter: ${selectedTransporter.displayName}` : null,
-          selectedTransporter ? `Transporter Email: ${selectedTransporter.email}` : null,
-          selectedITPIC ? `ITPIC: ${selectedITPIC.displayName}` : null,
-          selectedITPIC ? `ITPIC Email: ${selectedITPIC.email || ''}` : null,
-          `Date Submitted: ${new Date().toLocaleDateString()}`,
-          `Button: Submit`,
-          `Next Actor: ITAPP`,
-          `Mail To: ITAPP`,
-          `Mail Subject: New Config Access request. Form# ${requestNumber}. Client : ${formData.Client}`,
-        ].filter(Boolean).join('\n'),
+        currentAction: 'Submitted',
+        subject: `SAP Config Access - ${formData.Client || requestNumber}`,
       };
       
-      await createMainDBIT.mutateAsync(submissionData);
+      const created = await createMainDBIT.mutateAsync(submissionData);
+
+      if (created?.id) {
+        const extData: Omit<MainDBITExtSAP, 'id'> = {
+          title: `${requestNumber}-sap`,
+          parentFormCode: 'SAPCA',
+          parentRecord: { id: created.id, title: requestNumber },
+          parentSite: 'PRAI',
+          sAPClient: formData.Client || '',
+          sAPModule: formData.Modules.join(', '),
+          sAPPlant: formData.Company || '',
+          sAPRemarks: [
+            `Request Number: ${requestNumber}`,
+            `Date Created: ${dateCreated}`,
+            formData.ClientNumber ? `Client Number: ${formData.ClientNumber}` : '',
+            formData.IssueLogSSRPRFSAPNotesNumber ? `Issue Log/SSR/PRF/SAP Notes Number: ${formData.IssueLogSSRPRFSAPNotesNumber}` : '',
+            `Department: ${formData.Department}`,
+            `Purpose: ${formData.Purpose}`,
+            `Changes to be Done: ${formData.ChangesToBeDone}`,
+            formData.Attachment ? `Attachment: ${formData.Attachment}` : '',
+            selectedCC ? `CC Functional Owner: ${personLabel(selectedCC)}` : '',
+            selectedITAPP ? `ITAPP: ${personLabel(selectedITAPP)} (${selectedITAPP.email || ''})` : '',
+            selectedTransporter ? `Transporter: ${personLabel(selectedTransporter)} (${selectedTransporter.email || ''})` : '',
+            selectedITPIC ? `ITPIC: ${personLabel(selectedITPIC)} (${selectedITPIC.email || ''})` : '',
+          ].filter(Boolean).join('\n'),
+        };
+        await createExtSAP.mutateAsync(extData);
+      }
       toast.success('SAP Configuration Access request submitted!');
       setSubmittedTicketId(requestNumber);
       setIsSubmitted(true);
@@ -439,27 +446,25 @@ export default function SAPCANewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Company <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <Select value={formData.Company} onValueChange={(v: string) => updateField('Company', v)}>
-                          <SelectTrigger className="mt-2" style={{ height: '44px', borderRadius: '8px', backgroundColor: '#E8E8E8' }}>
-                            <SelectValue placeholder="Select company..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {SAP_COMPANIES.map((c: string) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
+                        <SharePointLookupSelect
+                          kind="company"
+                          value={formData.Company}
+                          onChange={(v: string) => updateField('Company', v)}
+                          placeholder="Select company..."
+                          className="mt-2 h-11 bg-[#E8E8E8]"
+                        />
                       </div>
                       <div>
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Department <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <Select value={formData.Department} onValueChange={(v: string) => updateField('Department', v)}>
-                          <SelectTrigger className="mt-2" style={{ height: '44px', borderRadius: '8px', backgroundColor: '#E8E8E8' }}>
-                            <SelectValue placeholder="Select department..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {SAP_DEPARTMENTS.map((d: string) => <SelectItem key={d} value={d}>{d}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
+                        <SharePointLookupSelect
+                          kind="department"
+                          value={formData.Department}
+                          onChange={(v: string) => updateField('Department', v)}
+                          placeholder="Select department..."
+                          className="mt-2 h-11 bg-[#E8E8E8]"
+                        />
                       </div>
                     </div>
                     
@@ -593,11 +598,11 @@ export default function SAPCANewFormPage() {
                       <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                         CC Main/Backup Functional Owner
                       </Label>
-                      <UserPicker
+                      <EmployeePicker
                         value={formData.CCFunctionalOwner}
-                        onChange={(userId: string, person: SelectedPerson | null) => {
-                          updateField('CCFunctionalOwner', userId);
-                          setSelectedCC(person);
+                        onChange={(email, employee) => {
+                          updateField('CCFunctionalOwner', email);
+                          setSelectedCC(employee);
                         }}
                         placeholder="Search for CC recipients..."
                       />
@@ -607,11 +612,11 @@ export default function SAPCANewFormPage() {
                       <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                         IT Approver (ITAPP) <span style={{ color: '#9B2F23' }}>*</span>
                       </Label>
-                      <UserPicker
+                      <EmployeePicker
                         value={formData.ITAPP}
-                        onChange={(userId: string, person: SelectedPerson | null) => {
-                          updateField('ITAPP', userId);
-                          setSelectedITAPP(person);
+                        onChange={(email, employee) => {
+                          updateField('ITAPP', email);
+                          setSelectedITAPP(employee);
                         }}
                         placeholder="Search for IT approver..."
                       />
@@ -621,11 +626,11 @@ export default function SAPCANewFormPage() {
                       <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                         BASIS Transporter <span style={{ color: '#9B2F23' }}>*</span>
                       </Label>
-                      <UserPicker
+                      <EmployeePicker
                         value={formData.Transporter}
-                        onChange={(userId: string, person: SelectedPerson | null) => {
-                          updateField('Transporter', userId);
-                          setSelectedTransporter(person);
+                        onChange={(email, employee) => {
+                          updateField('Transporter', email);
+                          setSelectedTransporter(employee);
                         }}
                         placeholder="Search for BASIS transporter..."
                       />
@@ -635,11 +640,11 @@ export default function SAPCANewFormPage() {
                       <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                         IT PIC
                       </Label>
-                      <UserPicker
+                      <EmployeePicker
                         value={formData.ITPIC}
-                        onChange={(userId: string, person: SelectedPerson | null) => {
-                          updateField('ITPIC', userId);
-                          setSelectedITPIC(person);
+                        onChange={(email, employee) => {
+                          updateField('ITPIC', email);
+                          setSelectedITPIC(employee);
                         }}
                         placeholder="Search for IT PIC..."
                       />
@@ -739,7 +744,7 @@ export default function SAPCANewFormPage() {
                       <div>
                         <p className="text-sm font-medium" style={{ color: '#7B3E00' }}>Please review before submitting</p>
                         <p className="text-xs mt-1" style={{ color: '#5C5C5C' }}>
-                          This request will be routed to {selectedITAPP?.displayName || 'ITAPP'} for IT approval.
+                          This request will be routed to {personLabel(selectedITAPP) || 'ITAPP'} for IT approval.
                         </p>
                       </div>
                     </div>

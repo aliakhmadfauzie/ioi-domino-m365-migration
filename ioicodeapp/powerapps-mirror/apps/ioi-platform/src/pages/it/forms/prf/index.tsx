@@ -11,6 +11,10 @@ import type { FieldGroup } from '@/components/database-view';
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface PRFRecord {
   id: string;
@@ -97,6 +101,10 @@ const columns: ColumnDef<PRFRecord>[] = [
 ];
 
 export default function PRFDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<PRFRecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -163,6 +171,25 @@ export default function PRFDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return prfData;
+    return prfData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [prfData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => prfData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [prfData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => prfData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [prfData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -209,8 +236,15 @@ export default function PRFDatabaseView() {
             </Empty>
           ) : (
             <div className="rounded-xl p-6" style={{ backgroundColor: '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={prfData.length}
+          />
               <DatabaseTable
-                data={prfData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: PRFRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by record no, system..."

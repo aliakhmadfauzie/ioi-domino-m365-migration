@@ -21,6 +21,7 @@ import { useCreateMainDBITExtSAP } from '@/generated/hooks/use-main-dbitext-sap'
 import type { MainDBITExtSAP } from '@/generated/models/main-dbit-ext-sap-model';
 import type { MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
 import { SAPAMR_MODULES, SAPAMR_PLANTS, SAPAMR_AUTH_TYPES } from '@/types/sap-forms';
+import { EmployeePicker, MultiEmployeePicker } from '@/components/employee-picker';
 
 function generateRecordNo(): string {
   const now = new Date();
@@ -106,15 +107,11 @@ export default function SAPAMRNewFormPage() {
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
-        remarks: JSON.stringify({
-          INIT_RecNo, INIT_Module, INIT_Plant, INIT_AuthType,
-          INIT_Remarks, INIT_CC,
-          INIT_TBV, INIT_TBA,
-          ...(isFIModule ? {
-            INIT_TBV1, INIT_TBV2, INIT_TBV3, INIT_TBV4, INIT_TBV5,
-          } : {}),
-          PREP_PreparedBy, PREP_PreparedDate, PREP_Comment,
-        }),
+        currentAction: 'Request',
+        subject: `${INIT_Module} ${INIT_AuthType}`.trim(),
+        sAPAMRTBVEmail: INIT_TBV || '',
+        sAPAMRTBAEmail: INIT_TBA || '',
+        ...extraFields,
       });
 
       // Create ExtSAP child record with SAPAMR routing fields (Option B)
@@ -123,6 +120,10 @@ export default function SAPAMRNewFormPage() {
           title: `${INIT_RecNo}-sap`,
           parentFormCode: 'SAPAMR',
           parentRecord: { id: created.id, title: INIT_RecNo },
+          parentSite: 'PRAI',
+          sAPModule: INIT_Module || '',
+          sAPPlant: INIT_Plant || '',
+          sAPRemarks: [INIT_AuthType, INIT_Remarks, PREP_Comment].filter(Boolean).join('\n'),
           sAPAMRTBVEmail: INIT_TBV || '',
           sAPAMRTBAEmail: INIT_TBA || '',
           sAPAMRTBV1Email: INIT_TBV1 || '',
@@ -223,18 +224,18 @@ export default function SAPAMRNewFormPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>To Be Verified By <span className="text-destructive">*</span></Label>
-                  <Input
+                  <EmployeePicker
                     value={INIT_TBV}
-                    onChange={e => setINIT_TBV(e.target.value)}
+                    onChange={(email) => setINIT_TBV(email)}
                     placeholder="Verifier name or email"
                   />
                   {!isFIModule && <p className="text-xs text-muted-foreground">Single verifier (non-FI module)</p>}
                 </div>
                 <div className="space-y-2">
                   <Label>To Be Approved By <span className="text-destructive">*</span></Label>
-                  <Input
+                  <EmployeePicker
                     value={INIT_TBA}
-                    onChange={e => setINIT_TBA(e.target.value)}
+                    onChange={(email) => setINIT_TBA(email)}
                     placeholder="Approver name or email"
                   />
                 </div>
@@ -259,9 +260,9 @@ export default function SAPAMRNewFormPage() {
                       return (
                         <div key={n} className="flex items-center gap-2">
                           <span className="text-xs font-medium text-amber-800 w-20 shrink-0">TBV_{n}</span>
-                          <Input
+                          <EmployeePicker
                             value={val}
-                            onChange={(e) => setter(e.target.value)}
+                            onChange={(email) => setter(email)}
                             placeholder={`Verifier ${n} name or email`}
                             className="border-amber-200 bg-white text-sm"
                           />
@@ -274,9 +275,9 @@ export default function SAPAMRNewFormPage() {
 
               <div className="space-y-2">
                 <Label>CC (optional)</Label>
-                <Input
-                  value={INIT_CC}
-                  onChange={e => setINIT_CC(e.target.value)}
+                <MultiEmployeePicker
+                  value={INIT_CC ? INIT_CC.split(';').map((email) => email.trim()).filter(Boolean) : []}
+                  onChange={(emails) => setINIT_CC(emails.join('; '))}
                   placeholder="Additional recipients to CC"
                 />
               </div>
@@ -304,9 +305,9 @@ export default function SAPAMRNewFormPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Prepared By <span className="text-destructive">*</span></Label>
-                  <Input
+                  <EmployeePicker
                     value={PREP_PreparedBy}
-                    onChange={e => setPREP_PreparedBy(e.target.value)}
+                    onChange={(email) => setPREP_PreparedBy(email)}
                     placeholder="Preparer name or email"
                   />
                 </div>

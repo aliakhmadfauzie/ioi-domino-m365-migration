@@ -18,7 +18,7 @@ export default function SRVRNewFormPage() {
           <ArrowLeft className="h-5 w-5" />
         </Button>
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Server Records</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Server Record Analysis</h1>
           <p className="text-sm text-muted-foreground mt-1">Manage server inventory and records (IAL4)</p>
         </div>
       </div>

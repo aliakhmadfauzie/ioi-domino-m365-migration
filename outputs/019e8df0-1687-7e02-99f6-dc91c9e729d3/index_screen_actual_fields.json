@@ -1,0 +1,206 @@
+[
+  {
+    "formCode": "ASSETSUBMISSION",
+    "sourceFile": "src/pages/it/forms/asset-submission/index.tsx",
+    "tableFieldsShown": "Title, Status, Date",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "DCAL",
+    "sourceFile": "src/pages/it/forms/dcal/index.tsx",
+    "tableFieldsShown": "Record No, Date, Site, Server Room, Visitor, Attended By, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Site, Server Room, Date, Time In, Attended By (PIC), Visitor Name, Company, Reason for Access"
+  },
+  {
+    "formCode": "DRR",
+    "sourceFile": "src/pages/it/forms/drr/index.tsx",
+    "tableFieldsShown": "Record No, Date, Network Order No, Server, File Name, Requested By, Status",
+    "indexModalFieldsShown": "Record Number, Assigned To, Date Created, Submitted By, Network Order No, Status, Server Name, File Path, File Name, Media Backup Date, CC, Reason, Approval Stage, Site, Requester, Requested By, Department"
+  },
+  {
+    "formCode": "EAF",
+    "sourceFile": "src/pages/it/forms/eaf/index.tsx",
+    "tableFieldsShown": "Record No, Date, Submitted By, Company, Target User, System, App Type, Status",
+    "indexModalFieldsShown": "Record Number, Date Submitted, Submitted By, Company, Target User, User ID, Application Type, System Name, HOD Approver, CC Recipients, Remarks, HOD Remarks"
+  },
+  {
+    "formCode": "EDL",
+    "sourceFile": "src/pages/it/forms/edl/index.tsx",
+    "tableFieldsShown": "Title, Status, Date",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "HI",
+    "sourceFile": "src/pages/it/forms/hi/index.tsx",
+    "tableFieldsShown": "Asset Tag, Type, Brand / Model, Serial No, Assigned To, Location, Status",
+    "indexModalFieldsShown": "Asset Tag, Date Registered, Registered By, Asset Type, Status, Brand / Model, Serial Number, Vendor, PO Number, Purchase Date, Purchase Price, Warranty Expiry, Condition, Windows Version, Office Version, Specifications, Assigned To, Company, Department, Location"
+  },
+  {
+    "formCode": "HWRR",
+    "sourceFile": "src/pages/it/forms/hwrr/index.tsx",
+    "tableFieldsShown": "Title, Status, Date",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "IOIP",
+    "sourceFile": "src/pages/it/forms/ioip/index.tsx",
+    "tableFieldsShown": "Not detected from DatabaseTable columns in index.tsx",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "ISGDOC",
+    "sourceFile": "src/pages/it/forms/isgdoc/index.tsx",
+    "tableFieldsShown": "Record No, Last Revised, Title, Type, Version, Owner, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Type, Title, Version Number, Revision, Last Revised Date, Owner, Applicable To, Comments"
+  },
+  {
+    "formCode": "ITDR",
+    "sourceFile": "src/pages/it/forms/itdr/index.tsx",
+    "tableFieldsShown": "Task ID, Work Date, Daily Task, Task Type, Task Area, Submitted By, Log Status",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "ITDR2",
+    "sourceFile": "src/pages/it/forms/itdr2/index.tsx",
+    "tableFieldsShown": "Record No, Task Title, Assigned To, Due Date, Task Status, Priority, Record Status",
+    "indexModalFieldsShown": "Record Number, Created Date, Submitted By, Record Status, Task Title, Description, Category, Priority, Task Status, Assigned To, Due Date, Year, Month, Remarks"
+  },
+  {
+    "formCode": "ITE",
+    "sourceFile": "src/pages/it/forms/ite/index.tsx",
+    "tableFieldsShown": "Record No, Event Date, Event Type, Description, Prepared By, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Event Type, Event Date (From), Event Time (From), Event Date (To), Event Time (To), Hardware Involved, Prepared By, Description"
+  },
+  {
+    "formCode": "ITINFO",
+    "sourceFile": "src/pages/it/forms/itinfo/index.tsx",
+    "tableFieldsShown": "Record No, Date, Information Type, Subject, To, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, To (Recipient), Information Type, Subject, ISG Remarks, Resend To"
+  },
+  {
+    "formCode": "ITP",
+    "sourceFile": "src/pages/it/forms/itp/index.tsx",
+    "tableFieldsShown": "Title, Status, Date",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "ITSC",
+    "sourceFile": "src/pages/it/forms/itsc/index.tsx",
+    "tableFieldsShown": "Not detected from DatabaseTable columns in index.tsx",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "ITSSR",
+    "sourceFile": "src/pages/it/forms/itssr/index.tsx",
+    "tableFieldsShown": "Not detected from DatabaseTable columns in index.tsx",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "MPSPRN",
+    "sourceFile": "src/pages/it/forms/mpsprn/index.tsx",
+    "tableFieldsShown": "Title, Status, Date",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "NIR",
+    "sourceFile": "src/pages/it/forms/nir/index.tsx",
+    "tableFieldsShown": "Record No, Date Submitted, Requester, Full Name, Department, Request Type, Status",
+    "indexModalFieldsShown": "Request Type, Full Name, Department, Employee Type, Existing Email, HOD Approver"
+  },
+  {
+    "formCode": "PRF",
+    "sourceFile": "src/pages/it/forms/prf/index.tsx",
+    "tableFieldsShown": "Record No, Date, Submitted By, System, SAP, Status",
+    "indexModalFieldsShown": "Record Number, Date Submitted, Submitted By, Status, System, Involves SAP, SAP Client, SAP Module, Company, Department, Priority, Deadline, Phone Ext, CC Emails, Objective, Justification, Current Process, Expected Outcome"
+  },
+  {
+    "formCode": "RS",
+    "sourceFile": "src/pages/it/forms/rs/index.tsx",
+    "tableFieldsShown": "Record No, Date Submitted, Requester, User Name, Site, Application, Reset Type, System Login ID, Assigned PIC, Status",
+    "indexModalFieldsShown": "User Name / Employee Name, Designation, Company, Department, Extension Number, Location/Site, Application Type, Reset Type, Client, Client Name, Bank, Unlock Options, System Login ID, Reason for Reset, Assigned PIC(s), PIC Email(s), Note"
+  },
+  {
+    "formCode": "SAPAMR",
+    "sourceFile": "src/pages/it/forms/sapamr/index.tsx",
+    "tableFieldsShown": "Record No, Date, Module, Plant, Auth Type, Prepared By, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Module, Plant, Authorization Type, To Be Verified By, To Be Approved By, Verifier 1, Verifier 2, Verifier 3, Verifier 4, Verifier 5, CC Emails, Remarks, Prepared By, Prepared Date, Comment"
+  },
+  {
+    "formCode": "SAPCA",
+    "sourceFile": "src/pages/it/forms/sapca/index.tsx",
+    "tableFieldsShown": "Form No, Date, Requested By, Modules, Client, Purpose, Status",
+    "indexModalFieldsShown": "Form Number, Date Submitted, Requested By, Issue Reference, Modules, Client, Client Number, Purpose, Changes to be Done, CC Functional Owner, Approver"
+  },
+  {
+    "formCode": "SAPCR",
+    "sourceFile": "src/pages/it/forms/sapcr/index.tsx",
+    "tableFieldsShown": "CR No, Date, Submitted By, System, Phase, Status",
+    "indexModalFieldsShown": "Change Request No, Date Submitted, Submitted By, Project Phase, System, Description, Business Justification, Priority, Requested Date, Planned Start, Planned End, Technical Reviewer, Functional Approver, CAB Approver"
+  },
+  {
+    "formCode": "SAPDRP",
+    "sourceFile": "src/pages/it/forms/sapdrp/index.tsx",
+    "tableFieldsShown": "Record No, Effective Date, Title, Category, Dept, Status, Workflow",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Title, Category, Effective Date, Revision, Department, Team, Selection/Status, Approved By, Distributed Date, Body, Comments"
+  },
+  {
+    "formCode": "SAPINC",
+    "sourceFile": "src/pages/it/forms/sap-inc/index.tsx",
+    "tableFieldsShown": "Title, Status, Date",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "SAPSLCF",
+    "sourceFile": "src/pages/it/forms/sapslcf/index.tsx",
+    "tableFieldsShown": "Record No, Date, Plant, Loc Code, Description, Requested By, Status",
+    "indexModalFieldsShown": "Request No, Date Created, Submitted By, Requested By, Desk Of, Designation, Department, Phone No, Head of Department, Plant Code, Storage Location Code, Storage Location Description, Material Extend To, Tank for Ullage, Remarks"
+  },
+  {
+    "formCode": "SAPSOF2",
+    "sourceFile": "src/pages/it/forms/sapsof2/index.tsx",
+    "tableFieldsShown": "Ticket ID, Date, Module, Client, TR Number, Stage, Status",
+    "indexModalFieldsShown": "None on index screen / opens separate detail route or no modal fields detected"
+  },
+  {
+    "formCode": "SAPTR",
+    "sourceFile": "src/pages/it/forms/saptr/index.tsx",
+    "tableFieldsShown": "Record No, Date, Submitted By, Category, TR Number, Client, Status",
+    "indexModalFieldsShown": "Record Number, Date Submitted, Submitted By, Issue Number, Modules, TR Category, Development Type, Phases, Client, Transport Number, Dependencies, SAP T-Code, Report/Program Name, Changes Done, Approver"
+  },
+  {
+    "formCode": "SFAR",
+    "sourceFile": "src/pages/it/forms/sfar/index.tsx",
+    "tableFieldsShown": "Record No, Date Submitted, Requester, Request Type, Server Name, Folder Path, Permission, Status",
+    "indexModalFieldsShown": "Requested By, Company, Department, Extension Number, Request Type, Folder Type, Server Name, Folder Path, Permission, Grant Access To, Windows ID, Full Name, IT Verifier Name, Verification Date, Verification Comments, Remarks, HOD Approver, CC Recipients"
+  },
+  {
+    "formCode": "SRL",
+    "sourceFile": "src/pages/it/forms/srl/index.tsx",
+    "tableFieldsShown": "Record No, Down Date, Server, Type, Downtime, Performed By, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Site, Server Name, Reboot Type, Down Date, Down Time, Total Down Time, Performed By, Reason"
+  },
+  {
+    "formCode": "SRR",
+    "sourceFile": "src/pages/it/forms/srr/index.tsx",
+    "tableFieldsShown": "Record No, Date, Server, Summary, Incident Date, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Created By, Server Name, Incident Date, Summary, Background, Analysis, Root Cause, Corrective Actions, Preventive Actions, Reviewer"
+  },
+  {
+    "formCode": "SRVR",
+    "sourceFile": "src/pages/it/forms/srvr/index.tsx",
+    "tableFieldsShown": "Record No, Date From, Server, Type, Summary, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Site, Server Name, Record Type, Mode, Date From, Date To, Summary, Reboot Required, Performed By"
+  },
+  {
+    "formCode": "TRNMAN",
+    "sourceFile": "src/pages/it/forms/trnman/index.tsx",
+    "tableFieldsShown": "Record No, Last Revised, Title, Type, Version, Owner, Status",
+    "indexModalFieldsShown": "Record Number, Date Created, Submitted By, Type, Title, Version Number, Revision, Last Revised Date, Owner, Applicable To, Comments"
+  },
+  {
+    "formCode": "UR",
+    "sourceFile": "src/pages/it/forms/ur/index.tsx",
+    "tableFieldsShown": "Record No, Date, Submitted By, Request Type, Full Name, System Access, Status",
+    "indexModalFieldsShown": "Record Number, Date Submitted, Submitted By, Request Type, Full Name, Designation, Department, System Access, Applications Requested, Employee Card Number, Door Selections, Justification, HOD Approver"
+  }
+]

@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Database, Plus } from 'lucide-react';
+import { ArrowLeft, Database, Eye, Plus } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,7 @@ import {
   MainDBFINStatusKeyToLabel,
   type MainDBFIN,
 } from '@/generated/models/main-dbfin-model';
+import { displayChoiceLabel } from '@/lib/display-labels';
 
 const promotedFinanceForms: Record<string, string> = {
   CAR: 'Capital Appropriation Request',
@@ -75,7 +76,7 @@ export default function FinanceFormDatabaseView() {
               <h1 className="text-2xl font-bold tracking-tight">{formName}</h1>
               <Badge variant="outline">{sharePointFormCode}</Badge>
             </div>
-            <p className="text-sm text-muted-foreground">MainDB_FIN SharePoint submissions</p>
+            <p className="text-sm text-muted-foreground">Finance submission records</p>
           </div>
         </div>
         <Button asChild>
@@ -111,21 +112,21 @@ export default function FinanceFormDatabaseView() {
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Data Source</p>
-            <p className="text-lg font-semibold">MainDB_FIN</p>
+            <p className="text-sm text-muted-foreground">Register</p>
+            <p className="text-lg font-semibold">Finance</p>
           </CardContent>
         </Card>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">SharePoint Table Rows</CardTitle>
+          <CardTitle className="text-lg">Submission Records</CardTitle>
         </CardHeader>
         <CardContent>
           {error ? (
             <Alert variant="destructive">
-              <AlertTitle>Unable to read MainDB_FIN</AlertTitle>
-              <AlertDescription>{error instanceof Error ? error.message : 'SharePoint read failed.'}</AlertDescription>
+              <AlertTitle>Unable to read finance submissions</AlertTitle>
+              <AlertDescription>{error instanceof Error ? error.message : 'Submission read failed.'}</AlertDescription>
             </Alert>
           ) : isLoading ? (
             <div className="space-y-2">
@@ -136,7 +137,7 @@ export default function FinanceFormDatabaseView() {
           ) : rows.length === 0 ? (
             <Alert>
               <AlertTitle>No submissions found</AlertTitle>
-              <AlertDescription>MainDB_FIN has no visible rows for {sharePointFormCode}.</AlertDescription>
+              <AlertDescription>No finance submissions are available for {formName}.</AlertDescription>
             </Alert>
           ) : (
             <Table>
@@ -149,6 +150,7 @@ export default function FinanceFormDatabaseView() {
                   <TableHead>Site</TableHead>
                   <TableHead>Submitted</TableHead>
                   <TableHead>Requestor</TableHead>
+                  <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -156,13 +158,21 @@ export default function FinanceFormDatabaseView() {
                   <TableRow key={row.id}>
                     <TableCell className="font-mono">{row.title}</TableCell>
                     <TableCell>
-                      <Badge variant="secondary">{MainDBFINStatusKeyToLabel[row.statusKey] ?? row.statusKey}</Badge>
+                      <Badge variant="secondary">{MainDBFINStatusKeyToLabel[row.statusKey] ?? displayChoiceLabel(row.statusKey, 'statusKey')}</Badge>
                     </TableCell>
                     <TableCell className="max-w-[260px] truncate">{row.requestTitle || row.appName || '-'}</TableCell>
                     <TableCell>{typeof row.amount === 'number' ? `RM ${row.amount.toLocaleString('en-MY')}` : '-'}</TableCell>
-                    <TableCell>{row.siteKey ? MainDBFINSiteKeyToLabel[row.siteKey] : '-'}</TableCell>
+                    <TableCell>{row.siteKey ? MainDBFINSiteKeyToLabel[row.siteKey] ?? displayChoiceLabel(row.siteKey, 'siteKey') : '-'}</TableCell>
                     <TableCell>{formatDate(row.submittedOn)}</TableCell>
                     <TableCell>{row.requestorDisplayName || row.requestedBy || row.requestorEmail || '-'}</TableCell>
+                    <TableCell className="text-right">
+                      <Button variant="ghost" size="sm" asChild>
+                        <Link to={`/fin/forms/${sharePointFormCode}/detail/${row.id}`}>
+                          <Eye className="mr-2 h-4 w-4" />
+                          View
+                        </Link>
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

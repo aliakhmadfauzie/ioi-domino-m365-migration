@@ -1,0 +1,350 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "flowName": "IOI - HR Universal Form Submission & Routing",
+    "projectTask": "Phase 5.8",
+    "sourceDocs": [
+      "analysis/hr-data-source-analysis.md",
+      "docs/04_WORKFLOW_APPROVAL_RULES.md",
+      "docs/central-form-reference.md",
+      "m365-design/power-automate-design.md",
+      "ioicodeapp/.power/schemas/sharepointonline/hr_routingmatrix.Schema.json"
+    ],
+    "dominoReplacement": "Universal submission handler for all HR forms in MainDB_HR and MainDB_HR_JHR. Handles auto-numbering on creation, routing notifications based on FormCode and site, and completion/rejection alerts. Forms with dedicated approval flows (SR) receive auto-numbering only — their approval notifications are managed by the dedicated flow.",
+    "notes": "Switch on CurrentStatus drives the routing tier. SR forms are excluded from notification cases (handled by sr-staff-requisition-approval-flow). HR_RoutingMatrix SP list keyed by 'FormCode_Department' provides HOD and HR email targets."
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "sharepointonline": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+          "connectionName": "sharepointonline",
+          "id": "/subscriptions/.../providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+        },
+        "office365": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+          "connectionName": "office365",
+          "id": "/subscriptions/.../providers/Microsoft.PowerApps/apis/shared_office365"
+        }
+      }
+    },
+    "$authentication": {
+      "value": {
+        "type": "Raw",
+        "scheme": "Bearer",
+        "parameter": "@{workflow()['tags']['authentication']}"
+      }
+    }
+  },
+  "triggers": {
+    "When_HR_item_created_or_modified": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetOnUpdatedItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+          "table": "MainDB_HR"
+        }
+      },
+      "recurrence": {
+        "frequency": "Minute",
+        "interval": 1
+      },
+      "splitOn": "@triggerBody()?['value']"
+    }
+  },
+  "actions": {
+    "Initialize_HR_variables": {
+      "type": "InitializeVariable",
+      "inputs": {
+        "variables": [
+          { "name": "FormCode",       "type": "string",  "value": "@{triggerBody()?['FormCode']}" },
+          { "name": "CurrentStatus",  "type": "string",  "value": "@{triggerBody()?['CurrentStatus']}" },
+          { "name": "ItemID",         "type": "integer", "value": "@triggerBody()?['ID']" },
+          { "name": "RequestorEmail", "type": "string",  "value": "@{triggerBody()?['EmployeeEmail']}" },
+          { "name": "RequestorName",  "type": "string",  "value": "@{triggerBody()?['EmployeeName']}" },
+          { "name": "Department",     "type": "string",  "value": "@{triggerBody()?['Department']}" },
+          { "name": "Site",           "type": "string",  "value": "@{triggerBody()?['Site']}" },
+          { "name": "FormTitle",      "type": "string",  "value": "@{triggerBody()?['Title']}" }
+        ]
+      },
+      "runAfter": {}
+    },
+
+    "Guard_FormCode_Not_Empty": {
+      "type": "Condition",
+      "expression": {
+        "not": { "equals": [ "@variables('FormCode')", "" ] }
+      },
+      "runAfter": { "Initialize_HR_variables": ["SUCCEEDED"] },
+
+      "actions": {
+        "Switch_on_CurrentStatus": {
+          "type": "Switch",
+          "expression": "@variables('CurrentStatus')",
+          "runAfter": {},
+
+          "cases": {
+
+            "New_AutoNumber": {
+              "case": "New",
+              "actions": {
+                "Get_Last_FormCode_Item": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": { "connectionName": "sharepointonline", "operationId": "GetItems" },
+                    "parameters": {
+                      "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+                      "table": "MainDB_HR",
+                      "$filter": "FormCode eq '@{variables('FormCode')}' and ID ne @{variables('ItemID')}",
+                      "$top": 1,
+                      "$orderby": "ID desc"
+                    }
+                  },
+                  "runAfter": {}
+                },
+                "Compose_Auto_Number": {
+                  "type": "Compose",
+                  "inputs": "@{variables('FormCode')}-@{formatDateTime(utcNow(),'yyyyMM')}-@{padLeft(if(empty(body('Get_Last_FormCode_Item')?['value']), '001', string(add(int(last(split(first(body('Get_Last_FormCode_Item')?['value'])?['Title'], '-'))), 1))), 3, '0')}",
+                  "runAfter": { "Get_Last_FormCode_Item": ["SUCCEEDED"] }
+                },
+                "Update_Title_With_Reference_Number": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": { "connectionName": "sharepointonline", "operationId": "UpdateItem" },
+                    "parameters": {
+                      "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+                      "table": "MainDB_HR",
+                      "id": "@variables('ItemID')",
+                      "item": {
+                        "Title": "@{outputs('Compose_Auto_Number')}",
+                        "ReferenceNo": "@{outputs('Compose_Auto_Number')}"
+                      }
+                    }
+                  },
+                  "runAfter": { "Compose_Auto_Number": ["SUCCEEDED"] }
+                },
+                "Notify_Submitter_Reference_Assigned": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": { "connectionName": "office365", "operationId": "SendEmailV2" },
+                    "parameters": {
+                      "emailMessage": {
+                        "To": "@{variables('RequestorEmail')}",
+                        "Subject": "HR @{variables('FormCode')} Reference Assigned — @{outputs('Compose_Auto_Number')}",
+                        "Body": "<p>Your <b>@{variables('FormCode')}</b> form has been created and assigned reference number <b>@{outputs('Compose_Auto_Number')}</b>.</p><p>Please complete and submit the form to begin the approval process.</p>",
+                        "Importance": "Normal"
+                      }
+                    }
+                  },
+                  "runAfter": { "Update_Title_With_Reference_Number": ["SUCCEEDED"] }
+                }
+              }
+            },
+
+            "Submitted_Route_To_Approver": {
+              "case": "Submitted",
+              "actions": {
+                "Skip_If_SR_Has_Dedicated_Flow": {
+                  "type": "Condition",
+                  "expression": {
+                    "not": { "equals": [ "@variables('FormCode')", "SR" ] }
+                  },
+                  "runAfter": {},
+                  "actions": {
+                    "Lookup_HR_RoutingMatrix": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": { "connectionName": "sharepointonline", "operationId": "GetItems" },
+                        "parameters": {
+                          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+                          "table": "HR_RoutingMatrix",
+                          "$filter": "FormCode eq '@{variables('FormCode')}' and Department eq '@{variables('Department')}' and Site eq '@{variables('Site')}'",
+                          "$top": 1
+                        }
+                      },
+                      "runAfter": {}
+                    },
+                    "Notify_HOD_New_Submission": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": { "connectionName": "office365", "operationId": "SendEmailV2" },
+                        "parameters": {
+                          "emailMessage": {
+                            "To": "@{first(body('Lookup_HR_RoutingMatrix')?['value'])?['HODEmail']}",
+                            "CC": "@{variables('RequestorEmail')};@{first(body('Lookup_HR_RoutingMatrix')?['value'])?['HREmail']}",
+                            "Subject": "[Action Required] New HR @{variables('FormCode')} Submission — @{variables('FormTitle')}",
+                            "Body": "<h3>New HR Form Submitted</h3><p><b>Form:</b> @{variables('FormCode')}<br/><b>Reference:</b> @{variables('FormTitle')}<br/><b>Submitted by:</b> @{variables('RequestorName')}<br/><b>Department:</b> @{variables('Department')}<br/><b>Site:</b> @{variables('Site')}</p><p>Please review and process this request via the IOI HR Portal.</p>",
+                            "Importance": "High"
+                          }
+                        }
+                      },
+                      "runAfter": { "Lookup_HR_RoutingMatrix": ["SUCCEEDED"] }
+                    }
+                  },
+                  "else": { "actions": {} }
+                }
+              }
+            },
+
+            "Draft_Saved_Reminder": {
+              "case": "Draft",
+              "actions": {
+                "Notify_Submitter_Draft_Saved": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": { "connectionName": "office365", "operationId": "SendEmailV2" },
+                    "parameters": {
+                      "emailMessage": {
+                        "To": "@{variables('RequestorEmail')}",
+                        "Subject": "HR @{variables('FormCode')} Draft Saved — @{variables('FormTitle')}",
+                        "Body": "<p>Your <b>@{variables('FormCode')}</b> form (<b>@{variables('FormTitle')}</b>) has been saved as a draft.</p><p>Remember to submit it when ready for processing.</p>",
+                        "Importance": "Low"
+                      }
+                    }
+                  },
+                  "runAfter": {}
+                }
+              }
+            },
+
+            "Approved_Completion_Notice": {
+              "case": "Approved",
+              "actions": {
+                "Skip_SR_Approved_Has_Dedicated_Flow": {
+                  "type": "Condition",
+                  "expression": {
+                    "not": { "equals": [ "@variables('FormCode')", "SR" ] }
+                  },
+                  "runAfter": {},
+                  "actions": {
+                    "Notify_Requestor_Form_Approved": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": { "connectionName": "office365", "operationId": "SendEmailV2" },
+                        "parameters": {
+                          "emailMessage": {
+                            "To": "@{variables('RequestorEmail')}",
+                            "Subject": "HR @{variables('FormCode')} — Approved: @{variables('FormTitle')}",
+                            "Body": "<h3>Your HR Request Has Been Approved</h3><p>Your <b>@{variables('FormCode')}</b> request (<b>@{variables('FormTitle')}</b>) has been fully approved and processed.</p><p>HR will follow up if any further action is required.</p>",
+                            "Importance": "Normal"
+                          }
+                        }
+                      },
+                      "runAfter": {}
+                    }
+                  },
+                  "else": { "actions": {} }
+                }
+              }
+            },
+
+            "Rejected_Notice": {
+              "case": "Rejected",
+              "actions": {
+                "Skip_SR_Rejected_Has_Dedicated_Flow": {
+                  "type": "Condition",
+                  "expression": {
+                    "not": { "equals": [ "@variables('FormCode')", "SR" ] }
+                  },
+                  "runAfter": {},
+                  "actions": {
+                    "Notify_Requestor_Form_Rejected": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": { "connectionName": "office365", "operationId": "SendEmailV2" },
+                        "parameters": {
+                          "emailMessage": {
+                            "To": "@{variables('RequestorEmail')}",
+                            "Subject": "HR @{variables('FormCode')} — Rejected: @{variables('FormTitle')}",
+                            "Body": "<h3>Your HR Request Has Been Rejected</h3><p>Your <b>@{variables('FormCode')}</b> request (<b>@{variables('FormTitle')}</b>) has been rejected.</p><p><b>Remarks:</b> @{triggerBody()?['Remarks']}</p><p>Please contact your HOD or HR department for further guidance.</p>",
+                            "Importance": "Normal"
+                          }
+                        }
+                      },
+                      "runAfter": {}
+                    }
+                  },
+                  "else": { "actions": {} }
+                }
+              }
+            },
+
+            "Pending_Reminder": {
+              "case": "Pending",
+              "actions": {
+                "Check_Days_Pending": {
+                  "type": "Compose",
+                  "inputs": "@div(sub(ticks(utcNow()), ticks(triggerBody()?['Modified'])), 864000000000)",
+                  "runAfter": {}
+                },
+                "Condition_Overdue_3_Days": {
+                  "type": "Condition",
+                  "expression": {
+                    "greaterOrEquals": [ "@outputs('Check_Days_Pending')", 3 ]
+                  },
+                  "runAfter": { "Check_Days_Pending": ["SUCCEEDED"] },
+                  "actions": {
+                    "Lookup_RoutingMatrix_For_Reminder": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": { "connectionName": "sharepointonline", "operationId": "GetItems" },
+                        "parameters": {
+                          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+                          "table": "HR_RoutingMatrix",
+                          "$filter": "FormCode eq '@{variables('FormCode')}' and Department eq '@{variables('Department')}' and Site eq '@{variables('Site')}'",
+                          "$top": 1
+                        }
+                      },
+                      "runAfter": {}
+                    },
+                    "Send_Overdue_Reminder": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": { "connectionName": "office365", "operationId": "SendEmailV2" },
+                        "parameters": {
+                          "emailMessage": {
+                            "To": "@{first(body('Lookup_RoutingMatrix_For_Reminder')?['value'])?['HODEmail']}",
+                            "CC": "@{variables('RequestorEmail')}",
+                            "Subject": "[Reminder] HR @{variables('FormCode')} Pending @{outputs('Check_Days_Pending')} Days — @{variables('FormTitle')}",
+                            "Body": "<p>A <b>@{variables('FormCode')}</b> HR form has been pending for <b>@{outputs('Check_Days_Pending')} days</b> without action.</p><p><b>Reference:</b> @{variables('FormTitle')}<br/><b>Submitted by:</b> @{variables('RequestorName')}</p><p>Please review and take action at your earliest convenience.</p>",
+                            "Importance": "High"
+                          }
+                        }
+                      },
+                      "runAfter": { "Lookup_RoutingMatrix_For_Reminder": ["SUCCEEDED"] }
+                    }
+                  },
+                  "else": { "actions": {} }
+                }
+              }
+            }
+          },
+
+          "default": {
+            "actions": {}
+          }
+        }
+      },
+
+      "else": {
+        "actions": {
+          "Terminate_Empty_FormCode": {
+            "type": "Terminate",
+            "inputs": {
+              "runStatus": "Cancelled",
+              "runError": {
+                "code": "EMPTY_FORM_CODE",
+                "message": "Flow skipped — FormCode is empty. Item ID: @{variables('ItemID')}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

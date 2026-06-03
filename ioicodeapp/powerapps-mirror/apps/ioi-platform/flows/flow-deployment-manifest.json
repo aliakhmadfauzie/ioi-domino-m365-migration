@@ -3,12 +3,16 @@
   "environmentId": "Default-c6f6218b-5ff2-48b5-9114-f89da23caadb",
   "powerAutomateCreateUrl": "https://make.powerautomate.com/environments/Default-c6f6218b-5ff2-48b5-9114-f89da23caadb/create",
   "sharePointSite": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+  "sharePointSiteHR": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
   "mainList": "MainDB_IT",
+  "mainListHR": "MainDB_HR",
   "status": "local-definitions-ready-live-creation-pending",
   "sourceDocuments": [
     "m365-design/power-automate-design.md",
     "analysis/workflow-analysis.md",
+    "analysis/hr-data-source-analysis.md",
     "docs/04_WORKFLOW_APPROVAL_RULES.md",
+    "docs/central-form-reference.md",
     "docs/implementation-plan.md"
   ],
   "flows": [
@@ -103,6 +107,42 @@
         "Office 365 Outlook"
       ],
       "dominoReplacement": "SAP and WB Change Request approval chain"
+    },
+    {
+      "phaseTask": "5.7",
+      "name": "IOI - HR SR Staff Requisition Approval",
+      "file": "sr-staff-requisition-approval-flow-definition.json",
+      "priority": "P1",
+      "trigger": "MainDB_HR created or modified",
+      "formCodes": [
+        "SR"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Approvals",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "@MailSend multi-stage approval for SR (Staff Requisition) - Replaces Domino buttons: Submit by Initiator, Approved/Rejected by HOD, Approved/Rejected by Div Head, Endorsed/Rejected by HR, Approved/Rejected by ED"
+    },
+    {
+      "phaseTask": "5.8",
+      "name": "IOI - HR Universal Form Submission & Routing",
+      "file": "hr-universal-form-submission-flow-definition.json",
+      "priority": "P2",
+      "trigger": "MainDB_HR created or modified",
+      "formCodes": [
+        "SR", "EEN", "AWHR", "PAF", "FWWPD", "FTCR", "CWR", "BSD", "CIR", "DRD",
+        "GDSN", "JD", "NDF", "ORGCHART", "OWP", "TMPU", "TNPRA",
+        "EPDU", "EPHR", "ESF", "HEALTHINFO", "HRAPR", "HRINFO", "INTERN",
+        "INTERVIEWDB", "PCNBkStf", "cancomp", "ContractorReg", "TyphoidVacc",
+        "UniformReq", "pcnjd", "LateComing", "manpowerReq", "NightVisit",
+        "PCNOrgChart", "AppTest", "SpVisit", "workins", "hostel", "PCNTND", "PCNDriver"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "Universal routing & notification for all HR form submissions. Replaces @MailSend doclink notifications across 42 HR Domino databases."
     }
   ],
   "liveCreationBlockers": [

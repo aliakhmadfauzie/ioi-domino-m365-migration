@@ -153,17 +153,12 @@ export default function PRFNewPage() {
       const parentRecord = await createMutation.mutateAsync({
         title: requestNo,
         formcode: 'PRF',
-        currentStatus: isDraft ? 'CurrentstatusKey3' : 'CurrentstatusKey27',
+        currentStatus: isDraft ? 'draft' : 'pending-hod',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: submittedAt,
         company: formData.company || '',
-        remarks: JSON.stringify({
-          prfCA: 'Request',
-          prfObjective: formData.objective,
-          prfJustification: formData.justification,
-          prfCurrentProcess: formData.currentProcess,
-          prfExpectedOutcome: formData.expectedOutcome,
-        }),
+        currentAction: 'Request',
+        subject: formData.objective.trim().slice(0, 120) || requestNo,
         workflowstage: isDraft ? 1 : 1,
         pRFRequestNo: requestNo,
         pRFRequestType: formData.system || '',
@@ -175,6 +170,10 @@ export default function PRFNewPage() {
         pRFDeadline: formData.deadline || '',
         pRFPhoneExt: formData.phoneExt || '',
         pRFCCEmails: formData.ccEmails || '',
+        pRFObjective: formData.objective || '',
+        pRFJustification: formData.justification || '',
+        pRFCurrentProcess: formData.currentProcess || '',
+        pRFExpectedOutcome: formData.expectedOutcome || '',
       });
 
       try {

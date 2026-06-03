@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Database, Plus } from 'lucide-react';
+import { ArrowLeft, Database, Eye, Plus } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -16,8 +16,10 @@ import {
 import { useMainDBMTNList } from '@/generated/hooks/use-main-dbmtn';
 import {
   MainDBMTNSiteKeyToLabel,
+  MainDBMTNStatusKeyToLabel,
   type MainDBMTN,
 } from '@/generated/models/main-dbmtn-model';
+import { displayChoiceLabel } from '@/lib/display-labels';
 
 const routeFormMetadata: Record<string, { sharePointCode: string; title: string }> = {
   FAR: { sharePointCode: 'FAILANALREPO', title: 'Failure Analysis Report' },
@@ -45,6 +47,10 @@ function formatDate(value?: string) {
 
 function escapeOData(value: string) {
   return value.replace(/'/g, "''");
+}
+
+function getStatusLabel(row: MainDBMTN) {
+  return MainDBMTNStatusKeyToLabel[row.currentStatus as keyof typeof MainDBMTNStatusKeyToLabel] ?? displayChoiceLabel(row.currentStatus, 'currentStatus');
 }
 
 function getEquipmentLabel(row: MainDBMTN) {
@@ -101,7 +107,7 @@ export default function MTRFormDatabaseView() {
               <h1 className="text-2xl font-bold tracking-tight">{formMeta.title}</h1>
               <Badge variant="outline">{formMeta.sharePointCode}</Badge>
             </div>
-            <p className="text-sm text-muted-foreground">MainDB_MTN SharePoint submissions</p>
+            <p className="text-sm text-muted-foreground">Maintenance submission records</p>
           </div>
         </div>
         <Button asChild>
@@ -123,7 +129,7 @@ export default function MTRFormDatabaseView() {
           <CardContent className="p-4">
             <p className="text-sm text-muted-foreground">Submitted</p>
             <p className="text-2xl font-bold">
-              {isLoading ? '-' : rows.filter((row) => row.currentStatus === 'Submitted').length}
+              {isLoading ? '-' : rows.filter((row) => getStatusLabel(row) === 'Submitted').length}
             </p>
           </CardContent>
         </Card>
@@ -131,27 +137,27 @@ export default function MTRFormDatabaseView() {
           <CardContent className="p-4">
             <p className="text-sm text-muted-foreground">In Progress</p>
             <p className="text-2xl font-bold">
-              {isLoading ? '-' : rows.filter((row) => row.currentStatus === 'In Progress').length}
+              {isLoading ? '-' : rows.filter((row) => getStatusLabel(row) === 'In Progress').length}
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Data Source</p>
-            <p className="text-lg font-semibold">MainDB_MTN</p>
+            <p className="text-sm text-muted-foreground">Register</p>
+            <p className="text-lg font-semibold">Maintenance</p>
           </CardContent>
         </Card>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">SharePoint Table Rows</CardTitle>
+          <CardTitle className="text-lg">Submission Records</CardTitle>
         </CardHeader>
         <CardContent>
           {error ? (
             <Alert variant="destructive">
-              <AlertTitle>Unable to read MainDB_MTN</AlertTitle>
-              <AlertDescription>{error instanceof Error ? error.message : 'SharePoint read failed.'}</AlertDescription>
+              <AlertTitle>Unable to read maintenance submissions</AlertTitle>
+              <AlertDescription>{error instanceof Error ? error.message : 'Submission read failed.'}</AlertDescription>
             </Alert>
           ) : isLoading ? (
             <div className="space-y-2">
@@ -162,7 +168,7 @@ export default function MTRFormDatabaseView() {
           ) : rows.length === 0 ? (
             <Alert>
               <AlertTitle>No submissions found</AlertTitle>
-              <AlertDescription>MainDB_MTN has no visible rows for {formMeta.sharePointCode}.</AlertDescription>
+              <AlertDescription>No maintenance submissions are available for {formMeta.title}.</AlertDescription>
             </Alert>
           ) : (
             <Table>
@@ -175,6 +181,7 @@ export default function MTRFormDatabaseView() {
                   <TableHead>Site</TableHead>
                   <TableHead>Submitted</TableHead>
                   <TableHead>Submitted By</TableHead>
+                  <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -182,13 +189,21 @@ export default function MTRFormDatabaseView() {
                   <TableRow key={row.id}>
                     <TableCell className="font-mono">{row.title}</TableCell>
                     <TableCell>
-                      <Badge variant="secondary">{row.currentStatus || '-'}</Badge>
+                      <Badge variant="secondary">{getStatusLabel(row)}</Badge>
                     </TableCell>
                     <TableCell>{getEquipmentLabel(row)}</TableCell>
                     <TableCell className="max-w-[320px] truncate">{getSummary(row)}</TableCell>
-                    <TableCell>{row.siteKey ? MainDBMTNSiteKeyToLabel[row.siteKey] : '-'}</TableCell>
+                    <TableCell>{row.siteKey ? MainDBMTNSiteKeyToLabel[row.siteKey] ?? displayChoiceLabel(row.siteKey, 'siteKey') : '-'}</TableCell>
                     <TableCell>{formatDate(row.submittedDate)}</TableCell>
                     <TableCell>{row.submittedBy || '-'}</TableCell>
+                    <TableCell className="text-right">
+                      <Button variant="ghost" size="sm" asChild>
+                        <Link to={`/mtr/forms/${routeFormCode.toLowerCase()}/detail/${row.id}`}>
+                          <Eye className="mr-2 h-4 w-4" />
+                          View
+                        </Link>
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

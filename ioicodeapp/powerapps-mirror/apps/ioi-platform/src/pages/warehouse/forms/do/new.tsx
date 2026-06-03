@@ -31,8 +31,13 @@ export default function DONewFormPage() {
         title: id, formCode: 'DO', department: 'Warehouse',
         submittedBy: user?.email || '', submittedOn: now.toISOString(),
         requestTitle: `Delivery Order - ${formData.customer}`,
+        description: [
+          `Item/Material: ${formData.item}`,
+          formData.remarks ? `Delivery Notes: ${formData.remarks}` : null,
+        ].filter(Boolean).join('\n'),
+        currentAction: 'Submitted',
         containerID: formData.vehicle, quantity: Number(formData.qty) || undefined,
-        unit: formData.unit, remarks: formData.remarks,
+        unit: formData.unit,
       });
       setTicketId(id); setIsSubmitted(true);
       toast.success('Delivery Order submitted!');

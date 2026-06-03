@@ -40,8 +40,7 @@ export default function EPDUNewPage() {
         statusKey: action === 'draft' ? 'StatusKey0' : 'StatusKey1',
         requesttypeKey: 'RequesttypeKey1',  // Personal Update
         employeename: empName,
-        details: updateType,
-        remarks: currentValue ? `Current: ${currentValue}` : '',
+        details: [updateType, currentValue ? `Current: ${currentValue}` : null].filter(Boolean).join(' | '),
         description: `New value: ${newValue}${reason ? ` | Reason: ${reason}` : ''}`,
         requestoremail: user?.userPrincipalName || '',
       } as any);

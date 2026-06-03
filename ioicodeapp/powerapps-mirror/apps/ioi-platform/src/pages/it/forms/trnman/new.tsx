@@ -17,7 +17,9 @@ import {
 import { toast } from 'sonner';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
+import { useCreateMainDBITExtDocs } from '@/generated/hooks/use-main-dbitext-docs';
 import type { MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
+import type { MainDBITExtDocs } from '@/generated/models/main-dbit-ext-docs-model';
 
 const TRNMAN_TYPES = [
   'Internal', 'External', 'e-Learning', 'On-the-Job', 'Seminar', 'Workshop', 'Other',
@@ -35,6 +37,7 @@ export default function NewTRNMANPage() {
   const navigate = useNavigate();
   const { data: user } = useUser();
   const { mutateAsync: createMainDBIT, isPending } = useCreateMainDBIT();
+  const { mutateAsync: createExtDocs, isPending: extDocsPending } = useCreateMainDBITExtDocs();
 
   const [TRN_Type, setTRN_Type] = useState('');
   const [TRN_Title, setTRN_Title] = useState('');
@@ -58,18 +61,32 @@ export default function NewTRNMANPage() {
 
     try {
       const recordNo = generateRecordNo();
-      await createMainDBIT({
+      const created = await createMainDBIT({
         title: recordNo,
         formcode: 'TRNMAN',
-        currentStatus: 'CurrentstatusKey1' as MainDBITCurrentstatusKey,
+        currentStatus: 'approved',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
-        remarks: JSON.stringify({
-          TRN_Type, TRN_Title, TRN_VerNo, TRN_DateLast,
-          TRN_Revision, TRN_Owner, TRN_ApplicableTo, TRN_Comments,
-        }),
+        subject: TRN_Title.trim(),
       });
+
+      if (created?.id) {
+        const extDocsData: Omit<MainDBITExtDocs, 'id'> = {
+          title: `${recordNo}-docs`,
+          parentFormCode: 'TRNMAN',
+          parentRecord: { id: created.id, title: recordNo },
+          parentSite: 'PRAI',
+          iTP2TrainingType: TRN_Type,
+          iTP2Title: TRN_Title.trim(),
+          iTP2VersionNo: TRN_VerNo.trim(),
+          iTP2DateLastUpdated: TRN_DateLast,
+          iTP2RevisionNo: TRN_Revision.trim(),
+          iTP2ApplicableTo: TRN_ApplicableTo.trim(),
+          iTP2Comments: TRN_Comments.trim(),
+        };
+        await createExtDocs(extDocsData);
+      }
       toast.success(`Training Manual submitted! Ref: ${recordNo}`);
       navigate('/it/forms/trnman');
     } catch (error: unknown) {
@@ -194,11 +211,11 @@ export default function NewTRNMANPage() {
             </Button>
             <Button
               type="submit"
-              disabled={isPending}
+              disabled={isPending || extDocsPending}
               className="bg-primary hover:bg-[#002244] text-white"
             >
               <BookOpen className="h-4 w-4 mr-2" />
-              {isPending ? 'Submitting...' : 'Submit Training Manual'}
+              {isPending || extDocsPending ? 'Submitting...' : 'Submit Training Manual'}
             </Button>
           </div>
         </motion.form>

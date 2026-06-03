@@ -1,0 +1,104 @@
+[
+  [
+    "Dedicated index route visible; Direct route only / not in IT forms hub config; Visible table columns: Title, Status, Date; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Site, Server Room, Visitor, Attended By, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Network Order No, Server, File Name, Requested By, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Submitted By, Company, Target User, System, App Type, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Title, Status, Date; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Asset Tag, Type, Brand / Model, Serial No, Assigned To, Location, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Title, Status, Date; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: not detected from DatabaseTable headers; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Direct route only / not in IT forms hub config; Visible table columns: Record No, Last Revised, Title, Type, Version, Owner, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Task ID, Work Date, Daily Task, Task Type, Task Area, Submitted By, Log Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Task Title, Assigned To, Due Date, Task Status, Priority, Record Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Event Date, Event Type, Description, Prepared By, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Information Type, Subject, To, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Title, Status, Date; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: not detected from DatabaseTable headers; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: not detected from DatabaseTable headers; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Direct route only / not in IT forms hub config; Visible table columns: Title, Status, Date; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date Submitted, Requester, Full Name, Department, Request Type, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Submitted By, System, SAP, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date Submitted, Requester, User Name, Site, Application, Reset Type, System Login ID, Assigned PIC, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Module, Plant, Auth Type, Prepared By, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Form No, Date, Requested By, Modules, Client, Purpose, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: CR No, Date, Submitted By, System, Phase, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Effective Date, Title, Category, Dept, Status, Workflow; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Title, Status, Date; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Plant, Loc Code, Description, Requested By, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Ticket ID, Date, Module, Client, TR Number, Stage, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Submitted By, Category, TR Number, Client, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date Submitted, Requester, Request Type, Server Name, Folder Path, Permission, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Down Date, Server, Type, Downtime, Performed By, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Direct route only / not in IT forms hub config; Visible table columns: Record No, Date, Server, Summary, Incident Date, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date From, Server, Type, Summary, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Direct route only / not in IT forms hub config; Visible table columns: Record No, Last Revised, Title, Type, Version, Owner, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ],
+  [
+    "Dedicated index route visible; Hub-listed; Visible table columns: Record No, Date, Submitted By, Request Type, Full Name, System Access, Status; Hidden columns: none detected in ColumnDef/DatabaseTable API"
+  ]
+]

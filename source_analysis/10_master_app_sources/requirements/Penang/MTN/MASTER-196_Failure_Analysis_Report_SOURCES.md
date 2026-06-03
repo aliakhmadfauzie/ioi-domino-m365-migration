@@ -51,13 +51,13 @@
 | 3 | Issue No. | IssuNo | Number/Text | 1 | Parsed from PDF text |
 | 4 | Date Issued | DateIssue | Date/Text | 1 | Parsed from PDF text |
 | 5 | Status | FinalStatus | Choice/Text | 1 | Parsed from PDF text |
-| 6 | Original Authors | Authors | Text | 1 | Parsed from PDF text |
-| 7 | Approval | Author_APP | Text | 1 | Parsed from PDF text |
-| 8 | Dept. Head | Author_DH | Text | 1 | Parsed from PDF text |
+| 6 | Original Authors | Authors | People | 1 | Parsed from PDF text |
+| 7 | Approval | Author_APP | people | 1 | Parsed from PDF text |
+| 8 | Dept. Head | Author_DH | People | 1 | Parsed from PDF text |
 | 9 | Readers | Readers | Text | 1 | Parsed from PDF text |
 | 10 | Obsolete Date | ObsoleteDate | Date/Text | 1 | Parsed from PDF text |
-| 11 | Sendto | Sendto | Date/Text | 1 | Parsed from PDF text |
-| 12 | Authors_1 | Authors_1 | Text | 1 | Parsed from PDF text |
+| 11 | Sendto | Sendto | People | 1 | Parsed from PDF text |
+| 12 | Authors_1 | Authors_1 | people | 1 | Parsed from PDF text |
 | 13 | QA | QA | Text | 1 | Parsed from PDF text |
 | 14 | QA2 | QA2 | Text | 1 | Parsed from PDF text |
 | 15 | CC | CC | Text | 1 | Parsed from PDF text |

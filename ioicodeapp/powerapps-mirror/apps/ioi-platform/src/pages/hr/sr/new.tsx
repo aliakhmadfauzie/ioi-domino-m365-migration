@@ -13,6 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { MainDBHRService } from '@/services/main-dbhr-service';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 
 export default function SRNewPage() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function SRNewPage() {
   const [grade, setGrade] = useState('');             // → jobdesignation
   const [department, setDepartment] = useState('');
   const [headcount, setHeadcount] = useState('1');    // → details
-  const [replacementFor, setReplacementFor] = useState(''); // → remarks
+  const [replacementFor, setReplacementFor] = useState('');
   const [dateRequired, setDateRequired] = useState('');     // → duedate
   const [reason, setReason] = useState('');           // → description
   const [priority, setPriority] = useState('Medium');
@@ -39,8 +40,7 @@ export default function SRNewPage() {
         vacancyTitle: position,
         jobdesignation: grade,
         department,
-        details: `Headcount: ${headcount}`,
-        remarks: replacementFor ? `Replacement for: ${replacementFor}` : '',
+        details: [`Headcount: ${headcount}`, replacementFor ? `Replacement for: ${replacementFor}` : null].filter(Boolean).join(' | '),
         duedate: dateRequired,
         description: reason,
         priority,
@@ -64,7 +64,7 @@ export default function SRNewPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2"><Label>Position <span className="text-destructive">*</span></Label><Input value={position} onChange={e => setPosition(e.target.value)} placeholder="e.g. Senior Process Engineer" /></div>
             <div className="space-y-2"><Label>Grade / Level</Label><Input value={grade} onChange={e => setGrade(e.target.value)} placeholder="e.g. E3, M2" /></div>
-            <div className="space-y-2"><Label>Department <span className="text-destructive">*</span></Label><Input value={department} onChange={e => setDepartment(e.target.value)} placeholder="Department name" /></div>
+            <div className="space-y-2"><Label>Department <span className="text-destructive">*</span></Label><SharePointLookupSelect kind="department" value={department} onChange={setDepartment} placeholder="Select department" /></div>
             <div className="space-y-2"><Label>Headcount</Label><Input type="number" min={1} value={headcount} onChange={e => setHeadcount(e.target.value)} /></div>
             <div className="space-y-2"><Label>Priority</Label>
               <Select value={priority} onValueChange={setPriority}>

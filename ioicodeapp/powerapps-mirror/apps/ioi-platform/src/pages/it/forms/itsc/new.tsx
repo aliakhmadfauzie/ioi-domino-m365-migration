@@ -29,6 +29,7 @@ import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { useCreateMainDBITExtAssets } from '@/generated/hooks/use-main-dbitext-assets';
 import type { MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
 import type { MainDBITSiteKey } from '@/generated/models/main-dbit-model';
+import { EmployeePicker } from '@/components/employee-picker';
 
 function generateRecordNo(): string {
   const now = new Date();
@@ -135,13 +136,13 @@ export default function ITSCNewFormPage() {
       const mainRecord = await createMainDBIT({
         title: recordNo,
         formcode: 'ITSC',
-        currentStatus: 'CurrentstatusKey4' as MainDBITCurrentstatusKey,
+        currentStatus: 'sent',
         siteKey: HDR_Site as MainDBITSiteKey,
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
         islocked: false,
-        remarks: REM_Remarks || undefined, // free-text remarks only, no JSON blob
+        subject: HDR_SvrName,
       });
 
       // 2. Create MainDB_IT_Ext_Assets record linked to parent
@@ -571,7 +572,7 @@ export default function ITSCNewFormPage() {
             <CardContent className="pt-6 space-y-5">
               <div className="space-y-2">
                 <Label>Created By</Label>
-                <Input value={PER_CreatedBy} onChange={e => setPER_CreatedBy(e.target.value)} placeholder="IT Admin name / email" />
+                <EmployeePicker value={PER_CreatedBy} onChange={(email) => setPER_CreatedBy(email)} placeholder="IT Admin name / email" />
               </div>
             </CardContent>
           </Card>

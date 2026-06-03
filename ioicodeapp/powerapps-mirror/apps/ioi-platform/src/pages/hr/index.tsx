@@ -296,7 +296,7 @@ function HRDepartmentHomePageContent() {
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>SharePoint Connected</AlertTitle>
           <AlertDescription>
-            Connected to <strong>MainDB_HR (PRAI)</strong> SharePoint site. {submissions.length} submissions loaded.
+            Connected to the <strong>Prai HR register</strong>. {submissions.length} submissions loaded.
           </AlertDescription>
         </Alert>
       </motion.div>

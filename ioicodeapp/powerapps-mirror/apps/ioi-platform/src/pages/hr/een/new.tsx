@@ -16,6 +16,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { useUser } from '@/hooks/use-user';
@@ -116,7 +117,7 @@ function EENNewPage() {
           <CardHeader><CardTitle className="flex items-center gap-2"><User className="h-5 w-5" /> Employee Details</CardTitle></CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2"><Label>Company</Label><Input value={company} onChange={e => setCompany(e.target.value)} placeholder="Company" /></div>
+              <div className="space-y-2"><Label>Company</Label><SharePointLookupSelect kind="company" value={company} onChange={setCompany} placeholder="Select company" /></div>
               <div className="space-y-2"><Label>Category</Label><Input value={category} onChange={e => setCategory(e.target.value)} placeholder="Category" /></div>
               <div className="space-y-2"><Label>Type</Label><Input value={empType} onChange={e => setEmpType(e.target.value)} placeholder="Type" /></div>
               <div className="space-y-2"><Label>Employee Name *</Label><EmployeePicker value={empName} onChange={(email, emp) => { setEmpName(emp?.fullName || email); setEmpEmail(email); }} placeholder="Search employee..." /></div>

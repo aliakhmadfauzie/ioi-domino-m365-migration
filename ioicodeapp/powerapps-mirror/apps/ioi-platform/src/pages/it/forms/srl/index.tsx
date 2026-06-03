@@ -13,6 +13,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
 import { getITFormCodeFilter } from '@/lib/it-form-routes';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SRLRecord {
   id: string;
@@ -108,6 +112,10 @@ const columns: ColumnDef<SRLRecord>[] = [
 ];
 
 export default function SRLDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const navigate = useNavigate();
   const [selectedRecord, setSelectedRecord] = useState<SRLRecord | null>(null);
 
@@ -174,6 +182,25 @@ export default function SRLDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return srlData;
+    return srlData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [srlData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => srlData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [srlData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => srlData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [srlData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -183,7 +210,7 @@ export default function SRLDatabaseView() {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-xl font-bold text-white">Server Reboot Log (SVRREBOOT)</h1>
+              <h1 className="text-xl font-bold text-white">Server Reboot Log (SRL)</h1>
               <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm">
                 Database View — All Logs from SharePoint
               </p>
@@ -217,7 +244,7 @@ export default function SRLDatabaseView() {
             {isLoading ? (
               <div className="flex flex-col items-center justify-center py-12">
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground mb-4" />
-                <p className="text-muted-foreground">Loading SVRREBOOT submissions from SharePoint...</p>
+                <p className="text-muted-foreground">Loading Server Reboot Log submissions from SharePoint...</p>
               </div>
             ) : srlData.length === 0 ? (
               <Empty className="py-12">
@@ -229,8 +256,15 @@ export default function SRLDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={srlData.length}
+          />
               <DatabaseTable
-                data={srlData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SRLRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by server name, type..."
@@ -246,7 +280,7 @@ export default function SRLDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SVRREBOOT — ${selectedRecord?.recordNo || ''}`}
+        title={`Server Reboot Log — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Server: ${selectedRecord?.serverName || 'N/A'} · Site: ${selectedRecord?.site || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

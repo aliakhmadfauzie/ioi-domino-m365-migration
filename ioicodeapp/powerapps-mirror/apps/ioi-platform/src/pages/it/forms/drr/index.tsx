@@ -12,6 +12,10 @@ import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/u
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface DATARESTRecord {
   id: string;
@@ -95,6 +99,10 @@ const columns: ColumnDef<DATARESTRecord>[] = [
 ];
 
 export default function DATARESTDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<DATARESTRecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -163,6 +171,25 @@ export default function DATARESTDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return datarestData;
+    return datarestData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [datarestData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => datarestData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [datarestData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => datarestData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [datarestData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -174,7 +201,7 @@ export default function DATARESTDatabaseView() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-xl font-bold text-white">Data Restoration Request (DATAREST)</h1>
+              <h1 className="text-xl font-bold text-white">Data Restoration Request (DRR)</h1>
               <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm">
                 Database View — All Requests from SharePoint
               </p>
@@ -208,7 +235,7 @@ export default function DATARESTDatabaseView() {
             {isLoading ? (
               <div className="flex flex-col items-center justify-center py-12">
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground mb-4" />
-                <p className="text-muted-foreground">Loading DATAREST submissions from SharePoint...</p>
+                <p className="text-muted-foreground">Loading Data Restoration Request submissions from SharePoint...</p>
               </div>
             ) : datarestData.length === 0 ? (
               <Empty className="py-12">
@@ -220,8 +247,15 @@ export default function DATARESTDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={datarestData.length}
+          />
               <DatabaseTable
-                data={datarestData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: DATARESTRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by server, file name, INO..."
@@ -237,7 +271,7 @@ export default function DATARESTDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`DATAREST — ${selectedRecord?.recordNo || ''}`}
+        title={`Data Restoration Request — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Server: ${selectedRecord?.serverName || 'N/A'} · File: ${selectedRecord?.fileName || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

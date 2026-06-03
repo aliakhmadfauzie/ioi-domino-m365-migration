@@ -17,7 +17,11 @@ import {
 import { toast } from 'sonner';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
+import { useCreateMainDBITExtDocs } from '@/generated/hooks/use-main-dbitext-docs';
 import type { MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
+import type { MainDBITExtDocs } from '@/generated/models/main-dbit-ext-docs-model';
+import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 
 const SAPDRP_SELECTION1 = ['Draft', 'For Review', 'Approved', 'Superseded', 'Obsolete'] as const;
 
@@ -33,6 +37,7 @@ export default function SAPDRPNewFormPage() {
   const navigate = useNavigate();
   const { data: user } = useUser();
   const { mutateAsync: createMainDBIT, isPending } = useCreateMainDBIT();
+  const { mutateAsync: createExtDocs, isPending: extDocsPending } = useCreateMainDBITExtDocs();
 
   // Section A: Header
   const [HDR_TimeCreated, setHDR_TimeCreated] = useState('');
@@ -69,20 +74,41 @@ export default function SAPDRPNewFormPage() {
 
     try {
       const recordNo = generateRecordNo();
-      await createMainDBIT({
+      const created = await createMainDBIT({
         title: recordNo,
         formcode: 'SAPDRP',
-        currentStatus: 'CurrentstatusKey4' as MainDBITCurrentstatusKey,
+        currentStatus: 'sent',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
-        remarks: JSON.stringify({
-          HDR_TimeCreated, HDR_Title, HDR_Category, HDR_EffectDate,
-          HDR_Revision, HDR_Dept, HDR_Team, HDR_Selection1,
-          HDR_AppBy, HDR_Distributed,
-          BODY_Body, BODY_Comments,
-        }),
+        currentAction: HDR_Selection1,
+        subject: HDR_Title.trim(),
+        requestorName: HDR_AppBy,
+        company: HDR_Dept,
       });
+
+      if (created?.id) {
+        const extDocsData: Omit<MainDBITExtDocs, 'id'> = {
+          title: `${recordNo}-docs`,
+          parentFormCode: 'SAPDRP',
+          parentRecord: { id: created.id, title: recordNo },
+          parentSite: 'PRAI',
+          iTPDocType: HDR_Category.trim(),
+          iTPDocTitle: HDR_Title.trim(),
+          iTPDateLastUpdated: HDR_EffectDate,
+          iTPRevisionNo: HDR_Revision.trim(),
+          iTPApplicableTo: [HDR_Dept, HDR_Team].filter(Boolean).join(' / '),
+          iTPComments: [
+            `Created: ${HDR_TimeCreated}`,
+            `Status: ${HDR_Selection1}`,
+            `Approved By: ${HDR_AppBy}`,
+            HDR_Distributed ? `Distributed: ${HDR_Distributed}` : '',
+            BODY_Body,
+            BODY_Comments,
+          ].filter(Boolean).join('\n'),
+        };
+        await createExtDocs(extDocsData);
+      }
       toast.success(`SAP DRP Procedure submitted! Ref: ${recordNo}`);
       navigate('/it/forms/sapdrp');
     } catch (error: unknown) {
@@ -186,9 +212,10 @@ export default function SAPDRPNewFormPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Department <span className="text-destructive">*</span></Label>
-                  <Input
+                  <SharePointLookupSelect
+                    kind="department"
                     value={HDR_Dept}
-                    onChange={e => setHDR_Dept(e.target.value)}
+                    onChange={setHDR_Dept}
                     placeholder="Owning department"
                   />
                 </div>
@@ -205,9 +232,9 @@ export default function SAPDRPNewFormPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Approved By <span className="text-destructive">*</span></Label>
-                  <Input
+                  <EmployeePicker
                     value={HDR_AppBy}
-                    onChange={e => setHDR_AppBy(e.target.value)}
+                    onChange={(email) => setHDR_AppBy(email)}
                     placeholder="Approver name or email"
                   />
                 </div>
@@ -257,11 +284,11 @@ export default function SAPDRPNewFormPage() {
             </Button>
             <Button
               type="submit"
-              disabled={isPending}
+              disabled={isPending || extDocsPending}
               className="bg-primary hover:bg-[#002244] text-white"
             >
               <FileText className="h-4 w-4 mr-2" />
-              {isPending ? 'Submitting...' : 'Submit SAP DRP'}
+              {isPending || extDocsPending ? 'Submitting...' : 'Submit SAP DRP'}
             </Button>
           </div>
         </motion.form>

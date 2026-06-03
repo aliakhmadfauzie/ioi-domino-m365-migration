@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { toast } from 'sonner';
 import { useUser } from '@/hooks/use-user';
 import { useSharePointCompanies, useSharePointDepartments } from '@/hooks/use-sharepoint-config';
+import { EmployeePicker } from '@/components/employee-picker';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { MainDBITExtAssetsService } from '@/generated/services/main-dbit-ext-assets-service';
 import type { MainDBITExtAssets } from '@/generated/models/main-dbit-ext-assets-model';
@@ -200,15 +201,15 @@ export default function HINewPage() {
       const assetId = formData.assetTag || `IOI-IT-${new Date().getFullYear().toString().slice(-2)}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
 
       const now = new Date();
-      // CurrentStatus: 'CurrentstatusKey0' = Active (for registration), 'CurrentstatusKey3' = Draft (for draft saves)
+      // CurrentStatus: 'active' = Active (for registration), 'draft' = Draft (for draft saves)
       const parentRecord = await createMutation.mutateAsync({
         title: assetId,
         formcode: 'HI',
-        currentStatus: isDraft ? 'CurrentstatusKey3' : 'CurrentstatusKey0',
+        currentStatus: isDraft ? 'draft' : 'active',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: now.toISOString(),
         company: formData.company || '',
-        remarks: formData.notes || '',
+        subject: formData.assetTag || formData.serialNumber || assetId,
       });
 
       // Also create child record in MainDB_IT_Ext_Assets for hardware-specific fields
@@ -254,6 +255,7 @@ export default function HINewPage() {
           hIBuilding: formData.building || '',
           hIFloor: formData.floor || '',
           hIRoom: formData.room || '',
+          hIProbFindings: formData.notes || '',
         };
         await MainDBITExtAssetsService.create(extAssetsData as unknown as Omit<MainDBITExtAssets, 'id'>);
       } catch (childError) {
@@ -269,7 +271,7 @@ export default function HINewPage() {
       }
 
       toast.success(isDraft ? 'Draft saved successfully' : 'Hardware asset registered successfully');
-      navigate('/it/my-submissions');
+      navigate('/it/forms/hi');
     } catch (error: unknown) {
       toast.error('Failed to register asset');
       console.error(error);
@@ -481,22 +483,19 @@ export default function HINewPage() {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div className="space-y-2">
                     <Label>Assigned User</Label>
-                    <Input
-                      value={formData.assignedUser}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, assignedUser: e.target.value })}
-                      placeholder="Employee name"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>User Email</Label>
-                    <Input
-                      type="email"
+                    <EmployeePicker
                       value={formData.assignedUserEmail}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, assignedUserEmail: e.target.value })}
-                      placeholder="user@ioigroup.com"
+                      onChange={(email, employee) => setFormData({
+                        ...formData,
+                        assignedUserEmail: email,
+                        assignedUser: employee?.fullName || '',
+                      })}
+                      placeholder="Search employee..."
+                      showEmail
+                      showTitle
                     />
                   </div>
                 </div>
@@ -728,11 +727,12 @@ export default function HINewPage() {
                   </div>
                   <div className="space-y-2">
                     <Label>M365 Email</Label>
-                    <Input
-                      type="email"
+                    <EmployeePicker
                       value={formData.msEmail}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, msEmail: e.target.value })}
-                      placeholder="user@ioigroup.com"
+                      onChange={(email) => setFormData({ ...formData, msEmail: email })}
+                      placeholder="Search employee email..."
+                      showEmail
+                      showTitle
                     />
                   </div>
                 </div>

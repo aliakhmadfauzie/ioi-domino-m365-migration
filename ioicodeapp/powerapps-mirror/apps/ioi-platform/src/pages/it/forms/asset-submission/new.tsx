@@ -48,6 +48,7 @@ import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import { useSharePointDepartments } from '@/hooks/use-sharepoint-config';
+import { EmployeePicker } from '@/components/employee-picker';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { useCreateMainDBITExtAssets } from '@/generated/hooks/use-main-dbitext-assets';
@@ -156,6 +157,7 @@ export default function AssetSubmissionNewFormPage() {
 
     // Assignment
     assignedTo: '',
+    assignedToEmail: '',
     assignedDepartment: '',
     assignedLocation: '',
     installationDate: undefined as Date | undefined,
@@ -204,20 +206,6 @@ export default function AssetSubmissionNewFormPage() {
   const purchaseMonth = formData.purchaseDate ? formData.purchaseDate.getMonth() + 1 : undefined;
   const purchasePrice = Number(formData.purchaseValue);
 
-  const buildRemarks = () => [
-    `Priority: ${value('priority')}`,
-    `Phone: ${value('requesterPhone')}`,
-    `Warranty period: ${value('warrantyPeriod')}`,
-    `Installation date: ${isoDate(formData.installationDate) || ''}`,
-    `Asset usage: ${value('assetUsage')}`,
-    `Security classification: ${value('securityClassification')}`,
-    `Network access: ${formData.networkAccess ? 'Yes' : 'No'}`,
-    `VPN required: ${formData.vpnRequired ? 'Yes' : 'No'}`,
-    `Software licenses: ${value('softwareLicenses')}`,
-    `Special software: ${value('specialSoftware')}`,
-    `Notes: ${value('additionalNotes')}`,
-  ].filter((line) => !line.endsWith(': ')).join('\n');
-
   const buildAssetColumns = () => ({
     hITagNo: value('assetTagNumber'),
     hIAssetNo: value('assetTagNumber') || value('assetSerialNumber'),
@@ -228,7 +216,7 @@ export default function AssetSubmissionNewFormPage() {
     hIPurchaseDate: isoDate(formData.purchaseDate),
     hISerialNo: value('assetSerialNumber'),
     hIStatus: value('assetCondition'),
-    hIUsedByEmail: value('assignedTo'),
+    hIUsedByEmail: value('assignedToEmail') || value('assignedTo'),
     hIVendor: value('vendor'),
     hIYear: purchaseYear,
     hIMonth: purchaseMonth,
@@ -246,10 +234,25 @@ export default function AssetSubmissionNewFormPage() {
       hIHDDSize: value('storage'),
       hIRAMSize: value('memory'),
       hIIPAddress: value('ipAddress'),
+      hIMACAddress: value('macAddress'),
       hIWindowsVersion: value('operatingSystem'),
       hIInvoiceNo: value('invoiceNumber'),
       hIWinServicePack: value('warrantyPeriod'),
       hISentBy: value('requesterEmail') || user?.userPrincipalName || '',
+      hIProbFindings: [
+        value('assetUsage') && `Asset usage: ${value('assetUsage')}`,
+        value('additionalNotes') && `Notes: ${value('additionalNotes')}`,
+        value('requesterPhone') && `Requester phone: ${value('requesterPhone')}`,
+        value('priority') && `Priority: ${value('priority')}`,
+      ].filter(Boolean).join('\n'),
+      hIActions: [
+        `Security classification: ${value('securityClassification')}`,
+        `Network access: ${formData.networkAccess ? 'Yes' : 'No'}`,
+        `VPN required: ${formData.vpnRequired ? 'Yes' : 'No'}`,
+        value('softwareLicenses') && `Software licenses: ${value('softwareLicenses')}`,
+        value('specialSoftware') && `Special software: ${value('specialSoftware')}`,
+        isoDate(formData.installationDate) && `Installation date: ${isoDate(formData.installationDate)}`,
+      ].filter(Boolean).join('\n'),
     };
 
     await createMainDBITExtAssets.mutateAsync(extPayload);
@@ -269,7 +272,7 @@ export default function AssetSubmissionNewFormPage() {
       const parent = await createMainDBIT.mutateAsync({
         title: reference,
         formcode: 'ASSETSUBMISSION',
-        currentStatus: 'CurrentstatusKey4',
+        currentStatus: 'sent',
         currentAction: 'Pending IT Admin Review',
         requestoremail: value('requesterEmail') || user?.userPrincipalName || '',
         requestorName: value('requesterName') || user?.fullName || '',
@@ -277,7 +280,7 @@ export default function AssetSubmissionNewFormPage() {
         workflowstage: 1,
         siteKey: 'SiteKey2',
         islocked: false,
-        remarks: buildRemarks(),
+        subject: `${value('assetType') || 'Asset'} ${value('assetBrand')} ${value('assetModel')}`.trim(),
         ...buildAssetColumns(),
         hIPONumber: value('invoiceNumber'),
         hIWarrantyExpiry: isoDate(formData.warrantyExpiry),
@@ -1075,13 +1078,16 @@ function AssignmentStep({
             <Label className="text-slate-300">
               Assigned To <span className="text-red-400">*</span>
             </Label>
-            <Input
-              value={formData.assignedTo as string}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                updateFormData('assignedTo', e.target.value)
-              }
-              placeholder="Employee name"
-              className="bg-slate-900/50 border-slate-600 text-white placeholder:text-slate-500"
+            <EmployeePicker
+              value={formData.assignedToEmail as string}
+              onChange={(email, employee) => {
+                updateFormData('assignedToEmail', email);
+                updateFormData('assignedTo', employee?.fullName || '');
+              }}
+              placeholder="Search employee..."
+              showEmail
+              showTitle
+              className="[&_button]:bg-slate-900/50 [&_button]:border-slate-600 [&_button]:text-white"
             />
           </div>
 

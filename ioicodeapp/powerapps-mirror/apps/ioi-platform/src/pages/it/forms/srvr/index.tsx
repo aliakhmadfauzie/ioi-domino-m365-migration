@@ -13,6 +13,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
 import { getITFormCodeFilter } from '@/lib/it-form-routes';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SVRRECRecord {
   id: string;
@@ -94,6 +98,10 @@ const columns: ColumnDef<SVRRECRecord>[] = [
 ];
 
 export default function SVRRECDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const navigate = useNavigate();
   const [selectedRecord, setSelectedRecord] = useState<SVRRECRecord | null>(null);
 
@@ -162,6 +170,25 @@ export default function SVRRECDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return svrrecData;
+    return svrrecData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [svrrecData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => svrrecData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [svrrecData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => svrrecData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [svrrecData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -171,7 +198,7 @@ export default function SVRRECDatabaseView() {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-xl font-bold text-white">Server Record Analysis (SVRREC)</h1>
+              <h1 className="text-xl font-bold text-white">Server Record Analysis (SRVR)</h1>
               <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm">
                 Database View — All Server Records from SharePoint
               </p>
@@ -217,8 +244,15 @@ export default function SVRRECDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={svrrecData.length}
+          />
               <DatabaseTable
-                data={svrrecData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SVRRECRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by server, type, summary..."
@@ -234,7 +268,7 @@ export default function SVRRECDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SVRREC — ${selectedRecord?.recordNo || ''}`}
+        title={`Server Record Analysis — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Server: ${selectedRecord?.serverName || 'N/A'} · ${selectedRecord?.recType || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

@@ -73,10 +73,9 @@ export interface NIRTransitionOptions {
 /**
  * Map SharePoint currentStatus key to NIR CA state
  */
-function mapStatusToCA(currentStatus?: string, remarksCA?: string): NIRCurrentAction {
-  // If CA explicitly stored in remarks or a dedicated field, use it
-  if (remarksCA && Object.keys(NIR_WORKFLOW_CONFIG).includes(remarksCA)) {
-    return remarksCA as NIRCurrentAction;
+function mapStatusToCA(currentStatus?: string, currentAction?: string): NIRCurrentAction {
+  if (currentAction && Object.keys(NIR_WORKFLOW_CONFIG).includes(currentAction)) {
+    return currentAction as NIRCurrentAction;
   }
 
   // Fallback: map from SharePoint currentStatus keys
@@ -174,10 +173,10 @@ function determineRole(
 /**
  * Build a NIRRecord from a MainDBIT record
  */
-function buildNIRRecord(record: MainDBIT, remarksCA?: string): NIRRecord {
+function buildNIRRecord(record: MainDBIT): NIRRecord {
   return {
     ...record,
-    caState: mapStatusToCA(record.currentStatus, remarksCA),
+    caState: mapStatusToCA(record.currentStatus, record.currentAction),
   } as NIRRecord;
 }
 
@@ -256,16 +255,8 @@ export function useNIRWorkflow(record: NIRRecord | null) {
         mainPatch.nIRITHardwareStatus = 'Rejected';
       }
 
-      // Store CA state in remarks JSON for round-trip preservation
-      try {
-        const existingRemarks = record.remarks ? JSON.parse(record.remarks) : {};
-        existingRemarks.nirCA = toState;
-        if (options.comment) existingRemarks.nirComment = options.comment;
-        if (options.task) existingRemarks.nirTask = options.task;
-        mainPatch.remarks = JSON.stringify(existingRemarks);
-      } catch {
-        mainPatch.remarks = JSON.stringify({ nirCA: toState });
-      }
+      mainPatch.currentAction = toState;
+      if (options.comment) mainPatch.hODApproverRemarks = options.comment;
 
       await MainDBITService.update(String(record.id), mainPatch);
     },
@@ -340,14 +331,7 @@ export function useNIRWorkflow(record: NIRRecord | null) {
  * Parse a NIR record from MainDBIT (for use outside React components)
  */
 export function parseNIRRecord(record: MainDBIT): NIRRecord {
-  let remarksCA: string | undefined;
-  try {
-    const remarks = record.remarks ? JSON.parse(record.remarks) : {};
-    remarksCA = remarks.nirCA;
-  } catch {
-    // ignore
-  }
-  return buildNIRRecord(record, remarksCA);
+  return buildNIRRecord(record);
 }
 
 /**

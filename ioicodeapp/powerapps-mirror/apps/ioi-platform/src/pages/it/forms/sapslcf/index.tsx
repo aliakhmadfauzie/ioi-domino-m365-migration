@@ -12,6 +12,10 @@ import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/u
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SAPSLCFRecord {
   id: string;
@@ -90,6 +94,10 @@ const columns: ColumnDef<SAPSLCFRecord>[] = [
 ];
 
 export default function SAPSLCFDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<SAPSLCFRecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -158,6 +166,25 @@ export default function SAPSLCFDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return sapslcfData;
+    return sapslcfData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [sapslcfData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => sapslcfData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [sapslcfData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => sapslcfData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [sapslcfData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -215,8 +242,15 @@ export default function SAPSLCFDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={sapslcfData.length}
+          />
               <DatabaseTable
-                data={sapslcfData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SAPSLCFRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by plant, location code, requestor..."
@@ -232,7 +266,7 @@ export default function SAPSLCFDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SAPSLCF — ${selectedRecord?.recordNo || ''}`}
+        title={`SAP Storage Location Creation — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Plant: ${selectedRecord?.plantCode || 'N/A'} · Loc: ${selectedRecord?.storageLocCode || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

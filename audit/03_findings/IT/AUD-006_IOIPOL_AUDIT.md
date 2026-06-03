@@ -9,8 +9,8 @@
 | Form Name | IOI Policy |
 | Department | IT |
 | Batch | 002 |
-| Audit Date | 2026-06-01 |
-| Final Status | Completed - Issues Found |
+| Audit Date | 2026-06-03 |
+| Final Status | Verified |
 | Approval Classification | Required |
 | Risk | High |
 
@@ -37,22 +37,22 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ioip/new.tsx`
+- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/new.tsx`
 - Code/formula/section: MainDB_IT and extension create logic
-- What was found: The new page creates a parent record with `formcode: 'IOIP'`, `currentStatus: 'CurrentstatusKey3'`, and `workflowstage: 1`, then references `parentFormCode: 'IOIP'` for extension data.
-- Why it matters: The runtime form code is IOIP, while the audit item and schema naming use IOIPOL.
+- What was found: The new page creates a parent record with `formcode: 'IOIP'`, pending policy approval status `CurrentstatusKey55`, and `workflowstage: 2`, then creates policy extension data.
+- Why it matters: The runtime form code is IOIP, while the audit item and schema naming use IOIPOL; DEC-2026-009 approves this alias path for UAT.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ioip/index.tsx`
+- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/index.tsx`
 - Code/formula/section: List read filters
 - What was found: The list reads MainDB_IT with `formcode eq 'IOIP'` and ExtPolicy with `parentFormCode eq 'IOIP'`.
 - Why it matters: The app consistently uses IOIP, but the register item is IOIPOL.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ioip/new.tsx`
+- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/new.tsx`
 - Code/formula/section: Email calls
-- What was found: The submit path sends approval/confirmation emails.
-- Why it matters: Email notification exists, but persisted approval transitions were not fully proven.
+- What was found: The submit path sends approval/confirmation emails, and the dedicated detail page persists approval actions and policy extension fields.
+- Why it matters: Notification now has matching app-side persistence evidence.
 
 ## 4. UI/Form Fields
 
@@ -65,7 +65,7 @@
 ## 5. SharePoint Field Mapping
 
 - Source: Generated model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-policy-model.ts`
+- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-policy-model.ts`
 - Code/formula/section: IOIP policy fields
 - What was found: The generated policy extension model includes IOIP fields.
 - Why it matters: Structured policy extension fields exist and should be used consistently.
@@ -73,7 +73,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ioip/index.tsx`
+- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/index.tsx`
 - Code/formula/section: MainDB_IT and ExtPolicy queries
 - What was found: Read logic filters both parent and extension lists by IOIP.
 - Why it matters: IOIPOL register rows may not align with runtime records stored as IOIP.
@@ -81,10 +81,10 @@
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ioip/new.tsx`
+- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/new.tsx`
 - Code/formula/section: Submit payload
-- What was found: New IOIP records are initially created as `CurrentstatusKey3`, which maps to Draft.
-- Why it matters: Draft behavior exists, but approval-required transition behavior must be verified.
+- What was found: New IOIP records are initially created as `CurrentstatusKey55` with `workflowstage: 2`, and policy extension status is initialized to pending approval.
+- Why it matters: The approval-required lifecycle now starts in the expected pending policy approval state.
 
 ## 8. Validation Rules
 
@@ -105,33 +105,33 @@
 ## 10. Approval Workflow
 
 - Source: Workflow rules documentation and app email logic
-- File path: `docs/04_WORKFLOW_APPROVAL_RULES.md`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ioip/new.tsx`
+- File path: `docs/04_WORKFLOW_APPROVAL_RULES.md`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/new.tsx`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/detail.tsx`
 - Code/formula/section: IOIPOL approval classification and submit notifications
-- What was found: Documentation classifies approval as Required and the app sends approval-related emails, but persisted approval status transitions were not proven.
-- Why it matters: Notification alone is not sufficient approval workflow evidence.
+- What was found: Documentation classifies approval as Required; the app sends approval-related emails and persists approval actions to parent history plus MainDB_IT_Ext_Policy fields.
+- Why it matters: Approval-required behavior has app-side persistence evidence.
 
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: Status model and submit code
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ioip/new.tsx`
-- Code/formula/section: `CurrentstatusKey3`
-- What was found: IOIP starts as Draft.
-- Why it matters: Draft behavior is evidenced, but submit-for-approval and approval completion behavior remain incomplete.
+- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/new.tsx`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ioip/detail.tsx`
+- Code/formula/section: `CurrentstatusKey55` through approval/distribution/archive actions
+- What was found: IOIP starts as pending policy approval and action buttons persist policy status/date/comment/replied fields by stage.
+- Why it matters: Submit-for-approval and approval completion behavior are verified for the app-side UAT path.
 
 ## 12. Issues Found
 
 | Issue ID | Risk | Status | Description |
 |---|---|---|---|
-| AUD-B002-IOIPOL-001 | High | Ready for Fix | Audit/schema naming uses IOIPOL while runtime form code and route use IOIP. |
-| AUD-B002-IOIPOL-002 | High | Ready for Fix | Approval is Required, but only Draft creation and email notification were proven; persisted approval transitions remain unverified. |
+| AUD-B002-IOIPOL-001 | High | Verified | Audit/schema naming uses IOIPOL while runtime form code and route use IOIP; DEC-2026-009 aliases IOIPOL to active IOIP for UAT and canonical detail routes now open the dedicated IOIP detail page. |
+| AUD-B002-IOIPOL-002 | High | Verified | Approval is Required; persisted transitions now update parent approval action history and MainDB_IT_Ext_Policy approval fields. |
 
 ## 13. Risk Assessment
 
-Risk is High because approval-required policy records may not have a complete persisted workflow, and form-code mismatch can affect reporting and filtering.
+Risk is reduced for the UAT code-first app path because alias routing and approval persistence were re-audited. Live SharePoint create/readback remains a separate evidence boundary.
 
 ## 14. Final Decision
 
-Completed - Issues Found. IOIPOL has source and app evidence, but form-code naming and approval persistence need remediation.
+Verified after remediation. IOIPOL is handled through the active IOIP implementation for UAT, and approval persistence is verified by `audit/build_reviews/FIX-029_IOIPOL_APPROVAL_PERSISTENCE_RE_AUDIT.md`.
 
 ## 15. Quality Checklist
 
@@ -141,5 +141,4 @@ Completed - Issues Found. IOIPOL has source and app evidence, but form-code nami
 | App file found | Yes |
 | SharePoint schema evidence found | Yes |
 | Approval assumed | No |
-| Ready for Build | No |
-
+| Ready for Build | Yes - app-side UAT path verified; live tenant readback not run |

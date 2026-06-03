@@ -1020,18 +1020,14 @@ export default function SubmissionDetailPage() {
               disabled={updateMutation.isPending}
               onClick={() => {
                 if (!submission) return;
-                const existingRemarks = submission.remarks ? JSON.parse(submission.remarks) : {};
-                const updatedRemarks = {
-                  ...existingRemarks,
-                  withdrawnAt: new Date().toISOString(),
-                  withdrawReason: withdrawReason || 'No reason provided',
-                };
+                const actionStamp = `[${new Date().toISOString()}] Withdrawn: ${withdrawReason || 'No reason provided'}`;
                 updateMutation.mutate(
                   {
                     id: String(submission.id),
                     changedFields: {
-                      currentStatus: 'CurrentstatusKey6', // Withdrawn
-                      remarks: JSON.stringify(updatedRemarks),
+                      currentStatus: 'withdrawn',
+                      currentAction: 'WITHDRAWN',
+                      hODApproverRemarks: [submission.hODApproverRemarks, actionStamp].filter(Boolean).join('\n'),
                     },
                   },
                   {
@@ -1091,18 +1087,14 @@ export default function SubmissionDetailPage() {
               disabled={updateMutation.isPending}
               onClick={() => {
                 if (!submission) return;
-                const existingRemarks = submission.remarks ? JSON.parse(submission.remarks) : {};
-                const updatedRemarks = {
-                  ...existingRemarks,
-                  cancelledAt: new Date().toISOString(),
-                  cancelReason: cancelReason || 'No reason provided',
-                };
+                const actionStamp = `[${new Date().toISOString()}] Cancelled: ${cancelReason || 'No reason provided'}`;
                 updateMutation.mutate(
                   {
                     id: String(submission.id),
                     changedFields: {
                       currentStatus: 'CurrentstatusKey6', // Withdrawn
-                      remarks: JSON.stringify(updatedRemarks),
+                      currentAction: 'CANCELLED',
+                      hODApproverRemarks: [submission.hODApproverRemarks, actionStamp].filter(Boolean).join('\n'),
                     },
                   },
                   {

@@ -73,8 +73,10 @@ import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { ApprovalRecordsService } from '@/generated/services/approval-records-service';
 import { ITSAPSOFTestEvidenceService } from '@/generated/services/it-sapsof-test-evidence-service';
 import { MainDBITService } from '@/generated/services/main-dbit-service';
+import { MainDBITExtSAPService } from '@/generated/services/main-dbit-ext-sap-service';
 import type { ApprovalRecords } from '@/generated/models/approval-records-model';
 import type { ITSAPSOFTestEvidence } from '@/generated/models/it-sapsof-test-evidence-model';
+import type { MainDBITExtSAP } from '@/generated/models/main-dbit-ext-sap-model';
 import { EmployeePicker } from '@/components/employee-picker';
 import type { SelectedEmployee } from '@/components/employee-picker';
 import { useSAPRoutingEmails } from '@/hooks/use-app-settings-lookup';
@@ -215,11 +217,11 @@ function toEvidenceChildRecord(
       ? `${record.testerName} (${record.testerEmail || ''})`
       : record.testerEmail,
     evidenceTestedDate: submittedDate,
-    evidenceRemarks: JSON.stringify({
-      tCode: record.tCode,
-      testParameters: record.testParameters,
-      evidenceAttachmentUrl: record.evidenceAttachmentUrl || '',
-    }),
+    evidenceRemarks: [
+      `T-Code: ${record.tCode}`,
+      record.testParameters ? `Test Parameters: ${record.testParameters}` : null,
+      record.evidenceAttachmentUrl ? `Evidence Attachment: ${record.evidenceAttachmentUrl}` : null,
+    ].filter(Boolean).join('\n'),
   };
 }
 
@@ -462,78 +464,57 @@ export default function SAPSOF2NewFormPage() {
       const submissionData = {
         title: ticketId,
         formcode: 'SAPSOF2',
-        currentStatus: 'CurrentstatusKey47' as const, // Pending KU Sign-Off
+        currentStatus: 'pending-ku-sign-off',
         siteKey: 'SiteKey0' as const, // Prai
         requestoremail: user?.userPrincipalName || '',
+        requestorName: user?.fullName || '',
+        currentAction: 'KeyUserSignoff',
+        subject: `${data.moduleName} ${data.trNumber}`.trim(),
         submitteddate: submissionDate,
         workflowstage: 2, // Key User Signoff stage
         islocked: false,
-        remarks: [
-          '=== SAP UAT Sign-Off Form (SAPSOF2) ===',
-          '',
-          '--- UAT Package Information ---',
-          `Client: ${data.client}`,
-          `Client Number: ${data.clientNumber}`,
-          `Plant: ${data.plant}`,
-          `Module: ${data.moduleName}`,
-          `Reference Name: ${data.referenceName || 'N/A'}`,
-          `TR Number: ${data.trNumber}`,
-          `IT Remarks: ${data.itRemarks || 'N/A'}`,
-          `IT Package Attachment: ${data.itPackageAttachmentUrl || 'N/A'}`,
-          '',
-          '--- IT Functional Owner ---',
-          `Email: ${data.itFunctionalOwnerEmail}`,
-          `Name: ${data.itFunctionalOwnerName || 'N/A'}`,
-          `CC: ${ccList || 'N/A'}`,
-          '',
-          '--- Key Users ---',
-          data.keyUser1Email ? `KU1: ${data.keyUser1Name || ''} (${data.keyUser1Email})` : '',
-          data.keyUser2Email ? `KU2: ${data.keyUser2Name || ''} (${data.keyUser2Email})` : '',
-          data.keyUser3Email ? `KU3: ${data.keyUser3Name || ''} (${data.keyUser3Email})` : '',
-          data.keyUser4Email ? `KU4: ${data.keyUser4Name || ''} (${data.keyUser4Email})` : '',
-          data.keyUser5Email ? `KU5: ${data.keyUser5Name || ''} (${data.keyUser5Email})` : '',
-          '',
-          '--- BPO Approvers ---',
-          `BPO Required: ${bpoRequired ? 'Yes' : 'No'}`,
-          data.bpo1Email ? `BPO1: ${data.bpo1Name || ''} (${data.bpo1Email})` : '',
-          data.bpo2Email ? `BPO2: ${data.bpo2Name || ''} (${data.bpo2Email})` : '',
-          data.bpo3Email ? `BPO3: ${data.bpo3Name || ''} (${data.bpo3Email})` : '',
-          '',
-          '--- Test Evidence ---',
-          `Total Test Scenarios: ${testEvidenceRecords.length}`,
-          ...testEvidenceRecords.flatMap((te: SAPSOF2TestEvidence, idx: number) => [
-            `  Scenario #${idx + 1}: ${te.businessScenarioDescription}`,
-            `    T-Code: ${te.tCode} | Result: ${te.passFail}`,
-            `    Expected: ${te.expectedResult}`,
-            `    Actual: ${te.actualResult}`,
-            `    Tester: ${te.testerName || ''} (${te.testerEmail || ''})`,
-          ]),
-          '',
-          '--- Approval Records ---',
-          `Total Approval Slots: ${approvalRecords.length}`,
-          ...approvalRecords.map((ar: SAPSOF2ApprovalRecord) =>
-            `  ${ar.slotNumber}: ${ar.approverName || ''} (${ar.approverEmail}) - ${ar.decision}`
-          ),
-          '',
-          '--- Workflow ---',
-          `Current Stage: KeyUserSignoff`,
-          `Status: Pending KU Sign-Off`,
-          `Submitted: ${submissionDate}`,
-          `Submitted By: ${user?.fullName || 'Unknown'} (${user?.userPrincipalName || ''})`,
-          '',
-          '--- Routing Configuration ---',
-          `SAP Admin Email: ${sapAdminEmail || 'N/A'}`,
-          `SAP Functional Leads: ${sapFunctionalLeads || 'N/A'}`,
-          `Escalation Email: ${escalationEmail || 'N/A'}`,
-        ].filter(Boolean).join('\n'),
       };
       
       const createdSubmission = await createSubmission.mutateAsync(submissionData);
       const parentId = Number(createdSubmission.id);
       const createdApprovalChildren: ApprovalRecords[] = [];
       const createdEvidenceChildren: ITSAPSOFTestEvidence[] = [];
+      let createdSAPChild: MainDBITExtSAP | undefined;
 
       try {
+        createdSAPChild = await MainDBITExtSAPService.create({
+          title: `${ticketId}-sap`,
+          parentFormCode: 'SAPSOF2',
+          parentRecord: { id: parentId, title: ticketId },
+          parentSite: 'PRAI',
+          sAPClient: data.clientNumber || data.client,
+          sAPPlant: data.plant,
+          sAPModule: data.moduleName,
+          sAPTRNumber: data.trNumber,
+          sAPSOFTRNumber: data.trNumber,
+          sAPSOFDocTitle: data.referenceName || `${data.moduleName} UAT Sign-Off`,
+          sAPSOFTestPurpose: data.itPackageAttachmentUrl || 'SAP UAT sign-off package',
+          sAPSOFCurrentStage: 'KeyUserSignoff',
+          sAPSOFIsBPORequired: bpoRequired ? 'Yes' : 'No',
+          sAPSOFITSubmittedDate: submissionDate,
+          sAPRemarks: [
+            `Client: ${data.client}`,
+            `Client Number: ${data.clientNumber}`,
+            `Reference Name: ${data.referenceName || 'N/A'}`,
+            `IT Remarks: ${data.itRemarks || 'N/A'}`,
+            `IT Package Attachment: ${data.itPackageAttachmentUrl || 'N/A'}`,
+            `IT Functional Owner: ${data.itFunctionalOwnerName || 'N/A'} (${data.itFunctionalOwnerEmail})`,
+            `CC: ${ccList || 'N/A'}`,
+            `Key Users: ${keyUserSlots.filter((ku) => ku.email).map((ku) => `${ku.slot}: ${ku.name || ''} (${ku.email})`).join('; ') || 'N/A'}`,
+            `BPO Approvers: ${bpoSlots.filter((bpo) => bpo.email).map((bpo) => `${bpo.slot}: ${bpo.name || ''} (${bpo.email})`).join('; ') || 'N/A'}`,
+            `Total Test Scenarios: ${testEvidenceRecords.length}`,
+            `Total Approval Slots: ${approvalRecords.length}`,
+            `SAP Admin Email: ${sapAdminEmail || 'N/A'}`,
+            `SAP Functional Leads: ${sapFunctionalLeads || 'N/A'}`,
+            `Escalation Email: ${escalationEmail || 'N/A'}`,
+          ].join('\n'),
+        });
+
         for (const approvalRecord of approvalRecords) {
           createdApprovalChildren.push(
             await ApprovalRecordsService.create(
@@ -557,6 +538,9 @@ export default function SAPSOF2NewFormPage() {
           ...createdApprovalChildren.map((child) =>
             ApprovalRecordsService.delete(String(child.id))
           ),
+          createdSAPChild
+            ? MainDBITExtSAPService.delete(String(createdSAPChild.id))
+            : Promise.resolve(),
         ]);
         await MainDBITService.delete(String(createdSubmission.id));
         throw childError;

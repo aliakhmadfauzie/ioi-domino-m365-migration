@@ -26,6 +26,10 @@ import type { MainDBITExtPolicy } from '@/generated/models/main-dbit-ext-policy-
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { statusConfig } from '@/lib/status-utils';
 import { getITFormDetailPath } from '@/lib/it-form-routes';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 // =============================================================================
 // Status tabs matching Domino FinalStatus values
@@ -66,7 +70,10 @@ const STATUS_BG: Record<string, string> = {
 
 export default function IOIPDatabaseView() {
   const navigate = useNavigate();
+  const { data: currentUser } = useUser();
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
   const [activeTab, setActiveTab] = useState('all');
+  const [userTab, setUserTab] = useState<ITIndexTab>('all');
   const [searchTerm, setSearchTerm] = useState('');
 
   // Fetch MainDB_IT records filtered by IOIP formcode
@@ -117,13 +124,24 @@ export default function IOIPDatabaseView() {
     });
   }, [mainRecords, extRecords]);
 
-  // Filter by status tab
+  const mySubmissionsCount = useMemo(
+    () => ioipRecords.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [ioipRecords, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => ioipRecords.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [ioipRecords, userEmail]
+  );
+
+  // Filter by status tab + user tab + search
   const filtered = useMemo(() => {
     const q = searchTerm.toLowerCase();
     return ioipRecords.filter((r) => {
-      // Tab filter
       if (activeTab !== 'all' && r.finalStatus !== activeTab) return false;
-      // Search filter
+      if (userTab !== 'all' && r.mainRecord) {
+        if (userTab === 'mine' && !isMySubmission(r.mainRecord, userEmail)) return false;
+        if (userTab === 'actions' && !isMyAction(r.mainRecord, userEmail)) return false;
+      }
       if (q) {
         return (
           r.policyNo.toLowerCase().includes(q) ||
@@ -134,7 +152,7 @@ export default function IOIPDatabaseView() {
       }
       return true;
     });
-  }, [ioipRecords, activeTab, searchTerm]);
+  }, [ioipRecords, activeTab, userTab, userEmail, searchTerm]);
 
   if (isLoading) return <PageLoading message="Loading IOI Policy records..." />;
 
@@ -147,7 +165,7 @@ export default function IOIPDatabaseView() {
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div>
-            <h1 className="text-xl font-bold text-white">IOI Policy</h1>
+            <h1 className="text-xl font-bold text-white">IOI Policy (IOIP)</h1>
             <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>
               Company policy management — Draft → Approval → Distribution → Archive
             </p>
@@ -162,6 +180,13 @@ export default function IOIPDatabaseView() {
       </header>
 
       <div className="p-6 max-w-5xl mx-auto space-y-6">
+        <ITFormIndexTabs
+          activeTab={userTab}
+          onTabChange={setUserTab}
+          mySubmissionsCount={mySubmissionsCount}
+          myActionsCount={myActionsCount}
+          totalCount={ioipRecords.length}
+        />
         {/* Status Summary Cards */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}

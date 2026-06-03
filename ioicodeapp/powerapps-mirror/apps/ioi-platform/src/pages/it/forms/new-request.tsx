@@ -25,8 +25,10 @@ import {
 } from '@/components/multi-step-form';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
+import { useCreateMainDBITExtSupport } from '@/generated/hooks/use-main-dbitext-support';
 import { ITSSR } from '@/lib/it-forms-config';
 import { MainDBIT } from '@/generated/models';
+import type { MainDBITExtSupport } from '@/generated/models/main-dbit-ext-support-model';
 
 // =============================================================================
 // RETRY HELPER - handles transient "data model being updated" errors
@@ -238,6 +240,7 @@ export default function NewRequestPage() {
 
   const { data: user } = useUser();
   const { mutateAsync: createMainDBIT } = useCreateMainDBIT();
+  const { mutateAsync: createExtSupport } = useCreateMainDBITExtSupport();
 
   // Get fields for current step
   const currentFields = useMemo(() => {
@@ -273,19 +276,41 @@ export default function NewRequestPage() {
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 0,
-        remarks: JSON.stringify({
-          ...formData,
-          category: selectedCategory,
-          step: currentStep,
-          isDraft: true,
-        }),
+        currentAction: 'Draft',
+        subject: `IT Support Request - ${selectedCategory || 'General'}`,
       };
 
       // Retry with exponential backoff for transient errors
-      await retryWithBackoff(
+      const created = await retryWithBackoff(
         () => createMainDBIT(record),
         handleRetryNotification
       );
+
+      if (created?.id) {
+        const supportRecord: Omit<MainDBITExtSupport, 'id'> = {
+          title: `${ticketId}-support`,
+          parentFormCode: ITSSR.code,
+          parentRecord: { id: created.id, title: ticketId },
+          parentSite: formData.location as string || 'MY-PR',
+          iTSSRReportedByEmail: user?.userPrincipalName || '',
+          iTSSRProblemCategory: selectedCategory || '',
+          iTSSRServiceType: String(formData.affectedSystems || ''),
+          iTSSRProblemDescription: [
+            `Affected Systems: ${formData.affectedSystems || ''}`,
+            `Affected Users: ${formData.affectedUsers || ''}`,
+            `Location: ${formData.location || ''}`,
+            formData.errorMessage ? `Error: ${formData.errorMessage}` : '',
+            formData.deviceInfo ? `Device: ${formData.deviceInfo}` : '',
+          ].filter(Boolean).join('\n'),
+          iTSSRITRemarks: [
+            `Draft Step: ${currentStep}`,
+            `Restarted: ${formData.troubleshootingDone ? 'Yes' : 'No'}`,
+            `Cleared Cache: ${formData.clearedCache ? 'Yes' : 'No'}`,
+            `Checked Connectivity: ${formData.checkedConnectivity ? 'Yes' : 'No'}`,
+          ].join('\n'),
+        };
+        await retryWithBackoff(() => createExtSupport(supportRecord));
+      }
       toast.success(`Draft saved! Ticket: ${ticketId}`);
       navigate('/it/support');
     } catch (error: unknown) {
@@ -329,17 +354,8 @@ export default function NewRequestPage() {
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
-        remarks: JSON.stringify({
-          ...formData,
-          category: selectedCategory,
-          priority,
-          affectedSystemsList: formData.affectedSystems,
-          troubleshooting: {
-            restarted: formData.troubleshootingDone,
-            clearedCache: formData.clearedCache,
-            checkedConnectivity: formData.checkedConnectivity,
-          },
-        }),
+        currentAction: 'PendingIT',
+        subject: `IT Support Request - ${selectedCategory || formData.affectedSystems || 'General'}`,
       };
 
       // Retry with exponential backoff for transient errors
@@ -347,6 +363,34 @@ export default function NewRequestPage() {
         () => createMainDBIT(record),
         handleRetryNotification
       );
+
+      if (result?.id) {
+        const supportRecord: Omit<MainDBITExtSupport, 'id'> = {
+          title: `${ticketId}-support`,
+          parentFormCode: ITSSR.code,
+          parentRecord: { id: result.id, title: ticketId },
+          parentSite: formData.location as string || 'MY-PR',
+          iTSSRReportedByEmail: user?.userPrincipalName || '',
+          iTSSRProblemCategory: selectedCategory || '',
+          iTSSRServiceType: String(formData.affectedSystems || ''),
+          iTSSRProblemDescription: [
+            `Priority: ${priority}`,
+            `Affected Systems: ${formData.affectedSystems || ''}`,
+            `Affected Users: ${formData.affectedUsers || ''}`,
+            `Location: ${formData.location || ''}`,
+            formData.issueStartDate ? `Started: ${formData.issueStartDate}` : '',
+            formData.isRecurring ? `Recurring: ${formData.isRecurring}` : '',
+            formData.errorMessage ? `Error: ${formData.errorMessage}` : '',
+            formData.deviceInfo ? `Device: ${formData.deviceInfo}` : '',
+          ].filter(Boolean).join('\n'),
+          iTSSRITRemarks: [
+            `Restarted: ${formData.troubleshootingDone ? 'Yes' : 'No'}`,
+            `Cleared Cache: ${formData.clearedCache ? 'Yes' : 'No'}`,
+            `Checked Connectivity: ${formData.checkedConnectivity ? 'Yes' : 'No'}`,
+          ].join('\n'),
+        };
+        await retryWithBackoff(() => createExtSupport(supportRecord));
+      }
 
       // Store result for confirmation display
       const submissionData: SubmissionResult = {

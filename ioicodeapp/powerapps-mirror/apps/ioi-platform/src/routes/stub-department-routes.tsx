@@ -42,6 +42,7 @@ export const eiRoutes = (
     <Route path="forms" element={<EIFormsIndexPage />} />
     <Route path="forms/:formCode" element={<EIFormDatabaseView />} />
     <Route path="forms/:formCode/new" element={<EIFormNewPage />} />
+    <Route path=":module" element={<Navigate to="/ei/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />
@@ -58,6 +59,7 @@ export const pbiRoutes = (
     <Route path="forms" element={<PBIFormsIndexPage />} />
     <Route path="forms/:formCode" element={<PBIFormDatabaseView />} />
     <Route path="forms/:formCode/new" element={<PBIFormNewPage />} />
+    <Route path=":module" element={<Navigate to="/pbi/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />
@@ -74,6 +76,7 @@ export const rndRoutes = (
     <Route path="forms" element={<RNDFormsIndexPage />} />
     <Route path="forms/:formCode" element={<RNDFormDatabaseView />} />
     <Route path="forms/:formCode/new" element={<RNDFormNewPage />} />
+    <Route path=":module" element={<Navigate to="/rnd/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />
@@ -90,6 +93,7 @@ export const opsRoutes = (
     <Route path="forms" element={<OPSFormsIndexPage />} />
     <Route path="forms/:formCode" element={<OPSFormDatabaseView />} />
     <Route path="forms/:formCode/new" element={<OPSFormNewPage />} />
+    <Route path=":module" element={<Navigate to="/ops/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />
@@ -100,24 +104,9 @@ export const opsRoutes = (
   </Route>
 );
 
-function ADMINLayout() { return <DepartmentLayout departmentCode="ADMIN" />; }
 function POMLayout() { return <DepartmentLayout departmentCode="POM" />; }
 function PRCLayout() { return <DepartmentLayout departmentCode="PRC" />; }
 function SALayout() { return <DepartmentLayout departmentCode="SA" />; }
-
-export const adminStubRoutes = (
-  <Route path="admin/*" element={<ADMINLayout />}>
-    <Route index element={<Navigate to="/admin" replace />} />
-    <Route path="forms" element={<MySubmissionsPage />} />
-    <Route path="approvals" element={<Navigate to="/approvals" replace />} />
-    <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
-    <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />
-    <Route path="manager-dashboard" element={<Navigate to="/manager-dashboard" replace />} />
-    <Route path="help" element={<HelpPage />} />
-    <Route path="settings" element={<SettingsPage />} />
-    <Route path="*" element={<Navigate to="/admin" replace />} />
-  </Route>
-);
 
 export const pomStubRoutes = (
   <Route path="pom/*" element={<POMLayout />}>

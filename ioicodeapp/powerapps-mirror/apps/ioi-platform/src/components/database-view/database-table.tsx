@@ -53,6 +53,7 @@ import {
 import { Calendar as CalendarComponent } from '@/components/ui/calendar';
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import { getStatusStyle } from '@/lib/color-tokens';
+import { displayChoiceLabel } from '@/lib/display-labels';
 import type { DateRange } from 'react-day-picker';
 
 export interface ColumnDef<T> {
@@ -84,14 +85,15 @@ export interface DatabaseTableProps<T extends { id: string }> {
 type SortDirection = 'asc' | 'desc' | null;
 
 export function StatusBadge({ status }: { status: string }) {
-  const style = getStatusStyle(status);
-  const isCancelled = status.toLowerCase().replace(/[\s_-]+/g, '-') === 'cancelled';
+  const label = displayChoiceLabel(status, 'status');
+  const style = getStatusStyle(label);
+  const isCancelled = label.toLowerCase().replace(/[\s_-]+/g, '-') === 'cancelled';
   return (
     <Badge
       variant={style.badgeVariant}
       className={`${style.text} ${style.bg} ${style.border} font-medium${isCancelled ? ' line-through' : ''}`}
     >
-      {status}
+      {label}
     </Badge>
   );
 }
@@ -235,7 +237,8 @@ export function DatabaseTable<T extends { id: string }>(props: DatabaseTableProp
         .map((col: ColumnDef<T>) => {
           const value = (row as Record<string, unknown>)[col.key as string];
           const strValue = value instanceof Date ? format(value, 'yyyy-MM-dd') : String(value ?? '');
-          return `"${strValue.replace(/"/g, '""')}"`;
+          const displayValue = displayChoiceLabel(strValue, String(col.key));
+          return `"${displayValue.replace(/"/g, '""')}"`;
         })
         .join(',')
     );
@@ -254,7 +257,7 @@ export function DatabaseTable<T extends { id: string }>(props: DatabaseTableProp
       columns
         .map((col: ColumnDef<T>) => {
           const value = (row as Record<string, unknown>)[col.key as string];
-          return value instanceof Date ? format(value, 'yyyy-MM-dd') : String(value ?? '');
+          return value instanceof Date ? format(value, 'yyyy-MM-dd') : displayChoiceLabel(value, String(col.key));
         })
         .join('\t')
     );
@@ -406,7 +409,7 @@ export function DatabaseTable<T extends { id: string }>(props: DatabaseTableProp
                 <SelectItem value="all">All Statuses</SelectItem>
                 {uniqueStatuses.map((status: string) => (
                   <SelectItem key={status} value={status}>
-                    {status}
+                    {displayChoiceLabel(status, String(statusField))}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -620,7 +623,7 @@ export function DatabaseTable<T extends { id: string }>(props: DatabaseTableProp
                             ? col.render(value, row)
                             : value instanceof Date
                               ? format(value, 'PP')
-                              : String(value ?? '-')}
+                              : displayChoiceLabel(value, String(col.key))}
                         </TableCell>
                       );
                     })}

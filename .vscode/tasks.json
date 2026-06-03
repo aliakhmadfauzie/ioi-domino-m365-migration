@@ -2,6 +2,66 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "IOI: Start Vite Dev Server",
+            "type": "shell",
+            "command": "npm run dev",
+            "options": {
+                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "IOI Platform"
+            }
+        },
+        {
+            "label": "IOI: Typecheck",
+            "type": "shell",
+            "command": "npx tsc --noEmit",
+            "options": {
+                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+            },
+            "group": "build",
+            "problemMatcher": ["$tsc"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "IOI Platform"
+            }
+        },
+        {
+            "label": "IOI: Build",
+            "type": "shell",
+            "command": "npm run build",
+            "options": {
+                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+            },
+            "group": "build",
+            "problemMatcher": ["$tsc"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "IOI Platform"
+            }
+        },
+        {
+            "label": "IOI: Lint",
+            "type": "shell",
+            "command": "npm run lint",
+            "options": {
+                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+            },
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "IOI Platform"
+            }
+        },
+        {
             "label": "PAC: Auth List",
             "type": "shell",
             "command": "pac auth list",

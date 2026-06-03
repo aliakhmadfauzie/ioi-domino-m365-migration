@@ -6,6 +6,7 @@ import { CanonicalSubmissionDetailRedirect } from './shared';
 const MTRDepartmentHomePage = lazy(() => import('@/pages/mtr/index'));
 const MTRFormsIndexPage = lazy(() => import('@/pages/mtr/forms/index'));
 const MTRFormDatabaseView = lazy(() => import('@/pages/mtr/forms/[formCode]/index'));
+const MTRFormDetailPage = lazy(() => import('@/pages/mtr/forms/[formCode]/detail'));
 const MTRFormNewPage = lazy(() => import('@/pages/mtr/forms/new'));
 const HelpPage = lazy(() => import('@/pages/help'));
 const SettingsPage = lazy(() => import('@/pages/settings'));
@@ -20,6 +21,12 @@ export const mtrRoutes = (
     <Route path="forms" element={<MTRFormsIndexPage />} />
     <Route path="forms/:formCode" element={<MTRFormDatabaseView />} />
     <Route path="forms/:formCode/new" element={<MTRFormNewPage />} />
+    <Route path="forms/:formCode/detail/:id" element={<MTRFormDetailPage />} />
+    <Route path="emergency" element={<Navigate to="/mtr/forms" replace />} />
+    <Route path="energy" element={<Navigate to="/mtr/forms" replace />} />
+    <Route path="failure-analysis" element={<Navigate to="/mtr/forms" replace />} />
+    <Route path="inspection" element={<Navigate to="/mtr/forms" replace />} />
+    <Route path="planning" element={<Navigate to="/mtr/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />

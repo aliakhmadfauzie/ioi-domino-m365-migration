@@ -76,7 +76,7 @@ export default function ITDR2NewFormPage() {
       const parentRecord = await createMainDBIT({
         title: recordNo,
         formcode: 'ITDR2',
-        currentStatus: 'CurrentstatusKey4' as MainDBITCurrentstatusKey,
+        currentStatus: 'sent',
         subject: TASK_Title.trim(),
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),

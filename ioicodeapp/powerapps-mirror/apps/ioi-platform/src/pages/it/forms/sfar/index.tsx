@@ -16,6 +16,9 @@ import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/mode
 import type { MainDBITExtAccess } from '@/generated/models/main-dbit-ext-access-model';
 import { useUser } from '@/hooks/use-user';
 import { recordITApprovalAction, statusActionType } from '@/lib/it-approval-actions';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SFARRecord {
   id: string;
@@ -156,6 +159,10 @@ const columns: ColumnDef<SFARRecord>[] = [
 ];
 
 export default function SFARDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const navigate = useNavigate();
   const { data: user } = useUser();
   const [selectedRecord, setSelectedRecord] = useState<SFARRecord | null>(null);
@@ -385,6 +392,25 @@ export default function SFARDatabaseView() {
     return history;
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return sfarData;
+    return sfarData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [sfarData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => sfarData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [sfarData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => sfarData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [sfarData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -440,8 +466,15 @@ export default function SFARDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={sfarData.length}
+          />
               <DatabaseTable
-                data={sfarData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SFARRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by record number, server, folder path..."
@@ -458,7 +491,7 @@ export default function SFARDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SFAR - ${selectedRecord?.recordNo || ''}`}
+        title={`Share Folder Access Request — ${selectedRecord?.recordNo || ''}`}
         subtitle={`${selectedRecord?.requestType || ''} - ${selectedRecord?.serverName || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

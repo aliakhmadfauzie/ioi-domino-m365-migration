@@ -13,6 +13,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
 import { getITFormCodeFilter } from '@/lib/it-form-routes';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface ITEVTRecord {
   id: string;
@@ -104,6 +108,10 @@ const columns: ColumnDef<ITEVTRecord>[] = [
 ];
 
 export default function ITEVTDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<ITEVTRecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -164,6 +172,25 @@ export default function ITEVTDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return itevtData;
+    return itevtData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [itevtData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => itevtData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [itevtData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => itevtData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [itevtData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -175,7 +202,7 @@ export default function ITEVTDatabaseView() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-xl font-bold text-white">IT Event Log (ITEVT)</h1>
+              <h1 className="text-xl font-bold text-white">IT Event Log (ITE)</h1>
               <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm">
                 Database View — All Event Logs from SharePoint
               </p>
@@ -221,8 +248,15 @@ export default function ITEVTDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={itevtData.length}
+          />
               <DatabaseTable
-                data={itevtData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: ITEVTRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by event type, description..."
@@ -238,7 +272,7 @@ export default function ITEVTDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`ITEVT — ${selectedRecord?.recordNo || ''}`}
+        title={`IT Event Log — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Type: ${selectedRecord?.eventType || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

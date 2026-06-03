@@ -1,0 +1,274 @@
+[
+  {
+    "formCode": "ASSETSUBMISSION",
+    "routeSlug": "asset-submission",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-034 ASSET-SUBMISSION: Unknown / Unknown; Risk: Unknown. App page exists, but no source document or SharePoint schema mapping was found for the candidate form.",
+    "workflowLevelsActors": "No ITFormConfig workflow stages found for this route.",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "DCAL",
+    "routeSlug": "dcal",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-035 DCAL: Unknown / Unknown; Risk: Unknown. DCAL page route appears related to DCALOG, which is already blocked because source matching is unclear.",
+    "workflowLevelsActors": "IAL2: Draft / Visitor -> Review / IT Security -> Approved / IT Manager",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "DRR",
+    "routeSlug": "drr",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-036 DRR: Unknown / Unknown; Risk: Unknown. App route exists, but no original source document, SharePoint list mapping, or workflow evidence was found.",
+    "workflowLevelsActors": "IAL5: Draft / Requester -> Review / IT Manager -> Approved / IT Admin",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "EAF",
+    "routeSlug": "eaf",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-002 EAF: Approval workflow / Required; Missing/contradictory EAF extension fields and workflow status column names found.",
+    "workflowLevelsActors": "EAF: Submission / Requester -> Dept Head Approval / Department Head -> Division Director / Division Director -> IT Manager / IT Manager -> IT Provisioning / IT PIC; VPN: Submission / Requester -> HOD Approval / Head of Department -> IT Processing / IT Infrastructure -> Completion / IT Infrastructure",
+    "appApprovalImplementation": "ApprovalRecords create in detail.tsx; MainDBIT update on action in detail.tsx; approval UI/modal exists but some handlers are console-only in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "EDL",
+    "routeSlug": "edl",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-037 EDL: Unknown / Unknown; Risk: Unknown. App route exists, but no original source document, SharePoint list mapping, or workflow evidence was found.",
+    "workflowLevelsActors": "EDL: Submission / Requester -> HOD Approval / Head of Department -> IT Processing / IT Admin",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "HI",
+    "routeSlug": "hi",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-003 HI: Submission workflow / Not Required; Create writes Ext_Assets but list/detail read MainDB_IT; schema table placement conflicts with implementation.",
+    "workflowLevelsActors": "HI: Registration / IT Staff -> Update / IT Manager -> Audit / IT Auditor; HI_JHR: Registration / IT Staff",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "HWRR",
+    "routeSlug": "hwrr",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-038 HWRR: Unknown / Unknown; Risk: Unknown. App route/data file exists, but no original source document or workflow evidence was confirmed.",
+    "workflowLevelsActors": "HWRR: Submission / Requester -> HOD Approval / Head of Department -> IT Review / IT Infrastructure -> Procurement / Procurement -> IT Setup / IT Infrastructure -> Handover / IT Infrastructure",
+    "appApprovalImplementation": "persisted approval helper in [id].tsx; approval UI/action controls in [id].tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "IOIP",
+    "routeSlug": "ioip",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-039 IOIP: Approval workflow / Required; IOIP/IOIPOL ownership resolved by DEC-2026-009 and re-audited with FIX-029.",
+    "workflowLevelsActors": "IOIP: Draft / Author -> Pending Approval / Approvers 1-3 -> Distributed / Author -> Archived / Author",
+    "appApprovalImplementation": "persisted approval helper in detail.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ISGDOC",
+    "routeSlug": "isgdoc",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-007 ISGDOC: Submission workflow / Not Required; Risk: High. Source supports no approval; submit status is Approved and ExtDocs mapping is incomplete.",
+    "workflowLevelsActors": "No ITFormConfig workflow stages found for this route.",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ITDR",
+    "routeSlug": "itdr",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-040 ITDR: Submission workflow / Not Required; Risk: High. ITDR route stores FormCode ITDAILYRPT, uses Approved status, and does not prove ExtSupport read parity.",
+    "workflowLevelsActors": "ITDR: Sent / IT Staff",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ITDR2",
+    "routeSlug": "itdr2",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-009 ITDR2: Submission workflow / Not Required; Risk: High. New page exists, but no ITDR2 list/detail read implementation was found.",
+    "workflowLevelsActors": "ITDR2: Sent / IT Staff",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ITE",
+    "routeSlug": "ite",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "alias ITEVT workflow=Not Required; alias ITEVT form=Not Required",
+    "workflowLevelsActors": "IAL3: Draft / IT Staff -> Review / IT Manager -> Approved / IT Manager",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ITINFO",
+    "routeSlug": "itinfo",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-011 ITINFO: Submission workflow / Not Required; Risk: High. Workflow evidence conflicts; app writes ExtDocs but list evidence only proves MainDB_IT reads.",
+    "workflowLevelsActors": "ITI: Draft / IT Staff -> Publish / IT Admin",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ITP",
+    "routeSlug": "itp",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-041 ITP: Unknown / Unknown; Risk: Unknown. ITP source appears related to ISGDOC, already audited as AUD-007; separate route ownership remains unclear.",
+    "workflowLevelsActors": "ITP: Draft / IT Staff -> Approve / IT Manager; ITP2: Draft / IT Staff -> Review / IT Manager",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ITSC",
+    "routeSlug": "itsc",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-012 ITSC: Submission workflow / Not Required; Risk: High. Source supports no approval; submit status is Approved and ExtAssets read parity is incomplete.",
+    "workflowLevelsActors": "ITSC: Monitoring / IT Staff -> Systems Manager Review / Systems Manager",
+    "appApprovalImplementation": "persisted approval helper in detail.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "ITSSR",
+    "routeSlug": "itssr",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-013 ITSSR: Submission workflow / Not Required; IT routing PIC is not persisted on create; schema references columns not in generated model/schema.",
+    "workflowLevelsActors": "ITSSR: Submission / Requester -> Triage / IT Helpdesk -> Resolution / IT Technician -> Requestor Acceptance / Requester -> Closure / IT Helpdesk",
+    "appApprovalImplementation": "MainDBIT update on action in new.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "MPSPRN",
+    "routeSlug": "mpsprn",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-042 MPSPRN: Unknown / Unknown; Risk: Unknown. No original source was found; only a new page exists and status keys appear reversed.",
+    "workflowLevelsActors": "No ITFormConfig workflow stages found for this route.",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "NIR",
+    "routeSlug": "nir",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-043 NIR: Approval workflow / Required; Risk: High. Source confirms workflow; app creates records but approval buttons only log and status key needs confirmation.",
+    "workflowLevelsActors": "NIR: Request / Requester -> HOD Approval / Head of Department -> Notes Admin / Notes Administrator -> IT Hardware / IT Hardware Team",
+    "appApprovalImplementation": "persisted approval helper in index.tsx; approval UI/action controls in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "PRF",
+    "routeSlug": "prf",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-015 PRF: Approval workflow / Required; Risk: High. PRF source/workflow is strong, but ExtAccess child workflow persistence and status mapping conflict need fixes.",
+    "workflowLevelsActors": "PRF: Requesting / Requester -> Authorizing / Department Head -> Triaging / IT Manager -> Function Review / SAP Functional -> Processing / IT Developer -> Validating / Requester",
+    "appApprovalImplementation": "MainDBIT update on action in detail.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "RS",
+    "routeSlug": "rs",
+    "approvalRequirement": "Conditional",
+    "approvalEvidenceSummary": "AUD-044 RS: Approval workflow / Conditional; Risk: High. Source/docs conflict on approval; app states direct IT PIC flow with conditional ED approval for bank systems, but action handlers are console-only.",
+    "workflowLevelsActors": "RS: Submission / Requester -> IT Processing / IT PIC -> ED Approval / Executive Director -> Closed / System",
+    "appApprovalImplementation": "approval UI/modal exists but some handlers are console-only in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPAMR",
+    "routeSlug": "sapamr",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-017 SAPAMR: Approval workflow / Required; TBV/TBA routing fields are not confirmed persisted; implementation relies on remarks JSON while schema is legacy.",
+    "workflowLevelsActors": "SAPAMR: Initiation / Requester -> Verification / Key User (TBV) -> BPO/HOD Approval / BPO/HOD; SAP-AUTH: Submit Request / Requester -> Security Review / IT Security -> Approval / IT Manager",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPCA",
+    "routeSlug": "sapca",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-018 SAPCA: Approval workflow / Required; Risk: High. Source/workflow evidence exists; list read uses sample data and approval actions are console-only; structured SharePoint mapping incomplete.",
+    "workflowLevelsActors": "SAPCA: Draft / Requestor / Editor1 -> Pending IT Approval / ITAPP / Editor1a -> Pending BASIS Reply / Transporter / Editor2 -> Pending Requestor Closure Request / DocAuthor / ITPIC / Editor3 -> Pending BASIS Confirmation / Transporter / Editor4 -> Completed / System; SAP-ACC: Submit Request / Requester -> Manager Approval / Manager -> IT Processing / IT Admin",
+    "appApprovalImplementation": "approval UI/modal exists but some handlers are console-only in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPCR",
+    "routeSlug": "sapcr",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-019 SAPCR: Approval workflow / Required; Submit creates Request/Draft state; field storage and Ext_SAP schema coverage conflict.",
+    "workflowLevelsActors": "SAPCR: Initiation / Requester -> Pending BPO Approval / BPO -> Pending PM Approval / Project Manager -> Pending Developer Investigation / Developer -> Pending PM Impact Analysis / Project Manager -> Pending Project Director Approval / Project Director",
+    "appApprovalImplementation": "persisted approval helper in detail.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPDRP",
+    "routeSlug": "sapdrp",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-020 SAPDRP: Unknown / Unknown; Risk: High. Source has pending endorsement/approval views; implementation stores payload in remarks and does not implement workflow transitions.",
+    "workflowLevelsActors": "SAPDRP: Section A - Entry / IT Staff -> Initiator Verification / Team Leader -> HOD Endorsement / HOD",
+    "appApprovalImplementation": "persisted approval helper in detail.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPINC",
+    "routeSlug": "sap-inc",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "SAP-INC workflow=Unknown; Risk: Unknown. App route exists, but no original source document, SharePoint list mapping, or workflow evidence was found.",
+    "workflowLevelsActors": "SAP-INC: Report Incident / User -> Triage / IT Support -> Resolution / IT Support",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPSLCF",
+    "routeSlug": "sapslcf",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-021 SAPSLCF: Unknown / Unknown; Risk: High. Source/app show status or HOD/IT stages but submit/read rely on remarks JSON and workflow state is not implemented.",
+    "workflowLevelsActors": "SAPSLCF: Requestor / Requester -> HOD Approval / HOD -> IT Processing / IT Staff",
+    "appApprovalImplementation": "persisted approval helper in detail.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPSOF2",
+    "routeSlug": "sapsof2",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-046 SAPSOF2: Approval workflow / Required; Risk: Critical. Required sign-off form uses Approved status, sample data list, and unproven child workflow persistence.",
+    "workflowLevelsActors": "SAPSOF2: IT Submission / IT Functional -> Key User Sign-Off / Key Users -> BPO Sign-Off / BPO; SAPSOF: Initiation / IT Functional -> User Testing / Business User -> BPO Sign-Off / Business Process Owner -> IT Sign-Off / IT Manager",
+    "appApprovalImplementation": "persisted approval helper in index.tsx, detail.tsx; ApprovalRecords create in new.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SAPTR",
+    "routeSlug": "saptr",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-022 SAPTR: Approval workflow / Required; New submissions are marked Approved; list page uses sample data; Ext_SAP columns need live confirmation.",
+    "workflowLevelsActors": "SAPTR: Request / IT Functional -> Review / IT Manager -> Execute / BASIS Team; SAP-TRANS: Submit Request / Developer -> Technical Review / IT Basis -> Approval / IT Manager",
+    "appApprovalImplementation": "persisted approval helper in detail.tsx; approval UI/modal exists but some handlers are console-only in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SFAR",
+    "routeSlug": "sfar",
+    "approvalRequirement": "Required",
+    "approvalEvidenceSummary": "AUD-023 SFAR: Approval workflow / Required; Risk: Critical. Source proves approval is required; shared submit path sets Approved and does not prove ExtAccess persistence.",
+    "workflowLevelsActors": "SFAR: Draft / Requester -> Review / Folder Owner -> IT Verification / IT Admin -> Approved / IT Admin",
+    "appApprovalImplementation": "persisted approval helper in index.tsx, detail.tsx; approval UI/action controls in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SRL",
+    "routeSlug": "srl",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-047 SRL: Unknown / Unknown; Risk: High. SRL route appears related to AUD-025 SVRREBOOT, which is already blocked by source/form-code ambiguity.",
+    "workflowLevelsActors": "IAL1: Draft / IT Staff -> Review / IT Manager -> Approved / IT Manager",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SRR",
+    "routeSlug": "srr",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-048 SRR: Unknown / Unknown; Risk: Unknown. App route exists, but discovered SRR source files belong to STR/QA and cannot be assumed to match IT SRR.",
+    "workflowLevelsActors": "No ITFormConfig workflow stages found for this route.",
+    "appApprovalImplementation": "approval UI/action controls in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "SRVR",
+    "routeSlug": "srvr",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-049 SRVR: Unknown / Unknown; Risk: High. SRVR route is related to server reboot/recovery candidates already flagged for conflicting form codes.",
+    "workflowLevelsActors": "IAL4: Draft / IT Staff -> Review / IT Manager -> Approved / IT Manager; SRVR: Submission / Requester -> IT Review / IT Infrastructure -> HOD Approval / HOD -> IT Processing / IT Infrastructure -> Completion / IT Infrastructure",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "TRNMAN",
+    "routeSlug": "trnman",
+    "approvalRequirement": "Not Required",
+    "approvalEvidenceSummary": "AUD-027 TRNMAN: Submission workflow / Not Required; Risk: High. Original source is not confirmed; app writes Approved status and remarks JSON only.",
+    "workflowLevelsActors": "No ITFormConfig workflow stages found for this route.",
+    "appApprovalImplementation": "no explicit approval action implementation found in route index/detail/new files; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  },
+  {
+    "formCode": "UR",
+    "routeSlug": "ur",
+    "approvalRequirement": "Unknown / Needs Review",
+    "approvalEvidenceSummary": "AUD-050 UR: Unknown / Unknown; Risk: High. Approval remains Unknown; DynamicFormRenderer sets Approved and no ExtAccess write was proven.",
+    "workflowLevelsActors": "UR: Draft / Requester -> Review / IT Manager -> Approved / IT Admin",
+    "appApprovalImplementation": "persisted approval helper in detail.tsx; approval UI/modal exists but some handlers are console-only in index.tsx; generic /:formCode/detail/:id can persist actions if CurrentAction is actionable"
+  }
+]

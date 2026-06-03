@@ -17,8 +17,12 @@ import {
 import { toast } from 'sonner';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
+import { useCreateMainDBITExtSAP } from '@/generated/hooks/use-main-dbitext-sap';
 import type { MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
+import type { MainDBITExtSAP } from '@/generated/models/main-dbit-ext-sap-model';
 import { SAPAMR_PLANTS } from '@/types/sap-forms';
+import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 
 const SAPSLCF_ULLAGE = ['Yes', 'No'] as const;
 
@@ -34,6 +38,7 @@ export default function SAPSLCFNewFormPage() {
   const navigate = useNavigate();
   const { data: user } = useUser();
   const { mutateAsync: createMainDBIT, isPending } = useCreateMainDBIT();
+  const { mutateAsync: createExtSAP, isPending: extSAPPending } = useCreateMainDBITExtSAP();
 
   // Section 2: Request
   const [REQ_ReqNo, setREQ_ReqNo] = useState('');
@@ -76,20 +81,37 @@ export default function SAPSLCFNewFormPage() {
     if (!REQ_Ullage) { toast.error('Ullage (Tank) field is required'); return; }
 
     try {
-      await createMainDBIT({
+      const created = await createMainDBIT({
         title: REQ_ReqNo,
         formcode: 'SAPSLCF',
-        currentStatus: 'CurrentstatusKey27' as MainDBITCurrentstatusKey,
+        currentStatus: 'pending-hod',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
-        remarks: JSON.stringify({
-          REQ_ReqNo, REQ_By, REQ_DeskOf, REQ_DateSubmitted,
-          REQ_Designation, REQ_Dept, REQ_PhoneNo, REQ_HOD,
-          REQ_PlantCode, REQ_StorageLocCode, REQ_StorageLocDesc,
-          REQ_MatExtend, REQ_Ullage, REQ_Remarks,
-        }),
+        currentAction: 'Request',
+        requestorName: REQ_By,
+        subject: `Storage Location ${REQ_StorageLocCode}`.trim(),
+        company: REQ_DeskOf,
       });
+
+      if (created?.id) {
+        const extData: Omit<MainDBITExtSAP, 'id'> = {
+          title: `${REQ_ReqNo}-sap`,
+          parentFormCode: 'SAPSLCF',
+          parentRecord: { id: created.id, title: REQ_ReqNo },
+          parentSite: 'PRAI',
+          sAPPlant: REQ_PlantCode,
+          sAPModule: 'Storage Location',
+          sAPRemarks: [
+            `Storage Location Code: ${REQ_StorageLocCode}`,
+            `Storage Location Description: ${REQ_StorageLocDesc}`,
+            `Material Extend: ${REQ_MatExtend}`,
+            `Ullage: ${REQ_Ullage}`,
+            REQ_Remarks,
+          ].filter(Boolean).join('\n'),
+        };
+        await createExtSAP(extData);
+      }
       toast.success(`Storage Location Creation Form submitted! Ref: ${REQ_ReqNo}`);
       navigate('/it/forms/sapslcf');
     } catch (error: unknown) {
@@ -159,17 +181,17 @@ export default function SAPSLCFNewFormPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Requested By <span className="text-destructive">*</span></Label>
-                  <Input
+                  <EmployeePicker
                     value={REQ_By}
-                    onChange={e => setREQ_By(e.target.value)}
+                    onChange={(email) => setREQ_By(email)}
                     placeholder="Requester name or email"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label>Desk Of <span className="text-destructive">*</span></Label>
-                  <Input
+                  <EmployeePicker
                     value={REQ_DeskOf}
-                    onChange={e => setREQ_DeskOf(e.target.value)}
+                    onChange={(email) => setREQ_DeskOf(email)}
                     placeholder="On behalf of"
                   />
                 </div>
@@ -186,9 +208,10 @@ export default function SAPSLCFNewFormPage() {
                 </div>
                 <div className="space-y-2">
                   <Label>Department <span className="text-destructive">*</span></Label>
-                  <Input
+                  <SharePointLookupSelect
+                    kind="department"
                     value={REQ_Dept}
-                    onChange={e => setREQ_Dept(e.target.value)}
+                    onChange={setREQ_Dept}
                     placeholder="Department name"
                   />
                 </div>
@@ -205,9 +228,9 @@ export default function SAPSLCFNewFormPage() {
                 </div>
                 <div className="space-y-2">
                   <Label>Head of Department <span className="text-destructive">*</span></Label>
-                  <Input
+                  <EmployeePicker
                     value={REQ_HOD}
-                    onChange={e => setREQ_HOD(e.target.value)}
+                    onChange={(email) => setREQ_HOD(email)}
                     placeholder="HOD name or email"
                   />
                 </div>
@@ -281,11 +304,11 @@ export default function SAPSLCFNewFormPage() {
             </Button>
             <Button
               type="submit"
-              disabled={isPending}
+              disabled={isPending || extSAPPending}
               className="bg-primary hover:bg-[#002244] text-white"
             >
               <Warehouse className="h-4 w-4 mr-2" />
-              {isPending ? 'Submitting...' : 'Submit Storage Location Request'}
+              {isPending || extSAPPending ? 'Submitting...' : 'Submit Storage Location Request'}
             </Button>
           </div>
         </motion.form>

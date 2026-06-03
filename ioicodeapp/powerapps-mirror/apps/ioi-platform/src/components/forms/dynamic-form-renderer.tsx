@@ -35,6 +35,7 @@ import { useCreateMainDBITExtSAP } from '@/generated/hooks/use-main-dbitext-sap'
 import { useCreateMainDBITExtSupport } from '@/generated/hooks/use-main-dbitext-support';
 import { useCreateApprovalRecords } from '@/generated/hooks/use-approval-records';
 import { EmployeePicker, MultiEmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect, isSharePointLookupField } from '@/components/sharepoint-lookup-select';
 import { shouldSkipStage, type FormField, type FormSection, type ITFormConfig } from '@/lib/it-forms-config';
 import type { MainDBIT, MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtAccess } from '@/generated/models/main-dbit-ext-access-model';
@@ -393,6 +394,26 @@ export default function DynamicFormRenderer({ formConfig }: Props) {
                           case 'email':
                           case 'number':
                           case 'date':
+                            {
+                              const lookupKind = field.type === 'text' ? isSharePointLookupField(field) : null;
+                              if (lookupKind) {
+                                return (
+                                  <div key={field.id} className="space-y-2">
+                                    <Label>{field.label}{field.required && <span className="text-destructive ml-1">*</span>}</Label>
+                                    <SharePointLookupSelect
+                                      kind={lookupKind}
+                                      value={(val as string) || ''}
+                                      onChange={(v) => setFormData(p => ({...p, [field.id]: v}))}
+                                      placeholder={field.placeholder || `Select ${field.label}`}
+                                      fallbackOptions={field.options}
+                                      disabled={field.disabled}
+                                    />
+                                    {field.helperText && <p className="text-xs text-muted-foreground">{field.helperText}</p>}
+                                    {fieldError && <p className="text-xs text-destructive">{fieldError}</p>}
+                                  </div>
+                                );
+                              }
+                            }
                             return (
                               <div key={field.id} className="space-y-2">
                                 <Label>{field.label}{field.required && <span className="text-destructive ml-1">*</span>}</Label>
@@ -470,6 +491,25 @@ export default function DynamicFormRenderer({ formConfig }: Props) {
                               </div>
                             );
                           case 'select':
+                            {
+                              const lookupKind = isSharePointLookupField(field);
+                              if (lookupKind) {
+                                return (
+                                  <div key={field.id} className="space-y-2">
+                                    <Label>{field.label}{field.required && <span className="text-destructive ml-1">*</span>}</Label>
+                                    <SharePointLookupSelect
+                                      kind={lookupKind}
+                                      value={(val as string) || ''}
+                                      onChange={(v) => setFormData(p => ({...p, [field.id]: v}))}
+                                      placeholder={field.placeholder || `Select ${field.label}`}
+                                      fallbackOptions={field.options}
+                                    />
+                                    {field.helperText && <p className="text-xs text-muted-foreground">{field.helperText}</p>}
+                                    {fieldError && <p className="text-xs text-destructive">{fieldError}</p>}
+                                  </div>
+                                );
+                              }
+                            }
                             return (
                               <div key={field.id} className="space-y-2">
                                 <Label>{field.label}{field.required && <span className="text-destructive ml-1">*</span>}</Label>

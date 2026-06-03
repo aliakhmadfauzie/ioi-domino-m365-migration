@@ -27,7 +27,7 @@ export default function OWPNewPage() {
   const [otType, setOtType] = useState('');    // → details
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [hours, setHours] = useState('');      // → remarks
+  const [hours, setHours] = useState('');
   const [workDesc, setWorkDesc] = useState(''); // → description
   const [reason, setReason] = useState('');
 
@@ -43,8 +43,11 @@ export default function OWPNewPage() {
         statusKey: action === 'draft' ? 'StatusKey0' : 'StatusKey1',
         employeename: empName,
         effectivedate: otDate,
-        details: otType,
-        remarks: hours ? `${hours} hrs | ${startTime}–${endTime}` : `${startTime}–${endTime}`,
+        details: [
+          otType,
+          hours ? `${hours} hrs` : null,
+          startTime || endTime ? `${startTime}-${endTime}` : null,
+        ].filter(Boolean).join(' | '),
         description: workDesc || reason,
         requestoremail: user?.userPrincipalName || '',
       } as any);

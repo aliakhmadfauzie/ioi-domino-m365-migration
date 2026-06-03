@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 import { useUser } from '@/hooks/use-user';
 import { useSharePointDepartments } from '@/hooks/use-sharepoint-config';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
+import { useCreateMainDBITExtAssets } from '@/generated/hooks/use-main-dbitext-assets';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -58,6 +59,7 @@ export default function MPSPRNNewPage() {
   const navigate = useNavigate();
   const { data: user } = useUser();
   const createMutation = useCreateMainDBIT();
+  const createExtAssets = useCreateMainDBITExtAssets();
   const { departments } = useSharePointDepartments();
 
   const [formData, setFormData] = useState({
@@ -94,27 +96,35 @@ export default function MPSPRNNewPage() {
       const printerId = `PRN-${formData.serialNumber || Date.now()}`;
       const displayModel = formData.model === 'other' ? formData.customModel : PRINTER_MODELS.find(m => m.value === formData.model)?.label || formData.model;
 
-      await createMutation.mutateAsync({
+      const parent = await createMutation.mutateAsync({
         title: printerId,
         formcode: 'MPSPRN',
         currentStatus: isDraft ? 'CurrentstatusKey0' : 'CurrentstatusKey3',
+        currentAction: isDraft ? 'Draft' : 'Registered',
+        subject: formData.printerName || printerId,
         requestoremail: user?.userPrincipalName || '',
+        requestorName: user?.fullName || '',
         submitteddate: new Date().toISOString(),
-        remarks: [
-          `Form Type: MPS Network Printer`,
-          `Printer ID: ${printerId}`,
-          `Printer Name: ${formData.printerName}`,
-          `Model: ${displayModel}`,
-          `IP Address: ${formData.ipAddress}`,
-          `Serial Number: ${formData.serialNumber}`,
-          `Site: ${formData.site}`,
-          `Department: ${formData.department}`,
-          `Location: ${formData.location}`,
-          formData.remark ? `Remark: ${formData.remark}` : null,
-          formData.itAdmin ? `IT Admin: ${formData.itAdmin}` : null,
-          `Registered By: ${user?.fullName || 'N/A'}`,
-          `Registered Date: ${new Date().toISOString()}`,
-        ].filter(Boolean).join('\n'),
+      });
+
+      await createExtAssets.mutateAsync({
+        title: `${printerId}-asset`,
+        parentFormCode: 'MPSPRN',
+        parentRecord: { id: parent.id, title: parent.title || printerId },
+        parentSite: formData.site,
+        hIAssetNo: printerId,
+        hIType: 'Printer',
+        hIComputerName: formData.printerName,
+        hIModel: displayModel,
+        hISerialNo: formData.serialNumber,
+        hISite: formData.site,
+        hIDepartment: formData.department,
+        hILocation: formData.location,
+        hIIPAddress: formData.ipAddress,
+        hIStatus: isDraft ? 'Draft' : 'Registered',
+        hISentBy: user?.userPrincipalName || '',
+        hIActions: formData.itAdmin ? `IT Admin: ${formData.itAdmin}` : undefined,
+        hIProbFindings: formData.remark || undefined,
       });
 
       toast.success(isDraft ? 'Draft saved successfully' : 'Network printer registered successfully');
@@ -139,7 +149,7 @@ export default function MPSPRNNewPage() {
                   <Printer className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold">MPS Network Printer Form</h1>
+                  <h1 className="text-xl font-bold">MPS Printer Request</h1>
                   <p className="text-sm text-muted-foreground">Register managed print service network printer</p>
                 </div>
               </div>

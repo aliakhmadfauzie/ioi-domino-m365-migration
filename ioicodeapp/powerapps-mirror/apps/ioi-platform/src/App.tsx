@@ -13,6 +13,7 @@ import { DebugOverlay } from '@/components/debug-overlay';
 import { DebugToggle } from '@/components/debug/DebugToggle';
 import { DebugPanel } from '@/components/debug/DebugPanel';
 import { MockToggle } from '@/components/mock-toggle/MockToggle';
+import { DeepLinkHandler } from '@/components/deep-link-handler';
 import { useDebugInit } from '@/debug/useDebugInit';
 import StandaloneLayout from '@/components/layouts/standalone-layout';
 import { CanonicalSubmissionDetailRedirect } from '@/routes/shared';
@@ -36,8 +37,9 @@ import { salesRoutes } from '@/routes/sales-routes';
 import { securityRoutes } from '@/routes/security-routes';
 import { trainingRoutes } from '@/routes/training-routes';
 import { engineeringRoutes } from '@/routes/engineering-routes';
-import { eiRoutes, pbiRoutes, rndRoutes, opsRoutes, adminStubRoutes, pomStubRoutes, prcStubRoutes, saStubRoutes } from '@/routes/stub-department-routes';
+import { eiRoutes, pbiRoutes, rndRoutes, opsRoutes, pomStubRoutes, prcStubRoutes, saStubRoutes } from '@/routes/stub-department-routes';
 import { mtrRoutes } from '@/routes/mtr-routes';
+import { screenBuilderRoutes } from '@/routes/screen-builder-routes';
 
 // Root-level pages
 const DepartmentHubPage = lazy(() => import('@/pages/department-hub'));
@@ -141,6 +143,7 @@ function AppContent() {
       <Toaster richColors />
       <Router>
         <ScrollToTop />
+        <DeepLinkHandler />
         <FeedbackWidget />
         <Suspense fallback={<LoadingScreen variant="full" message="Loading page..." showProgress={false} />}>
           <Routes>
@@ -171,6 +174,11 @@ function AppContent() {
             <Route path="Finance/*" element={<Navigate to="/fin" replace />} />
             <Route path="store/*" element={<Navigate to="/str" replace />} />
             <Route path="Store/*" element={<Navigate to="/str" replace />} />
+            <Route path="gov/*" element={<Navigate to="/governance" replace />} />
+            <Route path="logistics/*" element={<Navigate to="/log" replace />} />
+            <Route path="mkt/*" element={<Navigate to="/sales" replace />} />
+            <Route path="pur/*" element={<Navigate to="/procurement" replace />} />
+            <Route path="safety/*" element={<Navigate to="/she" replace />} />
 
             {/* Department routes */}
             {itRoutes}
@@ -195,7 +203,6 @@ function AppContent() {
             {pbiRoutes}
             {rndRoutes}
             {opsRoutes}
-            {adminStubRoutes}
             {pomStubRoutes}
             {prcStubRoutes}
             {saStubRoutes}

@@ -17,6 +17,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { useUser } from '@/hooks/use-user';
@@ -142,10 +143,10 @@ function AWHRNewPage() {
         <CardHeader><CardTitle className="flex items-center gap-2"><Building2 className="h-5 w-5" /> Requisition Details</CardTitle></CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2"><Label>Company</Label><Input value={company} onChange={e => setCompany(e.target.value)} placeholder="Company" /></div>
+            <div className="space-y-2"><Label>Company</Label><SharePointLookupSelect kind="company" value={company} onChange={setCompany} placeholder="Select company" /></div>
             <div className="space-y-2"><Label>Category</Label><Input value={category} onChange={e => setCategory(e.target.value)} placeholder="Category" /></div>
             <div className="space-y-2"><Label>Section</Label><Input value={section} onChange={e => setSection(e.target.value)} placeholder="Section" /></div>
-            <div className="space-y-2"><Label>Department</Label><Input value={dept} onChange={e => setDept(e.target.value)} placeholder="Department" /></div>
+            <div className="space-y-2"><Label>Department</Label><SharePointLookupSelect kind="department" value={dept} onChange={setDept} placeholder="Select department" /></div>
             <div className="space-y-2"><Label>HOS *</Label><EmployeePicker value={hosEmail} onChange={e => setHosEmail(e)} placeholder="Select HOS..." /></div>
             <div className="space-y-2"><Label>HOD *</Label><EmployeePicker value={hodEmail} onChange={e => setHodEmail(e)} placeholder="Select HOD..." /></div>
             <div className="space-y-2"><Label>CC</Label><Input value={ccEmail} onChange={e => setCcEmail(e.target.value)} placeholder="CC email" /></div>

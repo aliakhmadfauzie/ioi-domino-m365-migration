@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Database, Plus } from 'lucide-react';
+import { ArrowLeft, Database, Eye, Plus } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,7 @@ import {
   MainDBPRDStatusKeyToLabel,
   type MainDBPRD,
 } from '@/generated/models/main-dbprd-model';
+import { displayChoiceLabel } from '@/lib/display-labels';
 
 const promotedProductionForms: Record<string, string> = {
   TPM: 'TPM Database',
@@ -89,7 +90,7 @@ export default function ProductionFormDatabaseView() {
               <h1 className="text-2xl font-bold tracking-tight">{formName}</h1>
               <Badge variant="outline">{sharePointFormCode}</Badge>
             </div>
-            <p className="text-sm text-muted-foreground">MainDB_PRD SharePoint submissions</p>
+            <p className="text-sm text-muted-foreground">Production submission records</p>
           </div>
         </div>
         <Button asChild>
@@ -125,21 +126,21 @@ export default function ProductionFormDatabaseView() {
         </Card>
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Data Source</p>
-            <p className="text-lg font-semibold">MainDB_PRD</p>
+            <p className="text-sm text-muted-foreground">Register</p>
+            <p className="text-lg font-semibold">Production</p>
           </CardContent>
         </Card>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">SharePoint Table Rows</CardTitle>
+          <CardTitle className="text-lg">Submission Records</CardTitle>
         </CardHeader>
         <CardContent>
           {error ? (
             <Alert variant="destructive">
-              <AlertTitle>Unable to read MainDB_PRD</AlertTitle>
-              <AlertDescription>{error instanceof Error ? error.message : 'SharePoint read failed.'}</AlertDescription>
+              <AlertTitle>Unable to read production submissions</AlertTitle>
+              <AlertDescription>{error instanceof Error ? error.message : 'Submission read failed.'}</AlertDescription>
             </Alert>
           ) : isLoading ? (
             <div className="space-y-2">
@@ -150,20 +151,21 @@ export default function ProductionFormDatabaseView() {
           ) : rows.length === 0 ? (
             <Alert>
               <AlertTitle>No submissions found</AlertTitle>
-              <AlertDescription>MainDB_PRD has no visible rows for {sharePointFormCode}.</AlertDescription>
+              <AlertDescription>No production submissions are available for {formName}.</AlertDescription>
             </Alert>
           ) : (
             <Table>
               <TableHeader>
                 <TableRow>
                   <TableHead>Title</TableHead>
-                  <TableHead>FormID</TableHead>
+                  <TableHead>Form Reference</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Request</TableHead>
                   <TableHead>Product/System</TableHead>
                   <TableHead>Quantity</TableHead>
                   <TableHead>Site</TableHead>
                   <TableHead>Submitted</TableHead>
+                  <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -172,13 +174,21 @@ export default function ProductionFormDatabaseView() {
                     <TableCell className="font-mono">{row.title}</TableCell>
                     <TableCell className="font-mono">{row.formReferenceID}</TableCell>
                     <TableCell>
-                      <Badge variant="secondary">{MainDBPRDStatusKeyToLabel[row.statusKey] ?? row.statusKey}</Badge>
+                      <Badge variant="secondary">{MainDBPRDStatusKeyToLabel[row.statusKey] ?? displayChoiceLabel(row.statusKey, 'statusKey')}</Badge>
                     </TableCell>
                     <TableCell className="max-w-[260px] truncate">{row.requestTitle || row.appName || '-'}</TableCell>
                     <TableCell>{row.productCode || row.systemCode || row.tankNo || '-'}</TableCell>
                     <TableCell>{row.quantityMT || '-'}</TableCell>
-                    <TableCell>{row.siteKey ? MainDBPRDSiteKeyToLabel[row.siteKey] : '-'}</TableCell>
+                    <TableCell>{row.siteKey ? MainDBPRDSiteKeyToLabel[row.siteKey] ?? displayChoiceLabel(row.siteKey, 'siteKey') : '-'}</TableCell>
                     <TableCell>{formatDate(row.submittedOn || row.productionDate || row.inspectionDate)}</TableCell>
+                    <TableCell className="text-right">
+                      <Button variant="ghost" size="sm" asChild>
+                        <Link to={`/production/forms/${sharePointFormCode}/detail/${row.id}`}>
+                          <Eye className="mr-2 h-4 w-4" />
+                          View
+                        </Link>
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

@@ -13,6 +13,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { useMainDBITExtAccessList } from '@/generated/hooks/use-main-dbitext-access';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtAccess } from '@/generated/models/main-dbit-ext-access-model';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface URRecord {
   id: string;
@@ -118,6 +122,10 @@ const columns: ColumnDef<URRecord>[] = [
 ];
 
 export default function URDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const navigate = useNavigate();
   const [selectedRecord, setSelectedRecord] = useState<URRecord | null>(null);
 
@@ -267,6 +275,25 @@ export default function URDatabaseView() {
     return history;
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return urData;
+    return urData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [urData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => urData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [urData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => urData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [urData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -322,8 +349,15 @@ export default function URDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={urData.length}
+          />
               <DatabaseTable
-                data={urData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: URRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by record number, name, application..."
@@ -340,7 +374,7 @@ export default function URDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`UR - ${selectedRecord?.recordNo || ''}`}
+        title={`User ID Request — ${selectedRecord?.recordNo || ''}`}
         subtitle={`${selectedRecord?.requestType || ''} for ${selectedRecord?.fullName || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

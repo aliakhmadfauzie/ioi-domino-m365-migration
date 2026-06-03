@@ -12,6 +12,10 @@ import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/u
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface TRNMANRecord {
   id: string;
@@ -94,6 +98,10 @@ const columns: ColumnDef<TRNMANRecord>[] = [
 ];
 
 export default function TRNMANDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const navigate = useNavigate();
   const [selectedRecord, setSelectedRecord] = useState<TRNMANRecord | null>(null);
 
@@ -155,6 +163,25 @@ export default function TRNMANDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return trnmanData;
+    return trnmanData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [trnmanData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => trnmanData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [trnmanData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => trnmanData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [trnmanData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -210,8 +237,15 @@ export default function TRNMANDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={trnmanData.length}
+          />
               <DatabaseTable
-                data={trnmanData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: TRNMANRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by title, type, owner..."
@@ -227,7 +261,7 @@ export default function TRNMANDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`TRNMAN — ${selectedRecord?.recordNo || ''}`}
+        title={`Training Manual — ${selectedRecord?.recordNo || ''}`}
         subtitle={`${selectedRecord?.trnType || 'N/A'} · ${selectedRecord?.title || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

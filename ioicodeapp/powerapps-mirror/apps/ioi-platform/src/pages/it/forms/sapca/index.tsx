@@ -12,6 +12,10 @@ import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/u
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SAPCARecord {
   id: string;
@@ -107,6 +111,10 @@ const columns: ColumnDef<SAPCARecord>[] = [
 ];
 
 export default function SAPCADatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<SAPCARecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -210,6 +218,25 @@ export default function SAPCADatabaseView() {
     );
   }
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return sapcaData;
+    return sapcaData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [sapcaData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => sapcaData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [sapcaData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => sapcaData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [sapcaData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -262,8 +289,15 @@ export default function SAPCADatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={sapcaData.length}
+          />
               <DatabaseTable
-                data={sapcaData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SAPCARecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by form number, module, client..."
@@ -276,7 +310,7 @@ export default function SAPCADatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SAPCA - ${selectedRecord?.formNo || ''}`}
+        title={`SAP Configuration Access — ${selectedRecord?.formNo || ''}`}
         subtitle={`Client: ${selectedRecord?.client || ''} (${selectedRecord?.clientNumber || ''})`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

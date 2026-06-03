@@ -13,6 +13,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { useMainDBITExtAccessList } from '@/generated/hooks/use-main-dbitext-access';
 import type { MainDBITExtAccess } from '@/generated/models/main-dbit-ext-access-model';
 import { MainDBIT } from '@/generated/models';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface EAFRecord {
   id: string;
@@ -124,6 +128,10 @@ const columns: ColumnDef<EAFRecord>[] = [
 ];
 
 export default function EAFDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const navigate = useNavigate();
   const [selectedRecord, setSelectedRecord] = useState<EAFRecord | null>(null);
 
@@ -307,6 +315,25 @@ export default function EAFDatabaseView() {
 
   const canApprove = selectedRecord?.status === 'Submitted' || selectedRecord?.status === 'Under_Review';
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return eafData;
+    return eafData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [eafData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => eafData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [eafData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => eafData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [eafData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -362,8 +389,15 @@ export default function EAFDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={eafData.length}
+          />
               <DatabaseTable
-                data={eafData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={handleRowClick}
                 searchPlaceholder="Search by record number, user, company..."
@@ -380,7 +414,7 @@ export default function EAFDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={handleCloseModal}
-        title={`EAF - ${selectedRecord?.recordNo || ''}`}
+        title={`External Access Form — ${selectedRecord?.recordNo || ''}`}
         subtitle={`External Access Request for ${selectedRecord?.targetUser || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

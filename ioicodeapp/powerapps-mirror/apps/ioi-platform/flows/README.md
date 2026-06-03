@@ -75,6 +75,42 @@ Trigger: MainDB_IT item created/modified where FormCode = "EAF"
 
 ---
 
+## Deep-Link Integration with Power Apps
+
+All flows can generate deep links to the Power Apps code-first app. The app
+automatically handles these params for auto-navigation and notifications.
+
+### Deep Link Format
+```
+https://apps.powerapps.com/play/e/{envId}/a/{appId}?formCode=EAF&itemId=123&action=view&status=Submitted
+```
+
+### Supported Parameters
+| Parameter | Type | Example | Purpose |
+|-----------|------|---------|---------|
+| `formCode` | string | `EAF` | Target form type |
+| `itemId` | number | `123` | SharePoint item ID |
+| `action` | enum | `view`, `edit`, `approve`, `new` | What to do |
+| `status` | string | `Submitted` | Current status context |
+| `department` | string | `it` | Department scope |
+| `notification` | string | `Your+request+was+approved` | Toast message |
+
+### Power Automate Expression
+```javascript
+concat(
+  'https://apps.powerapps.com/play/e/Default-c6f6218b-5ff2-48b5-9114-f89da23caadb/a/26fddd33-46a8-43ae-a1f2-e90fa3b003bf',
+  '?formCode=', triggerBody()?['FormCode'],
+  '&itemId=', string(triggerBody()?['ID']),
+  '&action=view',
+  '&status=', triggerBody()?['Status']
+)
+```
+
+## App-Side Handler
+The `useAppParams()` hook in `src/hooks/use-app-params.ts` and the
+`DeepLinkHandler` component in `src/components/deep-link-handler.tsx`
+parse these params and auto-navigate the user to the correct screen.
+
 ## Deployment Instructions
 
 1. Create solution in Power Platform (`pac solution init`)
@@ -100,3 +136,10 @@ The files in this folder are local flow definitions prepared from the migration 
 - `sapcr-approval-chain-flow-definition.json`
 
 Use `flow-deployment-manifest.json` as the deployment checklist for the target environment `Default-c6f6218b-5ff2-48b5-9114-f89da23caadb`.
+
+## Custom Connector Definitions
+
+- `mcp-registry-power-automate-swagger.json` — Swagger 2.0 custom connector definition for the official MCP Registry read API. This is prepared for Power Automate/Power Apps custom connector import and exposes read-only discovery actions:
+  - List MCP servers
+  - List MCP server versions
+  - Get MCP server version

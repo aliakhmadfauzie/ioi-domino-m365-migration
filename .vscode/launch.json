@@ -1,0 +1,71 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "IOI Platform: Dev + Debug (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
+            "sourceMapPathOverrides": {
+                "source/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
+                "./src/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
+            },
+            "preLaunchTask": "IOI: Start Vite Dev Server",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "IOI Platform: Attach to Running Dev Server",
+            "type": "chrome",
+            "request": "attach",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
+            "sourceMapPathOverrides": {
+                "source/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
+                "./src/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
+            },
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "IOI Platform: Dev + Debug (Edge)",
+            "type": "msedge",
+            "request": "launch",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
+            "sourceMapPathOverrides": {
+                "source/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
+                "./src/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
+            },
+            "preLaunchTask": "IOI: Start Vite Dev Server",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "IOI Platform: Dev Server Only (no browser)",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"],
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "PowerShell Interactive Session",
+            "type": "PowerShell",
+            "request": "launch",
+            "cwd": "${cwd}"
+        },
+        {
+            "name": "PowerShell Launch Current File",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${file}",
+            "cwd": "${cwd}"
+        }
+    ]
+}

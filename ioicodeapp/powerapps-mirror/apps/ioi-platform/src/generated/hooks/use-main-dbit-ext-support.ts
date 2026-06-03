@@ -20,3 +20,20 @@ export function useCreateMainDBITExtSupport() {
     },
   });
 }
+
+export function useUpdateMainDBITExtSupport() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      id,
+      changedFields,
+    }: {
+      id: string;
+      changedFields: Partial<Omit<MainDBITExtSupport, "id">>;
+    }) => MainDBITExtSupportService.update(id, changedFields),
+    onSuccess: (_data, variables) => {
+      client.invalidateQueries({ queryKey: ["mainDBITExtSupport-list"] });
+      client.invalidateQueries({ queryKey: ["mainDBITExtSupport", variables.id] });
+    },
+  });
+}

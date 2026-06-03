@@ -41,6 +41,7 @@ export type MainDBHR = MainDB_HRRead & {
   division?: string;
   description?: string;
   details?: string;
+  documentno?: string;
   requestedby?: string;
   employeeid: string;
   employeename: string;
@@ -244,6 +245,7 @@ function normalizeRecord(record: MainDB_HRRead): MainDBHR {
     division: String(r.Divison ?? r.SR_dDivision ?? r.division ?? ''),
     description: String(r.Description ?? r.description ?? ''),
     details: String(r.Details ?? r.details ?? ''),
+    documentno: String(r.DocumentNo ?? r.documentno ?? r.INO ?? ''),
     requestedby: String(r.RequestedBy ?? r.requestedby ?? ''),
     employeeid: String(r.EmployeeID ?? r.employeeid ?? ''),
     employeename: String(r.EmployeeName ?? r.employeename ?? ''),

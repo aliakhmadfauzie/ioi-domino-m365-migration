@@ -34,8 +34,10 @@ export default function ADJNewFormPage() {
         title: id, formCode: 'ADJ', department: 'Warehouse',
         submittedBy: user?.email || '', submittedOn: now.toISOString(),
         requestTitle: `Stock Adjustment: ${formData.adjType} - ${formData.item}`,
+        description: formData.reason,
+        currentAction: 'Submitted',
         location: formData.location, quantity: Number(formData.qty) || undefined,
-        unit: formData.unit, remarks: formData.reason,
+        unit: formData.unit,
       });
       setTicketId(id); setIsSubmitted(true);
       toast.success('Stock Adjustment submitted!');

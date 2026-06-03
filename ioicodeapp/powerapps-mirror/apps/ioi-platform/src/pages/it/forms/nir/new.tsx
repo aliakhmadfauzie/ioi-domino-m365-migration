@@ -44,10 +44,10 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-import { UserPicker, type SelectedPerson } from '@/components/user-picker';
+import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import type { NIRFormInput } from '@/types/m1-forms';
 
-import { useSharePointCompanies, useSharePointDepartments } from '@/hooks/use-sharepoint-config';
 import { NIR_EMAIL_TYPES, NIR_EMPLOYEE_TYPES } from '@/config/form-dropdown-config';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
@@ -66,7 +66,7 @@ const FORM_STEPS = [
 // Selected HOD user state (from M365)
 interface SelectedHODUser {
   id: string;
-  displayName: string;
+  fullName: string;
   email: string;
 }
 
@@ -75,8 +75,6 @@ export default function NIRNewFormPage() {
   const { data: user } = useUser();
   const createMainDBIT = useCreateMainDBIT();
   const createExtAccess = useCreateMainDBITExtAccess();
-  const { companies } = useSharePointCompanies();
-  const { departments } = useSharePointDepartments();
 
   // Form state
   const [currentStep, setCurrentStep] = useState(1);
@@ -152,11 +150,11 @@ export default function NIRNewFormPage() {
       const submissionData: Omit<MainDBIT, 'id'> = {
         title: newTicketId,
         formcode: 'NIR',
-        currentStatus: 'CurrentstatusKey30',
+        currentStatus: 'pending-it',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: now.toISOString(),
         siteKey: mapLocationToSiteKey(selectedSite),
-        remarks: JSON.stringify({ nirCA: 'Submitted' }),
+        currentAction: 'Submitted',
         workflowstage: 2,
         company: formData.Company || '',
         nIRFullName: formData.FullName || '',
@@ -302,7 +300,7 @@ export default function NIRNewFormPage() {
                 <div className="flex justify-between">
                   <span className="text-[#5C5C5C]">HOD Approver:</span>
                   <span className="font-medium text-foreground">
-                    {selectedHODUser?.displayName || formData.HODApprover || 'Not selected'}
+                    {selectedHODUser?.fullName || formData.HODApprover || 'Not selected'}
                   </span>
                 </div>
               </div>
@@ -554,25 +552,16 @@ export default function NIRNewFormPage() {
                     <Label className="font-['Segoe_UI'] text-[14px] font-semibold text-foreground">
                       Company <span className="text-[#9B2F23]">*</span>
                     </Label>
-                    <Select
+                    <SharePointLookupSelect
+                      kind="company"
                       value={formData.Company || ''}
-                      onValueChange={(value: string) => updateField('Company', value as NIRFormInput['Company'])}
-                    >
-                      <SelectTrigger
-                        className={`mt-2 h-11 bg-[#E8E8E8] border-border ${
-                          errors.Company ? 'border-[#9B2F23]' : ''
-                        }`}
-                      >
-                        <SelectValue placeholder="Select company..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {(companies.length > 0 ? companies : IOI_COMPANY_OPTIONS).map((company) => (
-                          <SelectItem key={company.code ?? company.value} value={company.name ?? company.label}>
-                            {company.name ?? company.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                      onChange={(value: string) => updateField('Company', value as NIRFormInput['Company'])}
+                      placeholder="Select company..."
+                      fallbackOptions={IOI_COMPANY_OPTIONS}
+                      className={`mt-2 h-11 bg-[#E8E8E8] border-border ${
+                        errors.Company ? 'border-[#9B2F23]' : ''
+                      }`}
+                    />
                     {errors.Company && (
                       <p className="mt-1 font-['Segoe_UI'] text-[13px] text-[#9B2F23]">{errors.Company}</p>
                     )}
@@ -664,25 +653,15 @@ export default function NIRNewFormPage() {
                       <Building2 className="mr-2 inline h-4 w-4" />
                       Department <span className="text-[#9B2F23]">*</span>
                     </Label>
-                    <Select
+                    <SharePointLookupSelect
+                      kind="department"
                       value={formData.Department || ''}
-                      onValueChange={(value) => updateField('Department', value)}
-                    >
-                      <SelectTrigger
-                        className={`mt-2 h-11 bg-[#E8E8E8] border-border ${
-                          errors.Department ? 'border-[#9B2F23]' : ''
-                        }`}
-                      >
-                        <SelectValue placeholder="Select department..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {departments.map((dept) => (
-                          <SelectItem key={dept.code} value={dept.name}>
-                            {dept.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                      onChange={(value) => updateField('Department', value)}
+                      placeholder="Select department..."
+                      className={`mt-2 h-11 bg-[#E8E8E8] border-border ${
+                        errors.Department ? 'border-[#9B2F23]' : ''
+                      }`}
+                    />
                     {errors.Department && (
                       <p className="mt-1 font-['Segoe_UI'] text-[13px] text-[#9B2F23]">{errors.Department}</p>
                     )}
@@ -737,15 +716,15 @@ export default function NIRNewFormPage() {
                       HOD Approver <span className="text-[#9B2F23]">*</span>
                     </Label>
                     <div className="mt-2">
-                      <UserPicker
+                      <EmployeePicker
                         value={formData.HODApprover || ''}
-                        onChange={(userId: string, person: SelectedPerson | null) => {
-                          updateField('HODApprover', userId);
-                          if (person) {
+                        onChange={(email, employee) => {
+                          updateField('HODApprover', email);
+                          if (employee) {
                             setSelectedHODUser({
-                              id: person.id,
-                              displayName: person.displayName,
-                              email: person.email || userId,
+                              id: String(employee.id),
+                              fullName: employee.fullName,
+                              email: employee.email || email,
                             });
                           } else {
                             setSelectedHODUser(null);
@@ -773,7 +752,7 @@ export default function NIRNewFormPage() {
                         </div>
                         <div>
                           <div className="font-['Segoe_UI'] text-[14px] font-semibold text-[#003366]">
-                            {selectedHODUser.displayName}
+                            {selectedHODUser.fullName}
                           </div>
                           <div className="font-['Segoe_UI'] text-[13px] text-[#003366]">
                             {selectedHODUser.email}
@@ -878,7 +857,7 @@ export default function NIRNewFormPage() {
                         <div className="flex justify-between">
                           <span className="text-[#5C5C5C]">HOD Approver:</span>
                           <span className="font-medium text-foreground">
-                            {selectedHODUser?.displayName || 'Not selected'}
+                            {selectedHODUser?.fullName || 'Not selected'}
                           </span>
                         </div>
                         {selectedHODUser?.email && (

@@ -30,6 +30,8 @@ export interface FormConfig {
   name: string;
   /** Base path for navigation (e.g., "/it/forms/eaf") */
   basePath: string;
+  /** Optional destination for the success screen's submissions button */
+  submissionsPath?: string;
   /** Initial status after submission */
   initialStatus: string;
   /** Initial workflow stage number */
@@ -98,7 +100,7 @@ export function FormSubmissionLayout({
         result={submissionResult}
         notificationSent={notificationSent}
         onBack={() => navigate(formConfig.basePath)}
-        onViewSubmissions={() => navigate(`/my-submissions?form=${formConfig.code}`)}
+        onViewSubmissions={() => navigate(formConfig.submissionsPath ?? `/my-submissions?form=${formConfig.code}`)}
       />
     );
   }
@@ -130,7 +132,7 @@ export function FormSubmissionLayout({
 
       {/* Main Content */}
       <div className="p-6">
-        <div className="flex gap-6">
+        <div className="mx-auto max-w-6xl flex gap-6">
           {/* Left Column - Form */}
           <div className="flex-1 min-w-0">
             <motion.div
@@ -156,8 +158,8 @@ export function FormSubmissionLayout({
             </motion.div>
           </div>
 
-          {/* Right Column - Sidebar */}
-          <div className="w-80 space-y-4 shrink-0 hidden lg:block">
+          {/* Right Column - Sidebar (xl+ only to avoid crowding the form on narrower screens) */}
+          <div className="w-64 space-y-4 shrink-0 hidden xl:block">
             {sidebarContent(formConfig)}
           </div>
         </div>

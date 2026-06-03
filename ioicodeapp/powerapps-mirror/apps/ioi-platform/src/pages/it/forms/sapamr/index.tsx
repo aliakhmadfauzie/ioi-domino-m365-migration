@@ -14,6 +14,10 @@ import { useMainDBITExtSAPList } from '@/generated/hooks/use-main-dbitext-sap';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtSAP } from '@/generated/models/main-dbit-ext-sap-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SAPAMRRecord {
   id: string;
@@ -91,6 +95,10 @@ const columns: ColumnDef<SAPAMRRecord>[] = [
 ];
 
 export default function SAPAMRDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<SAPAMRRecord | null>(null);
 
   const { data: mainRecords = [], isLoading: mainLoading } = useMainDBITList({
@@ -197,6 +205,25 @@ export default function SAPAMRDatabaseView() {
     ];
   }, [selectedRecord, extByParentId]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return sapamrData;
+    return sapamrData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [sapamrData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => sapamrData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [sapamrData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => sapamrData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [sapamrData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -254,8 +281,15 @@ export default function SAPAMRDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={sapamrData.length}
+          />
               <DatabaseTable
-                data={sapamrData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SAPAMRRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by module, plant, auth type..."
@@ -271,7 +305,7 @@ export default function SAPAMRDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SAPAMR — ${selectedRecord?.recordNo || ''}`}
+        title={`SAP Authorization Master Record — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Module: ${selectedRecord?.module || 'N/A'} · Plant: ${selectedRecord?.plant || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

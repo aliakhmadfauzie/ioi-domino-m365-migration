@@ -1,30 +1,33 @@
 // Standalone Layout - Minimal header for pages outside department context
 
-import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MobileBottomNav } from '@/components/mobile-bottom-nav';
 import { RouteLoadingWrapper } from '@/components/route-loading-wrapper';
+import { useBackNavigation } from '@/lib/navigation';
 
 interface StandaloneLayoutProps {
   children: React.ReactNode;
 }
 
 export default function StandaloneLayout({ children }: StandaloneLayoutProps) {
+  const goBack = useBackNavigation('/');
+
   return (
     <div className="min-h-screen bg-[#F5F5F5]">
       {/* Header */}
       <header className="sticky top-0 z-40 h-14 bg-[#003366] flex items-center px-4 gap-4">
-        <Link to="/">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10"
-          >
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-        </Link>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="text-white hover:bg-white/10"
+          onClick={goBack}
+          aria-label="Go back"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Button>
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg bg-white/20 flex items-center justify-center">
             <Building2 className="h-5 w-5 text-white" />

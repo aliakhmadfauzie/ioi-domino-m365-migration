@@ -156,7 +156,7 @@ export class HRSubmissionService {
       division: input.Division,
       description: input.Comments,
       submittedon: new Date().toISOString(),
-} as any;
+    } as any;
 
     const created = await MainDBHRService.create(spRecord as any);
 
@@ -164,7 +164,7 @@ export class HRSubmissionService {
     try {
       await ApprovalHistoryHRService.create({
         title: initialStage?.name || 'Submission',
-        parentid: String(created.id),
+        parentid: created.id,
         appname: input.FormType,
         actioncode: 'Submitted',
         actionon: new Date().toISOString(),
@@ -248,7 +248,7 @@ export class HRSubmissionService {
     try {
       await ApprovalHistoryHRService.create({
         title: newStage,
-        parentid: guid,
+        parentid: Number(guid),
         appname: existing.formcode,
         actioncode: action.Action,
         actionbyemail: action.ActionBy.Email,

@@ -34,6 +34,7 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import { Skeleton } from '@/components/ui/skeleton';
+import { displayChoiceLabel } from '@/lib/display-labels';
 
 export interface Column {
   key: string;
@@ -174,7 +175,7 @@ export function DatabaseTable({
     const rows = sortedData.map((row: DataRecord) =>
       columns.map((col: Column) => {
         const val = row[col.key];
-        return val instanceof Date ? format(val, 'yyyy-MM-dd') : String(val ?? '');
+        return val instanceof Date ? format(val, 'yyyy-MM-dd') : displayChoiceLabel(val, col.key);
       })
     );
 
@@ -196,9 +197,10 @@ export function DatabaseTable({
     }
 
     if (col.key === statusField && typeof value === 'string') {
+      const label = displayChoiceLabel(value, col.key);
       return (
-        <Badge className={statusColors[value] || 'bg-secondary'}>
-          {value}
+        <Badge className={statusColors[label] || 'bg-secondary'}>
+          {label}
         </Badge>
       );
     }
@@ -207,7 +209,7 @@ export function DatabaseTable({
       return format(value, 'dd/MM/yyyy');
     }
 
-    return String(value ?? '-');
+    return displayChoiceLabel(value, col.key);
   };
 
   return (

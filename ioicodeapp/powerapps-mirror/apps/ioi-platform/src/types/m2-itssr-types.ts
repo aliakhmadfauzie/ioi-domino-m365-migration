@@ -105,19 +105,31 @@ export const ITSSR_SAP_MODULES = [
 export type ITSSRSAPModule = typeof ITSSR_SAP_MODULES[number];
 
 /**
- * Bank Systems/Modules for banking-related requests
+ * Malaysian banks available for banking-related software support requests.
  */
 export const ITSSR_BANK_MODULES = [
-  'Core Banking System',
-  'Internet Banking',
-  'Mobile Banking',
-  'ATM System',
-  'Card Management',
-  'Loan Management',
-  'Treasury System',
-  'SWIFT',
-  'RTGS/NEFT',
-  'Other Bank System',
+  'Maybank',
+  'CIMB Bank',
+  'Public Bank',
+  'RHB Bank',
+  'Hong Leong Bank',
+  'AmBank',
+  'UOB Malaysia',
+  'OCBC Bank Malaysia',
+  'HSBC Bank Malaysia',
+  'Standard Chartered Bank Malaysia',
+  'Bank Islam Malaysia',
+  'Bank Muamalat Malaysia',
+  'Affin Bank',
+  'Alliance Bank Malaysia',
+  'Agrobank',
+  'Bank Rakyat',
+  'Bank Simpanan Nasional',
+  'MBSB Bank',
+  'SME Bank',
+  'Al Rajhi Bank Malaysia',
+  'Kuwait Finance House Malaysia',
+  'Other Malaysian Bank',
 ] as const;
 
 export type ITSSRBankModule = typeof ITSSR_BANK_MODULES[number];

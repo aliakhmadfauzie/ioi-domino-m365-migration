@@ -15,6 +15,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { useMainDBITExtAccessList } from '@/generated/hooks/use-main-dbitext-access';
 import { MainDBITCurrentstatusKeyToLabel, MainDBITSiteKeyToLabel, type MainDBIT, type MainDBITSiteKey } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtAccess } from '@/generated/models/main-dbit-ext-access-model';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 // Combined record interface for RS submissions
 interface RSRecord {
@@ -218,6 +222,10 @@ const columns: ColumnDef<RSRecord>[] = [
 ];
 
 export default function RSDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<RSRecord | null>(null);
 
   // Fetch main IT records filtered by formcode = 'RS'
@@ -414,6 +422,25 @@ export default function RSDatabaseView() {
     return history;
   }, [selectedRecord, isBankType]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return rsData;
+    return rsData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [rsData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => rsData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [rsData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => rsData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [rsData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -472,8 +499,15 @@ export default function RSDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={rsData.length}
+          />
               <DatabaseTable
-                data={rsData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: RSRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by record number, application, login ID..."
@@ -490,7 +524,7 @@ export default function RSDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`RS - ${selectedRecord?.recordNo || ''}`}
+        title={`Reset Password — ${selectedRecord?.recordNo || ''}`}
         subtitle={`${selectedRecord?.applicationType || ''} - ${selectedRecord?.resetType || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

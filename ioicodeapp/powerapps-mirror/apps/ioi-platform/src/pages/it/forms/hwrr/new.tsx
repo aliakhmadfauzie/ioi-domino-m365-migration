@@ -49,11 +49,15 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 
 import { useUser } from '@/hooks/use-user';
-import { useSharePointCompanies, useSharePointDepartments } from '@/hooks/use-sharepoint-config';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { useCreateMainDBITExtAssets } from '@/generated/hooks/use-main-dbitext-assets';
-import { UserPicker, type SelectedPerson } from '@/components/user-picker';
-import { PeoplePicker, type PersonValue } from '@/components/ui/people-picker';
+import {
+  EmployeePicker,
+  MultiEmployeePicker,
+  type ManualPerson,
+  type SelectedEmployee,
+} from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import {
   SITES,
   REQUEST_TYPES,
@@ -73,6 +77,11 @@ import {
 } from './data';
 
 // HWRR constants, types, and helpers are imported from './data'.
+type PickedPerson = SelectedEmployee | ManualPerson | null;
+
+function personLabel(person: PickedPerson): string {
+  return person?.fullName || '';
+}
 
 // =============================================================================
 // COMPONENT
@@ -83,8 +92,6 @@ export default function HWRRNewFormPage() {
   const { data: user } = useUser();
   const createMainDBIT = useCreateMainDBIT();
   const createMainDBITExtAssets = useCreateMainDBITExtAssets();
-  const { companies } = useSharePointCompanies();
-  const { departments } = useSharePointDepartments();
   
   // Form state
   const [currentStep, setCurrentStep] = useState(1);
@@ -128,9 +135,9 @@ export default function HWRRNewFormPage() {
   }, [user?.userPrincipalName, formData.EmailAddress]);
   
   // Selected user objects (for display)
-  const [selectedHOD, setSelectedHOD] = useState<SelectedPerson | null>(null);
-  const [selectedCCRecipients, setSelectedCCRecipients] = useState<PersonValue[]>([]);
-  const [selectedForUser, setSelectedForUser] = useState<SelectedPerson | null>(null);
+  const [selectedHOD, setSelectedHOD] = useState<PickedPerson>(null);
+  const [selectedCCRecipients, setSelectedCCRecipients] = useState<string[]>([]);
+  const [selectedForUser, setSelectedForUser] = useState<PickedPerson>(null);
   
   // Validation errors
   const [errors, setErrors] = useState<Partial<Record<keyof HWRRFormInput, string>>>({});
@@ -403,28 +410,13 @@ export default function HWRRNewFormPage() {
                       <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                         Company <span style={{ color: '#9B2F23' }}>*</span>
                       </Label>
-                      <Select
+                      <SharePointLookupSelect
+                        kind="company"
                         value={formData.Company}
-                        onValueChange={(value: string) => updateField('Company', value)}
-                      >
-                        <SelectTrigger 
-                          className="mt-2"
-                          style={{ 
-                            height: '44px', 
-                            borderRadius: '8px',
-                            backgroundColor: '#E8E8E8',
-                          }}
-                        >
-                          <SelectValue placeholder="Select company..." />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {companies.map((company) => (
-                            <SelectItem key={company.code} value={company.name}>
-                              {company.name}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                        onChange={(value: string) => updateField('Company', value)}
+                        placeholder="Select company..."
+                        className="mt-2 h-11 bg-[#E8E8E8]"
+                      />
                     </div>
                     
                     {/* Site */}
@@ -461,28 +453,13 @@ export default function HWRRNewFormPage() {
                       <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                         Department <span style={{ color: '#9B2F23' }}>*</span>
                       </Label>
-                      <Select
+                      <SharePointLookupSelect
+                        kind="department"
                         value={formData.Department}
-                        onValueChange={(value: string) => updateField('Department', value)}
-                      >
-                        <SelectTrigger 
-                          className="mt-2"
-                          style={{ 
-                            height: '44px', 
-                            borderRadius: '8px',
-                            backgroundColor: '#E8E8E8',
-                          }}
-                        >
-                          <SelectValue placeholder="Select department..." />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {departments.map((dept) => (
-                            <SelectItem key={dept.code} value={dept.name}>
-                              {dept.name}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                        onChange={(value: string) => updateField('Department', value)}
+                        placeholder="Select department..."
+                        className="mt-2 h-11 bg-[#E8E8E8]"
+                      />
                     </div>
                     
                     {/* Phone Extension */}
@@ -533,10 +510,10 @@ export default function HWRRNewFormPage() {
                       <p className="text-xs mb-2" style={{ color: '#5C5C5C' }}>
                         The HOD who will approve this request
                       </p>
-                      <UserPicker
+                      <EmployeePicker
                         value={selectedHOD?.email || ''}
-                        onChange={(_userId: string, person: SelectedPerson | null) => {
-                          setSelectedHOD(person);
+                        onChange={(_email, employee) => {
+                          setSelectedHOD(employee);
                         }}
                         placeholder="Search for HOD..."
                       />
@@ -550,14 +527,10 @@ export default function HWRRNewFormPage() {
                       <p className="text-xs mb-2" style={{ color: '#5C5C5C' }}>
                         Additional people to notify (optional)
                       </p>
-                      <PeoplePicker
-                        value={selectedCCRecipients.length > 0 ? selectedCCRecipients : null}
-                        onChange={(persons: PersonValue | PersonValue[] | null) => {
-                          const personsArray = persons ? (Array.isArray(persons) ? persons : [persons]) : [];
-                          setSelectedCCRecipients(personsArray);
-                        }}
+                      <MultiEmployeePicker
+                        value={selectedCCRecipients}
+                        onChange={(emails) => setSelectedCCRecipients(emails)}
                         placeholder="Search for people to CC..."
-                        multiple
                       />
                     </div>
                   </div>
@@ -684,10 +657,10 @@ export default function HWRRNewFormPage() {
                       <p className="text-xs mb-2" style={{ color: '#5C5C5C' }}>
                         User who will receive/use the hardware
                       </p>
-                      <UserPicker
+                      <EmployeePicker
                         value={selectedForUser?.email || ''}
-                        onChange={(_userId: string, person: SelectedPerson | null) => {
-                          setSelectedForUser(person);
+                        onChange={(_email, employee) => {
+                          setSelectedForUser(employee);
                         }}
                         placeholder="Search for user..."
                       />
@@ -1126,7 +1099,7 @@ export default function HWRRNewFormPage() {
                         </div>
                         <div>
                           <span style={{ color: '#5C5C5C' }}>HOD:</span>
-                          <span className="ml-2" style={{ color: '#1C1C1C' }}>{selectedHOD?.displayName || 'N/A'}</span>
+                          <span className="ml-2" style={{ color: '#1C1C1C' }}>{personLabel(selectedHOD) || 'N/A'}</span>
                         </div>
                       </div>
                     </div>
@@ -1152,7 +1125,7 @@ export default function HWRRNewFormPage() {
                         </div>
                         <div>
                           <span style={{ color: '#5C5C5C' }}>For User:</span>
-                          <span className="ml-2" style={{ color: '#1C1C1C' }}>{selectedForUser?.displayName || 'N/A'}</span>
+                          <span className="ml-2" style={{ color: '#1C1C1C' }}>{personLabel(selectedForUser) || 'N/A'}</span>
                         </div>
                         <div className="col-span-2">
                           <span style={{ color: '#5C5C5C' }}>Location:</span>

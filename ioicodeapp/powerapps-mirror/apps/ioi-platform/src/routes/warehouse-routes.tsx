@@ -24,6 +24,10 @@ export const warehouseRoutes = (
     <Route path="forms/sto/new" element={<STONewFormPage />} />
     <Route path="forms/do/new" element={<DONewFormPage />} />
     <Route path="forms/adj/new" element={<ADJNewFormPage />} />
+    <Route path="delivery" element={<Navigate to="/warehouse/forms" replace />} />
+    <Route path="goods-receipt" element={<Navigate to="/warehouse/forms" replace />} />
+    <Route path="inventory" element={<Navigate to="/warehouse/forms" replace />} />
+    <Route path="stock-transfer" element={<Navigate to="/warehouse/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />

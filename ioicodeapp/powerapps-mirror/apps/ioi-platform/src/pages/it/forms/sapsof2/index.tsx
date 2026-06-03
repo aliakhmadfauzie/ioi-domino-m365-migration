@@ -78,6 +78,9 @@ import { getITFormCodeAliases, getITFormCodeFilter } from '@/lib/it-form-routes'
 import { recordITApprovalAction } from '@/lib/it-approval-actions';
 
 import type {
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
   SAPSOF2Stage,
   SAPSOF2Status,
   SAPSOF2FinalDecision,
@@ -305,12 +308,8 @@ function evidenceParentMatches(record: ITSAPSOFTestEvidence, main: MainDBIT): bo
 
 function parseEvidenceMetadata(remarks?: string): { tCode?: string } {
   if (!remarks) return {};
-  try {
-    const parsed = JSON.parse(remarks) as { tCode?: unknown };
-    return { tCode: typeof parsed.tCode === 'string' ? parsed.tCode : undefined };
-  } catch {
-    return {};
-  }
+  const tCodeLine = remarks.split(/\r?\n/).find((line) => line.trim().startsWith('T-Code:'));
+  return { tCode: tCodeLine?.replace('T-Code:', '').trim() };
 }
 
 function mapEvidenceChildren(
@@ -448,6 +447,10 @@ const columns: ColumnDef<SAPSOF2Record>[] = [
 ];
 
 export default function SAPSOF2DatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<SAPSOF2Record | null>(null);
   const [showClosureDialog, setShowClosureDialog] = useState(false);
   const [closureDecision, setClosureDecision] = useState<SAPSOF2FinalDecision | null>(null);
@@ -495,9 +498,8 @@ export default function SAPSOF2DatabaseView() {
     [mainRecords, selectedRecord?.id],
   );
 
-  const buildClosureRemarks = (record: MainDBIT) => [
-    record.remarks || '',
-    '',
+  const buildClosureComment = (record: MainDBIT) => [
+    record.hODApproverRemarks || '',
     '--- Final Closure ---',
     `Final Decision: ${closureDecision}`,
     `Final Decision Date: ${new Date().toISOString()}`,
@@ -523,7 +525,7 @@ export default function SAPSOF2DatabaseView() {
         workflowstage: 99,
         comment: closureRemarks,
         mainPatch: {
-          remarks: buildClosureRemarks(selectedMainRecord),
+          hODApproverRemarks: buildClosureComment(selectedMainRecord),
           currentAction: `Final Closure: ${closureDecision}`,
         },
       });
@@ -545,6 +547,25 @@ export default function SAPSOF2DatabaseView() {
       setIsClosing(false);
     }
   };
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return sapsof2Data;
+    return sapsof2Data.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [sapsof2Data, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => sapsof2Data.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [sapsof2Data, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => sapsof2Data.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [sapsof2Data, userEmail]
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50/50 to-white">
       {/* Header */}
@@ -599,8 +620,15 @@ export default function SAPSOF2DatabaseView() {
                   </EmptyHeader>
                 </Empty>
               ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={sapsof2Data.length}
+          />
                 <DatabaseTable
-                  data={sapsof2Data}
+                  data={filteredData}
                   columns={columns}
                   onRowClick={(row: SAPSOF2Record) => setSelectedRecord(row)}
                   searchPlaceholder="Search by ticket ID, module, client, TR number..."

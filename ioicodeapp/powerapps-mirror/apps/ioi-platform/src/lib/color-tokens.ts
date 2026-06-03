@@ -289,20 +289,40 @@ export const ICON_STYLES = {
 // WORKFLOW STATUS MAPPING - For SharePoint CurrentStatus values
 // =============================================================================
 
+import { normalizeStatusSlug, SLUG_TO_TYPE, type StatusType as SlugStatusType } from './status-slugs';
+
+/**
+ * Map a status value (legacy key, label, or slug) to a StatusStyle for UI rendering.
+ *
+ * The IT status keys are mapped via the canonical slug system in status-slugs.ts.
+ * HR/STR statuses are mapped directly (they use different patterns per DEC-005).
+ */
 export function mapWorkflowStatus(status: string | undefined): StatusStyle {
   if (!status) return STATUS_STYLES.draft;
 
-  const statusMap: Record<string, StatusType> = {
-    // IT statuses
-    'CurrentstatusKey0': 'draft',
-    'CurrentstatusKey1': 'submitted',
-    'CurrentstatusKey2': 'in-review',
-    'CurrentstatusKey3': 'approved',
-    'CurrentstatusKey4': 'rejected',
-    'CurrentstatusKey5': 'returned',
-    'CurrentstatusKey6': 'cancelled',
-    'CurrentstatusKey7': 'completed',
+  // Try slug-based normalization first (handles IT statuses)
+  const slug = normalizeStatusSlug(status);
+  const slugType = SLUG_TO_TYPE[slug];
 
+  if (slugType) {
+    // Map slug lifecycle type to color-tokens StatusType
+    switch (slugType) {
+      case 'initial':     return STATUS_STYLES.draft;
+      case 'in-progress': return STATUS_STYLES['in-progress'];
+      case 'terminal': {
+        // Terminal statuses need finer-grained mapping
+        if (slug === 'approved' || slug === 'verified') return STATUS_STYLES.approved;
+        if (slug === 'closed') return STATUS_STYLES.closed;
+        if (slug === 'sent') return STATUS_STYLES.submitted;
+        if (slug === 'active') return STATUS_STYLES['in-progress'];
+        if (slug === 'withdrawn') return STATUS_STYLES.cancelled;
+        return STATUS_STYLES.closed;
+      }
+    }
+  }
+
+  // Fallback for HR/STR/Generic statuses (not in IT slug system)
+  const statusMap: Record<string, StatusType> = {
     // HR statuses
     'Draft': 'draft',
     'Submitted': 'submitted',
@@ -329,6 +349,6 @@ export function mapWorkflowStatus(status: string | undefined): StatusStyle {
     'Canceled': 'cancelled',
   };
 
-  const mappedStatus = statusMap[status];
+  const mappedStatus = statusMap[status] ?? statusMap[slug];
   return mappedStatus ? STATUS_STYLES[mappedStatus] : STATUS_STYLES.draft;
 }

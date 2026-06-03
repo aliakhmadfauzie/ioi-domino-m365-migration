@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect, isSharePointLookupField } from '@/components/sharepoint-lookup-select';
 import type { FieldSchema } from '@/types/form-schema';
 import { setPendingFiles } from '@/lib/pending-attachments';
 import { Upload, X, FileText } from 'lucide-react';
@@ -201,6 +202,21 @@ export function FieldRenderer({ field, value, error, onChange }: FieldRendererPr
       return <PeopleField field={field} value={value} error={error} onChange={onChange} />;
 
     case 'text':
+      {
+        const lookupKind = isSharePointLookupField(field);
+        if (lookupKind) {
+          return (
+            <SharePointLookupSelect
+              kind={lookupKind}
+              value={strVal}
+              onChange={(val) => onChange(val)}
+              placeholder={placeholder || `Select ${field.label}`}
+              className={errClass}
+              fallbackOptions={options}
+            />
+          );
+        }
+      }
       return (
         <Input
           value={strVal}
@@ -222,6 +238,21 @@ export function FieldRenderer({ field, value, error, onChange }: FieldRendererPr
       );
 
     case 'choice':
+      {
+        const lookupKind = isSharePointLookupField(field);
+        if (lookupKind) {
+          return (
+            <SharePointLookupSelect
+              kind={lookupKind}
+              value={strVal}
+              onChange={(val) => onChange(val)}
+              placeholder={placeholder || `Select ${field.label}`}
+              className={errClass}
+              fallbackOptions={options}
+            />
+          );
+        }
+      }
       return (
         <Select value={strVal} onValueChange={val => onChange(val)}>
           <SelectTrigger className={errClass}>

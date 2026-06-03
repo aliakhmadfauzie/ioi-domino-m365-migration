@@ -237,12 +237,12 @@ export default function EAFNewFormPage() {
       const requestorName = user?.fullName || formData.Requestor || '';
 
       // Create record in SharePoint MainDB_IT - PARENT TABLE
-      // Status: Pending HOD (CurrentstatusKey27) — triggers HOD approval workflow
+      // Status: Pending HOD — triggers HOD approval workflow
       const submissionData: Omit<MainDBIT, 'id'> = {
         title: ticketId,
         formcode: 'EAF',
         company: formData.Company || '',
-        currentStatus: 'CurrentstatusKey27',
+        currentStatus: 'pending-hod',
         workflowstage: 2,
         islocked: false,
         submitteddate: new Date().toISOString(),

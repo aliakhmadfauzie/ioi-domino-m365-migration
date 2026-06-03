@@ -160,6 +160,10 @@
                           "item": {
                             "CurrentStatus": "HODApproved",
                             "WorkflowStage": 2,
+                            "CurrentAction": "HOD Approved by @{body('Send_approval_to_HOD')?['responder']?['email']}",
+                            "ApprovedBy_Email": "@body('Send_approval_to_HOD')?['responder']?['email']",
+                            "ApprovedBy_Name": "@body('Send_approval_to_HOD')?['responder']?['displayName']",
+                            "HODApproverRemarks": "HOD Approved by @{body('Send_approval_to_HOD')?['responder']?['email']} on @{utcNow()}\n@{body('Send_approval_to_HOD')?['comments']}",
                             "HODApprovedBy": "@body('Send_approval_to_HOD')?['responder']?['email']",
                             "HODApprovedDate": "@utcNow()"
                           }
@@ -255,8 +259,13 @@
                             "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
                             "table": "MainDB_IT",
                             "id": "@variables('ItemID')",
-                            "item": {
-                              "CurrentStatus": "HODRejected",
+                          "item": {
+                            "CurrentStatus": "HODRejected",
+                              "WorkflowStage": 0,
+                              "CurrentAction": "HOD Rejected by @{body('Send_approval_to_HOD')?['responder']?['email']}",
+                              "ApprovedBy_Email": "@body('Send_approval_to_HOD')?['responder']?['email']",
+                              "ApprovedBy_Name": "@body('Send_approval_to_HOD')?['responder']?['displayName']",
+                              "HODApproverRemarks": "HOD Rejected by @{body('Send_approval_to_HOD')?['responder']?['email']} on @{utcNow()}\n@{body('Send_approval_to_HOD')?['comments']}",
                               "HODRemarks": "@{body('Send_approval_to_HOD')?['comments']}"
                             }
                           }
@@ -335,8 +344,13 @@
                             "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
                             "table": "MainDB_IT",
                             "id": "@variables('ItemID')",
-                            "item": {
-                              "CurrentStatus": "DirectorRejected",
+                          "item": {
+                            "CurrentStatus": "DirectorRejected",
+                              "WorkflowStage": 0,
+                              "CurrentAction": "Director/COO Rejected by @{body('Send_approval_to_COO_Director')?['responder']?['email']}",
+                              "ApprovedBy_Email": "@body('Send_approval_to_COO_Director')?['responder']?['email']",
+                              "ApprovedBy_Name": "@body('Send_approval_to_COO_Director')?['responder']?['displayName']",
+                              "HODApproverRemarks": "Director/COO Rejected by @{body('Send_approval_to_COO_Director')?['responder']?['email']} on @{utcNow()}\n@{body('Send_approval_to_COO_Director')?['comments']}",
                               "DirectorRemarks": "@{body('Send_approval_to_COO_Director')?['comments']}"
                             }
                           }
@@ -388,6 +402,8 @@
                       "item": {
                         "CurrentStatus": "Completed",
                         "WorkflowStage": 5,
+                        "CurrentAction": "IT Provisioning Completed",
+                        "HODApproverRemarks": "IT Provisioning completed on @{utcNow()}",
                         "CompletedDate": "@utcNow()"
                       }
                     }

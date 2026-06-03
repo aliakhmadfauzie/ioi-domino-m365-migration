@@ -25,14 +25,13 @@ import { AppSettingsService } from '@/generated/services/app-settings-service';
 import { useRoleAccess } from '@/hooks/use-platform';
 import { useUser } from '@/hooks/use-user';
 import { ITSSR } from '@/lib/it-forms-config';
-import { mapLocationToSiteKey } from '@/lib/form-submission-utils';
 import { buildFormCodeFilter, buildParentFormCodeFilter, getITFormDetailPath, getITFormListPath, getITFormNewPath } from '@/lib/it-form-page-utils';
 import { determineITSSRRouting } from '@/hooks/use-itssr-routing';
+import { useSharePointCompanies, useSharePointDepartments } from '@/hooks/use-sharepoint-config';
+import { useBackNavigation } from '@/lib/navigation';
 import {
   ITSSR_APPLICATIONS,
   ITSSR_CLASSIFICATIONS,
-  ITSSR_COMPANIES,
-  ITSSR_DEPARTMENTS,
   ITSSR_HARDWARE_ITEMS,
   ITSSR_PROBLEM_CATEGORIES,
   ITSSR_PROBLEM_CATEGORIES_SECONDARY,
@@ -108,53 +107,19 @@ type ITSSRRecord = MainDBIT & {
 
 const ITSSR_CODE = ITSSR.code;
 const ITSSR_BASE_PATH = getITFormListPath(ITSSR_CODE);
-const ITSSR_LIST_PATH = `${ITSSR_BASE_PATH}/itssr_submissiom`;
+const ITSSR_LIST_PATH = ITSSR_BASE_PATH;
 const ITSSR_NEW_PATH = getITFormNewPath(ITSSR_CODE);
 const ITSSR_PAGE_SIZE = 50;
 const statusOptions: Array<ITSSRCaseStatus | 'All'> = ['All', 'Draft', 'Submitted', 'InProgress', 'Resolved', 'Accepted', 'Closed', 'Denied'];// CS sub-state: 0=Rejected, 1=Closed, 2=Pending (set by IT without changing CA)
 type CSState = 0 | 1 | 2;
 const SECTION1_REMARKS_START = '[ITSSR_SECTION1_JSON]';
 const SECTION1_REMARKS_END = '[/ITSSR_SECTION1_JSON]';
-const SECTION1_FIELDS: Array<keyof ITSSRRecord> = [
-  'Company',
-  'Department',
-  'ServiceType',
-  'Hardware',
-  'Application',
-  'ReportedByEmail',
-  'PhoneExtension',
-  'SendToEmail',
-  'CCEmail',
-  'RequestorAttachment',
-  'ProblemDescription',
-];
 
 function formatITSSRCaseTitle(id: string | number, date = new Date()): string {
   const year = date.getFullYear();
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   return `${ITSSR_CODE}-${year}${day}${month}.${id}`;
-}
-
-/**
- * Build a human-readable summary for the remarks field.
- * NOTE: Section data is now stored in MainDB_IT_Ext_Support columns directly.
- * The remarks field only contains a plain-text summary for quick reference.
- * The JSON-in-remarks pattern has been removed to avoid fragile parsing.
- * Legacy records with JSON in remarks are still supported via parseITSSRRemarksSnapshot().
- */
-function buildITSSRRemarksSummary(form: Partial<ITSSRRecord>, routedPIC?: PersonValue): string {
-  const summary = [
-    `Service Type: ${form.ServiceType || 'IT Support Request'}`,
-    form.Company || form.Department ? `Company / Dept: ${form.Company || '-'} / ${form.Department || '-'}` : null,
-    form.Application ? `Application: ${form.Application}` : null,
-    form.Hardware ? `Hardware: ${form.Hardware}` : null,
-    form.PhoneExtension ? `Phone Extension: ${form.PhoneExtension}` : null,
-    form.SendToEmail || routedPIC ? `Primary PIC: ${personName(routedPIC ?? form.SendToEmail)} <${personEmail(routedPIC ?? form.SendToEmail)}>` : null,
-    `---`,
-    form.ProblemDescription,
-  ].filter(Boolean);
-  return summary.join('\n');
 }
 
 /**
@@ -533,6 +498,37 @@ function SelectField({ value, onChange, options, disabled }: { value?: string; o
   );
 }
 
+function SharePointOptionSelect({
+  kind,
+  value,
+  onChange,
+  disabled,
+}: {
+  kind: 'company' | 'department';
+  value?: string;
+  onChange: (value: string) => void;
+  disabled?: boolean;
+}) {
+  const { companyNames, isLoading: isLoadingCompanies } = useSharePointCompanies();
+  const { departmentNames, isLoading: isLoadingDepartments } = useSharePointDepartments();
+  const options = kind === 'company' ? companyNames : departmentNames;
+  const isLoading = kind === 'company' ? isLoadingCompanies : isLoadingDepartments;
+  const label = kind === 'company' ? 'companies' : 'departments';
+
+  return (
+    <select
+      className={inputClass(disabled || isLoading)}
+      value={value || ''}
+      onChange={(event) => onChange(event.target.value)}
+      disabled={disabled || isLoading}
+      title={value || ''}
+    >
+      <option value="">{isLoading ? `Loading ${label}...` : 'Select'}</option>
+      {options.map((option) => <option key={option} value={option} title={option}>{option}</option>)}
+    </select>
+  );
+}
+
 function StatusBadge({ status, pending }: { status: ITSSRCaseStatus; pending?: boolean }) {
   const colors: Record<ITSSRCaseStatus, string> = {
     Draft: 'border-slate-300 bg-slate-100 text-slate-700',
@@ -668,9 +664,6 @@ function usePatchITSSR(record?: ITSSRRecord | null) {
       }
       if (values.SubmittedDate !== undefined) {
         mainPatch.submitteddate = values.SubmittedDate;
-      }
-      if (SECTION1_FIELDS.some((field) => values[field] !== undefined)) {
-        mainPatch.remarks = buildITSSRRemarksSummary(values);
       }
       await MainDBITService.update(String(id), mainPatch);
 
@@ -831,7 +824,7 @@ export function ITSSRListScreen() {
           </p>
         </div>
         <Link to={ITSSR_NEW_PATH} className="inline-flex min-h-11 items-center gap-2 rounded-md bg-emerald-800 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-900">
-          <Plus className="h-4 w-4" /> New {ITSSR_CODE}
+          <Plus className="h-4 w-4" /> New IT Support Request
         </Link>
       </div>
 
@@ -914,7 +907,7 @@ export function ITSSRListScreen() {
 
       <div className="space-y-2">
         {isLoading ? (
-          <div className="rounded-lg border border-slate-200 bg-white p-8 text-center text-sm text-slate-500">Loading ITSSR cases...</div>
+          <div className="rounded-lg border border-slate-200 bg-white p-8 text-center text-sm text-slate-500">Loading IT Support & Service Request cases...</div>
         ) : null}
 
         {visibleRecords.map((record) => {
@@ -1026,7 +1019,7 @@ export function ITSSRListScreen() {
             <div className="h-16 w-16 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-4">
               <FileText className="h-8 w-8 text-slate-400" />
             </div>
-            <p className="text-sm font-medium text-slate-600">No ITSSR records visible for your current role.</p>
+            <p className="text-sm font-medium text-slate-600">No IT Support & Service Request records visible for your current role.</p>
             <p className="text-xs text-slate-400 mt-1">
               {access.isITAdmin ? 'No records found in the system.' : 'You can view records you submitted or are assigned to.'}
             </p>
@@ -1094,8 +1087,8 @@ function RequestFields({ form, setForm, readOnly, onlySectionOne = false }: { fo
           disabled={readOnly}
         />
       </Field>
-      <Field label="Company" required><SelectField value={form.Company} onChange={(Company) => setForm({ Company })} options={ITSSR_COMPANIES} disabled={readOnly} /></Field>
-      <Field label="Department" required><SelectField value={form.Department} onChange={(Department) => setForm({ Department })} options={ITSSR_DEPARTMENTS} disabled={readOnly} /></Field>
+      <Field label="Company" required><SharePointOptionSelect kind="company" value={form.Company} onChange={(Company) => setForm({ Company })} disabled={readOnly} /></Field>
+      <Field label="Department" required><SharePointOptionSelect kind="department" value={form.Department} onChange={(Department) => setForm({ Department })} disabled={readOnly} /></Field>
       <Field label="Service Type" required><SelectField value={form.ServiceType} onChange={(ServiceType) => setForm({ ServiceType, Hardware: '', Application: '' })} options={ITSSR_SERVICE_TYPES} disabled={readOnly} /></Field>
       {form.ServiceType === 'Hardware' ? <Field label="Hardware"><SelectField value={form.Hardware} onChange={(Hardware) => setForm({ Hardware })} options={ITSSR_HARDWARE_ITEMS} disabled={readOnly} /></Field> : null}
       {form.ServiceType === 'Software' ? <Field label="Application"><SelectField value={form.Application} onChange={(Application) => setForm({ Application })} options={ITSSR_APPLICATIONS} disabled={readOnly} /></Field> : null}
@@ -1196,163 +1189,9 @@ function RequestFields({ form, setForm, readOnly, onlySectionOne = false }: { fo
   );
 }
 
-export function ITSSRNewScreen() {
-  const navigate = useNavigate();
-  const client = useQueryClient();
-  const { data: user } = useUser();
-  const userEmail = user?.userPrincipalName || '';
-  const [form, setFormState] = useState<Partial<ITSSRRecord>>({
-    Company: '',
-    Site: 'MY-PR',
-    Department: '',
-    ServiceType: '',
-    ReportedByEmail: toPerson(userEmail, user?.fullName),
-    SendToEmail: undefined,
-    ProblemDescription: '',
-    SubmittedBy: user?.fullName || 'Current User',
-  });
-  const setForm = (patch: Partial<ITSSRRecord>) => setFormState((current) => ({ ...current, ...patch }));
-  const routing = useMemo(
-    () => determineITSSRRouting({
-      serviceType: form.ServiceType as ITSSRServiceType | undefined,
-      application: form.Application,
-      department: form.Department,
-    }),
-    [form.ServiceType, form.Application, form.Department]
-  );
-
-  useEffect(() => {
-    if (!userEmail) return;
-    setFormState((current) => {
-      if (personEmail(current.ReportedByEmail)) return current;
-      return {
-        ...current,
-        ReportedByEmail: toPerson(userEmail, user?.fullName),
-        SubmittedBy: user?.fullName || current.SubmittedBy || 'Current User',
-      };
-    });
-  }, [userEmail, user?.fullName]);
-
-  useEffect(() => {
-    if (!routing.primaryPICEmail) return;
-    setFormState((current) => ({
-      ...current,
-      SendToEmail: toPerson(routing.primaryPICEmail, routing.primaryPICName),
-    }));
-  }, [routing.primaryPICEmail, routing.primaryPICName]);
-
-  // Capture routed PIC for use in onSuccess callback (out of mutationFn scope)
-  const routedPIC = routing.primaryPICEmail ? toPerson(routing.primaryPICEmail, routing.primaryPICName) : form.SendToEmail;
-
-  const create = useMutation({
-    mutationFn: async () => {
-      const now = new Date().toISOString();
-      const createdAt = new Date();
-      const temporaryTitle = `${ITSSR_CODE}-${createdAt.getFullYear()}${String(createdAt.getDate()).padStart(2, '0')}${String(createdAt.getMonth() + 1).padStart(2, '0')}-draft-${Date.now().toString().slice(-4)}`;
-      const remarks = buildITSSRRemarksSummary(form, routedPIC);
-      const draft = await MainDBITService.create({
-        title: temporaryTitle,
-        currentStatus: mapCurrentStatus('Submitted'),
-        formcode: ITSSR_CODE,
-        environmenttagKey: 'EnvironmenttagKey0',
-        islocked: false,
-        siteKey: mapLocationToSiteKey(form.Site || 'MY-PR'),
-        remarks,
-        requestoremail: personEmail(form.ReportedByEmail),
-        submitteddate: now,
-        workflowstage: stageNumber('Submitted'),
-      } as Omit<MainDBIT, 'id'>);
-      const finalTitle = formatITSSRCaseTitle(draft.id, createdAt);
-      const submitted = await MainDBITService.update(String(draft.id), { title: finalTitle });
-
-      await MainDBITExtSupportService.create({
-        title: finalTitle,
-        parentFormCode: ITSSR_CODE,
-        parentRecord: { id: submitted.id, title: finalTitle },
-        iTSSRCaseNo: finalTitle,
-        iTSSRServiceType: form.ServiceType,
-        iTSSRProblemDescription: form.ProblemDescription,
-        iTSSRReportedByEmail: personEmail(form.ReportedByEmail),
-        iTSSRProblemCategory: form.ProblemCategory || form.ServiceType,
-        iTSSRSupportMethod: form.SupportMethod || 'Remote',
-        iTSSRDepartment: form.Department,
-        iTSSRExtension: form.PhoneExtension,
-        iTSSRHardware: form.Hardware,
-        iTSSRApplication: form.Application,
-        iTSSRCC: typeof form.CCEmail === 'string' ? form.CCEmail : '',
-        iTSSRSendToEmail: personEmail(routedPIC),
-      } as Omit<MainDBITExtSupport, 'id'>);
-      await createITSSRDocument(
-        submitted,
-        'Requestor Attachment',
-        form.RequestorAttachment || 'Requestor Attachment',
-        form.RequestorAttachment
-      ).catch(() => undefined);
-
-      return submitted;
-    },
-    onSuccess: (submitted) => {
-      const itEmail = personEmail(routedPIC);
-      if (itEmail) OutlookEmailService.sendEmail({
-        to: itEmail,
-        subject: `[${ITSSR_CODE}] New Support Request Routed to You: ${submitted.title}`,
-        body: `<p>A new IT support request has been submitted and routed to you.</p>
-<p><strong>Case:</strong> ${submitted.title}</p>
-<p><strong>Requestor:</strong> ${personName(form.ReportedByEmail)} (${personEmail(form.ReportedByEmail)})</p>
-<p><strong>Company / Dept:</strong> ${form.Company || '–'} / ${form.Department || '–'}</p>
-<p><strong>Service Type:</strong> ${form.ServiceType || '–'}</p>
-<p><strong>Problem:</strong></p><blockquote style="border-left:3px solid #ccc;padding-left:10px;color:#555">${form.ProblemDescription || '–'}</blockquote>
-<p>This case is now <strong>Submitted</strong>. Please log in to the IOI IT Platform and click <strong>Assign &amp; Start</strong> if you are taking ownership.</p>`,
-      });
-      client.invalidateQueries({ queryKey: ['itssr-records'] });
-      toast.success('Request submitted to IT.');
-      navigate(ITSSR_LIST_PATH);
-    },
-    onError: () => toast.error('Unable to create ITSSR item in MainDB_IT.'),
-  });
-
-  function submit() {
-    if (!form.Company || !form.Department || !form.ServiceType || !personEmail(form.ReportedByEmail) || !routing.primaryPICEmail) {
-      toast.warning('Please complete all required request fields.');
-      return;
-    }
-    if (!form.ProblemDescription || form.ProblemDescription.trim().length < 10) {
-      toast.warning('Please describe the problem (min 10 characters).');
-      return;
-    }
-    create.mutate();
-  }
-
-  return (
-    <main className="mx-auto grid max-w-6xl gap-5 p-5 pb-24">
-      <Link to={ITSSR_LIST_PATH} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-950"><ArrowLeft className="h-4 w-4" /> Back to {ITSSR_CODE} list</Link>
-      <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
-        <div className="space-y-5">
-          <Section title="Section 1 - Your Request" actor="requestor" active locked={false} lockMessage="">
-            <RequestFields form={form} setForm={setForm} readOnly={create.isPending} onlySectionOne />
-            {routing.primaryPICEmail ? (
-              <div className="md:col-span-2 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-950">
-                Routed to: <span className="font-semibold">{routing.primaryPICName}</span> ({routing.primaryPICEmail})
-                {routing.picDescription ? <span className="block text-xs text-emerald-800">{routing.picDescription}</span> : null}
-              </div>
-            ) : null}
-            <div className="sticky bottom-0 -mx-5 flex justify-end border-t border-slate-100 bg-white/95 px-5 pt-4 shadow-[0_-8px_16px_rgba(15,23,42,0.04)] md:col-span-2 sm:static sm:mx-0 sm:bg-transparent sm:px-0 sm:shadow-none" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
-              <button type="button" onClick={submit} disabled={create.isPending} className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-emerald-800 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-900 disabled:opacity-60 sm:w-auto">
-                <Send className="h-4 w-4" /> Submit request
-              </button>
-            </div>
-          </Section>
-        </div>
-        <div className="lg:sticky lg:top-5 lg:self-start">
-          <RoutingSidebar routing={routing} form={form} />
-        </div>
-      </div>
-    </main>
-  );
-}
-
 export function ITSSRDetailScreen() {
   const navigate = useNavigate();
+  const goBack = useBackNavigation(ITSSR_LIST_PATH);
   const client = useQueryClient();
   const params = useParams<{ id: string }>();
   const { data: record, isLoading } = useITSSRRecord(params.id);
@@ -1421,16 +1260,16 @@ export function ITSSRDetailScreen() {
     );
   }
 
-  if (isLoading) return <main className="p-5 text-sm text-slate-500">Loading {ITSSR_CODE} detail...</main>;
-  if (!record) return <main className="p-5 text-sm text-slate-500">{ITSSR_CODE} record not found.</main>;
+  if (isLoading) return <main className="p-5 text-sm text-slate-500">Loading IT Support & Service Request detail...</main>;
+  if (!record) return <main className="p-5 text-sm text-slate-500">IT Support & Service Request record not found.</main>;
 
   return (
     <main className="mx-auto grid max-w-6xl gap-4 p-4 sm:p-5">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg bg-emerald-950 px-4 py-3 text-white shadow-sm">
-        <button type="button" onClick={() => navigate(ITSSR_LIST_PATH)} className="inline-flex min-h-11 items-center gap-2 rounded-md bg-white/10 px-3 py-2 text-sm font-semibold hover:bg-white/20"><ArrowLeft className="h-4 w-4" /> Back</button>
+        <button type="button" onClick={goBack} className="inline-flex min-h-11 items-center gap-2 rounded-md bg-white/10 px-3 py-2 text-sm font-semibold hover:bg-white/20"><ArrowLeft className="h-4 w-4" /> Back</button>
         <div className="min-w-0 flex-1 text-left sm:text-center">
-          <p className="text-xs uppercase tracking-wide text-emerald-100">{ITSSR_CODE} Case</p>
+          <p className="text-xs uppercase tracking-wide text-emerald-100">IT Support & Service Request</p>
           <h1 className="truncate text-xl font-semibold">{form.title}</h1>
         </div>
         <StatusBadge status={status} pending={isPending} />
@@ -1460,8 +1299,8 @@ export function ITSSRDetailScreen() {
                   <Field label="Site" required>
                     <SelectField value={form.Site || 'MY-PR'} onChange={(Site) => setForm({ Site })} options={['MY-PR', 'MY-JH']} />
                   </Field>
-                  <Field label="Company" required><SelectField value={form.Company} onChange={(Company) => setForm({ Company })} options={ITSSR_COMPANIES} /></Field>
-                  <Field label="Department" required><SelectField value={form.Department} onChange={(Department) => setForm({ Department })} options={ITSSR_DEPARTMENTS} /></Field>
+                  <Field label="Company" required><SharePointOptionSelect kind="company" value={form.Company} onChange={(Company) => setForm({ Company })} /></Field>
+                  <Field label="Department" required><SharePointOptionSelect kind="department" value={form.Department} onChange={(Department) => setForm({ Department })} /></Field>
                   <Field label="Service Type" required><SelectField value={form.ServiceType} onChange={(ServiceType) => setForm({ ServiceType, Hardware: '', Application: '' })} options={ITSSR_SERVICE_TYPES} /></Field>
                   {form.ServiceType === 'Hardware' ? <Field label="Hardware"><SelectField value={form.Hardware} onChange={(Hardware) => setForm({ Hardware })} options={ITSSR_HARDWARE_ITEMS} /></Field> : null}
                   {form.ServiceType === 'Software' ? <Field label="Application"><SelectField value={form.Application} onChange={(Application) => setForm({ Application })} options={ITSSR_APPLICATIONS} /></Field> : null}

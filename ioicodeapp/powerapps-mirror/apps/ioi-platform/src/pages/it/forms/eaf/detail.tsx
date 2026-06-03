@@ -34,9 +34,11 @@ import type { MainDBITExtAccess } from '@/generated/models/main-dbit-ext-access-
 import { ApprovalRecordsService } from '@/generated/services/approval-records-service';
 import { MainDBITExtAccessService } from '@/generated/services/main-dbit-ext-access-service';
 import { MainDBITService } from '@/generated/services/main-dbit-service';
+import { useDynamicRoleAccess } from '@/hooks/use-dynamic-role-access';
 import { useUser } from '@/hooks/use-user';
+import { getITCurrentActionAccess } from '@/lib/it-current-action-access';
 
-type StageName = 'HOD' | 'Div Director' | 'IT Manager';
+type StageName = 'HOD' | 'Div Director' | 'IT Manager' | 'IT Provisioning';
 
 interface StageAction {
   action: string;
@@ -76,6 +78,9 @@ const STAGE_ACTIONS: Record<string, StageAction[]> = {
   CurrentstatusKey12: [
     { action: 'CurrentstatusKey1', label: 'Approve as IT Manager', variant: 'approve', stage: 'IT Manager' },
     { action: 'CurrentstatusKey6', label: 'Reject', variant: 'reject', stage: 'IT Manager' },
+  ],
+  CurrentstatusKey1: [
+    { action: 'CurrentstatusKey5', label: 'Mark Provisioning Complete', variant: 'approve', stage: 'IT Provisioning' },
   ],
 };
 
@@ -192,7 +197,37 @@ function nextWorkflowStage(action: string): number {
   if (action === 'CurrentstatusKey11') return 3;
   if (action === 'CurrentstatusKey12') return 4;
   if (action === 'CurrentstatusKey1') return 5;
+  if (action === 'CurrentstatusKey5') return 6;
   return 2;
+}
+
+function actionText(stage: StageName, action: string): string {
+  return action === 'CurrentstatusKey6' ? `${stage} Rejected` : `${stage} Approved`;
+}
+
+function formatApprovalComment({
+  stage,
+  action,
+  actorName,
+  actorId,
+  comment,
+  submittedAt,
+}: {
+  stage: StageName;
+  action: string;
+  actorName: string;
+  actorId: string;
+  comment: string;
+  submittedAt: string;
+}): string {
+  const actionLabel = actionText(stage, action);
+  const actor = actorName === actorId ? actorName : `${actorName} (${actorId})`;
+  const commentText = comment.trim() || 'No comment provided.';
+  return `${actionLabel} by ${actor} on ${format(new Date(submittedAt), 'dd MMM yyyy h:mm a')}\n${commentText}`;
+}
+
+function appendApprovalComment(existing: string | undefined, entry: string): string {
+  return [existing?.trim(), entry.trim()].filter(Boolean).join('\n\n');
 }
 
 function stageUpdate(stage: StageName, action: string, comment: string, actor: string): Partial<Omit<MainDBITExtAccess, 'id'>> {
@@ -214,22 +249,28 @@ function stageUpdate(stage: StageName, action: string, comment: string, actor: s
       eAFDDAppComment: comment,
     };
   }
+  if (stage === 'IT Manager') {
+    return {
+      eAFITManagerApprovedBy: actor,
+      eAFITManagerStatus: decision,
+      eAFITManagerDate: now,
+      eAFITManagerComment: comment,
+    };
+  }
+  // IT Provisioning
   return {
-    eAFITManagerApprovedBy: actor,
-    eAFITManagerStatus: decision,
-    eAFITManagerDate: now,
-    eAFITManagerComment: comment,
+    eAFITCompletedBy: actor,
+    eAFITCompletedDate: now,
+    eAFITCompletionStatus: 'Completed',
+    eAFITComment: comment,
   };
-}
-
-function actionText(stage: StageName, action: string): string {
-  return action === 'CurrentstatusKey6' ? `${stage} Rejected` : `${stage} Approved`;
 }
 
 export default function EAFDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { data: user } = useUser();
+  const roleAccess = useDynamicRoleAccess({ moduleScope: 'IT' });
   const [loading, setLoading] = useState(false);
   const [remark, setRemark] = useState('');
 
@@ -283,9 +324,24 @@ export default function EAFDetailPage() {
   const statusKey = String(record?.currentStatus || '');
   const statusLabel = MainDBITCurrentstatusKeyToLabel[statusKey as keyof typeof MainDBITCurrentstatusKeyToLabel] || statusKey || 'Unknown';
   const availableActions = STAGE_ACTIONS[statusKey] || [];
+  const actionAccess = record
+    ? getITCurrentActionAccess({
+        record,
+        user,
+        roleAccess,
+        statusLabel,
+        currentStageName: availableActions[0]?.stage,
+        sources: extRecord ? [extRecord as unknown as Record<string, unknown>] : [],
+        blockInitiator: true,
+      })
+    : undefined;
 
   const handleAction = async (action: string, stage: StageName) => {
     if (!id || !record) return;
+    if (!actionAccess?.canAct) {
+      toast.error(actionAccess?.reason || 'You are not assigned to this action.');
+      return;
+    }
     setLoading(true);
     try {
       const actorName = user?.fullName || user?.userPrincipalName || 'Approver';
@@ -293,18 +349,21 @@ export default function EAFDetailPage() {
       const comment = remark.trim();
       const actionKey: ApprovalRecordsActionKey = action === 'CurrentstatusKey6' ? 'ActionKey1' : 'ActionKey0';
       const submittedAt = new Date().toISOString();
+      const statusLabelAfterAction = MainDBITCurrentstatusKeyToLabel[action as keyof typeof MainDBITCurrentstatusKeyToLabel] || action;
+      const currentAction = `${actionText(stage, action)} by ${actorName}`;
+      const approvalComment = formatApprovalComment({ stage, action, actorName, actorId, comment, submittedAt });
 
       await MainDBITService.update(id, {
         currentStatus: action,
         workflowstage: nextWorkflowStage(action),
-        currentAction: actionText(stage, action),
+        currentAction,
         approvedByEmail: actorId,
         approvedByName: actorName,
-        hODApproverRemarks: comment || record.hODApproverRemarks,
+        hODApproverRemarks: appendApprovalComment(record.hODApproverRemarks, approvalComment),
       });
 
       if (extRecord?.id) {
-        await MainDBITExtAccessService.update(String(extRecord.id), stageUpdate(stage, action, comment, actorName));
+        await MainDBITExtAccessService.update(String(extRecord.id), stageUpdate(stage, action, approvalComment, actorName));
       }
 
       try {
@@ -317,8 +376,8 @@ export default function EAFDetailPage() {
           actionbyname: actorName,
           actiondate: submittedAt,
           actionKey,
-          comments: comment,
-          nextstage: MainDBITCurrentstatusKeyToLabel[action as keyof typeof MainDBITCurrentstatusKeyToLabel] || action,
+          comments: approvalComment,
+          nextstage: statusLabelAfterAction,
         });
       } catch (historyError) {
         console.warn('[EAF] Status updated but approval history write failed:', historyError);
@@ -341,6 +400,8 @@ export default function EAFDetailPage() {
 
   const currentStageIndex = WORKFLOW_STAGES.findIndex((stage) => stage.key === statusKey);
   const isApproved = statusKey === 'CurrentstatusKey1';
+  const isVerified = statusKey === 'CurrentstatusKey5';
+  const isTerminal = isApproved || isVerified || statusKey === 'CurrentstatusKey6';
   const auditMetadata = record as MainDBIT & SharePointAuditMetadata;
 
   return (
@@ -413,9 +474,9 @@ export default function EAFDetailPage() {
             ]}
           />
 
-          {WORKFLOW_STAGES.slice(0, 3).map((stage, index) => {
+          {WORKFLOW_STAGES.map((stage, index) => {
             const active = statusKey === stage.key;
-            const completed = isApproved || currentStageIndex > index || (currentStageIndex < 0 && record.workflowstage ? record.workflowstage > index + 2 : false);
+            const completed = isTerminal || (isApproved && index < 3) || (isVerified && index < 4) || (currentStageIndex > index) || (currentStageIndex === -1 && record.workflowstage ? record.workflowstage > index + 2 : false);
             const stageFields =
               index === 0
                 ? [
@@ -431,11 +492,19 @@ export default function EAFDetailPage() {
                       { label: 'Date', value: extRecord?.eAFDDAppDate },
                       { label: 'Comment', value: extRecord?.eAFDDAppComment },
                     ]
-                  : [
+                : index === 2
+                  ? [
                       { label: 'Approver', value: extRecord?.eAFITManagerApprovedBy },
                       { label: 'Status', value: extRecord?.eAFITManagerStatus },
                       { label: 'Date', value: extRecord?.eAFITManagerDate },
                       { label: 'Comment', value: extRecord?.eAFITManagerComment },
+                    ]
+                  : [
+                      { label: 'Completed By', value: extRecord?.eAFITCompletedBy },
+                      { label: 'Status', value: extRecord?.eAFITCompletionStatus },
+                      { label: 'Date', value: extRecord?.eAFITCompletedDate },
+                      { label: 'Comment', value: extRecord?.eAFITComment || extRecord?.eAFITConfigRemarks },
+                      { label: 'Config Status', value: extRecord?.eAFITConfigStatus },
                     ];
             return <StageCard key={stage.key} title={stage.title} active={active} completed={completed} fields={stageFields} />;
           })}
@@ -455,9 +524,18 @@ export default function EAFDetailPage() {
                 <CardTitle className="text-base">Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
+                {!actionAccess?.canAct && actionAccess?.reason && (
+                  <p className="text-xs text-muted-foreground">{actionAccess.reason}</p>
+                )}
                 <div className="space-y-2">
                   <Label>Comment</Label>
-                  <Textarea value={remark} onChange={(event) => setRemark(event.target.value)} placeholder="Add approver comment..." rows={4} />
+                  <Textarea
+                    value={remark}
+                    onChange={(event) => setRemark(event.target.value)}
+                    placeholder="Add approver comment..."
+                    rows={4}
+                    disabled={!actionAccess?.canAct || loading}
+                  />
                 </div>
                 {availableActions.map((action) => (
                   <Button
@@ -465,7 +543,7 @@ export default function EAFDetailPage() {
                     className="w-full"
                     variant={action.variant === 'approve' ? 'default' : 'destructive'}
                     onClick={() => handleAction(action.action, action.stage)}
-                    disabled={loading}
+                    disabled={loading || !actionAccess?.canAct}
                   >
                     {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                     {action.label}

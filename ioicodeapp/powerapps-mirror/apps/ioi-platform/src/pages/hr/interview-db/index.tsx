@@ -12,6 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import { StatusBadge } from '@/components/hr/status-badge';
 import { useHRInterviewPipelineList } from '@/generated/hooks/use-hrinterview-pipeline';
+import { HRInterviewPipelineSiteKeyToLabel, type HRInterviewPipelineSiteKey } from '@/generated/models/hr-interview-pipeline-model';
 
 const STAGE_TABS = [
   { id: 'all', label: 'All' },
@@ -84,7 +85,7 @@ export default function InterviewDBListPage() {
                     <TableCell className="font-medium">{r.pipelineNo || r.title}</TableCell>
                     <TableCell>{r.candidateName || '-'}</TableCell>
                     <TableCell>{r.position || '-'}</TableCell>
-                    <TableCell>{r.siteKey || '-'}</TableCell>
+                    <TableCell>{r.siteKey ? HRInterviewPipelineSiteKeyToLabel[r.siteKey as HRInterviewPipelineSiteKey] : '-'}</TableCell>
                     <TableCell><StatusBadge status={r.stage} /></TableCell>
                     <TableCell className="text-right">
                       <Button variant="ghost" size="sm" onClick={() => navigate(`/hr/interview-db/${r.id}`)}>

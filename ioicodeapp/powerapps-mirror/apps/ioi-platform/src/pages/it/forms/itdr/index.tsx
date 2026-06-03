@@ -1,20 +1,22 @@
-import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useMemo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
 import { Plus, ArrowLeft, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DatabaseTable, StatusBadge } from '@/components/database-view';
 import type { ColumnDef } from '@/components/database-view';
-import { DetailModal } from '@/components/database-view';
-import type { FieldGroup } from '@/components/database-view';
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { useMainDBITExtSupportList } from '@/generated/hooks/use-main-dbitext-support';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtSupport } from '@/generated/models/main-dbit-ext-support-model';
 import { parseRemarks } from '@/lib/parse-remarks';
-import { getITFormCodeFilter } from '@/lib/it-form-routes';
+import { getITFormCodeFilter, getITFormDetailPath } from '@/lib/it-form-routes';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface ITDAILYRPTRecord {
   id: string;
@@ -27,6 +29,7 @@ interface ITDAILYRPTRecord {
   company: string;
   startDate: string;
   endDate: string;
+  displayText: string;
   docAuthor: string;
   status: string;
   mainRecord?: MainDBIT;
@@ -41,7 +44,7 @@ function mapStatusToLabel(status?: string): string {
 const columns: ColumnDef<ITDAILYRPTRecord>[] = [
   {
     key: 'recordNo',
-    header: 'Record No',
+    header: 'Task ID',
     sortable: true,
     width: '200px',
     render: (value: unknown) => (
@@ -52,7 +55,7 @@ const columns: ColumnDef<ITDAILYRPTRecord>[] = [
   },
   {
     key: 'startDate',
-    header: 'Start Date',
+    header: 'Work Date',
     sortable: true,
     width: '110px',
     render: (value: unknown) => {
@@ -66,7 +69,7 @@ const columns: ColumnDef<ITDAILYRPTRecord>[] = [
   },
   {
     key: 'subject',
-    header: 'Subject',
+    header: 'Daily Task',
     sortable: true,
     render: (value: unknown) => {
       const str = String(value || '');
@@ -74,35 +77,39 @@ const columns: ColumnDef<ITDAILYRPTRecord>[] = [
     },
   },
   {
-    key: 'category',
-    header: 'Category',
+    key: 'type',
+    header: 'Task Type',
     sortable: true,
     render: (value: unknown) => (
-      <span className="px-2 py-1 rounded text-xs font-medium bg-indigo-100 text-indigo-800">
+      <span className="px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
         {String(value) || '-'}
       </span>
     ),
   },
   {
-    key: 'type',
-    header: 'Type',
+    key: 'category',
+    header: 'Task Area',
     sortable: true,
   },
   {
     key: 'docAuthor',
-    header: 'Author',
+    header: 'Submitted By',
     sortable: true,
   },
   {
     key: 'status',
-    header: 'Status',
+    header: 'Log Status',
     sortable: true,
     render: (value: unknown) => <StatusBadge status={String(value)} />,
   },
 ];
 
 export default function ITDAILYRPTDatabaseView() {
-  const [selectedRecord, setSelectedRecord] = useState<ITDAILYRPTRecord | null>(null);
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
+  const navigate = useNavigate();
 
   const { data: mainRecords = [], isLoading: mainLoading } = useMainDBITList({
     filter: getITFormCodeFilter('ITDR'),
@@ -145,7 +152,8 @@ export default function ITDAILYRPTDatabaseView() {
         company: main.company || String(parsed.HDR_Company || ''),
         startDate: extSupport?.iTDRDateFrom || String(parsed.HDR_StartDate || ''),
         endDate: extSupport?.iTDRDateTo || String(parsed.HDR_EndDate || ''),
-        docAuthor: main.requestoremail || String(parsed.AUD_DocAuthor || ''),
+        displayText: extSupport?.iTDRDisplayText || String(parsed.HDR_DisplayText || ''),
+        docAuthor: extSupport?.iTDRDocAuthor || main.requestoremail || String(parsed.AUD_DocAuthor || ''),
         status,
         mainRecord: main,
         extSupport,
@@ -153,84 +161,24 @@ export default function ITDAILYRPTDatabaseView() {
     });
   }, [mainRecords, extSupportRecords]);
 
-  const fieldGroups: FieldGroup[] = useMemo(() => {
-    if (!selectedRecord) return [];
-    const parsed = selectedRecord.mainRecord ? parseRemarks(selectedRecord.mainRecord.remarks) : {};
-    const extSupport = selectedRecord.extSupport;
-    const type = selectedRecord.type;
 
-    const groups: FieldGroup[] = [
-      {
-        title: 'Report Information',
-        fields: [
-          { label: 'Record Number', value: selectedRecord.recordNo },
-          { label: 'Date Created', value: selectedRecord.dateCreated, type: 'date' },
-          { label: 'Submitted By', value: selectedRecord.createdByEmail, type: 'user' },
-        ],
-      },
-      {
-        title: 'Report Header',
-        fields: [
-          { label: 'Subject', value: selectedRecord.subject || '-', fullWidth: true },
-          { label: 'Category', value: selectedRecord.category || '-', type: 'badge' },
-          { label: 'Type', value: selectedRecord.type || '-' },
-          { label: 'Start Date', value: selectedRecord.startDate || '-' },
-          { label: 'End Date', value: selectedRecord.endDate || '-' },
-          { label: 'Company', value: selectedRecord.company || '-' },
-          { label: 'Display Text', value: extSupport?.iTDRDisplayText || String(parsed.HDR_DisplayText || '-') },
-        ],
-      },
-    ];
-
-    if (type === 'Meeting') {
-      groups.push({
-        title: 'Meeting Details',
-        fields: [
-          { label: 'Chairman', value: extSupport?.iTDRMeetingChairman || String(parsed.MTG_Chairman || '-') },
-          { label: 'Venue', value: extSupport?.iTDRVenue || String(parsed.MTG_Venue || '-') },
-          { label: 'Date', value: extSupport?.iTDRDateFrom || String(parsed.MTG_Date || '-') },
-          { label: 'Time From', value: extSupport?.iTDRTimeFrom || String(parsed.MTG_TimeFrom || '-') },
-          { label: 'Time To', value: extSupport?.iTDRTimeTo || String(parsed.MTG_TimeTo || '-') },
-          { label: 'Attendees', value: extSupport?.iTDRParticipants || String(parsed.MTG_Present || '-'), fullWidth: true },
-        ],
-      });
-    }
-
-    if (type === 'Seminar/Training') {
-      groups.push({
-        title: 'Training Details',
-        fields: [
-          { label: 'Venue', value: extSupport?.iTDRVenue || String(parsed.TRN_Venue || '-') },
-          { label: 'Trainer', value: extSupport?.iTDRTrainer || String(parsed.TRN_Trainer || '-') },
-          { label: 'Date Start', value: extSupport?.iTDRDateFrom || String(parsed.TRN_DateStart || '-') },
-          { label: 'Date End', value: extSupport?.iTDRDateTo || String(parsed.TRN_DateEnd || '-') },
-          { label: 'Participants', value: extSupport?.iTDRParticipants || String(parsed.TRN_Participants || '-'), fullWidth: true },
-        ],
-      });
-    }
-
-    if (type === 'OT') {
-      groups.push({
-        title: 'Overtime Details',
-        fields: [
-          { label: 'Time From', value: extSupport?.iTDRTimeFrom || String(parsed.OT_TimeFrom || '-') },
-          { label: 'Time To', value: extSupport?.iTDRTimeTo || String(parsed.OT_TimeTo || '-') },
-          { label: 'OT Category', value: extSupport?.iTDROtCategory || String(parsed.OT_Cat || '-') },
-          { label: 'Purpose', value: extSupport?.iTDROtPurpose || String(parsed.OT_Purpose || '-'), fullWidth: true },
-        ],
-      });
-    }
-
-    groups.push({
-      title: 'Document History',
-      fields: [
-        { label: 'Doc Author', value: extSupport?.iTDRDocAuthor || selectedRecord.docAuthor || '-' },
-        { label: 'Created Date', value: extSupport?.iTDRAuditCreatedDate || String(parsed.AUD_CDate || '-') },
-      ],
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return itdailyrptData;
+    return itdailyrptData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
     });
+  }, [itdailyrptData, activeTab, userEmail]);
 
-    return groups;
-  }, [selectedRecord]);
+  const mySubmissionsCount = useMemo(
+    () => itdailyrptData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [itdailyrptData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => itdailyrptData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [itdailyrptData, userEmail]
+  );
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
@@ -243,9 +191,9 @@ export default function ITDAILYRPTDatabaseView() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-xl font-bold text-white">IT Daily Report (ITDAILYRPT)</h1>
+              <h1 className="text-xl font-bold text-white">IT Daily Task Register</h1>
               <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm">
-                Database View — All Reports from SharePoint
+                Daily tasks submitted by IT users
               </p>
             </div>
           </div>
@@ -260,12 +208,12 @@ export default function ITDAILYRPTDatabaseView() {
         >
           <div className="flex justify-between items-center mb-6">
             <p className="text-sm" style={{ color: '#5C5C5C' }}>
-              View all IT daily activity reports
+              Review submitted daily task entries, work dates, task areas, and logged status.
             </p>
             <Link to="/it/forms/itdr/new">
               <Button style={{ backgroundColor: '#003366' }}>
                 <Plus className="h-4 w-4 mr-2" />
-                New Report
+                New Daily Task
               </Button>
             </Link>
           </div>
@@ -277,23 +225,30 @@ export default function ITDAILYRPTDatabaseView() {
             {isLoading ? (
               <div className="flex flex-col items-center justify-center py-12">
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground mb-4" />
-                <p className="text-muted-foreground">Loading ITDAILYRPT submissions from SharePoint...</p>
+                <p className="text-muted-foreground">Loading daily task entries from SharePoint...</p>
               </div>
             ) : itdailyrptData.length === 0 ? (
               <Empty className="py-12">
                 <EmptyHeader>
-                  <EmptyTitle>No IT daily reports found</EmptyTitle>
+                  <EmptyTitle>No daily task entries found</EmptyTitle>
                   <EmptyDescription>
-                    There are no IT Daily Report submissions in the SharePoint list yet.
+                    There are no IT Daily Report task submissions in the SharePoint list yet.
                   </EmptyDescription>
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={itdailyrptData.length}
+          />
               <DatabaseTable
-                data={itdailyrptData}
+                data={filteredData}
                 columns={columns}
-                onRowClick={(row: ITDAILYRPTRecord) => setSelectedRecord(row)}
-                searchPlaceholder="Search by subject, category, type..."
+                onRowClick={(row: ITDAILYRPTRecord) => navigate(getITFormDetailPath('ITDR', row.id))}
+                searchPlaceholder="Search by task, task area, type, or owner..."
                 dateField="dateCreated"
                 initiatorEmailField="createdByEmail"
                 statusField="status"
@@ -302,15 +257,6 @@ export default function ITDAILYRPTDatabaseView() {
           </div>
         </motion.div>
       </div>
-
-      <DetailModal
-        isOpen={!!selectedRecord}
-        onClose={() => setSelectedRecord(null)}
-        title={`ITDAILYRPT — ${selectedRecord?.recordNo || ''}`}
-        subtitle={`${selectedRecord?.type || 'N/A'} · ${selectedRecord?.subject || ''}`}
-        status={selectedRecord?.status}
-        fieldGroups={fieldGroups}
-      />
     </div>
   );
 }

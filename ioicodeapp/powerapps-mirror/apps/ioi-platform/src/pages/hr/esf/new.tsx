@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { useUser } from '@/hooks/use-user';
@@ -73,7 +74,7 @@ export default function ESFNewPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2"><Label>Employee <span className="text-destructive">*</span></Label><EmployeePicker value={empName} onChange={(_, emp) => setEmpName(emp?.fullName || empName)} placeholder="Search employee..." /></div>
             <div className="space-y-2"><Label>IC / Staff No.</Label><Input value={empId} onChange={e => setEmpId(e.target.value)} placeholder="IC number" /></div>
-            <div className="space-y-2"><Label>Department</Label><Input value={department} onChange={e => setDepartment(e.target.value)} placeholder="Department" /></div>
+            <div className="space-y-2"><Label>Department</Label><SharePointLookupSelect kind="department" value={department} onChange={setDepartment} placeholder="Select department" /></div>
             <div className="space-y-2"><Label>Position</Label><Input value={position} onChange={e => setPosition(e.target.value)} placeholder="Job title" /></div>
             <div className="space-y-2"><Label>Last Working Day <span className="text-destructive">*</span></Label><Input type="date" value={lastDay} onChange={e => setLastDay(e.target.value)} /></div>
             <div className="space-y-2">

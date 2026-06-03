@@ -18,6 +18,10 @@ export const procurementRoutes = (
     <Route index element={<ProcurementDepartmentHomePage />} />
     <Route path="forms" element={<ProcurementFormsIndexPage />} />
     <Route path="forms/:formCode/new" element={<ProcurementFormNewPage />} />
+    <Route path="contracts" element={<Navigate to="/procurement/forms" replace />} />
+    <Route path="receiving" element={<Navigate to="/procurement/forms" replace />} />
+    <Route path="requests" element={<Navigate to="/procurement/forms" replace />} />
+    <Route path="vendors" element={<Navigate to="/procurement/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />

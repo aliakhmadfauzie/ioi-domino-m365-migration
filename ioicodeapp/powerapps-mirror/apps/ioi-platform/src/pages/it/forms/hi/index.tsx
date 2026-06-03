@@ -12,6 +12,10 @@ import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { useMainDBITExtAssetsList } from '@/generated/hooks/use-main-dbitext-assets';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtAssets } from '@/generated/models/main-dbit-ext-assets-model';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface HIRecord {
   id: string;
@@ -99,6 +103,10 @@ const columns: ColumnDef<HIRecord>[] = [
 ];
 
 export default function HIDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<HIRecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -193,6 +201,25 @@ export default function HIDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return hiData;
+    return hiData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [hiData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => hiData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [hiData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => hiData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [hiData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -239,8 +266,15 @@ export default function HIDatabaseView() {
             </Empty>
           ) : (
             <div className="rounded-xl p-6" style={{ backgroundColor: '#FFFFFF', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={hiData.length}
+          />
               <DatabaseTable
-                data={hiData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: HIRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by asset tag, type, serial number..."

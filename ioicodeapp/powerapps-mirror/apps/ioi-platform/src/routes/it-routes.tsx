@@ -49,6 +49,7 @@ const SRRNewFormPage = lazy(() => import('@/pages/it/forms/srr/new'));
 const DRRNewFormPage = lazy(() => import('@/pages/it/forms/drr/new'));
 const DATARESTDatabaseView = lazy(() => import('@/pages/it/forms/drr/index'));
 const ITDRNewFormPage = lazy(() => import('@/pages/it/forms/itdr/new'));
+const ITDRDetailPage = lazy(() => import('@/pages/it/forms/itdr/detail'));
 const ITDR2NewFormPage = lazy(() => import('@/pages/it/forms/itdr2/new'));
 const ITDAILYRPTDatabaseView = lazy(() => import('@/pages/it/forms/itdr/index'));
 const ITDR2DatabaseView = lazy(() => import('@/pages/it/forms/itdr2/index'));
@@ -60,6 +61,7 @@ const ITINFODatabaseView = lazy(() => import('@/pages/it/forms/itinfo/index'));
 const ITActivityLogPage = lazy(() => import('@/pages/it/activity-log'));
 const IOIPNewFormPage = lazy(() => import('@/pages/it/forms/ioip/new'));
 const IOIPDatabaseView = lazy(() => import('@/pages/it/forms/ioip/index'));
+const IOIPDetailPage = lazy(() => import('@/pages/it/forms/ioip/detail'));
 const NewTRNMANPage = lazy(() => import('@/pages/it/forms/trnman/new'));
 const TRNMANDatabaseView = lazy(() => import('@/pages/it/forms/trnman/index'));
 const NewISGDOCPage = lazy(() => import('@/pages/it/forms/isgdoc/new'));
@@ -154,7 +156,8 @@ export const itRoutes = (
     <Route path="forms/eaf/new" element={<EAFNewFormPage />} />
     <Route path="forms/eaf/:id" element={<EAFDetailPage />} />
     <Route path="forms/itssr/new" element={<ITSSRNewFormPage />} />
-    <Route path="forms/itssr/itssr_submissiom" element={<ITSSRListPage />} />
+    <Route path="forms/itssr/itssr_submissiom" element={<Navigate to="/it/forms/itssr" replace />} />
+    <Route path="forms/itssr/itssr_submission" element={<Navigate to="/it/forms/itssr" replace />} />
     <Route path="forms/itssr/:id" element={<ITSSRDetailPage />} />
     <Route path="forms/nir/new" element={<NIRNewFormPage />} />
     <Route path="forms/itdr/new" element={<ITDRNewFormPage />} />
@@ -200,7 +203,8 @@ export const itRoutes = (
     <Route path="forms/sfar/new" element={<SFARNewFormPage />} />
     <Route path="forms/ur/new" element={<URNewFormPage />} />
     <Route path="forms/itdr2/:id" element={<ITStaticFormDetailAlias formCode="ITDR2" />} />
-    <Route path="forms/itdr/:id" element={<ITStaticFormDetailAlias formCode="ITDR" />} />
+    <Route path="forms/itdr/detail/:id" element={<ITDRDetailPage />} />
+    <Route path="forms/itdr/:id" element={<ITDRDetailPage />} />
     <Route path="forms/nir/:id" element={<ITStaticFormDetailAlias formCode="NIR" />} />
 
     {/* IAL4 = Server Records (SVRREC) */}
@@ -220,7 +224,8 @@ export const itRoutes = (
     <Route path="forms/ioipol/new" element={<Navigate to="/it/forms/ioip/new" replace />} />
     <Route path="forms/ioip/new" element={<IOIPNewFormPage />} />
     <Route path="forms/ioip" element={<IOIPDatabaseView />} />
-    <Route path="forms/ioip/:id" element={<ITStaticFormDetailAlias formCode="IOIP" />} />
+    <Route path="forms/ioip/detail/:id" element={<IOIPDetailPage />} />
+    <Route path="forms/ioip/:id" element={<IOIPDetailPage />} />
 
     {/* Form Database Views — specific routes must precede generic :formCode */}
     <Route path="forms/ial1" element={<SRLDatabaseView />} />

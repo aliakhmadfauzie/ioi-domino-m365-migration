@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
+import { getDepartmentBasePath } from '@/lib/navigation';
 
 interface NavItem {
   id: string;
@@ -48,24 +49,7 @@ function getDepartmentNavItems(basePath: string, pendingTasks?: number): NavItem
 export function MobileBottomNav({ variant = 'hub', departmentCode, pendingTasks }: BottomNavProps) {
   const location = useLocation();
 
-  // Helper to map department codes to their actual route paths
-  const getBasePath = (code: string): string => {
-    const routeMap: Record<string, string> = {
-      PROD: 'production',
-      PURCH: 'procurement',
-      PUR: 'procurement',
-      FIN: 'fin',
-      SEC: 'security',
-      TD: 'training',
-      ENG: 'engineering',
-      MAINT: 'maintenance',
-      WH: 'warehouse',
-      SALES: 'sales',
-    };
-    return routeMap[code] || code.toLowerCase();
-  };
-
-  const basePath = departmentCode ? getBasePath(departmentCode) : '';
+  const basePath = departmentCode ? getDepartmentBasePath(departmentCode) : '';
   
   const navItems = variant === 'department' && departmentCode
     ? getDepartmentNavItems(basePath, pendingTasks)

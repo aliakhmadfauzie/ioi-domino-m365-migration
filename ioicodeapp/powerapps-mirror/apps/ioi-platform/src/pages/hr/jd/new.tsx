@@ -12,6 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { MainDBHRService } from '@/services/main-dbhr-service';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 
 export default function JDNewPage() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function JDNewPage() {
   const [department, setDepartment] = useState('');
   const [reportsTo, setReportsTo] = useState('');        // → details
   const [purpose, setPurpose] = useState('');            // → description
-  const [responsibilities, setResponsibilities] = useState(''); // → remarks
+  const [responsibilities, setResponsibilities] = useState('');
   const [requirements, setRequirements] = useState('');  // stored in profileDetails
 
   const handleSubmit = async (action: 'draft' | 'submit') => {
@@ -37,8 +38,7 @@ export default function JDNewPage() {
         jobdesignation: grade,
         department,
         details: reportsTo ? `Reports To: ${reportsTo}` : '',
-        description: purpose,
-        remarks: responsibilities,
+        description: [purpose, responsibilities ? `Responsibilities: ${responsibilities}` : null].filter(Boolean).join('\n'),
         profileDetails: requirements,
       } as any);
       toast.success(action === 'draft' ? 'Draft saved' : 'Submitted for review');
@@ -60,7 +60,7 @@ export default function JDNewPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2"><Label>Position <span className="text-destructive">*</span></Label><Input value={position} onChange={e => setPosition(e.target.value)} placeholder="Job title" /></div>
             <div className="space-y-2"><Label>Grade / Level</Label><Input value={grade} onChange={e => setGrade(e.target.value)} placeholder="e.g. E3, M2" /></div>
-            <div className="space-y-2"><Label>Department</Label><Input value={department} onChange={e => setDepartment(e.target.value)} placeholder="Department" /></div>
+            <div className="space-y-2"><Label>Department</Label><SharePointLookupSelect kind="department" value={department} onChange={setDepartment} placeholder="Select department" /></div>
             <div className="space-y-2"><Label>Reports To</Label><Input value={reportsTo} onChange={e => setReportsTo(e.target.value)} placeholder="Direct supervisor title" /></div>
             <div className="space-y-2 md:col-span-2"><Label>Job Purpose</Label><Textarea value={purpose} onChange={e => setPurpose(e.target.value)} rows={2} placeholder="Brief summary of the role's purpose" /></div>
             <div className="space-y-2 md:col-span-2"><Label>Key Responsibilities</Label><Textarea value={responsibilities} onChange={e => setResponsibilities(e.target.value)} rows={5} placeholder="List main duties and responsibilities..." /></div>

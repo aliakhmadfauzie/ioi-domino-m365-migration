@@ -30,6 +30,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { EmployeePicker, MultiEmployeePicker } from '@/components/employee-picker';
 
 import { MainDBITService } from '@/generated/services/main-dbit-service';
 import { MainDBITExtAccessService } from '@/generated/services/main-dbit-ext-access-service';
@@ -193,12 +194,11 @@ export default function PRFDetailPage() {
       if (resetAction === 'Clear Task Assignment') {
         extPatch.pRFAppByISG = '';
         extPatch.pRFDateApp2 = '';
-        const mainPatch: Record<string, unknown> = { currentStatus: 'CurrentstatusKey38', workflowstage: 3 };
-        try {
-          const existing = record.remarks ? JSON.parse(record.remarks) : {};
-          existing.prfCA = 'Acceptance1';
-          mainPatch.remarks = JSON.stringify(existing);
-        } catch { /* */ }
+        const mainPatch: Record<string, unknown> = {
+          currentStatus: 'CurrentstatusKey38',
+          workflowstage: 3,
+          currentAction: 'Acceptance1',
+        };
         await MainDBITService.update(String(record.id), mainPatch);
       } else if (resetAction === 'Clear Functional') {
         extPatch.pRFAttachedBy = '';
@@ -289,7 +289,7 @@ export default function PRFDetailPage() {
           <>
             <div className="flex-1 min-w-48">
               <Label className="text-xs">Dept Manager Email</Label>
-              <Input value={deptEmail} onChange={e => setDeptEmail(e.target.value)}
+              <EmployeePicker value={deptEmail} onChange={(email) => setDeptEmail(email)}
                 placeholder="dept.head@ioi.com" className="mt-1" />
             </div>
             <Button onClick={() => {
@@ -335,7 +335,7 @@ export default function PRFDetailPage() {
           <>
             <div className="flex-1 min-w-48">
               <Label className="text-xs">Assign IT Staff (isg)</Label>
-              <Input value={isgEmail} onChange={e => setIsgEmail(e.target.value)}
+              <EmployeePicker value={isgEmail} onChange={(email) => setIsgEmail(email)}
                 placeholder="it.staff@ioi.com" className="mt-1" />
             </div>
             <div className="w-40">
@@ -352,7 +352,8 @@ export default function PRFDetailPage() {
             {isSAP && (
               <div className="flex-1 min-w-48">
                 <Label className="text-xs">CC ISG (Sales Portal)</Label>
-                <Input value={ccIsg} onChange={e => setCcIsg(e.target.value)} placeholder="cc@ioi.com" className="mt-1" />
+                <MultiEmployeePicker value={ccIsg ? ccIsg.split(';').map((email) => email.trim()).filter(Boolean) : []}
+                  onChange={(emails) => setCcIsg(emails.join('; '))} placeholder="cc@ioi.com" className="mt-1" />
               </div>
             )}
             <Button onClick={() => {
@@ -379,12 +380,12 @@ export default function PRFDetailPage() {
           <>
             <div className="flex-1 min-w-48">
               <Label className="text-xs">ABAP Developer</Label>
-              <Input value={abapEmail} onChange={e => setAbapEmail(e.target.value)}
+              <EmployeePicker value={abapEmail} onChange={(email) => setAbapEmail(email)}
                 placeholder="abap.dev@ioi.com" className="mt-1" />
             </div>
             <div className="flex-1 min-w-48">
               <Label className="text-xs">Functional Owner SAP</Label>
-              <Input value={funcOwner} onChange={e => setFuncOwner(e.target.value)}
+              <EmployeePicker value={funcOwner} onChange={(email) => setFuncOwner(email)}
                 placeholder="func.owner@ioi.com" className="mt-1" />
             </div>
             <div className="w-40">

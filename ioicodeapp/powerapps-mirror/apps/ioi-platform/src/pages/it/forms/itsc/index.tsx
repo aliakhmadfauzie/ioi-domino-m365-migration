@@ -21,6 +21,10 @@ import {
 import type { MainDBITExtAssets } from '@/generated/models/main-dbit-ext-assets-model';
 import { format } from 'date-fns';
 import { statusConfig } from '@/lib/status-utils';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 type ITSCRemarks = Record<string, string | undefined>;
 
@@ -42,6 +46,9 @@ function parseITSCRemarks(value?: string | null): ITSCRemarks {
 
 export default function ITSCDatabaseView() {
   const navigate = useNavigate();
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
   const { data: allRecords = [], isLoading } = useMainDBITList({
     filter: "formcode eq 'ITSC'",
     orderBy: ['submitteddate desc'],
@@ -71,10 +78,23 @@ export default function ITSCDatabaseView() {
     }));
   }, [allRecords, extAssets]);
 
+  const mySubmissionsCount = useMemo(
+    () => records.filter((r) => isMySubmission(r.record, userEmail)).length,
+    [records, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => records.filter((r) => isMyAction(r.record, userEmail)).length,
+    [records, userEmail]
+  );
+
   const filtered = useMemo(() => {
+    const tabFiltered = activeTab === 'all' ? records
+      : records.filter((r) =>
+          activeTab === 'mine' ? isMySubmission(r.record, userEmail) : isMyAction(r.record, userEmail)
+        );
     const q = searchTerm.toLowerCase();
-    if (!q) return records;
-    return records.filter(({ record, asset, remarks }) => {
+    if (!q) return tabFiltered;
+    return tabFiltered.filter(({ record, asset, remarks }) => {
       const searchable = [
         record.title,
         record.requestorName,
@@ -92,7 +112,7 @@ export default function ITSCDatabaseView() {
       ].join(' ');
       return searchable.toLowerCase().includes(q);
     });
-  }, [records, searchTerm]);
+  }, [records, searchTerm, activeTab, userEmail]);
 
   if (isLoading || extLoading) return <PageLoading message="Loading ITSC records..." />;
 
@@ -120,6 +140,13 @@ export default function ITSCDatabaseView() {
           transition={{ duration: 0.35, ease: [0.2, 0, 0, 1] as const }}
           className="space-y-4"
         >
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={records.length}
+          />
           <div className="relative max-w-sm">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input

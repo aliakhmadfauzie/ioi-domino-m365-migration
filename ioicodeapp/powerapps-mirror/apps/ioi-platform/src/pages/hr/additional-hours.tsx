@@ -200,7 +200,6 @@ export default function AdditionalHoursPage() {
         submittedon: now,
         description: formData.reasonDetails.trim(),
         details: formData.reason,
-        remarks: formData.reasonDetails.trim(),
         currentapproveremail: formData.supervisorApproval,
         awhrCompany: formData.site || 'prai',
         awhrCategory: formData.compensationType,

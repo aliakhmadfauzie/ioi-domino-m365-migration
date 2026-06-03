@@ -16,6 +16,11 @@ export const salesRoutes = (
   <Route path="sales" element={<SalesLayout />}>
     <Route index element={<SalesDepartmentHomePage />} />
     <Route path="forms" element={<SalesFormsIndexPage />} />
+    <Route path="brand" element={<Navigate to="/sales/forms" replace />} />
+    <Route path="budget" element={<Navigate to="/sales/forms" replace />} />
+    <Route path="campaigns" element={<Navigate to="/sales/forms" replace />} />
+    <Route path="digital" element={<Navigate to="/sales/forms" replace />} />
+    <Route path="research" element={<Navigate to="/sales/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />

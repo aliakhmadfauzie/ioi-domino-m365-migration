@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { MainDBHRService } from '@/services/main-dbhr-service';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 
 export default function InternNewPage() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function InternNewPage() {
   const [ic, setIc] = useState('');              // → employeeid
   const [university, setUniversity] = useState(''); // → company
   const [course, setCourse] = useState('');      // → appliedPosition
-  const [gpa, setGpa] = useState('');            // → remarks
+  const [gpa, setGpa] = useState('');
   const [department, setDepartment] = useState('');
   const [supervisor, setSupervisor] = useState(''); // → backupPIC
   const [startDate, setStartDate] = useState('');  // → effectivedate
@@ -39,7 +40,7 @@ export default function InternNewPage() {
         employeeid: ic,
         company: university,
         appliedPosition: course,
-        remarks: gpa ? `GPA: ${gpa}` : '',
+        profileDetails: gpa ? `GPA: ${gpa}` : '',
         department,
         backupPIC: supervisor,
         effectivedate: startDate,
@@ -67,7 +68,7 @@ export default function InternNewPage() {
             <div className="space-y-2"><Label>University <span className="text-destructive">*</span></Label><Input value={university} onChange={e => setUniversity(e.target.value)} placeholder="University name" /></div>
             <div className="space-y-2"><Label>Course / Programme</Label><Input value={course} onChange={e => setCourse(e.target.value)} placeholder="e.g. B.Eng Chemical Engineering" /></div>
             <div className="space-y-2"><Label>GPA / CGPA</Label><Input value={gpa} onChange={e => setGpa(e.target.value)} placeholder="e.g. 3.75" /></div>
-            <div className="space-y-2"><Label>Department</Label><Input value={department} onChange={e => setDepartment(e.target.value)} placeholder="Host department" /></div>
+            <div className="space-y-2"><Label>Department</Label><SharePointLookupSelect kind="department" value={department} onChange={setDepartment} placeholder="Select host department" /></div>
             <div className="space-y-2"><Label>Supervisor</Label><Input value={supervisor} onChange={e => setSupervisor(e.target.value)} placeholder="Supervisor name" /></div>
             <div className="space-y-2"><Label>Start Date</Label><Input type="date" value={startDate} onChange={e => setStartDate(e.target.value)} /></div>
             <div className="space-y-2"><Label>End Date</Label><Input type="date" value={endDate} onChange={e => setEndDate(e.target.value)} /></div>

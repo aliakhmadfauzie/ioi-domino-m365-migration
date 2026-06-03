@@ -2,6 +2,12 @@
 
 > Controlled migration pipeline checkpoint log.
 
+## 2026-06-03
+
+| Time/Run | Task | Result | Evidence | Next Safe Task |
+|---|---|---|---|---|
+| Goal continuation | `TASK-FIX-029` | Verified - IOIPOL policy is handled by the active IOIP implementation for UAT; canonical detail routing opens the dedicated IOIP detail page, submission starts in pending policy approval, and approval actions persist to parent history plus MainDB_IT_Ext_Policy fields. Live tenant readback was not run in this pass. | `audit/build_reviews/FIX-029_IOIPOL_APPROVAL_PERSISTENCE_RE_AUDIT.md`; `npx tsc --noEmit` passed; `npm run build` passed | Continue after verified `TASK-FIX-029`; schedule live MainDB_IT_Ext_Policy readback separately if tenant proof is required |
+
 ## 2026-06-02
 
 | Time/Run | Task | Result | Evidence | Next Safe Task |

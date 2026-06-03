@@ -18,6 +18,7 @@ export const admRoutes = (
     <Route index element={<ADMDepartmentHomePage />} />
     <Route path="forms" element={<ADMFormsIndexPage />} />
     <Route path="forms/:formCode/new" element={<ADMFormNewPage />} />
+    <Route path="facilities" element={<Navigate to="/adm/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />

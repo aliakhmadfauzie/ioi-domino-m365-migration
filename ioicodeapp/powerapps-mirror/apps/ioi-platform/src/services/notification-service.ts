@@ -20,6 +20,12 @@ export interface SharePointSubmission {
     DisplayName?: string;
   };
   SubmittedDate: string;
+  DueDate?: string;
+  FormData: string;
+  AssignedTo?: {
+    Email: string;
+    DisplayName?: string;
+  };
 }
 
 // =============================================================================

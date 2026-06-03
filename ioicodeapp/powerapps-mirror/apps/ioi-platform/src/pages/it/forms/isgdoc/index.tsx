@@ -14,6 +14,10 @@ import { useMainDBITExtDocsList } from '@/generated/hooks/use-main-dbitext-docs'
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtDocs } from '@/generated/models/main-dbit-ext-docs-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface ISGDOCRecord {
   id: string;
@@ -103,6 +107,10 @@ const columns: ColumnDef<ISGDOCRecord>[] = [
 ];
 
 export default function ISGDOCDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<ISGDOCRecord | null>(null);
 
   const { data: mainRecords = [], isLoading: mainLoading } = useMainDBITList({
@@ -181,6 +189,25 @@ export default function ISGDOCDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return isgdocData;
+    return isgdocData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [isgdocData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => isgdocData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [isgdocData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => isgdocData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [isgdocData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -238,8 +265,15 @@ export default function ISGDOCDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={isgdocData.length}
+          />
               <DatabaseTable
-                data={isgdocData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: ISGDOCRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by title, type, owner..."
@@ -255,7 +289,7 @@ export default function ISGDOCDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`ISGDOC — ${selectedRecord?.recordNo || ''}`}
+        title={`ISG Document — ${selectedRecord?.recordNo || ''}`}
         subtitle={`${selectedRecord?.docType || 'N/A'} · ${selectedRecord?.title || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

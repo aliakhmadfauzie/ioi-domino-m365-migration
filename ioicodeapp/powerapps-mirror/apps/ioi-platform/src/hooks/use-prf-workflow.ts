@@ -52,9 +52,9 @@ export interface PRFAccess {
 // CA STATE HELPERS
 // =============================================================================
 
-function mapStatusToCA(currentStatus?: string, remarksCA?: string): PRFCurrentAction {
-  if (remarksCA && Object.keys(PRF_WORKFLOW_CONFIG).includes(remarksCA)) {
-    return remarksCA as PRFCurrentAction;
+function mapStatusToCA(currentStatus?: string, currentAction?: string): PRFCurrentAction {
+  if (currentAction && Object.keys(PRF_WORKFLOW_CONFIG).includes(currentAction)) {
+    return currentAction as PRFCurrentAction;
   }
   const map: Record<string, PRFCurrentAction> = {
     CurrentstatusKey3: 'Request',
@@ -85,14 +85,9 @@ function caToStatusKey(ca: PRFCurrentAction): string {
 }
 
 function parsePRFRecord(record: MainDBIT): PRFRecord {
-  let remarksCA: string | undefined;
-  try {
-    const remarks = record.remarks ? JSON.parse(record.remarks) : {};
-    remarksCA = remarks.prfCA;
-  } catch { /* ignore */ }
   return {
     ...record,
-    caState: mapStatusToCA(record.currentStatus, remarksCA),
+    caState: mapStatusToCA(record.currentStatus, record.currentAction),
     isSAP: record.pRFIsSAP === 'Yes',
   };
 }
@@ -149,6 +144,7 @@ export function usePRFWorkflow(record: MainDBIT | null, extAccessRecordId?: stri
 
       const patch: Partial<Omit<MainDBIT, 'id'>> & Record<string, unknown> = {
         currentStatus: caToStatusKey(toState),
+        currentAction: toState,
         workflowstage: prfStageNumber(toState),
       };
       const extPatch: Partial<Omit<MainDBITExtAccess, 'id'>> & Record<string, unknown> = {};
@@ -212,14 +208,11 @@ export function usePRFWorkflow(record: MainDBIT | null, extAccessRecordId?: stri
         extPatch.pRFDateApp4 = new Date().toISOString();
       }
 
-      // Store CA in remarks on main record
-      try {
-        const existing = record.remarks ? JSON.parse(record.remarks) : {};
-        existing.prfCA = toState;
-        existing.prfFinalStatus = fields.finalStatus || config?.label || toState;
-        patch.remarks = JSON.stringify(existing);
-      } catch {
-        patch.remarks = JSON.stringify({ prfCA: toState });
+      if (fields.finalStatus || config?.label) {
+        patch.hODApproverRemarks = [
+          record.hODApproverRemarks,
+          `PRF status: ${fields.finalStatus || config?.label || toState}`,
+        ].filter(Boolean).join('\n');
       }
 
       await recordITApprovalAction({

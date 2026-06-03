@@ -17,7 +17,7 @@ export default function URNewFormPage() {
           <ArrowLeft className="h-5 w-5" />
         </Button>
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">User Registration</h1>
+          <h1 className="text-2xl font-bold tracking-tight">User ID Request</h1>
           <p className="text-sm text-muted-foreground mt-1">Register new user accounts and access</p>
         </div>
       </div>

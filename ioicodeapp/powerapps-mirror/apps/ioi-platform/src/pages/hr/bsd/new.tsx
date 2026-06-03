@@ -14,6 +14,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { EmployeePicker } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { MainDBHRService } from '@/services/main-dbhr-service';
@@ -64,7 +65,7 @@ function BSDNewPage() {
             <div className="space-y-2"><Label>Employee No.</Label><Input value={empNo} onChange={e => setEmpNo(e.target.value)} placeholder="e.g. EMP-001" /></div>
             <div className="space-y-2"><Label>Position</Label><Input value={position} onChange={e => setPosition(e.target.value)} placeholder="Position title" /></div>
             <div className="space-y-2"><Label>Division</Label><Select value={division} onValueChange={setDivision}><SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger><SelectContent><SelectItem value="Oleo">Oleo</SelectItem><SelectItem value="Acidchem">Acidchem</SelectItem></SelectContent></Select></div>
-            <div className="space-y-2"><Label>Department</Label><Input value={dept} onChange={e => setDept(e.target.value)} placeholder="Department" /></div>
+            <div className="space-y-2"><Label>Department</Label><SharePointLookupSelect kind="department" value={dept} onChange={setDept} placeholder="Select department" /></div>
             <div className="space-y-2"><Label>Section</Label><Input value={section} onChange={e => setSection(e.target.value)} placeholder="Section" /></div>
             <div className="space-y-2 md:col-span-2"><Label>Responsibility</Label><Textarea value={responsibility} onChange={e => setResponsibility(e.target.value)} rows={2} /></div>
             <div className="space-y-2 md:col-span-2"><Label>Remark</Label><Textarea value={remark} onChange={e => setRemark(e.target.value)} rows={2} /></div>

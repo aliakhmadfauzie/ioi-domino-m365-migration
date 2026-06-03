@@ -53,6 +53,7 @@ import { useLogout, useCurrentDepartment, useRoleAccess, type UserRole } from '@
 import { getDepartment } from '@/config/departments';
 import { MobileBottomNav } from '@/components/mobile-bottom-nav';
 import { cn } from '@/lib/utils';
+import { getDepartmentBasePath } from '@/lib/navigation';
 import type { LucideIcon } from 'lucide-react';
 
 interface DepartmentLayoutProps {
@@ -189,29 +190,7 @@ function DepartmentLayoutContent({ departmentCode }: DepartmentLayoutProps) {
   }, [location.pathname]);
   const department = getDepartment(departmentCode);
 
-  // Map department codes to their actual route paths (some don't match)
-  const getBasePath = (code: string): string => {
-    const routeMap: Record<string, string> = {
-      PROD: 'production',
-      PURCH: 'procurement',
-      PUR: 'procurement',
-      FIN: 'fin',
-      SEC: 'security',
-      TD: 'training',
-      ENG: 'engineering',
-      MAINT: 'maintenance',
-      WH: 'warehouse',
-      MKT: 'sales',
-      GOV: 'governance',
-      SHE: 'safety',
-      SAFETY: 'safety',
-      ADM: 'adm',
-      MTR: 'mtr',
-    };
-    return routeMap[code] || code.toLowerCase();
-  };
-
-  const basePath = getBasePath(departmentCode);
+  const basePath = getDepartmentBasePath(departmentCode);
   const navSections = getNavigationItems(departmentCode, basePath, role);
 
   const toggleSection = (sectionId: string) => {

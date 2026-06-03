@@ -33,7 +33,7 @@ interface FormModule {
   description: string;
   icon: LucideIcon;
   colorClass: string;
-  database: string;
+  register: string;
   forms: FormDefinition[];
 }
 
@@ -46,7 +46,7 @@ const formModules: FormModule[] = [
     description: 'Room bookings, stationery, and transport services',
     icon: Building2,
     colorClass: 'bg-primary text-primary-foreground',
-    database: 'MainDB_ADM (PRAI)',
+    register: 'Prai Administration Register',
     forms: [
       {
         code: 'RAR',
@@ -179,9 +179,9 @@ export default function ADMFormsIndexPage() {
           <div className="bg-card rounded-lg border p-4">
             <div className="flex items-center gap-2">
               <FileText className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Database</span>
+              <span className="text-sm text-muted-foreground">Register</span>
             </div>
-            <p className="text-lg font-bold text-foreground mt-1">MainDB_ADM</p>
+            <p className="text-lg font-bold text-foreground mt-1">Administration</p>
           </div>
         </motion.div>
 
@@ -215,7 +215,7 @@ export default function ADMFormsIndexPage() {
                           </button>
                         </TooltipTrigger>
                         <TooltipContent side="left">
-                          <p className="text-xs">Database: {module.database}</p>
+                          <p className="text-xs">Register: {module.register}</p>
                           <p className="text-xs">Module: {module.code}</p>
                         </TooltipContent>
                       </Tooltip>

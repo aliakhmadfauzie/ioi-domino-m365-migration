@@ -17,6 +17,12 @@ export const qcRoutes = (
     <Route index element={<QCDepartmentHomePage />} />
     <Route path="forms" element={<QCFormsIndexPage />} />
     <Route path="forms/:formCode/new" element={<QCFormsIndexPage />} />
+    <Route path="actions" element={<Navigate to="/qc/forms" replace />} />
+    <Route path="certificates" element={<Navigate to="/qc/forms" replace />} />
+    <Route path="info" element={<Navigate to="/qc/forms" replace />} />
+    <Route path="laboratory" element={<Navigate to="/qc/forms" replace />} />
+    <Route path="specifications" element={<Navigate to="/qc/forms" replace />} />
+    <Route path="testing" element={<Navigate to="/qc/forms" replace />} />
     <Route path="approvals" element={<Navigate to="/approvals" replace />} />
     <Route path="submissions" element={<Navigate to="/my-submissions" replace />} />
     <Route path="submissions/:id" element={<CanonicalSubmissionDetailRedirect />} />

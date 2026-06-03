@@ -17,7 +17,7 @@ export default function EDLNewFormPage() {
           <ArrowLeft className="h-5 w-5" />
         </Button>
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Email Distribution List</h1>
+          <h1 className="text-2xl font-bold tracking-tight">External Distribution List</h1>
           <p className="text-sm text-muted-foreground mt-1">Request email distribution list changes</p>
         </div>
       </div>

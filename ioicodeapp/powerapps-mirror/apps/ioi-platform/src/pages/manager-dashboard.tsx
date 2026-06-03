@@ -194,7 +194,7 @@ export default function ManagerDashboardPage() {
         site: siteLabel,
         currentStage: `Stage ${record.workflowstage || 1}`,
         currentAction: record.islocked ? 'Locked' : 'Pending Review',
-        comments: record.remarks,
+        comments: record.hODApproverRemarks,
         originalData: record,
       };
     }).sort((a: UnifiedSubmission, b: UnifiedSubmission) => {
@@ -289,9 +289,12 @@ export default function ManagerDashboardPage() {
         id: String(originalRecord.id),
         changedFields: {
           currentStatus: newStatusKey,
-          remarks: approvalComments 
-            ? `${originalRecord.remarks || ''}\n[${new Date().toISOString()}] ${user?.fullName}: ${approvalComments}`
-            : originalRecord.remarks,
+          currentAction: action.toUpperCase(),
+          approvedByEmail: user?.userPrincipalName || '',
+          approvedByName: user?.fullName || '',
+          hODApproverRemarks: approvalComments 
+            ? `${originalRecord.hODApproverRemarks || ''}\n[${new Date().toISOString()}] ${user?.fullName}: ${approvalComments}`
+            : originalRecord.hODApproverRemarks,
         },
       });
 

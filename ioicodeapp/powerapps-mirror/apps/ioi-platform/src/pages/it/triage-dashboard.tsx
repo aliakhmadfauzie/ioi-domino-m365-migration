@@ -31,6 +31,7 @@ import { DataReadyGuard } from '@/components/data-ready-guard';
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 
 import { useMainDBITExtSupportList } from '@/generated/hooks/use-main-dbit-ext-support';
+import { MainDBITExtSupportService } from '@/generated/services/main-dbit-ext-support-service';
 import { useUserRolesITList } from '@/generated/hooks/use-user-roles-it';
 import { useUser } from '@/hooks/use-user';
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
@@ -125,6 +126,7 @@ interface TriageTicket {
   application?: string;
   priority?: string;
   assignedTo?: string;
+  extSupportId?: number;
   hoursWaiting: number;
   isEscalated: boolean;
   pic: ITSSRPICConfig | null;
@@ -216,6 +218,7 @@ function ITTriageDashboardContent() {
           submitteddate: s.submitteddate,
           remarks: s.remarks,
           serviceType,
+          extSupportId: ext?.id,
           hoursWaiting,
           isEscalated: hoursWaiting >= 2 && s.currentStatus === 'PendingIT',
           pic,
@@ -285,18 +288,31 @@ function ITTriageDashboardContent() {
     }
     setIsSubmitting(true);
     try {
-      // Preserve existing remarks and append assignment info
-      const existingRemarks = selectedTicket.remarks || '';
-      const assignmentEntry = `\n--- Assignment by ${user?.userPrincipalName || 'IT Admin'} on ${new Date().toISOString()} ---\nAssigned To: ${assignedTo}\nCategory: ${problemCategory}\nClassification: ${classification}\nSupport: ${supportMethod}${itRemarks ? `\nIT Notes: ${itRemarks}` : ''}`;
-      const newRemarks = existingRemarks + assignmentEntry;
-
       await updateMutation.mutateAsync({
         id: String(selectedTicket.id),
         changedFields: {
           currentStatus: 'In Progress',
-          remarks: newRemarks,
+          currentAction: 'Assigned',
         },
       });
+
+      if (selectedTicket.extSupportId) {
+        await MainDBITExtSupportService.update(String(selectedTicket.extSupportId), {
+          iTSSRAssignedToEmail: assignedTo,
+          iTSSRProblemCategory: problemCategory,
+          iTSSRServiceType2: classification,
+          iTSSRSupportMethod: supportMethod,
+          iTSSRITRemarks: [
+            `Assignment by ${user?.userPrincipalName || 'IT Admin'} on ${new Date().toISOString()}`,
+            `Assigned To: ${assignedTo}`,
+            `Category: ${problemCategory}`,
+            `Classification: ${classification}`,
+            `Support: ${supportMethod}`,
+            itRemarks ? `IT Notes: ${itRemarks}` : null,
+          ].filter(Boolean).join('\n'),
+        });
+      }
+
       toast.success('Ticket assigned successfully', {
         description: `Ticket ${selectedTicket.title} has been assigned`,
       });

@@ -64,14 +64,11 @@ export default function NewISGDOCPage() {
       const created = await createMainDBIT({
         title: recordNo,
         formcode: 'ISGDOC',
-        currentStatus: 'CurrentstatusKey4' as MainDBITCurrentstatusKey,
+        currentStatus: 'sent',
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
         workflowstage: 1,
-        remarks: JSON.stringify({
-          DOC_Type, DOC_Title, DOC_VerNo, DOC_DateLast,
-          DOC_Revision, DOC_Owner, DOC_ApplicableTo, DOC_Comments,
-        }),
+        subject: DOC_Title.trim(),
       });
 
       if (created?.id) {

@@ -116,6 +116,154 @@ When an item is created or modified in **MainDB_IT** where `FormCode = "PRF"` an
 
 ---
 
+## Flow 7: SR (Staff Requisition) Multi-Stage Approval — HR DEPARTMENT
+
+### Trigger
+When an item is created or modified in **MainDB_HR** where `FormCode = "SR"` and `CurrentStatus` changes.
+
+### Workflow State Machine (from Domino DXL evidence)
+
+```
+New (Draft) ──(Submit by Initiator)──► Submitted
+                                          │
+                             ┌────────────┴────────────┐
+                        (HOD Approved)           (HOD Rejected)
+                             │                         │
+                             ▼                         ▼
+                        Requested                   RejHOD
+                             │
+                        (Div Head Approved)
+                             │
+                             ▼
+                        Reviewed
+                             │
+                        (HR Endorsed)
+                             │
+                             ▼
+                        Endorsed
+                             │
+                    ┌───────┴───────┐
+               (ED Approved)  (ED Rejected)
+                    │               │
+                    ▼               ▼
+               Approved         RejED
+```
+
+### Domino Roles → M365 Mapping
+
+| Domino Role | M365 Equivalent | Actions |
+|-------------|-----------------|---------|
+| `Editor2` | HOD (Department Head) | Approve/Reject → moves to "Requested" |
+| `Editor2a` | Division Head | Approve/Reject → moves to "Reviewed" |
+| `Editor3` | HR (Group HR) | Endorse/Reject → moves to "Endorsed" |
+| `Editor4` | ED (Executive Director) | Approve/Reject → moves to "Approved"/"RejED" |
+| `DocAuthor` | Employee/Requestor | Submit, view own requests |
+
+### Actions
+
+| Step | Action | Connector | Notes |
+|---|---|---|---|
+| 1 | **Trigger**: When an item is created or modified | SharePoint | Filter: FormCode = "SR", CurrentStatus changed |
+| 2 | **Initialize variables** | — | FormCode, CurrentStatus, ItemID, Requestor, Dept |
+| 3 | **Condition**: Check FormCode = SR | — | Route to SR handler |
+| 4 | **Switch on CurrentStatus** | — | Dispatch to correct stage |
+| 5 | **If Submitted**: Get SR extension + ApproverMatrix | SharePoint | Read Ext_Staffing + Config_ApproverMatrix |
+| 6 | **If Submitted**: Send approval to HOD | Approvals | Assign from ApproverMatrix.HODEmail |
+| 7 | **If HOD Approves**: Update status to "Requested" | SharePoint | Patch MainDB_HR + Ext_Staffing |
+| 8 | **If HOD Rejects**: Update status to "RejHOD" | SharePoint | Patch MainDB_HR + Ext_Staffing |
+| 9 | **If Requested**: Send approval to Div Head | Approvals | Assign from ApproverMatrix.DivHeadEmail |
+| 10 | **If Div Head Approves**: Update to "Reviewed" | SharePoint | Patch MainDB_HR + Ext_Staffing |
+| 11 | **If Reviewed**: Send approval to HR | Approvals | Assign from ApproverMatrix.HREmail |
+| 12 | **If HR Endorses**: Update to "Endorsed" | SharePoint | Patch MainDB_HR + Ext_Staffing |
+| 13 | **If Endorsed**: Send approval to ED | Approvals | Assign from ApproverMatrix.EDEmail |
+| 14 | **If ED Approves**: Update to "Approved" | SharePoint | Completion — notify all parties |
+| 15 | **If any Rejection**: Update status & send rejection email | SharePoint + Mail | Notify requestor + relevant approvers |
+
+### Domino Agents Being Replaced
+- **DocAuthor** — auto-author assignment
+- **RemPdgHOD** — Pending HOD reminder (daily 08:30, view filter: CurrentAction=Submitted)
+- **RemPdgHODiv** — Pending Div Head reminder (daily 08:30, view filter: CurrentAction=Requested)
+- **RemPdgHR** — Pending HR reminder (daily 08:30, view filter: CurrentAction=Reviewed)
+- **RemPdgDirector** — Pending ED reminder (daily 08:30, view filter: CurrentAction=Endorsed)
+- **RemPdgDraft** — Pending Draft reminder
+- **Set** — Field value set agent
+- **Clear** — Field clear agent
+- **Clear Submition** — Submission clear agent
+- **NextRemDate** — Reminder date advance (+3/+4 workdays)
+
+### Flow File
+- `flows/sr-staff-requisition-approval-flow-definition.json`
+
+---
+
+## Flow 8: HR Universal Form Submission & Routing
+
+### Trigger
+When an item is created or modified in **MainDB_HR**.
+
+### Purpose
+Combined handler for all 42 HR forms (26 Penang + 16 Johor). Performs:
+1. **Auto-numbering**: Generate `HR-{YYYYMMDD}-{seq}` ticket IDs on create (replaces Domino INO agents)
+2. **Notification routing**: Look up `HR_RoutingMatrix` to find HOD/HR approver emails, send notification with doclink
+3. **Status-based emails**: Draft saved confirmation, Submitted notification, Approved completion, Rejected notification
+
+### HR_RoutingMatrix Lookup
+The flow reads `HR_RoutingMatrix` list using key `{FormCode}_{Department}` to resolve:
+- `HODEmail` — Department Head for first-line routing
+- `HREmail` — HR team for HR-related forms
+- `DivHeadEmail` — Division Head for escalation
+- `EDEmail` — Executive Director for final approval
+
+### Actions
+
+| Step | Action | Connector | Notes |
+|---|---|---|---|
+| 1 | **Trigger**: When an item is created or modified | SharePoint | MainDB_HR |
+| 2 | **Initialize variables** | — | FormCode, Status, IDs, Site, Dept |
+| 3 | **Condition**: Check FormCode is in HR portfolio | — | Filter non-HR forms |
+| 4 | **Switch on FormCode_Status** | — | New → Auto-number; Submitted → Notify; etc. |
+| 5 | **If New**: Auto-number + notification | SharePoint + Mail | Generate ticket ID, notify HOD/HR |
+| 6 | **If Submitted**: Route notification | HR_RoutingMatrix + Mail | Lookup approvers, send doclink |
+| 7 | **If Approved/Rejected**: Status notification | Mail | Notify requestor |
+
+### Domino Agents Being Replaced
+- INO auto-numbering agents across all HR databases
+- @MailSend doclink notifications in SR, EEN, AWHR, PAF, FWWPD, FTCR, CWR, etc.
+- Form-specific email agents
+
+### Flow File
+- `flows/hr-universal-form-submission-flow-definition.json`
+
+---
+
+## Recommended HR Flow Architecture
+
+```
+MainDB_HR
+    │
+    ├── Flow 7: SR Approval (multi-stage)
+    │   ├── Status = "Submitted" → HOD Approval
+    │   ├── Status = "Requested" → Div Head Endorsement
+    │   ├── Status = "Reviewed" → HR Endorsement
+    │   ├── Status = "Endorsed" → ED Final Approval
+    │   └── Status = "Approved"/"Rej*" → Complete
+    │
+    ├── Flow 8: Universal HR Submission & Routing
+    │   ├── On Create → Auto-number + notify HOD/HR
+    │   ├── On Submit → Route via HR_RoutingMatrix
+    │   └── On Complete/Reject → Status notifications
+    │
+    └── (Future) HR Reminder Escalation
+        └── Daily → Check overdue items → Escalate
+```
+
+> **Implementation status — Flow 7 & 8**: JSON definitions complete and validated.
+> - `sr-staff-requisition-approval-flow-definition.json` — 4-stage approval (HOD → Div Head → HR → ED), all approve/reject branches implemented.
+> - `hr-universal-form-submission-flow-definition.json` — Auto-numbering on New, routing notifications on Submitted (non-SR), completion/rejection emails, 3-day overdue reminder.
+> - Approver resolution: `Config_ApproverMatrix` (SR) and `HR_RoutingMatrix` (all other forms).
+
+---
+
 ## Flow 6: SAPCR Approval Chain
 
 ### Trigger

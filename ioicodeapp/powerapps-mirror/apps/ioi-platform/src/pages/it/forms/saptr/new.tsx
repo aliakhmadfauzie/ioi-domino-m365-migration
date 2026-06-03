@@ -48,7 +48,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { useCreateMainDBITExtSAP } from '@/generated/hooks/use-main-dbitext-sap';
-import { UserPicker, type SelectedPerson } from '@/components/user-picker';
+import { EmployeePicker, type ManualPerson, type SelectedEmployee } from '@/components/employee-picker';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import type { MainDBITExtSAP } from '@/generated/models/main-dbit-ext-sap-model';
 import type { MainDBIT } from '@/generated/models/main-dbit-model';
 import {
@@ -61,10 +62,14 @@ import {
   SAPTR_CLIENT_REQUEST,
   SAPTR_CLIENT_OTHER,
   SAPTR_DEVELOPMENT_TYPES,
-  SAP_COMPANIES,
-  SAP_DEPARTMENTS,
   SAP_PRIORITIES,
 } from '@/types/sap-forms';
+
+type PickedPerson = SelectedEmployee | ManualPerson | null;
+
+function personLabel(person: PickedPerson): string {
+  return person?.fullName || '';
+}
 
 const FORM_STEPS = [
   { id: 1, label: 'Request Info', description: 'Module & category' },
@@ -120,10 +125,10 @@ export default function SAPTRNewFormPage() {
     Justification: '',
   });
 
-  const [selectedTechLead, setSelectedTechLead] = useState<SelectedPerson | null>(null);
-  const [selectedBasisLead, setSelectedBasisLead] = useState<SelectedPerson | null>(null);
-  const [selectedQAApprover, setSelectedQAApprover] = useState<SelectedPerson | null>(null);
-  const [selectedCC, setSelectedCC] = useState<SelectedPerson | null>(null);
+  const [selectedTechLead, setSelectedTechLead] = useState<PickedPerson>(null);
+  const [selectedBasisLead, setSelectedBasisLead] = useState<PickedPerson>(null);
+  const [selectedQAApprover, setSelectedQAApprover] = useState<PickedPerson>(null);
+  const [selectedCC, setSelectedCC] = useState<PickedPerson>(null);
 
   // Auto-generate request number
   useEffect(() => {
@@ -173,46 +178,14 @@ export default function SAPTRNewFormPage() {
       const submissionData: Omit<MainDBIT, 'id'> = {
         title: requestNumber,
         formcode: 'SAPTR',
-        currentStatus: 'CurrentstatusKey9' as MainDBIT['currentStatus'],
+        currentStatus: 'pending-approval-a',
         workflowstage: 1,
         requestoremail: user?.userPrincipalName || '',
         submitteddate: new Date().toISOString(),
-        remarks: [
-          '=== SAP Transport Request (SAPTR) ===',
-          '',
-          '--- Request Information ---',
-          `Request Number: ${requestNumber}`,
-          `Date Created: ${dateCreated}`,
-          `Modules: ${formData.Modules.join(', ')}`,
-          `TR Category: ${formData.TRCategory}`,
-          `Development Type: ${formData.DevelopmentType}`,
-          `Phases: ${formData.Phases.join(', ')}`,
-          `Client: ${formData.Client}`,
-          `Company: ${formData.Company}`,
-          `Department: ${formData.Department}`,
-          `Requestor: ${formData.Requestor}`,
-          '',
-          '--- Transport Details ---',
-          `Issue Number: ${formData.IssueNumber}`,
-          `Transport Number/Package: ${formData.TransportNumberPackage}`,
-          `Dependencies: ${formData.Dependencies || 'None'}`,
-          `SAP Tcode: ${formData.SAPTcode || 'N/A'}`,
-          `Report/Program/Fiori Apps: ${formData.ReportNameProgramNameFioriApps || 'N/A'}`,
-          `Changes Done: ${formData.ChangesDone}`,
-          `Justification: ${formData.Justification}`,
-          '',
-          '--- Approval & Routing ---',
-          `Priority: ${formData.Priority}`,
-          `Requested Date: ${requestedDate?.toISOString() || 'Not specified'}`,
-          `Technical Lead: ${selectedTechLead?.displayName || 'N/A'} (${formData.TechnicalLead})`,
-          `Basis Team Lead: ${selectedBasisLead?.displayName || 'N/A'} (${formData.BasisTeamLead})`,
-          `QA Approver: ${selectedQAApprover?.displayName || 'N/A'} (${formData.QAApprover})`,
-          `CC: ${selectedCC?.displayName || 'N/A'} (${formData.CC || 'None'})`,
-          '',
-          '--- Workflow ---',
-          'Current Stage: Pending Approval',
-          'Workflow Stage: 1',
-        ].filter(Boolean).join('\n'),
+        currentAction: 'Pending Approval',
+        company: formData.Company,
+        requestorName: formData.Requestor,
+        subject: `SAP Transport - ${formData.TransportNumberPackage || requestNumber}`,
       };
 
       const created = await createMainDBIT.mutateAsync(submissionData);
@@ -223,12 +196,30 @@ export default function SAPTRNewFormPage() {
           title: `${requestNumber}-sap`,
           parentFormCode: 'SAPTR',
           parentRecord: { id: created.id, title: requestNumber },
+          parentSite: 'PRAI',
           sAPTRNumber: formData.TransportNumberPackage || '',
           sAPTRCategory: formData.TRCategory || '',
+          sAPTRDevCategory: formData.DevelopmentType || '',
           sAPTRClient: formData.Client || '',
           sAPTRIssueNum: formData.IssueNumber || '',
           sAPTRTcode: formData.SAPTcode || '',
           sAPTRChangesDone: formData.ChangesDone || '',
+          sAPTRRemarks: [
+            `Request Number: ${requestNumber}`,
+            `Date Created: ${dateCreated}`,
+            `Modules: ${formData.Modules.join(', ')}`,
+            `Phases: ${formData.Phases.join(', ')}`,
+            `Department: ${formData.Department}`,
+            `Dependencies: ${formData.Dependencies || 'None'}`,
+            `Report/Program/Fiori Apps: ${formData.ReportNameProgramNameFioriApps || 'N/A'}`,
+            `Justification: ${formData.Justification}`,
+            `Priority: ${formData.Priority}`,
+            `Requested Date: ${requestedDate?.toISOString() || 'Not specified'}`,
+            `Technical Lead: ${personLabel(selectedTechLead) || 'N/A'} (${formData.TechnicalLead})`,
+            `Basis Team Lead: ${personLabel(selectedBasisLead) || 'N/A'} (${formData.BasisTeamLead})`,
+            `QA Approver: ${personLabel(selectedQAApprover) || 'N/A'} (${formData.QAApprover})`,
+            `CC: ${personLabel(selectedCC) || 'N/A'} (${formData.CC || 'None'})`,
+          ].filter(Boolean).join('\n'),
           sAPTRKeyUser: formData.Requestor || '',
           sAPTRRequestedBy: user?.userPrincipalName || '',
         };
@@ -518,27 +509,25 @@ export default function SAPTRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Company <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <Select value={formData.Company} onValueChange={(v: string) => updateField('Company', v)}>
-                          <SelectTrigger className="mt-2" style={{ height: '44px', borderRadius: '8px', backgroundColor: '#E8E8E8' }}>
-                            <SelectValue placeholder="Select company..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {SAP_COMPANIES.map((c: string) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
+                        <SharePointLookupSelect
+                          kind="company"
+                          value={formData.Company}
+                          onChange={(v: string) => updateField('Company', v)}
+                          placeholder="Select company..."
+                          className="mt-2 h-11 bg-[#E8E8E8]"
+                        />
                       </div>
                       <div>
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Department <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <Select value={formData.Department} onValueChange={(v: string) => updateField('Department', v)}>
-                          <SelectTrigger className="mt-2" style={{ height: '44px', borderRadius: '8px', backgroundColor: '#E8E8E8' }}>
-                            <SelectValue placeholder="Select department..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {SAP_DEPARTMENTS.map((d: string) => <SelectItem key={d} value={d}>{d}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
+                        <SharePointLookupSelect
+                          kind="department"
+                          value={formData.Department}
+                          onChange={(v: string) => updateField('Department', v)}
+                          placeholder="Select department..."
+                          className="mt-2 h-11 bg-[#E8E8E8]"
+                        />
                       </div>
                     </div>
 
@@ -730,11 +719,11 @@ export default function SAPTRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Technical Lead <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <UserPicker
+                        <EmployeePicker
                           value={formData.TechnicalLead}
-                          onChange={(userId: string, person: SelectedPerson | null) => {
-                            updateField('TechnicalLead', userId);
-                            setSelectedTechLead(person);
+                          onChange={(email, employee) => {
+                            updateField('TechnicalLead', email);
+                            setSelectedTechLead(employee);
                           }}
                           placeholder="Search for technical lead..."
                         />
@@ -744,11 +733,11 @@ export default function SAPTRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           Basis Team Lead <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <UserPicker
+                        <EmployeePicker
                           value={formData.BasisTeamLead}
-                          onChange={(userId: string, person: SelectedPerson | null) => {
-                            updateField('BasisTeamLead', userId);
-                            setSelectedBasisLead(person);
+                          onChange={(email, employee) => {
+                            updateField('BasisTeamLead', email);
+                            setSelectedBasisLead(employee);
                           }}
                           placeholder="Search for basis team lead..."
                         />
@@ -758,11 +747,11 @@ export default function SAPTRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           QA Approver <span style={{ color: '#9B2F23' }}>*</span>
                         </Label>
-                        <UserPicker
+                        <EmployeePicker
                           value={formData.QAApprover}
-                          onChange={(userId: string, person: SelectedPerson | null) => {
-                            updateField('QAApprover', userId);
-                            setSelectedQAApprover(person);
+                          onChange={(email, employee) => {
+                            updateField('QAApprover', email);
+                            setSelectedQAApprover(employee);
                           }}
                           placeholder="Search for QA approver..."
                         />
@@ -772,11 +761,11 @@ export default function SAPTRNewFormPage() {
                         <Label className="text-sm font-semibold" style={{ color: '#1C1C1C' }}>
                           CC (Optional)
                         </Label>
-                        <UserPicker
+                        <EmployeePicker
                           value={formData.CC}
-                          onChange={(userId: string, person: SelectedPerson | null) => {
-                            updateField('CC', userId);
-                            setSelectedCC(person);
+                          onChange={(email, employee) => {
+                            updateField('CC', email);
+                            setSelectedCC(employee);
                           }}
                           placeholder="Search for CC recipients..."
                         />
@@ -872,7 +861,7 @@ export default function SAPTRNewFormPage() {
                       <div>
                         <p className="text-sm font-medium" style={{ color: '#7B3E00' }}>Please review before submitting</p>
                         <p className="text-xs mt-1" style={{ color: '#5C5C5C' }}>
-                          This transport request will be routed to {selectedTechLead?.displayName || 'Technical Lead'} for review.
+                          This transport request will be routed to {personLabel(selectedTechLead) || 'Technical Lead'} for review.
                         </p>
                       </div>
                     </div>

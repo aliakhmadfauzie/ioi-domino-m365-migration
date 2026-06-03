@@ -298,6 +298,25 @@ Add-ColumnIfMissing `
     -DisplayName  "RS IEPClientName" `
     -Type         "Text"
 
+# RS_TargetUser_Email — used by submitTransform for requestor email
+Add-ColumnIfMissing `
+    -InternalName "RS_TargetUser_Email" `
+    -DisplayName  "RS Target User Email" `
+    -Type         "Text"
+
+# RS_AssignedPICEmail — IT PIC email for workflow routing
+Add-ColumnIfMissing `
+    -InternalName "RS_AssignedPICEmail" `
+    -DisplayName  "RS Assigned PIC Email" `
+    -Type         "Text"
+
+# RS_RequestType — system/application type requested for password reset
+Add-ColumnIfMissing `
+    -InternalName "RS_RequestType" `
+    -DisplayName  "RS RequestType" `
+    -Type         "Choice" `
+    -Choices      @("Active Directory","SAP S4/HANA","IEP","Bank","Other")
+
 # ---------------------------------------------------------------------------
 # Columns - SFAR (Share Folder Access Request)
 # ---------------------------------------------------------------------------

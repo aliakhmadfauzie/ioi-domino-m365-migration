@@ -12,6 +12,10 @@ import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/u
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface DCALRecord {
   id: string;
@@ -91,6 +95,10 @@ const columns: ColumnDef<DCALRecord>[] = [
 ];
 
 export default function DCALDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<DCALRecord | null>(null);
 
   const { data: mainRecords = [], isLoading } = useMainDBITList({
@@ -167,6 +175,25 @@ export default function DCALDatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return dcalData;
+    return dcalData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [dcalData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => dcalData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [dcalData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => dcalData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [dcalData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -178,7 +205,7 @@ export default function DCALDatabaseView() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-xl font-bold text-white">Data Center Access Log (DCAL/IAL2)</h1>
+              <h1 className="text-xl font-bold text-white">Data Center Access Log (DCAL)</h1>
               <p style={{ color: 'rgba(255,255,255,0.7)' }} className="text-sm">
                 Database View — All Access Logs from SharePoint
               </p>
@@ -212,7 +239,7 @@ export default function DCALDatabaseView() {
             {isLoading ? (
               <div className="flex flex-col items-center justify-center py-12">
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground mb-4" />
-                <p className="text-muted-foreground">Loading DCALOG submissions from SharePoint...</p>
+                <p className="text-muted-foreground">Loading Data Center Access Log submissions from SharePoint...</p>
               </div>
             ) : dcalData.length === 0 ? (
               <Empty className="py-12">
@@ -224,8 +251,15 @@ export default function DCALDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={dcalData.length}
+          />
               <DatabaseTable
-                data={dcalData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: DCALRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by visitor, server room, site..."
@@ -241,7 +275,7 @@ export default function DCALDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`DCALOG — ${selectedRecord?.recordNo || ''}`}
+        title={`Data Center Access Log — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Visitor: ${selectedRecord?.visitorName || 'N/A'} · ${selectedRecord?.site || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

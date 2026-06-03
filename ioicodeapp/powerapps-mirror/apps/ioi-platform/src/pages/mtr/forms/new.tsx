@@ -230,8 +230,8 @@ const buildMainDBMTNRecord = (
   isDraft: boolean
 ): Omit<MainDBMTN, 'id'> => {
   const now = new Date().toISOString();
-  const commonRemarks = joinRemarks(
-    formData.remarks && `Remarks: ${formData.remarks}`,
+  const commonNotes = joinRemarks(
+    formData.remarks && `General Notes: ${formData.remarks}`,
     formData.failureTime && `Failure Time: ${formData.failureTime}`,
     formData.estimatedDuration && `Estimated Duration: ${formData.estimatedDuration}`,
     formData.costPerUnit && `Cost per Unit: ${formData.costPerUnit}`
@@ -248,7 +248,6 @@ const buildMainDBMTNRecord = (
     equipmentID: formData.equipmentId || undefined,
     equipmentName: formData.equipmentName || undefined,
     supervisor: formData.approverName || undefined,
-    remarks: commonRemarks || undefined,
     workflflowStage: isDraft ? 0 : 1,
   };
 
@@ -259,7 +258,7 @@ const buildMainDBMTNRecord = (
         fAREquipmentID: formData.equipmentId,
         fARFailureDate: formData.failureDate || undefined,
         fARFailureMode: 'Other',
-        fARSymptoms: joinRemarks(formData.failureDescription, formData.immediateAction),
+        fARSymptoms: joinRemarks(formData.failureDescription, formData.immediateAction, commonNotes),
         fARRootCause: formData.rootCause,
         fARImpact: 'Production',
         fARImpactDescription: formData.failureDescription,
@@ -277,7 +276,7 @@ const buildMainDBMTNRecord = (
         mPIntervalType: 'Monthly',
         mPNextDueDate: formData.scheduledDate || undefined,
         mPWorkType: getMPWorkType(formData.maintenanceType),
-        mPTaskDescription: joinRemarks(formData.spareParts, formData.safetyPrecautions),
+        mPTaskDescription: joinRemarks(formData.spareParts, formData.safetyPrecautions, commonNotes),
         mPAssignedTo: formData.technician,
         mPEstimatedHours: toNumber(formData.estimatedDuration),
         mPStatus: 'Scheduled',
@@ -286,12 +285,11 @@ const buildMainDBMTNRecord = (
       return {
         ...record,
         pMDocumentNo: formId,
-        pMTitle: formData.documentDescription || formConfig.name,
         pMType: getPMDocumentType(formData.documentType),
         pMEquipmentID: formData.plantArea,
         pMRevisionNo: formData.revisionNumber,
         pMEffectiveDate: formData.effectiveDate || undefined,
-        remarks: joinRemarks(commonRemarks, `Plant Area: ${formData.plantArea}`, formData.documentDescription) || undefined,
+        pMTitle: joinRemarks(formData.documentDescription || formConfig.name, commonNotes) || formConfig.name,
       };
     case 'MECP':
       return {
@@ -300,7 +298,7 @@ const buildMainDBMTNRecord = (
         mECDate: now,
         mECEquipmentID: formData.equipmentId,
         mECChangeDescription: formData.changeDescription,
-        mECReason: joinRemarks(formData.emergencyType, formData.impactAssessment),
+        mECReason: joinRemarks(formData.emergencyType, formData.impactAssessment, commonNotes),
         mECRiskAssessment: getMECRiskAssessment(formData.emergencyType),
         mECAuthorizedBy: formData.approverName,
         mECClosureNotes: formData.rollbackPlan,
@@ -314,7 +312,7 @@ const buildMainDBMTNRecord = (
         ePIInspector: formData.operatorName || formData.requestorName,
         ePIItem: joinRemarks(formData.inspectionType, formData.checklistItems),
         ePIResult: getEPIResult(formData.equipmentCondition),
-        ePIComment: formData.safetyChecks,
+        ePIComment: joinRemarks(formData.safetyChecks, commonNotes),
       };
     default:
       return record;

@@ -22,7 +22,7 @@ export default function MCLNewPage() {
   const [submitting, setSubmitting] = useState(false);
   const [empName, setEmpName] = useState(user?.fullName || ''); // → employeename
   const [receiptDate, setReceiptDate] = useState('');  // → effectivedate
-  const [amount, setAmount] = useState('');            // → remarks
+  const [amount, setAmount] = useState('');
   const [clinic, setClinic] = useState('');            // → details
   const [panelType, setPanelType] = useState('Panel'); // included in details
   const [diagnosis, setDiagnosis] = useState('');      // → description
@@ -40,8 +40,7 @@ export default function MCLNewPage() {
         requesttypeKey: 'RequesttypeKey5',  // Medical
         employeename: empName,
         effectivedate: receiptDate,
-        remarks: `RM ${amount}`,
-        details: `${clinic} (${panelType})`,
+        details: [`Amount: RM ${amount}`, clinic ? `${clinic} (${panelType})` : panelType].filter(Boolean).join(' | '),
         description: diagnosis,
         requestoremail: user?.userPrincipalName || '',
       } as any);

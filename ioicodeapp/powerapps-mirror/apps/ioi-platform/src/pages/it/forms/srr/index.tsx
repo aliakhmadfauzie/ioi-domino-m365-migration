@@ -11,6 +11,10 @@ import type { FieldGroup, ApprovalHistoryItem } from '@/components/database-view
 import { Empty, EmptyHeader, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import { useMainDBITList } from '@/generated/hooks/use-main-dbit';
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface SRRRecord {
   id: string;
@@ -97,6 +101,10 @@ const columns: ColumnDef<SRRRecord>[] = [
 ];
 
 export default function SRRDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const navigate = useNavigate();
   const [selectedRecord, setSelectedRecord] = useState<SRRRecord | null>(null);
 
@@ -203,6 +211,25 @@ export default function SRRDatabaseView() {
     return history;
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return srrData;
+    return srrData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [srrData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => srrData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [srrData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => srrData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [srrData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -258,8 +285,15 @@ export default function SRRDatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={srrData.length}
+          />
               <DatabaseTable
-                data={srrData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: SRRRecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by server, summary..."
@@ -275,7 +309,7 @@ export default function SRRDatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`SRR - ${selectedRecord?.recordNo || ''}`}
+        title={`Server Records — ${selectedRecord?.recordNo || ''}`}
         subtitle={`Server: ${selectedRecord?.serverName || 'N/A'}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

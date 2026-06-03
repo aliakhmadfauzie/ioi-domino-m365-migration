@@ -28,7 +28,7 @@ export default function TMPUNewPage() {
   const [trainingType, setTrainingType] = useState(''); // → details prefix
   const [trainingDate, setTrainingDate] = useState(''); // → effectivedate
   const [duration, setDuration] = useState('');    // included in details
-  const [cost, setCost] = useState('');            // → remarks
+  const [cost, setCost] = useState('');
   const [objective, setObjective] = useState('');  // → description
 
   const handleSubmit = async (action: 'draft' | 'submit') => {
@@ -44,9 +44,8 @@ export default function TMPUNewPage() {
         employeename: empName,
         vacancyTitle: programme,
         company: provider,
-        details: `${trainingType}${duration ? ` | ${duration}` : ''}`,
+        details: [trainingType, duration, cost ? `Estimated Cost: RM ${cost}` : null].filter(Boolean).join(' | '),
         effectivedate: trainingDate,
-        remarks: cost ? `RM ${cost}` : '',
         description: objective,
         requestoremail: user?.userPrincipalName || '',
       } as any);

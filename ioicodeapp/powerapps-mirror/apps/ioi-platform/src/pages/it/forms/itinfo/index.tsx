@@ -14,6 +14,10 @@ import { useMainDBITExtDocsList } from '@/generated/hooks/use-main-dbitext-docs'
 import { MainDBITCurrentstatusKeyToLabel, type MainDBIT } from '@/generated/models/main-dbit-model';
 import type { MainDBITExtDocs } from '@/generated/models/main-dbit-ext-docs-model';
 import { parseRemarks } from '@/lib/parse-remarks';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 interface ITINFORecord {
   id: string;
@@ -94,6 +98,10 @@ const columns: ColumnDef<ITINFORecord>[] = [
 ];
 
 export default function ITINFODatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const [selectedRecord, setSelectedRecord] = useState<ITINFORecord | null>(null);
 
   const { data: mainRecords = [], isLoading: mainLoading } = useMainDBITList({
@@ -167,6 +175,25 @@ export default function ITINFODatabaseView() {
     ];
   }, [selectedRecord]);
 
+
+  const filteredData = useMemo(() => {
+    if (activeTab === 'all') return itinfoData;
+    return itinfoData.filter((r) => {
+      const main = r.mainRecord;
+      if (!main) return false;
+      return activeTab === 'mine' ? isMySubmission(main, userEmail) : isMyAction(main, userEmail);
+    });
+  }, [itinfoData, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => itinfoData.filter((r) => r.mainRecord && isMySubmission(r.mainRecord, userEmail)).length,
+    [itinfoData, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => itinfoData.filter((r) => r.mainRecord && isMyAction(r.mainRecord, userEmail)).length,
+    [itinfoData, userEmail]
+  );
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F5F5' }}>
       <div style={{ backgroundColor: '#003366' }} className="px-6 py-4">
@@ -224,8 +251,15 @@ export default function ITINFODatabaseView() {
                 </EmptyHeader>
               </Empty>
             ) : (
+          <ITFormIndexTabs
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            mySubmissionsCount={mySubmissionsCount}
+            myActionsCount={myActionsCount}
+            totalCount={itinfoData.length}
+          />
               <DatabaseTable
-                data={itinfoData}
+                data={filteredData}
                 columns={columns}
                 onRowClick={(row: ITINFORecord) => setSelectedRecord(row)}
                 searchPlaceholder="Search by subject, type, recipient..."
@@ -241,7 +275,7 @@ export default function ITINFODatabaseView() {
       <DetailModal
         isOpen={!!selectedRecord}
         onClose={() => setSelectedRecord(null)}
-        title={`ITINFO — ${selectedRecord?.recordNo || ''}`}
+        title={`IT Information — ${selectedRecord?.recordNo || ''}`}
         subtitle={`${selectedRecord?.infoType || 'N/A'} · ${selectedRecord?.subject || ''}`}
         status={selectedRecord?.status}
         fieldGroups={fieldGroups}

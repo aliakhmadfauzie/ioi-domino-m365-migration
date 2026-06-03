@@ -31,8 +31,13 @@ export default function STONewFormPage() {
         title: id, formCode: 'STO', department: 'Warehouse',
         submittedBy: user?.email || '', submittedOn: now.toISOString(),
         requestTitle: `Stock Transfer: ${formData.fromLoc} → ${formData.toLoc}`,
+        description: [
+          `Item/Material: ${formData.item}`,
+          formData.remarks ? `Transfer Notes: ${formData.remarks}` : null,
+        ].filter(Boolean).join('\n'),
+        currentAction: 'Submitted',
         location: formData.fromLoc, quantity: Number(formData.qty) || undefined,
-        unit: formData.unit, remarks: formData.remarks,
+        unit: formData.unit,
       });
       setTicketId(id); setIsSubmitted(true);
       toast.success('Stock Transfer submitted!');

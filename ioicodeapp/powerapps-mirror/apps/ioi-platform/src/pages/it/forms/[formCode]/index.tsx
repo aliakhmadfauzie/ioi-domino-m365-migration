@@ -13,8 +13,16 @@ import { ALL_IT_FORMS } from '@/lib/it-forms-config';
 import { getITFormCodeFilter, getITFormDetailPath } from '@/lib/it-form-routes';
 import type { MainDBIT } from '@/generated/models/main-dbit-model';
 import { format } from 'date-fns';
+import { useUser } from '@/hooks/use-user';
+import { normalizeEmail } from '@/lib/it-current-action-access';
+import { isMySubmission, isMyAction, type ITIndexTab } from '@/lib/it-index-tabs';
+import { ITFormIndexTabs } from '@/components/it/it-form-index-tabs';
 
 export default function ITFormDatabaseView() {
+  const { data: currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState<ITIndexTab>('all');
+  const userEmail = normalizeEmail(currentUser?.userPrincipalName || currentUser?.email);
+
   const { formCode } = useParams<{ formCode: string }>();
   const navigate = useNavigate();
   const formCodeUpper = formCode?.toUpperCase() ?? '';
@@ -45,6 +53,23 @@ export default function ITFormDatabaseView() {
     { key: 'requestoremail', header: 'Submitted By', sortable: true },
   ], []);
 
+
+  const filteredSubmissions = useMemo(() => {
+    if (activeTab === 'all') return submissions;
+    return (submissions as any[]).filter((r) =>
+      activeTab === 'mine' ? isMySubmission(r, userEmail) : isMyAction(r, userEmail)
+    );
+  }, [submissions, activeTab, userEmail]);
+
+  const mySubmissionsCount = useMemo(
+    () => (submissions as any[]).filter((r) => isMySubmission(r, userEmail)).length,
+    [submissions, userEmail]
+  );
+  const myActionsCount = useMemo(
+    () => (submissions as any[]).filter((r) => isMyAction(r, userEmail)).length,
+    [submissions, userEmail]
+  );
+
   if (isLoading) return <PageLoading message="Loading records..." />;
 
   return (
@@ -65,8 +90,15 @@ export default function ITFormDatabaseView() {
           </Link>
         </Button>
       </div>
+      <ITFormIndexTabs
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        mySubmissionsCount={mySubmissionsCount}
+        myActionsCount={myActionsCount}
+        totalCount={submissions.length}
+      />
       <DatabaseTable
-        data={submissions as any}
+        data={filteredSubmissions as any}
         columns={columns as any}
         onRowClick={(row: any) => navigate(getITFormDetailPath(formCodeUpper, row.id))}
         isLoading={isLoading}

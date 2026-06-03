@@ -11,7 +11,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { FileText, User, AlertCircle, Check } from 'lucide-react';
+import { FileText, User, AlertCircle, Check, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { Input } from '@/components/ui/input';
@@ -47,8 +47,8 @@ const FORM_CONFIG: FormConfig = {
   code: 'IOIP',
   name: 'IOI Policy',
   basePath: '/it/forms/ioip',
-  initialStatus: 'CurrentstatusKey3', // Draft
-  initialStage: 1,
+  initialStatus: 'CurrentstatusKey55', // Pending first policy approver
+  initialStage: 2,
   hasExtRecord: true,
 };
 
@@ -90,11 +90,34 @@ export default function IOIPNewFormPage() {
     Body: '',
   });
 
+  // Auto-generate policy number on mount: IOIP-YYYY-NNN
   useEffect(() => {
-    if (user?.fullName && formData.Subject === '') {
-      // No auto-fill needed — user enters Subject manually
+    let cancelled = false;
+    async function generate() {
+      try {
+        const existing = await MainDBITExtPolicyService.getList({ orderBy: ['id desc'] });
+        if (cancelled) return;
+        const year = new Date().getFullYear();
+        const prefix = `IOIP-${year}-`;
+        let maxSeq = 0;
+        existing.forEach((r) => {
+          const no = r.iOIPPolicyNo || '';
+          if (no.startsWith(prefix)) {
+            const seq = parseInt(no.slice(prefix.length), 10);
+            if (!isNaN(seq) && seq > maxSeq) maxSeq = seq;
+          }
+        });
+        setFormData((prev) => ({ ...prev, PolicyNo: `${prefix}${String(maxSeq + 1).padStart(3, '0')}` }));
+      } catch {
+        if (!cancelled) {
+          const year = new Date().getFullYear();
+          setFormData((prev) => ({ ...prev, PolicyNo: `IOIP-${year}-001` }));
+        }
+      }
     }
-  }, [user?.fullName]);
+    generate();
+    return () => { cancelled = true; };
+  }, []);
 
   // People pickers
   const [selectedApprover1, setSelectedApprover1] = useState<PersonValue | PersonValue[] | null>(null);
@@ -136,7 +159,6 @@ export default function IOIPNewFormPage() {
   // Validation
   const validateForm = (): boolean => {
     const errs: Partial<Record<string, string>> = {};
-    if (!formData.PolicyNo) errs.PolicyNo = 'Required';
     if (!formData.Subject) errs.Subject = 'Required';
     if (!formData.ReviNum) errs.ReviNum = 'Required';
     if (!formData.DateIssue) errs.DateIssue = 'Required';
@@ -175,12 +197,14 @@ export default function IOIPNewFormPage() {
       const parentData: Omit<MainDBIT, 'id'> = {
         title: `${formData.PolicyNo} - ${formData.Subject}`,
         formcode: 'IOIP',
-        currentStatus: 'CurrentstatusKey3', // Draft
-        workflowstage: 1,
+        currentStatus: 'pending-section-b',
+        currentAction: 'Pending Policy Approval',
+        workflowstage: 2,
         islocked: false,
         submitteddate: new Date().toISOString(),
         requestoremail: requestorEmail,
-        remarks: formData.Body?.substring(0, 500) || '',
+        requestorName,
+        subject: formData.Subject,
       };
 
       const created = await retryWithBackoff(
@@ -198,7 +222,7 @@ export default function IOIPNewFormPage() {
         iOIPDateIssue: formData.DateIssue,
         iOIPBody: formData.Body,
         iOIPDocTitle: formData.Subject,
-        iOIPFinalStatus: '0',
+        iOIPFinalStatus: '1',
         iOIPApp1_1: a1Email,
         iOIPApp2_1: a2Email,
         iOIPApp3_1: a3Email,
@@ -257,7 +281,7 @@ export default function IOIPNewFormPage() {
         ticketId,
         title: `IOIP - ${formData.PolicyNo}`,
         formcode: 'IOIP',
-        currentStatus: 'Draft',
+        currentStatus: 'Pending Approval',
         priority: 'Normal',
         submittedDate: new Date().toISOString(),
         requestorEmail,
@@ -296,9 +320,23 @@ export default function IOIPNewFormPage() {
           </div>
           <div className="space-y-6">
             <div>
-              <Label className="text-sm font-semibold">Policy No <span className="text-destructive">*</span></Label>
-              <Input value={formData.PolicyNo} onChange={e => updateField('PolicyNo', e.target.value)} placeholder="e.g., IOI-POL-001" className="mt-2" style={{ height: '44px', borderRadius: '8px', backgroundColor: '#E8E8E8' }} />
-              {errors.PolicyNo && <p className="text-xs mt-1 flex items-center gap-1 text-destructive"><AlertCircle className="w-3 h-3" />{errors.PolicyNo}</p>}
+              <div className="flex items-center justify-between mb-1">
+                <Label className="text-sm font-semibold">Policy No</Label>
+                <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ backgroundColor: '#D1FAE5', color: '#059669' }}>
+                  Auto-generated
+                </span>
+              </div>
+              <div
+                className="mt-2 flex items-center px-3 font-mono text-sm font-semibold select-none"
+                style={{ height: '44px', borderRadius: '8px', backgroundColor: '#D1FAE5', color: '#059669', border: '1px solid #A7F3D0' }}
+              >
+                {formData.PolicyNo ? formData.PolicyNo : (
+                  <span className="flex items-center gap-2 text-xs font-normal font-sans" style={{ color: '#059669', opacity: 0.6 }}>
+                    <Loader2 className="w-3 h-3 animate-spin" />
+                    Generating...
+                  </span>
+                )}
+              </div>
             </div>
             <div>
               <Label className="text-sm font-semibold">Subject/Title <span className="text-destructive">*</span></Label>
@@ -380,7 +418,7 @@ export default function IOIPNewFormPage() {
             <div className="p-4 rounded-lg" style={{ backgroundColor: '#FAFAFA', border: '1px solid #D0D0D0' }}>
               <h3 className="text-sm font-semibold mb-3">Policy Summary</h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div><p className="text-muted-foreground">Policy No</p><p className="font-medium">{formData.PolicyNo}</p></div>
+                <div><p className="text-muted-foreground">Policy No</p><p className="font-semibold font-mono" style={{ color: '#059669' }}>{formData.PolicyNo}</p></div>
                 <div><p className="text-muted-foreground">Revision</p><p className="font-medium">{formData.ReviNum}</p></div>
                 <div className="col-span-2"><p className="text-muted-foreground">Subject</p><p className="font-medium">{formData.Subject}</p></div>
                 <div className="col-span-2"><p className="text-muted-foreground">Effective Date</p><p className="font-medium">{formData.DateIssue}</p></div>

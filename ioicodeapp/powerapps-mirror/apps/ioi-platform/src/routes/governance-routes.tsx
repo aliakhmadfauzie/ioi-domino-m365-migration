@@ -21,6 +21,8 @@ export const governanceRoutes = (
     <Route index element={<GovernanceHomePage />} />
     <Route path="audit" element={<AuditMonitoringPage />} />
     <Route path="policies" element={<PolicyManagementPage />} />
+    <Route path="compliance" element={<Navigate to="/governance/forms" replace />} />
+    <Route path="risk" element={<Navigate to="/governance/forms" replace />} />
     <Route path="forms" element={<GovernanceFormsIndexPage />} />
     <Route path="forms/:formCode" element={<GovernanceFormDatabaseView />} />
     <Route path="forms/:formCode/new" element={<GovernanceFormNewPage />} />

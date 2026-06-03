@@ -39,10 +39,10 @@ const ROUTE_METADATA: RouteMeta[] = [
   {
     matcher: /^\/it\/forms\/itssr\/new$/,
     file: 'src/pages/it/forms/itssr/new.tsx',
-    feature: 'features>itssr>itssr-app',
-    service: 'useITSSRCreate, useOffice365Users, useITSSRFormLogic, useWorkflowHooks',
-    model: 'ITSSRRecord, ITSSRFormInput',
-    component: 'ITSSRNewScreen, PeoplePicker, Input, Select',
+    feature: 'it>forms>itssr>new',
+    service: 'MainDBITService, MainDBITExtSupportService, MainDBITExtDocsService, determineITSSRRouting, useSharePointConfig',
+    model: 'MainDBIT, MainDBITExtSupport, MainDBITExtDocs',
+    component: 'ITSSRNewFormPage, SharePointLookupSelect, Input, Select',
   },
   {
     matcher: /^\/it\/forms\/itssr(?:\/|$)/,

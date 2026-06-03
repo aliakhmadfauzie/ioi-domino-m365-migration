@@ -5,6 +5,7 @@ import {
   type MainDBIT,
 } from '../models/main-dbit-model';
 import type { IOperationOptions } from '../../../app-gen-sdk/data/common/types';
+import { normalizeStatusSlug } from '../../lib/status-slugs';
 
 const DATA_SOURCE_NAME = 'maindb_it';
 
@@ -158,7 +159,8 @@ function normalize(record: RawMainDBIT): MainDBIT {
     ...record,
     id: record.id ?? num(record.ID ?? record.ItemInternalId) ?? 0,
     title: record.title ?? str(record.Title) ?? '',
-    currentStatus: record.currentStatus ?? str(record.CurrentStatus) ?? '',
+    // Migration bridge: legacy keys, label text, or slugs all normalize to slugs
+    currentStatus: normalizeStatusSlug(record.currentStatus ?? str(record.CurrentStatus) ?? ''),
     environmenttagKey: envKey as MainDBIT['environmenttagKey'],
     formcode: record.formcode ?? str(record.FormCode) ?? '',
     formTypeKey: (record.formTypeKey ?? record.FormTypeKey) as MainDBIT['formTypeKey'],

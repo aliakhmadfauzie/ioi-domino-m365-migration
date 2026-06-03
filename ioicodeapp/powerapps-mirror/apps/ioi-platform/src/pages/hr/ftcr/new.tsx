@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 import { format } from 'date-fns';
 import { MainDBHRService } from '@/services/main-dbhr-service';
 
@@ -23,7 +24,7 @@ export default function FTCRNewPage() {
   const [position, setPosition] = useState('');      // → jobdesignation
   const [contractFrom, setContractFrom] = useState('');  // → effectivedate
   const [contractTo, setContractTo] = useState('');      // → duedate
-  const [rate, setRate] = useState('');              // → remarks
+  const [rate, setRate] = useState('');
   const [renewal, setRenewal] = useState('');        // → details
   const [reason, setReason] = useState('');          // → description
 
@@ -42,8 +43,7 @@ export default function FTCRNewPage() {
         jobdesignation: position,
         effectivedate: contractFrom,
         duedate: contractTo,
-        remarks: rate ? `Rate: RM${rate}` : '',
-        details: renewal ? `Renewal: ${renewal}` : '',
+        details: [renewal ? `Renewal: ${renewal}` : null, rate ? `Rate: RM${rate}` : null].filter(Boolean).join(' | '),
         description: reason,
       } as any);
       toast.success(action === 'draft' ? 'Draft saved' : 'Submitted');
@@ -65,7 +65,7 @@ export default function FTCRNewPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2"><Label>Employee Name <span className="text-destructive">*</span></Label><Input value={empName} onChange={e => setEmpName(e.target.value)} placeholder="Full name" /></div>
             <div className="space-y-2"><Label>IC / Passport No.</Label><Input value={empId} onChange={e => setEmpId(e.target.value)} placeholder="e.g. 900101-14-1234" /></div>
-            <div className="space-y-2"><Label>Department</Label><Input value={department} onChange={e => setDepartment(e.target.value)} placeholder="Department" /></div>
+            <div className="space-y-2"><Label>Department</Label><SharePointLookupSelect kind="department" value={department} onChange={setDepartment} placeholder="Select department" /></div>
             <div className="space-y-2"><Label>Position</Label><Input value={position} onChange={e => setPosition(e.target.value)} placeholder="Job title" /></div>
             <div className="space-y-2"><Label>Contract From</Label><Input type="date" value={contractFrom} onChange={e => setContractFrom(e.target.value)} /></div>
             <div className="space-y-2"><Label>Contract To</Label><Input type="date" value={contractTo} onChange={e => setContractTo(e.target.value)} /></div>

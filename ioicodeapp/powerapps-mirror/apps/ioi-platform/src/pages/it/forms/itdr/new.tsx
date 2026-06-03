@@ -19,6 +19,7 @@ import { useUser } from '@/hooks/use-user';
 import { useCreateMainDBIT } from '@/generated/hooks/use-main-dbit';
 import { useCreateMainDBITExtSupport } from '@/generated/hooks/use-main-dbitext-support';
 import type { MainDBITCurrentstatusKey } from '@/generated/models/main-dbit-model';
+import { SharePointLookupSelect } from '@/components/sharepoint-lookup-select';
 
 const ITDAILYRPT_CATEGORIES = [
   'IT Operations', 'Project', 'Maintenance', 'Training', 'Administration', 'Other',
@@ -98,7 +99,7 @@ export default function NewITDAILYRPTPage() {
       const parentRecord = await createMainDBIT({
         title: recordNo,
         formcode: 'ITDAILYRPT',
-        currentStatus: 'CurrentstatusKey4' as MainDBITCurrentstatusKey,
+        currentStatus: 'sent',
         subject: HDR_Subject.trim(),
         company: HDR_Company.trim(),
         requestoremail: user?.email || '',
@@ -156,7 +157,7 @@ export default function NewITDAILYRPTPage() {
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div>
-            <h1 className="text-xl font-bold text-white">IT Daily Report</h1>
+            <h1 className="text-xl font-bold text-white">IT Daily Task Register</h1>
             <div className="flex items-center gap-1.5 text-white/80 text-sm">
               <Link to="/it" className="hover:text-white">IT</Link>
               <ChevronRight className="h-3 w-3" />
@@ -228,9 +229,10 @@ export default function NewITDAILYRPTPage() {
 
               <div className="space-y-2">
                 <Label>Company</Label>
-                <Input
+                <SharePointLookupSelect
+                  kind="company"
                   value={HDR_Company}
-                  onChange={e => setHDR_Company(e.target.value)}
+                  onChange={setHDR_Company}
                   placeholder="Company name (if applicable)"
                 />
               </div>
