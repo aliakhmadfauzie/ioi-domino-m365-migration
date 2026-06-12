@@ -1,0 +1,681 @@
+Screens:
+  IT_Home_3:
+    Properties:
+      Fill: =Coalesce(gblITTheme.LightBg, gblAppColors.GrayLight, ColorValue("#F8F9FA"))
+      Height: =App.Height
+      OnVisible: |-
+        =Set(varCurrentScreen, "IT_Home");
+        Set(gblITTheme, Coalesce(gblITTheme, {Name: "IT", PrimaryColor: ColorValue("#0062E6"), SecondaryColor: ColorValue("#1E3A5F"), AccentColor: ColorValue("#0891B2"), LightBg: ColorValue("#F8FAFC"), SuccessColor: ColorValue("#16A34A"), WarningColor: ColorValue("#D97706"), DangerColor: ColorValue("#DC2626"), NavHeaderBg: ColorValue("#0062E6"), NeutralColor: ColorValue("#64748B"), TextPrimary: ColorValue("#0F172A"), TextSecondary: ColorValue("#475569"), NavHeaderText: ColorValue("#FFFFFF"), HeadingFont: "Segoe UI", BodyFont: "Segoe UI", Tagline: "Powering Digital Solutions"}));
+        Set(varIsMobileLayout, App.Width < 900);
+        Set(varIsRequester, Coalesce(varIsRequester, true));
+        Set(varIsApprover, Coalesce(varIsApprover, false));
+        Set(varIsAdmin, Coalesce(varIsAdmin, false));
+        Set(varFormulaSkeletonMode, true);
+        Set(varFormulaSpecReady, false);
+        Set(varListLoading, false);
+        Set(varListFilterStatus, Coalesce(varListFilterStatus, "All"));
+        Set(varGlobalSearchText, Coalesce(varGlobalSearchText, ""));
+        Set(varListSearchText, Coalesce(varListSearchText, ""));
+        Set(varMetric1, Coalesce(varMetric1, 0));
+        Set(varMetric1Label, Coalesce(varMetric1Label, "Open Requests"));
+        Set(varMetric2, Coalesce(varMetric2, 0));
+        Set(varMetric2Label, Coalesce(varMetric2Label, "Pending Items"));
+        Set(varMetric3, Coalesce(varMetric3, 0));
+        Set(varMetric3Label, Coalesce(varMetric3Label, "Completed This Month"));
+        Set(varMetric4, Coalesce(varMetric4, 0));
+        Set(varMetric4Label, Coalesce(varMetric4Label, "Active Users"));
+        Set(varWelcomeMessage, Coalesce(varWelcomeMessage, "Information Technology Home"))
+      Width: =App.Width
+    Children:
+      - RootLayout_IT_3:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            Fill: =Coalesce(gblITTheme.LightBg, gblAppColors.GrayLight, ColorValue("#F8F9FA"))
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutOverflowY: =LayoutOverflow.Auto
+            Width: =Parent.Width
+          Children:
+            - NavRail_IT_3:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  Fill: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#002B73"))
+                  FillPortions: =0
+                  Height: =Parent.Height
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =4
+                  PaddingBottom: =16
+                  PaddingLeft: =12
+                  PaddingRight: =12
+                  PaddingTop: =16
+                  Visible: =!varIsMobileLayout
+                  Width: =220
+                Children:
+                  - NavLogoRow_IT_3:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        FillPortions: =0
+                        Height: =56
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =8
+                        PaddingLeft: =4
+                        Width: =196
+                      Children:
+                        - NavBadge_IT_3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              Fill: =Coalesce(gblITTheme.PrimaryColor, ColorValue("#0062E6"))
+                              FillPortions: =0
+                              Height: =30
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              RadiusBottomLeft: =7
+                              RadiusBottomRight: =7
+                              RadiusTopLeft: =7
+                              RadiusTopRight: =7
+                              Width: =30
+                            Children:
+                              - Label_NavIOI_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =24
+                                    Size: =9
+                                    Text: ="IOI"
+                                    Width: =28
+                        - Label_NavTitle_IT_3:
+                            Control: Label
+                            Properties:
+                              Color: =ColorValue("#93C5FD")
+                              FontWeight: =FontWeight.Bold
+                              Height: =28
+                              Size: =12
+                              Text: ="IT"
+                              Width: =140
+                  - NavBtn_ITHome_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0.15)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        FontWeight: =FontWeight.Semibold
+                        Height: =36
+                        OnSelect: =Set(varCurrentScreen, "IT_Home")
+                        Text: ="Home"
+                        Width: =196
+                  - Rectangle_NavSection1_IT_3:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255,255,255,0.12)
+                        Height: =1
+                        Width: =196
+                  - NavBtn_ITM1_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: =Navigate(M1_Home_IT, ScreenTransition.Fade)
+                        Text: ="M1 User and Access Management"
+                        Width: =196
+                  - NavBtn_ITM2_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: =Navigate(M2_Home_IT, ScreenTransition.Fade)
+                        Text: ="M2 IT Support and Service Requests"
+                        Width: =196
+                  - NavBtn_ITM3_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: =Navigate(M3_Home_IT, ScreenTransition.Fade)
+                        Text: ="M3 Hardware and Infrastructure"
+                        Width: =196
+                  - Rectangle_NavSection2_IT_3:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255,255,255,0.12)
+                        Height: =1
+                        Width: =196
+                  - NavBtn_ITNewRequest_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: |-
+                          =Set(gblCurrentApp, Coalesce(gblCurrentApp, "ITDR"));
+                          Set(varCatalogueCategory, "All");
+                          Navigate(IT_AppCatalogueScreen, ScreenTransition.Fade)
+                        Text: ="+ New Request"
+                        Visible: =varIsRequester || varIsAdmin
+                        Width: =196
+                  - NavBtn_ITMyTickets_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: =Navigate(IT_RequesterSubmissionManagementScreen_IT, ScreenTransition.Fade)
+                        Text: ="My Requests"
+                        Visible: =varIsRequester || varIsAdmin
+                        Width: =196
+                  - NavBtn_ITApprovals_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: =Navigate(IT_ApproverSubmissionManagementScreen_IT, ScreenTransition.Fade)
+                        Text: ="Approval Queue"
+                        Visible: =varIsApprover || varIsAdmin
+                        Width: =196
+                  - NavBtn_ITITDR_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: =Set(gblCurrentApp, "ITDR"); Navigate(IT_ITDR_Entry, ScreenTransition.Fade)
+                        Text: ="IT DR Plan"
+                        Visible: =varIsAdmin
+                        Width: =196
+                  - NavBtn_ITSearch_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =36
+                        OnSelect: =Navigate(IT_SearchArchivesScreen, ScreenTransition.Fade)
+                        Text: ="Search Archives"
+                        Width: =196
+                  - Rectangle_NavDivider_IT_3:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255,255,255,0.20)
+                        Height: =1
+                        Width: =196
+                  - NavBtn_ITBackDash_3:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0)
+                        BorderThickness: =0
+                        FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                        FontSize: =11
+                        Height: =34
+                        OnSelect: =Navigate(IT_AppDashboardKPIScreen, ScreenTransition.Fade)
+                        Text: ="← Dashboard"
+                        Width: =196
+            - MainArea_IT_3:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  Height: =Parent.Height
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutOverflowY: =LayoutOverflow.Auto
+                  Width: =If(varIsMobileLayout, Parent.Width, Parent.Width - 220)
+                Children:
+                  - HeroBanner_IT_3:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        Fill: =Coalesce(gblITTheme.NavHeaderBg, ColorValue("#0062E6"))
+                        FillPortions: =0
+                        Height: =120
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        PaddingLeft: =28
+                        PaddingRight: =28
+                        Width: =Parent.Width
+                      Children:
+                        - Label_HeroTitle_IT_3:
+                            Control: Label
+                            Properties:
+                              Color: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontWeight: =FontWeight.Bold
+                              Height: =32
+                              Size: =20
+                              Text: ="Information Technology"
+                              Width: =Parent.Width - 56
+                        - Label_HeroTagline_IT_3:
+                            Control: Label
+                            Properties:
+                              Color: =RGBA(255,255,255,0.85)
+                              Height: =22
+                              Size: =12
+                              Text: =Coalesce(gblITTheme.Tagline, "Powering Digital Solutions")
+                              Width: =Parent.Width - 56
+                        - Label_HeroUser_IT_3:
+                            Control: Label
+                            Properties:
+                              Color: =RGBA(255,255,255,0.70)
+                              Height: =20
+                              Size: =10
+                              Text: =varWelcomeMessage
+                              Width: =Parent.Width - 56
+                  - KPIStrip_IT_3:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        Fill: =ColorValue("#FFFFFF")
+                        FillPortions: =0
+                        Height: =110
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =12
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        PaddingBottom: =12
+                        PaddingLeft: =20
+                        PaddingRight: =20
+                        PaddingTop: =12
+                        Width: =Parent.Width
+                      Children:
+                        - KPI1_IT_3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              BorderColor: =ColorValue("#E2E8F0")
+                              BorderThickness: =1
+                              Fill: =ColorValue("#EFF6FF")
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - Label_KPI1Val_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.PrimaryColor, ColorValue("#0062E6"))
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =36
+                                    Size: =22
+                                    Text: =Text(varMetric1)
+                                    Width: =Parent.Width
+                              - Label_KPI1Lbl_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.TextSecondary, ColorValue("#64748B"))
+                                    Height: =18
+                                    Size: =8
+                                    Text: =Upper(varMetric1Label)
+                                    Width: =Parent.Width
+                        - KPI2_IT_3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              BorderColor: =ColorValue("#E2E8F0")
+                              BorderThickness: =1
+                              Fill: =ColorValue("#FFF7ED")
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - Label_KPI2Val_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.WarningColor, ColorValue("#D97706"))
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =36
+                                    Size: =22
+                                    Text: =Text(varMetric2)
+                                    Width: =Parent.Width
+                              - Label_KPI2Lbl_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.TextSecondary, ColorValue("#64748B"))
+                                    Height: =18
+                                    Size: =8
+                                    Text: =Upper(varMetric2Label)
+                                    Width: =Parent.Width
+                        - KPI3_IT_3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              BorderColor: =ColorValue("#E2E8F0")
+                              BorderThickness: =1
+                              Fill: =ColorValue("#F0FDF4")
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - Label_KPI3Val_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.SuccessColor, ColorValue("#16A34A"))
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =36
+                                    Size: =22
+                                    Text: =Text(varMetric3)
+                                    Width: =Parent.Width
+                              - Label_KPI3Lbl_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.TextSecondary, ColorValue("#64748B"))
+                                    Height: =18
+                                    Size: =8
+                                    Text: =Upper(varMetric3Label)
+                                    Width: =Parent.Width
+                        - KPI4_IT_3:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              BorderColor: =ColorValue("#E2E8F0")
+                              BorderThickness: =1
+                              Fill: =ColorValue("#F8FAFC")
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                            Children:
+                              - Label_KPI4Val_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.NeutralColor, ColorValue("#475569"))
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =36
+                                    Size: =22
+                                    Text: =Text(varMetric4)
+                                    Width: =Parent.Width
+                              - Label_KPI4Lbl_IT_3:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Coalesce(gblITTheme.TextSecondary, ColorValue("#64748B"))
+                                    Height: =18
+                                    Size: =8
+                                    Text: =Upper(varMetric4Label)
+                                    Width: =Parent.Width
+                  - QuickActions_IT_3:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        FillPortions: =0
+                        Height: =56
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        PaddingLeft: =20
+                        PaddingRight: =20
+                        PaddingTop: =8
+                        Width: =Parent.Width
+                      Children:
+                        - QA_NewReq_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.PrimaryColor, ColorValue("#0062E6"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =11
+                              FontWeight: =FontWeight.Semibold
+                              Height: =38
+                              OnSelect: |-
+                                =Set(gblCurrentApp, Coalesce(gblCurrentApp, "ITDR"));
+                                Set(varCatalogueCategory, "All");
+                                Navigate(IT_AppCatalogueScreen, ScreenTransition.Fade)
+                              Text: ="+ New Request"
+                              Visible: =varIsRequester || varIsAdmin
+                              Width: =170
+                        - QA_ITDR_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A5F"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =11
+                              Height: =38
+                              OnSelect: =Set(gblCurrentApp, "ITDR"); Set(varCatalogueCategory, "Operations"); Navigate(IT_AppCatalogueScreen, ScreenTransition.Fade)
+                              Text: ="IT DR Plan"
+                              Visible: =varIsAdmin
+                              Width: =120
+                        - QA_Search_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A5F"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =11
+                              Height: =38
+                              OnSelect: =Navigate(IT_SearchArchivesScreen, ScreenTransition.Fade)
+                              Text: ="Search Archives"
+                              Width: =130
+                  - ModuleLaunchPanel_IT_3:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =ColorValue("#DBEAFE")
+                        BorderThickness: =1
+                        FillPortions: =0
+                        Height: =88
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        LayoutWrap: =true
+                        PaddingBottom: =10
+                        PaddingLeft: =20
+                        PaddingRight: =20
+                        PaddingTop: =10
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =Parent.Width
+                      Children:
+                        - Label_ModuleLaunchTitle_IT_3:
+                            Control: Label
+                            Properties:
+                              Color: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A8A"))
+                              FontWeight: =FontWeight.Semibold
+                              Height: =26
+                              Size: =11
+                              Text: ="IT Module Navigator"
+                              Width: =Parent.Width
+                        - Btn_ModuleM1_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.PrimaryColor, ColorValue("#0062E6"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =10
+                              Height: =34
+                              OnSelect: =Navigate(M1_Home_IT, ScreenTransition.Fade)
+                              Text: ="M1 Access"
+                              Width: =100
+                        - Btn_ModuleM2_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A5F"))
+                              BorderThickness: =0
+                              FontColor: =ColorValue("#FFFFFF")
+                              FontSize: =10
+                              Height: =34
+                              OnSelect: =Navigate(M2_Home_IT, ScreenTransition.Fade)
+                              Text: ="M2 Support"
+                              Width: =100
+                        - Btn_ModuleM3_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A5F"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =10
+                              Height: =34
+                              OnSelect: =Navigate(M3_Home_IT, ScreenTransition.Fade)
+                              Text: ="M3 Hardware"
+                              Width: =106
+                        - Btn_ModuleM4_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A5F"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =10
+                              Height: =34
+                              OnSelect: =Navigate(M4_Home_IT, ScreenTransition.Fade)
+                              Text: ="M4 SAP"
+                              Width: =90
+                        - Btn_ModuleM5_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A5F"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =10
+                              Height: =34
+                              OnSelect: =Navigate(M5_Home_IT, ScreenTransition.Fade)
+                              Text: ="M5 Policies"
+                              Width: =100
+                        - Btn_ModuleM6_IT_3:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.SecondaryColor, ColorValue("#1E3A5F"))
+                              BorderThickness: =0
+                              FontColor: =Coalesce(gblITTheme.NavHeaderText, ColorValue("#FFFFFF"))
+                              FontSize: =10
+                              Height: =34
+                              OnSelect: =Navigate(M6_Home_IT, ScreenTransition.Fade)
+                              Text: ="M6 Recovery"
+                              Width: =100
+                  - Divider_IT_3:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =ColorValue("#E2E8F0")
+                        Height: =1
+                        Width: =Parent.Width
+                  - GlobalSearchPanel_IT_2:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =ColorValue("#DBEAFE")
+                        BorderThickness: =1
+                        FillPortions: =0
+                        Height: =74
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        PaddingBottom: =10
+                        PaddingLeft: =20
+                        PaddingRight: =20
+                        PaddingTop: =10
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =Parent.Width
+                      Children:
+                        - Txt_GlobalSearch_IT_2:
+                            Control: Classic/TextInput
+                            Properties:
+                              BorderColor: =ColorValue("#CBD5E1")
+                              BorderThickness: =1
+                              Fill: =ColorValue("#FFFFFF")
+                              FillPortions: =1
+                              Height: =38
+                              HintText: ="Search by Request No, Request Title, Requestor, or Form/Application"
+                              OnChange: =Set(varGlobalSearchText, Self.Text)
+                        - Btn_GlobalSearch_IT_2:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =Coalesce(gblITTheme.PrimaryColor, ColorValue("#0062E6"))
+                              BorderThickness: =0
+                              FontColor: =ColorValue("#FFFFFF")
+                              FontSize: =10
+                              Height: =38
+                              OnSelect: =Navigate(IT_SearchArchivesScreen, ScreenTransition.Fade)
+                              Text: ="Search"
+                        - Btn_ClearGlobalSearch_IT_2:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =ColorValue("#FFFFFF")
+                              BorderColor: =ColorValue("#0062E6")
+                              BorderThickness: =1
+                              FontColor: =ColorValue("#0062E6")
+                              FontSize: =10
+                              Height: =38
+                              OnSelect: =Set(varGlobalSearchText, ""); Reset(Txt_GlobalSearch_IT_2)
+                              Text: ="Clear"
+                              Width: =86
+      - Label_DepartmentBrandBadge_IT_3:
+          Control: Label
+          Properties:
+            Align: =Align.Center
+            Color: =ColorValue("#FFFFFF")
+            Fill: =Coalesce(gblITTheme.SecondaryColor, gblAppColors.Primary1, ColorValue("#003366"))
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =9
+            Text: ="IT Brand"
+            Width: =140
+            X: =Parent.Width - Self.Width - 12
+            Y: =10
+      - Lbl_ScreenVersion_10:
+          Control: Label
+          Properties:
+            Color: =RGBA(148, 163, 184, 0.6)
+            Height: =16
+            Size: =7
+            Text: ="v1.3.3"
+            Width: =80
+            X: =App.Width - 84
+            Y: =App.Height - 20

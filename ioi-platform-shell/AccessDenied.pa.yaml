@@ -1,0 +1,74 @@
+Screens:
+  AccessDenied:
+    Properties:
+      Fill: =ColorBg
+    Children:
+      - rootAccessDenied:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorBg
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =14
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            PaddingBottom: =24
+            PaddingLeft: =24
+            PaddingRight: =24
+            PaddingTop: =24
+            Width: =Parent.Width
+          Children:
+            - lblAccessDeniedMark:
+                Control: ModernText
+                Properties:
+                  Align: =Align.Center
+                  AlignInContainer: =AlignInContainer.Center
+                  Color: =ColorRejected
+                  FontWeight: =FontWeight.Bold
+                  Height: =72
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =56
+                  Text: ="403"
+                  Wrap: =false
+            - lblAccessDeniedTitle:
+                Control: ModernText
+                Properties:
+                  Align: =Align.Center
+                  AlignInContainer: =AlignInContainer.Center
+                  Color: =ColorText
+                  FontWeight: =FontWeight.Semibold
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =24
+                  Text: ="Access denied"
+                  Wrap: =false
+            - lblAccessDeniedBody:
+                Control: ModernText
+                Properties:
+                  Align: =Align.Center
+                  AlignInContainer: =AlignInContainer.Center
+                  AutoHeight: =true
+                  Color: =ColorMuted
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =14
+                  Text: ="You do not have permission to view this page. If you believe this is an error, contact your administrator."
+                  Width: =420
+            - btnAccessDeniedHome:
+                Control: ModernButton
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BasePaletteColor: =ColorPrimary
+                  Height: =44
+                  Icon: =Icon.Home
+                  OnSelect: =Navigate(Home, ScreenTransition.Fade)
+                  Text: ="Go to Home"
+                  Width: =180

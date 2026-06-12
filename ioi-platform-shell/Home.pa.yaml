@@ -1,0 +1,180 @@
+Screens:
+  Home:
+    Properties:
+      Fill: =ColorBg
+      OnVisible: =Set(gblActiveSite, Coalesce(gblActiveSite, "Johor"))
+    Children:
+      - HomeRoot:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorBg
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =16
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingBottom: =24
+            PaddingLeft: =24
+            PaddingRight: =24
+            PaddingTop: =24
+            Width: =Parent.Width
+          Children:
+            - HomeHeader:
+                Control: Header
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  Fill: =ColorPrimary
+                  Height: =64
+                  Style: ='Header.Style'.Primary
+                  Title: ="IOI Platform"
+                  UserName: =gblCurrentUser
+            - HomeSubheader:
+                Control: ModernText
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  Color: =ColorMuted
+                  Height: =22
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =14
+                  Text: ="Signed in as " & gblCurrentUser
+                  Wrap: =false
+            - HomeSiteTabs:
+                Control: ModernTabList
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  Appearance: =TabListAppearance.Subtle
+                  BasePaletteColor: =ColorPrimary
+                  Default: |-
+                    ={Site: "Johor"}
+                  Height: =44
+                  ItemDisplayText: ="Site"
+                  Items: =colSites
+                  OnChange: =Set(gblActiveSite, Self.Selected.Site)
+            - HomeStatsRow:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  FillPortions: =0
+                  Height: =40
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =12
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - BadgeFormCount:
+                      Control: Badge
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: ='BadgeCanvas.Appearance'.Filled
+                        Content: =Text(LookUp(colSites, Site = gblActiveSite).FormCount) & " forms"
+                        Shape: ='BadgeCanvas.Shape'.Rounded
+                        ThemeColor: ='BadgeCanvas.ThemeColor'.Brand
+                        Width: =140
+                  - BadgeDeptCount:
+                      Control: Badge
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: ='BadgeCanvas.Appearance'.Filled
+                        Content: =Text(CountRows(Filter(colDepartments, Site = gblActiveSite))) & " departments"
+                        Shape: ='BadgeCanvas.Shape'.Rounded
+                        ThemeColor: ='BadgeCanvas.ThemeColor'.Informative
+                        Width: =160
+                  - BadgePending:
+                      Control: Badge
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: ='BadgeCanvas.Appearance'.Filled
+                        Content: =Text(CountRows(Filter(colApprovals, Status = "Pending"))) & " pending"
+                        Shape: ='BadgeCanvas.Shape'.Rounded
+                        ThemeColor: ='BadgeCanvas.ThemeColor'.Warning
+                        Width: =140
+                  - StatsSpacer:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorMuted
+                        FillPortions: =1
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =""
+                        Wrap: =false
+            - HomeSearchRow:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  FillPortions: =0
+                  Height: =48
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =12
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - txtHomeSearch:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: =Appearance.Outline
+                        FillPortions: =1
+                        Height: =40
+                        Placeholder: ="Search forms..."
+                        Type: =TextInputType.Search
+                  - btnBrowse:
+                      Control: ModernButton
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BasePaletteColor: =ColorAccent
+                        Height: =40
+                        Icon: =Icon.Search
+                        OnSelect: |-
+                          =Set(gblActiveDept, Blank());
+                          Navigate(Browse, ScreenTransition.Cover)
+                        Text: ="Browse forms"
+                        Width: =160
+            - HomeDeptHeading:
+                Control: ModernText
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  Color: =ColorText
+                  FontWeight: =FontWeight.Semibold
+                  Height: =26
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =18
+                  Text: ="Departments"
+                  Wrap: =false
+            - HomeDeptGallery:
+                Control: Gallery
+                Variant: Vertical
+                Properties:
+                  FillPortions: =0
+                  Height: =CountRows(Self.AllItems) * Self.TemplateHeight
+                  Items: =Filter(colDepartments, Site = gblActiveSite)
+                  ShowScrollbar: =false
+                  TemplatePadding: =8
+                  TemplateSize: =96
+                Children:
+                  - DeptCard:
+                      Control: ModernCard
+                      Properties:
+                        BorderRadius: =10
+                        Description: =Text(ThisItem.FormCount) & " forms"
+                        DescriptionColor: =ColorMuted
+                        Fill: =ColorSurface
+                        HeaderImage: =""
+                        Height: =88
+                        Image: =""
+                        OnSelect: |-
+                          =Set(gblActiveDept, ThisItem.DeptCode);
+                          Navigate(Browse, ScreenTransition.Cover)
+                        Subtitle: =ThisItem.DeptCode
+                        SubtitleColor: =ColorAccent
+                        Title: =ThisItem.DeptName
+                        TitleColor: =ColorText
+                        Width: =Parent.TemplateWidth

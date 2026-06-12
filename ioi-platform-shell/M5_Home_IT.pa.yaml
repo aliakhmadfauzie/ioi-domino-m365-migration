@@ -1,0 +1,695 @@
+Screens:
+  M5_Home_IT:
+    Properties:
+      Fill: '=Coalesce(gblAppColors.GrayLight, ColorValue("#F8F9FA"))  '
+      Height: =App.Height
+      OnVisible: |-
+        =Set(varCurrentScreen, "M5_Home_IT");
+        Set(gblITTheme, Coalesce(gblITTheme, {Name: "IT", PrimaryColor: ColorValue("#0062E6"), SecondaryColor: ColorValue("#1E3A5F"), AccentColor: ColorValue("#0891B2"), LightBg: ColorValue("#F8FAFC"), SuccessColor: ColorValue("#16A34A"), WarningColor: ColorValue("#D97706"), DangerColor: ColorValue("#DC2626"), NavHeaderBg: ColorValue("#0062E6"), NeutralColor: ColorValue("#64748B"), TextPrimary: ColorValue("#0F172A"), TextSecondary: ColorValue("#475569"), NavHeaderText: ColorValue("#FFFFFF"), Tagline: "Powering Digital Solutions"}));
+        Set(varListLoading, true);
+        Set(varHomeNavOpen, false);
+        Set(varListFilterStatus, "All");
+        Set(varListSearchText, "");
+        Set(varCurrentDepartment, "IT");
+        Set(varCurrentModuleCode, "M5");
+        ClearCollect(
+          colM5ModuleRecords_IT,
+          ForAll(
+            Sequence(12),
+            {
+              ID: Value,
+              DocRef: "M5-IT-" & Text(Value, "000"),
+              SubmittedDate: Text(DateAdd(Today(), -Value, TimeUnit.Days), "yyyy-mm-dd"),
+              RefDetail: "IT system audit record " & Text(Value),
+              StageLabel: If(Mod(Value,4)=0, "Completed", If(Mod(Value,3)=0, "Pending Approval", If(Mod(Value,2)=0, "In Progress", "Draft")))
+            }
+          )
+        );
+        Set(varListLoading, false)
+      Width: =App.Width
+    Children:
+      - ModuleListRoot_M5_IT:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            Fill: =gblAppColors.GrayLight
+            Height: =Parent.Height
+            LayoutDirection: =If(fxSidebarPersistent, LayoutDirection.Horizontal, LayoutDirection.Vertical)
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            Width: =Parent.Width
+          Children:
+            - ModuleSidebar_M5_IT:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  Fill: =ColorValue("#1E3A5F")
+                  FillPortions: =0
+                  Height: =Parent.Height
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =8
+                  PaddingBottom: =12
+                  PaddingLeft: =12
+                  PaddingRight: =12
+                  PaddingTop: =12
+                  Visible: =fxSidebarPersistent || varHomeNavOpen
+                  Width: =If(fxSidebarPersistent, 260, Parent.Width)
+                Children:
+                  - Btn_CloseModuleNav_M5_IT:
+                      Control: Button
+                      Properties:
+                        BasePaletteColor: =RGBA(255,255,255,0.05)
+                        BorderColor: =RGBA(255,255,255,0.20)
+                        BorderThickness: =1
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =10
+                        Height: =30
+                        OnSelect: =Set(varHomeNavOpen, false)
+                        Text: ="Close"
+                        Visible: =!fxSidebarPersistent
+                        Width: =220
+                  - Lbl_ModuleNavTitle_M5_IT:
+                      Control: Label
+                      Properties:
+                        Color: =ColorValue("#FFFFFF")
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =12
+                        Text: ="M5 — Quality System Audit"
+                        Width: =220
+                  - Rect_ModuleNavDiv1_M5_IT:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255,255,255,0.15)
+                        Height: =1
+                        Width: =220
+                  - Btn_ModuleNavBack_M5_IT:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0.05)
+                        BorderThickness: =0
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =13
+                        Height: =40
+                        OnSelect: =Navigate(IT_Home, ScreenTransition.Fade)
+                        Text: ="← Department Home"
+                        Width: =220
+                  - Lbl_ModuleNavHdr_M5_IT:
+                      Control: Label
+                      Properties:
+                        Color: =ColorValue("#64748B")
+                        FontWeight: =FontWeight.Semibold
+                        Height: =18
+                        Size: =9
+                        Text: ="MODULES"
+                        Width: =220
+                  - Btn_ModuleNavM1_IT_4:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =If(5=1, RGBA(255,255,255,0.18), RGBA(255,255,255,0.05))
+                        BorderThickness: =0
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =13
+                        Height: =40
+                        OnSelect: =Navigate(M1_Home_IT, ScreenTransition.Fade)
+                        Text: ="M1 Operations & Despatch"
+                        Width: =220
+                  - Btn_ModuleNavM2_IT_4:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =If(5=2, RGBA(255,255,255,0.18), RGBA(255,255,255,0.05))
+                        BorderThickness: =0
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =13
+                        Height: =40
+                        OnSelect: =Navigate(M2_Home_IT, ScreenTransition.Fade)
+                        Text: ="M2 Document Control & SOP"
+                        Width: =220
+                  - Btn_ModuleNavM3_IT_4:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =If(5=3, RGBA(255,255,255,0.18), RGBA(255,255,255,0.05))
+                        BorderThickness: =0
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =13
+                        Height: =40
+                        OnSelect: =Navigate(M3_Home_IT, ScreenTransition.Fade)
+                        Text: ="M3 ISO 17025 Compliance"
+                        Width: =220
+                  - Btn_ModuleNavM4_IT_4:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =If(5=4, RGBA(255,255,255,0.18), RGBA(255,255,255,0.05))
+                        BorderThickness: =0
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =13
+                        Height: =40
+                        OnSelect: =Navigate(M4_Home_IT, ScreenTransition.Fade)
+                        Text: ="M4 Quality Corrective Action"
+                        Width: =220
+                  - Btn_ModuleNavM5_IT_4:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =If(5=5, RGBA(255,255,255,0.18), RGBA(255,255,255,0.05))
+                        BorderThickness: =0
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =13
+                        Height: =40
+                        OnSelect: =Navigate(M5_Home_IT, ScreenTransition.Fade)
+                        Text: ="M5 Quality System Audit"
+                        Width: =220
+                  - Rect_ModuleNavDiv2_M5_IT:
+                      Control: Rectangle
+                      Properties:
+                        Fill: =RGBA(255,255,255,0.15)
+                        Height: =1
+                        Width: =220
+                  - Btn_ModuleNavCatalogue_M5_IT:
+                      Control: Button
+                      Properties:
+                        Align: =Align.Left
+                        BasePaletteColor: =RGBA(255,255,255,0.05)
+                        BorderThickness: =0
+                        FontColor: =ColorValue("#E2E8F0")
+                        FontSize: =13
+                        Height: =40
+                        OnSelect: =Navigate(IT_AppCatalogueScreen_IT, ScreenTransition.Fade)
+                        Text: ="App Catalogue"
+                        Width: =220
+            - ModuleMain_M5_IT:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  Fill: =gblAppColors.GrayLight
+                  Height: =Parent.Height
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =12
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingBottom: =16
+                  PaddingLeft: =16
+                  PaddingRight: =16
+                  PaddingTop: =16
+                  Visible: =App.Width >= 600 || !varHomeNavOpen
+                  Width: =If(fxSidebarPersistent, Parent.Width - 260, Parent.Width)
+                Children:
+                  - ModuleHeaderBar_M5_IT:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =ColorFade(gblAppColors.GrayDark, 70%)
+                        BorderThickness: =1
+                        Fill: =gblAppColors.White
+                        FillPortions: =0
+                        Height: =64
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =8
+                        PaddingBottom: =10
+                        PaddingLeft: =12
+                        PaddingRight: =12
+                        PaddingTop: =10
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width
+                      Children:
+                        - Btn_ModuleHamburger_M5_IT:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =gblAppColors.White
+                              BorderColor: =ColorValue("#0062E6")
+                              BorderThickness: =1
+                              FontColor: =ColorValue("#0062E6")
+                              FontSize: =14
+                              FontWeight: =FontWeight.Bold
+                              Height: =34
+                              OnSelect: =Set(varHomeNavOpen, !varHomeNavOpen)
+                              Text: ="≡"
+                              Width: =36
+                        - Lbl_ModuleScreenTitle_M5_IT:
+                            Control: Label
+                            Properties:
+                              Color: =ColorValue("#0062E6")
+                              FillPortions: =1
+                              FontWeight: =FontWeight.Semibold
+                              Height: =44
+                              Size: =If(App.Width < 600, 13, 16)
+                              Text: ="M5 — Quality System Audit"
+                              Width: =Parent.Width - 340
+                        - Lbl_ModuleBadge_M5_IT:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              Color: =ColorValue("#FFFFFF")
+                              Fill: =ColorValue("#0062E6")
+                              FontWeight: =FontWeight.Semibold
+                              Height: =26
+                              Size: =9
+                              Text: ="M5"
+                              Visible: =!fxIsPhone
+                              Width: =56
+                        - Btn_ModuleBackHome_M5_IT:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =gblAppColors.White
+                              BorderColor: =ColorValue("#0062E6")
+                              BorderThickness: =1
+                              FontColor: =ColorValue("#0062E6")
+                              FontSize: =10
+                              Height: =34
+                              OnSelect: =Navigate(IT_Home, ScreenTransition.Fade)
+                              Text: ="← Home"
+                              Width: =80
+                  - ModuleKPIStrip_M5_IT:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =ColorFade(gblAppColors.GrayDark, 70%)
+                        BorderThickness: =1
+                        Fill: =gblAppColors.White
+                        FillPortions: =0
+                        Height: =72
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =12
+                        PaddingBottom: =8
+                        PaddingLeft: =12
+                        PaddingRight: =12
+                        PaddingTop: =8
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width
+                      Children:
+                        - KPI_Total_M5_IT:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              Fill: =ColorFade(ColorValue("#0062E6"), 92%)
+                              Height: =56
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              RadiusBottomLeft: =6
+                              RadiusBottomRight: =6
+                              RadiusTopLeft: =6
+                              RadiusTopRight: =6
+                            Children:
+                              - Lbl_KPICount_Total_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#0062E6")
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =28
+                                    Size: =16
+                                    Text: =Text(CountRows(colM5ModuleRecords_IT))
+                                    Width: =Parent.Width
+                              - Lbl_KPILabel_Total_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#475569")
+                                    Height: =20
+                                    Size: =8
+                                    Text: ="Total"
+                                    Width: =Parent.Width
+                        - KPI_Draft_M5_IT:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              Fill: =ColorFade(ColorValue("#64748B"), 90%)
+                              Height: =56
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              RadiusBottomLeft: =6
+                              RadiusBottomRight: =6
+                              RadiusTopLeft: =6
+                              RadiusTopRight: =6
+                            Children:
+                              - Lbl_KPICount_Draft_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#64748B")
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =28
+                                    Size: =16
+                                    Text: =Text(CountIf(colM5ModuleRecords_IT, StageLabel = "Draft"))
+                                    Width: =Parent.Width
+                              - Lbl_KPILabel_Draft_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#475569")
+                                    Height: =20
+                                    Size: =8
+                                    Text: ="Draft"
+                                    Width: =Parent.Width
+                        - KPI_InProgress_M5_IT:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              Fill: =ColorFade(ColorValue("#D97706"), 88%)
+                              Height: =56
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              RadiusBottomLeft: =6
+                              RadiusBottomRight: =6
+                              RadiusTopLeft: =6
+                              RadiusTopRight: =6
+                            Children:
+                              - Lbl_KPICount_InProgress_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#D97706")
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =28
+                                    Size: =16
+                                    Text: =Text(CountIf(colM5ModuleRecords_IT, StageLabel = "In Progress"))
+                                    Width: =Parent.Width
+                              - Lbl_KPILabel_InProgress_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#475569")
+                                    Height: =20
+                                    Size: =8
+                                    Text: ="In Progress"
+                                    Width: =Parent.Width
+                        - KPI_Completed_M5_IT:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              Fill: =ColorFade(ColorValue("#16A34A"), 90%)
+                              Height: =56
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              RadiusBottomLeft: =6
+                              RadiusBottomRight: =6
+                              RadiusTopLeft: =6
+                              RadiusTopRight: =6
+                            Children:
+                              - Lbl_KPICount_Completed_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#16A34A")
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =28
+                                    Size: =16
+                                    Text: =Text(CountIf(colM5ModuleRecords_IT, StageLabel = "Completed"))
+                                    Width: =Parent.Width
+                              - Lbl_KPILabel_Completed_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#475569")
+                                    Height: =20
+                                    Size: =8
+                                    Text: ="Completed"
+                                    Width: =Parent.Width
+                  - ModuleFormsContainer_M5_IT:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =ColorFade(gblAppColors.GrayDark, 70%)
+                        BorderThickness: =1
+                        Fill: =gblAppColors.White
+                        FillPortions: =0
+                        Height: =120
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =8
+                        PaddingBottom: =12
+                        PaddingLeft: =12
+                        PaddingRight: =12
+                        PaddingTop: =12
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width
+                      Children:
+                        - Lbl_FormsTitle_M5_IT:
+                            Control: Label
+                            Properties:
+                              Color: =ColorValue("#0062E6")
+                              FontWeight: =FontWeight.Semibold
+                              Height: =24
+                              Size: =12
+                              Text: ="Forms in this module"
+                              Width: =Parent.Width - 24
+                        - Lbl_NoForms_M5_IT:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              Color: =ColorFade(gblAppColors.GrayDark, 30%)
+                              FontWeight: =FontWeight.Semibold
+                              Height: =60
+                              Size: =11
+                              Text: ="No forms mapped to this module yet."
+                              Width: =Parent.Width - 24
+                  - ModuleFilterStrip_M5_IT:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =ColorFade(gblAppColors.GrayDark, 70%)
+                        BorderThickness: =1
+                        Fill: =gblAppColors.White
+                        FillPortions: =0
+                        Height: =56
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        PaddingBottom: =8
+                        PaddingLeft: =12
+                        PaddingRight: =12
+                        PaddingTop: =8
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width
+                      Children:
+                        - Input_ModuleSearch_M5_IT:
+                            Control: Classic/TextInput
+                            Properties:
+                              Color: =ColorValue("#212529")
+                              Fill: =ColorValue("#FFFFFF")
+                              Height: =38
+                              HintText: ="Search module records..."
+                              OnChange: =Set(varListSearchText, Self.Text)
+                              Width: =If(App.Width < 600, Parent.Width - 24, (Parent.Width - 220) / 2)
+                        - Dropdown_ModuleStatus_M5_IT:
+                            Control: DropDown
+                            Properties:
+                              BorderColor: =ColorValue("#D3D3D3")
+                              BorderThickness: =1
+                              Fill: =ColorValue("#FFFFFF")
+                              Height: =38
+                              Items: =["All","Draft","In Progress","Pending Approval","Completed"]
+                              OnChange: =Set(varListFilterStatus, Self.Selected.Value)
+                              Width: =If(App.Width < 600, Parent.Width - 24, (Parent.Width - 220) / 3)
+                        - Btn_ModuleRefresh_M5_IT:
+                            Control: Button
+                            Properties:
+                              BasePaletteColor: =gblAppColors.GrayLight
+                              BorderColor: =ColorValue("#0062E6")
+                              BorderThickness: =1
+                              FontColor: =ColorValue("#0062E6")
+                              FontSize: =10
+                              Height: =38
+                              OnSelect: =Navigate(M5_Home_IT, ScreenTransition.None)
+                              Text: ="↺ Refresh"
+                              Width: =90
+                  - ModuleTableContainer_M5_IT:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        BorderColor: =ColorFade(gblAppColors.GrayDark, 70%)
+                        BorderThickness: =1
+                        Fill: =gblAppColors.White
+                        Height: =Parent.Height - ModuleHeaderBar_M5_IT.Height - ModuleKPIStrip_M5_IT.Height - ModuleFormsContainer_M5_IT.Height - ModuleFilterStrip_M5_IT.Height - 80
+                        LayoutDirection: =LayoutDirection.Vertical
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =Parent.Width
+                      Children:
+                        - Lbl_SubmissionsTitle_M5_IT:
+                            Control: Label
+                            Properties:
+                              Color: =ColorValue("#0F172A")
+                              FontWeight: =FontWeight.Semibold
+                              Height: =24
+                              Size: =12
+                              Text: ="Module submissions"
+                              Width: =Parent.Width - 16
+                        - ModuleTableHeader_M5_IT:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              Fill: =ColorValue("#1E3A5F")
+                              FillPortions: =0
+                              Height: =36
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =8
+                              PaddingLeft: =10
+                              PaddingRight: =10
+                              Width: =Parent.Width
+                            Children:
+                              - Lbl_TH_Ref_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Color: =ColorValue("#FFFFFF")
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =36
+                                    Size: =10
+                                    Text: ="Ref"
+                                    Width: =130
+                              - Lbl_TH_Date_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Color: =ColorValue("#FFFFFF")
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =36
+                                    Size: =10
+                                    Text: ="Date"
+                                    Visible: =!fxIsPhone
+                                    Width: =100
+                              - Lbl_TH_Detail_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Color: =ColorValue("#FFFFFF")
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =36
+                                    Size: =10
+                                    Text: ="Detail"
+                                    Visible: =!fxIsPhone
+                                    Width: =190
+                              - Lbl_TH_Status_M5_IT:
+                                  Control: Label
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =ColorValue("#FFFFFF")
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =36
+                                    Size: =10
+                                    Text: ="Status"
+                                    Width: =126
+                        - Gallery_ModuleRows_M5_IT:
+                            Control: Gallery
+                            Variant: Vertical
+                            Properties:
+                              Fill: =gblAppColors.White
+                              Height: =Parent.Height - ModuleTableHeader_M5_IT.Height - 16
+                              Items: =Filter(colM5ModuleRecords_IT, (IsBlank(varListSearchText) || Contains(Lower(Coalesce(DocRef, "")), Lower(varListSearchText)) || Contains(Lower(Coalesce(RefDetail, "")), Lower(varListSearchText))), (varListFilterStatus = "All" || Coalesce(StageLabel, "Draft") = varListFilterStatus))
+                              TemplateFill: =If(IsEven(ThisItem.ID), ColorValue("#F8F9FA"), ColorValue("#FFFFFF"))
+                              TemplatePadding: =4
+                              TemplateSize: =52
+                              Width: =Parent.Width
+                            Children:
+                              - RowContainer_M5_IT:
+                                  Control: GroupContainer
+                                  Variant: AutoLayout
+                                  Properties:
+                                    BorderColor: =ColorFade(gblAppColors.GrayDark, 85%)
+                                    BorderThickness: =1
+                                    Fill: =RGBA(0,0,0,0)
+                                    Height: =Parent.TemplateHeight - 2
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    PaddingLeft: =10
+                                    PaddingRight: =10
+                                    Width: =Parent.TemplateWidth
+                                    Y: =1
+                                  Children:
+                                    - Lbl_RowRef_M5_IT:
+                                        Control: Label
+                                        Properties:
+                                          Color: =ColorValue("#0062E6")
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height - 4
+                                          Size: =10
+                                          Text: =Coalesce(ThisItem.DocRef, Text(ThisItem.ID))
+                                          Width: =130
+                                    - Lbl_RowDate_M5_IT:
+                                        Control: Label
+                                        Properties:
+                                          Color: =gblAppColors.GrayDark
+                                          Height: =Parent.Height - 4
+                                          Size: =10
+                                          Text: =Coalesce(ThisItem.SubmittedDate, "—")
+                                          Visible: =!fxIsPhone
+                                          Width: =100
+                                    - Lbl_RowDetail_M5_IT:
+                                        Control: Label
+                                        Properties:
+                                          Color: =gblAppColors.GrayDark
+                                          FillPortions: =1
+                                          Height: =Parent.Height - 4
+                                          Size: =10
+                                          Text: =Coalesce(ThisItem.RefDetail, "—")
+                                          Visible: =!fxIsPhone
+                                          Width: =190
+                                    - Lbl_RowStatus_M5_IT:
+                                        Control: Label
+                                        Properties:
+                                          Align: =Align.Center
+                                          BorderColor: =ColorValue("#0062E6")
+                                          BorderThickness: =1
+                                          Color: =ColorValue("#0062E6")
+                                          Fill: =ColorFade(ColorValue("#0062E6"), 88%)
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =28
+                                          Size: =9
+                                          Text: =Coalesce(ThisItem.StageLabel, "Draft")
+                                          Width: =126
+                        - Lbl_ModuleEmpty_M5_IT:
+                            Control: Label
+                            Properties:
+                              Align: =Align.Center
+                              Color: =ColorFade(gblAppColors.GrayDark, 30%)
+                              FontWeight: =FontWeight.Semibold
+                              Height: =44
+                              Size: =11
+                              Text: ="No module records found."
+                              Visible: =CountRows(Gallery_ModuleRows_M5_IT.AllItems) = 0 && !varListLoading
+                              Width: =Parent.Width - 24
+      - Label_DepartmentBrandBadge_IT_5:
+          Control: Label
+          Properties:
+            Align: =Align.Center
+            Color: =ColorValue("#FFFFFF")
+            Fill: =Coalesce(gblITTheme.PrimaryColor, ColorValue("#0062E6"))
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =9
+            Text: ="IT Brand"
+            Width: =140
+            X: =Parent.Width - Self.Width - 12
+            Y: =10
+      - Lbl_ScreenVersion_5:
+          Control: Label
+          Properties:
+            Color: =RGBA(148, 163, 184, 0.6)
+            Height: =16
+            Size: =7
+            Text: ="v2.0.1"
+            Width: =80
+            X: =App.Width - 84
+            Y: =App.Height - 20

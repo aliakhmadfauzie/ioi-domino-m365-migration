@@ -1,0 +1,728 @@
+Screens:
+  FormView:
+    Properties:
+      Fill: =ColorBg
+      OnVisible: |-
+        =Set(varITSSR_CaseNo, "ITSSR-" & Text(Now(), "yymmddhhmmss"));
+        Set(varITSSR_Saved, false);
+        Set(varITSSR_ParentRec, Blank());
+        Set(varITSSR_ExtRec, Blank())
+    Children:
+      - FormViewRoot:
+          Control: GroupContainer
+          Variant: AutoLayout
+          Properties:
+            Fill: =ColorBg
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =16
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            PaddingBottom: =24
+            PaddingLeft: =24
+            PaddingRight: =24
+            PaddingTop: =24
+            Width: =Parent.Width
+          Children:
+            - FormViewHeader:
+                Control: Header
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  Fill: =ColorPrimary
+                  Height: =64
+                  Style: ='Header.Style'.Primary
+                  Title: =LookUp(colForms, FormCode = gblActiveFormCode).Title
+                  UserName: =gblCurrentUser
+            - FormViewSubheader:
+                Control: ModernText
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  Color: =ColorMuted
+                  Height: =22
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =14
+                  Text: =gblActiveFormCode & "  •  " & LookUp(colForms, FormCode = gblActiveFormCode).Site & "  •  " & LookUp(colForms, FormCode = gblActiveFormCode).DeptCode
+                  Wrap: =false
+            - FormViewStatusRow:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  FillPortions: =0
+                  Height: =40
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =12
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - StatusBadge:
+                      Control: Badge
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: ='BadgeCanvas.Appearance'.Filled
+                        Content: =If(varITSSR_Saved, "Draft", "New")
+                        FillPortions: =0
+                        Shape: ='BadgeCanvas.Shape'.Rounded
+                        ThemeColor: ='BadgeCanvas.ThemeColor'.Informative
+                        Width: =100
+                  - StatusProgress:
+                      Control: Progress
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =12
+                        Max: =LookUp(colForms, FormCode = gblActiveFormCode).ApprovalStages
+                        ProgressColor: ='Progress.ProgressColor'.Brand
+                        Shape: ='Progress.Shape'.Rounded
+                        Thickness: ='Progress.Thickness'.Medium
+                        Value: =0
+                  - StatusStageCaption:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Color: =ColorMuted
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =13
+                        Text: ="Stage 0 of " & Text(LookUp(colForms, FormCode = gblActiveFormCode).ApprovalStages)
+                        Width: =140
+                        Wrap: =false
+            - FormBodyCard:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  DropShadow: =DropShadow.Regular
+                  Fill: =ColorSurface
+                  FillPortions: =0
+                  Height: =1000
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =12
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  PaddingBottom: =20
+                  PaddingLeft: =20
+                  PaddingRight: =20
+                  PaddingTop: =20
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                Children:
+                  - LblSection1:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorPrimary
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Bold
+                        Height: =24
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =16
+                        Text: ="Section 1 — Requestor Details"
+                        Wrap: =false
+                  - RowCaseDate:
+                      Control: GroupContainer
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        FillPortions: =0
+                        Height: =66
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =16
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                      Children:
+                        - ColCaseNo:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =4
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - LblCaseNo:
+                                  Control: ModernText
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =ColorText
+                                    FillPortions: =0
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =14
+                                    Text: ="Case No"
+                                    Wrap: =false
+                              - txtCaseNo:
+                                  Control: ModernTextInput
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Appearance: =Appearance.Outline
+                                    Default: =varITSSR_CaseNo
+                                    DisplayMode: =DisplayMode.View
+                                    FillPortions: =0
+                                    Height: =40
+                        - ColDateSent:
+                            Control: GroupContainer
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =4
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                            Children:
+                              - LblDateSent:
+                                  Control: ModernText
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =ColorText
+                                    FillPortions: =0
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =14
+                                    Text: ="Date Sent"
+                                    Wrap: =false
+                              - txtDateSent:
+                                  Control: ModernText
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =ColorMuted
+                                    FillPortions: =0
+                                    Height: =40
+                                    PaddingBottom: =0
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =14
+                                    Text: =Text(Now(), "yyyy-mm-dd hh:mm")
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Wrap: =false
+                  - LblRequestor:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Requestor *"
+                        Wrap: =false
+                  - txtRequestor:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Default: =User().Email
+                        Height: =40
+                  - LblReportedBy:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Reported By *"
+                        Wrap: =false
+                  - txtReportedBy:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Default: =User().Email
+                        Height: =40
+                  - LblCompany:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Company *"
+                        Wrap: =false
+                  - txtCompany:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        Placeholder: ="e.g. IOI Acidchem"
+                  - LblDepartment:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Department *"
+                        Wrap: =false
+                  - txtDepartment:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        Placeholder: ="Your department"
+                  - LblExtension:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Extension No"
+                        Wrap: =false
+                  - txtExtension:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        Placeholder: ="Optional"
+                  - LblSendTo:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="To (IT Team) *"
+                        Wrap: =false
+                  - txtSendTo:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        Placeholder: ="IT recipient email"
+                  - LblCC:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="CC"
+                        Wrap: =false
+                  - txtCC:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        Placeholder: ="Optional"
+                  - LblServiceType:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Service Type *"
+                        Wrap: =false
+                  - drpServiceType:
+                      Control: ModernDropdown
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        ItemDisplayText: ="Value"
+                        Items: |-
+                          =Table({Value: "Hardware"}, {Value: "Software"}, {Value: "Network"}, {Value: "SAP"}, {Value: "Bank"}, {Value: "Access"}, {Value: "Others"})
+                  - LblHardware:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Hardware Type"
+                        Visible: =drpServiceType.Selected.Value = "Hardware"
+                        Wrap: =false
+                  - drpHardware:
+                      Control: ModernDropdown
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        ItemDisplayText: ="Value"
+                        Items: |-
+                          =Table({Value: "Desktop"}, {Value: "Laptop"}, {Value: "Printer"}, {Value: "Scanner"}, {Value: "Monitor"}, {Value: "Mouse / Keyboard"}, {Value: "Projector"}, {Value: "Server"}, {Value: "Network Equipment"}, {Value: "UPS"}, {Value: "Others"})
+                        Visible: =drpServiceType.Selected.Value = "Hardware"
+                  - LblApplication:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Application"
+                        Visible: =drpServiceType.Selected.Value = "Software"
+                        Wrap: =false
+                  - txtApplication:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        Placeholder: ="Application name"
+                        Visible: =drpServiceType.Selected.Value = "Software"
+                  - LblModule:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Module"
+                        Visible: =drpServiceType.Selected.Value = "Software"
+                        Wrap: =false
+                  - txtModule:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        Placeholder: ="Module (optional)"
+                        Visible: =drpServiceType.Selected.Value = "Software"
+                  - LblSAPModule:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="SAP Module"
+                        Visible: =drpServiceType.Selected.Value = "SAP"
+                        Wrap: =false
+                  - drpSAPModule:
+                      Control: ModernDropdown
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        ItemDisplayText: ="Value"
+                        Items: |-
+                          =Table({Value: "SD"}, {Value: "MM"}, {Value: "PP"}, {Value: "FI"}, {Value: "CO"}, {Value: "HR/HCM"}, {Value: "PM"}, {Value: "QM"}, {Value: "WM"}, {Value: "Basis"}, {Value: "ABAP"}, {Value: "Others"})
+                        Visible: =drpServiceType.Selected.Value = "SAP"
+                  - LblBankModule:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Bank Module"
+                        Visible: =drpServiceType.Selected.Value = "Bank"
+                        Wrap: =false
+                  - drpBankModule:
+                      Control: ModernDropdown
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =40
+                        ItemDisplayText: ="Value"
+                        Items: |-
+                          =Table({Value: "CIMB BizChannel"}, {Value: "Maybank2E"}, {Value: "Public Bank"}, {Value: "RHB Reflex"}, {Value: "Ambank"}, {Value: "Others"})
+                        Visible: =drpServiceType.Selected.Value = "Bank"
+                  - LblProblem:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorText
+                        FillPortions: =0
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: ="Problem Description *"
+                        Wrap: =false
+                  - txtProblem:
+                      Control: ModernTextInput
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Appearance: =Appearance.Outline
+                        FillPortions: =0
+                        Height: =110
+                        Placeholder: ="Describe the problem or request..."
+                        Type: =TextInputType.Multiline
+            - FormViewActionRow:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                  FillPortions: =0
+                  Height: =48
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =12
+                  LayoutJustifyContent: =LayoutJustifyContent.End
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                Children:
+                  - btnBack:
+                      Control: ModernButton
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: =ButtonAppearance.Subtle
+                        BasePaletteColor: =ColorMuted
+                        Height: =40
+                        Icon: =Icon.ChevronLeft
+                        OnSelect: =Navigate(Browse, ScreenTransition.UnCover)
+                        Text: ="Back"
+                        Width: =120
+                  - ActionSpacer:
+                      Control: ModernText
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Color: =ColorMuted
+                        FillPortions: =1
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =""
+                        Wrap: =false
+                  - btnSaveDraft:
+                      Control: ModernButton
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: =ButtonAppearance.Outline
+                        BasePaletteColor: =ColorPrimary
+                        FillPortions: =0
+                        Height: =40
+                        OnSelect: |-
+                          =IfError(
+                            Set(
+                              varITSSR_ParentRec,
+                              Patch(
+                                MainDB_IT,
+                                Coalesce(varITSSR_ParentRec, Defaults(MainDB_IT)),
+                                {
+                                  Title: "ITSSR — " & varITSSR_CaseNo,
+                                  FormCode: "ITSSR",
+                                  RequestID: varITSSR_CaseNo,
+                                  Requestor_Email: txtRequestor.Text,
+                                  Requestor_DisplayName: User().FullName,
+                                  CurrentStage: "Draft",
+                                  SubmittedOn: Text(Now(), "yyyy-mm-dd hh:mm"),
+                                  Status: {Value: "Draft"},
+                                  EntitySite: {Value: Coalesce(gblActiveSite, "Johor")}
+                                }
+                              )
+                            );
+                            Set(
+                              varITSSR_ExtRec,
+                              Patch(
+                                MainDB_IT_Ext_Support,
+                                Coalesce(varITSSR_ExtRec, Defaults(MainDB_IT_Ext_Support)),
+                                {
+                                  Title: varITSSR_CaseNo,
+                                  ParentFormCode: "ITSSR",
+                                  ParentID: {Id: varITSSR_ParentRec.ID, Value: varITSSR_ParentRec.Title},
+                                  ParentSite: Coalesce(gblActiveSite, "Johor"),
+                                  ITSSR_CaseNo: varITSSR_CaseNo,
+                                  ITSSR_ReportedBy_Email: txtReportedBy.Text,
+                                  ITSSR_OU: {Value: txtCompany.Text},
+                                  ITSSR_Department: txtDepartment.Text,
+                                  ITSSR_Extension: txtExtension.Text,
+                                  ITSSR_SendTo_Email: txtSendTo.Text,
+                                  ITSSR_CC: txtCC.Text,
+                                  ITSSR_ServiceType: drpServiceType.Selected.Value,
+                                  ITSSR_Hardware: If(drpServiceType.Selected.Value = "Hardware", {Value: drpHardware.Selected.Value}, Blank()),
+                                  ITSSR_Application: If(drpServiceType.Selected.Value = "Software", {Value: txtApplication.Text}, Blank()),
+                                  ITSSR_Module: If(drpServiceType.Selected.Value = "Software", txtModule.Text, Blank()),
+                                  ITSSR_SAPModule: If(drpServiceType.Selected.Value = "SAP", {Value: drpSAPModule.Selected.Value}, Blank()),
+                                  ITSSR_BankModule: If(drpServiceType.Selected.Value = "Bank", {Value: drpBankModule.Selected.Value}, Blank()),
+                                  ITSSR_ProblemDescription: txtProblem.Text
+                                }
+                              )
+                            );
+                            Set(varITSSR_Saved, true);
+                            Notify("Draft saved — " & varITSSR_CaseNo, NotificationType.Success),
+                            Notify("Save failed: " & FirstError.Message, NotificationType.Error)
+                          )
+                        Text: ="Save Draft"
+                        Width: =140
+                  - btnSubmit:
+                      Control: ModernButton
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BasePaletteColor: =ColorAccent
+                        FillPortions: =0
+                        DisplayMode: |-
+                          =If(
+                            IsBlank(txtRequestor.Text) ||
+                            IsBlank(txtReportedBy.Text) ||
+                            IsBlank(txtCompany.Text) ||
+                            IsBlank(txtDepartment.Text) ||
+                            IsBlank(txtSendTo.Text) ||
+                            IsBlank(drpServiceType.Selected.Value) ||
+                            IsBlank(txtProblem.Text),
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                          )
+                        Height: =40
+                        OnSelect: |-
+                          =IfError(
+                            Set(
+                              varITSSR_ParentRec,
+                              Patch(
+                                MainDB_IT,
+                                Coalesce(varITSSR_ParentRec, Defaults(MainDB_IT)),
+                                {
+                                  Title: "ITSSR — " & varITSSR_CaseNo,
+                                  FormCode: "ITSSR",
+                                  RequestID: varITSSR_CaseNo,
+                                  Requestor_Email: txtRequestor.Text,
+                                  Requestor_DisplayName: User().FullName,
+                                  CurrentStage: "Stage 1",
+                                  SubmittedOn: Text(Now(), "yyyy-mm-dd hh:mm"),
+                                  Status: {Value: "Pending"},
+                                  EntitySite: {Value: Coalesce(gblActiveSite, "Johor")}
+                                }
+                              )
+                            );
+                            Set(
+                              varITSSR_ExtRec,
+                              Patch(
+                                MainDB_IT_Ext_Support,
+                                Coalesce(varITSSR_ExtRec, Defaults(MainDB_IT_Ext_Support)),
+                                {
+                                  Title: varITSSR_CaseNo,
+                                  ParentFormCode: "ITSSR",
+                                  ParentID: {Id: varITSSR_ParentRec.ID, Value: varITSSR_ParentRec.Title},
+                                  ParentSite: Coalesce(gblActiveSite, "Johor"),
+                                  ITSSR_CaseNo: varITSSR_CaseNo,
+                                  ITSSR_ReportedBy_Email: txtReportedBy.Text,
+                                  ITSSR_OU: {Value: txtCompany.Text},
+                                  ITSSR_Department: txtDepartment.Text,
+                                  ITSSR_Extension: txtExtension.Text,
+                                  ITSSR_SendTo_Email: txtSendTo.Text,
+                                  ITSSR_CC: txtCC.Text,
+                                  ITSSR_ServiceType: drpServiceType.Selected.Value,
+                                  ITSSR_Hardware: If(drpServiceType.Selected.Value = "Hardware", {Value: drpHardware.Selected.Value}, Blank()),
+                                  ITSSR_Application: If(drpServiceType.Selected.Value = "Software", {Value: txtApplication.Text}, Blank()),
+                                  ITSSR_Module: If(drpServiceType.Selected.Value = "Software", txtModule.Text, Blank()),
+                                  ITSSR_SAPModule: If(drpServiceType.Selected.Value = "SAP", {Value: drpSAPModule.Selected.Value}, Blank()),
+                                  ITSSR_BankModule: If(drpServiceType.Selected.Value = "Bank", {Value: drpBankModule.Selected.Value}, Blank()),
+                                  ITSSR_ProblemDescription: txtProblem.Text
+                                }
+                              )
+                            );
+                            Set(varITSSR_Saved, true);
+                            Notify("Submitted " & varITSSR_CaseNo & " for approval", NotificationType.Success);
+                            Navigate(Browse, ScreenTransition.UnCover),
+                            Notify("Submit failed: " & FirstError.Message, NotificationType.Error)
+                          )
+                        Text: ="Submit"
+                        Width: =140

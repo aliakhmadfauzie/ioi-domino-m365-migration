@@ -1,0 +1,57 @@
+ComponentDefinitions:
+  cmpApprovalActionPanel:
+    DefinitionType: CanvasComponent
+    CustomProperties:
+      AllowedActions:
+        PropertyKind: Input
+        DisplayName: Allowed actions
+        Description: Action buttons to render
+        DataType: Table
+        Default: |-
+          =Table({ Key: "Approve", Label: "Approve", Variant: "approve" })
+      CanAct:
+        PropertyKind: Input
+        DisplayName: Can act
+        Description: Whether the current user can act
+        DataType: Boolean
+        Default: =false
+      CommentOut:
+        PropertyKind: Output
+        DisplayName: Comment (out)
+        Description: Current comment text
+        DataType: Text
+      CommentValue:
+        PropertyKind: Input
+        DisplayName: Comment value
+        Description: Initial comment text
+        DataType: Text
+        Default: =""
+      DisabledReason:
+        PropertyKind: Input
+        DisplayName: Disabled reason
+        Description: Reason shown when the user cannot act
+        DataType: Text
+        Default: =""
+      OnAction:
+        PropertyKind: Event
+        DisplayName: On action
+        Description: Raised when an action is selected
+        ReturnType: Boolean
+        Default: =
+      SelectedActionKey:
+        PropertyKind: Output
+        DisplayName: Selected action key
+        Description: Key of the most recently selected action
+        DataType: Text
+      Title:
+        PropertyKind: Input
+        DisplayName: Title
+        Description: Panel title
+        DataType: Text
+        Default: =
+    Properties:
+      CommentOut: =cmpApprovalActionPanel.CommentValue
+      Fill: =RGBA(255, 255, 255, 1)
+      Height: =300
+      SelectedActionKey: =
+      Width: =620
