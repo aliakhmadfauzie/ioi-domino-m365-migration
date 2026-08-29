@@ -1,7 +1,0 @@
-import { useQuery,useMutation,useQueryClient } from "@tanstack/react-query"; import { MainDBPBIService } from "../services/main-dbpbi-service"; import type { MainDBPBI } from "../models/main-dbpbi-model"; import type { IOperationOptions } from '../../../app-gen-sdk/data/common/types';
-const R = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-export function useMainDBPBIList(o?: IOperationOptions) { return useQuery({queryKey:["mainDBPBI-list",o],queryFn:()=>MainDBPBIService.getAll(o)}); }
-export function useMainDBPBI(id:string) { return useQuery({queryKey:["mainDBPBI",id],queryFn:()=>MainDBPBIService.get(id),enabled:!!id&&R.test(id)}); }
-export function useCreateMainDBPBI() { const c=useQueryClient(); return useMutation({mutationFn:(d:Omit<MainDBPBI,"id">)=>MainDBPBIService.create(d),onSuccess:()=>c.invalidateQueries({queryKey:["mainDBPBI-list"]})}); }
-export function useUpdateMainDBPBI() { const c=useQueryClient(); return useMutation({mutationFn:({id,changedFields}:{id:string;changedFields:Partial<Omit<MainDBPBI,"id">>})=>MainDBPBIService.update(id,changedFields),onSuccess:(_d,v)=>{c.invalidateQueries({queryKey:["mainDBPBI-list"]});c.invalidateQueries({queryKey:["mainDBPBI",v.id]})}}); }
-export function useDeleteMainDBPBI() { const c=useQueryClient(); return useMutation({mutationFn:(id:string)=>MainDBPBIService.delete(id),onSuccess:(_d,id)=>{c.invalidateQueries({queryKey:["mainDBPBI-list"]});c.invalidateQueries({queryKey:["mainDBPBI",id]})}}); }

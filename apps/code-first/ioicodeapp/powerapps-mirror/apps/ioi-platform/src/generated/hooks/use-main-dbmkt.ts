@@ -1,7 +1,0 @@
-import { useQuery,useMutation,useQueryClient } from "@tanstack/react-query"; import { MainDBMKTService } from "../services/main-dbmkt-service"; import type { MainDBMKT } from "../models/main-dbmkt-model"; import type { IOperationOptions } from '../../../app-gen-sdk/data/common/types';
-const R = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-export function useMainDBMKTList(o?: IOperationOptions) { return useQuery({queryKey:["mainDBMKT-list",o],queryFn:()=>MainDBMKTService.getAll(o)}); }
-export function useMainDBMKT(id:string) { return useQuery({queryKey:["mainDBMKT",id],queryFn:()=>MainDBMKTService.get(id),enabled:!!id&&R.test(id)}); }
-export function useCreateMainDBMKT() { const c=useQueryClient(); return useMutation({mutationFn:(d:Omit<MainDBMKT,"id">)=>MainDBMKTService.create(d),onSuccess:()=>c.invalidateQueries({queryKey:["mainDBMKT-list"]})}); }
-export function useUpdateMainDBMKT() { const c=useQueryClient(); return useMutation({mutationFn:({id,changedFields}:{id:string;changedFields:Partial<Omit<MainDBMKT,"id">>})=>MainDBMKTService.update(id,changedFields),onSuccess:(_d,v)=>{c.invalidateQueries({queryKey:["mainDBMKT-list"]});c.invalidateQueries({queryKey:["mainDBMKT",v.id]})}}); }
-export function useDeleteMainDBMKT() { const c=useQueryClient(); return useMutation({mutationFn:(id:string)=>MainDBMKTService.delete(id),onSuccess:(_d,id)=>{c.invalidateQueries({queryKey:["mainDBMKT-list"]});c.invalidateQueries({queryKey:["mainDBMKT",id]})}}); }

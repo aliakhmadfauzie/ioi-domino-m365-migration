@@ -1,3 +1,0 @@
-Captured 211 of 211 concrete routes
-Source: local preview mirror at http://127.0.0.1:4174
-Hosted screenshot: ../hosted-powerapps/00_hosted_home_top.png

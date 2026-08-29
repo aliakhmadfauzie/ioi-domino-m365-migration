@@ -23,6 +23,10 @@ Thumbs.db
 
 # Local environment configuration (contains secrets/IDs)
 apps/code-first/ioicodeapp/config/environment-config.ps1
+
+# App repos maintained as separate git repositories
+apps/code-first/ioicodeapp/
+apps/canvas/
 apps/code-first/ioicodeapp/config/environment-config.json
 
 # Build outputs

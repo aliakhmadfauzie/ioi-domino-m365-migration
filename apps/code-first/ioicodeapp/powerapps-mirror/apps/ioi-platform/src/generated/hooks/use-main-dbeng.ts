@@ -1,7 +1,0 @@
-import { useQuery,useMutation,useQueryClient } from "@tanstack/react-query"; import { MainDBENGService } from "../services/main-dbeng-service"; import type { MainDBENG } from "../models/main-dbeng-model"; import type { IOperationOptions } from '../../../app-gen-sdk/data/common/types';
-const R = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-export function useMainDBENGList(o?: IOperationOptions) { return useQuery({queryKey:["mainDBENG-list",o],queryFn:()=>MainDBENGService.getAll(o)}); }
-export function useMainDBENG(id:string) { return useQuery({queryKey:["mainDBENG",id],queryFn:()=>MainDBENGService.get(id),enabled:!!id&&R.test(id)}); }
-export function useCreateMainDBENG() { const c=useQueryClient(); return useMutation({mutationFn:(d:Omit<MainDBENG,"id">)=>MainDBENGService.create(d),onSuccess:()=>c.invalidateQueries({queryKey:["mainDBENG-list"]})}); }
-export function useUpdateMainDBENG() { const c=useQueryClient(); return useMutation({mutationFn:({id,changedFields}:{id:string;changedFields:Partial<Omit<MainDBENG,"id">>})=>MainDBENGService.update(id,changedFields),onSuccess:(_d,v)=>{c.invalidateQueries({queryKey:["mainDBENG-list"]});c.invalidateQueries({queryKey:["mainDBENG",v.id]})}}); }
-export function useDeleteMainDBENG() { const c=useQueryClient(); return useMutation({mutationFn:(id:string)=>MainDBENGService.delete(id),onSuccess:(_d,id)=>{c.invalidateQueries({queryKey:["mainDBENG-list"]});c.invalidateQueries({queryKey:["mainDBENG",id]})}}); }
