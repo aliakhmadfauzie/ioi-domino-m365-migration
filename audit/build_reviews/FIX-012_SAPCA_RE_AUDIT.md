@@ -93,7 +93,7 @@ The displayed values come from `selectedRecord`, which is selected from `sapcaDa
 
 ### Check 5: TypeScript compilation
 
-**Evidence:** `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+**Evidence:** `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 **Verdict:** PASS
 
@@ -123,10 +123,10 @@ The displayed values come from `selectedRecord`, which is selected from `sapcaDa
 ## Evidence References
 
 - `audit/build_reviews/FIX-012_SAPCA_SAMPLE_DATA_FIX_REPORT.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/hooks/use-main-dbit.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/parse-remarks.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/hooks/use-main-dbit.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/parse-remarks.ts`
 - `npx tsc --noEmit`
 
 ## Next Recommended Task

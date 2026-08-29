@@ -37,7 +37,7 @@
 ## 3. App Files Reviewed
 
 - Source: Repository route evidence
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/`
 - Code/formula/section: Directory listing
 - What was found: No dedicated `silouatsof` route directory was found; a `sapsof2` route exists.
 - Why it matters: The audit cannot prove SILOUATSOF is implemented as a separate form.

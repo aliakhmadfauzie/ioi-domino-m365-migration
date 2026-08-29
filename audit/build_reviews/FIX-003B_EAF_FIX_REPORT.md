@@ -22,10 +22,10 @@ Date: 2026-06-01
 
 - Dependency verified: `TASK-RE-AUDIT-003` exists and produced failed re-audit evidence.
 - Required evidence file verified: `audit/build_reviews/FIX-003_EAF_RE_AUDIT.md`.
-- Required app file verified: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`.
+- Required app file verified: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`.
 - Required schema/type references verified:
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/types/m1-forms.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/types/m1-forms.ts`
 
 ## Fix Executed
 
@@ -36,7 +36,7 @@ Date: 2026-06-01
 
 ## Evidence
 
-- Source file updated: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`.
+- Source file updated: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`.
 - Typecheck command: `npx tsc --noEmit`.
 - Typecheck result: Passed.
 

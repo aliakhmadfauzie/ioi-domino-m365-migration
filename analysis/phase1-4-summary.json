@@ -91,8 +91,8 @@
     "src/pages/it/forms/hi/[id].tsx",
     "src/form-schemas/EAF.json",
     "src/form-schemas/HI.json",
-    "ioicodeapp/powerapps-mirror/apps/ioi-platform/flows/eaf-approval-flow-definition.json",
-    "ioicodeapp/powerapps-mirror/apps/ioi-platform/flows/README.md"
+    "apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/flows/eaf-approval-flow-definition.json",
+    "apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/flows/README.md"
   ],
   "filesModified": [
     "src/types/m1-forms.ts",

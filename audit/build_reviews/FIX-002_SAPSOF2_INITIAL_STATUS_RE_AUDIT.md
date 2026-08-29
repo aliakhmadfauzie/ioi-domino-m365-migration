@@ -24,7 +24,7 @@
 
 ## Work Performed
 
-Reviewed the SAPSOF2 submit path in `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx` and status mapping in `src/generated/models/main-dbit-model.ts`.
+Reviewed the SAPSOF2 submit path in `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx` and status mapping in `src/generated/models/main-dbit-model.ts`.
 
 Validation focused only on the `FIX-002` scope:
 
@@ -44,7 +44,7 @@ Validation focused only on the `FIX-002` scope:
 | Workflow stage preserved | `new.tsx` writes `workflowstage: 2` for the Key User sign-off stage | Passed |
 | Remarks snapshot aligned | `new.tsx` writes `Status: Pending KU Sign-Off` in the workflow remarks | Passed |
 | Approval slots remain pending | KU and BPO child slot records initialize with `decision: 'Pending'` | Passed |
-| Compile gate | `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform` | Passed |
+| Compile gate | `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform` | Passed |
 
 ## Result
 

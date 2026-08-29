@@ -8,7 +8,7 @@
 | Department | IT |
 | Source Evidence | `analysis/evidence-reconciliation.md`, `analysis/workflow-analysis.md`, `docs/central-form-reference.md`, `docs/04_WORKFLOW_APPROVAL_RULES.md` |
 | App Evidence | `src/pages/it/forms/sapcr/new.tsx`, `src/pages/it/forms/sapcr/index.tsx`, `src/pages/it/forms/sapcr/[id].tsx`, `src/form-schemas/SAPCR.json` |
-| SharePoint Schema Evidence | `.power/schemas/sharepointonline/maindb_it_ext_sap.Schema.json`, `m365-design/sharepoint-list-design.md` |
+| SharePoint Schema Evidence | `.power/schemas/sharepointonline/maindb_it_ext_sap.Schema.json`, `design/m365-design/sharepoint-list-design.md` |
 | Approval Classification | Approval Required |
 | Audit Status | Completed with issues |
 
@@ -25,7 +25,7 @@
 ### AUD-B02-SAPCR-002 - SAPCR field storage conflicts with the expected SharePoint schema
 
 - Source:
-- File path: `mapping/field-mapping.csv:60-64`; `docs/central-form-reference.md:181-190`; `src/form-schemas/SAPCR.json`; `src/pages/it/forms/sapcr/new.tsx:171-225`; `.power/schemas/sharepointonline/maindb_it_ext_sap.Schema.json:296-374`; `m365-design/sharepoint-list-design.md:189-199`
+- File path: `mapping/field-mapping.csv:60-64`; `docs/central-form-reference.md:181-190`; `src/form-schemas/SAPCR.json`; `src/pages/it/forms/sapcr/new.tsx:171-225`; `.power/schemas/sharepointonline/maindb_it_ext_sap.Schema.json:296-374`; `design/m365-design/sharepoint-list-design.md:189-199`
 - Code/formula/section: SAPCR schema sections, field mapping, MainDB_IT create payload, and Ext_SAP child payload.
 - What was found: Central reference lists SAPCR sections and fields including BPO, PM, SAP standard, ABAPER, transport, implementation, and discard sections. The mapping CSV only contains five SAPCR rows. `SAPCR.json` has no `spColumn` or `spTable` metadata. The create handler stores most SAPCR data inside `MainDB_IT.remarks` JSON and creates an Ext_SAP child with only BPO/PM/developer/director email routing fields. The captured Ext_SAP schema exposes generic `SAP_*` columns but no captured `SAPCR_*` columns, while the design doc lists `SAPCR_BPOEmail`, `SAPCR_PMEmail`, `SAPCR_DeveloperEmail`, and `SAPCR_DirectorEmail`.
 - Why it matters: Required SAPCR business fields are not persisted as queryable SharePoint columns, and the app references SAPCR-specific extension fields whose live schema evidence is not present. This creates reporting, workflow routing, and data migration risk.
@@ -45,7 +45,7 @@
 | Conflict | Evidence |
 |---|---|
 | Mapping completeness conflict | `mapping/field-mapping.md:120` says SAPCR is 54/54 complete, but `mapping/field-mapping.csv:60-64` contains only five SAPCR rows in the audited CSV. |
-| Extension schema conflict | `m365-design/sharepoint-list-design.md:196-199` lists SAPCR Ext_SAP columns, but the captured `.power` schema did not expose matching `SAPCR_*` columns during this audit. |
+| Extension schema conflict | `design/m365-design/sharepoint-list-design.md:196-199` lists SAPCR Ext_SAP columns, but the captured `.power` schema did not expose matching `SAPCR_*` columns during this audit. |
 
 ## Blocked
 

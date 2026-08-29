@@ -18,7 +18,7 @@ Scope: IT department UAT blockers that could be resolved from repo evidence, rou
 
 ## Verification
 
-`npx tsc -p tsconfig.app.json --noEmit` and `npm run build` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+`npx tsc -p tsconfig.app.json --noEmit` and `npm run build` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Remaining Non-Code Blockers
 

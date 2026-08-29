@@ -11,7 +11,7 @@ Previous Fix: `TASK-FIX-016` — Changed SAPSLCF submit from `currentStatus: 'Cu
 
 ### Check 1: Submit payload uses `CurrentstatusKey27` (Pending HOD)
 
-**File**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapslcf/new.tsx`
+**File**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapslcf/new.tsx`
 **Evidence**:
 ```typescript
 currentStatus: 'CurrentstatusKey27' as MainDBITCurrentstatusKey,

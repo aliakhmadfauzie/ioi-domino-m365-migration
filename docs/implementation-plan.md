@@ -153,7 +153,7 @@
 
 > **Note**: The entire Phase 4 has been pre-built in `powerapps-mirror/apps/ioi-platform/`. Tasks below show what exists.
 > **⚠️ Known Gap**: The `powerapps-mirror` was scraped from the Power Apps builder UI. The `powerapps-bundles-inbox/` folder contains the original source export text bundles which should be used as the authoritative source for rebuilding if needed.
-> **⚠️ Dual Code Path**: The `ioicodeapp/apps/ioi-platform/` folder contains an older project stub; the active app is under `ioicodeapp/powerapps-mirror/apps/ioi-platform/`.
+> **⚠️ Dual Code Path**: The `apps/code-first/ioicodeapp/apps/ioi-platform/` folder contains an older project stub; the active app is under `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`.
 
 | # | Task | Status | Notes | Code Location |
 |---|---|---|---|---|
@@ -206,7 +206,7 @@
 
 | # | Task | Owner | Dependencies | Effort | Status | Notes |
 |---|---|---|---|---|---|---|
-| 5.1 | Create EAF multi-stage approval flow | You/AI | 1.1 | 3 hr | ⬜ Pending | Design complete in `m365-design/power-automate-design.md` |
+| 5.1 | Create EAF multi-stage approval flow | You/AI | 1.1 | 3 hr | ⬜ Pending | Design complete in `design/m365-design/power-automate-design.md` |
 | 5.2 | Create auto-numbering flow (replaces INO agent) | You/AI | 1.1 | 1 hr | ⬜ Pending | Design complete |
 | 5.3 | Create ITSSR category routing flow | You/AI | 1.1 | 1 hr | ⬜ Pending | Design complete |
 | 5.4 | Create escalation/reminder flows | You/AI | 1.1 | 1 hr | ⬜ Pending | Design complete |

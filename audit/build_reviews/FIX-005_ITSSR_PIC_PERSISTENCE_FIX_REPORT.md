@@ -24,11 +24,11 @@ The backlog finding says the routed IT PIC is calculated and emailed, but not pe
 
 ## Evidence Reviewed
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-itssr-routing.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-support-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_support.Schema.json`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-itssr-routing.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-support-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_support.Schema.json`
 
 ## Result
 
@@ -43,7 +43,7 @@ Fixed pending re-audit. No code edit was required in this run because the implem
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Re-Audit Scope
 

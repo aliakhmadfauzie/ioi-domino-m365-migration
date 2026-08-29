@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/trnman/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/trnman/new.tsx`
 - Code/formula/section: Submit handler
 - What was found: TRNMAN validates required fields and creates MainDB_IT with `formcode: 'TRNMAN'`, `currentStatus: 'CurrentstatusKey1'`, and JSON remarks.
 - Why it matters: `CurrentstatusKey1` maps to Approved even though approval is Not Required.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/trnman/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/trnman/index.tsx`
 - Code/formula/section: MainDB_IT list filter
 - What was found: TRNMAN list reads `formcode eq 'TRNMAN'` and parses remarks.
 - Why it matters: Read/write path exists, but structured field mapping is remarks-only.

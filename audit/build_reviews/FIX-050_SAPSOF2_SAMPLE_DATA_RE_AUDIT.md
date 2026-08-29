@@ -25,7 +25,7 @@ Result: Passed
 | `src/pages/it/forms/sapsof2/index.tsx` | Uses `useMainDBITList({ filter: "formcode eq 'SAPSOF2'", orderBy: ['submitteddate desc'] })`. |
 | `src/pages/it/forms/sapsof2/index.tsx` | Maps `MainDB_IT` records through `mapSAPSOF2Record()` and binds `DatabaseTable` to `sapsof2Data`. |
 | `src/pages/it/forms/sapsof2/index.tsx` | Includes loading and empty states for the SharePoint-backed list. |
-| `npx tsc --noEmit` | Passed with exit code 0 in `ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
+| `npx tsc --noEmit` | Passed with exit code 0 in `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
 
 ## Out Of Scope
 

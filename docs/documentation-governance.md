@@ -56,16 +56,16 @@ Each document in the repo was reviewed against:
 | `field-mapping.md` | `mapping/` | Detailed field mapping documentation | ✅ Current | — | None needed |
 | `field-mapping.csv` | `mapping/` | Machine-readable field mapping | ✅ Current | — | None needed |
 | `data-migration-rules.csv` | `mapping/` | Data transformation rules | ✅ Current | — | None needed |
-| `sharepoint-list-design.md` | `m365-design/` | SharePoint list schema designs | ⚠️ Partially current | - Lists `MainDB_FIN`, `MainDB_HR` etc in diagram — may not be created<br>- Extension list columns partially defined<br>- No actual creation scripts referenced | Add creation script references, mark which lists exist |
-| `powerapps-design.md` | `m365-design/` | Power Apps app design | ⚠️ Partially current | - Describes a Power Fx canvas app, but the actual app is a React+TypeScript code-first app<br>- Screens listed (HomeScreen, NewRequestScreen, etc.) don't match actual page structure<br>- MVP phases listed but actual app is more complete | Rewrite to reflect actual code-first architecture in `powerapps-mirror/apps/ioi-platform/` |
-| `power-automate-design.md` | `m365-design/` | Power Automate flow designs | ✅ Current | Flows are designed but not yet built — design is accurate | None needed |
+| `sharepoint-list-design.md` | `design/m365-design/` | SharePoint list schema designs | ⚠️ Partially current | - Lists `MainDB_FIN`, `MainDB_HR` etc in diagram — may not be created<br>- Extension list columns partially defined<br>- No actual creation scripts referenced | Add creation script references, mark which lists exist |
+| `powerapps-design.md` | `design/m365-design/` | Power Apps app design | ⚠️ Partially current | - Describes a Power Fx canvas app, but the actual app is a React+TypeScript code-first app<br>- Screens listed (HomeScreen, NewRequestScreen, etc.) don't match actual page structure<br>- MVP phases listed but actual app is more complete | Rewrite to reflect actual code-first architecture in `powerapps-mirror/apps/ioi-platform/` |
+| `power-automate-design.md` | `design/m365-design/` | Power Automate flow designs | ✅ Current | Flows are designed but not yet built — design is accurate | None needed |
 | `agent-instructions.md` | `agent/` | Agent instructions for migration | 🔁 Duplicate — deprecated | Points to `.github/instructions/domino-migration.instructions.md` as replacement | Keep as-is (redirect) |
 | `skills.md` | `agent/` | Migration skills documentation | 🔁 Duplicate — deprecated | Points to `.github/skills/domino-migration/SKILL.md` as replacement | Keep as-is (redirect) |
 | `review-checklist.md` | `agent/` | Migration review checklist | ✅ Current | — | None needed |
 | `output-templates.md` | `agent/` | Output format templates | ✅ Current | — | None needed |
-| `ioicodeapp/README.md` | `ioicodeapp/` | Old Acidchem Portal replica README | ❌ Outdated | References "Acidchem Portal Replica", not the actual migration app | Update or mark as legacy |
-| `powerapps-mirror/SCRAPE_STATUS.md` | `ioicodeapp/powerapps-mirror/` | Documents scraping process for code-first app | ✅ Current | — | None needed |
-| `powerapps-mirror/apps/ioi-platform/README.md` | `ioicodeapp/powerapps-mirror/apps/ioi-platform/` | Code-first app README | ⚠️ Partially current | Minimal — just lists visible tree nodes | Add build/run/deploy instructions |
+| `apps/code-first/ioicodeapp/README.md` | `apps/code-first/ioicodeapp/` | Old Acidchem Portal replica README | ❌ Outdated | References "Acidchem Portal Replica", not the actual migration app | Update or mark as legacy |
+| `powerapps-mirror/SCRAPE_STATUS.md` | `apps/code-first/ioicodeapp/powerapps-mirror/` | Documents scraping process for code-first app | ✅ Current | — | None needed |
+| `powerapps-mirror/apps/ioi-platform/README.md` | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/` | Code-first app README | ⚠️ Partially current | Minimal — just lists visible tree nodes | Add build/run/deploy instructions |
 | `powerapps-mirror/apps/ioi-platform/docs/overview.md` | App docs | Power Apps code-first dev standards | ✅ Current | — | None needed (is a development standard, not migration doc) |
 | `change-log.md` | `docs/` | Track all significant repo changes | 📌 **Missing** | No change log exists | **Create immediately** |
 | `decision-log.md` | `docs/` | Track business/design decisions | 📌 **Missing** | No decision log exists | **Create immediately** |
@@ -78,7 +78,7 @@ Each document in the repo was reviewed against:
 |--------|-------|-------|
 | ✅ Current | 10 | domino-field-inventory, evidence-reconciliation, workflow-analysis, field-mapping.md/.csv, data-migration-rules.csv, review-checklist, output-templates, SCRAPE_STATUS.md, overview.md |
 | ⚠️ Partially current | 6 | migration-documentation, implementation-plan, RAQ log, sharepoint-list-design, powerapps-design, app README |
-| ❌ Outdated | 2 | pdf-ui-inventory (empty), ioicodeapp/README.md |
+| ❌ Outdated | 2 | pdf-ui-inventory (empty), apps/code-first/ioicodeapp/README.md |
 | 🔁 Duplicate | 2 | agent-instructions.md, skills.md (redirect to .github/) |
 | 📌 Missing | 3 | change-log.md, decision-log.md, testing-and-validation.md |
 | **Total** | **23** | — |
@@ -116,14 +116,14 @@ Each document in the repo was reviewed against:
 | 13 | Field Mapping (MD) | `mapping/field-mapping.md` | Migration Lead | Field mapping changed, new form added | Per form mapping | Field mapping CSV (source of truth) | ✅ Current |
 | 14 | Field Mapping (CSV) | `mapping/field-mapping.csv` | Migration Lead | Field mapping changed, new form added | Per form mapping | DXL source + business confirmation | ✅ Current |
 | 15 | Data Migration Rules | `mapping/data-migration-rules.csv` | Migration Lead | Transformation logic changed, new rule defined | Per mapping change | Field mapping CSV + business rules | ✅ Current |
-| 16 | SharePoint List Design | `m365-design/sharepoint-list-design.md` | Migration Lead | List created/modified, columns changed | Per list change | Actual SharePoint live schema | ⚠️ Partially current |
-| 17 | Power Apps Design | `m365-design/powerapps-design.md` | Migration Lead | Screen added, formula changed, data source changed | Per app build cycle | Actual app repo (`powerapps-mirror/apps/ioi-platform/`) | ⚠️ Partially current |
-| 18 | Power Automate Design | `m365-design/power-automate-design.md` | Migration Lead | Flow created, modified, or deprecated | Per flow change | Power Automate environment | ✅ Current (flows not yet built) |
+| 16 | SharePoint List Design | `design/m365-design/sharepoint-list-design.md` | Migration Lead | List created/modified, columns changed | Per list change | Actual SharePoint live schema | ⚠️ Partially current |
+| 17 | Power Apps Design | `design/m365-design/powerapps-design.md` | Migration Lead | Screen added, formula changed, data source changed | Per app build cycle | Actual app repo (`powerapps-mirror/apps/ioi-platform/`) | ⚠️ Partially current |
+| 18 | Power Automate Design | `design/m365-design/power-automate-design.md` | Migration Lead | Flow created, modified, or deprecated | Per flow change | Power Automate environment | ✅ Current (flows not yet built) |
 | 19 | Agent Instructions | `agent/agent-instructions.md` | Migration Lead | Agent behavior changed, new rules needed | Per agent improvement | `.github/instructions/domino-migration.instructions.md` | 🔁 Redirect to .github |
 | 20 | Skills | `agent/skills.md` | Migration Lead | New skill needed, procedure changed | Per skill improvement | `.github/skills/domino-migration/SKILL.md` | 🔁 Redirect to .github |
 | 21 | Review Checklist | `agent/review-checklist.md` | Migration Lead | New checklist item identified | Per checklist improvement | Migration lessons learned | ✅ Current |
 | 22 | Output Templates | `agent/output-templates.md` | Migration Lead | New output format needed | Per template improvement | Migration requirements | ✅ Current |
-| 23 | App Readme (Mirror) | `ioicodeapp/powerapps-mirror/apps/ioi-platform/README.md` | Developer | App structure changed, deployment instructions updated | Per app version | Actual app repo | ⚠️ Partially current |
+| 23 | App Readme (Mirror) | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/README.md` | Developer | App structure changed, deployment instructions updated | Per app version | Actual app repo | ⚠️ Partially current |
 
 ---
 
@@ -142,7 +142,7 @@ When information conflicts between sources, use this priority (1 = highest autho
 | **5** | Domino DXL/XML Source Files | Original source — definitive for Domino-side facts |
 | **6** | Domino PDF/UI Export | Visual confirmation of DXL interpretation |
 | **7** | Field Mapping Documents (`mapping/field-mapping.*`) | Intended mapping — may diverge from actual implementation |
-| **8** | Design Documents (`m365-design/*`) | Design intent — may differ from implementation |
+| **8** | Design Documents (`design/m365-design/*`) | Design intent — may differ from implementation |
 | **9** | Analysis Documents (`analysis/*`) | Analysis findings — may need reconciliation |
 | **10** | Notes, Screenshots, Meeting Comments | Lowest authority — unverified |
 
@@ -185,15 +185,15 @@ When information conflicts between sources, use this priority (1 = highest autho
 
 | Change Type | Documents to Update | Required Update | Reviewer / Owner |
 |---|---|---|---|
-| **New SharePoint list created** | `m365-design/sharepoint-list-design.md`, `docs/implementation-plan.md`, `docs/migration-documentation.md` | Add list to design doc, update plan status, update overview | Migration Lead |
-| **SharePoint column added or renamed** | `m365-design/sharepoint-list-design.md`, `mapping/field-mapping.csv`, `mapping/field-mapping.md`, `docs/change-log.md` | Update schema, update mapping, log the change | Migration Lead |
-| **Choice values changed** | `m365-design/sharepoint-list-design.md`, `mapping/field-mapping.csv`, `docs/change-log.md` | Update choice lists, update mapping, log the change | Migration Lead |
-| **Power Apps screen added** | `m365-design/powerapps-design.md`, `docs/implementation-plan.md`, `docs/change-log.md` | Add screen to design, update plan, log | Developer |
-| **Power Apps formula changed** | `m365-design/powerapps-design.md`, `docs/change-log.md` | Document key formula changes, log | Developer |
-| **Power Apps data source changed** | `m365-design/powerapps-design.md`, `ioicodeapp/powerapps-mirror/apps/ioi-platform/README.md`, `docs/change-log.md` | Update data source list, update README, log | Developer |
-| **Power Automate flow added** | `m365-design/power-automate-design.md`, `docs/implementation-plan.md`, `docs/change-log.md` | Add flow design, update plan, log | Migration Lead + Developer |
-| **Workflow status changed** | `m365-design/power-automate-design.md`, `analysis/workflow-analysis.md`, `docs/change-log.md` | Update workflow design, note in analysis, log | Migration Lead |
-| **Approval role changed** | `m365-design/power-automate-design.md`, `docs/decision-log.md`, `docs/risks-assumptions-questions.md` | Update flow roles, log decision, update RAQ | Migration Lead + Business |
+| **New SharePoint list created** | `design/m365-design/sharepoint-list-design.md`, `docs/implementation-plan.md`, `docs/migration-documentation.md` | Add list to design doc, update plan status, update overview | Migration Lead |
+| **SharePoint column added or renamed** | `design/m365-design/sharepoint-list-design.md`, `mapping/field-mapping.csv`, `mapping/field-mapping.md`, `docs/change-log.md` | Update schema, update mapping, log the change | Migration Lead |
+| **Choice values changed** | `design/m365-design/sharepoint-list-design.md`, `mapping/field-mapping.csv`, `docs/change-log.md` | Update choice lists, update mapping, log the change | Migration Lead |
+| **Power Apps screen added** | `design/m365-design/powerapps-design.md`, `docs/implementation-plan.md`, `docs/change-log.md` | Add screen to design, update plan, log | Developer |
+| **Power Apps formula changed** | `design/m365-design/powerapps-design.md`, `docs/change-log.md` | Document key formula changes, log | Developer |
+| **Power Apps data source changed** | `design/m365-design/powerapps-design.md`, `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/README.md`, `docs/change-log.md` | Update data source list, update README, log | Developer |
+| **Power Automate flow added** | `design/m365-design/power-automate-design.md`, `docs/implementation-plan.md`, `docs/change-log.md` | Add flow design, update plan, log | Migration Lead + Developer |
+| **Workflow status changed** | `design/m365-design/power-automate-design.md`, `analysis/workflow-analysis.md`, `docs/change-log.md` | Update workflow design, note in analysis, log | Migration Lead |
+| **Approval role changed** | `design/m365-design/power-automate-design.md`, `docs/decision-log.md`, `docs/risks-assumptions-questions.md` | Update flow roles, log decision, update RAQ | Migration Lead + Business |
 | **Domino requirement confirmed** | `analysis/evidence-reconciliation.md`, `mapping/field-mapping.csv`, `docs/change-log.md` | Mark reconciled, finalize mapping, log | Migration Lead |
 | **Field mapping changed** | `mapping/field-mapping.csv`, `mapping/field-mapping.md`, `mapping/data-migration-rules.csv`, `docs/change-log.md` | Update all mapping files, log | Migration Lead |
 | **Department rule changed** | `mapping/data-migration-rules.csv`, `docs/decision-log.md`, `docs/change-log.md` | Update rules, log decision, log change | Migration Lead + Business |
@@ -214,9 +214,9 @@ When information conflicts between sources, use this priority (1 = highest autho
 | **Per decision** | `docs/decision-log.md`, `docs/risks-assumptions-questions.md` |
 | **Per form analysis** | `analysis/domino-field-inventory.*`, `analysis/pdf-ui-inventory.md`, `analysis/evidence-reconciliation.md`, `analysis/workflow-analysis.md` |
 | **Per form mapping** | `mapping/field-mapping.*`, `mapping/data-migration-rules.csv` |
-| **Per list change** | `m365-design/sharepoint-list-design.md` |
-| **Per app change** | `m365-design/powerapps-design.md` |
-| **Per flow change** | `m365-design/power-automate-design.md` |
+| **Per list change** | `design/m365-design/sharepoint-list-design.md` |
+| **Per app change** | `design/m365-design/powerapps-design.md` |
+| **Per flow change** | `design/m365-design/power-automate-design.md` |
 | **Per milestone** | `docs/migration-documentation.md`, `docs/implementation-plan.md` |
 | **Per test cycle** | `docs/testing-and-validation.md` |
 
@@ -251,7 +251,7 @@ ioi_Docs/
 │   ├── field-mapping.csv              ← Machine-readable field mapping
 │   └── data-migration-rules.csv       ← Data transformation rules
 │
-├── m365-design/                       ← Target architecture designs
+├── design/m365-design/                       ← Target architecture designs
 │   ├── sharepoint-list-design.md      ← SharePoint list schemas
 │   ├── powerapps-design.md            ← Power Apps app design
 │   └── power-automate-design.md       ← Power Automate flow designs
@@ -269,7 +269,7 @@ ioi_Docs/
 │       └── domino-migration/
 │           └── SKILL.md
 │
-└── ioicodeapp/                        ← Power Apps code-first app repo
+└── apps/code-first/ioicodeapp/                        ← Power Apps code-first app repo
     ├── powerapps-mirror/
     │   └── apps/ioi-platform/         ← Main app (React + Vite + TypeScript)
     └── powerapps-bundles-inbox/       ← Source export bundles (txt)

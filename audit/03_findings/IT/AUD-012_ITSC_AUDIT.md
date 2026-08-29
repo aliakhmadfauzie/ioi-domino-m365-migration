@@ -37,19 +37,19 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/new.tsx`
 - Code/formula/section: Submit and extension create logic
 - What was found: The new page validates required fields, creates a MainDB_IT parent record, and creates an ExtAssets child record with `parentFormCode: 'ITSC'`.
 - Why it matters: Write logic exists, but status and read parity need review.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/index.tsx`
 - Code/formula/section: List read logic
 - What was found: The list view filters MainDB_IT by `formcode eq 'ITSC'` and searches the parent `remarks` payload.
 - Why it matters: The list does not prove it joins or reads ExtAssets data created on submit.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/[id].tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/[id].tsx`
 - Code/formula/section: Detail read logic
 - What was found: The detail page reads MainDB_IT by ID and parses `remarks`.
 - Why it matters: Detail behavior may omit structured extension fields.
@@ -71,7 +71,7 @@
 - Why it matters: Required schema fields must be written and then read consistently.
 
 - Source: Generated model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-assets-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-assets-model.ts`
 - Code/formula/section: ITSC fields and `parentFormCode`
 - What was found: The generated model includes ITSC fields and the parent form code relationship.
 - Why it matters: The app has typed support for structured ITSC data.
@@ -79,7 +79,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/index.tsx`
 - Code/formula/section: MainDB_IT query
 - What was found: The list reads only MainDB_IT records filtered by `ITSC`.
 - Why it matters: Extension list data may be unavailable in list/detail review even though it is written.
@@ -87,7 +87,7 @@
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/new.tsx`
 - Code/formula/section: Parent and child create payloads
 - What was found: The submit path creates a parent MainDB_IT record with `currentStatus: 'CurrentstatusKey1'`, then creates ExtAssets ITSC child data.
 - Why it matters: Non-approval record creation should not use an approval status label unless explicitly intended.
@@ -95,7 +95,7 @@
 ## 8. Validation Rules
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itsc/new.tsx`
 - Code/formula/section: Required validation before submit
 - What was found: Required validation exists before record creation.
 - Why it matters: Validation behavior exists, but should be reconciled with source-required and SharePoint-required fields.
@@ -119,7 +119,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: Status model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
 - Code/formula/section: Status code mapping
 - What was found: `CurrentstatusKey1` maps to Approved.
 - Why it matters: A checklist record may need a non-approval submitted/current status instead of Approved.

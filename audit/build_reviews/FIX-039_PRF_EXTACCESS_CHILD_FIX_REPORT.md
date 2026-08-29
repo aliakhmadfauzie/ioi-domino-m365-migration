@@ -21,7 +21,7 @@ Status: Fixed Pending Re-Audit
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Promotion Decision
 

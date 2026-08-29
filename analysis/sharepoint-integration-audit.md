@@ -2,7 +2,7 @@
 
 > **Date**: 2026-06-01 (Updated: 2026-06-03)
 > **Auditor**: Automated Integration Audit (Fix round: Domino Migration Agent)
-> **Scope**: Power Apps code-first app (`ioicodeapp/powerapps-mirror/apps/ioi-platform/`)
+> **Scope**: Power Apps code-first app (`apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`)
 > **App Type**: Power Apps new code app — React 19 + TypeScript + Vite + shadcn/ui
 > **SDK**: `@microsoft/power-apps` v1.1.3
 >
@@ -56,8 +56,8 @@ The app uses a **parent-child SharePoint list pattern** (shared schema on MainDB
 | QA form config | `src/config/qa-forms.ts` | ✅ Reviewed |
 | Data source mappings | `src/types/data-source-mapping.ts` | ✅ Reviewed |
 | Field mapping doc | `mapping/field-mapping.md`, `mapping/field-mapping.csv` | ✅ Reviewed |
-| SharePoint list design | `m365-design/sharepoint-list-design.md` | ✅ Reviewed |
-| Power Apps design | `m365-design/powerapps-design.md` | ✅ Reviewed |
+| SharePoint list design | `design/m365-design/sharepoint-list-design.md` | ✅ Reviewed |
+| Power Apps design | `design/m365-design/powerapps-design.md` | ✅ Reviewed |
 | **Actual SharePoint: MainDB_IT** | `https://ioioi.sharepoint.com/sites/ioi-portal-it` | ✅ Verified (264 visible fields) |
 | **Actual SharePoint: MainDB_IT_Ext_Access** | Same site | ✅ Verified (95 fields) |
 | **Actual SharePoint: MainDB_IT_Ext_Support** | Same site | ✅ Verified (63 fields) |
@@ -432,9 +432,9 @@ The EAF `[id].tsx` re-exports from `../../../submissions/[id]` which is a shared
 |---|---|---|---|
 | `mapping/field-mapping.md` | Field-level mapping | ❌ **Outdated** | Columns don't match actual SharePoint schema (e.g., AssetTag vs HI_MachineID, Requestor_Name as Person/Group vs Text) |
 | `mapping/field-mapping.csv` | Field-level mapping | ❌ **Outdated** | Same issues as field-mapping.md |
-| `m365-design/sharepoint-list-design.md` | List architecture | ⚠️ **Partially outdated** | Lists exist but column details not documented |
-| `m365-design/powerapps-design.md` | App architecture | ✅ **Current** | Reflects actual code-first architecture |
-| `m365-design/power-automate-design.md` | Flow design | ❓ **Not reviewed** | — |
+| `design/m365-design/sharepoint-list-design.md` | List architecture | ⚠️ **Partially outdated** | Lists exist but column details not documented |
+| `design/m365-design/powerapps-design.md` | App architecture | ✅ **Current** | Reflects actual code-first architecture |
+| `design/m365-design/power-automate-design.md` | Flow design | ❓ **Not reviewed** | — |
 | `docs/migration-documentation.md` | Migration overview | ⚠️ Needs update | Missing recent QA/QC data connections |
 | `docs/ui-page-specification.md` | UI specs | ❓ **Not reviewed** | — |
 | `src/types/data-source-mapping.ts` | Data source mappings | ⚠️ **Partially current** | IT entries documented but HR/QA/QC entries missing |

@@ -117,7 +117,7 @@ For each new form being audited, check:
 - [ ] Workflow config — `src/config/workflow-routing.ts`, `module-workflows.ts`
 - [ ] Status checks — `if (status === 'Submitted')`, `isDraft`, `isSubmitted`
 - [ ] UI component visibility props — `visible`, `hidden`, `disabled` attributes on form sections
-- [ ] Domino routing rules — `ioicodeapp/IT_Routing_Rules_Documentation.md` (section access formulas)
+- [ ] Domino routing rules — `apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md` (section access formulas)
 - [ ] Does section visibility change based on `isPCN` or similar routing flags?
 
 If any of these cannot be determined from code evidence, mark:
@@ -130,4 +130,4 @@ If any of these cannot be determined from code evidence, mark:
 - `docs/04_WORKFLOW_APPROVAL_RULES.md` — Per-form approval classification
 - `docs/08_AUDIT_TEMPLATE.md` — Section visibility table template
 - `docs/09_BATCH_DEVELOPMENT_PLAN.md` — Batch schedule for auditing remaining forms
-- `ioicodeapp/IT_Routing_Rules_Documentation.md` — Domino section access formulas
+- `apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md` — Domino section access formulas

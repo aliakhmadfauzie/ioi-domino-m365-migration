@@ -15,7 +15,7 @@ Before making any change:
 3. Read `docs/central-form-reference.md` before any form, schema, workflow, routing, or data-source change.
 4. Read `docs/documentation-governance.md` for source-of-truth and update rules.
 5. Read `docs/change-log.md` to understand recent work and avoid undoing it.
-6. For app code, read `ioicodeapp/.github/copilot-instructions.md`.
+6. For app code, read `apps/code-first/ioicodeapp/.github/copilot-instructions.md`.
 7. For Domino migration work, read `.github/instructions/domino-migration.instructions.md`.
 8. Check the local code and live generated schemas before trusting older design docs.
 
@@ -40,12 +40,12 @@ Use this priority when sources conflict:
 
 1. `docs/decision-log.md`
 2. Actual SharePoint production/dev list schema
-3. Current app implementation under `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/`
+3. Current app implementation under `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/`
 4. Live Power Automate flows
 5. Domino DXL/XML under `source/dxl/`
 6. Domino PDF UI exports under `source/pdf/`
 7. `mapping/field-mapping.*`
-8. `m365-design/*`
+8. `design/m365-design/*`
 9. `analysis/*`
 10. Notes, screenshots, or draft artifacts
 
@@ -58,10 +58,10 @@ Core source-of-truth folders:
 - `docs/`: governance, decisions, change log, testing, workflow/visibility rules, project documentation.
 - `analysis/`: Domino field inventories, workflow analysis, evidence reconciliation, CRUD gaps, source analysis.
 - `mapping/`: Domino-to-M365 field mapping and migration rules.
-- `m365-design/`: SharePoint, Power Apps, and Power Automate design intent.
+- `design/m365-design/`: SharePoint, Power Apps, and Power Automate design intent.
 - `source/`: original Domino evidence. Reference only. Do not modify.
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/`: active code-first Power Apps app.
-- `audit/`, `automation/`, `source_analysis/`: audit findings, task queues, rollout registers, and fix reports.
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`: active code-first Power Apps app.
+- `audit/`, `automation/`, `analysis/source_analysis/`: audit findings, task queues, rollout registers, and fix reports.
 - `memories/`: AI memory and handoff artifacts.
 
 Reference-only or generated areas:
@@ -72,16 +72,16 @@ Reference-only or generated areas:
 - `.github/instructions/*`
 - `.github/skills/*`
 - `.github/agents/*`
-- `ioicodeapp/powerapps-mirror/Import/*`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/node_modules/*`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/dist/*`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/*` unless regenerating/exporting SDK evidence intentionally
+- `apps/code-first/ioicodeapp/powerapps-mirror/Import/*`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/node_modules/*`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/dist/*`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/*` unless regenerating/exporting SDK evidence intentionally
 
 Known stale paths:
 
-- `ioicodeapp/apps/ioi-platform/`: legacy stub. Do not use for development.
-- `ioicodeapp/app.js`, `index.html`, `styles.css`, `data.json`: legacy static replica.
-- `ioicodeapp/README.md`: older Acidchem Portal replica context.
+- `apps/code-first/ioicodeapp/apps/ioi-platform/`: legacy stub. Do not use for development.
+- `apps/code-first/ioicodeapp/app.js`, `index.html`, `styles.css`, `data.json`: legacy static replica.
+- `apps/code-first/ioicodeapp/README.md`: older Acidchem Portal replica context.
 - `agent/agent-instructions.md` and `agent/skills.md`: deprecated redirects.
 
 ## Architecture Decisions
@@ -105,7 +105,7 @@ Note: `DEC-2026-007` appears twice in the decision log: one entry for model-colu
 
 Canonical app path:
 
-`ioicodeapp/powerapps-mirror/apps/ioi-platform/`
+`apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`
 
 Tech stack:
 
@@ -335,7 +335,7 @@ Non-approval forms:
 
 ## App Coding Rules
 
-From `ioicodeapp/.github/copilot-instructions.md`:
+From `apps/code-first/ioicodeapp/.github/copilot-instructions.md`:
 
 - Always use `EmployeePicker` for person/name fields, not a plain input.
 - New form pages generally use a two-step create: parent record first, then extension record with parent link when needed.
@@ -364,7 +364,7 @@ For any form change:
 
 ## Verification Commands
 
-Run from `ioicodeapp/powerapps-mirror/apps/ioi-platform/`:
+Run from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`:
 
 ```powershell
 npm run typecheck
@@ -413,8 +413,8 @@ Use this when starting a new task in this repo:
 You are working in C:\Users\AL_AAF\Project\ioi_Docs on the IOI Domino to M365 migration.
 Before changing anything, read AGENTS.md, docs/repo-knowledge-base.md,
 docs/central-form-reference.md, docs/documentation-governance.md,
-docs/change-log.md, ioicodeapp/.github/copilot-instructions.md, and this memory file.
-The active app is ioicodeapp/powerapps-mirror/apps/ioi-platform.
+docs/change-log.md, apps/code-first/ioicodeapp/.github/copilot-instructions.md, and this memory file.
+The active app is apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform.
 Use SharePoint model columns for structured data; do not use remarks JSON.
 Respect IT form aliases in src/lib/it-form-routes.ts.
 Verify with npm run typecheck and npm run build after code changes.

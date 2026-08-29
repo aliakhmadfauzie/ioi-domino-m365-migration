@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
 - Code/formula/section: Submit payload
 - What was found: The ITDR route stores records using `formcode: 'ITDAILYRPT'` and creates ExtSupport with `parentFormCode: 'ITDAILYRPT'`.
 - Why it matters: ITDAILYRPT appears implemented through the ITDR route, not a separate route.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/index.tsx`
 - Code/formula/section: Read filter
 - What was found: The ITDR list reads MainDB_IT records where `formcode eq 'ITDAILYRPT'`.
 - Why it matters: ITDAILYRPT and ITDR are not distinct in the current implementation evidence.
@@ -59,7 +59,7 @@
 ## 5. SharePoint Field Mapping
 
 - Source: Generated support extension model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-support-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-support-model.ts`
 - Code/formula/section: ITDR/ITDR2 support fields and `parentFormCode`
 - What was found: Support extension fields exist for the report family.
 - Why it matters: Mapping cannot be finalized until ITDR and ITDAILYRPT are disambiguated.
@@ -67,7 +67,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/index.tsx`
 - Code/formula/section: MainDB_IT filter
 - What was found: Read logic for ITDAILYRPT exists under the ITDR route.
 - Why it matters: The audit cannot treat ITDAILYRPT as an independent implemented form without confirmation.
@@ -75,7 +75,7 @@
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
 - Code/formula/section: Parent and child create logic
 - What was found: ITDR route writes ITDAILYRPT parent and extension child records.
 - Why it matters: Write behavior overlaps with AUD-040 ITDR.
@@ -83,7 +83,7 @@
 ## 8. Validation Rules
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
 - Code/formula/section: Required validation
 - What was found: Required validation exists before submission.
 - Why it matters: Validation evidence exists, but the audited item identity remains ambiguous.
@@ -107,7 +107,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: Status model and ITDR route
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`; `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr/new.tsx`
 - Code/formula/section: `CurrentstatusKey1`
 - What was found: ITDAILYRPT is written with `CurrentstatusKey1`, which maps to Approved.
 - Why it matters: A non-approval report should not be labeled Approved without source evidence.

@@ -95,7 +95,7 @@ The `approvalHistory` memo builds an approval trail with "TR Submitted" (complet
 
 ### Check 5: TypeScript compilation
 
-**Evidence:** `npx tsc --noEmit` passed with zero errors from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+**Evidence:** `npx tsc --noEmit` passed with zero errors from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 **Verdict:** ✅ **PASS**
 

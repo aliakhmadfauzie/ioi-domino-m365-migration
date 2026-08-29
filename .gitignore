@@ -22,8 +22,8 @@ Thumbs.db
 .vscode/*.code-snippets
 
 # Local environment configuration (contains secrets/IDs)
-ioicodeapp/config/environment-config.ps1
-ioicodeapp/config/environment-config.json
+apps/code-first/ioicodeapp/config/environment-config.ps1
+apps/code-first/ioicodeapp/config/environment-config.json
 
 # Build outputs
 dist/

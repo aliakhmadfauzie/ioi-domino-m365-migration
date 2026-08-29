@@ -36,14 +36,14 @@ Generated from unresolved audit finding issues. Do not mark an item fixed unless
 
 ## CIR Schema Sync Validation Update (2026-06-01)
 
-- Schema report: `source_analysis/06_sharepoint_design/CIR_SCHEMA_SYNC_VALIDATION_REPORT.md`
+- Schema report: `analysis/source_analysis/06_sharepoint_design/CIR_SCHEMA_SYNC_VALIDATION_REPORT.md`
 - TASK-SYNC-SCHEMA-CIR: Blocked
 - Summary: Planned `cir*` internal names in `HR_SHAREPOINT_SCHEMA_EXPORT.md` are not confirmed in the captured Power schema/model. Captured schema/model still expose legacy/non-prefixed fields such as `INO`, `EntitySite`, `InspectedBy`, `InspectionDate`, `InspectionTime`, `InspectionRemarks`, and `CurrentAction`.
 - Impact: CIR re-audit remains blocked until schema decision/provisioning is complete.
 
 ## CIR Schema Sync Validation Update (2026-06-02)
 
-- Schema report: `source_analysis/06_sharepoint_design/CIR_SCHEMA_SYNC_VALIDATION_REPORT.md`
+- Schema report: `analysis/source_analysis/06_sharepoint_design/CIR_SCHEMA_SYNC_VALIDATION_REPORT.md`
 - TASK-SYNC-SCHEMA-CIR: Complete
 - Summary: Exported `MainDB_HR_Ext_Cafeteria` schema validates the required CIR extension fields. Accepted TeamMembers mapping is `cirTeamMembers2`; other `cirTeamMembers*` suffixed fields are duplicate/non-authoritative.
 - Impact: `TASK-FIX-CIR-EXT-READWRITE` is now Ready. CIR re-audit remains blocked until generated cafeteria model/service and CIR app pages use the accepted extension-list schema.

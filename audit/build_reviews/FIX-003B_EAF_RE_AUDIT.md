@@ -17,10 +17,10 @@ Date: 2026-06-01
 - Dependency verified: `TASK-FIX-003B` is Fixed Pending Re-Audit.
 - Required evidence file exists: `audit/build_reviews/FIX-003B_EAF_FIX_REPORT.md`.
 - Required source references exist:
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/types/m1-forms.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/types/m1-forms.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
 - Blocking rules allow re-audit of a fixed P0 item before dependent work.
 - No app source code was modified during this re-audit.
 
@@ -43,9 +43,9 @@ Reviewed EAF required field persistence for the failed re-audit findings:
 - Previous failed re-audit: `audit/build_reviews/FIX-003_EAF_RE_AUDIT.md`
 - Fix report: `audit/build_reviews/FIX-003B_EAF_FIX_REPORT.md`
 - Source evidence:
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
 - Command evidence: `npx tsc --noEmit` passed.
 
 ## Result

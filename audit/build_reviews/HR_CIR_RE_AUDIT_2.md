@@ -63,8 +63,8 @@ DRD/Build Recommendation
 - DRD build prep should NOT start until the above remaining issues are fixed and a follow-up re-audit verifies `detail.tsx` and `index.tsx` no longer contain extension/approval artifacts.
 
 Audit artifacts referenced
-- /source_analysis/02_extracted_requirements/HR/SRC-HR-003_CIR_REQUIREMENTS.md
-- /source_analysis/06_sharepoint_design/HR_SHAREPOINT_SCHEMA_EXPORT.md
+- /analysis/source_analysis/02_extracted_requirements/HR/SRC-HR-003_CIR_REQUIREMENTS.md
+- /analysis/source_analysis/06_sharepoint_design/HR_SHAREPOINT_SCHEMA_EXPORT.md
 - /audit/05_fix_backlog/FIX_BACKLOG.md
 
 End of re-audit.

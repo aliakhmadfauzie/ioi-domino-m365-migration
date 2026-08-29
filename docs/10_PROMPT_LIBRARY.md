@@ -54,7 +54,7 @@ Use these sources in priority order:
 2. Power Apps source code (pages, hooks, services, form-schemas)
 3. `mapping/field-mapping.csv`
 4. `analysis/workflow-analysis.md`
-5. `ioicodeapp/IT_Routing_Rules_Documentation.md`
+5. `apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md`
 6. Source DXL and PDF evidence
 
 Output using the audit format from `docs/08_AUDIT_TEMPLATE.md`.
@@ -106,7 +106,7 @@ Do not assume. Use evidence only.
 Check these sources for each form:
 - Source code: Submit handlers, status transitions, role checks, button visibility
 - Source PDF/DXL: Section access formulas, action buttons, agent code
-- Documentation: `ioicodeapp/IT_Routing_Rules_Documentation.md`
+- Documentation: `apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md`
 - SharePoint schema: Status columns, approver columns, workflow stage columns
 - `analysis/workflow-analysis.md`
 - `docs/central-form-reference.md`
@@ -158,7 +158,7 @@ Sources to check:
 2. Page code (`src/pages/it/forms/[formcode]/new.tsx`, `[id].tsx`)
 3. Hook logic (`src/hooks/use-dynamic-form.ts`, `use-approval-workflow.ts`)
 4. Workflow config (`src/config/workflow-routing.ts`, `module-workflows.ts`)
-5. Domino routing rules (`ioicodeapp/IT_Routing_Rules_Documentation.md`)
+5. Domino routing rules (`apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md`)
 
 For each section where visibility logic is unclear, document:
 "Section visibility: UNKNOWN — source confirmation required"
@@ -298,7 +298,7 @@ Documents to consider (check all that might be affected):
 - `docs/change-log.md`
 - `docs/risks-assumptions-questions.md`
 - `mapping/field-mapping.md` / `mapping/field-mapping.csv`
-- `m365-design/sharepoint-list-design.md`
+- `design/m365-design/sharepoint-list-design.md`
 - `analysis/evidence-reconciliation.md`
 
 After updating, output:

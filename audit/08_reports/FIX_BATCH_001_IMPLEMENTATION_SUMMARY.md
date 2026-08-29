@@ -12,9 +12,9 @@ Date: 2026-06-01
 
 | File | Change |
 |---|---|
-| `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx` | Added `useMainDBITExtAssetsList`, joined Ext_Assets records to parent HI records, and prefer child-list hardware values in the database view and detail modal. |
-| `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/[id].tsx` | Replaced the generic re-export with a dedicated HI detail view that reads parent MainDB_IT and child MainDB_IT_Ext_Assets records. |
-| `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/routes/it-routes.tsx` | Added explicit `/it/forms/hi` and `/it/forms/hi/:id` routes so the HI list/detail implementation is reachable before generic form routes. |
+| `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx` | Added `useMainDBITExtAssetsList`, joined Ext_Assets records to parent HI records, and prefer child-list hardware values in the database view and detail modal. |
+| `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/[id].tsx` | Replaced the generic re-export with a dedicated HI detail view that reads parent MainDB_IT and child MainDB_IT_Ext_Assets records. |
+| `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/routes/it-routes.tsx` | Added explicit `/it/forms/hi` and `/it/forms/hi/:id` routes so the HI list/detail implementation is reachable before generic form routes. |
 | `audit/05_fix_backlog/FIX_BACKLOG.md` | Marked `FIX-006` as `Fixed - Pending Re-Audit`. |
 
 ## Exact Changes Made

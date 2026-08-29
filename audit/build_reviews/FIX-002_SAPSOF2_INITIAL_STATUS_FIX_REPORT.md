@@ -24,7 +24,7 @@
 
 ## Work Performed
 
-Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`:
+Updated `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`:
 
 - Changed SAPSOF2 initial submit `currentStatus` from `CurrentstatusKey1` to `CurrentstatusKey47`.
 - Preserved `workflowstage: 2`, which is the Key User sign-off stage.
@@ -38,7 +38,7 @@ Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof
 | Submit payload | `new.tsx` now writes `currentStatus: 'CurrentstatusKey47'` for new SAPSOF2 records |
 | Remarks snapshot | `new.tsx` now persists `Status: Pending KU Sign-Off` in the workflow remarks |
 | Approval child rows | Existing submit flow still creates `ApprovalRecords` rows for populated KU/BPO slots with `decision: Pending` |
-| TypeScript | `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform` |
+| TypeScript | `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform` |
 
 ## Result
 

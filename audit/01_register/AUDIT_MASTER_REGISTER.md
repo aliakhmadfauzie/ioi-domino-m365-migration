@@ -7,7 +7,7 @@
 | Discovery Item | Count | Evidence | Audit Status | Notes |
 |---|---:|---|---|---|
 | Total repository files scanned | 40,361 | `rg --files` from repository root | In Progress | Includes app source, audit files, docs, generated dependencies, and node_modules. |
-| Power Apps screens/pages found | 277 | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages` | In Progress | TS/TSX page files treated as code-first app screens. |
+| Power Apps screens/pages found | 277 | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages` | In Progress | TS/TSX page files treated as code-first app screens. |
 | Candidate forms assigned Audit IDs | 67 | `FORM_INVENTORY.md` | In Progress | AUD-001 through AUD-067 assigned. |
 | Form schema JSON files found | 29 | `src/form-schemas` | In Progress | Includes 27 current schema files plus 2 `_legacy` schema files. |
 | Component files found | 156 | `src/components` | In Progress | Shared and feature components require follow-up mapping. |
@@ -149,14 +149,14 @@
 | JSON source/schema/config files found in project evidence folders | 106 | Repository scan excluding generated dependencies | In Progress | Includes form schemas, flow definitions, power config, SharePoint audit exports, and app data models. |
 | Domino/HCL DXL XML files found | 68 | `source/dxl` | In Progress | HR Johor, HR Penang, and QA Johor DXL XML exports. No IT DXL XML files were found as standalone source files in this scan; IT DXL facts are present in analysis outputs. |
 | Domino/HCL inventory TXT files found | 69 | `source/dxl` | In Progress | Companion inventory exports for DXL sources. |
-| Screenshots found | 447 | `ioicodeapp/powerapps-screenshots` | In Progress | Current app UI evidence, not original requirement evidence. |
+| Screenshots found | 447 | `apps/code-first/ioicodeapp/powerapps-screenshots` | In Progress | Current app UI evidence, not original requirement evidence. |
 | SharePoint list export/audit files found | 7 | `analysis/sharepoint-provisioning` | In Progress | Three timestamped CSV/JSON exports plus latest JSON. |
 
 ## SharePoint Schema Discovery - 2026-06-01
 
 | Discovery Item | Count | Evidence | Audit Status | Notes |
 |---|---:|---|---|---|
-| SharePoint schema files found | 68 | `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/*.Schema.json` | In Progress | Local SDK schema files for configured SharePoint lists. |
+| SharePoint schema files found | 68 | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/*.Schema.json` | In Progress | Local SDK schema files for configured SharePoint lists. |
 | SharePoint lists/data sources identified | 97 | `power.config.json` | In Progress | Configured SharePoint data source keys across 24 site/dataset entries. |
 | PnP/provisioning audit rows found | 72 | `analysis/sharepoint-provisioning/sharepoint-list-audit.latest.json` | In Progress | Includes list names, site URLs, status, and column plan counts. |
 | Columns identified from local schema files | 4,475 | `.Schema.json` property scan | In Progress | Includes SharePoint system fields and attachment pseudo-fields. |

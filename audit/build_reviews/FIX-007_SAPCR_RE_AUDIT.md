@@ -11,7 +11,7 @@ Previous Fix: `TASK-FIX-007` — Changed SAPCR submit from `currentStatus: 'Requ
 
 ### Check 1: Submit payload uses `CurrentstatusKey14`
 
-**File**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
+**File**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
 **Evidence** (line ~180):
 ```typescript
 currentStatus: 'CurrentstatusKey14' as MainDBIT['currentStatus'],
@@ -21,13 +21,13 @@ workflowstage: 1,
 
 ### Check 2: `workflowstage` is written as `1`
 
-**File**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
+**File**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
 **Evidence** (line ~181): `workflowstage: 1`
 **Result**: ✅ PASS — `workflowstage` field is written as `1`.
 
 ### Check 3: Submitted records enter the BPO approval state
 
-**Model evidence**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts` line 347:
+**Model evidence**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts` line 347:
 ```typescript
 'CurrentstatusKey14': 'Pending BPO',
 ```
@@ -39,7 +39,7 @@ workflowstage: 1,
 
 ### Check 4: No regression to SAPCR extension-list email routing child creation
 
-**File**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
+**File**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
 **Evidence** (lines ~186-204):
 ```typescript
 await createMainDBITExtSAP.mutateAsync({
@@ -57,7 +57,7 @@ await createMainDBITExtSAP.mutateAsync({
 
 ### Check 5: TypeScript compiles cleanly
 
-**Command**: `npx tsc --noEmit` from `ioicodeapp/powerapps-mirror/apps/ioi-platform`
+**Command**: `npx tsc --noEmit` from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`
 **Result**: ✅ PASS — Zero errors.
 
 ## Overall Result

@@ -15,12 +15,12 @@ Status: Fixed Pending Re-Audit
 
 ## Fix Applied
 
-- Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/index.tsx`.
+- Updated `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/index.tsx`.
   - Added `useMainDBITExtDocsList` read for `parentFormCode eq 'ITINFO'`.
   - Joined ExtDocs rows to `MainDB_IT` parent records by parent lookup ID, with parent title fallback.
   - Mapped list/detail fields to prefer `iTIInfoType`, `iTISubject`, and `iTIRemarks`.
   - Kept `MainDB_IT.remarks` fallback for legacy records and for fields not present in ExtDocs (`INFO_To`, `INFO_Resend`).
-- Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/new.tsx`.
+- Updated `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/new.tsx`.
   - Preserved `INFO_To`, `INFO_InfoType`, `INFO_Subject`, `INFO_ISGRemarks`, and `INFO_Resend` in structured JSON remarks.
   - Continued creating linked ExtDocs rows with ITI fields.
   - Added `parentSite: 'PRAI'`.
@@ -28,7 +28,7 @@ Status: Fixed Pending Re-Audit
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Residual Scope
 

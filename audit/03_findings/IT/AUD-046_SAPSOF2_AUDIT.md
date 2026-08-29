@@ -37,19 +37,19 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`
 - Code/formula/section: Submit handler
 - What was found: The new page builds approval slots, but creates only a MainDB_IT parent record with `formcode: 'SAPSOF2'`, `currentStatus: 'CurrentstatusKey1'`, `workflowstage: 2`, and remarks text.
 - Why it matters: `CurrentstatusKey1` maps globally to Approved, which conflicts with required sign-off workflow.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/index.tsx`
 - Code/formula/section: `SAMPLE_DATA`
 - What was found: The list/database page renders `SAMPLE_DATA`.
 - Why it matters: Real submitted SharePoint records are not proven visible.
 
 - Source: Generated hooks
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/hooks/use-it-sapsof-test-evidence.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/hooks/use-it-sapsof-test-evidence.ts`
 - Code/formula/section: SAPSOF test evidence CRUD hooks
 - What was found: Generated hooks exist for SAPSOF test evidence records.
 - Why it matters: Child data infrastructure exists, but new/list evidence did not prove those child records are created and read.

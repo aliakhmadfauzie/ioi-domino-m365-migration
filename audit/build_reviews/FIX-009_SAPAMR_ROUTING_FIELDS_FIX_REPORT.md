@@ -76,7 +76,7 @@ This will add the 7 `SAPAMR_*` Text columns to the `MainDB_IT_Ext_SAP` SharePoin
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
 - New SAPAMR submissions will create ExtSAP child records with routing fields (once columns are provisioned).
 - Existing records fall back to `remarks` JSON parsing.
 

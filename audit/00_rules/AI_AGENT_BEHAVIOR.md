@@ -95,7 +95,7 @@ Acceptable evidence includes:
 | UI source | PDF exports, screenshots, existing UI analysis |
 | App source | React pages, hooks, generated services, generated models, form schemas |
 | SharePoint source | `.power/schemas`, PnP scripts, list exports, schema docs |
-| Migration docs | `docs/`, `analysis/`, `mapping/`, `m365-design/` |
+| Migration docs | `docs/`, `analysis/`, `mapping/`, `design/m365-design/` |
 
 ## Approval Classification Behavior
 

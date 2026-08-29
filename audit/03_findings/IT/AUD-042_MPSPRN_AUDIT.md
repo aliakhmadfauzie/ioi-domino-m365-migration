@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/mpsprn/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/mpsprn/new.tsx`
 - Code/formula/section: Submit handler
 - What was found: The page creates MainDB_IT with `formcode: 'MPSPRN'`, draft status `CurrentstatusKey0`, submit status `CurrentstatusKey3`, and remarks text.
 - Why it matters: Status usage appears reversed or unconfirmed because generated labels map Key0 to Active and Key3 to Draft.
 
 - Source: Repository route evidence
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/mpsprn/`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/mpsprn/`
 - Code/formula/section: Route files
 - What was found: Only `new.tsx` was found; no list/detail route was found.
 - Why it matters: Submitted records do not have a proven review path.

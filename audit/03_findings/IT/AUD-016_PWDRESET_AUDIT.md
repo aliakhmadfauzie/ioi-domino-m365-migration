@@ -37,7 +37,7 @@
 ## 3. App Files Reviewed
 
 - Source: Repository route evidence
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/`
 - Code/formula/section: Route directory listing
 - What was found: No dedicated `pwdreset` route directory was found; active reset/unlock implementation is under `rs`.
 - Why it matters: PWDRESET has no direct app implementation.

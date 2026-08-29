@@ -1,0 +1,223 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "flowName": "IOI - PRF ISG Assignment",
+    "projectTask": "Phase 5.5",
+    "sourceDocs": [
+      "design/m365-design/power-automate-design.md",
+      "analysis/workflow-analysis.md",
+      "docs/04_WORKFLOW_APPROVAL_RULES.md",
+      "docs/implementation-plan.md"
+    ],
+    "dominoReplacement": "PRF SET and HR agents",
+    "notes": "Assigns submitted Program Request Forms to ISG and notifies HR where requested."
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "sharepointonline": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+          "connectionName": "sharepointonline",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+        },
+        "office365": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+          "connectionName": "office365",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_office365"
+        }
+      }
+    }
+  },
+  "triggers": {
+    "When_MainDB_IT_item_is_created_or_modified": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetOnUpdatedItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Initialize_variables": {
+      "type": "InitializeVariable",
+      "inputs": {
+        "variables": [
+          {
+            "name": "FormCode",
+            "type": "string",
+            "value": "@triggerBody()?['FormCode']"
+          },
+          {
+            "name": "CurrentStatus",
+            "type": "string",
+            "value": "@triggerBody()?['CurrentStatus']"
+          },
+          {
+            "name": "ItemId",
+            "type": "integer",
+            "value": "@triggerBody()?['ID']"
+          },
+          {
+            "name": "DefaultISGAssignee",
+            "type": "string",
+            "value": "isg@ioi.com"
+          },
+          {
+            "name": "HREmail",
+            "type": "string",
+            "value": "hr@ioi.com"
+          }
+        ]
+      },
+      "runAfter": {}
+    },
+    "Run_only_for_submitted_PRF": {
+      "type": "Condition",
+      "expression": {
+        "and": [
+          {
+            "equals": [
+              "@variables('FormCode')",
+              "PRF"
+            ]
+          },
+          {
+            "or": [
+              {
+                "equals": [
+                  "@variables('CurrentStatus')",
+                  "Submitted"
+                ]
+              },
+              {
+                "equals": [
+                  "@variables('CurrentStatus')",
+                  "PendingISGReview"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actions": {
+        "Update_PRF_assignment": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "sharepointonline",
+              "operationId": "PatchItem"
+            },
+            "parameters": {
+              "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+              "table": "MainDB_IT",
+              "id": "@variables('ItemId')",
+              "item": {
+                "CurrentStatus": "PendingISGReview",
+                "WorkflowStage": 2,
+                "AssignedToEmail": "@variables('DefaultISGAssignee')",
+                "AppBy_ISG": "ISG",
+                "DateApp2": "@utcNow()"
+              }
+            }
+          },
+          "runAfter": {}
+        },
+        "Update_Ext_Support_PRF_fields": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "sharepointonline",
+              "operationId": "PatchItem"
+            },
+            "parameters": {
+              "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+              "table": "Ext_Support",
+              "id": "@variables('ItemId')",
+              "item": {
+                "PRF_AssignedISGEmail": "@variables('DefaultISGAssignee')",
+                "PRF_ISGAssignedDate": "@utcNow()"
+              }
+            }
+          },
+          "runAfter": {
+            "Update_PRF_assignment": [
+              "SUCCEEDED"
+            ]
+          }
+        },
+        "Notify_ISG": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "office365",
+              "operationId": "SendEmailV2"
+            },
+            "parameters": {
+              "emailMessage/To": "@variables('DefaultISGAssignee')",
+              "emailMessage/Subject": "PRF requires ISG review: @{triggerBody()?['Title']}",
+              "emailMessage/Body": "A Program Request Form requires ISG review.<br><br><b>Request:</b> @{triggerBody()?['Title']}<br><b>Requestor:</b> @{coalesce(triggerBody()?['RequestorEmail'], triggerBody()?['Author']?['Email'])}<br><br>Please review and update the PRF item.",
+              "emailMessage/Importance": "Normal"
+            }
+          },
+          "runAfter": {
+            "Update_Ext_Support_PRF_fields": [
+              "SUCCEEDED",
+              "FAILED"
+            ]
+          }
+        },
+        "If_HR_notification_requested": {
+          "type": "Condition",
+          "expression": {
+            "equals": [
+              "@coalesce(triggerBody()?['RemTo'], '')",
+              "HR"
+            ]
+          },
+          "actions": {
+            "Notify_HR": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "office365",
+                  "operationId": "SendEmailV2"
+                },
+                "parameters": {
+                  "emailMessage/To": "@variables('HREmail')",
+                  "emailMessage/Subject": "PRF routed to HR: @{triggerBody()?['Title']}",
+                  "emailMessage/Body": "The PRF workflow has requested HR notification for @{triggerBody()?['Title']}.",
+                  "emailMessage/Importance": "Normal"
+                }
+              },
+              "runAfter": {}
+            }
+          },
+          "else": {
+            "actions": {}
+          },
+          "runAfter": {
+            "Notify_ISG": [
+              "SUCCEEDED",
+              "FAILED"
+            ]
+          }
+        }
+      },
+      "else": {
+        "actions": {}
+      },
+      "runAfter": {
+        "Initialize_variables": [
+          "SUCCEEDED"
+        ]
+      }
+    }
+  }
+}

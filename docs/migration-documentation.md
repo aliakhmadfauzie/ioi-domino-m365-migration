@@ -132,11 +132,11 @@ C:\Users\AL_AAF\Project\ioi_Docs\
 │   ├── screenshots/                     ← (empty — place screenshots here)
 │   └── notes/                           ← (empty — place notes here)
 ├── analysis/                            ← Field inventory, workflow analysis, evidence reconciliation
-├── m365-design/                         ← SharePoint, Power Apps, Power Automate design
+├── design/m365-design/                         ← SharePoint, Power Apps, Power Automate design
 ├── mapping/                             ← Field mapping CSV + MD, data migration rules
 ├── docs/                                ← Migration documentation + governance
 ├── agent/                               ← Agent instructions, skills, checklists (redirect to .github/)
-├── ioicodeapp/                          ← Power Apps code-first app repo
+├── apps/code-first/ioicodeapp/                          ← Power Apps code-first app repo
 │   ├── powerapps-mirror/                ← Scraped code-first app (React + Vite + TS)
 │   │   └── apps/ioi-platform/          ← Main app: 28 form schemas, 80+ models, 40+ routes
 │   ├── powerapps-bundles-inbox/         ← Source export text bundles (27 files)

@@ -9,10 +9,10 @@ Result: Passed
 
 ## Evidence Reviewed
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-docs-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-docs-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itinfo/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-docs-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-docs-service.ts`
 - `audit/build_reviews/FIX-033_ITINFO_EXTDOCS_READ_FIX_REPORT.md`
 
 ## Re-Audit Checks

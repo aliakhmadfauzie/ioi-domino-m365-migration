@@ -55,37 +55,37 @@ Fixing is blocked in audit mode. Before fix mode, confirm whether HI reads shoul
 ### Re-Audit Evidence
 
 - Source: Changed HI database view
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx:12`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx:12`
 - Code/formula/section: `useMainDBITExtAssetsList`
 - What was found: The HI database view now imports and calls `useMainDBITExtAssetsList` with `filter: "parentFormCode eq 'HI'"`.
 - Why it matters: The list view now reads the same Ext_Assets child list that HI submit creates.
 
 - Source: Changed HI database view
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx:113`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx:113`
 - Code/formula/section: `assetsByParentId` / `assetsByParentTitle`
 - What was found: Ext_Assets records are indexed by parent lookup ID and parent title, then joined to each MainDB_IT parent record.
 - Why it matters: New child-backed records and older/fallback records can both be displayed.
 
 - Source: Changed HI database view
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx:129`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/index.tsx:129`
 - Code/formula/section: HI list mapping
 - What was found: The list now prefers child values such as `asset?.hITagNo`, `asset?.hIAssetNo`, `asset?.hIType`, `asset?.hIComputerName`, `asset?.hICompany`, `asset?.hIUsedByEmail`, `asset?.hILocation`, `asset?.hIDepartment`, `asset?.hISerialNo`, `asset?.hIPurchaseDate`, `asset?.hIVendor`, and `asset?.hIStatus`, with MainDB_IT fallback values.
 - Why it matters: Hardware details saved to Ext_Assets are no longer hidden from the HI list view.
 
 - Source: Changed HI detail view
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/[id].tsx:7`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/hi/[id].tsx:7`
 - Code/formula/section: `useMainDBITExtAssetsList`
 - What was found: The HI detail page now reads Ext_Assets records filtered by `parentRecord/ID eq {id}` and displays child-backed asset, hardware, assignment, and location fields.
 - Why it matters: The malformed detail page was replaced with a functional detail view that reads the extension child data.
 
 - Source: Changed route configuration
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/routes/it-routes.tsx:145`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/routes/it-routes.tsx:145`
 - Code/formula/section: HI routes
 - What was found: Explicit `/it/forms/hi`, `/it/forms/hi/new`, and `/it/forms/hi/:id` routes are registered before the generic form routes.
 - Why it matters: The fixed HI list/detail implementation is reachable and no longer depends only on generic routes.
 
 - Source: SharePoint schema evidence
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_assets.Schema.json:1021`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_assets.Schema.json:1021`
 - Code/formula/section: Required and HI child columns
 - What was found: The schema includes `ParentID`, `ParentFormCode`, `HI_TagNo`, `HI_AssetNo`, `HI_Type`, `HI_ComputerName`, `HI_Company`, `HI_UsedBy_Email`, `HI_Location`, `HI_Department`, `HI_WinVersion`, `HI_OfficeVersion`, `HI_SerialNo`, `HI_PurchaseDate`, `HI_Vendor`, and `HI_Status`.
 - Why it matters: The fields used by the verified read-path fix correspond to captured Ext_Assets schema evidence.
@@ -94,7 +94,7 @@ Fixing is blocked in audit mode. Before fix mode, confirm whether HI reads shoul
 
 | Area | Result | Evidence |
 |---|---|---|
-| TypeScript compile | Passed | `npx tsc --noEmit` completed successfully in `ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
+| TypeScript compile | Passed | `npx tsc --noEmit` completed successfully in `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
 | Submit/write behavior | No regression found | `hi/new.tsx` was not changed during FIX-006 implementation. |
 | Workflow logic | No regression found | HI remains a non-approval form; no workflow files or status transition logic were changed. |
 | Validation logic | No regression found | HI submit validation in `hi/new.tsx` was not changed. |

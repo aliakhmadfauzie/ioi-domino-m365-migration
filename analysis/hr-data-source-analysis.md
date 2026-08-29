@@ -540,7 +540,7 @@ Following the IT department pattern, each form type will have prefixed columns i
 2. **Create extension lists incrementally** — prioritize staffing and lifecycle as they have the highest workflow complexity
 3. **Share config lists** — `Config_Companies`, `Config_Departments`, `Config_EmployeeDirectory`, and `Config_ApproverMatrix` should be reused across all departments (IT, HR, FIN, etc.)
 4. **Merge cross-site forms** — BSD/PCNBkStf, ORGCHART/PCNOrgChart, JD/pcnjd can share FormCodes with Site discriminator
-5. **Leverage existing Power App code-first architecture** — the `MainDB_Master` pattern already exists in `ioicodeapp/`; extend it for HR
+5. **Leverage existing Power App code-first architecture** — the `MainDB_Master` pattern already exists in `apps/code-first/ioicodeapp/`; extend it for HR
 
 ---
 

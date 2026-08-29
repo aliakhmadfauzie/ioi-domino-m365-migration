@@ -31,13 +31,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/new.tsx`
 - Code/formula/section: Dynamic form render call
 - What was found: The DCAL page renders `IAL2` through `DynamicFormRenderer`.
 - Why it matters: The route name and rendered form code do not match the DCALOG audit item.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/index.tsx`
 - Code/formula/section: List filter
 - What was found: The list reads records where `formcode eq 'DCALOG' or formcode eq 'IAL2'`.
 - Why it matters: The implementation treats DCALOG and IAL2 as related, but source evidence has not confirmed this mapping.
@@ -53,7 +53,7 @@
 ## 5. SharePoint Field Mapping
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/index.tsx`
 - Code/formula/section: Read filter
 - What was found: The app reads MainDB_IT by DCALOG or IAL2 form code.
 - Why it matters: SharePoint mapping cannot be verified until the correct source form code is confirmed.
@@ -61,7 +61,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/index.tsx`
 - Code/formula/section: Remarks parsing and status display
 - What was found: The list parses `remarks`, reads parent status, and displays mixed DCALOG/IAL2 records.
 - Why it matters: Mixed form-code reads may hide a wrong source mapping.
@@ -69,7 +69,7 @@
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/new.tsx`
 - Code/formula/section: Dynamic renderer with IAL2 config
 - What was found: New submissions use the IAL2 dynamic configuration, not a proven DCALOG configuration.
 - Why it matters: DCALOG cannot be audited as implemented without confirming that IAL2 is the intended replacement.
@@ -77,7 +77,7 @@
 ## 8. Validation Rules
 
 - Source: Shared form renderer
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
 - Code/formula/section: Required visible field validation
 - What was found: Generic visible-required validation exists for dynamic forms.
 - Why it matters: Validation cannot be accepted for DCALOG until source field requirements are confirmed.
@@ -101,7 +101,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/dcal/new.tsx`
 - Code/formula/section: IAL2 dynamic submit
 - What was found: Submit behavior belongs to IAL2 dynamic configuration.
 - Why it matters: DCALOG behavior cannot be declared complete from IAL2 implementation evidence alone.

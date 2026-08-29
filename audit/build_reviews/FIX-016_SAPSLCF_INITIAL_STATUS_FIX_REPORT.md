@@ -40,7 +40,7 @@ currentStatus: 'CurrentstatusKey27' as MainDBITCurrentstatusKey,
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Remaining Work
 

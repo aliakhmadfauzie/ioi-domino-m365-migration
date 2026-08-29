@@ -9,15 +9,15 @@ Date: 2026-06-01
 - Department: HR
 - Form: CIR — Cafeteria Inspection
 - Files fixed:
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/detail.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/index.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/detail.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/index.tsx`
 
 ## Why Allowed
 
 - User explicitly requested fixing CIR `detail.tsx` and `index.tsx`.
 - Source edits are allowed because this is Fix mode.
 - Evidence file exists: `audit/build_reviews/HR_CIR_RE_AUDIT_2.md`.
-- Schema evidence exists: `source_analysis/06_sharepoint_design/HR_SHAREPOINT_SCHEMA_EXPORT.md`.
+- Schema evidence exists: `analysis/source_analysis/06_sharepoint_design/HR_SHAREPOINT_SCHEMA_EXPORT.md`.
 - CIR is currently failed re-audit, so no HR dependent build work was started.
 
 ## Work Performed

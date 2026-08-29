@@ -29,9 +29,9 @@ SFAR used `DynamicFormRenderer`, whose submit path created a `MainDB_IT` parent 
 
 **Files modified:**
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
 
 Changes:
 
@@ -55,7 +55,7 @@ Changes:
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
 
 ## Result
 

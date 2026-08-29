@@ -1,14 +1,14 @@
 # Data Connection Register
 
-> Repository inventory discovery updated 2026-05-31. Connection rows are based on `ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json`; runtime usage still requires per-feature audit.
+> Repository inventory discovery updated 2026-05-31. Connection rows are based on `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json`; runtime usage still requires per-feature audit.
 
 ## Discovery Evidence
 
 | Source | File Path | What Was Found | Why It Matters |
 |---|---|---|---|
-| App connection metadata | `ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | 18 connection references. | Confirms configured connectors for the code app. |
-| App connection metadata | `ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | 97 unique SharePoint data sources. | Confirms configured SharePoint list/table references. |
-| Source code scan | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src` | Connector-related logic references appear in TypeScript/TSX, not Power Fx `.pa.yaml`. | Audits must map connector usage through code-first app implementation. |
+| App connection metadata | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | 18 connection references. | Confirms configured connectors for the code app. |
+| App connection metadata | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | 97 unique SharePoint data sources. | Confirms configured SharePoint list/table references. |
+| Source code scan | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src` | Connector-related logic references appear in TypeScript/TSX, not Power Fx `.pa.yaml`. | Audits must map connector usage through code-first app implementation. |
 
 ## Connector References
 

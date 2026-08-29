@@ -16,13 +16,13 @@ SAPCR submit now creates the parent `MainDB_IT` record in the SAPCR workflow sta
 
 - `audit/findings/batch-02/sapcr.md`
 - `audit/05_fix_backlog/FIX_BACKLOG.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/config/module-workflows.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/config/module-workflows.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`
 
 ## Code Change
 
-Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`:
+Updated `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/new.tsx`:
 
 - Replaced submitted parent `currentStatus: 'Request'` with `currentStatus: 'CurrentstatusKey14'`.
 - Added `workflowstage: 1`.
@@ -32,7 +32,7 @@ Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapcr/
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Remaining Work
 

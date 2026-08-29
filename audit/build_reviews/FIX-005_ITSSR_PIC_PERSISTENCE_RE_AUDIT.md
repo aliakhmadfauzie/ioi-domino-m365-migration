@@ -17,10 +17,10 @@ Re-audit the previous ITSSR finding that routed IT PIC email was calculated and 
 
 ## Evidence Reviewed
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-itssr-routing.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_support.Schema.json`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-itssr-routing.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_support.Schema.json`
 - `audit/build_reviews/FIX-005_ITSSR_PIC_PERSISTENCE_FIX_REPORT.md`
 
 ## Checks
@@ -42,4 +42,4 @@ The original audit statement that Ext_Support create omits assigned PIC is no lo
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.

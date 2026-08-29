@@ -15,8 +15,8 @@ NIR list page (`index.tsx`) approval/rejection actions now persist via `MainDBIT
 ## Evidence Reviewed
 
 - `audit/03_findings/IT/AUD-043_NIR_AUDIT.md` — Finding AUD-B001-NIR-001: "Required NIR approval actions are UI-only"
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/nir/index.tsx` — DetailModal onApprove/onReject handlers
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-nir-workflow.ts` — Canonical transition field mapping
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/nir/index.tsx` — DetailModal onApprove/onReject handlers
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-nir-workflow.ts` — Canonical transition field mapping
 
 ## Code Change
 
@@ -57,7 +57,7 @@ Field mappings follow the canonical implementation in `use-nir-workflow.ts` (`ca
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Remaining Work
 

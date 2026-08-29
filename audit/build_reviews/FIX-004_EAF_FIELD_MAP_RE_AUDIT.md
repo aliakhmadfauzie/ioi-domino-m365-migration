@@ -18,9 +18,9 @@
 - Required fix and evidence files exist:
   - `audit/build_reviews/FIX-004_EAF_FIELD_MAP_FIX_REPORT.md`
   - `audit/findings/batch-01/eaf.md`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
 - Blocking rules allow this task because it is the required re-audit for a fixed P0 internal-column-name issue and does not start a build.
 
 ## Work Performed
@@ -28,7 +28,7 @@
 - Re-audited the generated ExtAccess service mapping against the captured SharePoint schema.
 - Checked that the service maps the EAF approval and extension fields to confirmed captured internal names.
 - Checked that stale underscored internal names are absent from the service and schema.
-- Ran `npx tsc --noEmit` from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- Ran `npx tsc --noEmit` from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 - No app source files were modified.
 
 ## Evidence

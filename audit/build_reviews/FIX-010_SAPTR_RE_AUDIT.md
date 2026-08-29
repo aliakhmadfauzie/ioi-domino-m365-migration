@@ -11,7 +11,7 @@ Previous Fix: `TASK-FIX-010` — Changed SAPTR submit from `currentStatus: 'Curr
 
 ### Check 1: Submit payload uses `CurrentstatusKey9` (Pending Approval A)
 
-**File**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/saptr/new.tsx`
+**File**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/saptr/new.tsx`
 **Evidence**:
 ```typescript
 currentStatus: 'CurrentstatusKey9' as MainDBIT['currentStatus'],
@@ -61,7 +61,7 @@ if (created?.id) {
 
 ### Check 5: TypeScript compiles cleanly
 
-**Command**: `npx tsc --noEmit` from `ioicodeapp/powerapps-mirror/apps/ioi-platform`
+**Command**: `npx tsc --noEmit` from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`
 **Result**: ✅ PASS — Zero errors.
 
 ## Overall Result

@@ -73,7 +73,7 @@ The separate ISGDOC status taxonomy issue remains `FIX-030` / `TASK-FIX-030` at 
 
 ### Check 7: TypeScript compilation
 
-**Evidence:** `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+**Evidence:** `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 **Verdict:** PASS
 

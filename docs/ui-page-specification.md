@@ -5,7 +5,7 @@
 > **Date**: 2026-05-31
 > **App Type**: Power Apps new code app (code-first) — React 19 + TypeScript + Vite
 > **UI Framework**: shadcn/ui (New York style) + Radix UI + Tailwind CSS v4
-> **App Location**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/`
+> **App Location**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`
 > **Status**: ✅ Active source of truth for all UI decisions
 
 ---
@@ -73,11 +73,11 @@ The existing UI is **well-structured and consistent**. The codebase already foll
 | **Form Fields (M2)** | `src/lib/m2-form-fields.ts` | M2 form field definitions | ✅ |
 | **IT Routes** | `src/routes/it-routes.tsx` | All IT form route definitions | ✅ |
 | **App Router** | `src/App.tsx` | Root-level route structure | ✅ |
-| **SharePoint List Design** | `m365-design/sharepoint-list-design.md` | SharePoint schema | ✅ |
-| **Power Apps Design** | `m365-design/powerapps-design.md` | App architecture design | ✅ |
+| **SharePoint List Design** | `design/m365-design/sharepoint-list-design.md` | SharePoint schema | ✅ |
+| **Power Apps Design** | `design/m365-design/powerapps-design.md` | App architecture design | ✅ |
 | **Field Mapping** | `mapping/field-mapping.csv` | Domino → M365 field mapping | ✅ |
 | **Data Migration Rules** | `mapping/data-migration-rules.csv` | Transformation rules | ✅ |
-| **SharePoint Write Audit** | `ioicodeapp/sharepoint-write-buttons-audit.md` | Button-to-SP column mapping | ✅ |
+| **SharePoint Write Audit** | `apps/code-first/ioicodeapp/sharepoint-write-buttons-audit.md` | Button-to-SP column mapping | ✅ |
 | **Repo Knowledge Base** | `docs/repo-knowledge-base.md` | Repo structure governance | ✅ |
 | **Migration Documentation** | `docs/migration-documentation.md` | Migration overview | ✅ |
 | **Active Agent Instructions** | `.github/instructions/domino-migration.instructions.md` | Agent governance rules | ✅ |
@@ -145,7 +145,7 @@ The existing UI is **well-structured and consistent**. The codebase already foll
 | **Field visibility** | `it-forms-config.ts` (`visibleAtStages`, `conditionalField`) | `docs/ui-page-specification.md` | Config is source of truth |
 | **Required fields** | `it-forms-config.ts` (`required: true`) | `mapping/field-mapping.csv` | Config is source of truth for UI |
 | **Validation** | Zod schemas in `src/generated/validators/` | React Hook Form `resolver` | Generated validators are source of truth |
-| **SharePoint column binding** | `src/generated/` models + hooks | `m365-design/sharepoint-list-design.md` | Generated code is source of truth |
+| **SharePoint column binding** | `src/generated/` models + hooks | `design/m365-design/sharepoint-list-design.md` | Generated code is source of truth |
 | **Choice values** | `it-forms-config.ts` (options arrays) | SharePoint list column choices | Config is source of truth |
 | **Role-based visibility** | `useRoleAccess` hook + department layouts | `docs/ui-page-specification.md` | Hook implementation is source of truth |
 | **Status-based visibility** | `status-utils.ts` + `it-forms-config.ts` stage gating | `docs/ui-page-specification.md` | Config is source of truth |
@@ -613,7 +613,7 @@ const displayMode = isFieldEditable ? 'edit' : 'view';
 | Component changed | This doc (Component Inventory) | All usages across pages | No breaking changes |
 | Typography changed | This doc (Typography), `index.css` | All text elements, dark mode | Consistent update |
 | Color/status rule changed | This doc (Color Rules), `index.css`, `color-tokens.ts` | All status badge usages | Consistent update |
-| SharePoint column changed | `m365-design/sharepoint-list-design.md`, `mapping/field-mapping.csv` | All generated models/services | Regenerate models |
+| SharePoint column changed | `design/m365-design/sharepoint-list-design.md`, `mapping/field-mapping.csv` | All generated models/services | Regenerate models |
 | Workflow status changed | `status-utils.ts`, this doc | All status badge references | Consistent update |
 | Approval logic changed | This doc, Power Automate flows | Role matrix, `ApprovalWorkflowPanel` | Cross-reference with workflow analysis |
 | Department-specific UI changed | This doc, department route config | Department config | Consistent with other depts |

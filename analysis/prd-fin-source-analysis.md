@@ -486,7 +486,7 @@ All columns from `main-dbfin-model.ts` as listed in 2.2 above.
 
 ## 6. Next Steps
 
-1. **✅ Done**: PRD gap columns defined in `config/sharepoint-lists/prd-gap-columns.json`
+1. **✅ Done**: PRD gap columns defined in `design/sharepoint-lists/prd-gap-columns.json`
 2. **⬜ Pending**: Provision MainDB_FIN list on ioi-portal-fin SharePoint site
 3. **⬜ Pending**: Create FIN gap-columns.json config file
 4. **⬜ Pending**: Review PRD PDFs against existing list columns — validate field mappings
@@ -507,12 +507,12 @@ All columns from `main-dbfin-model.ts` as listed in 2.2 above.
 | PRD PDFs (Johor) | `source/pdf/pdf_form_hcl/hcl_form_pdf/JOHOR_SITE_FORM/PRD/` |
 | FIN PDFs (Prai) | `source/pdf/pdf_form_hcl/hcl_form_pdf/PRAI_SITE_FORM/FIN/` |
 | FIN PDFs (Johor/FN) | `source/pdf/pdf_form_hcl/hcl_form_pdf/JOHOR_SITE_FORM/FN/` |
-| PRD SharePoint Model | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbprd-model.ts` |
-| FIN SharePoint Model | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbfin-model.ts` |
-| PRD Gap Columns Config | `config/sharepoint-lists/prd-gap-columns.json` |
-| PRD Page (UI) | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/production/index.tsx` |
-| FIN Page (UI) | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/finance/index.tsx` |
+| PRD SharePoint Model | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbprd-model.ts` |
+| FIN SharePoint Model | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbfin-model.ts` |
+| PRD Gap Columns Config | `design/sharepoint-lists/prd-gap-columns.json` |
+| PRD Page (UI) | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/production/index.tsx` |
+| FIN Page (UI) | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/finance/index.tsx` |
 | Source Analysis (LOG/PRD/MTN) | `analysis/log-prd-mtn-source-analysis.md` |
-| SharePoint List Design | `m365-design/sharepoint-list-design.md` (lines 76-77, 362-434) |
+| SharePoint List Design | `design/m365-design/sharepoint-list-design.md` (lines 76-77, 362-434) |
 | Master App CSV | `source/pdf/pdf_form_hcl/hcl_form_pdf/master_app_data_still_needed.csv` |
-| Department Config | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/config/departments.ts` |
+| Department Config | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/config/departments.ts` |

@@ -15,10 +15,10 @@ Result: Fixed Pending Re-Audit
 - `audit/build_reviews/FIX-050_SAPSOF2_SAMPLE_DATA_RE_AUDIT.md`
 - `audit/05_fix_backlog/FIX_BACKLOG.md`
 - `docs/ui-page-specification.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/approval-records-service.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/it-sapsof-test-evidence-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/approval-records-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/it-sapsof-test-evidence-service.ts`
 
 Note: `docs/page-requirements-guide.md` was referenced by app instructions but is not present in the repository. The active UI source of truth found was `docs/ui-page-specification.md`.
 
@@ -32,7 +32,7 @@ Note: `docs/page-requirements-guide.md` was referenced by app instructions but i
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Re-Audit Requirements
 

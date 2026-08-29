@@ -135,7 +135,7 @@ Files in `source/pdf/` come in two formats. Always verify before processing:
 | Contents | Text + images | `manifest.json`, `1.jpeg`, `1.txt`, etc. |
 | How to read | PDF viewer | Extract ZIP, read TXT + view JPEG |
 
-For Domino containers, use the [domino-form-reader](./ioicodeapp/.github/skills/domino-form-reader.md) skill.
+For Domino containers, use the [domino-form-reader](./apps/code-first/ioicodeapp/.github/skills/domino-form-reader.md) skill.
 
 ### UI Elements to Capture Per Form
 
@@ -274,7 +274,7 @@ After documenting, reconcile with DXL evidence from `analysis/domino-field-inven
 
 ### Procedure
 
-1. **Design each list** in `m365-design/sharepoint-list-design.md` using this template:
+1. **Design each list** in `design/m365-design/sharepoint-list-design.md` using this template:
 
    ```markdown
    ## List: {List Name}
@@ -391,7 +391,7 @@ This table maps the most common Domino @Functions to their Power Fx equivalents:
 2. **App project structure** (code-first):
 
    ```
-   ioicodeapp/
+   apps/code-first/ioicodeapp/
    ├── app.js              # App entry point, theme, global settings
    ├── project.json        # App metadata (name, ID, version)
    ├── package.json        # Node.js dependencies
@@ -523,7 +523,7 @@ This table maps the most common Domino @Functions to their Power Fx equivalents:
    - **Actions**: {Power Automate action list}
    ```
 
-2. **Design each flow** in `m365-design/power-automate-design.md`
+2. **Design each flow** in `design/m365-design/power-automate-design.md`
 
    Use this template for each flow:
 
@@ -610,7 +610,7 @@ This table maps the most common Domino @Functions to their Power Fx equivalents:
      - Verify all branches execute correctly
      - Check error paths (e.g., invalid email, missing manager)
    - **Integration testing**: Test flow from Power Apps button → flow → SharePoint update → notification
-   - **Document**: For each flow, record in `m365-design/power-automate-design.md`:
+   - **Document**: For each flow, record in `design/m365-design/power-automate-design.md`:
      - Flow name and purpose
      - Trigger type and conditions
      - Complete action list with configuration

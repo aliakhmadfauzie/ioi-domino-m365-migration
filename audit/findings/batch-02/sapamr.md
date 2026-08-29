@@ -25,7 +25,7 @@
 ### AUD-B02-SAPAMR-002 - SAPAMR implementation relies on remarks JSON while the source-of-truth schema is marked legacy
 
 - Source:
-- File path: `docs/central-form-reference.md:75`; `docs/central-form-reference.md:169-173`; `src/form-schemas/SAPAMR.json:3-5`; `src/pages/it/forms/sapamr/new.tsx:98-119`; `src/pages/it/forms/sapamr/index.tsx:94-121`; `m365-design/sharepoint-list-design.md:100-108`
+- File path: `docs/central-form-reference.md:75`; `docs/central-form-reference.md:169-173`; `src/form-schemas/SAPAMR.json:3-5`; `src/pages/it/forms/sapamr/new.tsx:98-119`; `src/pages/it/forms/sapamr/index.tsx:94-121`; `design/m365-design/sharepoint-list-design.md:100-108`
 - Code/formula/section: SAPAMR central inventory, legacy schema notice, create payload, and list mapping.
 - What was found: Central reference marks SAPAMR's JSON schema as outdated/legacy and says the active implementation uses `it-forms-config.ts`. The create handler stores initiation and prepared-by values in `remarks` JSON. The list page reads only `MainDB_IT` and parses `remarks`; it does not read an Ext_SAP child record. The schema has no `spColumn` or `spTable` bindings, while design/schema docs reference expected `SAPAMR_*` columns.
 - Why it matters: SAPAMR has approval sections, but the implemented data contract is a JSON blob rather than confirmed SharePoint columns. That makes workflow actions, reporting, migration validation, and future dynamic-form rendering fragile.

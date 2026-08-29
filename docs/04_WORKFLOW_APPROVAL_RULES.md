@@ -20,7 +20,7 @@
 1. **Power Apps source code** — Submit handlers, status transitions, button visibility, role checks (`src/pages/`, `src/hooks/`, `src/services/`)
 2. **Form schemas** — `workflow` sections in `src/form-schemas/*.json`
 3. **SharePoint lists** — Status columns, approver columns, workflow stage columns
-4. **Domino routing rules** — `ioicodeapp/IT_Routing_Rules_Documentation.md`
+4. **Domino routing rules** — `apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md`
 5. **Domino DXL source** — Section access formulas, action button hide-when, agent code
 6. **Migration analysis** — `analysis/workflow-analysis.md`, `docs/central-form-reference.md`
 
@@ -33,7 +33,7 @@
 | Item | Detail |
 |---|---|
 | **Approval Classification** | **Approval Required** |
-| **Evidence** | `src/pages/it/forms/eaf/new.tsx`, `src/form-schemas/EAF.json`, `ioicodeapp/IT_Routing_Rules_Documentation.md` |
+| **Evidence** | `src/pages/it/forms/eaf/new.tsx`, `src/form-schemas/EAF.json`, `apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md` |
 | **Workflow Stages** | Draft → Submitted → HOD Approval → COO/Director Approval → Done |
 | **Status Values** | `Draft`, `Submitted`, `HOD_Approved`, `HOD_Rejected`, `COO_Approved`, `COO_Rejected`, `Completed` |
 | **Approval Actors** | Dept Head (HOD), COO or Director (routing depends on `isPCN` flag) |
@@ -49,7 +49,7 @@
 | Item | Detail |
 |---|---|
 | **Approval Classification** | **No Approval Required** |
-| **Evidence** | `src/features/itssr/itssr-app.tsx`, `src/form-schemas/ITSSR.json`, `ioicodeapp/IT_Department_ITSSR_Detailed_Requirements.md` |
+| **Evidence** | `src/features/itssr/itssr-app.tsx`, `src/form-schemas/ITSSR.json`, `apps/code-first/ioicodeapp/IT_Department_ITSSR_Detailed_Requirements.md` |
 | **Workflow Stages** | Draft → Submitted → Assigned → In Progress → Resolved → Closed |
 | **Status Values** | `Draft`, `Submitted`, `Assigned`, `InProgress`, `Resolved`, `Closed` |
 | **Submit Behavior** | Creates parent `MainDB_IT` record + extension `MainDB_IT_Ext_Support` record. IT PIC can assign, resolve, close. No approval gate. |
@@ -143,5 +143,5 @@ When auditing a form for the first time, check these signals:
 - `docs/05_SECTION_VISIBILITY_RULES.md` — Section visibility per role/status
 - `docs/08_AUDIT_TEMPLATE.md` — Audit output format
 - `docs/09_BATCH_DEVELOPMENT_PLAN.md` — Batch schedule
-- `ioicodeapp/IT_Routing_Rules_Documentation.md` — Domino routing rules source
+- `apps/code-first/ioicodeapp/IT_Routing_Rules_Documentation.md` — Domino routing rules source
 - `analysis/workflow-analysis.md` — Domino workflow analysis

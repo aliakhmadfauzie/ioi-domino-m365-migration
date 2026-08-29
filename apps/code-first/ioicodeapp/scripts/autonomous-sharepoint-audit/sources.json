@@ -1,0 +1,100 @@
+{
+  "description": "Default source set for the recurring SharePoint integration audit. Keep source folders read-only unless the repo governance file says otherwise.",
+  "sources": [
+    {
+      "name": "Repo knowledge base",
+      "path": "docs/repo-knowledge-base.md",
+      "kind": "file",
+      "enabled": true
+    },
+    {
+      "name": "Decision and change logs",
+      "path": "docs",
+      "kind": "directory",
+      "enabled": true,
+      "include": [
+        "decision-log.md",
+        "change-log.md",
+        "implementation-plan.md",
+        "risks-assumptions-questions.md",
+        "sharepoint-integration-audit.md"
+      ]
+    },
+    {
+      "name": "Mapping source of truth",
+      "path": "mapping",
+      "kind": "directory",
+      "enabled": true,
+      "include": [
+        "*.csv",
+        "*.md"
+      ]
+    },
+    {
+      "name": "M365 design documents",
+      "path": "m365-design",
+      "kind": "directory",
+      "enabled": true,
+      "include": [
+        "*.md",
+        "*.csv",
+        "*.json"
+      ]
+    },
+    {
+      "name": "App configuration",
+      "path": "apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform",
+      "kind": "directory",
+      "enabled": true,
+      "include": [
+        "power.config.json",
+        "package.json",
+        "README.md"
+      ]
+    },
+    {
+      "name": "SharePoint schema exports",
+      "path": "apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline",
+      "kind": "directory",
+      "enabled": true,
+      "include": [
+        "maindb_it.Schema.json",
+        "maindb_it_ext_access.Schema.json",
+        "maindb_it_ext_assets.Schema.json",
+        "maindb_it_ext_sap.Schema.json",
+        "maindb_it_ext_support.Schema.json",
+        "itforms.Schema.json",
+        "it_routingmatrix.Schema.json",
+        "user_roles_it.Schema.json"
+      ]
+    },
+    {
+      "name": "Power Apps source code",
+      "path": "apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
+      "kind": "directory",
+      "enabled": true,
+      "include": [
+        "*.ts",
+        "*.tsx",
+        "*.json"
+      ],
+      "exclude": [
+        "**/node_modules/**",
+        "**/dist/**"
+      ],
+      "maxFiles": 160
+    },
+    {
+      "name": "Analysis source of truth",
+      "path": "analysis",
+      "kind": "directory",
+      "enabled": true,
+      "include": [
+        "all-forms-source-analysis.md",
+        "domino-field-inventory.csv",
+        "evidence-reconciliation.md",
+        "workflow-analysis.md"
+      ]
+    }
+  ]
+}

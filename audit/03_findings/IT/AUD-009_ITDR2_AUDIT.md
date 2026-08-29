@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
 - Code/formula/section: Submit logic
 - What was found: A new page exists and creates MainDB_IT with `formcode: 'ITDR2'`, `currentStatus: 'CurrentstatusKey1'`, and remarks JSON.
 - Why it matters: Write behavior exists for ITDR2.
 
 - Source: Repository structure
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/`
 - Code/formula/section: Route files
 - What was found: Only a new page was identified; no list or detail read page was found for ITDR2.
 - Why it matters: The app implementation is incomplete for review/read behavior.
@@ -59,7 +59,7 @@
 ## 5. SharePoint Field Mapping
 
 - Source: Generated support extension model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-support-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-support-model.ts`
 - Code/formula/section: ITDR/ITDR2 support fields
 - What was found: Support extension fields exist for ITDR/ITDR2-style records.
 - Why it matters: ITDR2 write evidence did not prove extension-list persistence.
@@ -67,7 +67,7 @@
 ## 6. Read Logic
 
 - Source: Repository structure
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/`
 - Code/formula/section: Missing list/detail route
 - What was found: No ITDR2 list or detail read implementation was found.
 - Why it matters: This triggers Blocked - Missing App File for the audited item.
@@ -75,7 +75,7 @@
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
 - Code/formula/section: MainDB_IT create payload
 - What was found: ITDR2 creates MainDB_IT parent data with `CurrentstatusKey1`.
 - Why it matters: Approved status is used for a non-approval submission.
@@ -83,7 +83,7 @@
 ## 8. Validation Rules
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
 - Code/formula/section: Required validation
 - What was found: Required validation exists before submission.
 - Why it matters: Validation exists but read behavior is still missing.
@@ -107,7 +107,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itdr2/new.tsx`
 - Code/formula/section: Navigation after submit
 - What was found: The new page navigates to `/it/forms/itdr2`, but no list route was found.
 - Why it matters: Users may be sent to a missing or incomplete page after submission.

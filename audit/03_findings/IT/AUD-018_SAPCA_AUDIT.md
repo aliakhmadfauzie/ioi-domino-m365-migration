@@ -35,17 +35,17 @@
 
 ## 3. App Files Reviewed
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPCA.json`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-sap-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPCA.json`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-sap-model.ts`
 
 ## 4. UI/Form Fields
 
 - Source: App form configuration
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
 - Code/formula/section: SAPCA configuration lines 2969-3065
 - What was found: SAPCA includes stages for request, IT approval, BASIS reply, requestor closure, BASIS confirmation, and completed. Fields include module, client, reference document, purpose, changes done, IT approver, transporter, IT PIC, BASIS status, closure status, completion status, remarks, and withdrawal fields.
 - Why it matters: The app models multi-section workflow data, but each section must be checked against persistence and readback.
@@ -53,13 +53,13 @@
 ## 5. SharePoint Field Mapping
 
 - Source: App submit logic
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
 - Code/formula/section: create payload and `createMainDBIT.mutateAsync` lines 161-203
 - What was found: New submissions create a `MainDB_IT` record with `formcode: 'SAPCA'`, `currentStatus: 'Submitted'`, requestor metadata, `workflowstage: 2`, and SAPCA details stored inside `remarks` text.
 - Why it matters: Structured SAPCA fields are not proven to be written to SharePoint columns in this submit path.
 
 - Source: JSON form schema
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPCA.json`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPCA.json`
 - Code/formula/section: Field metadata extraction
 - What was found: SAPCA schema contains SAPCA fields such as `A_FormNum`, `A_Module`, `A_Client`, `A_RefDoc`, `A_Purpose`, `A_ChangesDone`, `B_AppStatus`, `C_AppStatus`, and `WD_Status`, but no populated `spTable` or `spColumn` values were found in extracted schema metadata.
 - Why it matters: SharePoint column mapping is incomplete from local schema evidence.
@@ -67,7 +67,7 @@
 ## 6. Read Logic
 
 - Source: SAPCA database page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
 - Code/formula/section: `SAMPLE_DATA` lines 28-40 and `DatabaseTable data={SAMPLE_DATA}` lines 250-251
 - What was found: The SAPCA database/list view renders hard-coded sample data instead of SharePoint records.
 - Why it matters: Submitted SAPCA records are not proven visible in the app database view.
@@ -75,7 +75,7 @@
 ## 7. Write Logic
 
 - Source: SAPCA new form page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
 - Code/formula/section: submit handler lines 161-203
 - What was found: The submit handler writes one `MainDB_IT` record and places most form details in `remarks`; no reviewed SAPCA submit path writes a SAP extension row.
 - Why it matters: Required workflow and field-level data may not be queryable or auditable as SharePoint fields.
@@ -83,7 +83,7 @@
 ## 8. Validation Rules
 
 - Source: App form configuration
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
 - Code/formula/section: SAPCA field definitions lines 2969-3065
 - What was found: SAPCA required field behavior is partially represented through configured sections and fields, but field-level validation was not proven for every source field in the reviewed submit path.
 - Why it matters: Required source fields may be submit-able without full validation unless the page validates them elsewhere.
@@ -91,7 +91,7 @@
 ## 9. Section Visibility Rules
 
 - Source: App form configuration
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
 - Code/formula/section: SAPCA stages and sections lines 2969-3065
 - What was found: BASIS, close request, and completion sections are gated to later workflow stages.
 - Why it matters: The UI expects stage-specific workflow behavior, but stage transitions must be persisted.
@@ -99,7 +99,7 @@
 ## 10. Approval Workflow
 
 - Source: SAPCA database page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/index.tsx`
 - Code/formula/section: `canApprove`, `onApprove`, and `onReject` lines 268-275
 - What was found: Approval and rejection actions call `console.log` and close the modal; no SharePoint update or workflow transition is persisted in the reviewed code.
 - Why it matters: Approval is required by evidence, but the app action path is not implemented as a data change.
@@ -107,7 +107,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: SAPCA new form page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapca/new.tsx`
 - Code/formula/section: workflow comment lines 1-7 and submit handler lines 161-203
 - What was found: The page documents workflow states and submits a new record; draft/save/edit/view behavior was not proven in the reviewed code path.
 - Why it matters: SAPCA workflow cannot be marked ready without confirmed transitions and view/edit behavior.

@@ -35,16 +35,16 @@
 
 ## 3. App Files Reviewed
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPDRP.json`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPDRP.json`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
 
 ## 4. UI/Form Fields
 
 - Source: App form configuration
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
 - Code/formula/section: SAPDRP configuration lines 3188-3270
 - What was found: The app defines procedure entry, initiator, and endorser sections with Draft/Verify/Endorse stages.
 - Why it matters: The app has staged UI intent, but workflow transitions must be proven.
@@ -52,7 +52,7 @@
 ## 5. SharePoint Field Mapping
 
 - Source: JSON form schema
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPDRP.json`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/SAPDRP.json`
 - Code/formula/section: Field metadata extraction
 - What was found: SAPDRP schema includes fields such as `HDR_Title`, `HDR_Category`, `HDR_EffectDate`, `HDR_Revision`, `HDR_Dept`, `HDR_Team`, `HDR_AppBy`, `BODY_Body`, and status fields, but no populated `spTable` or `spColumn` values were found in extracted schema metadata.
 - Why it matters: Local schema metadata does not prove structured SharePoint mapping for DRP fields.
@@ -60,7 +60,7 @@
 ## 6. Read Logic
 
 - Source: SAPDRP database page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
 - Code/formula/section: `useMainDBITList` filter lines 105-106 and remarks parsing lines 113-114
 - What was found: SAPDRP reads `MainDB_IT` records filtered by `formcode eq 'SAPDRP'` and parses details from `main.remarks`.
 - Why it matters: Read logic exists, but it depends on JSON remarks rather than proven typed SharePoint columns.
@@ -68,13 +68,13 @@
 ## 7. Write Logic
 
 - Source: SAPDRP new form page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
 - Code/formula/section: submit handler lines 72-79
 - What was found: New SAPDRP submissions write `formcode: 'SAPDRP'`, `currentStatus: 'CurrentstatusKey1'`, `workflowstage: 1`, and store form details in `remarks` JSON.
 - Why it matters: The status key and remarks-only storage may not match the workflow source.
 
 - Source: Generated MainDB_IT model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
 - Code/formula/section: `MainDBITCurrentstatusKeyToLabel` line 334
 - What was found: `CurrentstatusKey1` maps to `Approved`.
 - Why it matters: New DRP submissions appear to be created with an approved status rather than a draft, pending, verify, or endorsement status.
@@ -82,7 +82,7 @@
 ## 8. Validation Rules
 
 - Source: SAPDRP new form page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
 - Code/formula/section: validation lines 57-68
 - What was found: The page requires procedure title, category, effective date, and procedure content before submit.
 - Why it matters: Basic validation exists, but source-required workflow validation is not proven.
@@ -90,7 +90,7 @@
 ## 9. Section Visibility Rules
 
 - Source: App form configuration
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/lib/it-forms-config.ts`
 - Code/formula/section: SAPDRP sections lines 3188-3270
 - What was found: Initiator and endorser sections are associated with staged behavior.
 - Why it matters: Stage visibility needs matching status transitions and role behavior.
@@ -98,7 +98,7 @@
 ## 10. Approval Workflow
 
 - Source: SAPDRP database page
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
 - Code/formula/section: reviewed list/detail implementation
 - What was found: Records are listed and shown from `MainDB_IT`, but no approval, verify, endorse, or reject mutation was proven in the reviewed page.
 - Why it matters: Source indicates workflow views, but implemented workflow logic is missing or not evidenced.
@@ -106,7 +106,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: SAPDRP new and database pages
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`; `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`; `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/index.tsx`
 - Code/formula/section: submit lines 72-87; list read lines 105-114
 - What was found: Submit and view/list behavior exist through `MainDB_IT`; draft, edit, endorsement, and approval transitions were not proven.
 - Why it matters: SAPDRP cannot be marked passed with incomplete workflow evidence.

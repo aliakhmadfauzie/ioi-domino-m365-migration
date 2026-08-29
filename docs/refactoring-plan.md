@@ -1,7 +1,7 @@
 # Refactoring & Fix Plan — SharePoint Integration
 
 **Date:** 2026-05-31
-**Base repository:** `ioicodeapp/powerapps-mirror/apps/ioi-platform`
+**Base repository:** `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`
 **Reference audit:** `docs/sharepoint-integration-audit.md`
 
 ---

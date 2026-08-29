@@ -37,19 +37,19 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/sfar/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/sfar/new.tsx`
 - Code/formula/section: Dynamic form render call
 - What was found: SFAR new page uses `DynamicFormRenderer`.
 - Why it matters: SFAR inherits the shared submit behavior.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/sfar/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/sfar/index.tsx`
 - Code/formula/section: MainDB_IT and ExtAccess read logic
 - What was found: The list view reads MainDB_IT where `formcode eq 'SFAR'` and ExtAccess where `parentFormCode eq 'SFAR'`.
 - Why it matters: The UI expects structured access data, but write evidence must prove it is created.
 
 - Source: Shared form renderer
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
 - Code/formula/section: Submit handler
 - What was found: The renderer submits MainDB_IT with `currentStatus: 'CurrentstatusKey1'` and `workflowstage: 1`.
 - Why it matters: This bypasses the required approval lifecycle by creating records as Approved.
@@ -79,7 +79,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/sfar/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/sfar/index.tsx`
 - Code/formula/section: Filter and mapping logic
 - What was found: SFAR reads MainDB_IT and ExtAccess, and maps structured fields with fallback to parsed remarks.
 - Why it matters: Read logic expects structured access records for complete display.
@@ -87,7 +87,7 @@
 ## 7. Write Logic
 
 - Source: Shared form renderer
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
 - Code/formula/section: Parent create payload
 - What was found: SFAR submit writes parent data and JSON remarks only.
 - Why it matters: Required approval metadata and extension fields may not be persisted correctly.
@@ -95,7 +95,7 @@
 ## 8. Validation Rules
 
 - Source: Shared form renderer
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
 - Code/formula/section: Required visible field validation
 - What was found: Required visible fields are checked before submit.
 - Why it matters: Field validation exists but does not substitute for approval-stage validation.
@@ -119,7 +119,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: Status model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
 - Code/formula/section: Status code mapping
 - What was found: `CurrentstatusKey1` maps to Approved.
 - Why it matters: Required-approval SFAR records should not be created directly as Approved.

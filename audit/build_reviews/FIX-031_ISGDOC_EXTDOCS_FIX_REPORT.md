@@ -29,8 +29,8 @@ ISGDOC create/list/detail paths only used `MainDB_IT.remarks` JSON for document 
 
 **Files modified:**
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/isgdoc/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/isgdoc/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/isgdoc/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/isgdoc/index.tsx`
 
 Changes:
 
@@ -53,7 +53,7 @@ Changes:
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
 
 ## Result
 

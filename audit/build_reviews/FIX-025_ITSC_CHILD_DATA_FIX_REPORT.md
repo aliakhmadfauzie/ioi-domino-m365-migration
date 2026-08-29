@@ -29,8 +29,8 @@ ITSC submit creates a `MainDB_IT` parent record and a linked `MainDB_IT_Ext_Asse
 
 **Files modified:**
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/[id].tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/[id].tsx`
 
 Changes:
 
@@ -54,7 +54,7 @@ Changes:
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform` with zero errors.
 
 ## Result
 

@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/new.tsx`
 - Code/formula/section: Submit logic
 - What was found: The form validates required fields and creates MainDB_IT with `formcode: 'ISGDOC'`, `currentStatus: 'CurrentstatusKey1'`, and JSON remarks.
 - Why it matters: The status maps to Approved even though approval is Not Required.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/index.tsx`
 - Code/formula/section: List read logic
 - What was found: The list reads MainDB_IT where `formcode eq 'ISGDOC'` and parses `remarks`.
 - Why it matters: Structured ExtDocs data is not proven in the ISGDOC read path.
@@ -59,7 +59,7 @@
 ## 5. SharePoint Field Mapping
 
 - Source: Generated docs extension model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-docs-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-docs-model.ts`
 - Code/formula/section: ITP fields and `parentFormCode`
 - What was found: The docs extension model includes ITP/ISGDOC-style fields and a parent form relationship.
 - Why it matters: Structured document metadata exists, but the audited ISGDOC create/read path did not prove use of the extension list.
@@ -67,7 +67,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/index.tsx`
 - Code/formula/section: MainDB_IT query
 - What was found: ISGDOC list reads parent records and parses JSON remarks/status.
 - Why it matters: Parent-only reads may omit structured document fields.
@@ -75,7 +75,7 @@
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/new.tsx`
 - Code/formula/section: MainDB_IT create payload
 - What was found: Submit creates MainDB_IT only, with `CurrentstatusKey1`.
 - Why it matters: Status semantics and extension mapping require correction or justification.
@@ -83,7 +83,7 @@
 ## 8. Validation Rules
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/isgdoc/new.tsx`
 - Code/formula/section: Required validation
 - What was found: Required validation exists before submission.
 - Why it matters: Validation should be reconciled with the source and SharePoint schema.
@@ -107,7 +107,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: Status model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
 - Code/formula/section: Status code mapping
 - What was found: `CurrentstatusKey1` maps to Approved.
 - Why it matters: Non-approval submissions should not be labeled as Approved unless business rules explicitly define that status.

@@ -20,7 +20,7 @@
 | **Approved By** | Migration Lead |
 | **Status** | ✅ Approved |
 | **Superseded By** | — |
-| **Notes** | Implemented in `powerapps-mirror/apps/ioi-platform/` code. Architecture reflected in `m365-design/sharepoint-list-design.md`. |
+| **Notes** | Implemented in `powerapps-mirror/apps/ioi-platform/` code. Architecture reflected in `design/m365-design/sharepoint-list-design.md`. |
 
 ### DEC-2026-002: Power Apps Code-First vs Canvas App
 
@@ -97,7 +97,7 @@
 | **Approved By** | Migration Lead |
 | **Status** | ✅ Approved |
 | **Superseded By** | — |
-| **Notes** | Design in `m365-design/power-automate-design.md`. All flows (EAF approval, auto-numbering, ITSSR routing, escalation) will be solution flows. |
+| **Notes** | Design in `design/m365-design/power-automate-design.md`. All flows (EAF approval, auto-numbering, ITSSR routing, escalation) will be solution flows. |
 
 ### DEC-2026-007: SAPSOF Decomposition Strategy
 
@@ -123,7 +123,7 @@
 | **Approved By** | Migration Agent, on user delegation to make the CIR decision |
 | **Status** | ✅ Approved |
 | **Superseded By** | — |
-| **Notes** | Evidence recorded in `source_analysis/09_reports/CIR_ARCHITECTURE_DECISION_UPDATE.md`. Next task is `TASK-PROVISION-CIR-SCHEMA` for live extension-list provisioning/export and schema/model regeneration. |
+| **Notes** | Evidence recorded in `analysis/source_analysis/09_reports/CIR_ARCHITECTURE_DECISION_UPDATE.md`. Next task is `TASK-PROVISION-CIR-SCHEMA` for live extension-list provisioning/export and schema/model regeneration. |
 
 ### DEC-2026-009: IT UAT Legacy Form-Code Alias Handling
 
@@ -185,6 +185,6 @@
 
 ### Where Decisions Flow
 - **Approved decisions** → implemented in `powerapps-mirror/apps/ioi-platform/` code
-- **Approved decisions** → reflected in `m365-design/*` documents
+- **Approved decisions** → reflected in `design/m365-design/*` documents
 - **Resolved RAQ items** → moved from `docs/risks-assumptions-questions.md` to this log with reference
 - **Deployment decisions** → reflected in `docs/implementation-plan.md`

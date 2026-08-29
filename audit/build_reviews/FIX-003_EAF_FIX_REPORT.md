@@ -19,10 +19,10 @@ Fix ID: FIX-003 (AUD-B01-EAF)
 - Required evidence files exist:
   - `audit/fix_plans/FIX-003_EAF_FIX_PLAN.md`
   - `audit/findings/batch-01/eaf.md`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
 
 ## Work Performed
 
@@ -48,7 +48,7 @@ Fix ID: FIX-003 (AUD-B01-EAF)
 - `src/pages/it/forms/eaf/new.tsx`: lines containing the create payload for `eAFClientID`, `eAFUserGroup`, and `eAFHigherApproverEmail`.
 - `src/generated/services/main-dbit-ext-access-service.ts`: field map entries for the three EAF columns.
 - `.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`: exported schema entries for the three SharePoint columns.
-- TypeScript verification: `npx tsc --noEmit` exited 0 from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- TypeScript verification: `npx tsc --noEmit` exited 0 from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Result
 

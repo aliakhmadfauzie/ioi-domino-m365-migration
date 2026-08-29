@@ -6,9 +6,9 @@
 
 | Evidence Type | Evidence Path | What Was Found | Why It Matters |
 |---|---|---|---|
-| Source | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas` | 29 JSON form schema files, including `_legacy/HWINV_PRAI.json` and `_legacy/VPNACCESS.json`. | Confirms schema-backed candidate forms without inventing names. |
-| Source | `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages` | 277 page/screen files and department form route folders. | Confirms app screen and page-only candidate forms. |
-| Source | `ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | 86 unique SharePoint data sources and 18 connector references. | Links candidate forms to known configured data sources where evidence exists. |
+| Source | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas` | 29 JSON form schema files, including `_legacy/HWINV_PRAI.json` and `_legacy/VPNACCESS.json`. | Confirms schema-backed candidate forms without inventing names. |
+| Source | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages` | 277 page/screen files and department form route folders. | Confirms app screen and page-only candidate forms. |
+| Source | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | 86 unique SharePoint data sources and 18 connector references. | Links candidate forms to known configured data sources where evidence exists. |
 | Documentation | `docs/central-form-reference.md` | Existing project source of truth for Domino form definitions. | Required source to confirm form names, departments, and approval requirements during item audits. |
 
 ## Candidate Forms
@@ -89,7 +89,7 @@
 |---|---:|---|---|
 | Candidate rows synced from master register | 67 | `audit/01_register/AUDIT_MASTER_REGISTER.md`; finding files | Form names, approval classification, audit status, finding file, and notes were synchronized for all candidate form rows. |
 | Remaining candidate rows not audited | 0 | `AUDIT_MASTER_REGISTER.md`; `FORM_INVENTORY.md` | All assigned candidate form rows have finding files or historical findings as of 2026-06-01. |
-| SharePoint data source count refreshed | 86 | `ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | Count includes current configured SharePoint data source keys. |
+| SharePoint data source count refreshed | 86 | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/power.config.json` | Count includes current configured SharePoint data source keys. |
 ## Clarification Needed
 
 | Item | Reason | Status |
@@ -116,8 +116,8 @@
 | `analysis/pdf-ui-inventory.md` | Markdown | 1 | IT | 34 IT PDFs | UI sections and visible fields from HCL PDFs | Notes visible workflow sections/status | Yes | Strong UI inventory for IT forms. |
 | `analysis/workflow-analysis.md` | Markdown | 1 | IT | Workflow-bearing IT forms | Workflow fields and state machines | Primary Domino workflow analysis | Yes | Strong workflow evidence; should be reconciled with app code per audit item. |
 | `mapping/field-mapping.csv` and `mapping/field-mapping.md` | CSV, Markdown | 2 | IT | Mapped IT forms | Source fields to SharePoint columns | Some workflow/status columns appear in mapping | Yes | Mapping evidence, not proof that code writes every field. |
-| `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/*.json` | JSON | 29 | IT | Schema-backed app forms | Sections, fields, required flags, visibility metadata where present | Workflow sections where present | Yes | App schema evidence, not original Domino source. |
-| `ioicodeapp/powerapps-screenshots/` | PNG | 447 | App-wide | App screens/routes | Rendered app UI, route state, visible controls | Approval/workflow UI if visible in screenshot | Possible Match | Generated screenshots can confirm current app UI, but not original requirements. |
+| `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/*.json` | JSON | 29 | IT | Schema-backed app forms | Sections, fields, required flags, visibility metadata where present | Workflow sections where present | Yes | App schema evidence, not original Domino source. |
+| `apps/code-first/ioicodeapp/powerapps-screenshots/` | PNG | 447 | App-wide | App screens/routes | Rendered app UI, route state, visible controls | Approval/workflow UI if visible in screenshot | Possible Match | Generated screenshots can confirm current app UI, but not original requirements. |
 | Word documents | DOC/DOCX | 0 | N/A | N/A | None found | None found | No | No `.doc` or `.docx` source files found in repository scan. |
 
 ## Source Files Mapped to Audit Items
@@ -201,7 +201,7 @@
 | `source/pdf/pdf_form_hcl/hcl_form_pdf/PRAI_SITE_FORM/IT/ITP.pdf` | PDF | IT | ISGDOC possible | Filename differs from app form code. Central reference maps ITP/isgdoc to ISGDOC. | Possible Match |
 | `source/pdf/pdf_form_hcl/hcl_form_pdf/PRAI_SITE_FORM/IT/SAPSOF.pdf` and `SAPSOF2.pdf` | PDF | IT | INTUATSOF/SILOUATSOF/SAPSOF2 possible | One Domino source covers UAT and SILO sign-off variants. | Possible Match |
 | `source/pdf/pdf_form_hcl/hcl_form_pdf/` non-IT department PDFs | PDF | HR, QA, QC, LOG, STR, FIN, PRD, SHE, others | Many page-only candidates and future candidates | Strong source files exist, but not all are represented by current audit IDs. | Possible Match |
-| `ioicodeapp/powerapps-screenshots/` | PNG | App-wide | App screens/routes | Screenshots describe current app implementation, not original form requirements. | Possible Match |
+| `apps/code-first/ioicodeapp/powerapps-screenshots/` | PNG | App-wide | App screens/routes | Screenshots describe current app implementation, not original form requirements. | Possible Match |
 
 
 

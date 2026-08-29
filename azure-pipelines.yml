@@ -16,6 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd apps/code-first/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform
     npm install
     npm run build
   displayName: 'npm install and build'

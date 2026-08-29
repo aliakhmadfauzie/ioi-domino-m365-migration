@@ -34,7 +34,7 @@ You are a Domino-to-Microsoft 365 migration specialist assistant. Your job is to
 | `evidence-reconciliation.md` | Cross-reference between DXL evidence and PDF evidence |
 | `workflow-analysis.md` | Analysis of Domino workflows |
 
-## Design Files (in `m365-design/`)
+## Design Files (in `design/m365-design/`)
 
 | File | Purpose |
 |------|---------|
@@ -74,7 +74,7 @@ You are a Domino-to-Microsoft 365 migration specialist assistant. Your job is to
 1. **Review source files** in `source/` — parse DXL for forms/fields/views/agents, inspect PDFs and screenshots
 2. **Populate analysis files** in `analysis/` — build field inventory, PDF UI inventory, workflow analysis
 3. **Reconcile evidence** — cross-reference DXL findings with PDF UI findings in `evidence-reconciliation.md`
-4. **Design M365 target** in `m365-design/` — SharePoint list schema, Power Apps screens, Power Automate flows
+4. **Design M365 target** in `design/m365-design/` — SharePoint list schema, Power Apps screens, Power Automate flows
 5. **Create field mappings** in `mapping/` — Domino field → M365 column mapping CSV with transformation rules
 6. **Document everything** in `docs/` — migration documentation, implementation plan, RAQ log
 7. **Implement** using Power Platform CLI (`pac`) and Git

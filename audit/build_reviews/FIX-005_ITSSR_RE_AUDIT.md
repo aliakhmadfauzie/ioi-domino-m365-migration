@@ -17,7 +17,7 @@
 | Check | Result |
 |---|---|
 | `DependsOn` (TASK-FIX-005) | Complete — `Fixed Pending Re-Audit` with evidence in `audit/build_reviews/FIX-005_ITSSR_PIC_PERSISTENCE_FIX_REPORT.md` |
-| Required source evidence files | Existing — `audit/findings/batch-01/itssr.md`, `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx` |
+| Required source evidence files | Existing — `audit/findings/batch-01/itssr.md`, `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx` |
 | Required schema/mapping files | Existing — `.power/schemas/sharepointonline/maindb_it_ext_support.Schema.json`, `src/generated/services/main-dbit-ext-support-service.ts` |
 | Blocking rule violation | None — this is a re-audit of a P0 Fix task, not a new build |
 | CIR blocking rule | Not applicable — ITSSR is an IT form, not HR |
@@ -83,7 +83,7 @@ await MainDBITExtSupportService.create({
 
 ### Check 4: TypeScript compilation
 
-**Evidence:** `npx tsc --noEmit` passed with zero errors from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+**Evidence:** `npx tsc --noEmit` passed with zero errors from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 **Verdict:** ✅ **PASS**
 
@@ -108,9 +108,9 @@ await MainDBITExtSupportService.create({
 ## Evidence References
 
 - `audit/build_reviews/FIX-005_ITSSR_PIC_PERSISTENCE_FIX_REPORT.md` — Original fix evidence
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx` (lines 387, 487, 669, 1213–1262, 1544, 1672, 1680) — Source code
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts` (lines 163–164) — Service denormalization
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_support.Schema.json` (lines 413–424) — Schema confirmation
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/features/itssr/itssr-app.tsx` (lines 387, 487, 669, 1213–1262, 1544, 1672, 1680) — Source code
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts` (lines 163–164) — Service denormalization
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_support.Schema.json` (lines 413–424) — Schema confirmation
 - `npx tsc --noEmit` — TypeScript compilation passed
 
 ## Next Recommended Task

@@ -79,7 +79,7 @@ SFAR workflow stages include Draft, Pending Owner/HOD, Pending HOD, Pending IT, 
 
 ### Check 7: TypeScript compilation
 
-**Evidence:** `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+**Evidence:** `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 **Verdict:** PASS
 
@@ -111,9 +111,9 @@ This re-audit verifies the initial-submit status only. Broader SFAR approver act
 
 - `audit/build_reviews/FIX-001_SFAR_INITIAL_STATUS_FIX_REPORT.md`
 - `audit/build_reviews/FIX-026_SFAR_PERSISTENCE_RE_AUDIT.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/config/module-workflows.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/config/module-workflows.ts`
 
 ## Next Recommended Task
 

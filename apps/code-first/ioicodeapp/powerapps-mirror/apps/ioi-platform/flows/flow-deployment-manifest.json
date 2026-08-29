@@ -1,0 +1,152 @@
+{
+  "project": "IOI Domino to M365 Migration",
+  "environmentId": "Default-c6f6218b-5ff2-48b5-9114-f89da23caadb",
+  "powerAutomateCreateUrl": "https://make.powerautomate.com/environments/Default-c6f6218b-5ff2-48b5-9114-f89da23caadb/create",
+  "sharePointSite": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+  "sharePointSiteHR": "https://ioioi.sharepoint.com/sites/ioi-portal-hr",
+  "mainList": "MainDB_IT",
+  "mainListHR": "MainDB_HR",
+  "status": "local-definitions-ready-live-creation-pending",
+  "sourceDocuments": [
+    "design/m365-design/power-automate-design.md",
+    "analysis/workflow-analysis.md",
+    "analysis/hr-data-source-analysis.md",
+    "docs/04_WORKFLOW_APPROVAL_RULES.md",
+    "docs/central-form-reference.md",
+    "docs/implementation-plan.md"
+  ],
+  "flows": [
+    {
+      "phaseTask": "5.1",
+      "name": "IOI - EAF Multi-Stage Approval",
+      "file": "eaf-approval-flow-definition.json",
+      "priority": "P0",
+      "trigger": "MainDB_IT created or modified",
+      "formCodes": [
+        "EAF"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Approvals",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "@MailSend approval workflow"
+    },
+    {
+      "phaseTask": "5.2",
+      "name": "IOI - Generate Ticket ID",
+      "file": "generate-ticket-id.json",
+      "priority": "P0",
+      "trigger": "MainDB_IT created",
+      "formCodes": [
+        "*"
+      ],
+      "connectors": [
+        "SharePoint"
+      ],
+      "dominoReplacement": "INO SimpleAgent"
+    },
+    {
+      "phaseTask": "5.3",
+      "name": "IOI - ITSSR Category Routing",
+      "file": "itssr-category-routing-flow-definition.json",
+      "priority": "P1",
+      "trigger": "MainDB_IT created",
+      "formCodes": [
+        "ITSSR"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Microsoft 365 Users",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "ITSSR category routing"
+    },
+    {
+      "phaseTask": "5.4",
+      "name": "IOI - Hardware Inventory Audit Reminder",
+      "file": "hardware-inventory-audit-reminder-flow-definition.json",
+      "priority": "P2",
+      "trigger": "Monthly recurrence",
+      "formCodes": [
+        "HI"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "RemExpiry scheduled agent"
+    },
+    {
+      "phaseTask": "5.5",
+      "name": "IOI - PRF ISG Assignment",
+      "file": "prf-isg-assignment-flow-definition.json",
+      "priority": "P1",
+      "trigger": "MainDB_IT created or modified",
+      "formCodes": [
+        "PRF"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "PRF SET and HR agents"
+    },
+    {
+      "phaseTask": "5.6",
+      "name": "IOI - SAPCR Approval Chain",
+      "file": "sapcr-approval-chain-flow-definition.json",
+      "priority": "P1",
+      "trigger": "MainDB_IT created or modified",
+      "formCodes": [
+        "SAPCR"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Approvals",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "SAP and WB Change Request approval chain"
+    },
+    {
+      "phaseTask": "5.7",
+      "name": "IOI - HR SR Staff Requisition Approval",
+      "file": "sr-staff-requisition-approval-flow-definition.json",
+      "priority": "P1",
+      "trigger": "MainDB_HR created or modified",
+      "formCodes": [
+        "SR"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Approvals",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "@MailSend multi-stage approval for SR (Staff Requisition) - Replaces Domino buttons: Submit by Initiator, Approved/Rejected by HOD, Approved/Rejected by Div Head, Endorsed/Rejected by HR, Approved/Rejected by ED"
+    },
+    {
+      "phaseTask": "5.8",
+      "name": "IOI - HR Universal Form Submission & Routing",
+      "file": "hr-universal-form-submission-flow-definition.json",
+      "priority": "P2",
+      "trigger": "MainDB_HR created or modified",
+      "formCodes": [
+        "SR", "EEN", "AWHR", "PAF", "FWWPD", "FTCR", "CWR", "BSD", "CIR", "DRD",
+        "GDSN", "JD", "NDF", "ORGCHART", "OWP", "TMPU", "TNPRA",
+        "EPDU", "EPHR", "ESF", "HEALTHINFO", "HRAPR", "HRINFO", "INTERN",
+        "INTERVIEWDB", "PCNBkStf", "cancomp", "ContractorReg", "TyphoidVacc",
+        "UniformReq", "pcnjd", "LateComing", "manpowerReq", "NightVisit",
+        "PCNOrgChart", "AppTest", "SpVisit", "workins", "hostel", "PCNTND", "PCNDriver"
+      ],
+      "connectors": [
+        "SharePoint",
+        "Office 365 Outlook"
+      ],
+      "dominoReplacement": "Universal routing & notification for all HR form submissions. Replaces @MailSend doclink notifications across 42 HR Domino databases."
+    }
+  ],
+  "liveCreationBlockers": [
+    "Chrome/browser automation bridge exits before tab control is established.",
+    "PAC CLI commands time out before returning environment or version information."
+  ]
+}

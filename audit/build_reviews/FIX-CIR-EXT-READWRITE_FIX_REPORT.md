@@ -29,17 +29,17 @@ Date: 2026-06-02
 
 ## Evidence
 
-- Source requirements: `source_analysis/02_extracted_requirements/HR/SRC-HR-003_CIR_REQUIREMENTS.md`
-- Architecture decision: `source_analysis/09_reports/CIR_ARCHITECTURE_DECISION_UPDATE.md`
-- Schema validation: `source_analysis/06_sharepoint_design/CIR_SCHEMA_SYNC_VALIDATION_REPORT.md`
-- Exported schema: `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_hr_ext_cafeteria.Schema.json`
+- Source requirements: `analysis/source_analysis/02_extracted_requirements/HR/SRC-HR-003_CIR_REQUIREMENTS.md`
+- Architecture decision: `analysis/source_analysis/09_reports/CIR_ARCHITECTURE_DECISION_UPDATE.md`
+- Schema validation: `analysis/source_analysis/06_sharepoint_design/CIR_SCHEMA_SYNC_VALIDATION_REPORT.md`
+- Exported schema: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_hr_ext_cafeteria.Schema.json`
 - Updated files:
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbhr-ext-cafeteria-model.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/services/main-dbhr-ext-cafeteria-service.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/new.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/index.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/detail.tsx`
-- Verification: `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbhr-ext-cafeteria-model.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/services/main-dbhr-ext-cafeteria-service.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/new.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/index.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/detail.tsx`
+- Verification: `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Result
 

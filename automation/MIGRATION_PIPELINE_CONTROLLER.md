@@ -18,8 +18,8 @@ Before task selection, read these files:
 | `automation/MASTER_TASK_QUEUE.md` | Canonical task queue and task status |
 | `automation/BLOCKING_RULES.md` | Global build, source analysis, schema, and automation blockers |
 | `audit/05_fix_backlog/FIX_BACKLOG.md` | Fix status and failed re-audit evidence |
-| `source_analysis/09_reports/MASTER_MIGRATION_ROLLOUT_REGISTER.md` | Rollout-level active work and blockers |
-| `source_analysis/09_reports/HR_DEPARTMENT_PROGRESS_REGISTER.md` | HR baseline state and dependent build blockers |
+| `analysis/source_analysis/09_reports/MASTER_MIGRATION_ROLLOUT_REGISTER.md` | Rollout-level active work and blockers |
+| `analysis/source_analysis/09_reports/HR_DEPARTMENT_PROGRESS_REGISTER.md` | HR baseline state and dependent build blockers |
 
 If a required input is missing, stop and report the missing file. Do not select or execute a task.
 
@@ -106,7 +106,7 @@ Do not combine task types unless the selected task explicitly requires a registe
 
 Only modify files under the active app source path when the selected task type is `Fix` or `Build`:
 
-`ioicodeapp/powerapps-mirror/apps/ioi-platform/src/`
+`apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/`
 
 For all other task types, restrict changes to automation, audit, source analysis, mapping, design, or documentation files as required by the task.
 
@@ -140,13 +140,13 @@ Recommended report locations:
 
 | Task Type | Report Location |
 |---|---|
-| Extraction | `source_analysis/11_pdf_extraction_layer/extraction_batches/` |
-| Quality Review | `source_analysis/11_pdf_extraction_layer/quality_reviews/` |
-| Promotion | `source_analysis/09_reports/` |
-| Schema Generation / Validation | `source_analysis/06_sharepoint_design/` or `audit/08_reports/` |
+| Extraction | `analysis/source_analysis/11_pdf_extraction_layer/extraction_batches/` |
+| Quality Review | `analysis/source_analysis/11_pdf_extraction_layer/quality_reviews/` |
+| Promotion | `analysis/source_analysis/09_reports/` |
+| Schema Generation / Validation | `analysis/source_analysis/06_sharepoint_design/` or `audit/08_reports/` |
 | Build / Fix / Re-Audit | `audit/build_reviews/` or `audit/08_reports/` |
-| Progress Register Update | `source_analysis/09_reports/` |
-| Human Confirmation Question Update | `source_analysis/09_reports/HUMAN_CONFIRMATION_QUESTIONS.md` |
+| Progress Register Update | `analysis/source_analysis/09_reports/` |
+| Human Confirmation Question Update | `analysis/source_analysis/09_reports/HUMAN_CONFIRMATION_QUESTIONS.md` |
 
 ## Stop Conditions
 

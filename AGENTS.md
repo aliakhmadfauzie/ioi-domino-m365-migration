@@ -7,25 +7,25 @@
 | Agent | Location | Purpose |
 |-------|----------|---------|
 | `domino-migration-agent` | `.github/agents/domino-migration-agent.agent.md` | Domino → M365 migration specialist. Analyze DXL/XML, design SharePoint lists, build Power Apps, create flows. |
-| `code-app-architectV2` | `ioicodeapp/.github/agents/code-app-architectV2.agent.md` | Power Apps Code App Architect. React/Vite architecture, SharePoint integration, connector patterns. |
+| `code-app-architectV2` | `apps/code-first/ioicodeapp/.github/agents/code-app-architectV2.agent.md` | Power Apps Code App Architect. React/Vite architecture, SharePoint integration, connector patterns. |
 
 ## Active Instruction Files
 
 | File | Applies To | Content |
 |------|-----------|---------|
 | `.github/instructions/domino-migration.instructions.md` | All Domino migration tasks | 23-form inventory, hard rules, workflow specs, department lists |
-| `ioicodeapp/.github/copilot-instructions.md` | IOI Platform code changes | Screen/page patterns, critical rules, system field normalization, form analysis |
+| `apps/code-first/ioicodeapp/.github/copilot-instructions.md` | IOI Platform code changes | Screen/page patterns, critical rules, system field normalization, form analysis |
 
 ## Active Skills
 
 | Skill | Location | Purpose |
 |-------|----------|---------|
 | `domino-migration` | `.github/skills/domino-migration/SKILL.md` | DXL parsing, SharePoint type mappings, @Function → Power Fx reference, flow templates |
-| `domino-form-reader` | `ioicodeapp/.github/skills/domino-form-reader.md` | Domino form reading and analysis |
-| `add-datasource` | `ioicodeapp/.github/skills/add-datasource/` | Add data sources to code-first app |
-| `add-sharepoint` | `ioicodeapp/.github/skills/add-sharepoint/` | Add SharePoint list connections |
-| `automate-sharepoint-pnp` | `ioicodeapp/.github/skills/automate-sharepoint-pnp/` | SharePoint PnP PowerShell automation |
-| `create-code-app` | `ioicodeapp/.github/skills/create-code-app/` | Create new Power Apps code-first app |
+| `domino-form-reader` | `apps/code-first/ioicodeapp/.github/skills/domino-form-reader.md` | Domino form reading and analysis |
+| `add-datasource` | `apps/code-first/ioicodeapp/.github/skills/add-datasource/` | Add data sources to code-first app |
+| `add-sharepoint` | `apps/code-first/ioicodeapp/.github/skills/add-sharepoint/` | Add SharePoint list connections |
+| `automate-sharepoint-pnp` | `apps/code-first/ioicodeapp/.github/skills/automate-sharepoint-pnp/` | SharePoint PnP PowerShell automation |
+| `create-code-app` | `apps/code-first/ioicodeapp/.github/skills/create-code-app/` | Create new Power Apps code-first app |
 
 ## Required Reading (Before Any Change)
 
@@ -42,7 +42,7 @@
 
 ## Power Apps Code-First App
 
-- **Location**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/`
+- **Location**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`
 - **Dev server**: `npm run dev` (localhost:5173)
 - **Typecheck**: `npx tsc --noEmit`
 - **Build**: `npm run build`

@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "npm run dev",
             "options": {
-                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+                "cwd": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform"
             },
             "isBackground": true,
             "problemMatcher": [],
@@ -21,7 +21,7 @@
             "type": "shell",
             "command": "npx tsc --noEmit",
             "options": {
-                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+                "cwd": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform"
             },
             "group": "build",
             "problemMatcher": ["$tsc"],
@@ -36,7 +36,7 @@
             "type": "shell",
             "command": "npm run build",
             "options": {
-                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+                "cwd": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform"
             },
             "group": "build",
             "problemMatcher": ["$tsc"],
@@ -51,7 +51,7 @@
             "type": "shell",
             "command": "npm run lint",
             "options": {
-                "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform"
+                "cwd": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform"
             },
             "group": "build",
             "problemMatcher": [],

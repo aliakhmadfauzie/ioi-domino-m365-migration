@@ -13,7 +13,7 @@ Scope
 - DB/SharePoint: verify that target SharePoint list `MainDB_IT` (or canonical EAF list) contains the required internal column names.
 
 Plan
-1. Confirm SharePoint internal column names exist in `source_analysis/06_sharepoint_design` or via schema export. If missing, create schema ticket (not in this fix).
+1. Confirm SharePoint internal column names exist in `analysis/source_analysis/06_sharepoint_design` or via schema export. If missing, create schema ticket (not in this fix).
 2. Update service mapping (generated models) if internal names differ from generated model fields.
 3. Modify create/update payload in the EAF submit handlers to include `eAFClientID`, `eAFUserGroup`, `eAFHigherApproverEmail` (values derived from form inputs or routed logic).
 4. Add unit/compile check (run `npx tsc -p tsconfig.app.json --noEmit`) and local smoke test of EAF submit page if dev server available.

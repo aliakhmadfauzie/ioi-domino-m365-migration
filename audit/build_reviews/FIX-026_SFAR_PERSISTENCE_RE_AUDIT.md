@@ -65,7 +65,7 @@ The service maps `sFARAccessLevel`, `sFARFolderPath`, `sFARReviewedBy`, and `sFA
 
 ### Check 6: TypeScript compilation
 
-**Evidence:** `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+**Evidence:** `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 **Verdict:** PASS
 

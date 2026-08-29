@@ -22,7 +22,7 @@ This re-audit does not close `AUD-B003-PRF-002` / `FIX-040`; PRF status taxonomy
 | ExtAccess filter translation supports lookup path | PASS | `src/generated/services/main-dbit-ext-access-service.ts` maps `parentrecord` to `ParentID`; `translateOptions` rewrites filter/order fields before calling the generated client, so `parentRecord/ID` becomes `ParentID/ID`. |
 | PRF workflow writes extension fields | PASS | `src/hooks/use-prf-workflow.ts` builds `extPatch` values including PRF status, date, ISG/SAP, rating, comments, and RFC fields, then calls `MainDBITExtAccessService.update(extAccessRecordId, extPatch)` when a child ID is present. |
 | Generated validator accepts PRF workflow fields | PASS | `src/generated/validators/main-dbitext-access-validator.ts` validates `parentRecord`, `pRFStatus1`, `pRFFinalStatus`, `pRFDateSent`, `pRFRating`, and `pRFRFC`. |
-| TypeScript compile | PASS | `npx tsc --noEmit` completed with exit code 0 in `ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
+| TypeScript compile | PASS | `npx tsc --noEmit` completed with exit code 0 in `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
 
 ## Decision
 

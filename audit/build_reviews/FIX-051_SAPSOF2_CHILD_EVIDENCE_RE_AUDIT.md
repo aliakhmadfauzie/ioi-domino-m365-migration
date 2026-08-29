@@ -20,10 +20,10 @@ Result: Complete - Passed
 
 Reviewed the SAPSOF2 submit, list/detail, and generated service code paths:
 
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/approval-records-service.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/it-sapsof-test-evidence-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapsof2/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/approval-records-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/it-sapsof-test-evidence-service.ts`
 
 ## Re-Audit Checks
 
@@ -38,7 +38,7 @@ Reviewed the SAPSOF2 submit, list/detail, and generated service code paths:
 | SAPSOF2 list/detail reads approval child rows | Passed | `index.tsx` uses `useApprovalRecordsList()`, joins by SAPSOF2 `FormCode` and parent `FormID`, maps KU/BPO slots, and falls back to remarks when no child rows exist |
 | SAPSOF2 list/detail reads test evidence child rows | Passed | `index.tsx` uses `useITSAPSOFTestEvidenceList()`, joins by `ParentFormCode` and parent lookup, maps test rows, and falls back to remarks when no child rows exist |
 | SAPSOF2 page still avoids sample data | Passed | `rg` found no `SAMPLE_DATA` in `src/pages/it/forms/sapsof2`; database view uses generated hooks |
-| TypeScript verification | Passed | `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform` |
+| TypeScript verification | Passed | `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform` |
 
 ## Result
 

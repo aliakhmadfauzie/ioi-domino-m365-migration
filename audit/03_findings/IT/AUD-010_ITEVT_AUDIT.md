@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ite/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ite/new.tsx`
 - Code/formula/section: Dynamic renderer call
 - What was found: The ITE new page renders the `IAL3` form configuration.
 - Why it matters: New submissions may be stored with IAL3, not ITEVT.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ite/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/ite/index.tsx`
 - Code/formula/section: MainDB_IT list filter
 - What was found: The ITE list reads `formcode eq 'ITEVT'`.
 - Why it matters: New and list paths use different form codes.

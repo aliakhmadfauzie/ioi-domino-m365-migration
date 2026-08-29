@@ -52,7 +52,7 @@ You are helping migrate HCL/Lotus Domino applications to Microsoft 365 for IOI G
 | `evidence-reconciliation.md` | Cross-reference between DXL evidence and PDF evidence |
 | `workflow-analysis.md` | Analysis of Domino workflows |
 
-## Design Files (in `m365-design/`)
+## Design Files (in `design/m365-design/`)
 
 | File | Purpose |
 |------|---------|

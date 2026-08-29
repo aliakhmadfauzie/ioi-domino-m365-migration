@@ -17,12 +17,12 @@ The re-audit found one service-layer gap in the submitted fix and applied a narr
 - `audit/03_findings/IT/AUD-009_ITDR2_AUDIT.md`
 - `audit/build_reviews/FIX-036_ITDR2_LIST_DETAIL_FIX_REPORT.md`
 - `docs/central-form-reference.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr2/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr2/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/routes/it-routes.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-support-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/validators/main-dbitext-support-validator.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr2/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr2/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/routes/it-routes.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-support-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/validators/main-dbitext-support-validator.ts`
 
 ## Checks
 

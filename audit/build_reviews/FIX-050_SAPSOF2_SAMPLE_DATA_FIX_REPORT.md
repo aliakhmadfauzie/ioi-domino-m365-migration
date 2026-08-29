@@ -15,7 +15,7 @@ Result: Fixed Pending Re-Audit
 - Dependency check: no direct dependency listed for `TASK-FIX-050`.
 - Blocking check: CIR/HR build blockers remain isolated to HR builds; SAPSOF2 sample-data replacement is an IT P0 fix and is not blocked by pending human/business responses.
 - Evidence check: `audit/03_findings/IT/AUD-046_SAPSOF2_AUDIT.md` identifies `AUD-B003-SAPSOF2-002`, where the SAPSOF2 database page renders hardcoded `SAMPLE_DATA` instead of submitted SharePoint records.
-- Scope check: selected task is Fix mode, so app source edits under `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/` are allowed.
+- Scope check: selected task is Fix mode, so app source edits under `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/` are allowed.
 
 ## Work Performed
 
@@ -35,7 +35,7 @@ This fix intentionally does not claim child approval/test-evidence persistence i
 |---|---|
 | `audit/03_findings/IT/AUD-046_SAPSOF2_AUDIT.md` | Confirms SAPSOF2 list/database view used sample data. |
 | `src/pages/it/forms/sapsof2/index.tsx` | Now uses `useMainDBITList` and `MainDBIT` records instead of `SAMPLE_DATA`. |
-| `npx tsc --noEmit` | Passed with exit code 0 in `ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
+| `npx tsc --noEmit` | Passed with exit code 0 in `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
 
 ## Result
 

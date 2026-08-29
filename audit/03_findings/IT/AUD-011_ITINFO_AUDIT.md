@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/new.tsx`
 - Code/formula/section: Parent and extension create logic
 - What was found: The form creates MainDB_IT with `formcode: 'ITINFO'`, `currentStatus: 'CurrentstatusKey1'`, and then creates ExtDocs with `parentFormCode: 'ITINFO'`.
 - Why it matters: Structured extension data is written, but the status maps to Approved.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/index.tsx`
 - Code/formula/section: List read logic
 - What was found: The list reads MainDB_IT records where `formcode eq 'ITINFO'` and parses remarks.
 - Why it matters: ExtDocs data written by the form is not proven in the list read path.
@@ -59,7 +59,7 @@
 ## 5. SharePoint Field Mapping
 
 - Source: Generated docs extension model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-docs-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-ext-docs-model.ts`
 - Code/formula/section: ITI fields and `parentFormCode`
 - What was found: The docs extension model contains ITI/ITINFO fields and parent form relationship.
 - Why it matters: Extension data should be read wherever it is written.
@@ -67,7 +67,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/index.tsx`
 - Code/formula/section: MainDB_IT query and remarks mapping
 - What was found: ITINFO list reads MainDB_IT parent records and parses remarks.
 - Why it matters: Extension fields created on submit may be unavailable to users in list/detail views.
@@ -75,7 +75,7 @@
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/new.tsx`
 - Code/formula/section: Submit payloads
 - What was found: ITINFO writes both MainDB_IT and ExtDocs records.
 - Why it matters: Write logic is more complete than read logic, creating a read/write mismatch.
@@ -83,7 +83,7 @@
 ## 8. Validation Rules
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/itinfo/new.tsx`
 - Code/formula/section: Required validation
 - What was found: Required validation exists before submission.
 - Why it matters: The validation must be reconciled with source and schema requirements.
@@ -107,7 +107,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: Status model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
 - Code/formula/section: Status code mapping
 - What was found: `CurrentstatusKey1` maps to Approved.
 - Why it matters: A non-approval information record should not carry an approval status unless source rules define that behavior.

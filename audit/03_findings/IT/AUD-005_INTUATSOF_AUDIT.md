@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: Repository route evidence
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/`
 - Code/formula/section: Directory listing
 - What was found: No dedicated `intuatsof` route directory was found.
 - Why it matters: The app file for a direct INTUATSOF implementation is missing.
 
 - Source: Dynamic route fallback
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/[formCode]/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/[formCode]/new.tsx`
 - Code/formula/section: `getFormByCode(formCode)`
 - What was found: A dynamic fallback can render configured forms if `getFormByCode` returns a config.
 - Why it matters: The audit did not prove INTUATSOF is available through active app navigation or a dedicated implementation.

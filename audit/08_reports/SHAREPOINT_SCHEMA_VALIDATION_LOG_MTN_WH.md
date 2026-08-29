@@ -8,9 +8,9 @@ Validated the local SharePoint schema exports for:
 
 | Data Source Key | List Title | Site URL | Schema File |
 |---|---|---|---|
-| maindb_log | MainDB_LOG | https://ioioi.sharepoint.com/sites/ioi-portal-log | `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_log.Schema.json` |
-| maindb_mtn | MainDB_MTN | https://ioioi.sharepoint.com/sites/ioi-portal-mtn | `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_mtn.Schema.json` |
-| maindb_wh | MainDB_WH | https://ioioi.sharepoint.com/sites/ioi-portal-wh | `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_wh.Schema.json` |
+| maindb_log | MainDB_LOG | https://ioioi.sharepoint.com/sites/ioi-portal-log | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_log.Schema.json` |
+| maindb_mtn | MainDB_MTN | https://ioioi.sharepoint.com/sites/ioi-portal-mtn | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_mtn.Schema.json` |
+| maindb_wh | MainDB_WH | https://ioioi.sharepoint.com/sites/ioi-portal-wh | `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_wh.Schema.json` |
 
 ## Validation Result
 
@@ -23,19 +23,19 @@ Validated the local SharePoint schema exports for:
 ## Evidence
 
 - Source: Local SharePoint schema export
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_log.Schema.json`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_log.Schema.json`
 - Code/formula/section: `schema.items.properties`
 - What was found: `MainDB_LOG` exposes 194 column/property definitions and required field `Title`.
 - Why it matters: LOG field-level audits can use this schema evidence; the prior zero-column blocker was invalid.
 
 - Source: Local SharePoint schema export
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_mtn.Schema.json`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_mtn.Schema.json`
 - Code/formula/section: `schema.items.properties`
 - What was found: `MainDB_MTN` exposes 198 column/property definitions and required field `Title`.
 - Why it matters: MTN field-level audits can use this schema evidence; the prior zero-column blocker was invalid.
 
 - Source: Local SharePoint schema export
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_wh.Schema.json`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_wh.Schema.json`
 - Code/formula/section: `schema.items.properties`
 - What was found: `MainDB_WH` exposes 108 column/property definitions and required field `Title`.
 - Why it matters: WH field-level audits can use this schema evidence; the prior zero-column blocker was invalid.

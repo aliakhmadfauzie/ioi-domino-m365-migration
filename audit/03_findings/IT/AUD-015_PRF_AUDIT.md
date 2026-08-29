@@ -37,19 +37,19 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/new.tsx`
 - Code/formula/section: Submit handler
 - What was found: New PRF records are created with `formcode: 'PRF'`, draft status `CurrentstatusKey3`, submit status `CurrentstatusKey27`, and `workflowstage: 1`.
 - Why it matters: Submit enters a pending status, but workflow stage and child workflow records need reconciliation.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/detail.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/detail.tsx`
 - Code/formula/section: ExtAccess lookup and workflow actions
 - What was found: Detail logic looks for ExtAccess with `parentFormCode eq 'PRF' and parentRecord/ID eq ${record.id}` and calls PRF workflow actions.
 - Why it matters: Detail expects extension workflow data that the new submit path did not prove it creates.
 
 - Source: Workflow hook
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-prf-workflow.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/hooks/use-prf-workflow.ts`
 - Code/formula/section: PRF transition map
 - What was found: PRF workflow maps Domino-like states to status keys and writes PRF workflow fields to ExtAccess when an extension record exists.
 - Why it matters: Workflow support exists but depends on a child record ID.
@@ -69,7 +69,7 @@ PRF source field count is supported by `analysis/evidence-reconciliation.md` and
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/index.tsx`
 - Code/formula/section: MainDB_IT list filter
 - What was found: PRF list reads `formcode eq 'PRF'` and maps MainDB_IT PRF fields.
 - Why it matters: Parent read logic exists.
@@ -77,7 +77,7 @@ PRF source field count is supported by `analysis/evidence-reconciliation.md` and
 ## 7. Write Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/prf/new.tsx`
 - Code/formula/section: MainDB_IT create payload
 - What was found: New PRF writes MainDB_IT parent fields and remarks, but no ExtAccess child create was evidenced in the new submit path.
 - Why it matters: Workflow detail actions expect ExtAccess workflow fields.

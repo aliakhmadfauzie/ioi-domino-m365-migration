@@ -11,7 +11,7 @@ Previous Fix: `TASK-FIX-014` — Changed SAPDRP submit from `currentStatus: 'Cur
 
 ### Check 1: Submit payload uses `CurrentstatusKey4` (Sent)
 
-**File**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
+**File**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/sapdrp/new.tsx`
 **Evidence** (line 75):
 ```typescript
 currentStatus: 'CurrentstatusKey4' as MainDBITCurrentstatusKey,
@@ -36,7 +36,7 @@ workflowstage: 1,
 
 ### Check 4: TypeScript compiles cleanly
 
-**Command**: `npx tsc --noEmit` from `ioicodeapp/powerapps-mirror/apps/ioi-platform`
+**Command**: `npx tsc --noEmit` from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`
 **Result**: ✅ PASS — Zero errors.
 
 ## Overall Result

@@ -19,9 +19,9 @@
 - Required evidence files exist:
   - `audit/findings/batch-01/eaf.md`
   - `audit/05_fix_backlog/FIX_BACKLOG.md`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
 - Blocking rules permit this task because it resolves a P0 field-mapping/data-save risk and does not start a new build.
 
 ## Work Performed
@@ -57,7 +57,7 @@ Additional checks:
   - `EAF_DDApp_Status`
   - `EAF_ITManager_Status`
   - `EAF_ITCompleted_By`
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Result
 

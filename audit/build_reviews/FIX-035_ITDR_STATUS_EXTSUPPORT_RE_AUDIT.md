@@ -10,10 +10,10 @@ Result: Passed
 ## Evidence Reviewed
 
 - `audit/03_findings/IT/AUD-040_ITDR_AUDIT.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-support-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-support-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-support-service.ts`
 - `audit/build_reviews/FIX-035_ITDR_STATUS_EXTSUPPORT_FIX_REPORT.md`
 
 ## Re-Audit Checks

@@ -54,7 +54,7 @@ This checkpoint records the P1 fix evidence separately because `FIX-001` remaine
 
 - Static evidence confirms `CurrentstatusKey49` = `Pending Owner`.
 - Static evidence confirms the SFAR submit path no longer uses `CurrentstatusKey1` for initial submission.
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Result
 

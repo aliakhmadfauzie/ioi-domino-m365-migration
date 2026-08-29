@@ -1,0 +1,451 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "flowName": "IOI - EAF Multi-Stage Approval",
+    "projectTask": "Phase 5.1",
+    "sourceDocs": [
+      "design/m365-design/power-automate-design.md",
+      "analysis/workflow-analysis.md",
+      "docs/04_WORKFLOW_APPROVAL_RULES.md",
+      "docs/implementation-plan.md"
+    ],
+    "dominoReplacement": "@MailSend approval workflow for EAF VPN/Citrix requests",
+    "notes": "Five-stage approval flow for EAF items in MainDB_IT and MainDB_IT_Ext_Access."
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "sharepointonline": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+          "connectionName": "sharepointonline",
+          "id": "/subscriptions/.../providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+        },
+        "office365": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+          "connectionName": "office365",
+          "id": "/subscriptions/.../providers/Microsoft.PowerApps/apis/shared_office365"
+        },
+        "approvals": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_approvals",
+          "connectionName": "approvals",
+          "id": "/subscriptions/.../providers/Microsoft.PowerApps/apis/shared_approvals"
+        }
+      }
+    },
+    "$authentication": {
+      "value": {
+        "type": "Raw",
+        "scheme": "Bearer",
+        "parameter": "@{workflow()['tags']['authentication']}"
+      }
+    }
+  },
+  "triggers": {
+    "When_an_item_is_created_or_modified": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetOnUpdatedItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT"
+        }
+      }
+    }
+  },
+  "actions": {
+    "Initialize_flow_variables": {
+      "type": "InitializeVariable",
+      "inputs": {
+        "variables": [
+          {
+            "name": "FormCode",
+            "type": "string",
+            "value": "@triggerBody()?['FormCode']"
+          },
+          {
+            "name": "CurrentStatus",
+            "type": "string",
+            "value": "@triggerBody()?['CurrentStatus']"
+          },
+          {
+            "name": "ItemID",
+            "type": "integer",
+            "value": "@triggerBody()?['ID']"
+          }
+        ]
+      },
+      "runAfter": {}
+    },
+    "Check_if_EAF_form": {
+      "type": "Condition",
+      "expression": {
+        "and": [
+          {
+            "equals": [
+              "@variables('FormCode')",
+              "EAF"
+            ]
+          }
+        ]
+      },
+      "actions": {
+        "Switch_on_CurrentStatus": {
+          "type": "Switch",
+          "expression": "@variables('CurrentStatus')",
+          "cases": {
+            "Submitted": {
+              "case": "Submitted",
+              "actions": {
+                "Get_HOD_Approver": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "sharepointonline",
+                      "operationId": "GetItem"
+                    },
+                    "parameters": {
+                      "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                      "table": "MainDB_IT_Ext_Access",
+                      "id": "@triggerBody()?['ID']"
+                    }
+                  },
+                  "runAfter": {}
+                },
+                "Send_approval_to_HOD": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "approvals",
+                      "operationId": "CreateApproval"
+                    },
+                    "parameters": {
+                      "approvalType": "FirstToRespond",
+                      "assignedTo": "@body('Get_HOD_Approver')?['eAFDeptHeadEmail']",
+                      "item": "@{variables('ItemID')}",
+                      "title": "EAF - External Access Request: @{triggerBody()?['Title']}",
+                      "details": "A new External Access Form (VPN/Citrix) requires your approval.\n\n**Company:** @{triggerBody()?['Company']}\n**Target User:** @{body('Get_HOD_Approver')?['eAFTargetUserEmail']}\n**Application:** @{body('Get_HOD_Approver')?['eAFApplication']}\n**System:** @{body('Get_HOD_Approver')?['eAFSystemName']}\n**Justification:** @{body('Get_HOD_Approver')?['eAFJustification']}\n**CC:** @{body('Get_HOD_Approver')?['eAFCC']}",
+                      "primaryOutput": "Approved/Rejected"
+                    }
+                  },
+                  "runAfter": {
+                    "Get_HOD_Approver": [
+                      "SUCCEEDED"
+                    ]
+                  }
+                },
+                "Condition_HOD_approval_result": {
+                  "type": "Condition",
+                  "expression": {
+                    "equals": [
+                      "@body('Send_approval_to_HOD')?['outcome']",
+                      "Approve"
+                    ]
+                  },
+                  "actions": {
+                    "Update_status_to_HOD_Approved": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "sharepointonline",
+                          "operationId": "UpdateItem"
+                        },
+                        "parameters": {
+                          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                          "table": "MainDB_IT",
+                          "id": "@variables('ItemID')",
+                          "item": {
+                            "CurrentStatus": "HODApproved",
+                            "WorkflowStage": 2,
+                            "CurrentAction": "HOD Approved by @{body('Send_approval_to_HOD')?['responder']?['email']}",
+                            "ApprovedBy_Email": "@body('Send_approval_to_HOD')?['responder']?['email']",
+                            "ApprovedBy_Name": "@body('Send_approval_to_HOD')?['responder']?['displayName']",
+                            "HODApproverRemarks": "HOD Approved by @{body('Send_approval_to_HOD')?['responder']?['email']} on @{utcNow()}\n@{body('Send_approval_to_HOD')?['comments']}",
+                            "HODApprovedBy": "@body('Send_approval_to_HOD')?['responder']?['email']",
+                            "HODApprovedDate": "@utcNow()"
+                          }
+                        }
+                      },
+                      "runAfter": {}
+                    },
+                    "Send_confirmation_to_requestor_HOD_approved": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "office365",
+                          "operationId": "SendEmail"
+                        },
+                        "parameters": {
+                          "to": "@triggerBody()?['RequestorEmail']",
+                          "cc": "@{body('Get_HOD_Approver')?['eAFCC']}",
+                          "subject": "EAF Request @{triggerBody()?['Title']} - Approved by HOD",
+                          "body": "Your External Access Request has been approved by HOD.\n\nIt will now be routed for COO/Director approval."
+                        }
+                      },
+                      "runAfter": {
+                        "Update_status_to_HOD_Approved": [
+                          "SUCCEEDED"
+                        ]
+                      }
+                    },
+                    "Check_isPCN_for_routing": {
+                      "type": "Condition",
+                      "expression": {
+                        "equals": [
+                          "@triggerBody()?['IsPCN']",
+                          "Yes"
+                        ]
+                      },
+                      "actions": {
+                        "Route_to_COO": {
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "approvals",
+                              "operationId": "CreateApproval"
+                            },
+                            "parameters": {
+                              "approvalType": "FirstToRespond",
+                              "assignedTo": "@{body('Get_HOD_Approver')?['eAFHigherApproverEmail']}",
+                              "item": "COO Approval for @{variables('ItemID')}",
+                              "title": "EAF - COO Approval Required: @{triggerBody()?['Title']}",
+                              "details": "This External Access request requires COO approval.\n\n**Company:** @{triggerBody()?['Company']}\n**Route:** PanCen (PCN)"
+                            }
+                          },
+                          "runAfter": {}
+                        }
+                      },
+                      "else": {
+                        "actions": {
+                          "Route_to_Director": {
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "approvals",
+                                "operationId": "CreateApproval"
+                              },
+                              "parameters": {
+                                "approvalType": "FirstToRespond",
+                                "assignedTo": "@{body('Get_HOD_Approver')?['eAFHigherApproverEmail']}",
+                                "item": "Director Approval for @{variables('ItemID')}",
+                                "title": "EAF - Director Approval Required: @{triggerBody()?['Title']}",
+                                "details": "This External Access request requires Division Director approval."
+                              }
+                            },
+                            "runAfter": {}
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Send_confirmation_to_requestor_HOD_approved": [
+                          "SUCCEEDED"
+                        ]
+                      }
+                    }
+                  },
+                  "else": {
+                    "actions": {
+                      "Update_status_to_HOD_Rejected": {
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "sharepointonline",
+                            "operationId": "UpdateItem"
+                          },
+                          "parameters": {
+                            "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                            "table": "MainDB_IT",
+                            "id": "@variables('ItemID')",
+                          "item": {
+                            "CurrentStatus": "HODRejected",
+                              "WorkflowStage": 0,
+                              "CurrentAction": "HOD Rejected by @{body('Send_approval_to_HOD')?['responder']?['email']}",
+                              "ApprovedBy_Email": "@body('Send_approval_to_HOD')?['responder']?['email']",
+                              "ApprovedBy_Name": "@body('Send_approval_to_HOD')?['responder']?['displayName']",
+                              "HODApproverRemarks": "HOD Rejected by @{body('Send_approval_to_HOD')?['responder']?['email']} on @{utcNow()}\n@{body('Send_approval_to_HOD')?['comments']}",
+                              "HODRemarks": "@{body('Send_approval_to_HOD')?['comments']}"
+                            }
+                          }
+                        },
+                        "runAfter": {}
+                      },
+                      "Send_rejection_email": {
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "office365",
+                            "operationId": "SendEmail"
+                          },
+                          "parameters": {
+                            "to": "@triggerBody()?['RequestorEmail']",
+                            "subject": "EAF Request @{triggerBody()?['Title']} - Rejected by HOD",
+                            "body": "Your External Access Request has been rejected by HOD.\n\n**Reason:** @{body('Send_approval_to_HOD')?['comments']}"
+                          }
+                        },
+                        "runAfter": {
+                          "Update_status_to_HOD_Rejected": [
+                            "SUCCEEDED"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Send_approval_to_HOD": [
+                      "SUCCEEDED"
+                    ]
+                  }
+                }
+              }
+            },
+            "HODApproved": {
+              "case": "HODApproved",
+              "actions": {
+                "Process_COO_Director_approval": {
+                  "type": "Condition",
+                  "expression": {
+                    "equals": [
+                      "@body('Send_approval_to_COO_Director')?['outcome']",
+                      "Approve"
+                    ]
+                  },
+                  "actions": {
+                    "Route_to_IT_Manager": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "approvals",
+                          "operationId": "CreateApproval"
+                        },
+                        "parameters": {
+                          "approvalType": "FirstToRespond",
+                          "assignedTo": "itmanager@ioi.com",
+                          "item": "IT Manager Approval for @{variables('ItemID')}",
+                          "title": "EAF - IT Manager Approval Required",
+                          "details": "HOD and COO/Director have approved. IT Manager review required."
+                        }
+                      },
+                      "runAfter": {}
+                    }
+                  },
+                  "else": {
+                    "actions": {
+                      "Update_status_Rejected_by_COO_Director": {
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "sharepointonline",
+                            "operationId": "UpdateItem"
+                          },
+                          "parameters": {
+                            "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                            "table": "MainDB_IT",
+                            "id": "@variables('ItemID')",
+                          "item": {
+                            "CurrentStatus": "DirectorRejected",
+                              "WorkflowStage": 0,
+                              "CurrentAction": "Director/COO Rejected by @{body('Send_approval_to_COO_Director')?['responder']?['email']}",
+                              "ApprovedBy_Email": "@body('Send_approval_to_COO_Director')?['responder']?['email']",
+                              "ApprovedBy_Name": "@body('Send_approval_to_COO_Director')?['responder']?['displayName']",
+                              "HODApproverRemarks": "Director/COO Rejected by @{body('Send_approval_to_COO_Director')?['responder']?['email']} on @{utcNow()}\n@{body('Send_approval_to_COO_Director')?['comments']}",
+                              "DirectorRemarks": "@{body('Send_approval_to_COO_Director')?['comments']}"
+                            }
+                          }
+                        },
+                        "runAfter": {}
+                      }
+                    }
+                  },
+                  "runAfter": {}
+                }
+              }
+            },
+            "ITManagerApproved": {
+              "case": "ITManagerApproved",
+              "actions": {
+                "Route_to_IT_Provisioning": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "approvals",
+                      "operationId": "CreateApproval"
+                    },
+                    "parameters": {
+                      "approvalType": "FirstToRespond",
+                      "assignedTo": "itprovisioning@ioi.com",
+                      "item": "IT Provisioning for @{variables('ItemID')}",
+                      "title": "EAF - IT Provisioning Required",
+                      "details": "All approvals received. IT provisioning can proceed."
+                    }
+                  },
+                  "runAfter": {}
+                }
+              }
+            },
+            "ITProvisioned": {
+              "case": "ITProvisioned",
+              "actions": {
+                "Complete_workflow": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "sharepointonline",
+                      "operationId": "UpdateItem"
+                    },
+                    "parameters": {
+                      "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+                      "table": "MainDB_IT",
+                      "id": "@variables('ItemID')",
+                      "item": {
+                        "CurrentStatus": "Completed",
+                        "WorkflowStage": 5,
+                        "CurrentAction": "IT Provisioning Completed",
+                        "HODApproverRemarks": "IT Provisioning completed on @{utcNow()}",
+                        "CompletedDate": "@utcNow()"
+                      }
+                    }
+                  },
+                  "runAfter": {}
+                },
+                "Send_completion_email": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "office365",
+                      "operationId": "SendEmail"
+                    },
+                    "parameters": {
+                      "to": "@triggerBody()?['RequestorEmail']",
+                      "cc": "@{body('Get_HOD_Approver')?['eAFCC']}",
+                      "subject": "EAF Request @{triggerBody()?['Title']} - Completed",
+                      "body": "Your External Access Request has been fully processed and provisioned."
+                    }
+                  },
+                  "runAfter": {
+                    "Complete_workflow": [
+                      "SUCCEEDED"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "actions": {}
+          }
+        }
+      },
+      "else": {
+        "actions": {}
+      },
+      "runAfter": {
+        "Initialize_flow_variables": [
+          "SUCCEEDED"
+        ]
+      }
+    }
+  }
+}

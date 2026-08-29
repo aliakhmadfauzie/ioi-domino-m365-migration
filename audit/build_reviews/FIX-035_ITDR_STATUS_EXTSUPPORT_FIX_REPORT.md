@@ -19,12 +19,12 @@ Status: Fixed Pending Re-Audit
 
 ## Fix Applied
 
-- Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/new.tsx`.
+- Updated `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/new.tsx`.
   - Changed initial submit status from `CurrentstatusKey1` (`Approved`) to `CurrentstatusKey4` (`Sent`) for the no-approval report submission.
   - Continued creating the linked `MainDB_IT_Ext_Support` child row.
   - Added `parentSite: 'PRAI'` to the child record.
   - Trimmed submitted text values and disabled submit while either parent or child create is pending.
-- Updated `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/index.tsx`.
+- Updated `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itdr/index.tsx`.
   - Added `useMainDBITExtSupportList` read for `parentFormCode eq 'ITDAILYRPT'`.
   - Joined ExtSupport rows to parent `MainDB_IT` rows by parent lookup ID, with parent title fallback.
   - Mapped list/detail fields to prefer ExtSupport activity type, category, date range, venue, and participants.
@@ -32,7 +32,7 @@ Status: Fixed Pending Re-Audit
 
 ## Verification
 
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## Residual Scope
 

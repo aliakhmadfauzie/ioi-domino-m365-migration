@@ -37,13 +37,13 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/srl/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/srl/new.tsx`
 - Code/formula/section: Dynamic renderer call
 - What was found: The SRL new page renders the `IAL1` form configuration.
 - Why it matters: New records may use IAL1 as FormCode, not SVRREBOOT.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/srl/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/srl/index.tsx`
 - Code/formula/section: MainDB_IT list filter
 - What was found: The SRL list reads records where `formcode eq 'SVRREBOOT'`.
 - Why it matters: New and list paths use different form codes.

@@ -9,7 +9,7 @@
 **Auditor:** AI Code Review (Domino → M365 Migration Agent)
 **App:** IOI Acidchem Enterprise Platform - v2
 **App ID:** `26fddd33-46a8-43ae-a1f2-e90fa3b003bf`
-**Repository:** `ioicodeapp/powerapps-mirror/apps/ioi-platform`
+**Repository:** `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`
 
 ---
 

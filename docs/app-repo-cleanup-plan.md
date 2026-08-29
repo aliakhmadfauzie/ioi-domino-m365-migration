@@ -1,7 +1,7 @@
 # Power Apps Code-First App Repo — Cleanup & Alignment Plan
 
 > **Generated**: 2026-05-31
-> **App Location**: `ioicodeapp/powerapps-mirror/apps/ioi-platform/`
+> **App Location**: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/`
 > **App Type**: Power Apps new code app (code-first) — React 19 + TypeScript + Vite + shadcn/ui
 > **Total Files Scanned**: ~950 (pages, components, services, models, routes, form schemas)
 > **Status**: ⚠️ Multiple duplicates and conflicts found — cleanup recommended

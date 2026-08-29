@@ -4,7 +4,7 @@
   "Mode": "dry-run",
   "CleanupRequested": false,
   "TesterEmail": "alimigration@ioioi.onmicrosoft.com",
-  "MasterRegister": "source_analysis/10_master_app_sources/MASTER_SHAREPOINT_DESIGN_REGISTER.md",
+  "MasterRegister": "analysis/source_analysis/10_master_app_sources/MASTER_SHAREPOINT_DESIGN_REGISTER.md",
   "Targets": [
     {
       "Department": "FIN",

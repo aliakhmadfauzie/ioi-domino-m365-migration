@@ -1,0 +1,132 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "flowName": "IOI - Hardware Inventory Audit Reminder",
+    "projectTask": "Phase 5.4",
+    "sourceDocs": [
+      "design/m365-design/power-automate-design.md",
+      "analysis/workflow-analysis.md",
+      "docs/implementation-plan.md"
+    ],
+    "dominoReplacement": "Hardware Inventory RemExpiry scheduled reminder agent",
+    "notes": "Monthly reminder for HI records that have not been audited within six months."
+  },
+  "parameters": {
+    "$connections": {
+      "value": {
+        "sharepointonline": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+          "connectionName": "sharepointonline",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+        },
+        "office365": {
+          "connectionId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+          "connectionName": "office365",
+          "id": "/providers/Microsoft.PowerApps/apis/shared_office365"
+        }
+      }
+    }
+  },
+  "triggers": {
+    "Monthly_recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+        "frequency": "Month",
+        "interval": 1,
+        "timeZone": "Singapore Standard Time",
+        "schedule": {
+          "hours": [
+            8
+          ],
+          "minutes": [
+            0
+          ]
+        }
+      }
+    }
+  },
+  "actions": {
+    "Get_HI_items_due_for_audit": {
+      "type": "OpenApiConnection",
+      "inputs": {
+        "host": {
+          "connectionName": "sharepointonline",
+          "operationId": "GetItems"
+        },
+        "parameters": {
+          "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+          "table": "MainDB_IT",
+          "$filter": "FormCode eq 'HI' and CurrentStatus ne 'Retired'",
+          "$orderby": "Modified asc"
+        }
+      },
+      "runAfter": {}
+    },
+    "Filter_records_older_than_six_months": {
+      "type": "Query",
+      "inputs": {
+        "from": "@body('Get_HI_items_due_for_audit')?['value']",
+        "where": "@lessOrEquals(coalesce(item()?['LastAuditDate'], item()?['Modified']), addMonths(utcNow(), -6))"
+      },
+      "runAfter": {
+        "Get_HI_items_due_for_audit": [
+          "SUCCEEDED"
+        ]
+      }
+    },
+    "For_each_due_asset": {
+      "type": "Foreach",
+      "foreach": "@body('Filter_records_older_than_six_months')",
+      "actions": {
+        "Send_audit_reminder": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "office365",
+              "operationId": "SendEmailV2"
+            },
+            "parameters": {
+              "emailMessage/To": "@coalesce(items('For_each_due_asset')?['AssignedToEmail'], 'itasset@ioi.com')",
+              "emailMessage/Subject": "Hardware inventory audit due: @{items('For_each_due_asset')?['Title']}",
+              "emailMessage/Body": "The hardware inventory record below is due for audit.<br><br><b>Asset:</b> @{items('For_each_due_asset')?['Title']}<br><b>Last audit:</b> @{coalesce(items('For_each_due_asset')?['LastAuditDate'], items('For_each_due_asset')?['Modified'])}<br><br>Please update the HI record after verification.",
+              "emailMessage/Importance": "Normal"
+            }
+          },
+          "runAfter": {}
+        },
+        "Create_follow_up_item": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "sharepointonline",
+              "operationId": "PostItem"
+            },
+            "parameters": {
+              "dataset": "https://ioioi.sharepoint.com/sites/ioi-portal-it",
+              "table": "MainDB_IT",
+              "item": {
+                "Title": "HI-AUDIT-FOLLOWUP-@{items('For_each_due_asset')?['ID']}",
+                "FormCode": "ITSSR",
+                "CurrentStatus": "Submitted",
+                "RequestType": "Hardware Audit Follow-up",
+                "ParentItemId": "@items('For_each_due_asset')?['ID']"
+              }
+            }
+          },
+          "runAfter": {
+            "Send_audit_reminder": [
+              "SUCCEEDED",
+              "FAILED"
+            ]
+          }
+        }
+      },
+      "runAfter": {
+        "Filter_records_older_than_six_months": [
+          "SUCCEEDED"
+        ]
+      }
+    }
+  }
+}

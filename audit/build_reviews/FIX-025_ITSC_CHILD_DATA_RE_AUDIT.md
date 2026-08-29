@@ -73,7 +73,7 @@ The detail page overlays ExtAssets values onto the parsed remarks object for ser
 
 ### Check 5: TypeScript compilation
 
-**Evidence:** `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+**Evidence:** `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 **Verdict:** PASS
 
@@ -104,11 +104,11 @@ The detail page overlays ExtAssets values onto the parsed remarks object for ser
 ## Evidence References
 
 - `audit/build_reviews/FIX-025_ITSC_CHILD_DATA_FIX_REPORT.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/index.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/[id].tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/hooks/use-main-dbitext-assets.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-assets-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/index.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/[id].tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/itsc/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/hooks/use-main-dbitext-assets.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-assets-model.ts`
 - `npx tsc --noEmit`
 
 ## Next Recommended Task

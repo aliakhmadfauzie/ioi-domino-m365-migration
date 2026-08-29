@@ -37,19 +37,19 @@
 ## 3. App Files Reviewed
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ur/new.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ur/new.tsx`
 - Code/formula/section: Dynamic form render call
 - What was found: The UR new page renders `DynamicFormRenderer` with the UR form configuration.
 - Why it matters: UR submit behavior is inherited from the shared dynamic renderer.
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ur/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ur/index.tsx`
 - Code/formula/section: MainDB_IT and ExtAccess read filters
 - What was found: The list view reads MainDB_IT records where `formcode eq 'UR'` and ExtAccess records where `parentFormCode eq 'UR'`.
 - Why it matters: The read path expects structured access-extension data in addition to the parent list record.
 
 - Source: Shared form renderer
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
 - Code/formula/section: Submit handler
 - What was found: The renderer creates MainDB_IT records with `formcode`, `currentStatus: 'CurrentstatusKey1'`, `workflowstage: 1`, and JSON `remarks`.
 - Why it matters: `CurrentstatusKey1` maps to Approved, which is risky when approval is Unknown.
@@ -79,7 +79,7 @@
 ## 6. Read Logic
 
 - Source: App implementation
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ur/index.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/app/it/forms/ur/index.tsx`
 - Code/formula/section: Filter and mapping logic
 - What was found: UR reads MainDB_IT and ExtAccess, then maps structured fields with fallback to parsed `remarks`.
 - Why it matters: Read logic depends on extension data that is not proven by the shared write path.
@@ -87,7 +87,7 @@
 ## 7. Write Logic
 
 - Source: Shared form renderer
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
 - Code/formula/section: MainDB_IT create payload
 - What was found: UR submit writes only the parent MainDB_IT payload through the shared renderer and stores form data in `remarks`.
 - Why it matters: Structured UR extension fields may not be populated on submit.
@@ -95,7 +95,7 @@
 ## 8. Validation Rules
 
 - Source: Shared form renderer
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/components/forms/dynamic-form-renderer.tsx`
 - Code/formula/section: Required visible field validation
 - What was found: Required validation checks visible fields before submit and shows an error toast when required values are missing.
 - Why it matters: Validation exists, but must be compared field by field with the UR source and SharePoint required fields.
@@ -119,7 +119,7 @@
 ## 11. Draft/Save/Submit/Edit/View Behavior
 
 - Source: Shared form renderer and status model
-- File path: `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
+- File path: `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/models/main-dbit-model.ts`
 - Code/formula/section: Status code mapping
 - What was found: `CurrentstatusKey1` maps to `Approved`; `CurrentstatusKey3` maps to `Draft`.
 - Why it matters: UR submit currently uses an Approved status before approval requirements are confirmed.

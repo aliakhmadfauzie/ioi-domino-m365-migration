@@ -33,12 +33,12 @@ Re-audit limited to `FIX-003`: EAF required field persistence for:
 
 - `audit/findings/batch-01/eaf.md`
 - `audit/build_reviews/FIX-003_EAF_FIX_REPORT.md`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/types/m1-forms.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
-- `ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/it/forms/eaf/new.tsx`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/types/m1-forms.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/form-schemas/EAF.json`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbit-ext-access-model.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/services/main-dbit-ext-access-service.ts`
+- `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/.power/schemas/sharepointonline/maindb_it_ext_access.Schema.json`
 
 ## Checks
 
@@ -54,7 +54,7 @@ Re-audit limited to `FIX-003`: EAF required field persistence for:
 | Create payload persists Client ID from form input | Passed | `new.tsx` writes `eAFClientID: formData.ClientID || ''`; UI updates `ClientID`. |
 | Create payload persists User Group from form input | Failed | UI/type use `Group`, but payload writes `eAFUserGroup: formData.UserGroup || ''`. Search found no EAF `UserGroup` form input/state field. |
 | Create payload persists Higher Approver from form input or routing logic | Failed | Schema/type/payload mention `HigherApprover`, but search found no EAF UI or update path that populates `HigherApprover`. |
-| TypeScript compile | Passed | `npx tsc --noEmit` exited 0 from `ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
+| TypeScript compile | Passed | `npx tsc --noEmit` exited 0 from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`. |
 
 ## Findings
 

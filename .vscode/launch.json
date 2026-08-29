@@ -9,10 +9,10 @@
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:5173",
-            "webRoot": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
+            "webRoot": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
             "sourceMapPathOverrides": {
-                "source/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
-                "./src/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
+                "source/*": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
+                "./src/*": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
             },
             "preLaunchTask": "IOI: Start Vite Dev Server",
             "console": "integratedTerminal",
@@ -23,10 +23,10 @@
             "type": "chrome",
             "request": "attach",
             "url": "http://localhost:5173",
-            "webRoot": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
+            "webRoot": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
             "sourceMapPathOverrides": {
-                "source/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
-                "./src/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
+                "source/*": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
+                "./src/*": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
             },
             "skipFiles": ["<node_internals>/**"]
         },
@@ -35,10 +35,10 @@
             "type": "msedge",
             "request": "launch",
             "url": "http://localhost:5173",
-            "webRoot": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
+            "webRoot": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src",
             "sourceMapPathOverrides": {
-                "source/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
-                "./src/*": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
+                "source/*": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*",
+                "./src/*": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/*"
             },
             "preLaunchTask": "IOI: Start Vite Dev Server",
             "console": "integratedTerminal",
@@ -48,7 +48,7 @@
             "name": "IOI Platform: Dev Server Only (no browser)",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/ioicodeapp/powerapps-mirror/apps/ioi-platform",
+            "cwd": "${workspaceFolder}/apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform",
             "runtimeExecutable": "npm",
             "runtimeArgs": ["run", "dev"],
             "console": "integratedTerminal",

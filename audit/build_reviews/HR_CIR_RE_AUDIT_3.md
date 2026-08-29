@@ -28,11 +28,11 @@ Form: CIR — Cafeteria Inspection
 
 - Re-read the CIR source requirement, old build audit, old re-audit reports, CIR architecture decision, schema sync report, fix backlog, queue, and HR registers.
 - Reviewed current CIR source files:
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/new.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/index.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/detail.tsx`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/services/main-dbhr-ext-cafeteria-service.ts`
-  - `ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbhr-ext-cafeteria-model.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/new.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/index.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/pages/hr/cafeteria/detail.tsx`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/services/main-dbhr-ext-cafeteria-service.ts`
+  - `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform/src/generated/models/main-dbhr-ext-cafeteria-model.ts`
 - Searched current CIR files for legacy approval and field artifacts.
 - Ran TypeScript verification.
 
@@ -42,7 +42,7 @@ Form: CIR — Cafeteria Inspection
 - `index.tsx` reads CIR parent records from `MainDB_HR`, reads cafeteria extension rows filtered by `ParentFormCode eq 'CIR'`, joins on `ParentRecord`, and filters only `Submitted` / `Accepted`.
 - `detail.tsx` reads the parent plus extension row, displays `cir*` fields, displays `cirReviewedBy` and `cirReviewedDate`, and accepts the inspection by writing `cirReviewedBy`, `cirReviewedDate`, and `cirCurrentAction: 'Accepted'` to the extension row.
 - Targeted string scan found no `ApprovalActionPanel`, no `CIR_ACTIONS`, no `Request` / `Denied` CIR status tabs, and no authoritative legacy field references such as `EntitySite`, `InspectedBy`, `InspectionDate`, `InspectionTime`, or `InspectionRemarks`.
-- `npx tsc --noEmit` passed from `ioicodeapp/powerapps-mirror/apps/ioi-platform`.
+- `npx tsc --noEmit` passed from `apps/code-first/ioicodeapp/powerapps-mirror/apps/ioi-platform`.
 
 ## 12-Point Validation
 
